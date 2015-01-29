@@ -23,6 +23,12 @@ namespace Kvasir {
 			using Type = List<Ts...>;
 		};
 
+		//Indices into an array
+		template <unsigned... Is>
+		struct Indices {
+			using Type = Indices<Is...>;
+		};
+
 		//wrapper for template template parameters
 		template<template<typename...> class T>
 		struct Template{

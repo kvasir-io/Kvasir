@@ -14,8 +14,8 @@ static_assert(FindT<float,Test>::value == 3,"");
 static_assert(FindT<char,Test>::value == -1,"");
 static_assert(FindT<int,Test>::value == 0,"");
 static_assert(FindT<char,List<>>::value == -1,"");
-static_assert(ContainsT<Test,float>::value,"");
-static_assert(ContainsT<Test,char>::value == false,"");
+static_assert(ContainsT<float,Test>::value,"");
+static_assert(ContainsT<char,Test>::value == false,"");
 
 using UnsortedInts = List<Int<9>,Int<1>,Int<5>,Int<2>,Int<99>,Int<3>>;
 

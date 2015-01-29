@@ -4,26 +4,42 @@
 
 namespace Kvasir {
 
-	template<typename T_Address, typename T_ClearBits, typename T_SetBits>
+	//TODO fully implement register options
+	template<typename TAddress, typename TClearBits, typename TSetBits>
 	struct RegisterOption {
-		using Type = RegisterOption<T_Address,T_ClearBits,T_SetBits>;
+		using Type = RegisterOption<TAddress,TClearBits,TSetBits>;
 	};
 	template<int Address,int Clear, int Set>
 	using RegisterOptionT = RegisterOption<MPL::Int<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
-	constexpr RegisterOptionT<1,0x02,0x01> setting1;
-	constexpr RegisterOptionT<1,0x02,0x01> setting2;
-	constexpr RegisterOptionT<1,0x02,0x01> setting3;
-	constexpr RegisterOptionT<1,0x02,0x01> setting4;
+
 	namespace Detail{
+		//predecate retuning result of left < right for RegisterOptions
+		template<typename T_Left, typename T_Right>
+		struct RegisterOptionLess;
+		template<typename TA1, typename TC1, typename TS1, typename TA2, typename TC2, typename TS2>
+		struct RegisterOptionLess< RegisterOption<TA1,TC1,TS1>, RegisterOption<TA2,TC2,TS2> > : MPL::Bool<(TA1::value < TA2::value)>{};
+		using RegisterOptionLessP = MPL::Template<RegisterOptionLess>;
+
+		template<typename TRegisterOption>
 		struct WriteRegister{
 
 		};
+		template<typename TRegisters, typename TRet = MPL::List<>>
+		struct MergeRegisterOptions;
+		template<typename TNext, typename... Ts>
+		struct MergeRegisterOptions<MPL::List<TNext, Ts...>, MPL::List<>> : MergeRegisterOptions<MPL::List<Ts...>,MPL::List<TNext>>{};
+		template<typename TNext, typename... Ts, typename TLast, typename... Us>
+		struct MergeRegisterOptions<MPL::List<TNext, Ts...>,MPL::List<TLast, Us...>> : MergeRegisterOptions<MPL::List<Ts...>,MPL::List<TNext>>{};
+		template<typename... Ts>
+		struct MergeRegisterOptions<MPL::List<>,MPL::List<Ts...>> : MPL::List<Ts...>{};
 	}
 	template<typename...Ts>
 	inline void WriteRegister(Ts...){
-
-	//	auto i = {(Detail::WriteRegister<Ts>())...};
+		using SortedRegisters = MPL::SortT<MPL::List<Ts...>,Detail::RegisterOptionLessP>;
+		using MergedRegisters = typename Detail::MergeRegisterOptions<SortedRegisters>::Type;
 	}
+
+
 	namespace RegisterPolicies{
 		template<typename T_Type, typename T_RegisterType>
 		struct GenericConversionPolicy {

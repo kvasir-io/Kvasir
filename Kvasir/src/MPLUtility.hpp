@@ -64,12 +64,6 @@ namespace Kvasir {
 		template <bool B, typename U>
 		using DisableIfT = typename DisableIf<B,U>::Type;
 
-		//Indices into an array
-		template <unsigned... Is>
-		struct Indices {
-			using Type = Indices<Is...>;
-		};
-
 		//build a sequence of indices from 0 to N-1
 		template <unsigned N, unsigned... Is>
 		struct BuildIndices : BuildIndices<N-1, N-1, Is...> {};
@@ -129,53 +123,53 @@ namespace Kvasir {
 		}
 
 		//Find returns Int<-1> if type is not found, otherwise returns index
-		template<typename T_ToFind, typename T_List>
+		template<typename TToFind, typename TList>
 		struct Find;
 		template<typename T, typename... Ts>
 		struct Find<T, List<Ts...>> : Detail::Find<0, T, Ts...>{};
-		template<typename T_ToFind, typename T_List>
-		using FindT = typename Find<T_ToFind,T_List>::Type;
+		template<typename TToFind, typename TList>
+		using FindT = typename Find<TToFind,TList>::Type;
 
 		//returns true if T_ToFind is in T_Container, otherwise false
-		template<typename T_Container, typename T_ToFind>
+		template<typename TToFind, typename TContainer>
 		struct Contains;
-		template<typename... Ts, typename T_ToFind>
-		struct Contains<List<Ts...>,T_ToFind> : NotT<IsSameT<typename Detail::Find<0, T_ToFind, Ts...>::Type,Int<-1>>>{};
-		template<typename T_Container, typename T_ToFind>
-		using ContainsT = typename Contains<T_Container,T_ToFind>::Type;
+		template<typename TToFind, typename... Ts>
+		struct Contains<TToFind, List<Ts...>> : NotT<IsSameT<typename Detail::Find<0, TToFind, Ts...>::Type,Int<-1>>>{};
+		template<typename TToFind, typename TContainer>
+		using ContainsT = typename Contains<TToFind,TContainer>::Type;
 
 		//if a type is a list of types it will successively be unpacked into the enclosing list
-		template<typename T_List>
+		template<typename TList>
 		struct Flatten;
 		template<typename... Ts>
 		struct Flatten<List<Ts...>> : Detail::Flatten<List<>,Ts...>{};
-		template<typename T>
-		using FlattenT = typename Flatten<T>::Type;
+		template<typename TList>
+		using FlattenT = typename Flatten<TList>::Type;
 
 		//helper recursivly derives from a list of base classes
-		template<typename T_ParamList, typename... Ts /*templates*/>
+		template<typename TTemplateList, typename... Ts>
 		struct DeriveFromTemplates;
 		template<typename... Ts, typename... Us>
 		struct DeriveFromTemplates<List<Ts...>, Us...> : TemplateT<Ts,Us...>... {};
 
 		//Sort
-		template<typename T_List, typename T_Pred = LessP>
+		template<typename TList, typename TPred = LessP>
 		struct Sort;  //declairation
 
 		//empty input case
-		template<template<typename,typename> class T_Pred>
-		struct Sort<MPL::List<>, Template<T_Pred>> : List<>{};
+		template<template<typename,typename> class TPred>
+		struct Sort<MPL::List<>, Template<TPred>> : List<>{};
 
 		//one element case
-		template<typename T, template<typename,typename> class T_Pred>
-		struct Sort<MPL::List<T>, Template<T_Pred>> : List<T>{};
+		template<typename T, template<typename,typename> class TPred>
+		struct Sort<MPL::List<T>, Template<TPred>> : List<T>{};
 
 		//two or more elements case
-		template<typename... Ts, template<typename,typename> class T_Pred>
-		struct Sort<MPL::List<Ts...>, Template<T_Pred>> : Detail::Sort<List<>,T_Pred,Ts...>{};
+		template<typename... Ts, template<typename,typename> class TPred>
+		struct Sort<MPL::List<Ts...>, Template<TPred>> : Detail::Sort<List<>,TPred,Ts...>{};
 
 		//alias
-		template<typename T_List, typename T_Pred = LessP>
-		using SortT = typename Sort<T_List,T_Pred>::Type;
+		template<typename TList, typename TPred = LessP>
+		using SortT = typename Sort<TList,TPred>::Type;
 	}
 };
