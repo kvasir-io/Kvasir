@@ -3,8 +3,6 @@
 #include "MPLUtility.hpp"
 
 namespace Kvasir {
-
-	//TODO fully implement register options
 	template<typename TAddress, typename TClearBits, typename TSetBits>
 	struct RegisterOption {
 		using Type = RegisterOption<TAddress,TClearBits,TSetBits>;
@@ -70,7 +68,7 @@ namespace Kvasir {
 
 	namespace RegisterPolicies{
 		template<typename T_Type, typename T_RegisterType>
-		struct GenericConversionPolicy {
+		struct GenericConversion {
 			using Type = T_Type;
 			using RegisterType = T_RegisterType;
 			static inline Type read(const T_RegisterType& in){
@@ -120,9 +118,9 @@ namespace Kvasir {
 		};
 	}
 	template<typename TEnum>
-	using EnumConversionP = RegisterPolicies::GenericConversionPolicy<TEnum,int>;
-	using IntConversionP = RegisterPolicies::GenericConversionPolicy<int,int>;
-	using CharConversionP = RegisterPolicies::GenericConversionPolicy<char,char>;
+	using EnumConversionP = RegisterPolicies::GenericConversion<TEnum,int>;
+	using IntConversionP = RegisterPolicies::GenericConversion<int,int>;
+	using CharConversionP = RegisterPolicies::GenericConversion<char,char>;
 	using ReadableP = MPL::Template<RegisterPolicies::Readable>;
 	using ClearOnReadP = MPL::Template<RegisterPolicies::ClearOnRead>;
 	using PopableP = MPL::Template<RegisterPolicies::Popable>;
