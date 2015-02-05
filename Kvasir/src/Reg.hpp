@@ -4,12 +4,15 @@
 
 namespace Kvasir {
 
-	template<typename TAddress, typename TClearBits, typename TSetBits>
-	struct RegisterOption {
-		using Type = RegisterOption<TAddress,TClearBits,TSetBits>;
-	};
-	template<int Address,int Clear, int Set>
-	using RegisterOptionT = RegisterOption<MPL::Int<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
+	namespace Register{
+		template<typename TAddress, typename TClearBits, typename TSetBits>
+		struct Option {
+			using Type = Option<TAddress,TClearBits,TSetBits>;
+		};
+		template<int Address,int Clear, int Set>
+		using OptionT = Option<MPL::Int<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
+	}
+
 
 	namespace Detail{
 		using namespace MPL;
