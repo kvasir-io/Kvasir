@@ -128,6 +128,7 @@ namespace Kvasir {
 		inline void apply(Ts...){
 			using SortedRegisters = MPL::SortT<MPL::List<Ts...>,Detail::RegisterOptionLessP>;
 			using MergedRegisters = typename Detail::MergeRegisterOptions<SortedRegisters>::Type;
+			Detail::WriteRegisters<MergedRegisters>{}();
 		}
 
 		template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
