@@ -4,7 +4,6 @@
 
 namespace Kvasir {
 
-	//TODO fully implement register options
 	template<typename TAddress, typename TClearBits, typename TSetBits>
 	struct RegisterOption {
 		using Type = RegisterOption<TAddress,TClearBits,TSetBits>;
