@@ -20,7 +20,7 @@ namespace Kvasir {
 		template<typename T>
 		using NotT = typename Not<T>::Type;
 
-		//predecate retuning result of left < right
+		//predecate returning result of left < right
 		template<typename T_Left, typename T_Right>
 		struct Less;
 		template<typename T, T v1, T v2>

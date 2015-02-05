@@ -12,25 +12,53 @@ namespace Kvasir {
 	using RegisterOptionT = RegisterOption<MPL::Int<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
 
 	namespace Detail{
+		using namespace MPL;
 		//predecate retuning result of left < right for RegisterOptions
 		template<typename T_Left, typename T_Right>
 		struct RegisterOptionLess;
 		template<typename TA1, typename TC1, typename TS1, typename TA2, typename TC2, typename TS2>
-		struct RegisterOptionLess< RegisterOption<TA1,TC1,TS1>, RegisterOption<TA2,TC2,TS2> > : MPL::Bool<(TA1::value < TA2::value)>{};
-		using RegisterOptionLessP = MPL::Template<RegisterOptionLess>;
+		struct RegisterOptionLess< RegisterOption<TA1,TC1,TS1>, RegisterOption<TA2,TC2,TS2> > : Bool<(TA1::value < TA2::value)>{};
+		using RegisterOptionLessP = Template<RegisterOptionLess>;
 
 		template<typename TRegisterOption>
-		struct WriteRegister{
+		struct WriteRegister;
 
+		template<int A, int S, int C>
+		struct WriteRegister<RegisterOption<Int<A>,Int<S>,Int<C>>>{
+			int operator()(){
+				auto i = *(volatile int*)A;
+				i |= S;
+				i &= ~C;
+				*(volatile int*)A = i;
+				return 0;
+			}
 		};
-		template<typename TRegisters, typename TRet = MPL::List<>>
-		struct MergeRegisterOptions;
-		template<typename TNext, typename... Ts>
-		struct MergeRegisterOptions<MPL::List<TNext, Ts...>, MPL::List<>> : MergeRegisterOptions<MPL::List<Ts...>,MPL::List<TNext>>{};
-		template<typename TNext, typename... Ts, typename TLast, typename... Us>
-		struct MergeRegisterOptions<MPL::List<TNext, Ts...>,MPL::List<TLast, Us...>> : MergeRegisterOptions<MPL::List<Ts...>,MPL::List<TNext>>{};
+
+		template<typename TRegisters>
+		struct WriteRegisters;
+
 		template<typename... Ts>
-		struct MergeRegisterOptions<MPL::List<>,MPL::List<Ts...>> : MPL::List<Ts...>{};
+		struct WriteRegisters<List<Ts...>>{
+			void operator()(){
+				auto a = {WriteRegister<Ts>{}()...};
+			}
+		};
+
+		template<typename TRegisters, typename TRet = List<>> //default
+		struct MergeRegisterOptions;
+
+		template<typename TNext, typename... Ts> //none processed yet
+		struct MergeRegisterOptions<List<TNext, Ts...>, List<>> : MergeRegisterOptions<List<Ts...>,List<TNext>>{};
+
+		template<typename TNA, typename TNC, typename TNS, typename TLC, typename TLS, typename... Ts, typename... Us> //next and last mergable
+		struct MergeRegisterOptions<List<RegisterOption<TNA,TNC,TNS>, Ts...>,List<RegisterOption<TNA,TLC,TLS>, Us...>> :
+			MergeRegisterOptions<List<Ts...>,List<RegisterOption<TNA,Int<TNC::value | TLC::value>,Int<TNS::value | TLS::value>>,Us...>>{};
+
+		template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
+		struct MergeRegisterOptions<List<TNext, Ts...>,List<TLast, Us...>> : MergeRegisterOptions<List<Ts...>,List<TNext, TLast, Us...>>{};
+
+		template<typename... Ts> //done
+		struct MergeRegisterOptions<List<>,List<Ts...>> : List<Ts...>{};
 	}
 	template<typename...Ts>
 	inline void WriteRegister(Ts...){
@@ -41,7 +69,7 @@ namespace Kvasir {
 
 	namespace RegisterPolicies{
 		template<typename T_Type, typename T_RegisterType>
-		struct GenericConversionPolicy {
+		struct GenericConversion {
 			using Type = T_Type;
 			using RegisterType = T_RegisterType;
 			static inline Type read(const T_RegisterType& in){
@@ -91,9 +119,9 @@ namespace Kvasir {
 		};
 	}
 	template<typename TEnum>
-	using EnumConversionP = RegisterPolicies::GenericConversionPolicy<TEnum,int>;
-	using IntConversionP = RegisterPolicies::GenericConversionPolicy<int,int>;
-	using CharConversionP = RegisterPolicies::GenericConversionPolicy<char,char>;
+	using EnumConversionP = RegisterPolicies::GenericConversion<TEnum,int>;
+	using IntConversionP = RegisterPolicies::GenericConversion<int,int>;
+	using CharConversionP = RegisterPolicies::GenericConversion<char,char>;
 	using ReadableP = MPL::Template<RegisterPolicies::Readable>;
 	using ClearOnReadP = MPL::Template<RegisterPolicies::ClearOnRead>;
 	using PopableP = MPL::Template<RegisterPolicies::Popable>;

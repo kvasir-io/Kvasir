@@ -1,5 +1,4 @@
 #include "MPLUtility.hpp"
-#include "Reg.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
@@ -28,24 +27,6 @@ using TestTree = List<List<List<>,List<int>>,List<List<List<bool,long>,float,dou
 using FlatTree = FlattenT<TestTree>;
 static_assert(IsSame<Test,FlatTree>::value,"");
 
-using ReadableTest = Register<Int<1>,Int<0xFFFFFFFF>,ReadableP,IntConversionP>;
-using WriteableTest = Register<Int<1>,Int<0xFFFFFFFF>,WriteableP,IntConversionP>;
-using PushableTest = Register<Int<1>,Int<0xFFFFFFFF>,PushableP,IntConversionP>;
-using PopableTest = Register<Int<1>,Int<0xFFFFFFFF>,PopableP,IntConversionP>;
-using ClearOnReadTest = Register<Int<1>,Int<0xFFFFFFFF>,ClearOnReadP,IntConversionP>;
 
-enum class CAN1PinSelectOption {Port0Pin0=0};
-
-
-using CAN1PinSelect = Register<Int<1234>,Int<0x0000000F>,List<ReadableP,WriteableP>,EnumConversionP<CAN1PinSelectOption>>;
-
-void FTest(){
-	ReadableTest::read();
-	WriteableTest::write(1);
-	PushableTest::push(1);
-	PopableTest::pop();
-	ClearOnReadTest::readAndClear();
-	CAN1PinSelect::write(CAN1PinSelectOption::Port0Pin0);
-}
 
 
