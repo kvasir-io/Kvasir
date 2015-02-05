@@ -20,14 +20,14 @@ namespace Kvasir {
 		template<typename T_Left, typename T_Right>
 		struct RegisterOptionLess;
 		template<typename TA1, typename TC1, typename TS1, typename TA2, typename TC2, typename TS2>
-		struct RegisterOptionLess< RegisterOption<TA1,TC1,TS1>, RegisterOption<TA2,TC2,TS2> > : Bool<(TA1::value < TA2::value)>{};
+		struct RegisterOptionLess< Register::Option<TA1,TC1,TS1>, Register::Option<TA2,TC2,TS2> > : Bool<(TA1::value < TA2::value)>{};
 		using RegisterOptionLessP = Template<RegisterOptionLess>;
 
 		template<typename TRegisterOption>
 		struct WriteRegister;
 
 		template<int A, int S, int C>
-		struct WriteRegister<RegisterOption<Int<A>,Int<S>,Int<C>>>{
+		struct WriteRegister<Register::Option<Int<A>,Int<S>,Int<C>>>{
 			int operator()(){
 				auto i = *(volatile int*)A;
 				i |= S;
@@ -54,8 +54,8 @@ namespace Kvasir {
 		struct MergeRegisterOptions<List<TNext, Ts...>, List<>> : MergeRegisterOptions<List<Ts...>,List<TNext>>{};
 
 		template<typename TNA, typename TNC, typename TNS, typename TLC, typename TLS, typename... Ts, typename... Us> //next and last mergable
-		struct MergeRegisterOptions<List<RegisterOption<TNA,TNC,TNS>, Ts...>,List<RegisterOption<TNA,TLC,TLS>, Us...>> :
-			MergeRegisterOptions<List<Ts...>,List<RegisterOption<TNA,Int<TNC::value | TLC::value>,Int<TNS::value | TLS::value>>,Us...>>{};
+		struct MergeRegisterOptions<List<Register::Option<TNA,TNC,TNS>, Ts...>,List<Register::Option<TNA,TLC,TLS>, Us...>> :
+			MergeRegisterOptions<List<Ts...>,List<Register::Option<TNA,Int<TNC::value | TLC::value>,Int<TNS::value | TLS::value>>,Us...>>{};
 
 		template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
 		struct MergeRegisterOptions<List<TNext, Ts...>,List<TLast, Us...>> : MergeRegisterOptions<List<Ts...>,List<TNext, TLast, Us...>>{};
@@ -70,71 +70,72 @@ namespace Kvasir {
 	}
 
 
-	namespace RegisterPolicies{
-		template<typename T_Type, typename T_RegisterType>
-		struct GenericConversion {
-			using Type = T_Type;
-			using RegisterType = T_RegisterType;
-			static inline Type read(const T_RegisterType& in){
-				return static_cast<Type>(in);
-			}
-			static inline RegisterType write(const Type &in){
-				return static_cast<RegisterType>(in);
-			}
-		};
-		template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-		struct Readable {
-			static inline typename T_ConversionPolicy::Type read(){
-				auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
-				return T_ConversionPolicy::read(v & T_Mask::value);
-			}
-		};
-		template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-		struct ClearOnRead{
-			static inline typename T_ConversionPolicy::Type readAndClear(){
-				auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
-				return T_ConversionPolicy::read(v & T_Mask::value);
-			}
-		};
-		template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-		struct Popable{
-			static inline typename T_ConversionPolicy::Type pop(){
-				auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
-				return T_ConversionPolicy::read(v & T_Mask::value);
-			}
-		};
-		template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-		struct Writeable{
-			static inline void write(typename T_ConversionPolicy::Type in){
-				auto maskedIn = T_ConversionPolicy::write(in) & T_Mask::value;
-				volatile typename T_ConversionPolicy::RegisterType &reg = *(typename T_ConversionPolicy::RegisterType*)T_Address::value;
-				auto tempReg = reg;
-				tempReg = tempReg & (!T_Mask::value) | maskedIn;
-				reg = tempReg;
-			}
-		};
-		template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-		struct Pushable{
-			static inline void push(typename T_ConversionPolicy::Type in){
-				volatile typename T_ConversionPolicy::RegisterType &reg = *(typename T_ConversionPolicy::RegisterType*)T_Address::value;
-				reg = T_ConversionPolicy::write(in) & T_Mask::value;
-			}
-		};
+	namespace Register{
+		namespace Policy{
+			template<typename T_Type, typename T_RegisterType>
+			struct GenericConversion {
+				using Type = T_Type;
+				using RegisterType = T_RegisterType;
+				static inline Type read(const T_RegisterType& in){
+					return static_cast<Type>(in);
+				}
+				static inline RegisterType write(const Type &in){
+					return static_cast<RegisterType>(in);
+				}
+			};
+			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
+			struct Readable {
+				static inline typename T_ConversionPolicy::Type read(){
+					auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
+					return T_ConversionPolicy::read(v & T_Mask::value);
+				}
+			};
+			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
+			struct ClearOnRead{
+				static inline typename T_ConversionPolicy::Type readAndClear(){
+					auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
+					return T_ConversionPolicy::read(v & T_Mask::value);
+				}
+			};
+			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
+			struct Popable{
+				static inline typename T_ConversionPolicy::Type pop(){
+					auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
+					return T_ConversionPolicy::read(v & T_Mask::value);
+				}
+			};
+			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
+			struct Writeable{
+				static inline void write(typename T_ConversionPolicy::Type in){
+					auto maskedIn = T_ConversionPolicy::write(in) & T_Mask::value;
+					volatile typename T_ConversionPolicy::RegisterType &reg = *(typename T_ConversionPolicy::RegisterType*)T_Address::value;
+					auto tempReg = reg;
+					tempReg = tempReg & (!T_Mask::value) | maskedIn;
+					reg = tempReg;
+				}
+			};
+			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
+			struct Pushable{
+				static inline void push(typename T_ConversionPolicy::Type in){
+					volatile typename T_ConversionPolicy::RegisterType &reg = *(typename T_ConversionPolicy::RegisterType*)T_Address::value;
+					reg = T_ConversionPolicy::write(in) & T_Mask::value;
+				}
+			};
+			template<typename TEnum>
+			using EnumConversionP = GenericConversion<TEnum,int>;
+			using IntConversionP = GenericConversion<int,int>;
+			using CharConversionP = GenericConversion<char,char>;
+			using ReadableP = MPL::Template<Readable>;
+			using ClearOnReadP = MPL::Template<ClearOnRead>;
+			using PopableP = MPL::Template<Popable>;
+			using WriteableP = MPL::Template<Writeable>;
+			using PushableP = MPL::Template<Pushable>;
+
+		}
+		template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
+		struct Single : MPL::TemplateT<TPolicies,TAddress,TMask,TConversionPolicy> {}; //only one policy so derive directly
+
+		template<typename TAddress, typename TMask, typename... Ts, typename TConversionPolicy>
+		struct Single<TAddress,TMask,MPL::List<Ts...>,TConversionPolicy> : MPL::DeriveFromTemplates<MPL::List<Ts...>,TAddress,TMask,TConversionPolicy>{};
 	}
-	template<typename TEnum>
-	using EnumConversionP = RegisterPolicies::GenericConversion<TEnum,int>;
-	using IntConversionP = RegisterPolicies::GenericConversion<int,int>;
-	using CharConversionP = RegisterPolicies::GenericConversion<char,char>;
-	using ReadableP = MPL::Template<RegisterPolicies::Readable>;
-	using ClearOnReadP = MPL::Template<RegisterPolicies::ClearOnRead>;
-	using PopableP = MPL::Template<RegisterPolicies::Popable>;
-	using WriteableP = MPL::Template<RegisterPolicies::Writeable>;
-	using PushableP = MPL::Template<RegisterPolicies::Pushable>;
-
-	template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = IntConversionP>
-	struct Register : MPL::TemplateT<TPolicies,TAddress,TMask,TConversionPolicy> {}; //only one policy so derive directly
-
-	template<typename TAddress, typename TMask, typename... Ts, typename TConversionPolicy>
-	struct Register<TAddress,TMask,MPL::List<Ts...>,TConversionPolicy> : MPL::DeriveFromTemplates<MPL::List<Ts...>,TAddress,TMask,TConversionPolicy>{};
-
 }
