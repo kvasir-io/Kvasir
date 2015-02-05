@@ -62,12 +62,6 @@ namespace Kvasir {
 			struct MergeRegisterOptions<List<>,List<Ts...>> : List<Ts...>{};
 		}
 
-		template<typename...Ts>
-		inline void apply(Ts...){
-			using SortedRegisters = MPL::SortT<MPL::List<Ts...>,Detail::RegisterOptionLessP>;
-			using MergedRegisters = typename Detail::MergeRegisterOptions<SortedRegisters>::Type;
-		}
-
 		namespace Policy{
 			template<typename T_Type, typename T_RegisterType>
 			struct GenericConversion {
@@ -129,6 +123,13 @@ namespace Kvasir {
 			using PushableP = MPL::Template<Pushable>;
 
 		}
+
+		template<typename...Ts>
+		inline void apply(Ts...){
+			using SortedRegisters = MPL::SortT<MPL::List<Ts...>,Detail::RegisterOptionLessP>;
+			using MergedRegisters = typename Detail::MergeRegisterOptions<SortedRegisters>::Type;
+		}
+
 		template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
 		struct Single : MPL::TemplateT<TPolicies,TAddress,TMask,TConversionPolicy> {}; //only one policy so derive directly
 
