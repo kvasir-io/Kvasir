@@ -1,17 +1,3 @@
-/**************************************************************************************************
- * Source file containing the basic functions of the library
- *
- *
- * List of bugs:
- * 			- none :P
- *
- *
- * List of requested funtionalities:
- * 			- many
- *
- *
-
-*/
 #pragma once
 #include "MPLTypes.hpp"
 namespace Kvasir {
@@ -160,7 +146,7 @@ namespace Kvasir {
 		template<typename TList>
 		using FlattenT = typename Flatten<TList>::Type;
 
-		//helper recursively derives from a list of base classes
+		//helper recursivly derives from a list of base classes
 		template<typename TTemplateList, typename... Ts>
 		struct DeriveFromTemplates;
 		template<typename... Ts, typename... Us>
@@ -168,7 +154,7 @@ namespace Kvasir {
 
 		//Sort
 		template<typename TList, typename TPred = LessP>
-		struct Sort;  //declaration
+		struct Sort;  //declairation
 
 		//empty input case
 		template<template<typename,typename> class TPred>

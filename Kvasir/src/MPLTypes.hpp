@@ -1,3 +1,17 @@
+/**************************************************************************************************
+ * Source file containing the used types
+ *
+ *
+ * List of bugs:
+ * 			- none :P
+ *
+ *
+ * List of requested funtionalities:
+ * 			- many
+ *
+ *
+
+*/
 #pragma once
 
 namespace Kvasir {
