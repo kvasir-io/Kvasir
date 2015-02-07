@@ -1,17 +1,3 @@
-/**************************************************************************************************
- * Source file containing the policies and options for adressing basic registers
- *
- *
- * List of bugs:
- * 			- none :P
- *
- *
- * List of requested funtionalities:
- * 			- many
- *
- *
-
-*/
 #pragma once
 #include "MPLTypes.hpp"
 #include "MPLUtility.hpp"

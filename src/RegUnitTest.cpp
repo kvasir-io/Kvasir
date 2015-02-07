@@ -1,17 +1,3 @@
-/**************************************************************************************************
- * Source file containing the unittests of the Reg.hpp file
- *
- *
- * List of bugs:
- * 			- none :P
- *
- *
- * List of requested funtionalities:
- * 			- many
- *
- *
-
-*/
 #pragma once
 #include "Reg.hpp"
 
