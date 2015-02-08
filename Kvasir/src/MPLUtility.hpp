@@ -1,3 +1,17 @@
+/**************************************************************************************************
+ * Source file containing the basic functions of the library
+ *
+ *
+ * List of bugs:
+ * 			- none :P
+ *
+ *
+ * List of requested funtionalities:
+ * 			- many
+ *
+ *
+
+*/
 #pragma once
 #include "MPLTypes.hpp"
 namespace Kvasir {
@@ -207,7 +221,7 @@ namespace Kvasir {
 		template<typename TList>
 		using FlattenT = typename Flatten<TList>::Type;
 
-		//helper recursivly derives from a list of base classes
+		//helper recursively derives from a list of base classes
 		template<typename TTemplateList, typename ... Ts>
 		struct DeriveFromTemplates{
 			static_assert(AlwaysFalse<TTemplateList>::value,"implausible type, first parameter must be a MPL::List");
@@ -221,7 +235,6 @@ namespace Kvasir {
 		struct Sort{
 			static_assert(AlwaysFalse<TList>::value,"implausible type");
 		};
-		//declairation
 
 		//empty input case
 		template<template<typename, typename > class TPred>

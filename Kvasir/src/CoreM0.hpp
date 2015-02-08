@@ -1,92 +1,71 @@
 #pragma once
-#include "Reg.hpp"
+#include "CoreCommon.hpp"
 
 namespace Kvasir{
 namespace Core{
 	namespace Interrupt{
-		template<int I>
-		struct Type{
-			static constexpr unsigned value = I;
-		};
-		using WatchdogTimer = Type<0>;
-		using Timer0 = Type<1>;
-		using Timer1 = Type<2>;
-		using Timer2 = Type<3>;
-		using Timer3 = Type<4>;
-		using Uart0 = Type<5>;
-		using Uart1 = Type<6>;
-		using Uart2 = Type<7>;
-		using Uart3 = Type<8>;
-		using Pwm = Type<9>;
-		using I2C0 = Type<10>;
-		using I2C1 = Type<11>;
-		using I2C2 = Type<12>;
-		using SPI = Type<13>;
-		using SSP0 = Type<14>;
-		using SSP1 = Type<15>;
-		using PLL0 = Type<16>;
-		using RTC = Type<17>;
-		using ExternalInt0 = Type<18>;
-		using ExternalInt1 = Type<19>;
-		using ExternalInt2 = Type<20>;
-		using ExternalInt3 = Type<21>;
-		using AnalogDigitalConverter = Type<22>;
-		using BrownOutDetect = Type<23>;
-		using USB = Type<24>;
-		using CAN = Type<25>;
-		using DMA = Type<26>;
-		using I2S = Type<27>;
-		using Ethernet = Type<28>;
-		using RepetitiveIinterruptTimer = Type<29>;
-		using MotorControlPWM = Type<30>;
-		using QEI = Type<31>;
-		constexpr WatchdogTimer watchdogTimer;
-		constexpr Timer0 timer0;
-		constexpr Timer1 timer1;
-		constexpr Timer2 timer2;
-		constexpr Timer3 timer3;
-		constexpr Uart0 uart0;
-		constexpr Uart1 uart1;
-		constexpr Uart2 uart2;
-		constexpr Uart3 uart3;
-		constexpr Pwm pwm;
+		using PinInterrupt0 = Type<0>;
+		using PinInterrupt1 = Type<1>;
+		using PinInterrupt2 = Type<2>;
+		using PinInterrupt3 = Type<3>;
+		using PinInterrupt4 = Type<4>;
+		using PinInterrupt5 = Type<5>;
+		using PinInterrupt6 = Type<6>;
+		using PinInterrupt7 = Type<7>;
+		using GroupInterrupt0 = Type<8>;
+		using GroupInterrupt1 = Type<9>;
+		using I2C1 = Type<10>;
+		using Uart1Or4 = Type<11>;
+		using Uart2Or3 = Type<12>;
+		using Sct0Or1 = Type<13>;
+		using Ssp1 = Type<14>;
+		using I2C0 = Type<15>;
+		using Captur16Bank0 = Type<16>;
+		using Captur16Bank1 = Type<17>;
+		using Captur32Bank0 = Type<18>;
+		using Captur32Bank1 = Type<19>;
+		using Ssp0 = Type<20>;
+		using Usart0 = Type<21>;
+		using UsbIrq = Type<22>;
+		using UsbFiq = Type<23>;
+		using AdcA = Type<24>;
+		using Rtc = Type<25>;
+		using BodAndWdt = Type<26>;
+		using Flash = Type<27>;
+		using Dma = Type<28>;
+		using AdcB = Type<29>;
+		using UsbWakeup = Type<30>;
+		constexpr PinInterrupt0 pinInterrupt0;
+		constexpr PinInterrupt1 pinInterrupt1;
+		constexpr PinInterrupt2 pinInterrupt2;
+		constexpr PinInterrupt3 pinInterrupt3;
+		constexpr PinInterrupt4 pinInterrupt4;
+		constexpr PinInterrupt5 pinInterrupt5;
+		constexpr PinInterrupt6 pinInterrupt6;
+		constexpr PinInterrupt7 pinInterrupt7;
+		constexpr GroupInterrupt0 groupInterrupt0;
+		constexpr GroupInterrupt1 groupInterrupt1;
+		constexpr I2C1 i2C1;
+		constexpr Uart1Or4 uart1Or4;
+		constexpr Uart2Or3 uart2Or3;
+		constexpr Sct0Or1 sct0Or1;
+		constexpr Ssp1 ssp1;
 		constexpr I2C0 i2c0;
-		constexpr I2C1 i2c1;
-		constexpr I2C2 i2c2;
-		constexpr SPI spi;
-		constexpr SSP0 ssp0;
-		constexpr SSP1 ssp1;
-		constexpr PLL0 pll0;
-		constexpr RTC rtc;
-		constexpr ExternalInt0 externalInt0;
-		constexpr ExternalInt1 externalInt1;
-		constexpr ExternalInt2 externalInt2;
-		constexpr ExternalInt3 externalInt3;
-		constexpr AnalogDigitalConverter analogDiditalConverter;
-		constexpr BrownOutDetect brownOutDetect;
-		constexpr USB usb;
-		constexpr CAN can;
-		constexpr DMA dma;
-		constexpr I2S i2s;
-		constexpr Ethernet ethernet;
-		constexpr RepetitiveIinterruptTimer repetitiveInterruptTimer;
-		constexpr MotorControlPWM motorControlPWM;
-		constexpr QEI qei;
+		constexpr Captur16Bank0 captur16Bank0;
+		constexpr Captur16Bank1 captur16Bank1;
+		constexpr Captur32Bank0 captur32Bank0;
+		constexpr Captur32Bank1 captur32Bank1;
+		constexpr Ssp0 ssp0;
+		constexpr Usart0 usart0;
+		constexpr UsbIrq usbIrq;
+		constexpr UsbFiq usbFiq;
+		constexpr AdcA adcA;
+		constexpr Rtc rtc;
+		constexpr BodAndWdt bodAndWdt;
+		constexpr Flash flash;
+		constexpr Dma dma;
+		constexpr AdcB adcb;
+		constexpr UsbWakeup usbWakeup;
 	}
-	namespace Detail{
-		constexpr int getEnableIrqRegister(int IrqNum){
-			return 0xE000E100 + (IrqNum >> 5);
-		}
-	}
-	template<typename T>
-	struct EnableIrq;
-	template<int I>
-	struct EnableIrq<Interrupt::Type<I>> : Register::OptionT<Detail::getEnableIrqRegister(I),0x0,(1<<I)>{};
-	template<typename T>
-	using EnableIrqT = typename EnableIrq<T>::Type;
-	template<typename T>
-	void enableIrq(T){
-		Register::apply<EnableIrqT<T>>();
-	};
 }
 }
