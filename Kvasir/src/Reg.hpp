@@ -41,7 +41,7 @@ namespace Kvasir {
 			template<typename... Ts>
 			struct WriteRegisters<List<Ts...>>{
 				void operator()(){
-					auto a = {WriteRegister<Ts>{}()...};
+					int a[] = {WriteRegister<Ts>{}()...};
 				}
 			};
 
@@ -60,6 +60,7 @@ namespace Kvasir {
 
 			template<typename... Ts> //done
 			struct MergeRegisterOptions<List<>,List<Ts...>> : List<Ts...>{};
+
 		}
 
 		namespace Policy{
@@ -124,11 +125,22 @@ namespace Kvasir {
 
 		}
 
+		//this class is used to define multi-step inits, each parameter is an MPL::List of Register::Option(s)
+		template<typename... Ts>
+		struct InitSteps{};
+
+
 		template<typename...Ts>
-		inline void apply(Ts...){
+		inline void apply(){
+			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...>>;
 			using SortedRegisters = MPL::SortT<MPL::List<Ts...>,Detail::RegisterOptionLessP>;
-			using MergedRegisters = typename Detail::MergeRegisterOptions<SortedRegisters>::Type;
+			
 			Detail::WriteRegisters<MergedRegisters>{}();
+		}
+
+		template<typename...Ts>		//this version may take more time to compile, however it may be easier to understand for some users
+		inline void apply(Ts...){
+			apply<Ts...>();
 		}
 
 		template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
@@ -136,5 +148,27 @@ namespace Kvasir {
 
 		template<typename TAddress, typename TMask, typename... Ts, typename TConversionPolicy>
 		struct Single<TAddress,TMask,MPL::List<Ts...>,TConversionPolicy> : MPL::DeriveFromTemplates<MPL::List<Ts...>,TAddress,TMask,TConversionPolicy>{};
+
+		namespace Detail {
+			//Merges single and multistep inits
+			template<typename T_Out, typename... Ts>
+			struct MergeInits;
+
+			template<typename TList>
+			struct ApplyInits;
+
+			template<typename...Ts>
+			struct ApplyInts {
+				void operator()(){
+					auto a = {apply<Ts>()...};
+				}
+			};
+		}
+
+		template<typename... Ts>
+		inline void applyInits(){
+			using MergedInits = typename Detail::MergeInits<MPL::List<>,Ts...>::Type;
+			Detail::ApplyInits<MergedInits>{}();
+		}
 	}
 }
