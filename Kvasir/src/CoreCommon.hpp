@@ -8,6 +8,7 @@
  *
  * List of requested funtionalities:
  * 			- NVIC_GetPendingIRQ from CMSIS equivalent
+ * 			- NVIC_GetActive
  *
  *
 
