@@ -19,12 +19,22 @@
 namespace Kvasir {
 
 	namespace Register{
+		template<int I>
+		struct NormalAddress{
+			static constexpr int value = I;
+		};
+		template<int I>
+		struct WriteOnlyAddress{
+			static constexpr int value = I;
+		};
 		template<typename TAddress, typename TClearBits, typename TSetBits>
 		struct Option {
 			using Type = Option<TAddress,TClearBits,TSetBits>;
 		};
 		template<int Address,int Clear, int Set>
-		using OptionT = Option<MPL::Int<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
+		using OptionT = Option<NormalAddress<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
+		template<int Address,int Clear, int Set>
+		using WriteOnlyOptionT = Option<WriteOnlyAddress<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
 
 		namespace Detail{
 			using namespace MPL;
@@ -39,12 +49,19 @@ namespace Kvasir {
 			struct WriteRegister;
 
 			template<int A, int S, int C>
-			struct WriteRegister<Register::Option<Int<A>,Int<S>,Int<C>>>{
+			struct WriteRegister<Register::Option<NormalAddress<A>,Int<S>,Int<C>>>{
 				int operator()(){
 					auto i = *(volatile int*)A;
 					i |= S;
 					i &= ~C;
 					*(volatile int*)A = i;
+					return 0;
+				}
+			};
+			template<int A, int S, int C>
+			struct WriteRegister<Register::Option<WriteOnlyAddress<A>,Int<S>,Int<C>>>{
+				int operator()(){
+					*(volatile int*)A = S;
 					return 0;
 				}
 			};

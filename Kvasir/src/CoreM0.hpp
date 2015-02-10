@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreCommon.hpp"
+#include "Gpio.hpp"
 
 namespace Kvasir{
 namespace Core{
@@ -70,4 +71,21 @@ namespace Core{
 		constexpr UsbWakeup usbWakeup;
 	}
 }
+	namespace Gpio{
+		template<int Port, int Pin>
+		struct MakeAction<Action::Input,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
+			Register::OptionT<(0xA0002000 + Port*4),(1<<Pin),0>{};
+		template<int Port, int Pin>
+		struct MakeAction<Action::Output,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
+			Register::OptionT<(0xA0002000 + Port*4),0,(1<<Pin)>{};
+		template<int Port, int Pin>
+		struct MakeAction<Action::Set,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
+			Register::WriteOnlyOptionT<(0xA0002200 + Port*4),0,(1<<Pin)>{};
+		template<int Port, int Pin>
+		struct MakeAction<Action::Clear,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
+			Register::WriteOnlyOptionT<(0xA0002280 + Port*4),0,(1<<Pin)>{};
+		template<int Port, int Pin>
+		struct MakeAction<Action::Toggel,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
+			Register::WriteOnlyOptionT<(0xA0002300 + Port*4),0,(1<<Pin)>{};
+	}
 }
