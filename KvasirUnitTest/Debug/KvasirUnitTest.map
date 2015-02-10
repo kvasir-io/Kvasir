@@ -1,0 +1,518 @@
+
+Discarded input sections
+
+ .group         0x00000000        0x8 ./src/CoreM0UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM0UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM0UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM0UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM0UnitTest.o
+ .text          0x00000000        0x0 ./src/CoreM0UnitTest.o
+ .data          0x00000000        0x0 ./src/CoreM0UnitTest.o
+ .bss           0x00000000        0x0 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13pinInterrupt0E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13pinInterrupt1E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13pinInterrupt2E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13pinInterrupt3E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13pinInterrupt4E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13pinInterrupt5E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13pinInterrupt6E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13pinInterrupt7E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL15groupInterrupt0E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL15groupInterrupt1E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4i2C1E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL8uart1Or4E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL8uart2Or3E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL7sct0Or1E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4ssp1E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4i2c0E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL19counterTimer16Bank0E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL19counterTimer16Bank1E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL19counterTimer32Bank0E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL19counterTimer32Bank1E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4ssp0E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL6usart0E
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL6usbIrqE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL6usbFiqE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4adcAE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3rtcE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL9bodAndWdtE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL5flashE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3dmaE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4adcbE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL9usbWakeupE
+                0x00000000        0x4 ./src/CoreM0UnitTest.o
+ .text._ZL1fv   0x00000000       0x10 ./src/CoreM0UnitTest.o
+ .text._ZN6Kvasir4Core9enableIrqIINS_9Interrupt4TypeILi15EEENS3_ILi28EEEEEEvDpT_
+                0x00000000       0x18 ./src/CoreM0UnitTest.o
+ .text._ZN6Kvasir8Register5applyIINS0_6OptionINS_3MPL5ValueIiLin536813312EEENS4_IiLi0EEENS4_IiLi32768EEEEENS2_IS5_S6_NS4_IiLi268435456EEEEEEEEvv
+                0x00000000       0x14 ./src/CoreM0UnitTest.o
+ .text._ZN6Kvasir8Register6Detail14WriteRegistersINS_3MPL4ListIINS0_6OptionINS3_5ValueIiLin536813312EEENS6_IiLi0EEENS6_IiLi268468224EEEEEEEEEclEv
+                0x00000000       0x1c ./src/CoreM0UnitTest.o
+ .text._ZN6Kvasir8Register6Detail13WriteRegisterINS0_6OptionINS_3MPL5ValueIiLin536813312EEENS5_IiLi0EEENS5_IiLi268468224EEEEEEclEv
+                0x00000000       0x30 ./src/CoreM0UnitTest.o
+ .debug_info    0x00000000      0xd46 ./src/CoreM0UnitTest.o
+ .debug_abbrev  0x00000000      0x239 ./src/CoreM0UnitTest.o
+ .debug_aranges
+                0x00000000       0x40 ./src/CoreM0UnitTest.o
+ .debug_ranges  0x00000000       0x30 ./src/CoreM0UnitTest.o
+ .debug_macro   0x00000000       0x29 ./src/CoreM0UnitTest.o
+ .debug_macro   0x00000000      0x83e ./src/CoreM0UnitTest.o
+ .debug_line    0x00000000      0x111 ./src/CoreM0UnitTest.o
+ .debug_str     0x00000000     0x2e09 ./src/CoreM0UnitTest.o
+ .comment       0x00000000       0x71 ./src/CoreM0UnitTest.o
+ .ARM.attributes
+                0x00000000       0x31 ./src/CoreM0UnitTest.o
+ .debug_frame   0x00000000       0xac ./src/CoreM0UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/CoreM3UnitTest.o
+ .text          0x00000000        0x0 ./src/CoreM3UnitTest.o
+ .data          0x00000000        0x0 ./src/CoreM3UnitTest.o
+ .bss           0x00000000        0x0 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL13watchdogTimerE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL6timer0E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL6timer1E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL6timer2E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL6timer3E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL5uart0E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL5uart1E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL5uart2E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL5uart3E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3pwmE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4i2C0E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4i2C1E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4i2C2E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3spiE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4ssp0E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4ssp1E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL4pll0E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3rtcE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL12externalInt0E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL12externalInt1E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL12externalInt2E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL12externalInt3E
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL22analogDiditalConverterE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL14brownOutDetectE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3usbE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3canE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3dmaE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3i2sE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL8ethernetE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL24repetitiveInterruptTimerE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL15motorControlPWME
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .bss._ZN6Kvasir4Core9InterruptL3qeiE
+                0x00000000        0x4 ./src/CoreM3UnitTest.o
+ .text._ZL1fv   0x00000000       0x38 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir4Core9enableIrqIINS_9Interrupt4TypeILi25EEENS3_ILi10EEEEEEvDpT_
+                0x00000000       0x18 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir4Core10disableIrqIINS_9Interrupt4TypeILi25EEENS3_ILi10EEEEEEvDpT_
+                0x00000000       0x18 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir4Core13setPendingIrqIINS_9Interrupt4TypeILi25EEENS3_ILi10EEEEEEvDpT_
+                0x00000000       0x18 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir4Core15clearPendingIrqIINS_9Interrupt4TypeILi25EEENS3_ILi10EEEEEEvDpT_
+                0x00000000       0x18 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register5applyIINS0_6OptionINS_3MPL5ValueIiLin536813312EEENS4_IiLi0EEENS4_IiLi33554432EEEEENS2_IS5_S6_NS4_IiLi1024EEEEEEEEvv
+                0x00000000       0x14 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register5applyIINS0_6OptionINS_3MPL5ValueIiLin536813184EEENS4_IiLi0EEENS4_IiLi33554432EEEEENS2_IS5_S6_NS4_IiLi1024EEEEEEEEvv
+                0x00000000       0x14 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register5applyIINS0_6OptionINS_3MPL5ValueIiLin536812800EEENS4_IiLi0EEENS4_IiLi33554432EEEEENS2_IS5_S6_NS4_IiLi1024EEEEEEEEvv
+                0x00000000       0x14 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register5applyIINS0_6OptionINS_3MPL5ValueIiLin536812672EEENS4_IiLi0EEENS4_IiLi33554432EEEEENS2_IS5_S6_NS4_IiLi1024EEEEEEEEvv
+                0x00000000       0x14 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register6Detail14WriteRegistersINS_3MPL4ListIINS0_6OptionINS3_5ValueIiLin536813312EEENS6_IiLi0EEENS6_IiLi33555456EEEEEEEEEclEv
+                0x00000000       0x1c ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register6Detail14WriteRegistersINS_3MPL4ListIINS0_6OptionINS3_5ValueIiLin536813184EEENS6_IiLi0EEENS6_IiLi33555456EEEEEEEEEclEv
+                0x00000000       0x1c ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register6Detail14WriteRegistersINS_3MPL4ListIINS0_6OptionINS3_5ValueIiLin536812800EEENS6_IiLi0EEENS6_IiLi33555456EEEEEEEEEclEv
+                0x00000000       0x1c ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register6Detail14WriteRegistersINS_3MPL4ListIINS0_6OptionINS3_5ValueIiLin536812672EEENS6_IiLi0EEENS6_IiLi33555456EEEEEEEEEclEv
+                0x00000000       0x1c ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register6Detail13WriteRegisterINS0_6OptionINS_3MPL5ValueIiLin536813312EEENS5_IiLi0EEENS5_IiLi33555456EEEEEEclEv
+                0x00000000       0x30 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register6Detail13WriteRegisterINS0_6OptionINS_3MPL5ValueIiLin536813184EEENS5_IiLi0EEENS5_IiLi33555456EEEEEEclEv
+                0x00000000       0x30 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register6Detail13WriteRegisterINS0_6OptionINS_3MPL5ValueIiLin536812800EEENS5_IiLi0EEENS5_IiLi33555456EEEEEEclEv
+                0x00000000       0x30 ./src/CoreM3UnitTest.o
+ .text._ZN6Kvasir8Register6Detail13WriteRegisterINS0_6OptionINS_3MPL5ValueIiLin536812672EEENS5_IiLi0EEENS5_IiLi33555456EEEEEEclEv
+                0x00000000       0x30 ./src/CoreM3UnitTest.o
+ .debug_info    0x00000000     0x1445 ./src/CoreM3UnitTest.o
+ .debug_abbrev  0x00000000      0x239 ./src/CoreM3UnitTest.o
+ .debug_aranges
+                0x00000000       0xa0 ./src/CoreM3UnitTest.o
+ .debug_ranges  0x00000000       0x90 ./src/CoreM3UnitTest.o
+ .debug_macro   0x00000000       0x29 ./src/CoreM3UnitTest.o
+ .debug_macro   0x00000000      0x83e ./src/CoreM3UnitTest.o
+ .debug_line    0x00000000      0x205 ./src/CoreM3UnitTest.o
+ .debug_str     0x00000000     0x3fe6 ./src/CoreM3UnitTest.o
+ .comment       0x00000000       0x71 ./src/CoreM3UnitTest.o
+ .ARM.attributes
+                0x00000000       0x31 ./src/CoreM3UnitTest.o
+ .debug_frame   0x00000000      0x23c ./src/CoreM3UnitTest.o
+ .group         0x00000000        0x8 ./src/MPLUnitTest.o
+ .text          0x00000000        0x0 ./src/MPLUnitTest.o
+ .data          0x00000000        0x0 ./src/MPLUnitTest.o
+ .bss           0x00000000        0x0 ./src/MPLUnitTest.o
+ .debug_info    0x00000000       0x75 ./src/MPLUnitTest.o
+ .debug_abbrev  0x00000000       0x57 ./src/MPLUnitTest.o
+ .debug_aranges
+                0x00000000       0x18 ./src/MPLUnitTest.o
+ .debug_macro   0x00000000       0x19 ./src/MPLUnitTest.o
+ .debug_macro   0x00000000      0x83e ./src/MPLUnitTest.o
+ .debug_line    0x00000000       0x93 ./src/MPLUnitTest.o
+ .debug_str     0x00000000     0x2399 ./src/MPLUnitTest.o
+ .comment       0x00000000       0x71 ./src/MPLUnitTest.o
+ .ARM.attributes
+                0x00000000       0x31 ./src/MPLUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .group         0x00000000        0x8 ./src/RegUnitTest.o
+ .text          0x00000000        0x0 ./src/RegUnitTest.o
+ .data          0x00000000        0x0 ./src/RegUnitTest.o
+ .bss           0x00000000        0x0 ./src/RegUnitTest.o
+ .text._Z5FTestv
+                0x00000000       0x28 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy8ReadableINS_3MPL5ValueIiLi1EEENS4_IiLin1EEENS1_17GenericConversionIiiEEE4readEv
+                0x00000000       0x24 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy9WriteableINS_3MPL5ValueIiLi1EEENS4_IiLin1EEENS1_17GenericConversionIiiEEE5writeEi
+                0x00000000       0x30 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy8PushableINS_3MPL5ValueIiLi1EEENS4_IiLin1EEENS1_17GenericConversionIiiEEE4pushEi
+                0x00000000       0x20 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy7PopableINS_3MPL5ValueIiLi1EEENS4_IiLin1EEENS1_17GenericConversionIiiEEE3popEv
+                0x00000000       0x24 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy11ClearOnReadINS_3MPL5ValueIiLi1EEENS4_IiLin1EEENS1_17GenericConversionIiiEEE12readAndClearEv
+                0x00000000       0x24 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy9WriteableINS_3MPL5ValueIiLi1234EEENS4_IiLi15EEENS1_17GenericConversionI19CAN1PinSelectOptioniEEE5writeES8_
+                0x00000000       0x38 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy17GenericConversionIiiE4readERKi
+                0x00000000       0x14 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy17GenericConversionIiiE5writeERKi
+                0x00000000       0x14 ./src/RegUnitTest.o
+ .text._ZN6Kvasir8Register6Policy17GenericConversionI19CAN1PinSelectOptioniE5writeERKS3_
+                0x00000000       0x14 ./src/RegUnitTest.o
+ .debug_info    0x00000000      0x588 ./src/RegUnitTest.o
+ .debug_abbrev  0x00000000      0x1cd ./src/RegUnitTest.o
+ .debug_aranges
+                0x00000000       0x68 ./src/RegUnitTest.o
+ .debug_ranges  0x00000000       0x58 ./src/RegUnitTest.o
+ .debug_macro   0x00000000       0x1d ./src/RegUnitTest.o
+ .debug_macro   0x00000000      0x83e ./src/RegUnitTest.o
+ .debug_line    0x00000000      0x174 ./src/RegUnitTest.o
+ .debug_str     0x00000000     0x2b76 ./src/RegUnitTest.o
+ .comment       0x00000000       0x71 ./src/RegUnitTest.o
+ .ARM.attributes
+                0x00000000       0x31 ./src/RegUnitTest.o
+ .debug_frame   0x00000000      0x14c ./src/RegUnitTest.o
+ .text          0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crti.o
+ .data          0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crti.o
+ .bss           0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crti.o
+ .text          0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtn.o
+ .data          0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtn.o
+ .bss           0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtn.o
+ .data          0x00000000        0x4 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
+ .fini_array    0x00000000        0x4 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
+ .text          0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtend.o
+ .data          0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtend.o
+ .bss           0x00000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtend.o
+ .eh_frame      0x00000000        0x4 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtend.o
+ .jcr           0x00000000        0x4 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtend.o
+ .ARM.attributes
+                0x00000000       0x2c c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtend.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+MFlash256        0x00000000         0x00040000         xr
+Ram0_32          0x10000000         0x00008000         xrw
+Ram1_2           0x20000000         0x00000800         xrw
+Ram2USB_2        0x20004000         0x00000800         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./src/CoreM0UnitTest.o
+LOAD ./src/CoreM3UnitTest.o
+LOAD ./src/MPLUnitTest.o
+LOAD ./src/RegUnitTest.o
+START GROUP
+LOAD c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a
+LOAD c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libc.a
+LOAD c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libstdc++.a
+LOAD c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libm.a
+LOAD c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crti.o
+LOAD c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtn.o
+LOAD c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
+LOAD c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtend.o
+END GROUP
+                0x00040000                __top_MFlash256 = 0x40000
+                0x10008000                __top_Ram0_32 = 0x10008000
+                0x20000800                __top_Ram1_2 = 0x20000800
+                0x20004800                __top_Ram2USB_2 = 0x20004800
+
+.text           0x00000000       0xb8
+ FILL mask 0xff
+                0x00000000                __vectors_start__ = ABSOLUTE (.)
+ *(.isr_vector)
+                0x00000000                . = ALIGN (0x4)
+                0x00000000                __section_table_start = .
+                0x00000000                __data_section_table = .
+                0x00000000        0x4 LONG 0xb8 LOADADDR (.data)
+                0x00000004        0x4 LONG 0x10000000 ADDR (.data)
+                0x00000008        0x4 LONG 0x0 SIZEOF (.data)
+                0x0000000c        0x4 LONG 0xb8 LOADADDR (.data_RAM2)
+                0x00000010        0x4 LONG 0x20000000 ADDR (.data_RAM2)
+                0x00000014        0x4 LONG 0x0 SIZEOF (.data_RAM2)
+                0x00000018        0x4 LONG 0xb8 LOADADDR (.data_RAM3)
+                0x0000001c        0x4 LONG 0x20004000 ADDR (.data_RAM3)
+                0x00000020        0x4 LONG 0x0 SIZEOF (.data_RAM3)
+                0x00000024                __data_section_table_end = .
+                0x00000024                __bss_section_table = .
+                0x00000024        0x4 LONG 0x10000000 ADDR (.bss)
+                0x00000028        0x4 LONG 0x1c SIZEOF (.bss)
+                0x0000002c        0x4 LONG 0x20000000 ADDR (.bss_RAM2)
+                0x00000030        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
+                0x00000034        0x4 LONG 0x20004000 ADDR (.bss_RAM3)
+                0x00000038        0x4 LONG 0x0 SIZEOF (.bss_RAM3)
+                0x0000003c                __bss_section_table_end = .
+                0x0000003c                __section_table_end = .
+ *(.after_vectors*)
+ *(.text*)
+ .text          0x0000003c       0x60 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
+ *(.rodata .rodata.* .constdata .constdata.*)
+                0x0000009c                . = ALIGN (0x4)
+                0x0000009c                . = ALIGN (0x4)
+ *(.init)
+ .init          0x0000009c        0x4 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crti.o
+                0x0000009c                _init
+ .init          0x000000a0        0x8 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtn.o
+                0x000000a8                . = ALIGN (0x4)
+                0x000000a8                __preinit_array_start = .
+ *(.preinit_array)
+                0x000000a8                __preinit_array_end = .
+                0x000000a8                . = ALIGN (0x4)
+                0x000000a8                __init_array_start = .
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x000000a8        0x4 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
+                0x000000ac                __init_array_end = .
+ *(.fini)
+ .fini          0x000000ac        0x4 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crti.o
+                0x000000ac                _fini
+ .fini          0x000000b0        0x8 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtn.o
+                0x000000b8                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *crtend.o(.ctors)
+                0x000000b8                . = ALIGN (0x4)
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *crtend.o(.dtors)
+                0x000000b8                . = ALIGN (0x4)
+
+.glue_7         0x000000b8        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x000000b8        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x000000b8        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x000000b8        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x000000b8        0x0
+ .iplt          0x00000000        0x0 ./src/CoreM0UnitTest.o
+
+.rel.dyn        0x000000b8        0x0
+ .rel.iplt      0x00000000        0x0 ./src/CoreM0UnitTest.o
+
+.eh_frame       0x000000b8        0x0
+ .eh_frame      0x000000b8        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x000000b8                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x000000b8                __exidx_end = .
+                0x000000b8                _etext = .
+
+.mtb_buffer_RAM2
+ *(.mtb.$RAM2*)
+ *(.mtb.$RAM1_2*)
+
+.data_RAM2      0x20000000        0x0 load address 0x000000b8
+ FILL mask 0xff
+ *(.ramfunc.$RAM2)
+ *(.ramfunc.$Ram1_2)
+ *(.data.$RAM2*)
+ *(.data.$Ram1_2*)
+                0x20000000                . = ALIGN (0x4)
+
+.mtb_buffer_RAM3
+ *(.mtb.$RAM3*)
+ *(.mtb.$RAM2USB_2*)
+
+.data_RAM3      0x20004000        0x0 load address 0x000000b8
+ FILL mask 0xff
+ *(.ramfunc.$RAM3)
+ *(.ramfunc.$Ram2USB_2)
+ *(.data.$RAM3*)
+ *(.data.$Ram2USB_2*)
+                0x20004000                . = ALIGN (0x4)
+
+.mtb_buffer_default
+ *(.mtb*)
+
+.uninit_RESERVED
+                0x10000000        0x0
+ *(.bss.$RESERVED*)
+                0x10000000                . = ALIGN (0x4)
+                0x10000000                _end_uninit_RESERVED = .
+
+.data           0x10000000        0x0 load address 0x000000b8
+ FILL mask 0xff
+                0x10000000                _data = .
+ *(vtable)
+ *(.ramfunc*)
+ *(.data*)
+                0x10000000                . = ALIGN (0x4)
+                0x10000000                _edata = .
+
+.igot.plt       0x10000000        0x0 load address 0x000000b8
+ .igot.plt      0x00000000        0x0 ./src/CoreM0UnitTest.o
+
+.jcr            0x10000000        0x0 load address 0x000000b8
+ .jcr           0x10000000        0x0 c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
+
+.bss_RAM2       0x20000000        0x0
+ *(.bss.$RAM2*)
+ *(.bss.$Ram1_2*)
+                0x20000000                . = ALIGN (0x4)
+
+.bss_RAM3       0x20004000        0x0
+ *(.bss.$RAM3*)
+ *(.bss.$Ram2USB_2*)
+                0x20004000                . = ALIGN (0x4)
+
+.bss            0x10000000       0x1c
+                0x10000000                _bss = .
+ *(.bss*)
+ .bss           0x10000000       0x1c c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
+ *(COMMON)
+                0x1000001c                . = ALIGN (0x4)
+                0x1000001c                _ebss = .
+                0x1000001c                PROVIDE (end, .)
+
+.noinit_RAM2    0x20000000        0x0
+ *(.noinit.$RAM2*)
+ *(.noinit.$Ram1_2*)
+                0x20000000                . = ALIGN (0x4)
+
+.noinit_RAM3    0x20004000        0x0
+ *(.noinit.$RAM3*)
+ *(.noinit.$Ram2USB_2*)
+                0x20004000                . = ALIGN (0x4)
+
+.noinit         0x1000001c        0x0
+                0x1000001c                _noinit = .
+ *(.noinit*)
+                0x1000001c                . = ALIGN (0x4)
+                0x1000001c                _end_noinit = .
+                0x1000001c                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x10008000                PROVIDE (_vStackTop, DEFINED (__user_stack_top)?__user_stack_top:(__top_Ram0_32 - 0x0))
+OUTPUT(KvasirUnitTest.axf elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x31
+ .ARM.attributes
+                0x00000000       0x1e c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crti.o
+ .ARM.attributes
+                0x0000001e       0x1e c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtn.o
+ .ARM.attributes
+                0x0000003c       0x2c c:/nxp/lpcxpresso_7.5.0_254/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\crtbegin.o
