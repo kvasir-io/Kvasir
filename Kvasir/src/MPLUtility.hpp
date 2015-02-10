@@ -130,6 +130,15 @@ namespace Kvasir {
 			struct Find<I, T_Find, T_Find, Ts...> : Int<I> {};
 
 			//default only reached when Ts is empty
+			template<int I, bool Found, template<typename> class Pred, typename ... Ts>
+			struct PredFind: Int<-1> {
+			};
+			template<int I, template<typename> class Pred, typename T, typename...Ts>
+			struct PredFind<I,true,Pred,T,Ts...> : Int<I>{};
+			template<int I, template<typename> class Pred, typename T, typename ... Ts>
+			struct PredFind<I, false, Pred, T, Ts...> : PredFind<I + 1, Pred<T>::value,Pred, Ts...> {};
+
+			//default only reached when Ts is empty
 			template<typename T_List, typename ... Ts>
 			struct Flatten: T_List {};
 			//first of Ts is not a list
@@ -196,6 +205,8 @@ namespace Kvasir {
 		template<typename T, typename ... Ts>
 		struct Find<T, List<Ts...>> : Detail::Find<0, T, Ts...> {
 		};
+		template<template<typename> class Pred, typename T, typename... Ts>
+		struct Find<Template<Pred>,List<T,Ts...>> : Detail::PredFind<0,Pred<T>::value,Pred,Ts...>{};
 		template<typename TToFind, typename TList>
 		using FindT = typename Find<TToFind,TList>::Type;
 
@@ -227,7 +238,7 @@ namespace Kvasir {
 			static_assert(AlwaysFalse<TTemplateList>::value,"implausible type, first parameter must be a MPL::List");
 		};
 		template<typename ... Ts, typename ... Us>
-		struct DeriveFromTemplates<List<Ts...>, Us...> : TemplateT<Ts, Us...> ... {
+		struct DeriveFromTemplates<List<Ts...>, Us...> : ApplyTemplateT<Ts, Us...> ... {
 		};
 
 		//Sort

@@ -1,23 +1,67 @@
 #pragma once
 #include "MPLUtility.hpp"
-#include <initializer_list>
+#include "Interrupt.hpp"
 
-namespace Kvasir{
-namespace Startup{
-	using IsrHandler = void(*)(void);
-	template<IsrHandler... Ps>
-	struct Nvic{
-		//__attribute__ ((section(".isr_vector")))
-		static constexpr auto handlers = {Ps...};
-	};
-}
-}
 // The entry point for the C++ library startup
 extern "C" {
     extern void __libc_init_array(void);
     extern void ResetISR();
     extern void _vStackTop(void);
 }
+
+namespace Kvasir{
+namespace Startup{
+	namespace Detail{
+		template<int I>
+		struct HasThisIsr {
+			template<typename T>
+			struct Apply : MPL::IsSame<Core::Interrupt::Type<I>,typename T::IsrType>{};
+		};
+		template<int I, typename TList, int Index>
+		struct GetIsrPointerHelper : MPL::At<TList,MPL::Int<Index>>::Type::IsrFunction{};
+		template<int I, typename TList>
+		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Interrupt::UnusedIsr{};
+		template<int I, typename TList>
+		struct GetIsrPointer : GetIsrPointerHelper<I,TList,MPL::Find<MPL::Template<HasThisIsr<I>::template Apply>,TList>::value>{};
+		template<int I, typename TList, typename TModList>
+		struct CompileIsrPointerList;
+		template<int I, typename...Ts, typename TModList>
+		struct CompileIsrPointerList<I,MPL::List<Ts...>,TModList> : CompileIsrPointerList<
+			I+1,
+			MPL::List<Ts...,typename GetIsrPointer<I,TModList>::Type>,
+			TModList
+			>{};
+		template<typename...Ts, typename TModList>
+		struct CompileIsrPointerList<32,MPL::List<Ts...>,TModList> : MPL::List<Ts...>{};
+	}
+	template<typename...Ts>
+	struct GetIsrPointers : Detail::CompileIsrPointerList<
+		0,
+		MPL::List<
+			Interrupt::IsrFunction<&_vStackTop>,
+			Interrupt::IsrFunction<ResetISR>,
+			Interrupt::IsrFunction<nullptr>,  	//TODO give user the ability to change these
+			Interrupt::IsrFunction<nullptr>,	//and use defaults based on traits from the CoreMX.hpp used
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>,
+			Interrupt::IsrFunction<nullptr>
+		>,
+		MPL::List<Ts...>
+		>{};
+	template<typename...Ts>
+	using GetIsrPointersT = typename GetIsrPointers<Ts...>::Type;
+}
+}
+
 
 
 
@@ -38,9 +82,8 @@ struct VoidFunction0{
 
 extern void (* const g_pfnVectors[])(void);
 
-
 #define KVASIR_START(...) \
-using Init = Kvasir::MPL::List<__VA_ARGS__>;\
+using Init = Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
 __attribute__ ((section(".isr_vector")))\
 void (* const g_pfnVectors[])(void) = {\
     Kvasir::MPL::At<Init,Kvasir::MPL::Int<0>>::value, \

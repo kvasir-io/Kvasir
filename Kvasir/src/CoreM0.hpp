@@ -4,6 +4,8 @@
 namespace Kvasir{
 namespace Core{
 	namespace Interrupt{
+		template<int I>
+		using Type = ::Kvasir::Interrupt::Type<I>;
 		using PinInterrupt0 = Type<0>;
 		using PinInterrupt1 = Type<1>;
 		using PinInterrupt2 = Type<2>;
@@ -20,10 +22,10 @@ namespace Core{
 		using Sct0Or1 = Type<13>;
 		using Ssp1 = Type<14>;
 		using I2C0 = Type<15>;
-		using Captur16Bank0 = Type<16>;
-		using Captur16Bank1 = Type<17>;
-		using Captur32Bank0 = Type<18>;
-		using Captur32Bank1 = Type<19>;
+		using CounterTimer16Bank0 = Type<16>;
+		using CounterTimer16Bank1 = Type<17>;
+		using CounterTimer32Bank0 = Type<18>;
+		using CounterTimer32Bank1 = Type<19>;
 		using Ssp0 = Type<20>;
 		using Usart0 = Type<21>;
 		using UsbIrq = Type<22>;
@@ -51,10 +53,10 @@ namespace Core{
 		constexpr Sct0Or1 sct0Or1;
 		constexpr Ssp1 ssp1;
 		constexpr I2C0 i2c0;
-		constexpr Captur16Bank0 captur16Bank0;
-		constexpr Captur16Bank1 captur16Bank1;
-		constexpr Captur32Bank0 captur32Bank0;
-		constexpr Captur32Bank1 captur32Bank1;
+		constexpr CounterTimer16Bank0 counterTimer16Bank0;
+		constexpr CounterTimer16Bank1 counterTimer16Bank1;
+		constexpr CounterTimer32Bank0 counterTimer32Bank0;
+		constexpr CounterTimer32Bank1 counterTimer32Bank1;
 		constexpr Ssp0 ssp0;
 		constexpr Usart0 usart0;
 		constexpr UsbIrq usbIrq;

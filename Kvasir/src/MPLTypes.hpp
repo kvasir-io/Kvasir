@@ -51,7 +51,7 @@ namespace Kvasir {
 		};
 
 		template<typename T, typename... Ts>
-		using TemplateT = typename T::template Apply<Ts...>;
+		using ApplyTemplateT = typename T::template Apply<Ts...>;
 
 	}
 }

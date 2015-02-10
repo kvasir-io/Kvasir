@@ -15,15 +15,10 @@
 */
 #pragma once
 #include "Reg.hpp"
+#include "Interrupt.hpp"
 
 namespace Kvasir{
 	namespace Core{
-		namespace Interrupt{
-			template<int I>
-			struct Type{
-				static constexpr unsigned value = I;
-			};
-		}
 		namespace Detail{
 			enum class IsrRegister {
 				ISER = 0,

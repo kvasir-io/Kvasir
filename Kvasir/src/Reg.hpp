@@ -158,7 +158,7 @@ namespace Kvasir {
 		}
 
 		template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
-		struct Single : MPL::TemplateT<TPolicies,TAddress,TMask,TConversionPolicy> {}; //only one policy so derive directly
+		struct Single : MPL::ApplyTemplateT<TPolicies,TAddress,TMask,TConversionPolicy> {}; //only one policy so derive directly
 
 		template<typename TAddress, typename TMask, typename... Ts, typename TConversionPolicy>
 		struct Single<TAddress,TMask,MPL::List<Ts...>,TConversionPolicy> : MPL::DeriveFromTemplates<MPL::List<Ts...>,TAddress,TMask,TConversionPolicy>{};
