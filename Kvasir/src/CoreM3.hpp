@@ -4,6 +4,8 @@
 namespace Kvasir{
 namespace Core{
 	namespace Interrupt{
+		template<int I>
+		using Type = ::Kvasir::Interrupt::Type<I>;
 		using WatchdogTimer = Type<0>;
 		using Timer0 = Type<1>;
 		using Timer1 = Type<2>;
