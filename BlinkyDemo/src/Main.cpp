@@ -13,7 +13,7 @@ class Blinky {
 public:
 	using Init = Kvasir::MPL::List<G::MakeActionT<G::Action::Output,Hardware::BlinkyPin>>;
 	static void onTimer(){
-		Kvasir::Register::apply(G::makeAction(G::Action::Toggel{},Hardware::BlinkyPin{}));
+		Kvasir::Register::apply(G::makeAction(G::Action::toggle,Hardware::blinkyPin));
 	}
 };
 

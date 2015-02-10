@@ -3,4 +3,5 @@
 
 namespace Hardware{
 	using BlinkyPin = Kvasir::Gpio::PinLocationT<0,6>;
+	constexpr BlinkyPin blinkyPin;
 }

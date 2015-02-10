@@ -8,7 +8,12 @@ namespace Gpio{
 		struct Output{};
 		struct Set{};
 		struct Clear{};
-		struct Toggel{};
+		struct Toggle{};
+		constexpr Input input;
+		constexpr Output output;
+		constexpr Set set;
+		constexpr Clear clear;
+		constexpr Toggle toggle;
 	};
 
 	template<typename TPort, typename TPin>

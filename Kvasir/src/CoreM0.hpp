@@ -85,7 +85,7 @@ namespace Core{
 		struct MakeAction<Action::Clear,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 			Register::WriteOnlyOptionT<(0xA0002280 + Port*4),0,(1<<Pin)>{};
 		template<int Port, int Pin>
-		struct MakeAction<Action::Toggel,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
+		struct MakeAction<Action::Toggle,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 			Register::WriteOnlyOptionT<(0xA0002300 + Port*4),0,(1<<Pin)>{};
 	}
 }
