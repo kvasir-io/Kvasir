@@ -14,8 +14,10 @@ namespace Startup{
 	namespace Detail{
 		template<int I>
 		struct HasThisIsr {
+			template<typename T, typename = void>
+			struct Apply : MPL::FalseType{};
 			template<typename T>
-			struct Apply : MPL::IsSame<Core::Interrupt::Type<I>,typename T::IsrType>{};
+			struct Apply<T,MPL::VoidT<typename T::IsrType>> : MPL::IsSame<Core::Interrupt::Type<I>,typename T::IsrType>{};
 		};
 		template<int I, typename TList, int Index>
 		struct GetIsrPointerHelper : MPL::At<TList,MPL::Int<Index>>::Type::IsrFunction{};

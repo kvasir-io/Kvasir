@@ -32,4 +32,4 @@ int main(){
 }
 
 
-KVASIR_START(Timer)
+KVASIR_START(Timer,Blinky)
