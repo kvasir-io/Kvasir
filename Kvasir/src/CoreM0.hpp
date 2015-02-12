@@ -88,4 +88,8 @@ namespace Core{
 		struct MakeAction<Action::Toggle,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 			Register::WriteOnlyOptionT<(0xA0002300 + Port*4),0,(1<<Pin)>{};
 	}
+
+	struct Timer0 {
+		using IsrType = Core::Interrupt::CounterTimer16Bank0;
+	};
 }

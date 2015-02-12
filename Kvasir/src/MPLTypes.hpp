@@ -58,6 +58,9 @@ namespace Kvasir {
 			using Type = List<Ts...>;
 		};
 
+		template<typename... Ts>
+		constexpr List<Ts...> list(Ts...){ return List<Ts...>{}; };
+
 		//Indices into an array
 		template <unsigned... Is>
 		struct Indices {

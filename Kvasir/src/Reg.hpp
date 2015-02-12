@@ -165,7 +165,7 @@ namespace Kvasir {
 		template<typename...Ts>
 		inline void apply(){
 			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...>>;
-			using SortedRegisters = MPL::SortT<MPL::List<Ts...>,Detail::RegisterOptionLessP>;
+			using SortedRegisters = MPL::SortT<FlattenedRegisters,Detail::RegisterOptionLessP>;
 			using MergedRegisters = typename Detail::MergeRegisterOptions<SortedRegisters>::Type;
 			Detail::WriteRegisters<MergedRegisters>{}();
 		}

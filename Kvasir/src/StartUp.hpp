@@ -1,6 +1,7 @@
 #pragma once
 #include "MPLUtility.hpp"
 #include "Interrupt.hpp"
+#include "Reg.hpp"
 
 // The entry point for the C++ library startup
 extern "C" {
@@ -12,6 +13,10 @@ extern "C" {
 namespace Kvasir{
 namespace Startup{
 	namespace Detail{
+		template<typename T, typename = void>
+		struct GetInit : MPL::List<>{};
+		template<typename T>
+		struct GetInit<T,MPL::VoidT<typename T::Init>> : T::Init{};
 		template<int I>
 		struct HasThisIsr {
 			template<typename T, typename = void>
@@ -61,6 +66,11 @@ namespace Startup{
 		>{};
 	template<typename...Ts>
 	using GetIsrPointersT = typename GetIsrPointers<Ts...>::Type;
+
+	template<typename...Ts>
+	struct GetInit : MPL::List<typename Detail::GetInit<Ts>::Type...>{};
+	template<typename...Ts>
+	using GetInitT = typename GetInit<Ts...>::Type;
 }
 }
 
@@ -68,6 +78,7 @@ namespace Startup{
 
 
 extern int main(void);
+extern void _kvasirInit();
 
 //*****************************************************************************
 //
@@ -85,11 +96,45 @@ struct VoidFunction0{
 extern void (* const g_pfnVectors[])(void);
 
 #define KVASIR_START(...) \
-using Init = Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
+	void _kvasirInit(){ \
+		using RegInit = ::Kvasir::Startup::GetInitT< __VA_ARGS__ >;\
+		::Kvasir::Register::apply<RegInit>(); \
+	} \
+	using Init = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
 __attribute__ ((section(".isr_vector")))\
 void (* const g_pfnVectors[])(void) = {\
     Kvasir::MPL::At<Init,Kvasir::MPL::Int<0>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<1>>::value  \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<1>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<2>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<3>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<4>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<5>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<6>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<7>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<8>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<9>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<10>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<11>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<12>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<13>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<14>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<15>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<16>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<17>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<18>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<19>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<20>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<21>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<22>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<23>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<24>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<25>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<26>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<27>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<28>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<29>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<30>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<31>>::value  \
 };
 
 //*****************************************************************************
@@ -167,7 +212,7 @@ void ResetISR(void) {
 
     // Call C++ library initialisation
     __libc_init_array();
-
+    _kvasirInit();
     main();
     // block if main() returns
     while (1) {}
