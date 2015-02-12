@@ -20,13 +20,13 @@ public:
 			R::sequencePoint,
 			Config::MatchControl::r0InterruptEnable,
 			Config::MatchControl::r0ResetOnMatch,
-			Config::SetPrescaleT<10>{},
-			Config::SetR0ValueT<1000>{},
+			Config::SetPrescaleT<1000000>{},
+			Config::SetR0ValueT<10000000>{},
 			R::sequencePoint,
 			Config::couterEnable,
 			Config::enableIrq
 			));
-	void OnMatch0(){
+	static void onMatch0(){
 		Led::toggle();
 	}
 };

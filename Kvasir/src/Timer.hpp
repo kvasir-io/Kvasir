@@ -7,7 +7,12 @@ template<typename TDerived, typename TConfig>
 struct Base {
 private:
 	static void Isr(){
-		//TODO implement interrupt handling here
+		auto i = TConfig::InterruptStatusRegister::read();
+		if(i & (1<<0)){
+			TConfig::InterruptStatusRegister::write(1);
+			TDerived::onMatch0();
+		}
+
 	}
 protected:
 	using Config = TConfig;
