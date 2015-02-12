@@ -16,6 +16,27 @@
 
 namespace Kvasir {
 	namespace MPL {
+
+		namespace Detail {
+			//in some cases we need a type that the user will nevere use
+			struct InternalUseOnly {};
+		}
+
+		//used to move the point of compilation to the point of instatiation of the parameter
+		//use this class to static assert only if an implausible specialization is actually instantiated
+		template<typename >
+		struct AlwaysFalse {
+			enum {
+				value = 0
+			};
+		};
+		template<>
+		struct AlwaysFalse<Detail::InternalUseOnly> {
+			enum {
+				value = 1
+			};
+		};
+
 		//Wrapper for integral type template parameters
 		template<typename T, T I>
 		struct Value {

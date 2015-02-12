@@ -15,6 +15,7 @@
 #pragma once
 #include "MPLTypes.hpp"
 #include "MPLUtility.hpp"
+#include "MPLAlgorithm.hpp"
 
 namespace Kvasir {
 
