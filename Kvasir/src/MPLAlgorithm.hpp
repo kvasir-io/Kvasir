@@ -83,28 +83,28 @@ namespace MPL {
 	}
 
 	//Find returns Int<-1> if type is not found, otherwise returns index
-	template<typename TToFind, typename TList>
+	template<typename TList, typename TToFind>
 	struct Find{
 		static_assert(AlwaysFalse<TToFind>::value,"implausible parameters");
 	};
 	template<typename T, typename ... Ts>
-	struct Find<T, List<Ts...>> : Detail::Find<0, T, Ts...> {
+	struct Find<List<Ts...>,T> : Detail::Find<0, T, Ts...> {
 	};
 	template<template<typename> class Pred, typename T, typename... Ts>
-	struct Find<Template<Pred>,List<T,Ts...>> : Detail::PredFind<0,Pred<T>::value,Pred,Ts...>{};
-	template<typename TToFind, typename TList>
-	using FindT = typename Find<TToFind,TList>::Type;
+	struct Find<List<T,Ts...>, Template<Pred>> : Detail::PredFind<0,Pred<T>::value,Pred,Ts...>{};
+	template<typename TList, typename TToFind>
+	using FindT = typename Find<TList,TToFind>::Type;
 
 	//returns true if T_ToFind is in T_Container, otherwise false
-	template<typename TToFind, typename TContainer>
+	template<typename TContainer, typename TToFind>
 	struct Contains{
 		static_assert(AlwaysFalse<TToFind>::value,"implausible type");
 	};
 	template<typename TToFind, typename ... Ts>
-	struct Contains<TToFind, List<Ts...>> : NotT<
+	struct Contains<List<Ts...>,TToFind> : NotT<
 			IsSameT<typename Detail::Find<0, TToFind, Ts...>::Type, Int<-1>>> {};
-	template<typename TToFind, typename TContainer>
-	using ContainsT = typename Contains<TToFind,TContainer>::Type;
+	template<typename TContainer, typename TToFind>
+	using ContainsT = typename Contains<TContainer,TToFind>::Type;
 
 	//if a type is a list of types it will successively be unpacked into the enclosing list
 	template<typename TList>

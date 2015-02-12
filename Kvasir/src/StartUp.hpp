@@ -29,7 +29,7 @@ namespace Startup{
 		template<int I, typename TList>
 		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Interrupt::UnusedIsr{};
 		template<int I, typename TList>
-		struct GetIsrPointer : GetIsrPointerHelper<I,TList,MPL::Find<MPL::Template<HasThisIsr<I>::template Apply>,TList>::value>{};
+		struct GetIsrPointer : GetIsrPointerHelper<I,TList,MPL::Find<TList,MPL::Template<HasThisIsr<I>::template Apply>>::value>{};
 		template<int I, typename TList, typename TModList>
 		struct CompileIsrPointerList;
 		template<int I, typename...Ts, typename TModList>
