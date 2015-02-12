@@ -1,0 +1,24 @@
+!SESSION 2015-02-12 17:57:25.247 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 4 4 2015-02-12 17:57:30.877
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2015-02-12 17:57:30.877
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-02-12 17:57:59.561
+!MESSAGE Indexed 'BlinkyDemo' (1 sources, 11 headers) in 0,71 sec: 685 declarations; 1.197 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-02-12 17:57:59.871
+!MESSAGE Indexed 'KvasirUnitTest' (4 sources, 9 headers) in 0,28 sec: 661 declarations; 1.145 references; 0 unresolved inclusions; 0 syntax errors; 35 unresolved names (1,90 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-02-12 17:58:00.091
+!MESSAGE Indexed 'Kvasir' (2 sources, 11 headers) in 0,20 sec: 737 declarations; 1.017 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-02-12 17:58:03.181
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob$ProgressUpdateJob
