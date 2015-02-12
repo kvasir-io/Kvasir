@@ -9,6 +9,8 @@ private:
 	static void Isr(){
 		//TODO implement interrupt handling here
 	}
+protected:
+	using Config = TConfig;
 public:
 	using IsrType = typename TConfig::IsrType;
 	using IsrFunction = Interrupt::IsrFunction<&Base::Isr>;

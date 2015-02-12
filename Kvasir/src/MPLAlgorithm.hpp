@@ -15,12 +15,12 @@ namespace MPL {
 		struct Find<I, T_Find, T_Find, Ts...> : Int<I> {};
 
 		//default only reached when Ts is empty
-		template<int I, bool Found, template<typename> class Pred, typename ... Ts>
+		template<int I, bool Found, template<typename...> class Pred, typename ... Ts>
 		struct PredFind: Int<-1> {
 		};
-		template<int I, template<typename> class Pred, typename T, typename...Ts>
+		template<int I, template<typename...> class Pred, typename T, typename...Ts>
 		struct PredFind<I,true,Pred,T,Ts...> : Int<I>{};
-		template<int I, template<typename> class Pred, typename T, typename ... Ts>
+		template<int I, template<typename...> class Pred, typename T, typename ... Ts>
 		struct PredFind<I, false, Pred, T, Ts...> : PredFind<I + 1, Pred<T>::value,Pred, Ts...> {};
 
 		//default only reached when Ts is empty
@@ -80,6 +80,28 @@ namespace MPL {
 		template<typename ... Os, template<typename, typename > class P, typename ... Ts>
 		struct Sort<List<Os...>, P, Ts...> : List<Os...> {
 		};
+
+		template<typename TList, typename TLast>
+		struct SplitReturn;
+		template<typename... Ts, typename TLast>
+		struct SplitReturn<MPL::List<Ts...>,TLast>: MPL::List<Ts...,TLast> {};
+		template<typename... Ts>
+		struct SplitReturn<MPL::List<Ts...>,MPL::List<>>: MPL::List<Ts...> {};
+
+		template<typename TDelimiter, typename TOut, typename TCList, typename... Ts>
+		struct Split;
+		//no more arguements
+		template<typename TDelimiter, typename...Os, typename...Cs, typename... Ts>
+		struct Split<TDelimiter,List<Os...>,List<Cs...>,Ts...> : SplitReturn<List<Os...>,List<Cs...>>{};
+		//next is not delimiter
+		template<typename TDelimiter, typename...Os, typename...Cs, typename T, typename... Ts>
+		struct Split<TDelimiter,List<Os...>,List<Cs...>, T, Ts...> : Split<TDelimiter, List<Os...>, List<Cs..., T>, Ts...>{};
+		//next is delimiter
+		template<typename TDelimiter, typename...Os, typename C, typename...Cs, typename... Ts>
+		struct Split<TDelimiter,List<Os...>,List<C, Cs...>, TDelimiter, Ts...> : Split<TDelimiter, List<Os...,List<C, Cs...>>,List<>, Ts...>{};
+		//next is delimiter but CList is empty
+		template<typename TDelimiter, typename...Os, typename... Ts>
+		struct Split<TDelimiter,List<Os...>,List<>, TDelimiter, Ts...> : Split<TDelimiter, List<Os...>,List<>, Ts...>{};
 	}
 
 	//Find returns Int<-1> if type is not found, otherwise returns index
@@ -90,7 +112,7 @@ namespace MPL {
 	template<typename T, typename ... Ts>
 	struct Find<List<Ts...>,T> : Detail::Find<0, T, Ts...> {
 	};
-	template<template<typename> class Pred, typename T, typename... Ts>
+	template<template<typename...> class Pred, typename T, typename... Ts>
 	struct Find<List<T,Ts...>, Template<Pred>> : Detail::PredFind<0,Pred<T>::value,Pred,Ts...>{};
 	template<typename TList, typename TToFind>
 	using FindT = typename Find<TList,TToFind>::Type;
@@ -116,6 +138,17 @@ namespace MPL {
 	};
 	template<typename TList>
 	using FlattenT = typename Flatten<TList>::Type;
+
+	//slit a list at every occurance of delimiter
+	template<typename TList, typename TDelimiter>
+	struct Split{
+		static_assert(AlwaysFalse<TList>::value,"implausible type");
+	};
+	template<typename ... Ts, typename TDelimiter>
+	struct Split<List<Ts...>,TDelimiter> : Detail::Split<TDelimiter, List<>, List<>, Ts...> {
+	};
+	template<typename TList,typename TDelimiter>
+	using SplitT = typename Split<TList,TDelimiter>::Type;
 
 	//Sort
 	template<typename TList, typename TPred = LessP>

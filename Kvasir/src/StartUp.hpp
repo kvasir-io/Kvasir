@@ -17,15 +17,18 @@ namespace Startup{
 		struct GetInit : MPL::List<>{};
 		template<typename T>
 		struct GetInit<T,MPL::VoidT<typename T::Init>> : T::Init{};
+
+		template<typename T, typename U>
+		struct HasThisIsrHelper : MPL::FalseType{};
+		template<typename T>
+		struct HasThisIsrHelper<T, typename T::IsrType> : MPL::TrueType{};
 		template<int I>
 		struct HasThisIsr {
-			template<typename T, typename = void>
-			struct Apply : MPL::FalseType{};
 			template<typename T>
-			struct Apply<T,MPL::VoidT<typename T::IsrType>> : MPL::IsSame<Core::Interrupt::Type<I>,typename T::IsrType>{};
+			struct Apply : HasThisIsrHelper<T,Core::Interrupt::Type<I>>::Type {};
 		};
 		template<int I, typename TList, int Index>
-		struct GetIsrPointerHelper : MPL::At<TList,MPL::Int<Index>>::Type::IsrFunction{};
+		struct GetIsrPointerHelper : MPL::At<TList,MPL::Int<Index>>::IsrFunction{};
 		template<int I, typename TList>
 		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Interrupt::UnusedIsr{};
 		template<int I, typename TList>
@@ -134,9 +137,24 @@ void (* const g_pfnVectors[])(void) = {\
     Kvasir::MPL::At<Init,Kvasir::MPL::Int<28>>::value, \
     Kvasir::MPL::At<Init,Kvasir::MPL::Int<29>>::value, \
     Kvasir::MPL::At<Init,Kvasir::MPL::Int<30>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<31>>::value  \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<31>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<32>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<33>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<34>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<35>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<36>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<37>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<38>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<39>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<40>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<41>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<42>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<43>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<44>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<45>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<46>>::value, \
+    Kvasir::MPL::At<Init,Kvasir::MPL::Int<47>>::value \
 };
-
 //*****************************************************************************
 // Functions to carry out the initialization of RW and BSS data sections. These
 // are written as separate functions rather than being inlined within the
