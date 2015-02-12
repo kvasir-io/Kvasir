@@ -21,36 +21,42 @@ namespace Kvasir {
 
 	namespace Register{
 		template<int I>
-		struct NormalAddress{
+		struct WriteAddress{
 			static constexpr int value = I;
 		};
 		template<int I>
 		struct WriteOnlyAddress{
 			static constexpr int value = I;
 		};
-		template<typename TAddress, typename TClearBits, typename TSetBits>
-		struct Option {
-			using Type = Option<TAddress,TClearBits,TSetBits>;
+		template<int I>
+		struct XorAddress{
+			static constexpr int value = I;
 		};
-		template<int Address,int Clear, int Set>
-		using OptionT = Option<NormalAddress<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
-		template<int Address,int Clear, int Set>
-		using WriteOnlyOptionT = Option<WriteOnlyAddress<Address>,MPL::Int<Clear>,MPL::Int<Set>>;
+		template<typename TAction, typename TMask, typename TData>
+		struct Action {
+			using Type = Action<TAction,TMask,TData>;
+		};
+		template<int Address,int Mask, int Data>
+		using WriteActionT = Action<WriteAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
+		template<int Address,int Mask, int Data>
+		using BlindWriteActionT = Action<WriteOnlyAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
+		template<int Address,int Mask, int Data>
+		using XorActionT = Action<XorAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
 
 		namespace Detail{
 			using namespace MPL;
 			//predecate retuning result of left < right for RegisterOptions
 			template<typename T_Left, typename T_Right>
-			struct RegisterOptionLess;
+			struct RegisterActionLess;
 			template<typename TA1, typename TC1, typename TS1, typename TA2, typename TC2, typename TS2>
-			struct RegisterOptionLess< Register::Option<TA1,TC1,TS1>, Register::Option<TA2,TC2,TS2> > : Bool<(TA1::value < TA2::value)>{};
-			using RegisterOptionLessP = Template<RegisterOptionLess>;
+			struct RegisterActionLess< Register::Action<TA1,TC1,TS1>, Register::Action<TA2,TC2,TS2> > : Bool<(TA1::value < TA2::value)>{};
+			using RegisterActionLessP = Template<RegisterActionLess>;
 
 			template<typename TRegisterOption>
 			struct WriteRegister;
 
 			template<int A, int S, int C>
-			struct WriteRegister<Register::Option<NormalAddress<A>,Int<S>,Int<C>>>{
+			struct WriteRegister<Register::Action<WriteAddress<A>,Int<S>,Int<C>>>{
 				int operator()(){
 					auto i = *(volatile int*)A;
 					i |= S;
@@ -60,7 +66,7 @@ namespace Kvasir {
 				}
 			};
 			template<int A, int S, int C>
-			struct WriteRegister<Register::Option<WriteOnlyAddress<A>,Int<S>,Int<C>>>{
+			struct WriteRegister<Register::Action<WriteOnlyAddress<A>,Int<S>,Int<C>>>{
 				int operator()(){
 					*(volatile int*)A = S;
 					return 0;
@@ -78,20 +84,20 @@ namespace Kvasir {
 			};
 
 			template<typename TRegisters, typename TRet = List<>> //default
-			struct MergeRegisterOptions;
+			struct MergeRegisterActions;
 
 			template<typename TNext, typename... Ts> //none processed yet
-			struct MergeRegisterOptions<List<TNext, Ts...>, List<>> : MergeRegisterOptions<List<Ts...>,List<TNext>>{};
+			struct MergeRegisterActions<List<TNext, Ts...>, List<>> : MergeRegisterActions<List<Ts...>,List<TNext>>{};
 
 			template<typename TNA, typename TNC, typename TNS, typename TLC, typename TLS, typename... Ts, typename... Us> //next and last mergable
-			struct MergeRegisterOptions<List<Register::Option<TNA,TNC,TNS>, Ts...>,List<Register::Option<TNA,TLC,TLS>, Us...>> :
-				MergeRegisterOptions<List<Ts...>,List<Register::Option<TNA,Int<TNC::value | TLC::value>,Int<TNS::value | TLS::value>>,Us...>>{};
+			struct MergeRegisterActions<List<Register::Action<TNA,TNC,TNS>, Ts...>,List<Register::Action<TNA,TLC,TLS>, Us...>> :
+				MergeRegisterActions<List<Ts...>,List<Register::Action<TNA,Int<TNC::value | TLC::value>,Int<TNS::value | TLS::value>>,Us...>>{};
 
 			template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
-			struct MergeRegisterOptions<List<TNext, Ts...>,List<TLast, Us...>> : MergeRegisterOptions<List<Ts...>,List<TNext, TLast, Us...>>{};
+			struct MergeRegisterActions<List<TNext, Ts...>,List<TLast, Us...>> : MergeRegisterActions<List<Ts...>,List<TNext, TLast, Us...>>{};
 
 			template<typename... Ts> //done
-			struct MergeRegisterOptions<List<>,List<Ts...>> : List<Ts...>{};
+			struct MergeRegisterActions<List<>,List<Ts...>> : List<Ts...>{};
 
 		}
 
@@ -165,8 +171,8 @@ namespace Kvasir {
 		template<typename...Ts>
 		inline void apply(){
 			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...>>;
-			using SortedRegisters = MPL::SortT<FlattenedRegisters,Detail::RegisterOptionLessP>;
-			using MergedRegisters = typename Detail::MergeRegisterOptions<SortedRegisters>::Type;
+			using SortedRegisters = MPL::SortT<FlattenedRegisters,Detail::RegisterActionLessP>;
+			using MergedRegisters = typename Detail::MergeRegisterActions<SortedRegisters>::Type;
 			Detail::WriteRegisters<MergedRegisters>{}();
 		}
 

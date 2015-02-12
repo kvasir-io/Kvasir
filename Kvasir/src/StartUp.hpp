@@ -1,7 +1,7 @@
 #pragma once
 #include "MPLUtility.hpp"
 #include "Interrupt.hpp"
-#include "Reg.hpp"
+#include "Register.hpp"
 
 // The entry point for the C++ library startup
 extern "C" {

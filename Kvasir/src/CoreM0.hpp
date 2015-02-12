@@ -74,19 +74,19 @@ namespace Core{
 	namespace Gpio{
 		template<int Port, int Pin>
 		struct MakeAction<Action::Input,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
-			Register::OptionT<(0xA0002000 + Port*4),(1<<Pin),0>{};
+			Register::WriteActionT<(0xA0002000 + Port*4),(1<<Pin),0>{};
 		template<int Port, int Pin>
 		struct MakeAction<Action::Output,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
-			Register::OptionT<(0xA0002000 + Port*4),0,(1<<Pin)>{};
+			Register::WriteActionT<(0xA0002000 + Port*4),(1<<Pin),(1<<Pin)>{};
 		template<int Port, int Pin>
 		struct MakeAction<Action::Set,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
-			Register::WriteOnlyOptionT<(0xA0002200 + Port*4),0,(1<<Pin)>{};
+			Register::BlindWriteActionT<(0xA0002200 + Port*4),(1<<Pin),(1<<Pin)>{};
 		template<int Port, int Pin>
 		struct MakeAction<Action::Clear,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
-			Register::WriteOnlyOptionT<(0xA0002280 + Port*4),0,(1<<Pin)>{};
+			Register::BlindWriteActionT<(0xA0002280 + Port*4),(1<<Pin),(1<<Pin)>{};
 		template<int Port, int Pin>
 		struct MakeAction<Action::Toggle,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
-			Register::WriteOnlyOptionT<(0xA0002300 + Port*4),0,(1<<Pin)>{};
+			Register::BlindWriteActionT<(0xA0002300 + Port*4),(1<<Pin),(1<<Pin)>{};
 	}
 
 	struct Timer0 {

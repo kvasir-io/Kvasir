@@ -1,5 +1,5 @@
 #pragma once
-#include "Reg.hpp"
+#include "Register.hpp"
 #include "Gpio.hpp"
 
 #define LPC11U68_BOARD

@@ -4,6 +4,6 @@
 #include "MPLAlgorithm.hpp"
 #include "MPLTypes.hpp"
 #include "MPLUtility.hpp"
-#include "Reg.hpp"
+#include "Register.hpp"
 #include "StartUp.hpp"
 #include "Timer.hpp"

@@ -13,7 +13,7 @@
 
 */
 #pragma once
-#include "Reg.hpp"
+#include "Register.hpp"
 
 using namespace Kvasir;
 using namespace MPL;

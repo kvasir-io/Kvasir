@@ -14,7 +14,7 @@
 
 */
 #pragma once
-#include "Reg.hpp"
+#include "Register.hpp"
 #include "Interrupt.hpp"
 
 namespace Kvasir{
@@ -36,7 +36,7 @@ namespace Kvasir{
 		template<typename T>
 		struct EnableIrq;
 		template<int I>
-		struct EnableIrq<Interrupt::Type<I>> : Register::OptionT<Detail::getIrqRegister(Detail::IsrRegister::ISER,I),0x0,(1<<I)>{};
+		struct EnableIrq<Interrupt::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ISER,I),(1<<I),(1<<I)>{};
 		template<typename T>
 		using EnableIrqT = typename EnableIrq<T>::Type;
 		template<typename... Ts>
@@ -46,7 +46,7 @@ namespace Kvasir{
 		template<typename T>
 		struct DisableIrq;
 		template<int I>
-		struct DisableIrq<Interrupt::Type<I>> : Register::OptionT<Detail::getIrqRegister(Detail::IsrRegister::ICER,I),0x0,(1<<(I & 0x1F))>{};
+		struct DisableIrq<Interrupt::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ICER,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
 		template<typename T>
 		using DisableIrqT = typename DisableIrq<T>::Type;
 		template<typename... Ts>
@@ -56,7 +56,7 @@ namespace Kvasir{
 		template<typename T>
 		struct SetPendingIrq;
 		template<int I>
-		struct SetPendingIrq<Interrupt::Type<I>> : Register::OptionT<Detail::getIrqRegister(Detail::IsrRegister::ISPR,I),0x0,(1<<(I & 0x1F))>{};
+		struct SetPendingIrq<Interrupt::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ISPR,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
 		template<typename T>
 		using SetPendingIrqT = typename SetPendingIrq<T>::Type;
 		template<typename... Ts>
@@ -66,7 +66,7 @@ namespace Kvasir{
 		template<typename T>
 		struct ClearPendingIrq;
 		template<int I>
-		struct ClearPendingIrq<Interrupt::Type<I>> : Register::OptionT<Detail::getIrqRegister(Detail::IsrRegister::ICPR,I),0x0,(1<<(I & 0x1F))>{};
+		struct ClearPendingIrq<Interrupt::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ICPR,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
 		template<typename T>
 		using ClearPendingIrqT = typename ClearPendingIrq<T>::Type;
 		template<typename... Ts>
