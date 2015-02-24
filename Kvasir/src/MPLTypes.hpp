@@ -77,5 +77,16 @@ namespace Kvasir {
 		template<typename T, typename... Ts>
 		using ApplyTemplateT = typename T::template Apply<Ts...>;
 
+		template<typename T, typename U>
+		struct Pair{
+			using Type = Pair<T,U>;
+			using First = T;
+			using Second = U;
+		};
+		template<typename T>
+		using PairFirst = typename T::First;
+		template<typename T>
+		using PairSecond = typename T::Second;
+
 	}
 }

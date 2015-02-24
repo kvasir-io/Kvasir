@@ -40,6 +40,13 @@ namespace Startup{
 			>{};
 		template<typename...Ts, typename TModList>
 		struct CompileIsrPointerList<32,MPL::List<Ts...>,TModList> : MPL::List<Ts...>{};
+
+		//predecate retuning result of left < right for RegisterOptions
+		template<typename TLeft, typename TRight>
+		struct ListLengthLess : MPL::Bool<(MPL::SizeT<TLeft>::value < MPL::SizeT<TRight>::value)>{};
+		using ListLengthLessP = MPL::Template<ListLengthLess>;
+
+
 	}
 	template<typename...Ts>
 	struct GetIsrPointers : Detail::CompileIsrPointerList<
@@ -68,7 +75,7 @@ namespace Startup{
 	using GetIsrPointersT = typename GetIsrPointers<Ts...>::Type;
 
 	template<typename...Ts>
-	struct GetInit : MPL::List<typename Detail::GetInit<Ts>::Type...>{};
+	struct GetInit : Detail::Merge<MPL::SortT<MPL::List<typename Detail::GetInit<Ts>::Type...>,Detail::ListLengthLessP>>{};
 	template<typename...Ts>
 	using GetInitT = typename GetInit<Ts...>::Type;
 }
