@@ -124,6 +124,10 @@ namespace MPL {
 		//next is delimiter but CList is empty
 		template<typename TDelimiter, typename...Os, typename... Ts>
 		struct Split<TDelimiter,List<Os...>,List<>, TDelimiter, Ts...> : Split<TDelimiter, List<Os...>,List<>, Ts...>{};
+
+		template<typename TOut, int From, int To, typename... Ts>
+		struct Remove;
+
 	}
 
 	//Find returns Int<-1> if type is not found, otherwise returns index
@@ -214,6 +218,14 @@ namespace MPL {
 	struct At<List<T, Ts...>,Int<0>> : T{};
 	template<typename TList, typename TIndex>
 	using AtT = typename At<TList,TIndex>::Type;
+
+	template<typename TList, typename TFrom, typename TTo>
+	struct Remove;
+	template<typename... Ts, int F, int T>
+	struct Remove<List<Ts...>,Int<F>,Int<T>> : Detail::Remove<List<>,F,T,Ts...>{};
+
+	template<typename TList,typename TFrom, typename TTo>
+	using RemoveT = typename Remove<TList,TFrom,TTo>::Type;
 
 }
 }

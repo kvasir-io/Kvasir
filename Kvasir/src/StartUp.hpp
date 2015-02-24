@@ -13,41 +13,55 @@ extern "C" {
 namespace Kvasir{
 namespace Startup{
 	namespace Detail{
+		using namespace MPL;
 		template<typename T, typename = void>
-		struct GetInit : MPL::List<>{};
+		struct GetInit : List<>{};
 		template<typename T>
-		struct GetInit<T,MPL::VoidT<typename T::Init>> : T::Init{};
+		struct GetInit<T,VoidT<typename T::Init>> : T::Init{};
 
 		template<typename T, typename U>
-		struct HasThisIsrHelper : MPL::FalseType{};
+		struct HasThisIsrHelper : FalseType{};
 		template<typename T>
-		struct HasThisIsrHelper<T, typename T::IsrType> : MPL::TrueType{};
+		struct HasThisIsrHelper<T, typename T::IsrType> : TrueType{};
 		template<int I>
 		struct HasThisIsr {
 			template<typename T>
 			struct Apply : HasThisIsrHelper<T,Core::Interrupt::Type<I>>::Type {};
 		};
 		template<int I, typename TList, int Index>
-		struct GetIsrPointerHelper : MPL::At<TList,MPL::Int<Index>>::IsrFunction{};
+		struct GetIsrPointerHelper : MPL::At<TList,Int<Index>>::IsrFunction{};
 		template<int I, typename TList>
 		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Interrupt::UnusedIsr{};
 		template<int I, typename TList>
-		struct GetIsrPointer : GetIsrPointerHelper<I,TList,MPL::Find<TList,MPL::Template<HasThisIsr<I>::template Apply>>::value>{};
+		struct GetIsrPointer : GetIsrPointerHelper<I,TList,Find<TList,Template<HasThisIsr<I>::template Apply>>::value>{};
 		template<int I, typename TList, typename TModList>
 		struct CompileIsrPointerList;
 		template<int I, typename...Ts, typename TModList>
-		struct CompileIsrPointerList<I,MPL::List<Ts...>,TModList> : CompileIsrPointerList<
+		struct CompileIsrPointerList<I,List<Ts...>,TModList> : CompileIsrPointerList<
 			I+1,
-			MPL::List<Ts...,typename GetIsrPointer<I,TModList>::Type>,
+			List<Ts...,typename GetIsrPointer<I,TModList>::Type>,
 			TModList
 			>{};
 		template<typename...Ts, typename TModList>
-		struct CompileIsrPointerList<32,MPL::List<Ts...>,TModList> : MPL::List<Ts...>{};
+		struct CompileIsrPointerList<32,List<Ts...>,TModList> : List<Ts...>{};
 
 		//predecate retuning result of left < right for RegisterOptions
 		template<typename TLeft, typename TRight>
-		struct ListLengthLess : MPL::Bool<(MPL::SizeT<TLeft>::value < MPL::SizeT<TRight>::value)>{};
-		using ListLengthLessP = MPL::Template<ListLengthLess>;
+		struct ListLengthLess : Bool<(SizeT<TLeft>::value < SizeT<TRight>::value)>{};
+		using ListLengthLessP = Template<ListLengthLess>;
+
+		template<typename TOut, typename TList>
+		struct Merge;
+		template<typename... Os, typename... Ts>
+		struct Merge<List<Os...>,List<List<>,Ts...>> : Merge<  //if next is empty list remove it and continue
+			List<Os...>,List<Ts...>>{};
+		template<typename... Os, typename... Ts>
+		struct Merge<List<Os...>,List<Ts...>> : Merge<
+			List<Os...,FlattenT<List<At<Ts,Int<0>>...>>>,
+			List<RemoveT<Ts,Int<0>,Int<1>>...>>{};
+		template<typename... Os>
+		struct Merge<List<Os...>,List<>> : List<Os...>{};
+
 
 
 	}
@@ -78,7 +92,13 @@ namespace Startup{
 	using GetIsrPointersT = typename GetIsrPointers<Ts...>::Type;
 
 	template<typename...Ts>
-	struct GetInit : Detail::Merge<MPL::SortT<MPL::List<typename Detail::GetInit<Ts>::Type...>,Detail::ListLengthLessP>>{};
+	struct GetInit {
+		using FlattenedSequencePieces = MPL::List<
+				MPL::ExplodeT<MPL::FlattenT<typename Detail::GetInit<Ts>::Type>,Register::SequencePoint>...
+				>;
+		using Sorted = MPL::SortT<FlattenedSequencePieces,Detail::ListLengthLessP>;
+		using Type = typename Detail::Merge<MPL::List<>,Sorted>::Type;
+	};
 	template<typename...Ts>
 	using GetInitT = typename GetInit<Ts...>::Type;
 }
