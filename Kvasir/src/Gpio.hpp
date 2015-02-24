@@ -32,6 +32,6 @@ namespace Gpio{
 	using MakeActionT = typename MakeAction<TAction,TPortPin>::Type;
 
 	template<typename TAction, typename TPortPin>
-	constexpr MakeActionT<TAction,TPortPin> makeAction(TAction,TPortPin){ return MakeActionT<TAction,TPortPin>{}; };
+	constexpr MakeActionT<TAction,TPortPin> action(TAction,TPortPin){ return MakeActionT<TAction,TPortPin>{}; };
 }
 }

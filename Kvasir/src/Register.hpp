@@ -20,6 +20,9 @@
 namespace Kvasir {
 
 	namespace Register{
+		struct SequencePoint{};
+		constexpr SequencePoint sequencePoint;
+
 		template<int I>
 		struct WriteAddress{
 			static constexpr int value = I;
@@ -58,27 +61,26 @@ namespace Kvasir {
 			template<int A, int S, int C>
 			struct WriteRegister<Register::Action<WriteAddress<A>,Int<S>,Int<C>>>{
 				int operator()(){
-					auto i = *(volatile int*)A;
-					i |= S;
+					auto& reg = *(volatile int*)A;
+					auto i = reg;
 					i &= ~C;
-					*(volatile int*)A = i;
+					i |= S;
+					reg = i;
 					return 0;
 				}
 			};
 			template<int A, int S, int C>
 			struct WriteRegister<Register::Action<WriteOnlyAddress<A>,Int<S>,Int<C>>>{
 				int operator()(){
-					*(volatile int*)A = S;
+					auto& reg = *(volatile int*)A;
+					reg = S;
 					return 0;
 				}
 			};
 
-			template<typename TRegisters>
-			struct WriteRegisters;
-
-			template<typename... Ts>
-			struct WriteRegisters<List<Ts...>>{
-				void operator()(){
+			template<typename...Ts>
+			struct WriteRegister<MPL::List<Ts...>>{
+				int operator()(){
 					int a[] = {WriteRegister<Ts>{}()...};
 				}
 			};
@@ -98,6 +100,21 @@ namespace Kvasir {
 
 			template<typename... Ts> //done
 			struct MergeRegisterActions<List<>,List<Ts...>> : List<Ts...>{};
+
+			template<typename T>
+			using MergeRegisterActionsT = typename MergeRegisterActions<T>::Type;
+
+			template<typename TList>
+			struct MergeActionSteps;
+			template<typename... Ts>
+			struct MergeActionSteps<MPL::List<Ts...>> : MPL::List<
+				MergeRegisterActionsT<
+					MPL::SortT<Ts,Detail::RegisterActionLessP>
+				>...
+				>{};
+
+			template<typename T>
+			using MergeActionStepsT = typename MergeActionSteps<T>::Type;
 
 		}
 
@@ -171,9 +188,9 @@ namespace Kvasir {
 		template<typename...Ts>
 		inline void apply(){
 			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...>>;
-			using SortedRegisters = MPL::SortT<FlattenedRegisters,Detail::RegisterActionLessP>;
-			using MergedRegisters = typename Detail::MergeRegisterActions<SortedRegisters>::Type;
-			Detail::WriteRegisters<MergedRegisters>{}();
+			using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
+			using MergedSteps = Detail::MergeActionStepsT<Steps>;
+			Detail::WriteRegister<MergedSteps>{}();
 		}
 
 		template<typename...Ts>		//this version may take more time to compile, however it may be easier to understand for some users

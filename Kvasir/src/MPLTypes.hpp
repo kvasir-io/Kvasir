@@ -88,5 +88,9 @@ namespace Kvasir {
 		template<typename T>
 		using PairSecond = typename T::Second;
 
+		//used for debugging
+		template<typename...>
+		struct Print;
+
 	}
 }
