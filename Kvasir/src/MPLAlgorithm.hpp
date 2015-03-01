@@ -23,6 +23,28 @@ namespace MPL {
 		template<int I, template<typename...> class Pred, typename T, typename ... Ts>
 		struct PredFind<I, false, Pred, T, Ts...> : PredFind<I + 1, Pred<T>::value,Pred, Ts...> {};
 
+		template<typename TOut, typename TCurrent, typename TDelim, typename... Ts>
+		struct Explode;
+		template<typename... Os, typename... Cs, typename TDelim, typename T, typename... Ts>
+		struct Explode<List<Os...>,List<Cs...>,TDelim,T,Ts...> : //next is not delim, we still have more
+			Explode<List<Os...>,List<Cs...,T>,TDelim,Ts...>{};
+		template<typename... Os, typename... Cs, typename TDelim, typename T>
+		struct Explode<List<Os...>,List<Cs...>,TDelim,T> : //next is not delim, we do not have more
+			List<Os...,List<Cs...,T>>{};
+		template<typename... Os, typename... Cs, typename TDelim, typename... Ts>
+		struct Explode<List<Os...>,List<Cs...>,TDelim,TDelim,Ts...> : //next is delim, we still have more
+			Explode<List<Os...,List<Cs...>>,List<>,TDelim,Ts...>{};
+		template<typename... Os, typename... Cs, typename TDelim>
+		struct Explode<List<Os...>,List<Cs...>,TDelim,TDelim> : //next is delim, we have no more
+			List<Os...,List<Cs...>>{};
+		//same cases but with empty TCurrent list
+		template<typename... Os, typename TDelim, typename... Ts>
+		struct Explode<List<Os...>,List<>,TDelim,TDelim,Ts...> : //next is delim, we still have more
+			Explode<List<Os...>,List<>,TDelim,Ts...>{};
+		template<typename... Os, typename TDelim>
+		struct Explode<List<Os...>,List<>,TDelim,TDelim> : //next is delim, we have no more
+			List<Os...>{};
+
 		//default only reached when Ts is empty
 		template<typename T_List, typename ... Ts>
 		struct Flatten: T_List {};
@@ -102,6 +124,10 @@ namespace MPL {
 		//next is delimiter but CList is empty
 		template<typename TDelimiter, typename...Os, typename... Ts>
 		struct Split<TDelimiter,List<Os...>,List<>, TDelimiter, Ts...> : Split<TDelimiter, List<Os...>,List<>, Ts...>{};
+
+		template<typename TOut, int From, int To, typename... Ts>
+		struct Remove;
+
 	}
 
 	//Find returns Int<-1> if type is not found, otherwise returns index
@@ -127,6 +153,17 @@ namespace MPL {
 			IsSameT<typename Detail::Find<0, TToFind, Ts...>::Type, Int<-1>>> {};
 	template<typename TContainer, typename TToFind>
 	using ContainsT = typename Contains<TContainer,TToFind>::Type;
+
+	//works like PHP explode, splits a list into a list of lists devided by a user provided delimiter
+	template<typename TList, typename TDelim>
+	struct Explode {
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<typename... Ts, typename TDelim>
+	struct Explode<List<Ts...>,TDelim> : Detail::Explode<List<>, List<>,TDelim,Ts...>{};
+
+	template<typename TList, typename TDelim>
+	using ExplodeT = typename Explode<TList,TDelim>::Type;
 
 	//if a type is a list of types it will successively be unpacked into the enclosing list
 	template<typename TList>
@@ -181,6 +218,14 @@ namespace MPL {
 	struct At<List<T, Ts...>,Int<0>> : T{};
 	template<typename TList, typename TIndex>
 	using AtT = typename At<TList,TIndex>::Type;
+
+	template<typename TList, typename TFrom, typename TTo>
+	struct Remove;
+	template<typename... Ts, int F, int T>
+	struct Remove<List<Ts...>,Int<F>,Int<T>> : Detail::Remove<List<>,F,T,Ts...>{};
+
+	template<typename TList,typename TFrom, typename TTo>
+	using RemoveT = typename Remove<TList,TFrom,TTo>::Type;
 
 }
 }

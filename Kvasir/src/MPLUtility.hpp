@@ -99,6 +99,13 @@ namespace Kvasir {
 		template<unsigned ... Is>
 		struct BuildIndices<0, Is...> : Indices<Is...> {};
 
+		template<typename TList>
+		struct Size;
+		template<typename... Ts>
+		struct Size<List<Ts...>> : Int<sizeof...(Ts)>{};
+		template<typename TList>
+		using SizeT = typename Size<TList>::Type;
+
 	//helper recursively derives from a list of base classes
 	template<typename TTemplateList, typename ... Ts>
 	struct DeriveFromTemplates{
