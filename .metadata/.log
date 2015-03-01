@@ -252,3 +252,99 @@ Binding(HOME,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY com.crt.log 1 0 2015-02-12 21:58:02.944
+!MESSAGE Drivers loaded in 889 milliseconds
+
+!ENTRY org.eclipse.cdt.dsf 4 -1 2015-02-12 22:04:06.658
+!MESSAGE Invocation exception when calling a service event handler method
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor113.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:519)
+	at org.eclipse.cdt.dsf.service.DsfSession.access$2(DsfSession.java:463)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:390)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@16c5d93 is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:85)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:260)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:103)
+	... 13 more
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4397)
+	at org.eclipse.swt.SWT.error(SWT.java:4312)
+	at org.eclipse.swt.SWT.error(SWT.java:4283)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:709)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:77)
+	... 15 more
+Root exception:
+java.util.concurrent.RejectedExecutionException: Display org.eclipse.swt.widgets.Display@16c5d93 is disposed
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:85)
+	at org.eclipse.cdt.dsf.ui.viewmodel.AbstractVMAdapter.handleEvent(AbstractVMAdapter.java:260)
+	at org.eclipse.cdt.dsf.ui.viewmodel.datamodel.AbstractDMVMAdapter.eventDispatched(AbstractDMVMAdapter.java:103)
+	at sun.reflect.GeneratedMethodAccessor113.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.cdt.dsf.service.DsfSession.doDispatchEvent(DsfSession.java:519)
+	at org.eclipse.cdt.dsf.service.DsfSession.access$2(DsfSession.java:463)
+	at org.eclipse.cdt.dsf.service.DsfSession$3.run(DsfSession.java:390)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4397)
+	at org.eclipse.swt.SWT.error(SWT.java:4312)
+	at org.eclipse.swt.SWT.error(SWT.java:4283)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1258)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:709)
+	at org.eclipse.cdt.dsf.ui.concurrent.SimpleDisplayExecutor.execute(SimpleDisplayExecutor.java:77)
+	... 15 more
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-02-12 22:04:07.020
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob$ProgressUpdateJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-02-12 22:04:07.020
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob$ProgressUpdateJob
+!SESSION 2015-02-17 17:53:44.593 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-02-17 17:53:50.084
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.ui 4 4 2015-02-17 17:53:52.549
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2015-02-17 17:53:52.549
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-02-17 18:07:13.136
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob$ProgressUpdateJob
+!SESSION 2015-03-01 18:05:38.496 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=de_DE
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 4 4 2015-03-01 18:05:46.536
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Duplicate id found: org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator
+
+!ENTRY org.eclipse.ui 4 4 2015-03-01 18:05:46.546
+!MESSAGE Plugin org.eclipse.cdt.ui, extension org.eclipse.ui.decorators, id org.eclipse.cdt.internal.ui.CustomBuildSettingsDecorator: Unknown extension tag found: decorator

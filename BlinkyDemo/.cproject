@@ -116,7 +116,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Kvasir/src}&quot;"/>
 								</option>
 								<option id="com.crt.advproject.cpp.misc.dialect.1189954546" name="Language standard" superClass="com.crt.advproject.cpp.misc.dialect" value="com.crt.advproject.misc.dialect.cpp11y" valueType="enumerated"/>
-								<option id="com.crt.advproject.cpp.exe.release.option.optimization.level.880536268" superClass="com.crt.advproject.cpp.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="com.crt.advproject.cpp.exe.release.option.optimization.level.880536268" name="Optimization Level" superClass="com.crt.advproject.cpp.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="com.crt.advproject.cpp.lto.751920278" superClass="com.crt.advproject.cpp.lto" value="true" valueType="boolean"/>
 								<inputType id="com.crt.advproject.compiler.cpp.input.1618676168" superClass="com.crt.advproject.compiler.cpp.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gcc.exe.release.613347410" name="MCU C Compiler" superClass="com.crt.advproject.gcc.exe.release">
