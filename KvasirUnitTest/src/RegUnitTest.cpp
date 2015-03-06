@@ -14,6 +14,7 @@
 */
 #pragma once
 #include "Register.hpp"
+#include "StartUp.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
@@ -37,6 +38,14 @@ using MergedRegisters = typename ::Kvasir::Register::Detail::MergeRegisterAction
 static_assert(IsSame<SortedRegisters,List<Register::WriteActionT<1,8,16>,Register::WriteActionT<1,1,2>,Register::WriteActionT<3,4,8>,Register::WriteActionT<4,1,1>>>::value,"");
 static_assert(IsSame<MergedRegisters,List<Register::WriteActionT<4,1,1>,Register::WriteActionT<3,4,8>,Register::WriteActionT<1,9,18>>>::value,"");
 
+using FlattenedSequencePieces = MPL::List<
+		MPL::SplitT<MPL::FlattenT<RegList>,Register::SequencePoint>,
+		MPL::SplitT<MPL::FlattenT<RegList>,Register::SequencePoint>,
+		MPL::SplitT<MPL::FlattenT<List<Register::WriteActionT<1,1,2>>>,Register::SequencePoint>
+		>;
+using Sorted = MPL::SortT<FlattenedSequencePieces,Startup::Detail::ListLengthLessP>;
+using Type = typename Startup::Detail::Merge<MPL::List<>,Sorted>::Type;
+
 template<typename>
 struct Print;
 
@@ -49,3 +58,6 @@ void FTest(){
 	ClearOnReadTest::readAndClear();
 	CAN1PinSelect::write(CAN1PinSelectOption::Port0Pin0);
 }
+
+int main(){}
+void _kvasirInit(){}

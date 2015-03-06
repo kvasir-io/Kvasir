@@ -82,6 +82,7 @@ namespace Kvasir {
 			struct WriteRegister<MPL::List<Ts...>>{
 				int operator()(){
 					int a[] = {WriteRegister<Ts>{}()...};
+					return 0;
 				}
 			};
 
@@ -109,7 +110,7 @@ namespace Kvasir {
 			template<typename... Ts>
 			struct MergeActionSteps<MPL::List<Ts...>> : MPL::List<
 				MergeRegisterActionsT<
-					MPL::SortT<Ts,Detail::RegisterActionLessP>
+					MPL::SortT<MPL::FlattenT<Ts>,Detail::RegisterActionLessP>
 				>...
 				>{};
 
@@ -185,17 +186,12 @@ namespace Kvasir {
 		struct InitSteps{};
 
 
-		template<typename...Ts>
-		inline void apply(){
-			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...>>;
+		template<typename...Ts,typename...Args>
+		inline void apply(Args...){
+			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
 			using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
 			using MergedSteps = Detail::MergeActionStepsT<Steps>;
 			Detail::WriteRegister<MergedSteps>{}();
-		}
-
-		template<typename...Ts>		//this version may take more time to compile, however it may be easier to understand for some users
-		inline void apply(Ts...){
-			apply<Ts...>();
 		}
 
 		template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
