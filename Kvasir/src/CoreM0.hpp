@@ -114,15 +114,15 @@ namespace Core{
 			static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<11),(1<<11)> r3StopOnMatch{};
 		};
 		template<int I>
-		using SetPrescaleT = Register::BlindWriteActionT<baseAddress + 0x0C,0xFF,I>;
+		using SetPrescaleT = Register::BlindWriteActionT<baseAddress + 0x0C,0xFFFFFFFF,I>;
 		template<int I>
-		using SetR0ValueT = Register::BlindWriteActionT<baseAddress + 0x18,0xFF,I>;
+		using SetR0ValueT = Register::BlindWriteActionT<baseAddress + 0x18,0xFFFFFFFF,I>;
 		template<int I>
-		using SetR1ValueT = Register::BlindWriteActionT<baseAddress + 0x1C,0xFF,I>;
+		using SetR1ValueT = Register::BlindWriteActionT<baseAddress + 0x1C,0xFFFFFFFF,I>;
 		template<int I>
-		using SetR2ValueT = Register::BlindWriteActionT<baseAddress + 0x20,0xFF,I>;
+		using SetR2ValueT = Register::BlindWriteActionT<baseAddress + 0x20,0xFFFFFFFF,I>;
 		template<int I>
-		using SetR3ValueT = Register::BlindWriteActionT<baseAddress + 0x24,0xFF,I>;
+		using SetR3ValueT = Register::BlindWriteActionT<baseAddress + 0x24,0xFFFFFFFF,I>;
 
 
 	};
