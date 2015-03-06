@@ -26,7 +26,7 @@ namespace Startup{
 		template<int I>
 		struct HasThisIsr {
 			template<typename T>
-			struct Apply : HasThisIsrHelper<T,Core::Interrupt::Type<I>>::Type {};
+			struct Apply : HasThisIsrHelper<T,Interrupt::Type<I>>::Type {};
 		};
 		template<int I, typename TList, int Index>
 		struct GetIsrPointerHelper : MPL::At<TList,Int<Index>>::IsrFunction{};
@@ -94,7 +94,7 @@ namespace Startup{
 	template<typename...Ts>
 	struct GetInit {
 		using FlattenedSequencePieces = MPL::List<
-				MPL::ExplodeT<MPL::FlattenT<typename Detail::GetInit<Ts>::Type>,Register::SequencePoint>...
+				MPL::SplitT<MPL::FlattenT<typename Detail::GetInit<Ts>::Type>,Register::SequencePoint>...
 				>;
 		using Sorted = MPL::SortT<FlattenedSequencePieces,Detail::ListLengthLessP>;
 		using Type = typename Detail::Merge<MPL::List<>,Sorted>::Type;

@@ -23,26 +23,35 @@ namespace MPL {
 		template<int I, template<typename...> class Pred, typename T, typename ... Ts>
 		struct PredFind<I, false, Pred, T, Ts...> : PredFind<I + 1, Pred<T>::value,Pred, Ts...> {};
 
+		template<typename TOut, typename TDelim, typename... Ts>
+		struct Join{
+			static_assert(AlwaysFalse<TOut>::value,"Incorrect parameter format, expected list of lists");
+		};
+		template<typename... Os, typename TDelim, typename... Ls, typename... Ts>
+		struct Join<List<Os...>,TDelim,List<Ls...>,Ts...> : Join<List<Os...,TDelim,Ls...>,TDelim,Ts...>{};
+		template<typename... Os, typename TDelim>
+		struct Join<List<Os...>,TDelim> : List<Os...>{};   //no more input, done
+
 		template<typename TOut, typename TCurrent, typename TDelim, typename... Ts>
-		struct Explode;
+		struct Split;
 		template<typename... Os, typename... Cs, typename TDelim, typename T, typename... Ts>
-		struct Explode<List<Os...>,List<Cs...>,TDelim,T,Ts...> : //next is not delim, we still have more
-			Explode<List<Os...>,List<Cs...,T>,TDelim,Ts...>{};
+		struct Split<List<Os...>,List<Cs...>,TDelim,T,Ts...> : //next is not delim, we still have more
+			Split<List<Os...>,List<Cs...,T>,TDelim,Ts...>{};
 		template<typename... Os, typename... Cs, typename TDelim, typename T>
-		struct Explode<List<Os...>,List<Cs...>,TDelim,T> : //next is not delim, we do not have more
+		struct Split<List<Os...>,List<Cs...>,TDelim,T> : //next is not delim, we do not have more
 			List<Os...,List<Cs...,T>>{};
 		template<typename... Os, typename... Cs, typename TDelim, typename... Ts>
-		struct Explode<List<Os...>,List<Cs...>,TDelim,TDelim,Ts...> : //next is delim, we still have more
-			Explode<List<Os...,List<Cs...>>,List<>,TDelim,Ts...>{};
+		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim,Ts...> : //next is delim, we still have more
+			Split<List<Os...,List<Cs...>>,List<>,TDelim,Ts...>{};
 		template<typename... Os, typename... Cs, typename TDelim>
-		struct Explode<List<Os...>,List<Cs...>,TDelim,TDelim> : //next is delim, we have no more
+		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim> : //next is delim, we have no more
 			List<Os...,List<Cs...>>{};
 		//same cases but with empty TCurrent list
 		template<typename... Os, typename TDelim, typename... Ts>
-		struct Explode<List<Os...>,List<>,TDelim,TDelim,Ts...> : //next is delim, we still have more
-			Explode<List<Os...>,List<>,TDelim,Ts...>{};
+		struct Split<List<Os...>,List<>,TDelim,TDelim,Ts...> : //next is delim, we still have more
+			Split<List<Os...>,List<>,TDelim,Ts...>{};
 		template<typename... Os, typename TDelim>
-		struct Explode<List<Os...>,List<>,TDelim,TDelim> : //next is delim, we have no more
+		struct Split<List<Os...>,List<>,TDelim,TDelim> : //next is delim, we have no more
 			List<Os...>{};
 
 		//default only reached when Ts is empty
@@ -103,30 +112,16 @@ namespace MPL {
 		struct Sort<List<Os...>, P, Ts...> : List<Os...> {
 		};
 
-		template<typename TList, typename TLast>
-		struct SplitReturn;
-		template<typename... Ts, typename TLast>
-		struct SplitReturn<MPL::List<Ts...>,TLast>: MPL::List<Ts...,TLast> {};
-		template<typename... Ts>
-		struct SplitReturn<MPL::List<Ts...>,MPL::List<>>: MPL::List<Ts...> {};
-
-		template<typename TDelimiter, typename TOut, typename TCList, typename... Ts>
-		struct Split;
-		//no more arguements
-		template<typename TDelimiter, typename...Os, typename...Cs, typename... Ts>
-		struct Split<TDelimiter,List<Os...>,List<Cs...>,Ts...> : SplitReturn<List<Os...>,List<Cs...>>{};
-		//next is not delimiter
-		template<typename TDelimiter, typename...Os, typename...Cs, typename T, typename... Ts>
-		struct Split<TDelimiter,List<Os...>,List<Cs...>, T, Ts...> : Split<TDelimiter, List<Os...>, List<Cs..., T>, Ts...>{};
-		//next is delimiter
-		template<typename TDelimiter, typename...Os, typename C, typename...Cs, typename... Ts>
-		struct Split<TDelimiter,List<Os...>,List<C, Cs...>, TDelimiter, Ts...> : Split<TDelimiter, List<Os...,List<C, Cs...>>,List<>, Ts...>{};
-		//next is delimiter but CList is empty
-		template<typename TDelimiter, typename...Os, typename... Ts>
-		struct Split<TDelimiter,List<Os...>,List<>, TDelimiter, Ts...> : Split<TDelimiter, List<Os...>,List<>, Ts...>{};
-
 		template<typename TOut, int From, int To, typename... Ts>
 		struct Remove;
+		template<typename... Os, int From, int To, typename T, typename... Ts>
+		struct Remove<List<Os...>,From,To,T,Ts...> : Remove<List<Os...,T>,From-1,To-1,Ts...>{};
+		template<typename... Os, int To, typename T, typename... Ts>
+		struct Remove<List<Os...>,0,To,T,Ts...> : Remove<List<Os...>,0,To-1,Ts...>{};
+		template<typename... Os, typename T, typename... Ts>
+		struct Remove<List<Os...>,0,0,T,Ts...> : List<Os...,T,Ts...>{};
+		template<typename... Os>
+		struct Remove<List<Os...>,0,0> : List<Os...>{};
 
 	}
 
@@ -156,14 +151,25 @@ namespace MPL {
 
 	//works like PHP explode, splits a list into a list of lists devided by a user provided delimiter
 	template<typename TList, typename TDelim>
-	struct Explode {
+	struct Split {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename... Ts, typename TDelim>
-	struct Explode<List<Ts...>,TDelim> : Detail::Explode<List<>, List<>,TDelim,Ts...>{};
+	struct Split<List<Ts...>,TDelim> : Detail::Split<List<>, List<>,TDelim,Ts...>{};
 
 	template<typename TList, typename TDelim>
-	using ExplodeT = typename Explode<TList,TDelim>::Type;
+	using SplitT = typename Split<TList,TDelim>::Type;
+
+	//works like PHP implode, merges a list of lists into a list divided by a user provided delimiter
+	template<typename TList, typename TDelim>
+	struct Join {
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<typename... Ts, typename TDelim>
+	struct Join<List<Ts...>,TDelim> : Detail::Join<List<>, List<>,TDelim,Ts...>{};
+
+	template<typename TList, typename TDelim>
+	using JoinT = typename Join<TList,TDelim>::Type;
 
 	//if a type is a list of types it will successively be unpacked into the enclosing list
 	template<typename TList>
@@ -175,17 +181,6 @@ namespace MPL {
 	};
 	template<typename TList>
 	using FlattenT = typename Flatten<TList>::Type;
-
-	//slit a list at every occurance of delimiter
-	template<typename TList, typename TDelimiter>
-	struct Split{
-		static_assert(AlwaysFalse<TList>::value,"implausible type");
-	};
-	template<typename ... Ts, typename TDelimiter>
-	struct Split<List<Ts...>,TDelimiter> : Detail::Split<TDelimiter, List<>, List<>, Ts...> {
-	};
-	template<typename TList,typename TDelimiter>
-	using SplitT = typename Split<TList,TDelimiter>::Type;
 
 	//Sort
 	template<typename TList, typename TPred = LessP>
@@ -211,7 +206,9 @@ namespace MPL {
 	using SortT = typename Sort<TList,TPred>::Type;
 
 	template<typename TList, typename TIndex>
-	struct At;
+	struct At{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
 	template<typename T, typename...Ts, int I>
 	struct At<List<T, Ts...>,Int<I>> : At<List<Ts...>,Int<I-1>>{};
 	template<typename T, typename... Ts>
@@ -220,12 +217,16 @@ namespace MPL {
 	using AtT = typename At<TList,TIndex>::Type;
 
 	template<typename TList, typename TFrom, typename TTo>
-	struct Remove;
-	template<typename... Ts, int F, int T>
-	struct Remove<List<Ts...>,Int<F>,Int<T>> : Detail::Remove<List<>,F,T,Ts...>{};
+	struct Remove{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<typename T, typename... Ts, int From, int To>
+	struct Remove<List<T, Ts...>,Int<From>,Int<To>> : Detail::Remove<List<>,From,To,T,Ts...>{};
 
 	template<typename TList,typename TFrom, typename TTo>
 	using RemoveT = typename Remove<TList,TFrom,TTo>::Type;
+
+
 
 }
 }
