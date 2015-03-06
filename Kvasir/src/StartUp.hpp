@@ -57,7 +57,7 @@ namespace Startup{
 			List<Os...>,List<Ts...>>{};
 		template<typename... Os, typename... Ts>
 		struct Merge<List<Os...>,List<Ts...>> : Merge<
-			List<Os...,FlattenT<List<At<Ts,Int<0>>...>>>,
+			List<Os...,FlattenT<List<AtT<Ts,Int<0>>...>>>,
 			List<RemoveT<Ts,Int<0>,Int<1>>...>>{};
 		template<typename... Os>
 		struct Merge<List<Os...>,List<>> : List<Os...>{};
@@ -93,11 +93,15 @@ namespace Startup{
 
 	template<typename...Ts>
 	struct GetInit {
+		//make list of lists of actions corresponding to each sequence for each module
 		using FlattenedSequencePieces = MPL::List<
 				MPL::SplitT<MPL::FlattenT<typename Detail::GetInit<Ts>::Type>,Register::SequencePoint>...
 				>;
+		//sort lists by length
 		using Sorted = MPL::SortT<FlattenedSequencePieces,Detail::ListLengthLessP>;
-		using Type = typename Detail::Merge<MPL::List<>,Sorted>::Type;
+		//merge lists
+		using MergedSequencePieces = typename Detail::Merge<MPL::List<>,Sorted>::Type;
+		using Type = MPL::JoinT<MergedSequencePieces,Register::SequencePoint>;
 	};
 	template<typename...Ts>
 	using GetInitT = typename GetInit<Ts...>::Type;

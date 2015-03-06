@@ -166,7 +166,7 @@ namespace MPL {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename... Ts, typename TDelim>
-	struct Join<List<Ts...>,TDelim> : Detail::Join<List<>, List<>,TDelim,Ts...>{};
+	struct Join<List<Ts...>,TDelim> : Detail::Join<List<>,TDelim,Ts...>{};
 
 	template<typename TList, typename TDelim>
 	using JoinT = typename Join<TList,TDelim>::Type;
