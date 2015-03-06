@@ -37,8 +37,7 @@ int main(){
 	while(1);
 	return 0;
 }
-
-
-KVASIR_START(Timer,Led)
+using Clock = Kvasir::ClockInitializationRawMode<3,1>;
+KVASIR_START(Clock,Timer,Led)
 
 

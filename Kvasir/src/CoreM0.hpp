@@ -2,6 +2,7 @@
 #include "CoreCommon.hpp"
 #include "Gpio.hpp"
 #include "Register.hpp"
+#include "Tags.hpp"
 
 namespace Kvasir{
 namespace Core{
@@ -125,5 +126,105 @@ namespace Core{
 		using SetR3ValueT = Register::BlindWriteActionT<baseAddress + 0x24,0xFFFFFFFF,I>;
 
 
+	};
+	namespace PowerConfiguration {
+		constexpr int address{0x40048238};
+		using IrcOscilatorOutputOn = Register::WriteBitActionT<address,0,true>;
+		constexpr IrcOscilatorOutputOn ircOscilatorOutputOn;
+		using IrcOscilatorOutputOff = Register::WriteBitActionT<address,0,false>;
+		constexpr IrcOscilatorOutputOff ircOscilatorOutputOff;
+		using IrcOscilatorOn = Register::WriteBitActionT<address,1,true>;
+		constexpr IrcOscilatorOn ircOscilatorOn;
+		using IrcOscilatorOff = Register::WriteBitActionT<address,1,false>;
+		constexpr IrcOscilatorOff ircOscilatorOff;
+		using FlashOn = Register::WriteBitActionT<address,2,true>;
+		constexpr FlashOn flashOn;
+		using FlashOff = Register::WriteBitActionT<address,2,false>;
+		constexpr FlashOff flashOff;
+		using BrownOutDetectOn = Register::WriteBitActionT<address,3,true>;
+		constexpr BrownOutDetectOn brownOutDetectOn;
+		using BrownOutDetectOff = Register::WriteBitActionT<address,3,false>;
+		constexpr BrownOutDetectOff brownOutDetectOff;
+		using AdcOn = Register::WriteBitActionT<address,4,true>;
+		constexpr AdcOn adcOn;
+		using AdcOff = Register::WriteBitActionT<address,4,false>;
+		constexpr AdcOff adcOff;
+		using CrystalOscilatorOn = Register::WriteBitActionT<address,5,true>;
+		constexpr CrystalOscilatorOn crystalOscilatorOn;
+		using CrystalOscilatorOff = Register::WriteBitActionT<address,5,false>;
+		constexpr CrystalOscilatorOff crystalOscilatorOff;
+		using WatchdogOscilatorOn = Register::WriteBitActionT<address,6,true>;
+		constexpr WatchdogOscilatorOn watchdogOscilatorOn;
+		using WatchdogOscilatorOff = Register::WriteBitActionT<address,6,false>;
+		constexpr WatchdogOscilatorOff watchdogOscilatorOff;
+		using SystemPllOn = Register::WriteBitActionT<address,7,true>;
+		constexpr SystemPllOn systemPllOn;
+		using SystemPllOff = Register::WriteBitActionT<address,7,false>;
+		constexpr SystemPllOff systemPllOff;
+		using UsbPllOn = Register::WriteBitActionT<address,8,true>;
+		constexpr UsbPllOn usbPllOn;
+		using UsbPllOff = Register::WriteBitActionT<address,8,false>;
+		constexpr UsbPllOff usbPllOff;
+		using UsbTransceiverOn = Register::WriteBitActionT<address,10,true>;
+		constexpr UsbTransceiverOn usbTransceiverOn;
+		using UsbTransceiverOff = Register::WriteBitActionT<address,10,false>;
+		constexpr UsbTransceiverOff usbTransceiverOff;
+		using TemperaturSensorOn = Register::WriteBitActionT<address,13,true>;
+		constexpr TemperaturSensorOn temperaturSensorOn;
+		using TemperaturSensorOff = Register::WriteBitActionT<address,13,false>;
+		constexpr TemperaturSensorOff temperaturSensorOff;
+	}
+	namespace SystemPllClock{
+		constexpr int address{0x40048040};
+		using InternalRc = Register::WriteActionT<address,0x03,0x00>;
+		constexpr InternalRc internalRc;
+		using SystemOscilator = Register::WriteActionT<address,0x03,0x01>;
+		constexpr SystemOscilator systemOscilator;
+		using Clock32khz = Register::WriteActionT<address,0x03,0x03>;
+		constexpr Clock32khz clock32khz;
+
+		using SourceUpdate = Register::WriteBitActionT<address+4,0,true>;
+		constexpr SourceUpdate sourceUpdate;
+		using SourceSame = Register::WriteBitActionT<address+4,0,false>;
+		constexpr SourceSame sourceSame;
+	}
+	namespace MainClock{
+		constexpr int address{0x40048070};
+		using InternalRc = Register::WriteActionT<address,0x03,0x00>;
+		constexpr InternalRc internalRc;
+		using PllInput = Register::WriteActionT<address,0x03,0x01>;
+		constexpr PllInput pllInput;
+		using WatchdogOscilator = Register::WriteActionT<address,0x03,0x02>;
+		constexpr WatchdogOscilator watchdogOscilator;
+		using PllOutput = Register::WriteActionT<address,0x03,0x03>;
+		constexpr PllOutput pllOutput;
+
+		using SourceUpdate = Register::WriteBitActionT<address+4,0,true>;
+		constexpr SourceUpdate sourceUpdate;
+		using SourceSame = Register::WriteBitActionT<address+4,0,false>;
+		constexpr SourceSame sourceSame;
+	}
+	namespace FlashConfiguration{
+		constexpr int address{0x4003C010};
+		using OneSysclock = Register::WriteActionT<address,0x03,0x00>;
+		constexpr OneSysclock oneSysclock;
+		using TwoSysclock = Register::WriteActionT<address,0x03,0x01>;
+		constexpr TwoSysclock twoSysclock;
+	}
+	template<int I, int J>
+	struct ClockInitializationRawMode{
+		void operator()(){
+			Register::apply(PowerConfiguration::ircOscilatorOn);
+			Register::apply(SystemPllClock::internalRc);
+			Register::apply(SystemPllClock::sourceUpdate);
+			Register::apply(PowerConfiguration::systemPllOff);
+			*(int*)0x40048008 = (I & 0x1F) | ((J & 0x3) << 5);  	//TODO make register abstraction
+			Register::apply(PowerConfiguration::systemPllOn);
+			while((*(int*)0x4004800C & 1) == 0){}						//TODO make register abstraction
+			*(int*) 0x40048078 = 1;
+			Register::apply(MainClock::pllOutput);
+			Register::apply(MainClock::sourceSame);
+			Register::apply(MainClock::sourceUpdate);
+		}
 	};
 }

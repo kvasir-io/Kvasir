@@ -129,8 +129,9 @@ struct VoidFunction0{
 
 extern void (* const g_pfnVectors[])(void);
 
-#define KVASIR_START(...) \
+#define KVASIR_START(InitFunctor,...) \
 	void _kvasirInit(){ \
+		InitFunctor{}();\
 		using RegInit = ::Kvasir::Startup::GetInitT< __VA_ARGS__ >;\
 		::Kvasir::Register::apply<RegInit>(); \
 	} \
