@@ -1,6 +1,7 @@
 #pragma once
 #include "Register.hpp"
 #include "Gpio.hpp"
+#include "CoreM0.hpp"
 
 #define LPC11U68_BOARD
 //#define LPC1968_BOARD
