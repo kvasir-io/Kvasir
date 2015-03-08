@@ -251,8 +251,8 @@ namespace Core{
 			for (loop = 0; loop < len; loop = loop + 4)
 				*pulDest++ = 0;
 		}
-		template<>
-		struct FirstInitStep<Tag::User>{
+		template<typename... Ts>
+		struct FirstInitStep<Tag::User, Ts...>{
 			void operator()(){
 			    // Optionally enable RAM banks that may be off by default at reset
 			#if !defined (DONT_ENABLE_DISABLED_RAMBANKS)
