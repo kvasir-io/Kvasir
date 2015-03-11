@@ -27,12 +27,12 @@ namespace Startup{
 		template<int I>
 		struct HasThisIsr {
 			template<typename T>
-			struct Apply : HasThisIsrHelper<T,Interrupt::Type<I>>::Type {};
+			struct Apply : HasThisIsrHelper<T,Nvic::Type<I>>::Type {};
 		};
 		template<int I, typename TList, int Index>
 		struct GetIsrPointerHelper : MPL::At<TList,Int<Index>>::IsrFunction{};
 		template<int I, typename TList>
-		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Interrupt::UnusedIsr{};
+		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Nvic::UnusedIsr{};
 		template<int I, typename TList>
 		struct GetIsrPointer : GetIsrPointerHelper<I,TList,Find<TList,Template<HasThisIsr<I>::template Apply>>::value>{};
 		template<int I, typename TList, typename TModList>
@@ -70,22 +70,22 @@ namespace Startup{
 	struct GetIsrPointers : Detail::CompileIsrPointerList<
 		0,
 		MPL::List<
-			Interrupt::IsrFunction<&_vStackTop>,
-			Interrupt::IsrFunction<ResetISR>,
-			Interrupt::IsrFunction<nullptr>,  	//TODO give user the ability to change these
-			Interrupt::IsrFunction<nullptr>,	//and use defaults based on traits from the CoreMX.hpp used
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>,
-			Interrupt::IsrFunction<nullptr>
+			Nvic::IsrFunction<&_vStackTop>,
+			Nvic::IsrFunction<ResetISR>,
+			Nvic::IsrFunction<nullptr>,  	//TODO give user the ability to change these
+			Nvic::IsrFunction<nullptr>,	//and use defaults based on traits from the CoreMX.hpp used
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>,
+			Nvic::IsrFunction<nullptr>
 		>,
 		MPL::List<Ts...>
 		>{};

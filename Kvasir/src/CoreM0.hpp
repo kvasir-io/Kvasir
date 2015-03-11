@@ -8,7 +8,7 @@ namespace Kvasir{
 namespace Core{
 	namespace Interrupt{
 		template<int I>
-		using Type = ::Kvasir::Interrupt::Type<I>;
+		using Type = ::Kvasir::Nvic::Type<I>;
 		using PinInterrupt0 = Type<0>;
 		using PinInterrupt1 = Type<1>;
 		using PinInterrupt2 = Type<2>;
@@ -188,6 +188,110 @@ namespace Core{
 		using SourceSame = Register::WriteBitActionT<address+4,0,false>;
 		constexpr SourceSame sourceSame;
 	}
+	namespace SystemClockControl{			//SYSAHBCLKCTRL register actions
+		constexpr int address{0x40048080};
+		//bit 0 is sys which is always on
+		using RomClockOn = Register::WriteBitActionT<address,1,true>;
+		constexpr RomClockOn romClockOn;
+		using RomClockOff = Register::WriteBitActionT<address,1,false>;
+		constexpr RomClockOff romClockOff;
+		using Ram0ClockOn = Register::WriteBitActionT<address,2,true>;
+		constexpr Ram0ClockOn ram0ClockOn;
+		using Ram0ClockOff = Register::WriteBitActionT<address,2,false>;
+		constexpr Ram0ClockOff ram0ClockOff;
+		using FlashRegClockOn = Register::WriteBitActionT<address,3,true>;
+		constexpr FlashRegClockOn flashRegClockOn;
+		using FlashRegClockOff = Register::WriteBitActionT<address,3,false>;
+		constexpr FlashRegClockOff flashRegClockOff;
+		using FlashArrayClockOn = Register::WriteBitActionT<address,4,true>;
+		constexpr FlashArrayClockOn flashArrayClockOn;
+		using FlashArrayClockOff = Register::WriteBitActionT<address,4,false>;
+		constexpr FlashArrayClockOff flashArrayClockOff;
+		using I2C0ClockOn = Register::WriteBitActionT<address,5,true>;
+		constexpr I2C0ClockOn i2C0ClockOn;
+		using I2C0ClockOff = Register::WriteBitActionT<address,5,false>;
+		constexpr I2C0ClockOff i2C0ClockOff;
+		using GpioClockOn = Register::WriteBitActionT<address,6,true>;
+		constexpr GpioClockOn gpioClockOn;
+		using GpioClockOff = Register::WriteBitActionT<address,6,false>;
+		constexpr GpioClockOff gpioClockOff;
+		using Ct16B0ClockOn = Register::WriteBitActionT<address,7,true>;
+		constexpr Ct16B0ClockOn ct16B0ClockOn;
+		using Ct16B0ClockOff = Register::WriteBitActionT<address,7,false>;
+		constexpr Ct16B0ClockOff ct16B0ClockOff;
+		using Ct16B1ClockOn = Register::WriteBitActionT<address,8,true>;
+		constexpr Ct16B1ClockOn ct16B1ClockOn;
+		using Ct16B1ClockOff = Register::WriteBitActionT<address,8,false>;
+		constexpr Ct16B0ClockOff ct16B1ClockOff;
+		using SourceUpdate = Register::WriteBitActionT<address,8,true>;
+		constexpr SourceUpdate sourceUpdate;
+		using Ct32B0ClockOn = Register::WriteBitActionT<address,9,true>;
+		constexpr Ct32B0ClockOn ct32B0ClockOn;
+		using Ct32B0ClockOff = Register::WriteBitActionT<address,9,false>;
+		constexpr Ct32B0ClockOff ct32B0ClockOff;
+		using Ct32B1ClockOn = Register::WriteBitActionT<address,10,true>;
+		constexpr Ct32B1ClockOn ct32B1ClockOn;
+		using Ct32B1ClockOff = Register::WriteBitActionT<address,10,false>;
+		constexpr Ct32B0ClockOff ct32B1ClockOff;
+		using Ssp0ClockOn = Register::WriteBitActionT<address,11,true>;
+		constexpr Ssp0ClockOn ssp0ClockOn;
+		using Ssp0ClockOff = Register::WriteBitActionT<address,11,false>;
+		constexpr Ssp0ClockOff ssp0ClockOff;
+		using Usart0ClockOn = Register::WriteBitActionT<address,12,true>;
+		constexpr Usart0ClockOn usart0ClockOn;
+		using Usart0ClockOff = Register::WriteBitActionT<address,12,false>;
+		constexpr Usart0ClockOff usart0ClockOff;
+		using AdcClockOn = Register::WriteBitActionT<address,13,true>;
+		constexpr AdcClockOn adcClockOn;
+		using AdcClockOff = Register::WriteBitActionT<address,13,false>;
+		constexpr AdcClockOff adcClockOff;
+		using UsbClockOn = Register::WriteBitActionT<address,14,true>;
+		constexpr UsbClockOn usbClockOn;
+		using UsbClockOff = Register::WriteBitActionT<address,14,false>;
+		constexpr UsbClockOff usbClockOff;
+		using WwdtClockOn = Register::WriteBitActionT<address,15,true>;
+		constexpr WwdtClockOn wwdtClockOn;
+		using WwdtClockOff = Register::WriteBitActionT<address,15,false>;
+		constexpr WwdtClockOff wwdtClockOff;
+		using IoconClockOn = Register::WriteBitActionT<address,16,true>;
+		constexpr IoconClockOn ioconClockOn;
+		using IoconClockOff = Register::WriteBitActionT<address,16,false>;
+		constexpr IoconClockOff ioconClockOff;
+		//17 reserved
+		using Ssp1ClockOn = Register::WriteBitActionT<address,18,true>;
+		constexpr Ssp1ClockOn ssp1ClockOn;
+		using Ssp1ClockOff = Register::WriteBitActionT<address,18,false>;
+		constexpr Ssp1ClockOff ssp1ClockOff;
+		using PintCLockOn = Register::WriteBitActionT<address,19,true>;
+		constexpr PintCLockOn pintCLockOn;
+		using PintCLockOff = Register::WriteBitActionT<address,19,false>;
+		constexpr PintCLockOff pintCLockOff;
+		using Usart1ClockOn = Register::WriteBitActionT<address,20,true>;
+		constexpr Usart1ClockOn usart1ClockOn;
+		using Usart1ClockOff = Register::WriteBitActionT<address,20,false>;
+		constexpr Usart1ClockOff usart1ClockOff;
+		using Usart2ClockOn = Register::WriteBitActionT<address,21,true>;
+		constexpr Usart2ClockOn usart2ClockOn;
+		using Usart2ClockOff = Register::WriteBitActionT<address,21,false>;
+		constexpr Usart2ClockOff usart2ClockOff;
+		using Usart3And4ClockOn = Register::WriteBitActionT<address,22,true>;
+		constexpr Usart3And4ClockOn usart3And4ClockOn;
+		using Usart3And4ClockOff = Register::WriteBitActionT<address,22,false>;
+		constexpr Usart3And4ClockOff usart3And4ClockOff;
+		using Group0IntClockOn = Register::WriteBitActionT<address,23,true>;
+		constexpr Group0IntClockOn group0IntClockOn;
+		using Group0IntClockOff = Register::WriteBitActionT<address,23,false>;
+		constexpr Group0IntClockOff group0IntClockOff;
+		using Group1IntClockOn = Register::WriteBitActionT<address,24,true>;
+		constexpr Group1IntClockOn group1IntClockOn;
+		using Group1IntClockOff = Register::WriteBitActionT<address,24,false>;
+		constexpr Group1IntClockOff group1IntClockOff;
+		using I2C1ClockOn = Register::WriteBitActionT<address,25,true>;
+		constexpr I2C1ClockOn i2C1ClockOn;
+		using I2C1ClockOff = Register::WriteBitActionT<address,25,false>;
+		constexpr I2C1ClockOff i2C1ClockOff;
+		//TODO implement rest
+	}
 	namespace MainClock{
 		constexpr int address{0x40048070};
 		using InternalRc = Register::WriteActionT<address,0x03,0x00>;
@@ -215,6 +319,8 @@ namespace Core{
 	struct ClockInitializationRawMode{
 		void operator()(){
 			Register::apply(PowerConfiguration::ircOscilatorOn);
+			/* Wait for at least 580uS for osc to stabilize */
+			for (int i = 0; i < 2500; i++) {}
 			Register::apply(SystemPllClock::internalRc);
 			Register::apply(SystemPllClock::sourceUpdate);
 			Register::apply(PowerConfiguration::systemPllOff);
@@ -254,12 +360,12 @@ namespace Core{
 		template<typename... Ts>
 		struct FirstInitStep<Tag::User, Ts...>{
 			void operator()(){
-			    // Optionally enable RAM banks that may be off by default at reset
-			#if !defined (DONT_ENABLE_DISABLED_RAMBANKS)
-			    volatile unsigned int *SYSCON_SYSAHBCLKCTRL = (unsigned int *) 0x40048080;
-			    // Ensure that RAM1(26) and USBSRAM(27) bits in SYSAHBCLKCTRL are set
-			    *SYSCON_SYSAHBCLKCTRL |= (1 << 26) | (1 <<27);
-			#endif
+
+				// enable RAM banks that may be off by default at reset
+				volatile unsigned int *SYSCON_SYSAHBCLKCTRL = (unsigned int *) 0x40048080;
+				// Ensure that RAM1(26) and USBSRAM(27) bits in SYSAHBCLKCTRL are set
+				*SYSCON_SYSAHBCLKCTRL |= (1 << 26) | (1 <<27);
+
 
 			    // Copy the data sections from flash to SRAM.
 			    unsigned int LoadAddr, ExeAddr, SectionLen;
