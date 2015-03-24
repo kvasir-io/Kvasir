@@ -3,6 +3,7 @@
 #include "Interrupt.hpp"
 #include "Register.hpp"
 #include "Tags.hpp"
+#include "SystemClock.hpp"
 
 // The entry point for the C++ library startup
 extern "C" {
@@ -130,9 +131,9 @@ struct VoidFunction0{
 
 extern void (* const g_pfnVectors[])(void);
 
-#define KVASIR_START(InitFunctor,...) \
+#define KVASIR_START(...) \
+	void KVASIR_START_must_only_be_defined_once_and_KVASIR_CLOCK_must_be_the_same_type_in_all_units(typename KvasirSystemClock<Kvasir::Tag::User>::Type){} \
 	void _kvasirInit(){ \
-		InitFunctor{}();\
 		using RegInit = ::Kvasir::Startup::GetInitT< __VA_ARGS__ >;\
 		::Kvasir::Register::apply<RegInit>(); \
 	} \
@@ -200,6 +201,7 @@ void ResetISR(void) {\
 	Kvasir::Startup::FirstInitStep<Kvasir::Tag::User>{}();\
     /* Call C++ library initialisation */ \
     __libc_init_array(); \
+    KvasirSystemClock<Kvasir::Tag::User>::Type{}();\
     _kvasirInit(); \
     main(); \
     /* block if main() returns */ \

@@ -318,15 +318,20 @@ namespace Core{
 	template<int I, int J>
 	struct ClockInitializationRawMode{
 		void operator()(){
-			Register::apply(PowerConfiguration::ircOscilatorOn);
+			Register::apply(SystemClockControl::gpioClockOn);
+
+			Register::apply(PowerConfiguration::crystalOscilatorOn);
 			/* Wait for at least 580uS for osc to stabilize */
 			for (int i = 0; i < 2500; i++) {}
-			Register::apply(SystemPllClock::internalRc);
+			Register::apply(SystemPllClock::systemOscilator);
+			Register::apply(SystemPllClock::sourceSame);
 			Register::apply(SystemPllClock::sourceUpdate);
+			Register::apply(FlashConfiguration::twoSysclock);
+
 			Register::apply(PowerConfiguration::systemPllOff);
-			*(int*)0x40048008 = (I & 0x1F) | ((J & 0x3) << 5);  	//TODO make register abstraction
+			(*(int*)0x40048008) = (I & 0x1F) | ((J & 0x3) << 5);  	//TODO make register abstraction
 			Register::apply(PowerConfiguration::systemPllOn);
-			while((*(int*)0x4004800C & 1) == 0){}						//TODO make register abstraction
+			while(((*(int*)0x4004800C) & 1) == 0){}						//TODO make register abstraction
 			*(int*) 0x40048078 = 1;
 			Register::apply(MainClock::pllOutput);
 			Register::apply(MainClock::sourceSame);
