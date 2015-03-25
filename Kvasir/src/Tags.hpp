@@ -2,6 +2,7 @@
 
 namespace Kvasir{
 namespace Tag {
+	struct User {};
 	namespace ADC {
 	struct Channel{};
 	struct Channel0 : Channel{};

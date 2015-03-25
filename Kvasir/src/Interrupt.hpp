@@ -6,7 +6,7 @@
 #pragma once
 
 namespace Kvasir{
-namespace Interrupt{
+namespace Nvic{
 	using IsrFunctionPointer = void(*)(void);
 
 	//type wrapper around a function pointer

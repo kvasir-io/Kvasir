@@ -1,6 +1,8 @@
 #pragma once
 #include "Register.hpp"
 #include "Gpio.hpp"
+#include "CoreM0.hpp"
+#include "SystemClock.hpp"
 
 #define LPC11U68_BOARD
 //#define LPC1968_BOARD
@@ -26,5 +28,8 @@ namespace Hardware{
 
 #endif
 #endif
-
+	using Clock = Kvasir::ClockInitializationRawMode<3,1>;
 }
+
+KVASIR_CLOCK(Hardware::Clock)
+

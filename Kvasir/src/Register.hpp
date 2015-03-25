@@ -42,7 +42,7 @@ namespace Kvasir {
 		template<int Address,int Mask, int Data>
 		using WriteActionT = Action<WriteAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
 		template<int Address,int Offset, bool Data>
-		using WriteBitActionT = Action<WriteAddress<Address>,MPL::Int<(1<<Offset)>,MPL::Int<Data>>;
+		using WriteBitActionT = Action<WriteAddress<Address>,MPL::Int<(1<<Offset)>,MPL::Int<(Data<<Offset)>>;
 
 		template<int Address,int Mask, int Data>
 		using BlindWriteActionT = Action<WriteOnlyAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
@@ -58,25 +58,25 @@ namespace Kvasir {
 			struct RegisterActionLess< Register::Action<TA1,TC1,TS1>, Register::Action<TA2,TC2,TS2> > : Bool<(TA1::value < TA2::value)>{};
 			using RegisterActionLessP = Template<RegisterActionLess>;
 
-			template<typename TRegisterOption>
+			template<typename TRegisterAction>
 			struct WriteRegister;
 
-			template<int A, int S, int C>
-			struct WriteRegister<Register::Action<WriteAddress<A>,Int<S>,Int<C>>>{
+			template<int A, int Mask, int Data>
+			struct WriteRegister<Register::Action<WriteAddress<A>,Int<Mask>,Int<Data>>>{
 				int operator()(){
 					auto& reg = *(volatile int*)A;
 					auto i = reg;
-					i &= ~C;
-					i |= S;
+					i &= ~Mask;
+					i |= Data;
 					reg = i;
 					return 0;
 				}
 			};
-			template<int A, int S, int C>
-			struct WriteRegister<Register::Action<WriteOnlyAddress<A>,Int<S>,Int<C>>>{
+			template<int A, int Mask, int Data>
+			struct WriteRegister<Register::Action<WriteOnlyAddress<A>,Int<Mask>,Int<Data>>>{
 				int operator()(){
 					auto& reg = *(volatile int*)A;
-					reg = S;
+					reg = Data;
 					return 0;
 				}
 			};
