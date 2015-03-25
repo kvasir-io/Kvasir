@@ -43,5 +43,6 @@ using FlatTree = FlattenT<TestTree>;
 static_assert(IsSame<Test,FlatTree>::value,"");
 
 
-
+constexpr StrConst s{"blah"};
+static_assert(s[1] == 'l',"");
 

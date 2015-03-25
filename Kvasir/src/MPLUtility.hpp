@@ -115,4 +115,17 @@ namespace Kvasir {
 	struct DeriveFromTemplates<List<Ts...>, Us...> : ApplyTemplateT<Ts, Us...> ... {
 	};
 	}
+
+	class StrConst {
+		// constexpr string
+		private:
+		const char* const p_;
+		const int sz_;
+		public:
+		template<int N> constexpr StrConst(const char(&a)[N]) : p_(a), sz_(N-1) {}
+		constexpr char operator[](int n) {
+			return n < sz_ ? p_[n] : '\n';
+		}
+		constexpr int size() { return sz_; }
+	};
 }
