@@ -176,6 +176,7 @@ namespace Kvasir {
 			using EnumConversionP = GenericConversion<TEnum,int>;
 			using IntConversionP = GenericConversion<int,int>;
 			using CharConversionP = GenericConversion<char,char>;
+			using BoolConversionP = GenericConversion<bool,int>;
 			using ReadableP = MPL::Template<Readable>;
 			using ClearOnReadP = MPL::Template<ClearOnRead>;
 			using PopableP = MPL::Template<Popable>;

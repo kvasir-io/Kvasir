@@ -129,49 +129,49 @@ namespace Core{
 	};
 	namespace PowerConfiguration {
 		constexpr int address{0x40048238};
-		using IrcOscilatorOutputOn = Register::WriteBitActionT<address,0,true>;
+		using IrcOscilatorOutputOn = Register::WriteBitActionT<address,0,false>;
 		constexpr IrcOscilatorOutputOn ircOscilatorOutputOn;
-		using IrcOscilatorOutputOff = Register::WriteBitActionT<address,0,false>;
+		using IrcOscilatorOutputOff = Register::WriteBitActionT<address,0,true>;
 		constexpr IrcOscilatorOutputOff ircOscilatorOutputOff;
-		using IrcOscilatorOn = Register::WriteBitActionT<address,1,true>;
+		using IrcOscilatorOn = Register::WriteBitActionT<address,1,false>;
 		constexpr IrcOscilatorOn ircOscilatorOn;
-		using IrcOscilatorOff = Register::WriteBitActionT<address,1,false>;
+		using IrcOscilatorOff = Register::WriteBitActionT<address,1,true>;
 		constexpr IrcOscilatorOff ircOscilatorOff;
-		using FlashOn = Register::WriteBitActionT<address,2,true>;
+		using FlashOn = Register::WriteBitActionT<address,2,false>;
 		constexpr FlashOn flashOn;
-		using FlashOff = Register::WriteBitActionT<address,2,false>;
+		using FlashOff = Register::WriteBitActionT<address,2,true>;
 		constexpr FlashOff flashOff;
-		using BrownOutDetectOn = Register::WriteBitActionT<address,3,true>;
+		using BrownOutDetectOn = Register::WriteBitActionT<address,3,false>;
 		constexpr BrownOutDetectOn brownOutDetectOn;
-		using BrownOutDetectOff = Register::WriteBitActionT<address,3,false>;
+		using BrownOutDetectOff = Register::WriteBitActionT<address,3,true>;
 		constexpr BrownOutDetectOff brownOutDetectOff;
-		using AdcOn = Register::WriteBitActionT<address,4,true>;
+		using AdcOn = Register::WriteBitActionT<address,4,false>;
 		constexpr AdcOn adcOn;
-		using AdcOff = Register::WriteBitActionT<address,4,false>;
+		using AdcOff = Register::WriteBitActionT<address,4,true>;
 		constexpr AdcOff adcOff;
-		using CrystalOscilatorOn = Register::WriteBitActionT<address,5,true>;
+		using CrystalOscilatorOn = Register::WriteBitActionT<address,5,false>;
 		constexpr CrystalOscilatorOn crystalOscilatorOn;
-		using CrystalOscilatorOff = Register::WriteBitActionT<address,5,false>;
+		using CrystalOscilatorOff = Register::WriteBitActionT<address,5,true>;
 		constexpr CrystalOscilatorOff crystalOscilatorOff;
-		using WatchdogOscilatorOn = Register::WriteBitActionT<address,6,true>;
+		using WatchdogOscilatorOn = Register::WriteBitActionT<address,6,false>;
 		constexpr WatchdogOscilatorOn watchdogOscilatorOn;
-		using WatchdogOscilatorOff = Register::WriteBitActionT<address,6,false>;
+		using WatchdogOscilatorOff = Register::WriteBitActionT<address,6,true>;
 		constexpr WatchdogOscilatorOff watchdogOscilatorOff;
-		using SystemPllOn = Register::WriteBitActionT<address,7,true>;
+		using SystemPllOn = Register::WriteBitActionT<address,7,false>;
 		constexpr SystemPllOn systemPllOn;
-		using SystemPllOff = Register::WriteBitActionT<address,7,false>;
+		using SystemPllOff = Register::WriteBitActionT<address,7,true>;
 		constexpr SystemPllOff systemPllOff;
-		using UsbPllOn = Register::WriteBitActionT<address,8,true>;
+		using UsbPllOn = Register::WriteBitActionT<address,8,false>;
 		constexpr UsbPllOn usbPllOn;
-		using UsbPllOff = Register::WriteBitActionT<address,8,false>;
+		using UsbPllOff = Register::WriteBitActionT<address,8,true>;
 		constexpr UsbPllOff usbPllOff;
-		using UsbTransceiverOn = Register::WriteBitActionT<address,10,true>;
+		using UsbTransceiverOn = Register::WriteBitActionT<address,10,false>;
 		constexpr UsbTransceiverOn usbTransceiverOn;
-		using UsbTransceiverOff = Register::WriteBitActionT<address,10,false>;
+		using UsbTransceiverOff = Register::WriteBitActionT<address,10,true>;
 		constexpr UsbTransceiverOff usbTransceiverOff;
-		using TemperaturSensorOn = Register::WriteBitActionT<address,13,true>;
+		using TemperaturSensorOn = Register::WriteBitActionT<address,13,false>;
 		constexpr TemperaturSensorOn temperaturSensorOn;
-		using TemperaturSensorOff = Register::WriteBitActionT<address,13,false>;
+		using TemperaturSensorOff = Register::WriteBitActionT<address,13,true>;
 		constexpr TemperaturSensorOff temperaturSensorOff;
 	}
 
@@ -287,12 +287,16 @@ namespace Core{
 		using XtaloutOscilatorMode = Register::WriteActionT<ioconAddress+4,0x07,0x01>;
 		using XtalinPullUpInactive = Register::WriteActionT<ioconAddress,0x18,0x00>;
 		using XtaloutPullUpInactive = Register::WriteActionT<ioconAddress+4,0x18,0x00>;
+		using XtalinAnalogMode = Register::WriteBitActionT<ioconAddress,7,false>;
+		using XtaloutAnalogMode = Register::WriteBitActionT<ioconAddress+4,7,false>;
 	public:
 		using ExternalCrystalInit = MPL::List<SystemClockControl::IoconClockOn,Register::SequencePoint,
 				XtalinOscilatorMode,
 				XtaloutOscilatorMode,
 				XtalinPullUpInactive,
-				XtaloutPullUpInactive>;
+				XtaloutPullUpInactive,
+				XtalinAnalogMode,
+				XtaloutAnalogMode>;
 		static constexpr ExternalCrystalInit externalCrystalInit{};
 		static constexpr PowerConfiguration::CrystalOscilatorOn crystalOscilatorPowerOn{};
 		static constexpr PowerConfiguration::SystemPllOff systemPllPowerOff{};
@@ -334,6 +338,18 @@ namespace Core{
 			static constexpr SourceUpdate sourceUpdate{};
 			using SourceSame = Register::WriteBitActionT<address+4,0,false>;
 			static constexpr SourceSame sourceSame{};
+		};
+		struct SystemPLLControl{
+			enum class PostDividerRatio {div1 = 0, div2 = (1<<5), div4 = (2<<6), div8 = (3<<7)};
+			using Address = MPL::Int<0x40048008>;
+			using FeedbackDivider = Register::Single<Address,MPL::Int<0x1F>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
+			using PostDivider = Register::Single<Address,MPL::Int<(3 << 5)>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>,Register::Policy::EnumConversionP<PostDividerRatio>>;
+		};
+		enum class SystemPllStatusOption{noLock,lock};
+		using SystemPllStatus = Register::Single<MPL::Int<0x4004800C>,MPL::Int<0x01>,Register::Policy::ReadableP,Register::Policy::EnumConversionP<SystemPllStatusOption>>;
+		struct SystemAHBClock{
+			using Address = MPL::Int<0x40048078>;
+			using Divider = Register::Single<Address,MPL::Int<0xFF>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
 		};
 	};
 
