@@ -10,10 +10,10 @@ namespace Gpio{
 		struct Clear{};
 		struct Toggle{};
 		constexpr Input input;
-		constexpr Output output;
-		constexpr Set set;
-		constexpr Clear clear;
-		constexpr Toggle toggle;
+		constexpr Output output{};
+		constexpr Set set{};
+		constexpr Clear clear{};
+		constexpr Toggle toggle{};
 	};
 
 	template<typename TPort, typename TPin>

@@ -1,16 +1,15 @@
 #pragma once
 #include "Register.hpp"
 #include "Gpio.hpp"
-#include "CoreM0.hpp"
 #include "SystemClock.hpp"
 
 #define LPC11U68_BOARD
-//#define LPC1968_BOARD
+//#define LPC1768_BOARD
 
 #ifdef LPC11U68_BOARD
 #include "CoreM0.hpp"
 #else
-#ifdef LPC1968_BOARD
+#ifdef LPC1768_BOARD
 #include "CoreM3.hpp"
 #else
 
@@ -20,10 +19,10 @@
 
 namespace Hardware{
 #ifdef LPC11U68_BOARD
-	constexpr Kvasir::Gpio::PinLocationT<2,16> ledPin;
+	constexpr Kvasir::Gpio::PinLocationT<2,16> ledPin{};
 #else
-#ifdef LPC1968_BOARD
-	constexpr Kvasir::Gpio::PinLocationT<0,6> ledPin;
+#ifdef LPC1768_BOARD
+	constexpr Kvasir::Gpio::PinLocationT<0,6> ledPin{};
 #else
 
 #endif

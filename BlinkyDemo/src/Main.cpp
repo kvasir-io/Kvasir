@@ -6,9 +6,12 @@ namespace Io = Kvasir::Gpio::Action;
 namespace M = Kvasir::MPL;
 namespace R = Kvasir::Register;
 
+const int i = 4;
+enum{e=i};
+
 class Led {
 public:
-	using Init = decltype(M::list(action(Io::output,Hardware::ledPin)));
+	static constexpr auto init = M::list(action(Io::output,Hardware::ledPin));
 	static void toggle(){
 		R::apply(action(Io::toggle,Hardware::ledPin));
 	}
@@ -16,7 +19,7 @@ public:
 
 class Timer : public Kvasir::Timer::Base<Timer,Kvasir::Timer16B0>{
 public:
-	using Init = decltype(M::list(
+	static constexpr auto init = M::list(
 			Config::clockEnable,
 			R::sequencePoint,
 			Config::MatchControl::r0InterruptEnable,
@@ -26,7 +29,7 @@ public:
 			R::sequencePoint,
 			Config::couterEnable,
 			Config::enableIrq
-			));
+			);
 	static void onMatch0(){
 		Led::toggle();
 	}

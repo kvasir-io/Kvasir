@@ -21,7 +21,7 @@ namespace Kvasir {
 
 	namespace Register{
 		struct SequencePoint{};
-		constexpr SequencePoint sequencePoint;
+		constexpr SequencePoint sequencePoint{};
 
 		template<int I>
 		struct WriteAddress{
@@ -161,7 +161,7 @@ namespace Kvasir {
 					auto maskedIn = T_ConversionPolicy::write(in) & T_Mask::value;
 					volatile typename T_ConversionPolicy::RegisterType &reg = *(typename T_ConversionPolicy::RegisterType*)T_Address::value;
 					auto tempReg = reg;
-					tempReg = tempReg & (!T_Mask::value) | maskedIn;
+					tempReg = tempReg & ((!T_Mask::value) | maskedIn);
 					reg = tempReg;
 				}
 			};

@@ -16,10 +16,12 @@ namespace Kvasir{
 namespace Startup{
 	namespace Detail{
 		using namespace MPL;
-		template<typename T, typename = void>
+		template<typename T, typename = void, typename = void>
 		struct GetInit : List<>{};
+		template<typename T, typename U>
+		struct GetInit<T,U,VoidT<typename T::Init>> : T::Init{};
 		template<typename T>
-		struct GetInit<T,VoidT<typename T::Init>> : T::Init{};
+		struct GetInit<T,void,VoidT<decltype(T::init)>> : decltype(T::init){};
 
 		template<typename T, typename U>
 		struct HasThisIsrHelper : FalseType{};
