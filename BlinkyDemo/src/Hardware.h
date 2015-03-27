@@ -28,7 +28,7 @@ namespace Hardware{
 
 #endif
 #endif
-	using Clock = Kvasir::ClockInitializationRawMode<3,1>;
+	using Clock = Kvasir::SystemClock::ExternalOsciRawSettings<Kvasir::SystemClockConfig,3,1>;
 }
 
 KVASIR_CLOCK(Hardware::Clock)

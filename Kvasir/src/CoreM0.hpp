@@ -174,20 +174,7 @@ namespace Core{
 		using TemperaturSensorOff = Register::WriteBitActionT<address,13,false>;
 		constexpr TemperaturSensorOff temperaturSensorOff;
 	}
-	namespace SystemPllClock{
-		constexpr int address{0x40048040};
-		using InternalRc = Register::WriteActionT<address,0x03,0x00>;
-		constexpr InternalRc internalRc;
-		using SystemOscilator = Register::WriteActionT<address,0x03,0x01>;
-		constexpr SystemOscilator systemOscilator;
-		using Clock32khz = Register::WriteActionT<address,0x03,0x03>;
-		constexpr Clock32khz clock32khz;
 
-		using SourceUpdate = Register::WriteBitActionT<address+4,0,true>;
-		constexpr SourceUpdate sourceUpdate;
-		using SourceSame = Register::WriteBitActionT<address+4,0,false>;
-		constexpr SourceSame sourceSame;
-	}
 	namespace SystemClockControl{			//SYSAHBCLKCTRL register actions
 		constexpr int address{0x40048080};
 		//bit 0 is sys which is always on
@@ -292,51 +279,62 @@ namespace Core{
 		constexpr I2C1ClockOff i2C1ClockOff;
 		//TODO implement rest
 	}
-	namespace MainClock{
-		constexpr int address{0x40048070};
-		using InternalRc = Register::WriteActionT<address,0x03,0x00>;
-		constexpr InternalRc internalRc;
-		using PllInput = Register::WriteActionT<address,0x03,0x01>;
-		constexpr PllInput pllInput;
-		using WatchdogOscilator = Register::WriteActionT<address,0x03,0x02>;
-		constexpr WatchdogOscilator watchdogOscilator;
-		using PllOutput = Register::WriteActionT<address,0x03,0x03>;
-		constexpr PllOutput pllOutput;
 
-		using SourceUpdate = Register::WriteBitActionT<address+4,0,true>;
-		constexpr SourceUpdate sourceUpdate;
-		using SourceSame = Register::WriteBitActionT<address+4,0,false>;
-		constexpr SourceSame sourceSame;
-	}
-	namespace FlashConfiguration{
-		constexpr int address{0x4003C010};
-		using OneSysclock = Register::WriteActionT<address,0x03,0x00>;
-		constexpr OneSysclock oneSysclock;
-		using TwoSysclock = Register::WriteActionT<address,0x03,0x01>;
-		constexpr TwoSysclock twoSysclock;
-	}
-	template<int I, int J>
-	struct ClockInitializationRawMode{
-		void operator()(){
-			Register::apply(SystemClockControl::gpioClockOn);
+	struct SystemClockConfig{
+	private:
+		static constexpr int ioconAddress = 0x400440F0;
+		using XtalinOscilatorMode = Register::WriteActionT<ioconAddress,0x07,0x01>;
+		using XtaloutOscilatorMode = Register::WriteActionT<ioconAddress+4,0x07,0x01>;
+		using XtalinPullUpInactive = Register::WriteActionT<ioconAddress,0x18,0x00>;
+		using XtaloutPullUpInactive = Register::WriteActionT<ioconAddress+4,0x18,0x00>;
+	public:
+		using ExternalCrystalInit = MPL::List<SystemClockControl::IoconClockOn,Register::SequencePoint,
+				XtalinOscilatorMode,
+				XtaloutOscilatorMode,
+				XtalinPullUpInactive,
+				XtaloutPullUpInactive>;
+		static constexpr ExternalCrystalInit externalCrystalInit{};
+		static constexpr PowerConfiguration::CrystalOscilatorOn crystalOscilatorPowerOn{};
+		static constexpr PowerConfiguration::SystemPllOff systemPllPowerOff{};
+		static constexpr PowerConfiguration::SystemPllOn systemPllPowerOn{};
 
-			Register::apply(PowerConfiguration::crystalOscilatorOn);
-			/* Wait for at least 580uS for osc to stabilize */
-			for (int i = 0; i < 2500; i++) {}
-			Register::apply(SystemPllClock::systemOscilator);
-			Register::apply(SystemPllClock::sourceSame);
-			Register::apply(SystemPllClock::sourceUpdate);
-			Register::apply(FlashConfiguration::twoSysclock);
+		struct FlashConfiguration{
+			static constexpr int address{0x4003C010};
+			using OneSysclock = Register::WriteActionT<address,0x03,0x00>;
+			static constexpr OneSysclock oneSysclock{};
+			using TwoSysclock = Register::WriteActionT<address,0x03,0x01>;
+			static constexpr TwoSysclock twoSysclock{};
+		};
+		struct MainClock{
+			static constexpr int address{0x40048070};
+			using InternalRc = Register::WriteActionT<address,0x03,0x00>;
+			static constexpr InternalRc internalRc{};
+			using PllInput = Register::WriteActionT<address,0x03,0x01>;
+			static constexpr PllInput pllInput{};
+			using WatchdogOscilator = Register::WriteActionT<address,0x03,0x02>;
+			static constexpr WatchdogOscilator watchdogOscilator{};
+			using PllOutput = Register::WriteActionT<address,0x03,0x03>;
+			static constexpr PllOutput pllOutput{};
 
-			Register::apply(PowerConfiguration::systemPllOff);
-			(*(int*)0x40048008) = (I & 0x1F) | ((J & 0x3) << 5);  	//TODO make register abstraction
-			Register::apply(PowerConfiguration::systemPllOn);
-			while(((*(int*)0x4004800C) & 1) == 0){}						//TODO make register abstraction
-			*(int*) 0x40048078 = 1;
-			Register::apply(MainClock::pllOutput);
-			Register::apply(MainClock::sourceSame);
-			Register::apply(MainClock::sourceUpdate);
-		}
+			using SourceUpdate = Register::WriteBitActionT<address+4,0,true>;
+			static constexpr SourceUpdate sourceUpdate{};
+			using SourceSame = Register::WriteBitActionT<address+4,0,false>;
+			static constexpr SourceSame sourceSame{};
+		};
+		struct SystemPllClock{
+			static constexpr int address{0x40048040};
+			using InternalRc = Register::WriteActionT<address,0x03,0x00>;
+			static constexpr InternalRc internalRc{};
+			using SystemOscilator = Register::WriteActionT<address,0x03,0x01>;
+			static constexpr SystemOscilator systemOscilator{};
+			using Clock32khz = Register::WriteActionT<address,0x03,0x03>;
+			static constexpr Clock32khz clock32khz{};
+
+			using SourceUpdate = Register::WriteBitActionT<address+4,0,true>;
+			static constexpr SourceUpdate sourceUpdate{};
+			using SourceSame = Register::WriteBitActionT<address+4,0,false>;
+			static constexpr SourceSame sourceSame{};
+		};
 	};
 
 	namespace Startup{

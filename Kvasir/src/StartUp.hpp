@@ -201,7 +201,7 @@ void ResetISR(void) {\
 	Kvasir::Startup::FirstInitStep<Kvasir::Tag::User>{}();\
     /* Call C++ library initialisation */ \
     __libc_init_array(); \
-    KvasirSystemClock<Kvasir::Tag::User>::Type{}();\
+    KvasirSystemClock<Kvasir::Tag::User>::Type::init();\
     _kvasirInit(); \
     main(); \
     /* block if main() returns */ \
