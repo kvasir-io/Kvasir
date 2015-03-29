@@ -6,9 +6,6 @@ namespace Io = Kvasir::Gpio::Action;
 namespace M = Kvasir::MPL;
 namespace R = Kvasir::Register;
 
-const int i = 4;
-enum{e=i};
-
 class Led {
 public:
 	static constexpr auto init = M::list(action(Io::output,Hardware::ledPin));
