@@ -19,10 +19,10 @@
 
 namespace Hardware{
 #ifdef LPC11U68_BOARD
-	constexpr Kvasir::Gpio::PinLocationT<2,16> ledPin{};
+	constexpr Kvasir::Io::PinLocationT<2,16> ledPin{};
 #else
 #ifdef LPC1768_BOARD
-	constexpr Kvasir::Gpio::PinLocationT<0,6> ledPin{};
+	constexpr Kvasir::Io::PinLocationT<0,6> ledPin{};
 #else
 
 #endif

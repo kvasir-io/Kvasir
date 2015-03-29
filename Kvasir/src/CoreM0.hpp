@@ -73,7 +73,7 @@ namespace Core{
 		constexpr UsbWakeup usbWakeup;
 	}
 }
-	namespace Gpio{
+	namespace Io{
 		template<int Port, int Pin>
 		struct MakeAction<Action::Input,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 			Register::WriteActionT<(0xA0002000 + Port*4),(1<<Pin),0>{};

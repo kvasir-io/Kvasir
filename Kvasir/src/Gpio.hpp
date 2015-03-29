@@ -2,7 +2,7 @@
 #include "MPLUtility.hpp"
 
 namespace Kvasir {
-namespace Gpio{
+namespace Io{
 	namespace Action{
 		struct Input{};
 		struct Output{};
@@ -33,5 +33,16 @@ namespace Gpio{
 
 	template<typename TAction, typename TPortPin>
 	constexpr MakeActionT<TAction,TPortPin> action(TAction,TPortPin){ return MakeActionT<TAction,TPortPin>{}; };
+
+	template<typename TPortPin>
+	constexpr MakeActionT<Action::Input,TPortPin> makeInput(TPortPin){ return MakeActionT<Action::Input,TPortPin>{}; };
+	template<typename TPortPin>
+	constexpr MakeActionT<Action::Output,TPortPin> makeOutput(TPortPin){ return MakeActionT<Action::Output,TPortPin>{}; };
+	template<typename TPortPin>
+	constexpr MakeActionT<Action::Set,TPortPin> makeSet(TPortPin){ return MakeActionT<Action::Set,TPortPin>{}; };
+	template<typename TPortPin>
+	constexpr MakeActionT<Action::Clear,TPortPin> makeClear(TPortPin){ return MakeActionT<Action::Clear,TPortPin>{}; };
+	template<typename TPortPin>
+	constexpr MakeActionT<Action::Toggle,TPortPin> makeToggle(TPortPin){ return MakeActionT<Action::Toggle,TPortPin>{}; };
 }
 }
