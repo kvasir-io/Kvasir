@@ -2,18 +2,19 @@
 #include "Timer.hpp"
 #include "StartUp.hpp"
 
-namespace Io = Kvasir::Gpio::Action;
+namespace Io = Kvasir::Io;
 namespace M = Kvasir::MPL;
 namespace R = Kvasir::Register;
+using namespace Hardware;
 
 const int i = 4;
 enum{e=i};
 
 class Led {
 public:
-	static constexpr auto init = M::list(action(Io::output,Hardware::ledPin));
+	static constexpr auto init = M::list(Io::makeOutput(ledPin));
 	static void toggle(){
-		R::apply(action(Io::toggle,Hardware::ledPin));
+		R::apply(Io::makeToggle(ledPin));
 	}
 };
 
