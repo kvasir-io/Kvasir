@@ -38,6 +38,7 @@ namespace Kvasir {
 		template<typename TAction, typename TMask, typename TData>
 		struct Action {
 			using Type = Action<TAction,TMask,TData>;
+			static constexpr Type value{};
 		};
 		template<int Address,int Mask, int Data>
 		using WriteActionT = Action<WriteAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;

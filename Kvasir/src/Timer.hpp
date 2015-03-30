@@ -51,6 +51,21 @@ protected:
 public:
 	using IsrType = typename TConfig::IsrType;
 	using IsrFunction = Nvic::IsrFunction<&Base::Isr>;
+	static constexpr auto init = MPL::list(
+			Config::clockEnable,
+			Register::sequencePoint,
+			Config::template SetPrescaleT<Config::prescaleValue>::value,
+			Config::matchReg0Init,
+			Config::matchReg1Init,
+			Config::matchReg2Init,
+			Config::matchReg3Init,
+			Config::captureReg0Init,
+			Config::captureReg1Init,
+			Config::captureReg2Init,
+			Register::sequencePoint,
+			Config::couterEnable,
+			Config::enableIrq
+			);
 };
 }
 }

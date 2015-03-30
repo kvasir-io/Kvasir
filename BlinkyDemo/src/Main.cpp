@@ -2,32 +2,26 @@
 #include "Timer.hpp"
 #include "StartUp.hpp"
 
-namespace Io = Kvasir::Io;
 namespace M = Kvasir::MPL;
-namespace R = Kvasir::Register;
 using namespace Hardware;
 
 class Led {
 public:
-	static constexpr auto init = M::list(Io::makeOutput(ledPin));
+	static constexpr auto init = M::list(makeOutput(ledPin));
 	static void toggle(){
-		R::apply(Io::makeToggle(ledPin));
+		apply(makeToggle(ledPin));
 	}
 };
 
-class Timer : public Kvasir::Timer::Base<Timer,Kvasir::Timer16B0>{
+struct TimerConfig : Kvasir::Timer16B0 {
+	static constexpr auto matchReg0Init = M::list(
+			SetMR0ValueT<1000>::value,
+			MatchControl::r0InterruptEnable,
+			MatchControl::r0ResetOnMatch);
+};
+
+class Timer : public Kvasir::Timer::Base<Timer,TimerConfig>{
 public:
-	static constexpr auto init = M::list(
-			Config::clockEnable,
-			R::sequencePoint,
-			Config::MatchControl::r0InterruptEnable,
-			Config::MatchControl::r0ResetOnMatch,
-			Config::SetPrescaleT<1000>(),
-			Config::SetR0ValueT<1000>(),
-			R::sequencePoint,
-			Config::couterEnable,
-			Config::enableIrq
-			);
 	static void onMatch0(){
 		Led::toggle();
 	}
