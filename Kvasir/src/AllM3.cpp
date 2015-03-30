@@ -1,5 +1,5 @@
 #include "CoreM3.hpp"
-#include "Gpio.hpp"
+#include "Io.hpp"
 #include "Interrupt.hpp"
 #include "MPLAlgorithm.hpp"
 #include "MPLTypes.hpp"
