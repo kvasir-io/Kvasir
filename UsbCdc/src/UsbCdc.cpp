@@ -1,5 +1,6 @@
 #include "Hardware.h"
 #include "StartUp.hpp"
+#include "Cdc.hpp"
 
 int main(void) {
 

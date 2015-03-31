@@ -1,26 +1,6 @@
-/*----------------------------------------------------------------------------
- *      U S B  -  K e r n e l
- *----------------------------------------------------------------------------
- * Name:    usbcore.h
- * Purpose: USB Core Definitions
- * Version: V1.20
- *----------------------------------------------------------------------------
- *      This software is supplied "AS IS" without any warranties, express,
- *      implied or statutory, including but not limited to the implied
- *      warranties of fitness for purpose, satisfactory quality and
- *      noninfringement. Keil extends you a royalty-free right to reproduce
- *      and distribute executable files created using this software for use
- *      on NXP Semiconductors LPC microcontroller devices only. Nothing else 
- *      gives you the right to use this software.
- *
- * Copyright (c) 2009 Keil - An ARM Company. All rights reserved.
- *---------------------------------------------------------------------------*/
-
-#ifndef __USBCORE_H__
-#define __USBCORE_H__
+#pragma once
 
 #include "USBHw.hpp"
-#include "USBCoreDetail.hpp"
 #include "usbdesc.h"
 #include "usbreg.h"
 #include "CDC.h"
@@ -58,11 +38,10 @@ namespace {
 }
 
 
-
-template<typename Derived, typename Traits>
-class USBCore : public USBHw<Traits>
+namespace Usb{
+template<typename TDerived, typename TConfig>
+class Base : public USBHw<TConfig>
 {
-	typedef USBHw<Traits> Base;
 	static uint8_t  deviceAddress_;
 	static volatile uint8_t  configuration_;
 	static uint32_t USB_EndPointMask;
@@ -76,7 +55,7 @@ class USBCore : public USBHw<Traits>
 	static Kvasir::CDC::CDC_LINE_CODING CDC_LineCoding;
 
 	protected:
-	static uint8_t  EP0Buf[Traits::EP0BufSize];
+	static uint8_t  EP0Buf[TConfig::ep0BufSize];
 public:
 	//static constexpr Nvic::Irqs MyIrq = Nvic::Irqs::USB;
 	static bool Configured() ALWAYS_INLINE {return configuration_;}
@@ -223,12 +202,12 @@ private:
 	    case RequestRecipient::Device:
 	      switch (SetupPacket.wValue.WB.H) {
 	        case USB_DEVICE_DESCRIPTOR_TYPE:
-				EP0Data.pData = (uint8_t *)Traits::DeviceDescriptor.data_;
+				EP0Data.pData = (uint8_t *)TConfig::DeviceDescriptor.data_;
 				EP0Data.Count = USB_DEVICE_DESC_SIZE;
 				break;
 	        case USB_CONFIGURATION_DESCRIPTOR_TYPE:
 	        {
-	        	uint8_t  *pD = (uint8_t *)Traits::ConfigDescriptor.data_;
+	        	uint8_t  *pD = (uint8_t *)TConfig::ConfigDescriptor.data_;
 	        	for (unsigned n = 0; n != SetupPacket.wValue.WB.L; n++) {
 	        		if (((USB_CONFIGURATION_DESCRIPTOR *)pD)->bLength != 0) {
 	        			pD += ((USB_CONFIGURATION_DESCRIPTOR *)pD)->wTotalLength;
@@ -285,7 +264,7 @@ private:
 
 	      if (SetupPacket.wValue.WB.L) {
 	    	  //TODO metaprogram this
-	        pD = (USB_COMMON_DESCRIPTOR *)Traits::ConfigDescriptor.data_;
+	        pD = (USB_COMMON_DESCRIPTOR *)TConfig::ConfigDescriptor.data_;
 	        while (pD->bLength) {
 	          switch (pD->bDescriptorType) {
 	            case USB_CONFIGURATION_DESCRIPTOR_TYPE:
@@ -381,7 +360,7 @@ private:
 	    case RequestRecipient::Interface:
 	      if (configuration_ == 0) return (FALSE);
 	      set = FALSE;
-	      pD  = (USB_COMMON_DESCRIPTOR *)Traits::ConfigDescriptor.data_;
+	      pD  = (USB_COMMON_DESCRIPTOR *)TConfig::ConfigDescriptor.data_;
 	      while (pD->bLength) {
 	        switch (pD->bDescriptorType) {
 	          case USB_CONFIGURATION_DESCRIPTOR_TYPE:
@@ -431,7 +410,7 @@ private:
 	}
 	static __inline void ConfigureEvent(){}
 	static __inline void EP0Setup () {
-	      USBCore::SetupStage();
+	      Base::SetupStage();
 	      Base::DirCtrlEP(SetupPacket.Direction());
 	      EP0Data.Count = SetupPacket.wLength;     /* Number of bytes to transfer */
 	      switch (SetupPacket.Type()) {
@@ -442,14 +421,14 @@ private:
 	              if (!ReqGetStatus()) {
 	                goto stall_i;
 	              }
-	              USBCore::DataInStage();
+	              Base::DataInStage();
 	              break;
 
 	            case RequestCode::ClearFeature:
 	              if (!ReqSetClrFeature(0)) {
 	                goto stall_i;
 	              }
-	              USBCore::StatusInStage();
+	              Base::StatusInStage();
 	#if USB_FEATURE_EVENT
 	              USB_Feature_Event();
 	#endif
@@ -459,7 +438,7 @@ private:
 	              if (!ReqSetClrFeature(1)) {
 	                goto stall_i;
 	              }
-	              USBCore::StatusInStage();
+	              Base::StatusInStage();
 	#if USB_FEATURE_EVENT
 	              USB_Feature_Event();
 	#endif
@@ -469,18 +448,18 @@ private:
 	              if (!ReqSetAddress()) {
 	                goto stall_i;
 	              }
-	              USBCore::StatusInStage();
+	              Base::StatusInStage();
 	              break;
 
 	            case RequestCode::GetDescriptor:
 	              if (!ReqGetDescriptor()) {
 	                goto stall_i;
 	              }
-	              USBCore::DataInStage();
+	              Base::DataInStage();
 	              break;
 
 	            case RequestCode::SetDescriptor:
-	/*stall_o:*/  Base::SetStallEP(0x00);            /* not supported */
+	/*stall_o:*/  USBHw<TConfig>::SetStallEP(0x00);            /* not supported */
 	              EP0Data.Count = 0;
 	              break;
 
@@ -505,14 +484,14 @@ private:
 	              if (!ReqGetInterface()) {
 	                goto stall_i;
 	              }
-	              USBCore::DataInStage();
+	              Base::DataInStage();
 	              break;
 
 	            case RequestCode::SetInterface:
 	              if (!ReqSetInterface()) {
 	                goto stall_i;
 	              }
-	              USBCore::StatusInStage();
+	              Base::StatusInStage();
 	#if USB_INTERFACE_EVENT
 	              USB_Interface_Event();
 	#endif
@@ -658,7 +637,7 @@ private:
 	                    case CDC_GET_ENCAPSULATED_RESPONSE:
 	                      if (true/*CDC_GetEncapsulatedResponse()*/) {
 	                        EP0Data.pData = EP0Buf;                            /* point to data to be sent */
-	                        USBCore::DataInStage();                            /* send requested data */
+	                        Base::DataInStage();                            /* send requested data */
 	                        goto setup_class_ok;
 	                      }
 	                      break;
@@ -668,7 +647,7 @@ private:
 	                    case CDC_GET_COMM_FEATURE:
 	                      if (true/*CDC_GetCommFeature(SetupPacket.wValue.W)*/) {
 	                        EP0Data.pData = EP0Buf;                            /* point to data to be sent */
-	                        USBCore::DataInStage();                                  /* send requested data */
+	                        Base::DataInStage();                                  /* send requested data */
 	                        goto setup_class_ok;
 	                      }
 	                      break;
@@ -678,12 +657,12 @@ private:
 	                    case CDC_GET_LINE_CODING:
 	                      if (CDC_GetLineCoding()) {
 	                        EP0Data.pData = EP0Buf;                            /* point to data to be sent */
-	                        USBCore::DataInStage();                              /* send requested data */
+	                        Base::DataInStage();                              /* send requested data */
 	                        goto setup_class_ok;
 	                      }
 	                      break;
 	                    default:
-	                    	USBCore::StatusInStage();                               /* send Acknowledge */
+	                    	Base::StatusInStage();                               /* send Acknowledge */
 	                    	return;
 	                    	break;
 	                  }
@@ -769,7 +748,7 @@ private:
 	static __inline void EP0Out () {
 	      if (SetupPacket.Direction() == RequestDirection::HostToDevice) {
 	        if (EP0Data.Count) {                                             /* still data to receive ? */
-	          USBCore::DataOutStage();                                            /* receive data */
+	          Base::DataOutStage();                                            /* receive data */
 	          if (EP0Data.Count == 0) {                                      /* data complete ? */
 	            switch (SetupPacket.Type()) {
 
@@ -830,7 +809,7 @@ private:
 	                        (SetupPacket.wIndex.WB.L == USB_CDC_DIF_NUM)) {
 //	                      switch ((int)SetupPacket.request_) {
 //	                        case CDC_SEND_ENCAPSULATED_COMMAND:
-	                          USBCore::StatusInStage();                         /* send Acknowledge */
+	                          Base::StatusInStage();                         /* send Acknowledge */
 //	                          goto out_class_ok;
 //	                          break;
 //	                        case CDC_SET_COMM_FEATURE:
@@ -909,7 +888,7 @@ private:
 	          }
 	        }
 	      } else {
-	    	USBCore::StatusOutStage();                                            /* receive Acknowledge */
+	    	Base::StatusOutStage();                                            /* receive Acknowledge */
 	      }
 	      stall_i:  Base::SetStallEP(0x80);
 	      EP0Data.Count = 0;
@@ -918,7 +897,7 @@ private:
 	static __inline void EP0In()
 	{
 		if (SetupPacket.Direction() == RequestDirection::DeviceToHost) {
-			USBCore::DataInStage();                                               /* send data */
+			Base::DataInStage();                                               /* send data */
 		}
 		else
 		{
@@ -943,8 +922,8 @@ private:
 	static void DataInStage() {
 	  uint32_t cnt;
 
-	  if (EP0Data.Count > Traits::EP0BufSize) {
-	    cnt = Traits::EP0BufSize;
+	  if (EP0Data.Count > TConfig::ep0BufSize) {
+	    cnt = TConfig::ep0BufSize;
 	  } else {
 	    cnt = EP0Data.Count;
 	  }
@@ -978,7 +957,7 @@ private:
 		    if (val & DEV_RST) {                    /* Reset */
 		    	Base::Reset();
 		#if   USB_RESET_EVENT
-		    	USBCore::Reset();
+		    	Base::Reset();
 		#endif
 		    }
 		    if (val & DEV_CON_CH) {                 /* Connect change */
@@ -1053,22 +1032,19 @@ private:
 	}
 	//friend void OnIntHandler<Kvasir::Nvic::Irqs::USB>();
 };
-
-
-
-template <typename T, typename U> uint8_t USBCore<T,U>::deviceAddress_ = 0;
-template <typename T, typename U>  volatile uint8_t  USBCore<T,U>::configuration_;
-template <typename T, typename U>  uint32_t USBCore<T,U>::USB_EndPointMask;
-template <typename T, typename U>  uint32_t USBCore<T,U>::USB_EndPointHalt;
-template <typename T, typename U>  uint32_t USBCore<T,U>::USB_EndPointStall;                         /* EP must stay stalled */
-template <typename T, typename U>  uint8_t  USBCore<T,U>::USB_NumInterfaces;
-template <typename T, typename U>  uint8_t  USBCore<T,U>::USB_AltSetting[];
-template <typename T, typename U>  uint8_t  USBCore<T,U>::EP0Buf[];
-template <typename T, typename U>  USB_EP_DATA USBCore<T,U>::EP0Data;
-template <typename T, typename U>  USB_SETUP_PACKET USBCore<T,U>::SetupPacket;
-template <typename T, typename U> DeviceStatus USBCore<T,U>::deviceStatus_ = DeviceStatus::BusPowered;
-template <typename T, typename U> Kvasir::CDC::CDC_LINE_CODING USBCore<T,U>::CDC_LineCoding = {9600, 0, 0, 8};
-
+template <typename T, typename U> uint8_t Base<T,U>::deviceAddress_ = 0;
+template <typename T, typename U>  volatile uint8_t  Base<T,U>::configuration_;
+template <typename T, typename U>  uint32_t Base<T,U>::USB_EndPointMask;
+template <typename T, typename U>  uint32_t Base<T,U>::USB_EndPointHalt;
+template <typename T, typename U>  uint32_t Base<T,U>::USB_EndPointStall;                         /* EP must stay stalled */
+template <typename T, typename U>  uint8_t  Base<T,U>::USB_NumInterfaces;
+template <typename T, typename U>  uint8_t  Base<T,U>::USB_AltSetting[];
+template <typename T, typename U>  uint8_t  Base<T,U>::EP0Buf[];
+template <typename T, typename U>  USB_EP_DATA Base<T,U>::EP0Data;
+template <typename T, typename U>  USB_SETUP_PACKET Base<T,U>::SetupPacket;
+template <typename T, typename U> DeviceStatus Base<T,U>::deviceStatus_ = DeviceStatus::BusPowered;
+template <typename T, typename U> Kvasir::CDC::CDC_LINE_CODING Base<T,U>::CDC_LineCoding = {9600, 0, 0, 8};
+}
 }
 
-#endif  /* __USBCORE_H__ */
+
