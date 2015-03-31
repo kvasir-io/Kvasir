@@ -31,7 +31,7 @@ class DefaultTraits {
 };
 
 template<typename Derived, typename Traits>
-class Core: public USBCore<Core<Derived,Traits>,Traits> {
+class Core: public Usb::Base<Core<Derived,Traits>,Traits> {
 protected:
 	static constexpr unsigned long bufferSize = 64;
 	static volatile bool depInEmpty_;
@@ -76,7 +76,7 @@ protected:
 //            break;
 //        }
 	}
-	friend class USBCore<Core<Derived,Traits>,Traits>;
+	friend class Usb::Base<Core<Derived,Traits>,Traits>;
 };
 template<typename T,typename U>
 volatile bool Core<T,U>::depInEmpty_ = true;

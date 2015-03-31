@@ -1,19 +1,18 @@
-/**************************************************************************************************
- * Source file containing commonalities between Cortex M0 and M3 cores
- *
- *
- * List of bugs:
- * 			- none
- *
- *
- * List of requested funtionalities:
- * 			- NVIC_GetPendingIRQ from CMSIS equivalent
- * 			- NVIC_GetActive
- *
- *
-
-*/
 #pragma once
+/**************************************************************************************************
+ * Source file containing commonalities between Cortex M0, M3 and M4 cores
+ *
+Copyright 2015 Odin Holmes
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+****************************************************************************/
 #include "Register.hpp"
 #include "Interrupt.hpp"
 #include "MPLUtility.hpp"
