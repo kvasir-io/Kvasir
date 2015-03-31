@@ -22,68 +22,38 @@ namespace Core{
 	namespace Interrupt{
 		template<int I>
 		using Type = ::Kvasir::Nvic::Type<I>;
-		using PinInterrupt0 = Type<0>;
-		using PinInterrupt1 = Type<1>;
-		using PinInterrupt2 = Type<2>;
-		using PinInterrupt3 = Type<3>;
-		using PinInterrupt4 = Type<4>;
-		using PinInterrupt5 = Type<5>;
-		using PinInterrupt6 = Type<6>;
-		using PinInterrupt7 = Type<7>;
-		using GroupInterrupt0 = Type<8>;
-		using GroupInterrupt1 = Type<9>;
-		using I2C1 = Type<10>;
-		using Uart1Or4 = Type<11>;
-		using Uart2Or3 = Type<12>;
-		using Sct0Or1 = Type<13>;
-		using Ssp1 = Type<14>;
-		using I2C0 = Type<15>;
-		using CounterTimer16Bank0 = Type<16>;
-		using CounterTimer16Bank1 = Type<17>;
-		using CounterTimer32Bank0 = Type<18>;
-		using CounterTimer32Bank1 = Type<19>;
-		using Ssp0 = Type<20>;
-		using Usart0 = Type<21>;
-		using UsbIrq = Type<22>;
-		using UsbFiq = Type<23>;
-		using AdcA = Type<24>;
-		using Rtc = Type<25>;
-		using BodAndWdt = Type<26>;
-		using Flash = Type<27>;
-		using Dma = Type<28>;
-		using AdcB = Type<29>;
-		using UsbWakeup = Type<30>;
-		constexpr PinInterrupt0 pinInterrupt0;
-		constexpr PinInterrupt1 pinInterrupt1;
-		constexpr PinInterrupt2 pinInterrupt2;
-		constexpr PinInterrupt3 pinInterrupt3;
-		constexpr PinInterrupt4 pinInterrupt4;
-		constexpr PinInterrupt5 pinInterrupt5;
-		constexpr PinInterrupt6 pinInterrupt6;
-		constexpr PinInterrupt7 pinInterrupt7;
-		constexpr GroupInterrupt0 groupInterrupt0;
-		constexpr GroupInterrupt1 groupInterrupt1;
-		constexpr I2C1 i2C1;
-		constexpr Uart1Or4 uart1Or4;
-		constexpr Uart2Or3 uart2Or3;
-		constexpr Sct0Or1 sct0Or1;
-		constexpr Ssp1 ssp1;
-		constexpr I2C0 i2c0;
-		constexpr CounterTimer16Bank0 counterTimer16Bank0;
-		constexpr CounterTimer16Bank1 counterTimer16Bank1;
-		constexpr CounterTimer32Bank0 counterTimer32Bank0;
-		constexpr CounterTimer32Bank1 counterTimer32Bank1;
-		constexpr Ssp0 ssp0;
-		constexpr Usart0 usart0;
-		constexpr UsbIrq usbIrq;
-		constexpr UsbFiq usbFiq;
-		constexpr AdcA adcA;
-		constexpr Rtc rtc;
-		constexpr BodAndWdt bodAndWdt;
-		constexpr Flash flash;
-		constexpr Dma dma;
-		constexpr AdcB adcb;
-		constexpr UsbWakeup usbWakeup;
+
+		constexpr Type<0> pinInterrupt0{};
+		constexpr Type<1> pinInterrupt1{};
+		constexpr Type<2> pinInterrupt2{};
+		constexpr Type<3> pinInterrupt3{};
+		constexpr Type<4> pinInterrupt4{};
+		constexpr Type<5> pinInterrupt5{};
+		constexpr Type<6> pinInterrupt6{};
+		constexpr Type<7> pinInterrupt7{};
+		constexpr Type<8> groupInterrupt0{};
+		constexpr Type<9> groupInterrupt1{};
+		constexpr Type<10> i2C1{};
+		constexpr Type<11> uart1Or4{};
+		constexpr Type<12> uart2Or3{};
+		constexpr Type<13> sct0Or1{};
+		constexpr Type<14> ssp1{};
+		constexpr Type<15> i2c0{};
+		constexpr Type<16> counterTimer16Bank0{};
+		constexpr Type<17> counterTimer16Bank1{};
+		constexpr Type<18> counterTimer32Bank0{};
+		constexpr Type<19> counterTimer32Bank1{};
+		constexpr Type<20> ssp0{};
+		constexpr Type<21> usart0{};
+		constexpr Type<22> usbIrq{};
+		constexpr Type<23> usbFiq{};
+		constexpr Type<24> adcA{};
+		constexpr Type<25> rtc{};
+		constexpr Type<26> bodAndWdt{};
+		constexpr Type<27> flash{};
+		constexpr Type<28> dma{};
+		constexpr Type<29> adcb{};
+		constexpr Type<30> usbWakeup{};
 	}
 }
 	namespace Io{
@@ -114,8 +84,8 @@ namespace Core{
 	}
 
 	struct Timer16B0 {
-		using IsrType = Core::Interrupt::CounterTimer16Bank0;
-		static constexpr Core::EnableIrqT<IsrType> enableIrq{};
+		static constexpr auto isr = Core::Interrupt::counterTimer16Bank0;
+		static constexpr auto enableIrq = Core::enableIrq(isr);
 		static constexpr Register::WriteActionT<0x40048080,(1<<7),(1<<7)> clockEnable{};
 		static constexpr Register::WriteActionT<0x40048080,(1<<7),0> clockDisable{};
 		static constexpr int baseAddress = 0x4000C000;
@@ -440,6 +410,111 @@ namespace Core{
 		};
 	}
 	namespace ADC{
+		namespace Control
+		{
+			constexpr int adress{0x4001C000};
+
+			using ADCChannel0Enable = Register::WriteBitActionT<adress,0,true>;
+			constexpr ADCChannel0Enable adcChannel0Enable{};
+			using ADCChannel0Disable = Register::WriteBitActionT<adress,0,false>;
+			constexpr ADCChannel0Disable adcChannel0Disable{};
+
+			using ADCChannel1Enable = Register::WriteBitActionT<adress,1,true>;
+			constexpr ADCChannel1Enable adcChannel1Enable{};
+			using ADCChannel1Disable = Register::WriteBitActionT<adress,1,false>;
+			constexpr ADCChannel1Disable adcChannel1Disable{};
+
+			using ADCChannel2Enable = Register::WriteBitActionT<adress,2,true>;
+			constexpr ADCChannel2Enable adcChannel2Enable{};
+			using ADCChannel2Disable = Register::WriteBitActionT<adress,2,false>;
+			constexpr ADCChannel2Disable adcChannel2Disable{};
+
+			using ADCChannel3Enable = Register::WriteBitActionT<adress,3,true>;
+			constexpr ADCChannel3Enable adcChannel3Enable{};
+			using ADCChannel3Disable = Register::WriteBitActionT<adress,3,false>;
+			constexpr ADCChannel3Disable adcChannel3Disable{};
+
+			using ADCChannel4Enable = Register::WriteBitActionT<adress,4,true>;
+			constexpr ADCChannel4Enable adcChannel4Enable{};
+			using ADCChannel4Disable = Register::WriteBitActionT<adress,4,false>;
+			constexpr ADCChannel4Disable adcChannel4Disable{};
+
+			using ADCChannel5Enable = Register::WriteBitActionT<adress,5,true>;
+			constexpr ADCChannel5Enable adcChannel5Enable{};
+			using ADCChannel5Disable = Register::WriteBitActionT<adress,5,false>;
+			constexpr ADCChannel5Disable adcChannel5Disable{};
+
+			using ADCChannel6Enable = Register::WriteBitActionT<adress,6,true>;
+			constexpr ADCChannel6Enable adcChannel6Enable{};
+			using ADCChannel6Disable = Register::WriteBitActionT<adress,6,false>;
+			constexpr ADCChannel6Disable adcChannel6Disable{};
+
+			using ADCChannel7Enable = Register::WriteBitActionT<adress,7,true>;
+			constexpr ADCChannel7Enable adcChannel7Enable{};
+			using ADCChannel7Disable = Register::WriteBitActionT<adress,7,false>;
+			constexpr ADCChannel7Disable adcChannel7Disable{};
+
+			//Clock-Divider
+
+			using ADCBurstModeEnable = Register::WriteBitActionT<adress,16,true>;
+			constexpr ADCBurstModeEnable adcBurstModeEnabel{};
+
+
+
+
+		}
+		namespace InterruptEnable
+		{
+			constexpr int adress{0x4001C00C};
+
+			using ADCChannel0InterruptEnable = Register::WriteBitActionT<adress,0,true>;
+			constexpr ADCChannel0InterruptEnable adcChannel0InterruptEnable{};
+			using ADCChannel0InterruptDisable = Register::WriteBitActionT<adress,0,false>;
+			constexpr ADCChannel0InterruptDisable adcChannel0InterruptDisable{};
+
+			using ADCChannel1InterruptEnable = Register::WriteBitActionT<adress,1,true>;
+			constexpr ADCChannel1InterruptEnable adcChannel1InterruptEnable{};
+			using ADCChannel1InterruptDisable = Register::WriteBitActionT<adress,1,false>;
+			constexpr ADCChannel1InterruptDisable adcChannel1InterruptDisable{};
+
+			using ADCChannel2InterruptEnable = Register::WriteBitActionT<adress,2,true>;
+			constexpr ADCChannel2InterruptEnable adcChannel2InterruptEnable{};
+			using ADCChannel2InterruptDisable = Register::WriteBitActionT<adress,2,false>;
+			constexpr ADCChannel2InterruptDisable adcChannel2InterruptDisable{};
+
+			using ADCChannel3InterruptEnable = Register::WriteBitActionT<adress,3,true>;
+			constexpr ADCChannel3InterruptEnable adcChannel3InterruptEnable{};
+			using ADCChannel3InterruptDisable = Register::WriteBitActionT<adress,3,false>;
+			constexpr ADCChannel3InterruptDisable adcChannel3InterruptDisable{};
+
+			using ADCChannel4InterruptEnable = Register::WriteBitActionT<adress,4,true>;
+			constexpr ADCChannel4InterruptEnable adcChannel4InterruptEnable{};
+			using ADCChannel4InterruptDisable = Register::WriteBitActionT<adress,4,false>;
+			constexpr ADCChannel4InterruptDisable adcChannel4InterruptDisable{};
+
+			using ADCChannel5InterruptEnable = Register::WriteBitActionT<adress,5,true>;
+			constexpr ADCChannel5InterruptEnable adcChannel5InterruptEnable{};
+			using ADCChannel5InterruptDisable = Register::WriteBitActionT<adress,5,false>;
+			constexpr ADCChannel5InterruptDisable adcChannel5InterruptDisable{};
+
+			using ADCChannel6InterruptEnable = Register::WriteBitActionT<adress,6,true>;
+			constexpr ADCChannel6InterruptEnable adcChannel6InterruptEnable{};
+			using ADCChannel6InterruptDisable = Register::WriteBitActionT<adress,6,false>;
+			constexpr ADCChannel6InterruptDisable adcChannel6InterruptDisable{};
+
+			using ADCChannel7InterruptEnable = Register::WriteBitActionT<adress,7,true>;
+			constexpr ADCChannel7InterruptEnable adcChannel7InterruptEnable{};
+			using ADCChannel7InterruptDisable = Register::WriteBitActionT<adress,7,false>;
+			constexpr ADCChannel7InterruptDisable adcChannel7InterruptDisable{};
+
+			using ADCResetAllChannels = Register::BlindWriteActionT<adress,0xFF,0x00>;
+			constexpr ADCResetAllChannels adcResetAllChannels{};
+
+			using ADCGlobalInterruptEnable = Register::WriteBitActionT<adress,8,true>;
+			constexpr ADCGlobalInterruptEnable adcGlobalInterruptEnable{};
+			using ADCGlobalInterruptDisable = Register::WriteBitActionT<adress,8,true>;
+			constexpr ADCGlobalInterruptDisable adcGlobalInterruptDisable{};
+		}
 		namespace Detail{
 			//this function should return the pin function number for ADC mode which corresponds
 			//to the pin number passed in or -1 in case there is no ADC functionality on the pin

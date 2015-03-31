@@ -38,10 +38,12 @@ namespace Kvasir{
 		template<int I>
 		struct EnableIrq<Nvic::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ISER,I),(1<<I),(1<<I)>{};
 		template<typename T>
-		using EnableIrqT = typename EnableIrq<T>::Type;
+		constexpr typename EnableIrq<T>::Type enableIrq(T){
+			return typename EnableIrq<T>::Type{};
+		}
 		template<typename... Ts>
 		void enableIrq(Ts...){
-			Register::apply<EnableIrqT<Ts>...>();
+			Register::apply(enableIrq(Ts{})...);
 		};
 		template<typename T>
 		struct DisableIrq;
