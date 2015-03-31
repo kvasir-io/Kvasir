@@ -61,7 +61,7 @@ private:
 protected:
 	using Config = TConfig;
 public:
-	using IsrType = typename TConfig::IsrType;
+	static constexpr auto isr = TConfig::isr;
 	using IsrFunction = Nvic::IsrFunction<&Base::Isr>;
 	static constexpr auto init = MPL::list(
 			Config::clockEnable,
