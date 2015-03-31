@@ -15,6 +15,7 @@ namespace Io{
 		using PinFunction1 = PinFunction<1>;
 		using PinFunction2 = PinFunction<2>;
 		using PinFunction3 = PinFunction<3>;
+		using PinFunction4 = PinFunction<4>;
 		constexpr Input input;
 		constexpr Output output{};
 		constexpr Set set{};
@@ -24,6 +25,7 @@ namespace Io{
 		constexpr PinFunction1 pinFunction1{};
 		constexpr PinFunction2 pinFunction2{};
 		constexpr PinFunction3 pinFunction3{};
+		constexpr PinFunction4 pinFunction4{};
 	};
 
 	template<typename TPort, typename TPin>

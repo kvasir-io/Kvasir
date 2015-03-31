@@ -440,13 +440,40 @@ namespace Core{
 		};
 	}
 	namespace ADC{
+		namespace Detail{
+			//this function should return the pin function number for ADC mode which corresponds
+			//to the pin number passed in or -1 in case there is no ADC functionality on the pin
+			constexpr int getAdcPinLocationPort0(constexpr int pin){
+				return (pin >= 11 && pin <= 15) ? 2 : (
+						(pin == 16 || pin == 22 || pin == 23) ? 1 : -1);
+			}
+			constexpr int getAdcPinLocationPort1(constexpr int pin){
+				return (pin == 3 || pin == 29) ? 4 : (
+						(pin == 9 || pin == 22) ? 3 : -1);
+				}
+			constexpr int getAdcPinLocationPort2(constexpr int pin){
+				return -1;  //no functionality on this port
+				}
+		}
 		template<typename T>
 		struct SetPinFunctionToAdc{
 			static_assert(MPL::AlwaysFalse<T>::value,"");
 		};
-		template<>
-		struct SetPinFunctionToAdc<Io::PinLocation<MPL::Int<0>,MPL::Int<11>>> :
-			Io::MakeAction<Io::Action::PinFunction1,Io::PinLocation<MPL::Int<0>,MPL::Int<11>>>{};
+		template<int Pin>
+		struct SetPinFunctionToAdc<Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>> :
+			Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort0(Pin)>,Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>>{
+			static_assert(Detail::getAdcPinLocationPort0(Pin) != -1,"the supplied pin does not have ADC functionality");
+		};
+		template<int Pin>
+		struct SetPinFunctionToAdc<Io::PinLocation<MPL::Int<1>,MPL::Int<Pin>>> :
+			Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort0(Pin)>,Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>>{
+			static_assert(Detail::getAdcPinLocationPort0(Pin) != -1,"the supplied pin does not have ADC functionality");
+		};
+		template<int Pin>
+		struct SetPinFunctionToAdc<Io::PinLocation<MPL::Int<2>,MPL::Int<Pin>>> :
+			Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort0(Pin)>,Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>>{
+			static_assert(Detail::getAdcPinLocationPort0(Pin) != -1,"the supplied pin does not have ADC functionality");
+		};
 		struct Config{
 			static constexpr auto powerOn = PowerConfiguration::adcOn;
 			static constexpr Tag::None channel0Pin{};
