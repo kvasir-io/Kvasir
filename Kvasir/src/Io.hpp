@@ -9,11 +9,21 @@ namespace Io{
 		struct Set{};
 		struct Clear{};
 		struct Toggle{};
+		template<int I>
+		struct PinFunction{ static constexpr int value = I;};
+		using PinFunction0 = PinFunction<0>;
+		using PinFunction1 = PinFunction<1>;
+		using PinFunction2 = PinFunction<2>;
+		using PinFunction3 = PinFunction<3>;
 		constexpr Input input;
 		constexpr Output output{};
 		constexpr Set set{};
 		constexpr Clear clear{};
 		constexpr Toggle toggle{};
+		constexpr PinFunction0 pinFunction0{};
+		constexpr PinFunction1 pinFunction1{};
+		constexpr PinFunction2 pinFunction2{};
+		constexpr PinFunction3 pinFunction3{};
 	};
 
 	template<typename TPort, typename TPin>

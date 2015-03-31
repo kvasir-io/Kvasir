@@ -3,6 +3,7 @@
 #include "Io.hpp"
 #include "Register.hpp"
 #include "Tags.hpp"
+#include "MPLTypes.hpp"
 
 namespace Kvasir{
 namespace Core{
@@ -89,6 +90,15 @@ namespace Core{
 		template<int Port, int Pin>
 		struct MakeAction<Action::Toggle,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 			Register::BlindWriteActionT<(0xA0002300 + Port*4),(1<<Pin),(1<<Pin)>{};
+		template<int Pin, int Function>
+		struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<0>,MPL::Int<Pin>>> :
+			Register::WriteActionT<(0x40044000 + Pin*4),0x03,Function>{};
+		template<int Pin, int Function>
+		struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<1>,MPL::Int<Pin>>> :
+			Register::WriteActionT<(0x40044060 + Pin*4),0x03,Function>{};
+		template<int Pin, int Function>
+		struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<2>,MPL::Int<Pin>>> :
+			Register::WriteActionT<(0x400440F0 + Pin*4),0x03,Function>{};
 	}
 
 	struct Timer16B0 {
@@ -137,49 +147,49 @@ namespace Core{
 	namespace PowerConfiguration {
 		constexpr int address{0x40048238};
 		using IrcOscilatorOutputOn = Register::WriteBitActionT<address,0,false>;
-		constexpr IrcOscilatorOutputOn ircOscilatorOutputOn;
+		constexpr IrcOscilatorOutputOn ircOscilatorOutputOn{};
 		using IrcOscilatorOutputOff = Register::WriteBitActionT<address,0,true>;
-		constexpr IrcOscilatorOutputOff ircOscilatorOutputOff;
+		constexpr IrcOscilatorOutputOff ircOscilatorOutputOff{};
 		using IrcOscilatorOn = Register::WriteBitActionT<address,1,false>;
-		constexpr IrcOscilatorOn ircOscilatorOn;
+		constexpr IrcOscilatorOn ircOscilatorOn{};
 		using IrcOscilatorOff = Register::WriteBitActionT<address,1,true>;
-		constexpr IrcOscilatorOff ircOscilatorOff;
+		constexpr IrcOscilatorOff ircOscilatorOff{};
 		using FlashOn = Register::WriteBitActionT<address,2,false>;
-		constexpr FlashOn flashOn;
+		constexpr FlashOn flashOn{};
 		using FlashOff = Register::WriteBitActionT<address,2,true>;
-		constexpr FlashOff flashOff;
+		constexpr FlashOff flashOff{};
 		using BrownOutDetectOn = Register::WriteBitActionT<address,3,false>;
-		constexpr BrownOutDetectOn brownOutDetectOn;
+		constexpr BrownOutDetectOn brownOutDetectOn{};
 		using BrownOutDetectOff = Register::WriteBitActionT<address,3,true>;
-		constexpr BrownOutDetectOff brownOutDetectOff;
+		constexpr BrownOutDetectOff brownOutDetectOff{};
 		using AdcOn = Register::WriteBitActionT<address,4,false>;
-		constexpr AdcOn adcOn;
+		constexpr AdcOn adcOn{};
 		using AdcOff = Register::WriteBitActionT<address,4,true>;
-		constexpr AdcOff adcOff;
+		constexpr AdcOff adcOff{};
 		using CrystalOscilatorOn = Register::WriteBitActionT<address,5,false>;
-		constexpr CrystalOscilatorOn crystalOscilatorOn;
+		constexpr CrystalOscilatorOn crystalOscilatorOn{};
 		using CrystalOscilatorOff = Register::WriteBitActionT<address,5,true>;
-		constexpr CrystalOscilatorOff crystalOscilatorOff;
+		constexpr CrystalOscilatorOff crystalOscilatorOff{};
 		using WatchdogOscilatorOn = Register::WriteBitActionT<address,6,false>;
-		constexpr WatchdogOscilatorOn watchdogOscilatorOn;
+		constexpr WatchdogOscilatorOn watchdogOscilatorOn{};
 		using WatchdogOscilatorOff = Register::WriteBitActionT<address,6,true>;
-		constexpr WatchdogOscilatorOff watchdogOscilatorOff;
+		constexpr WatchdogOscilatorOff watchdogOscilatorOff{};
 		using SystemPllOn = Register::WriteBitActionT<address,7,false>;
-		constexpr SystemPllOn systemPllOn;
+		constexpr SystemPllOn systemPllOn{};
 		using SystemPllOff = Register::WriteBitActionT<address,7,true>;
-		constexpr SystemPllOff systemPllOff;
+		constexpr SystemPllOff systemPllOff{};
 		using UsbPllOn = Register::WriteBitActionT<address,8,false>;
-		constexpr UsbPllOn usbPllOn;
+		constexpr UsbPllOn usbPllOn{};
 		using UsbPllOff = Register::WriteBitActionT<address,8,true>;
-		constexpr UsbPllOff usbPllOff;
+		constexpr UsbPllOff usbPllOff{};
 		using UsbTransceiverOn = Register::WriteBitActionT<address,10,false>;
-		constexpr UsbTransceiverOn usbTransceiverOn;
+		constexpr UsbTransceiverOn usbTransceiverOn{};
 		using UsbTransceiverOff = Register::WriteBitActionT<address,10,true>;
-		constexpr UsbTransceiverOff usbTransceiverOff;
+		constexpr UsbTransceiverOff usbTransceiverOff{};
 		using TemperaturSensorOn = Register::WriteBitActionT<address,13,false>;
-		constexpr TemperaturSensorOn temperaturSensorOn;
+		constexpr TemperaturSensorOn temperaturSensorOn{};
 		using TemperaturSensorOff = Register::WriteBitActionT<address,13,true>;
-		constexpr TemperaturSensorOff temperaturSensorOff;
+		constexpr TemperaturSensorOff temperaturSensorOff{};
 	}
 
 	namespace SystemClockControl{			//SYSAHBCLKCTRL register actions
@@ -415,6 +425,30 @@ namespace Core{
 			        bss_init(ExeAddr, SectionLen);
 			    }
 			}
+		};
+	}
+	namespace ADC{
+		template<typename T>
+		struct SetPinFunctionToAdc{
+			static_assert(MPL::AlwaysFalse<T>::value,"");
+		};
+		template<>
+		struct SetPinFunctionToAdc<Io::PinLocation<MPL::Int<0>,MPL::Int<11>>> :
+			Io::MakeAction<Io::Action::PinFunction1,Io::PinLocation<MPL::Int<0>,MPL::Int<11>>>{};
+		struct Config{
+			static constexpr auto powerOn = PowerConfiguration::adcOn;
+			static constexpr Tag::None channel0Pin{};
+			static constexpr Tag::None channel1Pin{};
+			static constexpr Tag::None channel2Pin{};
+			static constexpr Tag::None channel3Pin{};
+			static constexpr Tag::None channel4Pin{};
+			static constexpr Tag::None channel5Pin{};
+			static constexpr Tag::None channel6Pin{};
+			static constexpr Tag::None channel7Pin{};
+			static constexpr Tag::None channel8Pin{};
+			static constexpr Tag::None channel9Pin{};
+			static constexpr Tag::None channel10Pin{};
+			static constexpr Tag::None channel11Pin{};
 		};
 	}
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "Tags.hpp"
+#include "Register.hpp"
 
 namespace Kvasir{
 namespace ADC{
@@ -10,6 +11,9 @@ namespace ADC{
 	using Config = TConfig;
 
 	public:
+		static constexpr auto init = MPL::list(
+				Config::powerOn,
+				Register::sequencePoint);
 
 	};
 }
