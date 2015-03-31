@@ -443,15 +443,15 @@ namespace Core{
 		namespace Detail{
 			//this function should return the pin function number for ADC mode which corresponds
 			//to the pin number passed in or -1 in case there is no ADC functionality on the pin
-			constexpr int getAdcPinLocationPort0(constexpr int pin){
+			constexpr int getAdcPinLocationPort0(int pin){
 				return (pin >= 11 && pin <= 15) ? 2 : (
 						(pin == 16 || pin == 22 || pin == 23) ? 1 : -1);
 			}
-			constexpr int getAdcPinLocationPort1(constexpr int pin){
+			constexpr int getAdcPinLocationPort1(int pin){
 				return (pin == 3 || pin == 29) ? 4 : (
 						(pin == 9 || pin == 22) ? 3 : -1);
 				}
-			constexpr int getAdcPinLocationPort2(constexpr int pin){
+			constexpr int getAdcPinLocationPort2(int pin){
 				return -1;  //no functionality on this port
 				}
 		}

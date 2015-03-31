@@ -12,7 +12,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #include "Register.hpp"
-#include "Gpio.hpp"
+#include "Io.hpp"
 #include "SystemClock.hpp"
 
 #define LPC11U68_BOARD

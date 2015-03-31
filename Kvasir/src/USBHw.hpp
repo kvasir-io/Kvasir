@@ -24,6 +24,7 @@
 #include "usbreg.h"
 #include "usbcfg.h"
 #include "usb.h"
+#include "MPLTypes.hpp"
 //#include "SystemControl.hpp"
 //#include "GPIO.hpp"
 //#include "IRQ.hpp"
@@ -214,7 +215,9 @@ constexpr uint32_t EPAdr (uint32_t EPNum) {
 #define EP_MSK_INT  0x4492      /* Interrupt Endpoint Logical Address Mask */
 #define EP_MSK_ISO  0x1248      /* Isochronous Endpoint Logical Address Mask */
 
-template<typename Traits>
+namespace Kvasir{
+
+template<typename TConfig>
 class USBHw
 {
 protected:
@@ -320,15 +323,8 @@ public:
 
 	  return (val);
 	}
+	static constexpr auto init = MPL::list(TConfig::usbPinCfg(TConfig::usbPins));
 	static void Init (void) {
-		  //LPC_PINCON->PINSEL1 &= ~((3<<26)|(3<<28));   /* P0.29 D+, P0.30 D- */
-		  //LPC_PINCON->PINSEL1 |=  ((1<<26)|(1<<28));   /* PINSEL1 26.27, 28.29  = 01 */
-
-		  //LPC_PINCON->PINSEL3 &= ~((3<< 4)/*|(3<<28)*/);   /* P1.18 GoodLink, P1.30 VBUS */
-		  //LPC_PINCON->PINSEL3 |=  ((1<< 4)/*|(2<<28)*/);   /* PINSEL3 4.5 = 01, 28.29 = 10 */
-
-		  //LPC_PINCON->PINSEL4 &= ~((3<<18)        );   /* P2.9 SoftConnect */
-		  //LPC_PINCON->PINSEL4 |=  ((1<<18)        );   /* PINSEL4 18.19 = 01 */
 
 		  //LPC_SC->PCONP |= (1UL<<31);                /* USB PCLK -> enable USB Per.       */
 
@@ -342,9 +338,9 @@ public:
 	}
 	static void Reset (void) {
 	  LPC_USB->EpInd = 0;
-	  LPC_USB->MaxPSize = Traits::EP0BufSize;
+	  LPC_USB->MaxPSize = TConfig::EP0BufSize;
 	  LPC_USB->EpInd = 1;
-	  LPC_USB->MaxPSize = Traits::EP0BufSize;
+	  LPC_USB->MaxPSize = TConfig::EP0BufSize;
 	  while ((LPC_USB->DevIntSt & EP_RLZED_INT) == 0);
 
 	  LPC_USB->EpIntClr  = 0xFFFFFFFF;
@@ -354,22 +350,6 @@ public:
 	               (USB_SOF_EVENT   ? FRAME_INT : 0) |
 	               (USB_ERROR_EVENT ? ERR_INT   : 0);
 
-	#if USB_DMA
-	  LPC_USB->UDCAH   = USB_RAM_ADR;
-	  LPC_USB->DMARClr = 0xFFFFFFFF;
-	  LPC_USB->EpDMADis  = 0xFFFFFFFF;
-	  LPC_USB->EpDMAEn   = USB_DMA_EP;
-	  LPC_USB->EoTIntClr = 0xFFFFFFFF;
-	  LPC_USB->NDDRIntClr = 0xFFFFFFFF;
-	  LPC_USB->SysErrIntClr = 0xFFFFFFFF;
-	  LPC_USB->DMAIntEn  = 0x00000007;
-	  DDMemMap[0] = 0x00000000;
-	  DDMemMap[1] = 0x00000000;
-	  for (unsigned long n = 0; n < USB_EP_NUM; n++) {
-	    udca[n] = 0;
-	    UDCA[n] = 0;
-	  }
-	#endif
 	}
 	static uint32_t ReadEP (uint32_t EPNum, uint8_t *pData) {
 		  uint32_t cnt, n;
@@ -409,4 +389,5 @@ public:
 	  return (cnt);
 	}
 };
+}
 
