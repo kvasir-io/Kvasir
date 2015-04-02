@@ -37,12 +37,9 @@ namespace SystemClock{
 			Register::apply(TTraits::FlashConfiguration::twoSysclock);
 			TTraits::SystemPLLControl::FeedbackDivider::write(I);
 			TTraits::SystemPLLControl::PostDivider::write(static_cast<typename TTraits::SystemPLLControl::PostDividerRatio>(J));
-			//(*(int*)0x40048008) = (I & 0x1F) | ((J & 0x3) << 5);  	//TODO make register abstraction
 			Register::apply(TTraits::systemPllPowerOn);
 			while(TTraits::SystemPllStatus::read() == TTraits::SystemPllStatusOption::noLock);
-			//while(((*(int*)0x4004800C) & 1) == 0){}						//TODO make register abstraction
 			TTraits::SystemAHBClock::Divider::write(1);
-			//*(int*) 0x40048078 = 1;
 			Register::apply(TTraits::MainClock::pllOutput);
 			Register::apply(TTraits::MainClock::sourceSame);
 			Register::apply(TTraits::MainClock::sourceUpdate);

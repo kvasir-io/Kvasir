@@ -1,15 +1,15 @@
 #pragma once
+#include "ChipLpc11u6xE6xInterrupt.hpp"
 
-#include "Register.hpp"
-
-namespace Kvasir {
-struct Timer16B0 {
-	static constexpr auto isr = Core::Interrupt::counterTimer16Bank0;
+namespace Kvasir{
+namespace Timer{
+struct TC16B0DefaultConfig {
+	static constexpr auto isr = Interrupt::counterTimer16Bank0;
 	static constexpr auto enableIrq = Core::enableIrq(isr);
 	static constexpr Register::WriteActionT<0x40048080,(1<<7),(1<<7)> clockEnable{};
 	static constexpr Register::WriteActionT<0x40048080,(1<<7),0> clockDisable{};
 	static constexpr int baseAddress = 0x4000C000;
-	using InterruptStatusRegister = Register::Single<MPL::Int<baseAddress>,MPL::Int<0x7F>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
+	using InterruptStatusRegister = Register::Functional<MPL::Int<baseAddress>,MPL::Int<0x7F>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
 	static constexpr Register::WriteActionT<baseAddress + 0x04,(1<<0),(1<<0)> couterEnable{};
 	static constexpr Register::WriteActionT<baseAddress + 0x04,(1<<0),0> couterDisable{};
 	struct MatchControl{
@@ -46,3 +46,5 @@ struct Timer16B0 {
 	static constexpr MPL::List<> captureReg1Init{};
 	static constexpr MPL::List<> captureReg2Init{};
 };
+}
+}

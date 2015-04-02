@@ -14,19 +14,18 @@ limitations under the License.
 #include "Timer.hpp"
 #include "StartUp.hpp"
 
-namespace M = Kvasir::MPL;
 using namespace Hardware;
 
 class Led {
 public:
-	static constexpr auto init = M::list(makeOutput(ledPin));
+	static constexpr auto init = makeOutput(ledPin);  //init can be a single action or a list of actions
 	static void toggle(){
 		apply(makeToggle(ledPin));
 	}
 };
 
-struct TimerConfig : Kvasir::Timer16B0 {
-	static constexpr auto matchReg0Init = M::list(
+struct TimerConfig : Kvasir::Timer::TC16B0DefaultConfig {
+	static constexpr auto matchReg0Init = list(
 			SetMR0ValueT<1000>::value,
 			MatchControl::r0InterruptEnable,
 			MatchControl::r0ResetOnMatch);
@@ -38,7 +37,6 @@ public:
 		Led::toggle();
 	}
 };
-
 
 int main(){
 	while(1);

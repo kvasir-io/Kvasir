@@ -16,11 +16,18 @@ limitations under the License.
 namespace Kvasir {
 	namespace MPL {
 
+		template<class T> void ignore( const T& ) { }  //used to surpress compiler warning
+
 		//equivalent to std::void_t
-		template<typename ... Ts>
-		using VoidT = void;
-		template<template<typename ...> class...>
-		using VoidTemplateT = void;
+		template<typename T>
+		struct TypeSink{
+			using Type = void;
+		};
+		template<typename T>
+		using VoidT = typename TypeSink<T>::Type;
+
+		template<typename T>
+		T Declval();
 
 		//invert bool types
 		template<typename T>
@@ -57,23 +64,26 @@ namespace Kvasir {
 		using IsSameT = typename IsSame<T,U>::Type;
 
 		template<class T> struct RemoveConst {
-			typedef T type;
+			typedef T Type;
 		};
 		template<class T> struct RemoveConst<const T> {
-			typedef T type;
+			typedef T Type;
 		};
 
 		template<class T> struct RemoveVolatile {
-			typedef T type;
+			typedef T Type;
 		};
 		template<class T> struct RemoveVolatile<volatile T> {
-			typedef T type;
+			typedef T Type;
 		};
 
 		template<class T>
 		struct RemoveCV {
-			typedef typename RemoveVolatile<typename RemoveConst<T>::type>::type type;
+			typedef typename RemoveVolatile<typename RemoveConst<T>::Type>::Type Type;
 		};
+
+		template<typename T>
+		using RemoveCVT = typename RemoveCV<T>::Type;
 
 		//equivalent to std::enable_if
 		template<bool, typename U = void>
