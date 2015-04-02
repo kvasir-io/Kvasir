@@ -152,9 +152,9 @@ public:
 	XtaloutPullUpInactive,
 	XtalinAnalogMode,
 	XtaloutAnalogMode);
-	static constexpr PowerConfiguration::CrystalOscilatorOn 			crystalOscilatorPowerOn{};
-	static constexpr PowerConfiguration::SystemPllOff 					systemPllPowerOff{};
-	static constexpr PowerConfiguration::SystemPllOn 					systemPllPowerOn{};
+	static constexpr auto crystalOscilatorPowerOn = PowerConfiguration::crystalOscilatorOn;
+	static constexpr auto systemPllPowerOff = PowerConfiguration::systemPllOff ;
+	static constexpr auto systemPllPowerOn = PowerConfiguration::systemPllOn;
 
 	struct FlashConfiguration{
 		static constexpr int address{0x4003C010};

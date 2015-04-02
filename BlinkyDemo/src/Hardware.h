@@ -19,7 +19,7 @@ limitations under the License.
 //#define LPC1768_BOARD
 
 #ifdef LPC11U68_BOARD
-#include "CoreM0.hpp"
+#include "ChipLpc11u6xE6x.hpp"
 #else
 #ifdef LPC1768_BOARD
 #include "CoreM3.hpp"
