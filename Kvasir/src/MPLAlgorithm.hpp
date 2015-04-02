@@ -190,6 +190,8 @@ namespace MPL {
 	struct Flatten{
 		static_assert(AlwaysFalse<TList>::value,"implausible type");
 	};
+	template<>
+	struct Flatten<List<>> : List<>{};
 	template<typename ... Ts>
 	struct Flatten<List<Ts...>> : Detail::Flatten<List<>, Ts...> {
 	};

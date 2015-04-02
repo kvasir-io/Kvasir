@@ -29,14 +29,20 @@ namespace Kvasir{
 namespace Startup{
 	namespace Detail{
 		using namespace MPL;
+		template<typename T>
+		struct Listify{
+			static_assert(AlwaysFalse<T>::value,"implausible type");
+		};
+		template<typename T, typename U, typename V>
+		struct Listify<Register::Action<T,U,V>> : List<Register::Action<T,U,V>>{};
+		template<typename... Ts>
+		struct Listify<List<Ts...>> : List<Ts...>{};
 		template<typename T, typename = void, typename = void>
 		struct GetInit : List<>{};
 		template<typename T, typename U>
 		struct GetInit<T,U,VoidT<typename T::Init>> : T::Init{};
 		template<typename T>
-		struct GetInit<T,VoidT<decltype(T::init)>,void> {
-			using Type = decltype(T::init);
-		};
+		struct GetInit<T,void,VoidT<decltype(T::init)>> : decltype(T::init) {};
 
 		template<typename T, typename U>
 		struct HasThisIsrHelper : FalseType{};
