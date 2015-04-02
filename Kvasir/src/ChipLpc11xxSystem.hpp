@@ -178,14 +178,14 @@ public:
 	struct SystemPLLControl{
 		enum class PostDividerRatio {div1 = 0, div2 = (1<<5), div4 = (2<<6), div8 = (3<<7)};
 		using Address = MPL::Int<0x40048008>;
-		using FeedbackDivider = Register::Single<Address,MPL::Int<0x1F>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
-		using PostDivider = Register::Single<Address,MPL::Int<(3 << 5)>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>,Register::Policy::EnumConversionP<PostDividerRatio>>;
+		using FeedbackDivider = Register::Functional<Address,MPL::Int<0x1F>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
+		using PostDivider = Register::Functional<Address,MPL::Int<(3 << 5)>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>,Register::Policy::EnumConversionP<PostDividerRatio>>;
 	};
 	enum class SystemPllStatusOption{noLock,lock};
-	using SystemPllStatus = Register::Single<MPL::Int<0x4004800C>,MPL::Int<0x01>,Register::Policy::ReadableP,Register::Policy::EnumConversionP<SystemPllStatusOption>>;
+	using SystemPllStatus = Register::Functional<MPL::Int<0x4004800C>,MPL::Int<0x01>,Register::Policy::ReadableP,Register::Policy::EnumConversionP<SystemPllStatusOption>>;
 	struct SystemAHBClock{
 		using Address = MPL::Int<0x40048078>;
-		using Divider = Register::Single<Address,MPL::Int<0xFF>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
+		using Divider = Register::Functional<Address,MPL::Int<0xFF>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
 	};
 };
 }

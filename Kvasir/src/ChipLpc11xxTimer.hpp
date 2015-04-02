@@ -9,7 +9,7 @@ struct TC16B0DefaultConfig {
 	static constexpr Register::WriteActionT<0x40048080,(1<<7),(1<<7)> clockEnable{};
 	static constexpr Register::WriteActionT<0x40048080,(1<<7),0> clockDisable{};
 	static constexpr int baseAddress = 0x4000C000;
-	using InterruptStatusRegister = Register::Single<MPL::Int<baseAddress>,MPL::Int<0x7F>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
+	using InterruptStatusRegister = Register::Functional<MPL::Int<baseAddress>,MPL::Int<0x7F>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
 	static constexpr Register::WriteActionT<baseAddress + 0x04,(1<<0),(1<<0)> couterEnable{};
 	static constexpr Register::WriteActionT<baseAddress + 0x04,(1<<0),0> couterDisable{};
 	struct MatchControl{

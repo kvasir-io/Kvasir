@@ -23,6 +23,13 @@ limitations under the License.
 namespace Kvasir {
 
 	namespace Register{
+		//this function produces an MPL::List just like MPL::list, however putting
+		//one here allows adl to find it without the user having to write out the
+		//whole namespace. Making the list take at least one parameter should
+		//prevent ambiguity in a case where MPL::list is also an overload candidate
+		template<typename T, typename... Ts>
+		constexpr MPL::List<T,Ts...> list(T,Ts...){ return MPL::List<T,Ts...>{}; }
+
 		struct SequencePoint{};
 		constexpr SequencePoint sequencePoint{};
 
@@ -203,10 +210,13 @@ namespace Kvasir {
 		}
 
 		template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
-		struct Single : MPL::ApplyTemplateT<TPolicies,TAddress,TMask,TConversionPolicy> {}; //only one policy so derive directly
+		struct Functional : MPL::ApplyTemplateT<TPolicies,TAddress,TMask,TConversionPolicy> {}; //only one policy so derive directly
 
 		template<typename TAddress, typename TMask, typename... Ts, typename TConversionPolicy>
-		struct Single<TAddress,TMask,MPL::List<Ts...>,TConversionPolicy> : MPL::DeriveFromTemplates<MPL::List<Ts...>,TAddress,TMask,TConversionPolicy>{};
+		struct Functional<TAddress,TMask,MPL::List<Ts...>,TConversionPolicy> : MPL::DeriveFromTemplates<MPL::List<Ts...>,TAddress,TMask,TConversionPolicy>{};
+
+		template<int Address, int Mask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
+		using FunctionalT = Functional<MPL::Int<Address>,MPL::Int<Mask>,TPolicies,TConversionPolicy>;
 
 		namespace Detail {
 			//Merges single and multistep inits

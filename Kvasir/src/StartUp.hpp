@@ -39,15 +39,13 @@ namespace Startup{
 		struct Listify<List<Ts...>> : List<Ts...>{};
 		template<typename T, typename = void, typename = void>
 		struct GetInit : List<>{};
-		template<typename T, typename U>
-		struct GetInit<T,U,VoidT<typename T::Init>> : T::Init{};
 		template<typename T>
-		struct GetInit<T,void,VoidT<decltype(T::init)>> : decltype(T::init) {};
+		struct GetInit<T,void,VoidT<decltype(T::init)>> : Listify<RemoveCVT<decltype(T::init)>> {};
 
 		template<typename T, typename U>
 		struct HasThisIsrHelper : FalseType{};
 		template<typename T>
-		struct HasThisIsrHelper<T, typename T::IsrType> : TrueType{};
+		struct HasThisIsrHelper<T, RemoveCVT<decltype(T::isr)>> : TrueType{};
 		template<int I>
 		struct HasThisIsr {
 			template<typename T>
