@@ -17,10 +17,15 @@ namespace Kvasir {
 	namespace MPL {
 
 		//equivalent to std::void_t
-		template<typename ... Ts>
-		using VoidT = void;
-		template<template<typename ...> class...>
-		using VoidTemplateT = void;
+		template<typename T>
+		struct TypeSink{
+			using Type = void;
+		};
+		template<typename T>
+		using VoidT = typename TypeSink<T>::Type;
+
+		template<typename T>
+		T Declval();
 
 		//invert bool types
 		template<typename T>

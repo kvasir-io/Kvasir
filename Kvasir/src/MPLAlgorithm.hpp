@@ -168,6 +168,8 @@ namespace MPL {
 	};
 	template<typename... Ts, typename TDelim>
 	struct Split<List<Ts...>,TDelim> : Detail::Split<List<>, List<>,TDelim,Ts...>{};
+	template<typename TDelim>
+	struct Split<List<>,TDelim> : List<>{};
 
 	template<typename TList, typename TDelim>
 	using SplitT = typename Split<TList,TDelim>::Type;

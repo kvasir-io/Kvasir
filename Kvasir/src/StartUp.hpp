@@ -34,7 +34,9 @@ namespace Startup{
 		template<typename T, typename U>
 		struct GetInit<T,U,VoidT<typename T::Init>> : T::Init{};
 		template<typename T>
-		struct GetInit<T,void,VoidT<decltype(T::init)>> : decltype(T::init){};
+		struct GetInit<T,VoidT<decltype(T::init)>,void> {
+			using Type = decltype(T::init);
+		};
 
 		template<typename T, typename U>
 		struct HasThisIsrHelper : FalseType{};
