@@ -1,8 +1,8 @@
 #pragma once
 
-#include "ChipLpc11xxSystem.hpp"
-#include "ChipLpc11xxTimer.hpp"
-#include "ChipLpc11xxIo.hpp"
+#include "ChipLpc11u6xE6xSystem.hpp"
+#include "ChipLpc11u6xE6xTimer.hpp"
+#include "ChipLpc11u6xE6xIo.hpp"
 
 namespace Kvasir {
 }

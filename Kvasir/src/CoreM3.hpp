@@ -186,6 +186,11 @@ namespace Core{
 			constexpr typename MakeAction<I>::Type makeAction(){ return typename MakeAction<I>::Type{}; };
 			using Register = Register::FunctionalT<address,0xFF,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
 		};
+		struct PLL0ClockSourceSelect{
+			static constexpr Register::WriteActionT<address,0x03,0> internalRc{};
+			static constexpr Register::WriteActionT<address,0x03,1> mainOscillator{};
+			static constexpr Register::WriteActionT<address,0x03,2> rtcOscillator{};
+		};
 	};
 
 	//work around!
@@ -198,7 +203,8 @@ namespace Core{
 			Register::apply(ClockConfig::externalCrystalInit);
 			/* Wait for osc to stabilize */
 			while(ControlStatus::MainOscilatorStatus::read() == false){}
-			Register::apply(TTraits::SystemPllClock::systemOscilator);
+			Register::apply(TTraits::CpuClockDivider::makeAction<3>());
+			Register::apply(TTraits::PLL0ClockSourceSelect::mainOscillator);
 			Register::apply(TTraits::SystemPllClock::sourceSame);
 			Register::apply(TTraits::SystemPllClock::sourceUpdate);
 			Register::apply(TTraits::FlashConfiguration::twoSysclock);

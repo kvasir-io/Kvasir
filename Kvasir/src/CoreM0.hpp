@@ -16,7 +16,7 @@ limitations under the License.
 #include "Register.hpp"
 #include "Tags.hpp"
 #include "MPLTypes.hpp"
-#include "ChipLpc11xx.hpp"		//TODO replace core with chip eventually
+#include "ChipLpc11u6xE6x.hpp"
 
 namespace Kvasir{
 	namespace Startup{

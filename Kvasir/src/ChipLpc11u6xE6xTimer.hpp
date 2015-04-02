@@ -1,5 +1,5 @@
 #pragma once
-#include "ChipLpc11xxInterrupt.hpp"
+#include "ChipLpc11u6xE6xInterrupt.hpp"
 
 namespace Kvasir{
 namespace Timer{
