@@ -3,111 +3,344 @@
 
 namespace Kvasir{
 namespace ADC{
-	namespace Control
+	namespace CON
 	{
 		constexpr int adress{0x4001C000};
 
-		using ADCChannel0Enable = Register::WriteBitActionT<adress,0,true>;
-		constexpr ADCChannel0Enable adcChannel0Enable{};
-		using ADCChannel0Disable = Register::WriteBitActionT<adress,0,false>;
-		constexpr ADCChannel0Disable adcChannel0Disable{};
+		//TODO make function register abstraction for CLKDIV
 
-		using ADCChannel1Enable = Register::WriteBitActionT<adress,1,true>;
-		constexpr ADCChannel1Enable adcChannel1Enable{};
-		using ADCChannel1Disable = Register::WriteBitActionT<adress,1,false>;
-		constexpr ADCChannel1Disable adcChannel1Disable{};
+		//Bits 9:8 are reserved
 
-		using ADCChannel2Enable = Register::WriteBitActionT<adress,2,true>;
-		constexpr ADCChannel2Enable adcChannel2Enable{};
-		using ADCChannel2Disable = Register::WriteBitActionT<adress,2,false>;
-		constexpr ADCChannel2Disable adcChannel2Disable{};
+		constexpr Register::WriteBitActionT<adress,10,true>		lowPowerModeEnable{};
+		constexpr Register::WriteBitActionT<adress,10,false>	lowPowerModeDisable{};
 
-		using ADCChannel3Enable = Register::WriteBitActionT<adress,3,true>;
-		constexpr ADCChannel3Enable adcChannel3Enable{};
-		using ADCChannel3Disable = Register::WriteBitActionT<adress,3,false>;
-		constexpr ADCChannel3Disable adcChannel3Disable{};
+		//Bits 29:11 are reserved
 
-		using ADCChannel4Enable = Register::WriteBitActionT<adress,4,true>;
-		constexpr ADCChannel4Enable adcChannel4Enable{};
-		using ADCChannel4Disable = Register::WriteBitActionT<adress,4,false>;
-		constexpr ADCChannel4Disable adcChannel4Disable{};
+		constexpr Register::WriteBitActionT<adress,30,true>		calibrationCycleStart{};
 
-		using ADCChannel5Enable = Register::WriteBitActionT<adress,5,true>;
-		constexpr ADCChannel5Enable adcChannel5Enable{};
-		using ADCChannel5Disable = Register::WriteBitActionT<adress,5,false>;
-		constexpr ADCChannel5Disable adcChannel5Disable{};
-
-		using ADCChannel6Enable = Register::WriteBitActionT<adress,6,true>;
-		constexpr ADCChannel6Enable adcChannel6Enable{};
-		using ADCChannel6Disable = Register::WriteBitActionT<adress,6,false>;
-		constexpr ADCChannel6Disable adcChannel6Disable{};
-
-		using ADCChannel7Enable = Register::WriteBitActionT<adress,7,true>;
-		constexpr ADCChannel7Enable adcChannel7Enable{};
-		using ADCChannel7Disable = Register::WriteBitActionT<adress,7,false>;
-		constexpr ADCChannel7Disable adcChannel7Disable{};
-
-		//Clock-Divider
-
-		using ADCBurstModeEnable = Register::WriteBitActionT<adress,16,true>;
-		constexpr ADCBurstModeEnable adcBurstModeEnabel{};
-
-
-
-
+		//Bit 30 is reserved
 	}
-	namespace InterruptEnable
+	namespace ConversionSequenceACON
+	{
+		constexpr int adress{0x4001C008};
+
+		constexpr Register::WriteBitActionT<adress,0,true> 		channelEnable_00{};
+		constexpr Register::WriteBitActionT<adress,0,false> 	channelDisable_00{};
+
+		constexpr Register::WriteBitActionT<adress,1,true> 		channelEnable_01{};
+		constexpr Register::WriteBitActionT<adress,1,false> 	channelDisable_01{};
+
+		constexpr Register::WriteBitActionT<adress,2,true> 		channelEnable_02{};
+		constexpr Register::WriteBitActionT<adress,2,false> 	channelDisable_02{};
+
+		constexpr Register::WriteBitActionT<adress,3,true> 		channelEnable_03{};
+		constexpr Register::WriteBitActionT<adress,3,false> 	channelDisable_03{};
+
+		constexpr Register::WriteBitActionT<adress,4,true> 		channelEnable_04{};
+		constexpr Register::WriteBitActionT<adress,4,false> 	channelDisable_04{};
+
+		constexpr Register::WriteBitActionT<adress,5,true> 		channelEnable_05{};
+		constexpr Register::WriteBitActionT<adress,5,false> 	channelDisable_05{};
+
+		constexpr Register::WriteBitActionT<adress,6,true> 		channelEnable_06{};
+		constexpr Register::WriteBitActionT<adress,6,false> 	channelDisable_06{};
+
+		constexpr Register::WriteBitActionT<adress,7,true> 		channelEnable_07{};
+		constexpr Register::WriteBitActionT<adress,7,false> 	channelDisable_07{};
+
+		constexpr Register::WriteBitActionT<adress,8,true> 		channelEnable_08{};
+		constexpr Register::WriteBitActionT<adress,8,false> 	channelDisable_08{};
+
+		constexpr Register::WriteBitActionT<adress,9,true> 		channelEnable_09{};
+		constexpr Register::WriteBitActionT<adress,9,false> 	channelDisable_09{};
+
+		constexpr Register::WriteBitActionT<adress,10,true> 	channelEnable_10{};
+		constexpr Register::WriteBitActionT<adress,10,false> 	channelDisable_10{};
+
+		constexpr Register::WriteBitActionT<adress,11,true> 	channelEnable_11{};
+		constexpr Register::WriteBitActionT<adress,11,false> 	channelDisable_11{};
+
+		constexpr Register::WriteActionT<adress,0xFFF,0>		channelDisable_ALL{};
+
+		//TODO make enum for triggerdistinction
+
+		//Bits 17:15 are reserved
+
+		constexpr Register::WriteBitActionT<adress,18,true>		triggerOnRisingEdge{};
+		constexpr Register::WriteBitActionT<adress,18,false>	triggerOnFallingEdge{};
+
+		constexpr Register::WriteBitActionT<adress,19,true>		syncBypassEnable{};
+		constexpr Register::WriteBitActionT<adress,19,false>	syncBypassDisable{};
+
+		//Bits 20:25 are reserved
+
+		constexpr Register::WriteActionT<adress,0x3<<26,0x1>	startOneConversion{};
+		constexpr Register::WriteActionT<adress,0x3<<26,0x2>	stratBurstConversion{};
+		constexpr Register::WriteActionT<adress,0x3<<26,0x0>	terminateMultipleConversions{};
+		constexpr Register::WriteBitActionT<adress,28,true>		stepConversionModeEnable{};
+		constexpr Register::WriteBitActionT<adress,28,false>	stepConversionModeDisable{};
+
+		constexpr Register::WriteBitActionT<adress,29,true>		lowPriorityOnSeqA{};
+		constexpr Register::WriteBitActionT<adress,29,false>	highPriorityOnSeqA{};
+
+		constexpr Register::WriteBitActionT<adress,30,true>		interruptAfterEachSequence{};
+		constexpr Register::WriteBitActionT<adress,30,false>	interruptAfterEachConversion{};
+
+		constexpr Register::WriteBitActionT<adress,31,true>		sequenceEnable{};
+		constexpr Register::WriteBitActionT<adress,31,false>	sequenceDisable{};
+	}
+	namespace ConversionSequenceBCON
 	{
 		constexpr int adress{0x4001C00C};
 
-		using ADCChannel0InterruptEnable = Register::WriteBitActionT<adress,0,true>;
-		constexpr ADCChannel0InterruptEnable adcChannel0InterruptEnable{};
-		using ADCChannel0InterruptDisable = Register::WriteBitActionT<adress,0,false>;
-		constexpr ADCChannel0InterruptDisable adcChannel0InterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,0,true> 		channelEnable_00{};
+		constexpr Register::WriteBitActionT<adress,0,false> 	channelDisable_00{};
 
-		using ADCChannel1InterruptEnable = Register::WriteBitActionT<adress,1,true>;
-		constexpr ADCChannel1InterruptEnable adcChannel1InterruptEnable{};
-		using ADCChannel1InterruptDisable = Register::WriteBitActionT<adress,1,false>;
-		constexpr ADCChannel1InterruptDisable adcChannel1InterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,1,true> 		channelEnable_01{};
+		constexpr Register::WriteBitActionT<adress,1,false> 	channelDisable_01{};
 
-		using ADCChannel2InterruptEnable = Register::WriteBitActionT<adress,2,true>;
-		constexpr ADCChannel2InterruptEnable adcChannel2InterruptEnable{};
-		using ADCChannel2InterruptDisable = Register::WriteBitActionT<adress,2,false>;
-		constexpr ADCChannel2InterruptDisable adcChannel2InterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,2,true> 		channelEnable_02{};
+		constexpr Register::WriteBitActionT<adress,2,false> 	channelDisable_02{};
 
-		using ADCChannel3InterruptEnable = Register::WriteBitActionT<adress,3,true>;
-		constexpr ADCChannel3InterruptEnable adcChannel3InterruptEnable{};
-		using ADCChannel3InterruptDisable = Register::WriteBitActionT<adress,3,false>;
-		constexpr ADCChannel3InterruptDisable adcChannel3InterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,3,true> 		channelEnable_03{};
+		constexpr Register::WriteBitActionT<adress,3,false> 	channelDisable_03{};
 
-		using ADCChannel4InterruptEnable = Register::WriteBitActionT<adress,4,true>;
-		constexpr ADCChannel4InterruptEnable adcChannel4InterruptEnable{};
-		using ADCChannel4InterruptDisable = Register::WriteBitActionT<adress,4,false>;
-		constexpr ADCChannel4InterruptDisable adcChannel4InterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,4,true> 		channelEnable_04{};
+		constexpr Register::WriteBitActionT<adress,4,false> 	channelDisable_04{};
 
-		using ADCChannel5InterruptEnable = Register::WriteBitActionT<adress,5,true>;
-		constexpr ADCChannel5InterruptEnable adcChannel5InterruptEnable{};
-		using ADCChannel5InterruptDisable = Register::WriteBitActionT<adress,5,false>;
-		constexpr ADCChannel5InterruptDisable adcChannel5InterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,5,true> 		channelEnable_05{};
+		constexpr Register::WriteBitActionT<adress,5,false> 	channelDisable_05{};
 
-		using ADCChannel6InterruptEnable = Register::WriteBitActionT<adress,6,true>;
-		constexpr ADCChannel6InterruptEnable adcChannel6InterruptEnable{};
-		using ADCChannel6InterruptDisable = Register::WriteBitActionT<adress,6,false>;
-		constexpr ADCChannel6InterruptDisable adcChannel6InterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,6,true> 		channelEnable_06{};
+		constexpr Register::WriteBitActionT<adress,6,false> 	channelDisable_06{};
 
-		using ADCChannel7InterruptEnable = Register::WriteBitActionT<adress,7,true>;
-		constexpr ADCChannel7InterruptEnable adcChannel7InterruptEnable{};
-		using ADCChannel7InterruptDisable = Register::WriteBitActionT<adress,7,false>;
-		constexpr ADCChannel7InterruptDisable adcChannel7InterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,7,true> 		channelEnable_07{};
+		constexpr Register::WriteBitActionT<adress,7,false> 	channelDisable_07{};
 
-		using ADCResetAllChannels = Register::BlindWriteActionT<adress,0xFF,0x00>;
-		constexpr ADCResetAllChannels adcResetAllChannels{};
+		constexpr Register::WriteBitActionT<adress,8,true> 		channelEnable_08{};
+		constexpr Register::WriteBitActionT<adress,8,false> 	channelDisable_08{};
 
-		using ADCGlobalInterruptEnable = Register::WriteBitActionT<adress,8,true>;
-		constexpr ADCGlobalInterruptEnable adcGlobalInterruptEnable{};
-		using ADCGlobalInterruptDisable = Register::WriteBitActionT<adress,8,true>;
-		constexpr ADCGlobalInterruptDisable adcGlobalInterruptDisable{};
+		constexpr Register::WriteBitActionT<adress,9,true> 		channelEnable_09{};
+		constexpr Register::WriteBitActionT<adress,9,false> 	channelDisable_09{};
+
+		constexpr Register::WriteBitActionT<adress,10,true> 	channelEnable_10{};
+		constexpr Register::WriteBitActionT<adress,10,false> 	channelDisable_10{};
+
+		constexpr Register::WriteBitActionT<adress,11,true> 	channelEnable_11{};
+		constexpr Register::WriteBitActionT<adress,11,false> 	channelDisable_11{};
+
+		constexpr Register::WriteActionT<adress,0xFFF,0>		channelDisable_ALL{};
+
+		//TODO make enum for triggerdistinction
+
+		//Bits 17:15 are reserved
+
+		constexpr Register::WriteBitActionT<adress,18,true>		triggerOnRisingEdge{};
+		constexpr Register::WriteBitActionT<adress,18,false>	triggerOnFallingEdge{};
+
+		constexpr Register::WriteBitActionT<adress,19,true>		syncBypassEnable{};
+		constexpr Register::WriteBitActionT<adress,19,false>	syncBypassDisable{};
+
+		//Bits 20:25 are reserved
+
+		constexpr Register::WriteActionT<adress,0x3<<26,0x1>	startOneConversion{};
+		constexpr Register::WriteActionT<adress,0x3<<26,0x2>	stratBurstConversion{};
+		constexpr Register::WriteActionT<adress,0x3<<26,0x0>	terminateMultipleConversions{};
+		constexpr Register::WriteBitActionT<adress,28,true>		stepConversionModeEnable{};
+		constexpr Register::WriteBitActionT<adress,28,false>	stepConversionModeDisable{};
+
+		// Bit 29 is reserved ->have a look at Kvasir::ADC::ConversionSequanceACON
+
+		constexpr Register::WriteBitActionT<adress,30,true>		interruptAfterEachSequence{};
+		constexpr Register::WriteBitActionT<adress,30,false>	interruptAfterEachConversion{};
+
+		constexpr Register::WriteBitActionT<adress,31,true>		sequenceEnable{};
+		constexpr Register::WriteBitActionT<adress,31,false>	sequenceDisable{};
 	}
+
+	namespace GlobalDataRegisterSequenceA{constexpr int adress{0x4001C010};/*Fill in the getters*/}
+	namespace GlobalDataRegisterSequenceB{constexpr int adress{0x4001C014};/*Fill in the getters*/}
+	namespace Channel00DataRegister{constexpr int adress{0x4001C020};/*Fill in the getters*/}
+	namespace Channel01DataRegister{constexpr int adress{0x4001C024};/*Fill in the getters*/}
+	namespace Channel02DataRegister{constexpr int adress{0x4001C028};/*Fill in the getters*/}
+	namespace Channel03DataRegister{constexpr int adress{0x4001C02C};/*Fill in the getters*/}
+	namespace Channel04DataRegister{constexpr int adress{0x4001C030};/*Fill in the getters*/}
+	namespace Channel05DataRegister{constexpr int adress{0x4001C034};/*Fill in the getters*/}
+	namespace Channel06DataRegister{constexpr int adress{0x4001C038};/*Fill in the getters*/}
+	namespace Channel07DataRegister{constexpr int adress{0x4001C03C};/*Fill in the getters*/}
+	namespace Channel08DataRegister{constexpr int adress{0x4001C040};/*Fill in the getters*/}
+	namespace Channel09DataRegister{constexpr int adress{0x4001C044};/*Fill in the getters*/}
+	namespace Channel10DataRegister{constexpr int adress{0x4001C048};/*Fill in the getters*/}
+	namespace Channel11DataRegister{constexpr int adress{0x4001C04C};/*Fill in the getters*/}
+
+	namespace CompareLowThresh0
+	{
+		constexpr int adress{0x4001C050};
+
+		//Bits 3:0 are reserved
+
+		//TODO fill in method to set lower threshold 15:4
+
+		//Bits 26:31 are reserved
+	}
+	namespace CompareLowThresh1
+	{
+		constexpr int adress{0x4001C054};
+
+		//Bits 3:0 are reserved
+
+		//TODO fill in method to set lower threshold 15:4
+
+		//Bits 26:31 are reserved
+	}
+	namespace CompareHighThresh0
+	{
+		constexpr int adress{0x4001C058};
+
+		//Bits 3:0 are reserved
+
+		//TODO fill in method to set upper threshold 15:4
+
+		//Bits 26:31 are reserved
+	}
+	namespace CompareHighThresh1
+	{
+		constexpr int adress{0x4001C05C};
+
+		//Bits 3:0 are reserved
+
+		//TODO fill in method to set upper threshold 15:4
+
+		//Bits 26:31 are reserved
+	}
+	namespace ChannelThresholdSelect
+	{
+		constexpr int adress{0x4001C060};
+
+		constexpr Register::WriteBitActionT<adress,0,false>		channel00Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,0,true>		channel00Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,1,false>		channel01Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,1,true>		channel01Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,2,false>		channel02Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,2,true>		channel02Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,3,false>		channel03Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,3,true>		channel03Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,4,false>		channel04Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,4,true>		channel04Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,5,false>		channel05Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,5,true>		channel05Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,6,false>		channel06Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,6,true>		channel06Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,7,false>		channel07Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,7,true>		channel07Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,8,false>		channel08Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,8,true>		channel08Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,9,false>		channel09Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,9,true>		channel09Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,10,false>	channel10Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,10,true>		channel10Thresh1Enable{};
+
+		constexpr Register::WriteBitActionT<adress,11,false>	channel11Thresh0Enable{};
+		constexpr Register::WriteBitActionT<adress,11,true>		channel11Thresh1Enable{};
+
+		//Bits 31:12 are reserved
+	}
+
+	namespace InterruptEnable
+	{
+		constexpr int adress{0x4001C064};
+
+		constexpr Register::WriteBitActionT<adress,0,true>		seqAInterruptEnable{};
+		constexpr Register::WriteBitActionT<adress,0,false>		seqAInterruptDisable{};
+
+		constexpr Register::WriteBitActionT<adress,1,true>		seqBInterruptEnable{};
+		constexpr Register::WriteBitActionT<adress,1,false>		seqBInterruptDisable{};
+
+		constexpr Register::WriteBitActionT<adress,2,true>		overrunInterruptEnable{};
+		constexpr Register::WriteBitActionT<adress,2,false>		overrunInterruptDisable{};
+
+		constexpr Register::WriteActionT<adress,0x3<<3,0x0>		channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<3,0x1>		channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<3,0x2>		channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<5,0x0>		channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<5,0x1>		channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<5,0x2>		channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<7,0x0>		channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<7,0x1>		channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<7,0x2>		channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<9,0x0>		channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<9,0x1>		channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<9,0x2>		channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<11,0x0>	channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<11,0x1>	channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<11,0x2>	channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<12,0x0>	channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<12,0x1>	channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<12,0x2>	channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<15,0x0>	channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<15,0x1>	channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<15,0x2>	channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<17,0x0>	channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<17,0x1>	channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<17,0x2>	channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<19,0x0>	channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<19,0x1>	channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<19,0x2>	channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<21,0x0>	channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<21,0x1>	channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<21,0x2>	channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<23,0x0>	channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<23,0x1>	channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<23,0x2>	channel00InterruptIfCrossing{};
+
+		constexpr Register::WriteActionT<adress,0x3<<25,0x0>	channel00InterruptDisable{};
+		constexpr Register::WriteActionT<adress,0x3<<25,0x1>	channel00InterruptIfOutside{};
+		constexpr Register::WriteActionT<adress,0x3<<25,0x2>	channel00InterruptIfCrossing{};
+
+		//Bits 31:27 are reserved
+	}
+
+	namespace Flags
+	{
+		constexpr int adress{0x4001C068};
+
+		//TODO fill in getter methods
+		//Bits 27:26 are reserved
+	}
+
+	namespace Trim
+	{
+		constexpr int adress{0x4001C06C};
+
+		//Bits 4:0 are reserved
+
+		constexpr Register::WriteBitActionT<adress,5,true>		vddaHigh{};		// 2.7 to 3.6 Volts
+		constexpr Register::WriteBitActionT<adress,5,false>		vddaLow{};		// 2.4 to 2.7 Volts
+
+		//Bits 31:6 are reserved
+	}
+
+
 	namespace Detail{
 		//this function should return the pin function number for ADC mode which corresponds
 		//to the pin number passed in or -1 in case there is no ADC functionality on the pin
