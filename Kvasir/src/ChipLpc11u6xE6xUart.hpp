@@ -6,12 +6,76 @@ namespace Kvasir{
 	namespace Detail{
 		template<int I>
 		struct UsartN{
-
+			static constexpr int baseAddress = I;
+			struct Configuration{
+				static constexpr int address = baseAddress + 0x00;
+			};
+			struct Controal{
+				static constexpr int address = baseAddress + 0x04;
+			};
+			struct Status{
+				static constexpr int address = baseAddress + 0x08;
+			};
+			struct InterruptEnableReadAndSet{
+				static constexpr int address = baseAddress + 0x0C;
+			};
+			struct InterruptEnableClear{
+				static constexpr int address = baseAddress + 0x10;
+			};
+			struct Rx{
+				static constexpr int address = baseAddress + 0x14;
+			};
+			struct RxStatus{
+				static constexpr int address = baseAddress + 0x18;
+			};
+			struct Tx{
+				static constexpr int address = baseAddress + 0x1C;
+			};
+			struct BaudRateGenerator{
+				static constexpr int address = baseAddress + 0x20;
+			};
+			struct InterruptStatus{
+				static constexpr int address = baseAddress + 0x24;
+			};
+			struct Oversample{
+				static constexpr int address = baseAddress + 0x28;
+			};
+			struct AddressMatching{
+				static constexpr int address = baseAddress + 0x2C;
+			};
 		};
 	}
 	struct Usart0{
 		static constexpr int baseAddress = 0x40008000;
-		//double registers
+		struct NormalMode{
+			using Tx = Register::FunctionalT<baseAddress,0xFF,Register::Policy::PushableP>;
+			using Rx = Register::FunctionalT<baseAddress,0xFF,Register::Policy::PopableP>;
+		};
+		struct DivisorLatchAccessMode{
+			using DivisorLatchLSB = Register::FunctionalT<baseAddress,0xFF,Register::Policy::ReadWriteableP>;
+			using DivisorLatchMSB = Register::FunctionalT<baseAddress+4,0xFF,Register::Policy::ReadWriteableP>;
+		};
+
+		struct InterruptStatusPod{
+			enum class Identification{modemStatus,thre,receiveDataAvailable,receiveLineStatus,characterTimeoutIndicator = 6};
+			int raw_;
+			explicit operator int(){
+				return raw_;
+			}
+			Identification interruptIdentification(){
+				return static_cast<Identification>(raw_ & 0x0F);
+			}
+			bool autobaudFinishedSuccessfully(){
+				return raw_ & (1<<8);
+			}
+			bool autobaudTimedOut(){
+				return raw_ & (1<<9);
+			}
+		};
+		using InterruptStatus = Register::FunctionalT<baseAddress+8,0x03CF,Register::Policy::ReadableP,RegisterPolicy::PodConversionP<InterruptStatusPod>>;
+		struct FifoControl{
+			static constexpr int address = baseAddress + 0x08;
+		};
 		struct LineControl{
 			static constexpr int address = baseAddress + 0x0C;
 		};
@@ -58,8 +122,8 @@ namespace Kvasir{
 			static constexpr int address = baseAddress + 0x58;
 		};
 	};
-	using Usart1 = UsartN<0>;
-	using Usart2 = UsartN<1>;
-	using Usart3 = UsartN<2>;
-	using Usart4 = UsartN<3>;
+	using Usart1 = UsartN<0x4006C000>;
+	using Usart2 = UsartN<0x40070000>;
+	using Usart3 = UsartN<0x40074000>;
+	using Usart4 = UsartN<0x4004C000>;
 }

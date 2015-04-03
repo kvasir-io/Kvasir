@@ -96,6 +96,7 @@ namespace Kvasir {
 			struct WriteRegister<MPL::List<Ts...>>{
 				int operator()(){
 					int a[] = {WriteRegister<Ts>{}()...};
+					MPL::ignore(a);
 					return 0;
 				}
 			};
@@ -134,12 +135,24 @@ namespace Kvasir {
 		}
 
 		namespace Policy{
-			template<typename T_Type, typename T_RegisterType>
+			template<typename TType, typename TRegisterType>
 			struct GenericConversion {
-				using Type = T_Type;
-				using RegisterType = T_RegisterType;
-				static inline Type read(const T_RegisterType& in){
+				using Type = TType;
+				using RegisterType = TRegisterType;
+				static inline Type read(const TRegisterType& in){
 					return static_cast<Type>(in);
+				}
+				static inline RegisterType write(const Type &in){
+					return static_cast<RegisterType>(in);
+				}
+			};
+			//this conversion policy construcs a pod with the register
+			template<typename TType, typename TRegisterType>
+			struct PodConversion {
+				using Type = TType;
+				using RegisterType = TRegisterType;
+				static inline Type read(const TRegisterType& in){
+					return Type{in};
 				}
 				static inline RegisterType write(const Type &in){
 					return static_cast<RegisterType>(in);
@@ -193,7 +206,9 @@ namespace Kvasir {
 			using PopableP = MPL::Template<Popable>;
 			using WriteableP = MPL::Template<Writeable>;
 			using PushableP = MPL::Template<Pushable>;
-
+			using ReadWriteableP = MPL::List<ReadableP,WriteableP>;
+			template<typename TPod>
+			using PodConversionP = PodConversion<TPod,int>;
 		}
 
 		//this class is used to define multi-step inits, each parameter is an MPL::List of Register::Option(s)
