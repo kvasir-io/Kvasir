@@ -26,7 +26,7 @@ protected:
 	static void onCapture1() {};
 	static void onCapture2() {};
 private:
-	static void Isr(){
+	static void onIsr(){
 		auto i = TConfig::InterruptStatusRegister::read();
 		if(i & (1<<0)){
 			TConfig::InterruptStatusRegister::write(1<<0);
@@ -61,8 +61,7 @@ private:
 protected:
 	using Config = TConfig;
 public:
-	static constexpr auto isr = TConfig::isr;
-	using IsrFunction = Nvic::IsrFunction<&Base::Isr>;
+	static constexpr auto isr = Nvic::Isr<&Base::isrFunction,decltype(TConfig::isr)>{};
 	static constexpr auto init = MPL::list(
 			Config::clockEnable,
 			Register::sequencePoint,

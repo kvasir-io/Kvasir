@@ -15,16 +15,19 @@ namespace Kvasir{
 namespace Nvic{
 	using IsrFunctionPointer = void(*)(void);
 
-	//type wrapper around a function pointer
-	template<IsrFunctionPointer F>
-	struct IsrFunction{
-		static constexpr IsrFunctionPointer value = F;
-		using Type = IsrFunction<F>;
+	template<int I>
+	struct Index{
+		static constexpr unsigned value = I;
 	};
 
-	template<int I>
-	struct Type{
-		static constexpr unsigned value = I;
+	//type wrapper around a function pointer including an ISR type
+	template<IsrFunctionPointer F, typename T>
+	struct Isr;
+	template<IsrFunctionPointer F, int I>
+	struct Isr<F,Index<I>>{
+		static constexpr IsrFunctionPointer value = F;
+		using Type = Isr<F, Index<I>>;
+		using IType = Index<I>;
 	};
 
 	class DefaultIsrs{
@@ -34,7 +37,7 @@ namespace Nvic{
 		}
 	};
 
-	using UnusedIsr = IsrFunction<&DefaultIsrs::Unused>;
+	using UnusedIsr = Isr<&DefaultIsrs::Unused,Index<0>>;
 
 }
 }

@@ -4,7 +4,7 @@
 namespace Kvasir{
 namespace Interrupt{
 	template<int I>
-	using Type = ::Kvasir::Nvic::Type<I>;
+	using Type = ::Kvasir::Nvic::Index<I>;
 
 	constexpr Type<0> pinInterrupt0{};
 	constexpr Type<1> pinInterrupt1{};
