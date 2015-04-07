@@ -13,6 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #include "MPLUtility.hpp"
+#include "MPLAlgorithm.hpp"
 #include "Interrupt.hpp"
 #include "Register.hpp"
 #include "Tags.hpp"
@@ -166,54 +167,54 @@ extern void (* const g_pfnVectors[])(void);
 	using Init = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
 __attribute__ ((section(".isr_vector")))\
 void (* const g_pfnVectors[])(void) = {\
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<0>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<1>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<2>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<3>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<4>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<5>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<6>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<7>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<8>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<9>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<10>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<11>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<12>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<13>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<14>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<15>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<16>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<17>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<18>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<19>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<20>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<21>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<22>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<23>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<24>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<25>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<26>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<27>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<28>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<29>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<30>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<31>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<32>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<33>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<34>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<35>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<36>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<37>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<38>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<39>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<40>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<41>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<42>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<43>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<44>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<45>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<46>>::value, \
-    Kvasir::MPL::At<Init,Kvasir::MPL::Int<47>>::value \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<0>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<1>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<2>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<3>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<4>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<5>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<6>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<7>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<8>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<9>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<10>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<11>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<12>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<13>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<14>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<15>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<16>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<17>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<18>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<19>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<20>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<21>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<22>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<23>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<24>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<25>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<26>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<27>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<28>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<29>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<30>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<31>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<32>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<33>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<34>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<35>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<36>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<37>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<38>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<39>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<40>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<41>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<42>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<43>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<44>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<45>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<46>>::value, \
+    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<47>>::value \
 };\
 \
 \

@@ -13,6 +13,7 @@ struct DefaultConfig{
 	static constexpr auto devices = MPL::list();
 	static constexpr int vid = 0x0000;
 	static constexpr int pid = 0x0000;
+	static constexpr int ep0BufSize = 8;
 
 };
 

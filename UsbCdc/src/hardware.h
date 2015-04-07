@@ -1,6 +1,7 @@
 #pragma once
 #include "Register.hpp"
 #include "SystemClock.hpp"
+#include "Io.hpp"
 //#define LPC11U68_BOARD
 #define LPC1769_BOARD
 #ifdef LPC11U68_BOARD
@@ -11,8 +12,8 @@
 #endif
 
 namespace Hardware{
-
-using Clock = Kvasir::SystemClock::ExternalOsciRawSettings<Kvasir::System::ClockConfig,3,1>;
+	constexpr Kvasir::Io::PinLocationT<0,22> led{};
+	using Clock = Kvasir::System::ExternalOsciRawSettings<3,1>;
 }
 
 KVASIR_CLOCK(Hardware::Clock)

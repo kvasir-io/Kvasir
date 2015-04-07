@@ -28,14 +28,30 @@ struct TC16B0DefaultConfig {
 	};
 	template<int I>
 	using SetPrescaleT = Register::BlindWriteActionT<baseAddress + 0x0C,0xFFFFFFFF,I>;
-	template<int I>
-	using SetMR0ValueT = Register::BlindWriteActionT<baseAddress + 0x18,0xFFFFFFFF,I>;
-	template<int I>
-	using SetMR1ValueT = Register::BlindWriteActionT<baseAddress + 0x1C,0xFFFFFFFF,I>;
-	template<int I>
-	using SetMR2ValueT = Register::BlindWriteActionT<baseAddress + 0x20,0xFFFFFFFF,I>;
-	template<int I>
-	using SetMR3ValueT = Register::BlindWriteActionT<baseAddress + 0x24,0xFFFFFFFF,I>;
+	struct MatchRegister0{
+		template<int I>
+		using MakeSetValueT = Register::BlindWriteActionT<baseAddress + 0x18,0xFFFFFFFF,I>;
+		template<int I>
+		static constexpr auto makeSetValue(){ return MakeSetValueT<I>{};}
+	};
+	struct MatchRegister1{
+		template<int I>
+		using MakeSetValueT = Register::BlindWriteActionT<baseAddress + 0x1C,0xFFFFFFFF,I>;
+		template<int I>
+		static constexpr auto makeSetValue(){ return MakeSetValueT<I>{};}
+	};
+	struct MatchRegister2{
+		template<int I>
+		using MakeSetValueT = Register::BlindWriteActionT<baseAddress + 0x20,0xFFFFFFFF,I>;
+		template<int I>
+		static constexpr auto makeSetValue(){ return MakeSetValueT<I>{};}
+	};
+	struct MatchRegister3{
+		template<int I>
+		using MakeSetValueT = Register::BlindWriteActionT<baseAddress + 0x24,0xFFFFFFFF,I>;
+		template<int I>
+		static constexpr auto makeSetValue(){ return MakeSetValueT<I>{};}
+	};
 
 	static constexpr int prescaleValue = 1000;
 	static constexpr MPL::List<> matchReg0Init{};

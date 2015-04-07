@@ -15,14 +15,15 @@ limitations under the License.
 #include "Io.hpp"
 #include "SystemClock.hpp"
 
-#define LPC11U68_BOARD
-//#define LPC1768_BOARD
+//#define LPC11U68_BOARD
+#define LPC1768_BOARD
 
 #ifdef LPC11U68_BOARD
 #include "ChipLpc11u6xE6x.hpp"
 #else
 #ifdef LPC1768_BOARD
 #include "CoreM3.hpp"
+#include "ChipLpc175x6x.hpp"
 #else
 
 #endif
@@ -32,14 +33,17 @@ limitations under the License.
 namespace Hardware{
 #ifdef LPC11U68_BOARD
 	constexpr Kvasir::Io::PinLocationT<2,16> ledPin{};
+	using Clock = Kvasir::SystemClock::ExternalOsciRawSettings<Kvasir::System::ClockConfig,3,1>;
+	using TimerDefaultConfig = Kvasir::Timer::TC16B0DefaultConfig;
 #else
 #ifdef LPC1768_BOARD
-	constexpr Kvasir::Io::PinLocationT<0,6> ledPin{};
+	constexpr Kvasir::Io::PinLocationT<0,22> ledPin{};
+	using Clock = Kvasir::System::ExternalOsciRawSettings<3,1>;
+	using TimerDefaultConfig = Kvasir::Timer::TC0DefaultConfig;
 #else
 
 #endif
 #endif
-	using Clock = Kvasir::SystemClock::ExternalOsciRawSettings<Kvasir::System::ClockConfig,3,1>;
 }
 
 KVASIR_CLOCK(Hardware::Clock)

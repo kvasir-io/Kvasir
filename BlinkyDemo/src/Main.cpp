@@ -24,9 +24,9 @@ public:
 	}
 };
 
-struct TimerConfig : Kvasir::Timer::TC16B0DefaultConfig {
+struct TimerConfig : TimerDefaultConfig {
 	static constexpr auto matchReg0Init = list(
-			SetMR0ValueT<1000>::value,
+			MatchRegister0::makeSetValue<1000>(),
 			MatchControl::reg0InterruptEnable,
 			MatchControl::reg0ResetOnMatch);
 };

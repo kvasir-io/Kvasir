@@ -2,9 +2,10 @@
 #include "StartUp.hpp"
 #include "Cdc.hpp"
 
+using namespace Hardware;
 int main(void) {
 
-
+	//apply(makeOutput(led));
 
     // Force the counter to be placed into memory
     volatile static int i = 0 ;
