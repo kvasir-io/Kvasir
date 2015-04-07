@@ -36,7 +36,7 @@ namespace Kvasir{
 		template<typename T>
 		struct EnableIrq;
 		template<int I>
-		struct EnableIrq<Nvic::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ISER,I),(1<<I),(1<<I)>{};
+		struct EnableIrq<Nvic::Index<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ISER,I),(1<<I),(1<<I)>{};
 		template<typename T>
 		constexpr typename EnableIrq<T>::Type enableIrq(T){
 			return typename EnableIrq<T>::Type{};
@@ -48,7 +48,7 @@ namespace Kvasir{
 		template<typename T>
 		struct DisableIrq;
 		template<int I>
-		struct DisableIrq<Nvic::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ICER,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
+		struct DisableIrq<Nvic::Index<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ICER,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
 		template<typename T>
 		using DisableIrqT = typename DisableIrq<T>::Type;
 		template<typename... Ts>
@@ -58,7 +58,7 @@ namespace Kvasir{
 		template<typename T>
 		struct SetPendingIrq;
 		template<int I>
-		struct SetPendingIrq<Nvic::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ISPR,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
+		struct SetPendingIrq<Nvic::Index<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ISPR,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
 		template<typename T>
 		using SetPendingIrqT = typename SetPendingIrq<T>::Type;
 		template<typename... Ts>
@@ -68,7 +68,7 @@ namespace Kvasir{
 		template<typename T>
 		struct ClearPendingIrq;
 		template<int I>
-		struct ClearPendingIrq<Nvic::Type<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ICPR,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
+		struct ClearPendingIrq<Nvic::Index<I>> : Register::BlindWriteActionT<Detail::getIrqRegister(Detail::IsrRegister::ICPR,I),(1<<(I & 0x1F)),(1<<(I & 0x1F))>{};
 		template<typename T>
 		using ClearPendingIrqT = typename ClearPendingIrq<T>::Type;
 		template<typename... Ts>

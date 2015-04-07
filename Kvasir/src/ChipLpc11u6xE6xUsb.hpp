@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Register.hpp"
+#include "UsbConfig.hpp"
+#include "ChipLpc11u6xE6xInterrupt.hpp"
 
 namespace Kvasir{
 struct UsbDefaultConfig{
@@ -26,7 +28,22 @@ struct UsbDefaultConfig{
 		static constexpr Register::WriteBitActionT<address,9,false> stopPllClockOnSuspendOn;
 		static constexpr Register::WriteBitActionT<address,11,true> lpmSupported;
 		static constexpr Register::WriteBitActionT<address,11,false> lpmNotSupported;
-		//TODO implement rest
+		static constexpr Register::WriteBitActionT<address,12,true> bulkOutInterruptOnNackOn;
+		static constexpr Register::WriteBitActionT<address,12,false> bulkOutInterruptOnNackOff;
+		static constexpr Register::WriteBitActionT<address,13,true> bulkInInterruptOnNackOn;
+		static constexpr Register::WriteBitActionT<address,13,false> bulkInInterruptOnNackOff;
+		static constexpr Register::WriteBitActionT<address,14,true> controlOutInterruptOnNackOn;
+		static constexpr Register::WriteBitActionT<address,14,false> controlOutInterruptOnNackOff;
+		static constexpr Register::WriteBitActionT<address,15,true> controlInInterruptOnNackOn;
+		static constexpr Register::WriteBitActionT<address,15,false> controlInInterruptOnNackOff;
+		static constexpr Register::WriteBitActionT<address,16,true> deviceConnect;
+		static constexpr Register::WriteBitActionT<address,16,false> deviceDisconnect;
+		static constexpr Register::WriteBitActionT<address,17,false> remoteWakeup;
+		static constexpr Register::WriteBitActionT<address,19,true> deviceSuspend;
+		static constexpr Register::WriteBitActionT<address,19,false> deviceWakeUp;
+		static constexpr Register::WriteBitActionT<address,24,true> deviceConnectChangeReset;
+		static constexpr Register::WriteBitActionT<address,25,true> deviceSuspendChangeReset;
+		static constexpr Register::WriteBitActionT<address,26,true> deviceResetChangeReset;
 	};
 	struct Info{
 		static constexpr int address = baseAddress+4;
@@ -37,4 +54,15 @@ struct UsbDefaultConfig{
 	using EpCommandStatusListAddress = Register::Functional<baseAddress+8,0xFFFFFFFF,Register::Policy::ReadWritableP>;
 	//TODO add rest
 };
+	namespace Usb{
+		template<typename TDerived, typename TConfig>
+		struct Base{
+		private:
+			void onInterrupt(){
+
+			}
+		public:
+			static constexpr auto isr = MPL::list(Interrupt::usbIrq, Interrupt::usbFiq)
+		};
+	}
 }

@@ -45,11 +45,15 @@ namespace Startup{
 		template<typename T, typename U>
 		struct HasThisIsrHelper : FalseType{};
 		template<typename T>
-		struct HasThisIsrHelper<T, RemoveCVT<decltype(T::isr)>> : TrueType{};
+		struct HasThisIsrHelper<T, RemoveCVT<typename decltype(T::isr)::IsrType>> : RemoveCVT<decltype(T::isr)>{};
+		template<typename... Ts, int I>
+		struct HasThisIsrHelper<MPL::List<Ts...>,Nvic::Index<I>> : Find<List<Ts...>,Template<HasThisIsr<I>>>{};
 		template<int I>
 		struct HasThisIsr {
 			template<typename T>
-			struct Apply : HasThisIsrHelper<T,Nvic::Type<I>>::Type {};
+			struct Apply : HasThisIsrHelper<T,Nvic::Index<I>>::Type {};
+			template<typename... T>
+			struct Apply : AnyOf<typename HasThisIsrHelper<Ts,Nvic::Index<I>>::Type...>::Type {};
 		};
 		template<int I, typename TList, int Index>
 		struct GetIsrPointerHelper : MPL::At<TList,Int<Index>>::IsrFunction{};
@@ -85,31 +89,18 @@ namespace Startup{
 		template<typename... Os>
 		struct Merge<List<Os...>,List<>> : List<Os...>{};
 
-
+		template<typename T, typename = void>
+		struct ExtractIsr : MPL::List<>{};
 
 	}
 	template<typename...Ts>
 	struct GetIsrPointers : Detail::CompileIsrPointerList<
-		0,
+		-14,
 		MPL::List<
-			Nvic::IsrFunction<&_vStackTop>,
-			Nvic::IsrFunction<ResetISR>,
-			Nvic::IsrFunction<nullptr>,  	//TODO give user the ability to change these
-			Nvic::IsrFunction<nullptr>,	//and use defaults based on traits from the CoreMX.hpp used
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>,
-			Nvic::IsrFunction<nullptr>
+			Nvic::Isr<&_vStackTop,Nvic::Index<0>>,
+			Nvic::Isr<ResetISR,Nvic::Index<0>>
 		>,
-		MPL::List<Ts...>
+		MPL::FlattenT<typename Detail::ExtractIsr<Ts>::Type...>
 		>{};
 	template<typename...Ts>
 	using GetIsrPointersT = typename GetIsrPointers<Ts...>::Type;
