@@ -37,12 +37,10 @@ public:
 		Led::toggle();
 	}
 };
-
 int main(){
-	using Init = ::Kvasir::Startup::GetIsrPointersT<Timer>;
 	while(1);
 	return 0;
 }
-//KVASIR_START(Timer,Led)
+KVASIR_START(Timer,Led)
 
 

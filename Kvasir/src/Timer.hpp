@@ -61,7 +61,7 @@ private:
 protected:
 	using Config = TConfig;
 public:
-	static constexpr auto isr = Nvic::Isr<&Base::isrFunction,decltype(TConfig::isr)>{};
+	using Isr = Nvic::Isr<(&onIsr),MPL::RemoveCVT<decltype(TConfig::isr)>>;
 	static constexpr auto init = MPL::list(
 			Config::clockEnable,
 			Register::sequencePoint,

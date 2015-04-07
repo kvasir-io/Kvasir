@@ -42,31 +42,39 @@ namespace Startup{
 		template<typename T>
 		struct GetInit<T,void,VoidT<decltype(T::init)>> : Listify<RemoveCVT<decltype(T::init)>> {};
 
-		template<typename T, typename U>
-		struct HasThisIsrHelper : FalseType{};
-		template<typename T>
-		struct HasThisIsrHelper<T, RemoveCVT<typename decltype(T::isr)::IsrType>> : RemoveCVT<decltype(T::isr)>{};
-		template<typename... Ts, int I>
-		struct HasThisIsrHelper<MPL::List<Ts...>,Nvic::Index<I>> : Find<List<Ts...>,Template<HasThisIsr<I>>>{};
+//		template<typename T, typename U>
+//		struct HasThisIsrHelper : FalseType{};
+//		template<typename T>
+//		struct HasThisIsrHelper<T, RemoveCVT<typename decltype(T::isr)::IsrType>> : RemoveCVT<decltype(T::isr)>{};
+//		template<typename... Ts, int I>
+//		struct HasThisIsrHelper<MPL::List<Ts...>,Nvic::Index<I>> : Find<List<Ts...>,Template<HasThisIsr<I>>>{};
+//		template<int I>
+//		struct HasThisIsr {
+//			template<typename T>
+//			struct Apply : HasThisIsrHelper<T,Nvic::Index<I>>::Type {};
+//			template<typename... T>
+//			struct Apply : AnyOf<typename HasThisIsrHelper<Ts,Nvic::Index<I>>::Type...>::Type {};
+//		};
+//		template<int I, typename TList, int Index>
+//		struct GetIsrPointerHelper : MPL::At<TList,Int<Index>>::IsrFunction{};
+//		template<int I, typename TList>
+//		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Nvic::UnusedIsr{};
+//
+//		template<int I, typename TList>
+//		struct GetIsrPointer : GetIsrPointerHelper<I,TList,Find<TList,Template<HasThisIsr<I>::template Apply>>::value>{};
+
 		template<int I>
-		struct HasThisIsr {
+		struct IsIsrByIndex{
 			template<typename T>
-			struct Apply : HasThisIsrHelper<T,Nvic::Index<I>>::Type {};
-			template<typename... T>
-			struct Apply : AnyOf<typename HasThisIsrHelper<Ts,Nvic::Index<I>>::Type...>::Type {};
+			struct Apply : Bool<(T::IType::value == I)>::Type{};
 		};
-		template<int I, typename TList, int Index>
-		struct GetIsrPointerHelper : MPL::At<TList,Int<Index>>::IsrFunction{};
-		template<int I, typename TList>
-		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Nvic::UnusedIsr{};
-		template<int I, typename TList>
-		struct GetIsrPointer : GetIsrPointerHelper<I,TList,Find<TList,Template<HasThisIsr<I>::template Apply>>::value>{};
+
 		template<int I, typename TList, typename TModList>
 		struct CompileIsrPointerList;
 		template<int I, typename...Ts, typename TModList>
 		struct CompileIsrPointerList<I,List<Ts...>,TModList> : CompileIsrPointerList<
 			I+1,
-			List<Ts...,typename GetIsrPointer<I,TModList>::Type>,
+			List<Ts..., GetT<TModList,Template<IsIsrByIndex<I>::template Apply>,Nvic::UnusedIsr>>,
 			TModList
 			>{};
 		template<typename...Ts, typename TModList>
@@ -89,8 +97,12 @@ namespace Startup{
 		template<typename... Os>
 		struct Merge<List<Os...>,List<>> : List<Os...>{};
 
-		template<typename T, typename = void>
+		template<typename T, typename = void, typename = void>
 		struct ExtractIsr : MPL::List<>{};
+		template<typename T, typename U>
+		struct ExtractIsr<T, U, VoidT<typename T::Isr>> : T::Isr {};
+		template<typename T>
+		struct ExtractIsr<T, void, VoidT<decltype(T::isr)>> : decltype(T::isr) {};
 
 	}
 	template<typename...Ts>
@@ -100,7 +112,9 @@ namespace Startup{
 			Nvic::Isr<&_vStackTop,Nvic::Index<0>>,
 			Nvic::Isr<ResetISR,Nvic::Index<0>>
 		>,
-		MPL::FlattenT<typename Detail::ExtractIsr<Ts>::Type...>
+		MPL::FlattenT<
+			MPL::List<typename Detail::ExtractIsr<Ts>::Type...>
+		>
 		>{};
 	template<typename...Ts>
 	using GetIsrPointersT = typename GetIsrPointers<Ts...>::Type;

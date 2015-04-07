@@ -115,6 +115,14 @@ namespace Kvasir {
 		template<typename TList>
 		using SizeT = typename Size<TList>::Type;
 
+		template<bool B, typename T, typename U>
+		struct Conditional : U {};
+		template<typename T, typename U>
+		struct Conditional<true,T,U> : T {};
+
+		template<bool B, typename T, typename U>
+		using ConditionalT = typename Conditional<B,T,U>::Type;
+
 	//helper recursively derives from a list of base classes
 	template<typename TTemplateList, typename ... Ts>
 	struct DeriveFromTemplates{

@@ -12,6 +12,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #include "MPLTypes.hpp"
+#include "MPLUtility.hpp"
 namespace Kvasir {
 namespace MPL {
 	namespace Detail {
@@ -30,8 +31,8 @@ namespace MPL {
 		template<int I, bool Found, template<typename...> class Pred, typename ... Ts>
 		struct PredFind: Int<-1> {
 		};
-		template<int I, template<typename...> class Pred, typename T, typename...Ts>
-		struct PredFind<I,true,Pred,T,Ts...> : Int<I>{};
+		template<int I, template<typename...> class Pred, typename...Ts>
+		struct PredFind<I,true,Pred,Ts...> : Int<I>{};
 		template<int I, template<typename...> class Pred, typename T, typename ... Ts>
 		struct PredFind<I, false, Pred, T, Ts...> : PredFind<I + 1, Pred<T>::value,Pred, Ts...> {};
 
@@ -137,6 +138,18 @@ namespace MPL {
 
 	}
 
+	template<typename TList, typename TIndex>
+	struct At{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<typename T, typename...Ts, int I>
+	struct At<List<T, Ts...>,Int<I>> : At<List<Ts...>,Int<I-1>>{};
+	template<typename T, typename... Ts>
+	struct At<List<T, Ts...>,Int<0>> : T{};
+	template<typename TList, typename TIndex>
+	using AtT = typename At<TList,TIndex>::Type;
+
+
 	//Find returns Int<-1> if type is not found, otherwise returns index
 	template<typename TList, typename TToFind>
 	struct Find{
@@ -149,6 +162,17 @@ namespace MPL {
 	struct Find<List<T,Ts...>, Template<Pred>> : Detail::PredFind<0,Pred<T>::value,Pred,Ts...>{};
 	template<typename TList, typename TToFind>
 	using FindT = typename Find<TList,TToFind>::Type;
+
+	//Get returns first item matching Pred or default if none are matching
+	template<typename TList, typename TPred, typename TDefault>
+	struct Get{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<template<typename...> class Pred, typename D, typename... Ts>
+	struct Get<List<Ts...>, Template<Pred>,D> :
+		ConditionalT<(FindT<List<Ts...>,Template<Pred>>::value == -1),D,At<List<Ts...>,FindT<List<Ts...>,Template<Pred>>>>{};
+	template<typename TList, typename TPred, typename TDefault>
+	using GetT = typename Get<TList, TPred, TDefault>::Type;
 
 	//returns true if T_ToFind is in T_Container, otherwise false
 	template<typename TContainer, typename TToFind>
@@ -220,17 +244,6 @@ namespace MPL {
 	//alias
 	template<typename TList, typename TPred = LessP>
 	using SortT = typename Sort<TList,TPred>::Type;
-
-	template<typename TList, typename TIndex>
-	struct At{
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
-	};
-	template<typename T, typename...Ts, int I>
-	struct At<List<T, Ts...>,Int<I>> : At<List<Ts...>,Int<I-1>>{};
-	template<typename T, typename... Ts>
-	struct At<List<T, Ts...>,Int<0>> : T{};
-	template<typename TList, typename TIndex>
-	using AtT = typename At<TList,TIndex>::Type;
 
 	template<typename TList, typename TFrom, typename TTo>
 	struct Remove{
