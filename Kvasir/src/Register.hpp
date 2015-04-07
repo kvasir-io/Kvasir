@@ -74,6 +74,7 @@ namespace Kvasir {
 
 			template<int A, int Mask, int Data>
 			struct WriteRegister<Register::Action<WriteAddress<A>,Int<Mask>,Int<Data>>>{
+				static_assert((Data & (~Mask))==0,"bad mask");
 				int operator()(){
 					auto& reg = *(volatile int*)A;
 					auto i = reg;
@@ -85,9 +86,19 @@ namespace Kvasir {
 			};
 			template<int A, int Mask, int Data>
 			struct WriteRegister<Register::Action<WriteOnlyAddress<A>,Int<Mask>,Int<Data>>>{
+				static_assert((Data & (~Mask))==0,"bad mask");
 				int operator()(){
 					auto& reg = *(volatile int*)A;
 					reg = Data;
+					return 0;
+				}
+			};
+			template<int A, int Mask, int Data>
+			struct WriteRegister<Register::Action<XorAddress<A>,Int<Mask>,Int<Data>>>{
+				static_assert((Data & (~Mask))==0,"bad mask");
+				int operator()(){
+					auto& reg = *(volatile int*)A;
+					reg ^= Data;
 					return 0;
 				}
 			};

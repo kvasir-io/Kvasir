@@ -27,35 +27,37 @@ protected:
 	static void onCapture2() {};
 private:
 	static void onIsr(){
-		auto i = TConfig::InterruptStatusRegister::read();
+		auto i = TConfig::Interrupt::Status::read();
+		int clearBits{0};
 		if(i & (1<<0)){
-			TConfig::InterruptStatusRegister::write(1<<0);
+			clearBits &= (1<<0);
 			TDerived::onMatch0();
 		}
 		if(i & (1<<1)){
-			TConfig::InterruptStatusRegister::write(1<<1);
+			clearBits &= (1<<1);
 			TDerived::onMatch1();
 		}
 		if(i & (1<<2)){
-			TConfig::InterruptStatusRegister::write(1<<2);
+			clearBits &= (1<<2);
 			TDerived::onMatch2();
 		}
 		if(i & (1<<3)){
-			TConfig::InterruptStatusRegister::write(1<<3);
+			clearBits &= (1<<3);
 			TDerived::onMatch3();
 		}
 		if(i & (1<<4)){
-			TConfig::InterruptStatusRegister::write(1<<4);
+			clearBits &= (1<<4);
 			TDerived::onCapture0();
 		}
 		if(i & (1<<5)){
-			TConfig::InterruptStatusRegister::write(1<<5);
+			clearBits &= (1<<5);
 			TDerived::onCapture1();
 		}
 		if(i & (1<<6)){
-			TConfig::InterruptStatusRegister::write(1<<6);
+			clearBits &= (1<<6);
 			TDerived::onCapture2();
 		}
+		TConfig::Interrupt::Clear::write(clearBits);
 
 	}
 protected:
@@ -63,9 +65,7 @@ protected:
 public:
 	using Isr = Nvic::Isr<(&onIsr),MPL::RemoveCVT<decltype(TConfig::isr)>>;
 	static constexpr auto init = MPL::list(
-			Config::clockEnable,
-			Register::sequencePoint,
-			Config::template SetPrescaleT<Config::prescaleValue>::value,
+			Config::Prescale::template makeSet<Config::prescaleValue>(),
 			Config::matchReg0Init,
 			Config::matchReg1Init,
 			Config::matchReg2Init,
@@ -74,7 +74,7 @@ public:
 			Config::captureReg1Init,
 			Config::captureReg2Init,
 			Register::sequencePoint,
-			Config::couterEnable,
+			Config::Control::couterEnable,
 			Config::enableIrq
 			);
 };

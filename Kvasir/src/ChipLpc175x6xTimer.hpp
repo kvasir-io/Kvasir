@@ -7,17 +7,26 @@ namespace Timer{
 		template<int BaseAddress, typename InterruptIndex>
 		struct TimerN{
 			static constexpr InterruptIndex isr{};
-			struct InterruptRegister{
+			static constexpr auto enableIrq = Core::enableIrq(isr);
+			struct Interrupt{
 				static constexpr int address = BaseAddress + 0x00;
+				using Status = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::ReadableP>;
+				using Clear = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::WriteableP>;
 			};
-			struct ControlRegister{
+			struct Control{
 				static constexpr int address = BaseAddress + 0x04;
+				static constexpr Register::WriteBitActionT<address,0,true> couterEnable{};
+				static constexpr Register::WriteBitActionT<address,0,false> couterDisable{};
+				static constexpr Register::WriteBitActionT<address,1,true> holdInReset{};
+				static constexpr Register::WriteBitActionT<address,1,false> noReset{};
 			};
 			struct Counter{
 				static constexpr int address = BaseAddress + 0x08;
 			};
 			struct Prescale{
 				static constexpr int address = BaseAddress + 0x0C;
+				template<int I>
+				static constexpr auto makeSet(){ return Register::BlindWriteActionT<address,0xFFFFFFFF,I>{}; }
 			};
 			struct PrescaleCounter{
 				static constexpr int address = BaseAddress + 0x10;
