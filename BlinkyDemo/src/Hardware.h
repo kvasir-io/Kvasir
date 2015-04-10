@@ -16,16 +16,20 @@ limitations under the License.
 #include "SystemClock.hpp"
 
 //#define LPC11U68_BOARD
-#define LPC1768_BOARD
+//#define LPC1768_BOARD
+#define LPC1549_BOARD
 
 #ifdef LPC11U68_BOARD
 #include "ChipLpc11u6xE6x.hpp"
 #else
 #ifdef LPC1768_BOARD
-#include "CoreM3.hpp"
 #include "ChipLpc175x6x.hpp"
 #else
+#ifdef LPC1549_BOARD
+#include "ChipLpc15xx.hpp"
+#else
 
+#endif
 #endif
 #endif
 
@@ -41,7 +45,19 @@ namespace Hardware{
 	using Clock = Kvasir::System::ExternalOsciRawSettings<3,1>;
 	using TimerDefaultConfig = Kvasir::Timer::TC0DefaultConfig;
 #else
+#ifdef LPC1549_BOARD
+	constexpr Kvasir::Io::PinLocationT<0,22> ledPin{};
+	struct MyOsciSettings{
+		static void init(){
 
+		}
+	};
+
+	using Clock = MyOsciSettings;
+	using TimerDefaultConfig = Kvasir::Timer::Timer0DefaultConfig;
+#else
+
+#endif
 #endif
 #endif
 }

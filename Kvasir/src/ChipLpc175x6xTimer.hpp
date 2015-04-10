@@ -7,7 +7,6 @@ namespace Timer{
 		template<int BaseAddress, typename InterruptIndex>
 		struct TimerN{
 			static constexpr InterruptIndex isr{};
-			static constexpr auto enableIrq = Core::enableIrq(isr);
 			struct Interrupt{
 				static constexpr int address = BaseAddress + 0x00;
 				using Status = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::ReadableP>;
@@ -87,9 +86,9 @@ namespace Timer{
 			static constexpr MPL::List<> captureReg2Init{};
 		};
 	}
-	using TC0DefaultConfig = Detail::TimerN<0x400400,Core::Interrupt::Uart0>;
-	using TC1DefaultConfig = Detail::TimerN<0x400800,Core::Interrupt::Uart1>;
-	using TC2DefaultConfig = Detail::TimerN<0x409000,Core::Interrupt::Uart2>;
-	using TC3DefaultConfig = Detail::TimerN<0x409400,Core::Interrupt::Uart3>;
+	using TC0DefaultConfig = Detail::TimerN<0x400400,Interrupt::Uart0>;
+	using TC1DefaultConfig = Detail::TimerN<0x400800,Interrupt::Uart1>;
+	using TC2DefaultConfig = Detail::TimerN<0x409000,Interrupt::Uart2>;
+	using TC3DefaultConfig = Detail::TimerN<0x409400,Interrupt::Uart3>;
 }
 }

@@ -63,7 +63,7 @@ private:
 protected:
 	using Config = TConfig;
 public:
-	using Isr = Nvic::Isr<(&onIsr),MPL::RemoveCVT<decltype(TConfig::isr)>>;
+	static constexpr Nvic::Isr<(&onIsr),MPL::RemoveCVT<decltype(TConfig::isr)>> isr{};
 	static constexpr auto init = MPL::list(
 			Config::Prescale::template makeSet<Config::prescaleValue>(),
 			Config::matchReg0Init,
@@ -75,7 +75,7 @@ public:
 			Config::captureReg2Init,
 			Register::sequencePoint,
 			Config::Control::couterEnable,
-			Config::enableIrq
+			makeEnable(TConfig::isr)
 			);
 };
 }

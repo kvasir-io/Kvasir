@@ -2,7 +2,6 @@
 #include "interrupt.hpp"
 
 namespace Kvasir{
-namespace Core{
 	namespace Interrupt{
 		template<int I>
 		using Type = ::Kvasir::Nvic::Index<I>;
@@ -71,5 +70,10 @@ namespace Core{
 		constexpr MotorControlPWM motorControlPWM;
 		constexpr QEI qei;
 	}
-}
+	namespace Nvic{
+		constexpr int baseAddress = 0xE000E000;
+		template<int I>
+		struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
+			baseAddress + 0x100 +(I>32?4:0), (I & 0x1F)>{};
+	}
 }

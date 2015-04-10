@@ -38,4 +38,10 @@ namespace Interrupt{
 	constexpr Type<29> adcb{};
 	constexpr Type<30> usbWakeup{};
 }
+namespace Nvic{
+	constexpr int baseAddress = 0xE000E000;
+	template<int I>
+	struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
+		baseAddress + 0x100 +(I>32?4:0), (I & 0x1F)>{};
+}
 }

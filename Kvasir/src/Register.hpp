@@ -54,6 +54,8 @@ namespace Kvasir {
 		using WriteActionT = Action<WriteAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
 		template<int Address,int Offset, bool Data>
 		using WriteBitActionT = Action<WriteAddress<Address>,MPL::Int<(1<<Offset)>,MPL::Int<(Data<<Offset)>>;
+		template<int Address,int Offset>
+		using BlindSetBitActionT = Action<WriteOnlyAddress<Address>,MPL::Int<(1<<Offset)>,MPL::Int<(1<<Offset)>>;
 
 		template<int Address,int Mask, int Data>
 		using BlindWriteActionT = Action<WriteOnlyAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
