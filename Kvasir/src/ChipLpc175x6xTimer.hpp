@@ -86,9 +86,9 @@ namespace Timer{
 			static constexpr MPL::List<> captureReg2Init{};
 		};
 	}
-	using TC0DefaultConfig = Detail::TimerN<0x400400,Interrupt::Uart0>;
-	using TC1DefaultConfig = Detail::TimerN<0x400800,Interrupt::Uart1>;
-	using TC2DefaultConfig = Detail::TimerN<0x409000,Interrupt::Uart2>;
-	using TC3DefaultConfig = Detail::TimerN<0x409400,Interrupt::Uart3>;
+	using TC0DefaultConfig = Detail::TimerN<0x40004000,Interrupt::Uart0>;
+	using TC1DefaultConfig = Detail::TimerN<0x40008000,Interrupt::Uart1>;
+	using TC2DefaultConfig = Detail::TimerN<0x40090000,Interrupt::Uart2>;
+	using TC3DefaultConfig = Detail::TimerN<0x40094000,Interrupt::Uart3>;
 }
 }

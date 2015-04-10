@@ -79,7 +79,7 @@ namespace Startup{
 			TModList
 			>{};
 		template<typename...Ts, typename TModList>
-		struct CompileIsrPointerList<32,List<Ts...>,TModList> : List<Ts...>{};
+		struct CompileIsrPointerList<64,List<Ts...>,TModList> : List<Ts...>{};
 
 		//predecate retuning result of left < right for RegisterOptions
 		template<typename TLeft, typename TRight>
@@ -223,7 +223,7 @@ void (* const g_pfnVectors[])(void) = {\
  Sets up a simple runtime environment and initializes the C/C++
  library.
 *****************************************************************************/\
-__attribute__ ((section(".after_vectors")))\
+/*__attribute__ ((section(".after_vectors")))\*/
 void ResetISR(void) {\
 	Kvasir::Startup::FirstInitStep<Kvasir::Tag::User>{}();\
     /* Call C++ library initialisation */ \

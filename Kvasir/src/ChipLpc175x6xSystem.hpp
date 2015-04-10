@@ -72,8 +72,6 @@ namespace Kvasir{
 	}
 
 	struct ClockConfig{
-		static constexpr auto externalCrystalInit = list(ControlStatus::mainOscillatorEnable);
-
 		struct FlashConfiguration{
 			static constexpr int address{0x400FC000};
 			template<int I>
@@ -96,38 +94,42 @@ namespace Kvasir{
 			static constexpr typename MakeAction<I>::Type makeAction(){ return typename MakeAction<I>::Type{}; };
 			using Register = Register::FunctionalT<address,0xFF,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
 		};
-		struct PLL0ClockSourceSelect{
+		struct Pll0ClockSourceSelect{
 			static constexpr int address = 0x400FC10C;
 			static constexpr Register::WriteActionT<address,0x03,0> internalRc{};
 			static constexpr Register::WriteActionT<address,0x03,1> mainOscillator{};
 			static constexpr Register::WriteActionT<address,0x03,2> rtcOscillator{};
 		};
+		struct Pll0Control{
+			static constexpr int address = 0x400FC080;
+			static constexpr Register::WriteBitActionT<address,0,true> enable{};
+			static constexpr Register::WriteBitActionT<address,0,false> disable{};
+			static constexpr Register::WriteBitActionT<address,1,true> connect{};
+			static constexpr Register::WriteBitActionT<address,1,false> disconnect{};
+		};
+		struct Pll0Feed{
+			static constexpr int address = 0x400FC08C;
+			static constexpr Register::WriteActionT<address,0xFF,0xAA> firstStep{};
+			static constexpr Register::WriteActionT<address,0xFF,0x55> secondStep{};
+		};
+		struct Pll0Configuration{
+			static constexpr int address = 0x400FC084;
+			template<int I>
+			using MakeMultiplierAction = Register::WriteActionT<address,0x7FFF,I>;
+			template<int I>
+			static constexpr typename MakeMultiplierAction<I>::Type makeMultiplierAction(){ return typename MakeMultiplierAction<I>::Type{}; };
+			template<int I>
+			using MakeDividerAction = Register::WriteActionT<address,0x7FFF,I>;
+			template<int I>
+			static constexpr typename MakeDividerAction<I>::Type makeDividerAction(){ return typename MakeDividerAction<I>::Type{}; };
+
+		};
+		struct Pll0Status{
+			static constexpr int address = 0x400FC088;
+			using LockStatus = Register::FunctionalT<address,(1<<26),Register::Policy::ReadableP,Register::Policy::BoolConversionP>;
+		};
 	};
 
-	//work around!
-	template<int I, int J>
-	struct ExternalOsciRawSettings{
-	protected:
-
-	public:
-		static void init(){
-			Register::apply(ClockConfig::externalCrystalInit);
-			/* Wait for osc to stabilize */
-			while(ControlStatus::MainOscilatorStatus::read() == false){}
-			Register::apply(ClockConfig::CpuClockDivider::makeAction<3>());
-			Register::apply(ClockConfig::PLL0ClockSourceSelect::mainOscillator);
-
-			Register::apply(ClockConfig::FlashConfiguration::sixSysclock);
-//			TTraits::SystemPLLControl::FeedbackDivider::write(I);
-//			TTraits::SystemPLLControl::PostDivider::write(static_cast<typename TTraits::SystemPLLControl::PostDividerRatio>(J));
-//			Register::apply(TTraits::systemPllPowerOn);
-//			while(TTraits::SystemPllStatus::read() == TTraits::SystemPllStatusOption::noLock);
-//			TTraits::SystemAHBClock::Divider::write(1);
-//			Register::apply(TTraits::MainClock::pllOutput);
-//			Register::apply(TTraits::MainClock::sourceSame);
-//			Register::apply(TTraits::MainClock::sourceUpdate);
-		}
-	};
 	}
 
 	namespace Startup{

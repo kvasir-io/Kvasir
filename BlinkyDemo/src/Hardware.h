@@ -16,8 +16,8 @@ limitations under the License.
 #include "SystemClock.hpp"
 
 //#define LPC11U68_BOARD
-//#define LPC1768_BOARD
-#define LPC1549_BOARD
+#define LPC1768_BOARD
+//#define LPC1549_BOARD
 
 #ifdef LPC11U68_BOARD
 #include "ChipLpc11u6xE6x.hpp"
@@ -42,7 +42,28 @@ namespace Hardware{
 #else
 #ifdef LPC1768_BOARD
 	constexpr Kvasir::Io::PinLocationT<0,22> ledPin{};
-	using Clock = Kvasir::System::ExternalOsciRawSettings<3,1>;
+	struct MyOsciSettings{
+		static void init(){
+			using namespace Kvasir;
+			using namespace Kvasir::System;
+			apply(ControlStatus::mainOscillatorEnable);
+			/* Wait for osc to stabilize */
+			while(ControlStatus::MainOscilatorStatus::read() == false){}
+			apply(ClockConfig::CpuClockDivider::makeAction<3>());
+			apply(ClockConfig::Pll0ClockSourceSelect::mainOscillator);
+			apply(ClockConfig::Pll0Configuration::makeMultiplierAction<11>());
+			apply(ClockConfig::Pll0Control::enable);
+			apply(ClockConfig::Pll0Feed::firstStep);
+			apply(ClockConfig::Pll0Feed::secondStep);
+
+			while(ClockConfig::Pll0Status::LockStatus::read() == false){}
+			apply(ClockConfig::FlashConfiguration::fourSysclock);
+			apply(ClockConfig::Pll0Control::enable,ClockConfig::Pll0Control::connect);
+			apply(ClockConfig::Pll0Feed::firstStep);
+			apply(ClockConfig::Pll0Feed::secondStep);
+		}
+	};
+	using Clock = MyOsciSettings;
 	using TimerDefaultConfig = Kvasir::Timer::TC0DefaultConfig;
 #else
 #ifdef LPC1549_BOARD
