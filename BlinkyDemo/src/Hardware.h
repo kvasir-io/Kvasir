@@ -15,8 +15,8 @@ limitations under the License.
 #include "Io.hpp"
 #include "SystemClock.hpp"
 
-//#define LPC11U68_BOARD
-#define LPC1768_BOARD
+#define LPC11U68_BOARD
+//#define LPC1768_BOARD
 //#define LPC1549_BOARD
 
 #ifdef LPC11U68_BOARD

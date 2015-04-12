@@ -43,6 +43,11 @@ namespace Startup{
 		template<typename T>
 		struct GetInit<T,void,VoidT<decltype(T::init)>> : Listify<RemoveCVT<decltype(T::init)>> {};
 
+		template<typename T, typename = void>
+		struct GetPCInit : List<>{};
+		template<typename T>
+		struct GetPCInit<T,VoidT<decltype(T::powerClockEnable)>> : Listify<RemoveCVT<decltype(T::powerClockEnable)>> {};
+
 		template<int I>
 		struct IsIsrByIndex{
 			template<typename T>
@@ -113,6 +118,13 @@ namespace Startup{
 	};
 	template<typename...Ts>
 	using GetInitT = typename GetInit<Ts...>::Type;
+	template<typename...Ts>
+	struct GetPowerClockInit {
+		//make list of lists of all actions from all devices
+		using Type = MPL::FlattenT<MPL::List<typename Detail::GetPCInit<Ts>::Type...>>;
+	};
+	template<typename...Ts>
+	using GetPowerClockInitT = typename GetPowerClockInit<Ts...>::Type;
 }
 }
 
@@ -140,7 +152,9 @@ extern void (* const g_pfnVectors[])(void);
 #define KVASIR_START(...) \
 	void KVASIR_START_must_only_be_defined_once_and_KVASIR_CLOCK_must_be_the_same_type_in_all_units(typename KvasirSystemClock<Kvasir::Tag::User>::Type){} \
 	void _kvasirInit(){ \
+		using PowerClockInit = ::Kvasir::Startup::GetPowerClockInitT< __VA_ARGS__ >;\
 		using RegInit = ::Kvasir::Startup::GetInitT< __VA_ARGS__ >;\
+		::Kvasir::Register::apply<PowerClockInit>(); \
 		::Kvasir::Register::apply<RegInit>(); \
 	} \
 	using Init = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\

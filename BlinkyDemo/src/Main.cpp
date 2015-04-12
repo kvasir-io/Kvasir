@@ -26,7 +26,7 @@ public:
 
 struct TimerConfig : TimerDefaultConfig {
 	static constexpr auto matchReg0Init = list(
-			MatchRegister0::makeSetValue<1000>(),
+			MatchRegister0::makeSetValue<10000>(),
 			MatchControl::reg0InterruptEnable,
 			MatchControl::reg0ResetOnMatch);
 };
@@ -38,6 +38,8 @@ public:
 	}
 };
 int main(){
+	Led::toggle();
+	Led::toggle();
 	while(1);
 	return 0;
 }

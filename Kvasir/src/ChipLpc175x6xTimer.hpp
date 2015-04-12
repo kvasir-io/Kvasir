@@ -1,12 +1,13 @@
 #pragma once
 #include "ChipLpc175x6xInterrupt.hpp"
+#include "ChipLpc175x6xSystem.hpp"
 
 namespace Kvasir{
 namespace Timer{
 	namespace Detail{
-		template<int BaseAddress, typename InterruptIndex>
+		template<int BaseAddress, typename TInterruptIndex, typename TPCEnable>
 		struct TimerN{
-			static constexpr InterruptIndex isr{};
+			static constexpr TInterruptIndex isr{};
 			struct Interrupt{
 				static constexpr int address = BaseAddress + 0x00;
 				using Status = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::ReadableP>;
@@ -85,12 +86,32 @@ namespace Timer{
 			static constexpr MPL::List<> captureReg1Init{};
 			static constexpr MPL::List<> captureReg2Init{};
 
-			static constexpr auto powerClockEnable = MPL::list();
+			static constexpr TPCEnable powerClockEnable{};
 		};
 	}
-	using TC0DefaultConfig = Detail::TimerN<0x40004000,MPL::RemoveCVT<decltype(Interrupt::uart0)>>;
-	using TC1DefaultConfig = Detail::TimerN<0x40008000,MPL::RemoveCVT<decltype(Interrupt::uart1)>>;
-	using TC2DefaultConfig = Detail::TimerN<0x40090000,MPL::RemoveCVT<decltype(Interrupt::uart2)>>;
-	using TC3DefaultConfig = Detail::TimerN<0x40094000,MPL::RemoveCVT<decltype(Interrupt::uart3)>>;
+	using TC0DefaultConfig = Detail::TimerN<
+			0x40004000,
+			MPL::RemoveCVT<decltype(Interrupt::timer0)>,
+			MPL::RemoveCVT<decltype(MPL::list(
+					System::PowerControlForPeripherals::tc0PowerOn,
+					System::PeripheralClock::timer0DividedBy1))>>;
+	using TC1DefaultConfig = Detail::TimerN<
+			0x40008000,
+			MPL::RemoveCVT<decltype(Interrupt::timer1)>,
+			MPL::RemoveCVT<decltype(MPL::list(
+					System::PowerControlForPeripherals::tc1PowerOn,
+					System::PeripheralClock::timer1DividedBy1))>>;
+	using TC2DefaultConfig = Detail::TimerN<
+			0x40090000,
+			MPL::RemoveCVT<decltype(Interrupt::timer2)>,
+			MPL::RemoveCVT<decltype(MPL::list(
+					System::PowerControlForPeripherals::tc2PowerOn,
+					System::PeripheralClock::timer2DividedBy1))>>;
+	using TC3DefaultConfig = Detail::TimerN<
+			0x40094000,
+			MPL::RemoveCVT<decltype(Interrupt::timer3)>,
+			MPL::RemoveCVT<decltype(MPL::list(
+					System::PowerControlForPeripherals::tc3PowerOn,
+					System::PeripheralClock::timer3DividedBy1))>>;
 }
 }

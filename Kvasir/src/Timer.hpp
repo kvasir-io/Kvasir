@@ -30,31 +30,31 @@ private:
 		auto i = TConfig::Interrupt::Status::read();
 		int clearBits{0};
 		if(i & (1<<0)){
-			clearBits &= (1<<0);
+			clearBits |= (1<<0);
 			TDerived::onMatch0();
 		}
 		if(i & (1<<1)){
-			clearBits &= (1<<1);
+			clearBits |= (1<<1);
 			TDerived::onMatch1();
 		}
 		if(i & (1<<2)){
-			clearBits &= (1<<2);
+			clearBits |= (1<<2);
 			TDerived::onMatch2();
 		}
 		if(i & (1<<3)){
-			clearBits &= (1<<3);
+			clearBits |= (1<<3);
 			TDerived::onMatch3();
 		}
 		if(i & (1<<4)){
-			clearBits &= (1<<4);
+			clearBits |= (1<<4);
 			TDerived::onCapture0();
 		}
 		if(i & (1<<5)){
-			clearBits &= (1<<5);
+			clearBits |= (1<<5);
 			TDerived::onCapture1();
 		}
 		if(i & (1<<6)){
-			clearBits &= (1<<6);
+			clearBits |= (1<<6);
 			TDerived::onCapture2();
 		}
 		TConfig::Interrupt::Clear::write(clearBits);
