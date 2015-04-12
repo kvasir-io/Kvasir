@@ -228,8 +228,8 @@ namespace Kvasir{
 		using MainOscilatorStatus = Register::FunctionalT<address,(1<<6),Register::Policy::ReadableP,Register::Policy::BoolConversionP>;
 	}
 
-	struct ClockConfig{
-		struct FlashConfiguration{
+	struct CpuClockConfig{
+		struct Flash{
 			static constexpr int address{0x400FC000};
 			template<int I>
 			struct MakeAction : Register::WriteActionT<address,(0x0F << 12),(I << 12)>{};
@@ -242,7 +242,7 @@ namespace Kvasir{
 			static constexpr MakeActionT<4> fiveSysclock{};
 			static constexpr MakeActionT<5> sixSysclock{};
 		};
-		struct CpuClockDivider{
+		struct Divider{
 			//see table 38 in UM10360
 			static constexpr int address = 0x400FC104;
 			template<int I>
@@ -251,39 +251,67 @@ namespace Kvasir{
 			static constexpr typename MakeAction<I>::Type makeAction(){ return typename MakeAction<I>::Type{}; };
 			using Register = Register::FunctionalT<address,0xFF,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
 		};
-		struct Pll0ClockSourceSelect{
+		struct PllSourceSelect{
 			static constexpr int address = 0x400FC10C;
 			static constexpr Register::WriteActionT<address,0x03,0> internalRc{};
 			static constexpr Register::WriteActionT<address,0x03,1> mainOscillator{};
 			static constexpr Register::WriteActionT<address,0x03,2> rtcOscillator{};
 		};
-		struct Pll0Control{
+		struct PllControl{
 			static constexpr int address = 0x400FC080;
-			static constexpr Register::WriteBitActionT<address,0,true> enable{};
-			static constexpr Register::WriteBitActionT<address,0,false> disable{};
-			static constexpr Register::WriteBitActionT<address,1,true> connect{};
-			static constexpr Register::WriteBitActionT<address,1,false> disconnect{};
+			static constexpr Register::BlindWriteActionT<address,0x03,1> enable{};
+			static constexpr Register::BlindWriteActionT<address,0x03,0> disable{};
+			static constexpr Register::BlindWriteActionT<address,0x03,3> connect{};
 		};
-		struct Pll0Feed{
-			static constexpr int address = 0x400FC08C;
-			static constexpr Register::WriteActionT<address,0xFF,0xAA> firstStep{};
-			static constexpr Register::WriteActionT<address,0xFF,0x55> secondStep{};
-		};
-		struct Pll0Configuration{
+		struct PllConfiguration{
 			static constexpr int address = 0x400FC084;
 			template<int I>
 			using MakeMultiplierAction = Register::WriteActionT<address,0x7FFF,I>;
 			template<int I>
 			static constexpr typename MakeMultiplierAction<I>::Type makeMultiplierAction(){ return typename MakeMultiplierAction<I>::Type{}; };
 			template<int I>
-			using MakeDividerAction = Register::WriteActionT<address,0x7FFF,I>;
+			using MakeDividerAction = Register::WriteActionT<address,0xFF0000,(I<<16)>;
 			template<int I>
 			static constexpr typename MakeDividerAction<I>::Type makeDividerAction(){ return typename MakeDividerAction<I>::Type{}; };
 
 		};
-		struct Pll0Status{
+		struct PllStatus{
 			static constexpr int address = 0x400FC088;
 			using LockStatus = Register::FunctionalT<address,(1<<26),Register::Policy::ReadableP,Register::Policy::BoolConversionP>;
+		};
+		struct PllFeed{
+			static constexpr int address = 0x400FC08C;
+			static constexpr Register::WriteActionT<address,0xFF,0xAA> firstStep{};
+			static constexpr Register::WriteActionT<address,0xFF,0x55> secondStep{};
+		};
+	};
+	struct UsbClockConfig{
+		struct PllControl{
+			static constexpr int address = 0x400FC0A0; //PLL1CON
+			static constexpr Register::BlindWriteActionT<address,0x03,1> enable{};
+			static constexpr Register::BlindWriteActionT<address,0x03,0> disable{};
+			static constexpr Register::BlindWriteActionT<address,0x03,3> connect{};
+		};
+		struct PllConfiguration{
+			static constexpr int address = 0x400FC0A4; //PLL1CFG
+			template<int I>
+			using MakeMultiplierAction = Register::WriteActionT<address,0x1F,I>;
+			template<int I>
+			static constexpr typename MakeMultiplierAction<I>::Type makeMultiplierAction(){ return typename MakeMultiplierAction<I>::Type{}; };
+			template<int I>
+			using MakeDividerAction = Register::WriteActionT<address,0x60,(I<<5)>;
+			template<int I>
+			static constexpr typename MakeDividerAction<I>::Type makeDividerAction(){ return typename MakeDividerAction<I>::Type{}; };
+
+		};
+		struct PllStatus{
+			static constexpr int address = 0x400FC0A8;  //PLL1STAT
+			using LockStatus = Register::FunctionalT<address,(1<<10),Register::Policy::ReadableP,Register::Policy::BoolConversionP>;
+		};
+		struct PllFeed{
+			static constexpr int address = 0x400FC0AC;
+			static constexpr Register::WriteActionT<address,0xFF,0xAA> firstStep{};
+			static constexpr Register::WriteActionT<address,0xFF,0x55> secondStep{};
 		};
 	};
 

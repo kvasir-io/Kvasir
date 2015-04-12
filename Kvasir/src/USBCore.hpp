@@ -42,6 +42,11 @@ namespace Usb{
 template<typename TDerived, typename TConfig>
 class Base : public USBHw<TConfig>
 {
+	//redesign stuff
+public:
+	static constexpr auto init = MPL::list(TConfig::setPinFunction);
+private:
+	//old stuff
 	static uint8_t  deviceAddress_;
 	static volatile uint8_t  configuration_;
 	static uint32_t USB_EndPointMask;

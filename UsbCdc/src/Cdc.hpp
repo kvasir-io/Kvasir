@@ -1,6 +1,7 @@
 #pragma once
 #include "Usb.hpp"
 #include "Hardware.h"
+#include "ChipLpc175x6xUsb.hpp"
 
 struct CdcConfig : Kvasir::Usb::DefaultConfig {
 	static constexpr int vid = 0x1234;
@@ -8,7 +9,7 @@ struct CdcConfig : Kvasir::Usb::DefaultConfig {
 	static constexpr auto endpoints = Kvasir::MPL::list(Kvasir::Usb::Cdc::DefaultConfig());
 };
 
-class Cdc : Kvasir::Usb::Base<Cdc,CdcConfig>{
+class Cdc : public Kvasir::Usb::Base<Cdc,CdcConfig>{
 public:
 
 };

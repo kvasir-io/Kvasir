@@ -19,14 +19,36 @@ namespace Io{
 	template<int Port, int Pin>
 	struct MakeAction<Action::Toggle,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 		Register::XorActionT<(0x2009C014 + Port*0x20),(1<<Pin),(1<<Pin)>{};			//may not be safe depending on how this is answered: http://electronics.stackexchange.com/questions/163628/will-xoring-the-fio0pin-register-on-an-lpc175x6x-give-unexpected-results
-//	template<int Pin, int Function>
-//	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<0>,MPL::Int<Pin>>> :
-//		Register::WriteActionT<(0x40044000 + Pin*4),0x03,Function>{};
-//	template<int Pin, int Function>
-//	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<1>,MPL::Int<Pin>>> :
-//		Register::WriteActionT<(0x40044060 + Pin*4),0x03,Function>{};
-//	template<int Pin, int Function>
-//	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<2>,MPL::Int<Pin>>> :
-//		Register::WriteActionT<(0x400440F0 + Pin*4),0x03,Function>{};
+
+	//PINSEL0 and PINSEL1
+	template<int Pin, int Function>
+	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<0>,MPL::Int<Pin>>> :
+		Register::WriteActionT<(0x4002C000 + (Pin > 15?1:0)),(0x03 << ((Pin & 0x0F) * 2)),(Function << ((Pin & 0x0F) * 2))>{
+		static_assert(Pin != 12 && Pin != 13 && Pin != 14 && Pin != 31,"Pin function not supported on this chip");
+	};
+	//PINSEL2 and PINSEL3
+	template<int Pin, int Function>
+	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<1>,MPL::Int<Pin>>> :
+		Register::WriteActionT<(0x4002C008 + (Pin > 15?1:0)),(0x03 << ((Pin & 0x0F) * 2)),(Function << ((Pin & 0x0F) * 2))>{
+		static_assert(Pin != 2 && Pin != 3 && Pin != 5 && Pin != 6 && Pin != 7 && Pin != 11 && Pin != 12 && Pin != 13,"Pin function not supported on this chip");
+	};
+	//PINSEL4
+	template<int Pin, int Function>
+	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<2>,MPL::Int<Pin>>> :
+		Register::WriteActionT<0x4002C010,(0x03 << ((Pin & 0x0F) * 2)),(Function << ((Pin & 0x0F) * 2))>{
+		static_assert(Pin <= 13,"Pin function not supported on this chip");
+	};
+	//PINSEL7
+	template<int Pin, int Function>
+	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<3>,MPL::Int<Pin>>> :
+		Register::WriteActionT<0x4002C01C,(0x03 << (Pin==25?18:20)),(Function << (Pin==25?18:20))>{
+		static_assert(Pin == 25 || Pin == 26,"Pin function not supported on this chip");
+	};
+	//PINSEL9
+	template<int Pin, int Function>
+	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<4>,MPL::Int<Pin>>> :
+		Register::WriteActionT<0x4002C024,(0x03 << (Pin==28?18:24)),(Function << (Pin==28?18:24))>{
+		static_assert(Pin == 28 || Pin == 29,"Pin function not supported on this chip");
+	};
 }
 }

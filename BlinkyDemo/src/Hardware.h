@@ -15,8 +15,8 @@ limitations under the License.
 #include "Io.hpp"
 #include "SystemClock.hpp"
 
-#define LPC11U68_BOARD
-//#define LPC1768_BOARD
+//#define LPC11U68_BOARD
+#define LPC1768_BOARD
 //#define LPC1549_BOARD
 
 #ifdef LPC11U68_BOARD
@@ -49,18 +49,18 @@ namespace Hardware{
 			apply(ControlStatus::mainOscillatorEnable);
 			/* Wait for osc to stabilize */
 			while(ControlStatus::MainOscilatorStatus::read() == false){}
-			apply(ClockConfig::CpuClockDivider::makeAction<3>());
-			apply(ClockConfig::Pll0ClockSourceSelect::mainOscillator);
-			apply(ClockConfig::Pll0Configuration::makeMultiplierAction<11>());
-			apply(ClockConfig::Pll0Control::enable);
-			apply(ClockConfig::Pll0Feed::firstStep);
-			apply(ClockConfig::Pll0Feed::secondStep);
+			apply(CpuClockConfig::Divider::makeAction<3>());
+			apply(CpuClockConfig::PllSourceSelect::mainOscillator);
+			apply(CpuClockConfig::PllConfiguration::makeMultiplierAction<11>());
+			apply(CpuClockConfig::PllControl::enable);
+			apply(CpuClockConfig::PllFeed::firstStep);
+			apply(CpuClockConfig::PllFeed::secondStep);
 
-			while(ClockConfig::Pll0Status::LockStatus::read() == false){}
-			apply(ClockConfig::FlashConfiguration::fourSysclock);
-			apply(ClockConfig::Pll0Control::enable,ClockConfig::Pll0Control::connect);
-			apply(ClockConfig::Pll0Feed::firstStep);
-			apply(ClockConfig::Pll0Feed::secondStep);
+			while(CpuClockConfig::PllStatus::LockStatus::read() == false){}
+			apply(CpuClockConfig::Flash::fourSysclock);
+			apply(CpuClockConfig::PllControl::connect);
+			apply(CpuClockConfig::PllFeed::firstStep);
+			apply(CpuClockConfig::PllFeed::secondStep);
 		}
 	};
 	using Clock = MyOsciSettings;
