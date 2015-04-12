@@ -73,6 +73,7 @@ struct TC16B0DefaultConfig {
 	static constexpr MPL::List<> captureReg0Init{};
 	static constexpr MPL::List<> captureReg1Init{};
 	static constexpr MPL::List<> captureReg2Init{};
+	static constexpr auto powerClockEnable = MPL::list(clockEnable);
 };
 }
 }

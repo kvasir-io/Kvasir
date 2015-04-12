@@ -84,5 +84,8 @@ namespace Nvic{
 
 	using UnusedIsr = Isr<&DefaultIsrs::Unused,Index<0>>;
 
+	template<typename T = void>
+	struct InterruptOffsetTraits;   //must be specialized in a chipxxxInterrupt file
+
 }
 }

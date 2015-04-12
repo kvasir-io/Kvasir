@@ -43,27 +43,6 @@ namespace Startup{
 		template<typename T>
 		struct GetInit<T,void,VoidT<decltype(T::init)>> : Listify<RemoveCVT<decltype(T::init)>> {};
 
-//		template<typename T, typename U>
-//		struct HasThisIsrHelper : FalseType{};
-//		template<typename T>
-//		struct HasThisIsrHelper<T, RemoveCVT<typename decltype(T::isr)::IsrType>> : RemoveCVT<decltype(T::isr)>{};
-//		template<typename... Ts, int I>
-//		struct HasThisIsrHelper<MPL::List<Ts...>,Nvic::Index<I>> : Find<List<Ts...>,Template<HasThisIsr<I>>>{};
-//		template<int I>
-//		struct HasThisIsr {
-//			template<typename T>
-//			struct Apply : HasThisIsrHelper<T,Nvic::Index<I>>::Type {};
-//			template<typename... T>
-//			struct Apply : AnyOf<typename HasThisIsrHelper<Ts,Nvic::Index<I>>::Type...>::Type {};
-//		};
-//		template<int I, typename TList, int Index>
-//		struct GetIsrPointerHelper : MPL::At<TList,Int<Index>>::IsrFunction{};
-//		template<int I, typename TList>
-//		struct GetIsrPointerHelper<I,TList,-1> : Kvasir::Nvic::UnusedIsr{};
-//
-//		template<int I, typename TList>
-//		struct GetIsrPointer : GetIsrPointerHelper<I,TList,Find<TList,Template<HasThisIsr<I>::template Apply>>::value>{};
-
 		template<int I>
 		struct IsIsrByIndex{
 			template<typename T>
@@ -79,7 +58,7 @@ namespace Startup{
 			TModList
 			>{};
 		template<typename...Ts, typename TModList>
-		struct CompileIsrPointerList<64,List<Ts...>,TModList> : List<Ts...>{};
+		struct CompileIsrPointerList<Nvic::InterruptOffsetTraits<void>::end,List<Ts...>,TModList> : List<Ts...>{};
 
 		//predecate retuning result of left < right for RegisterOptions
 		template<typename TLeft, typename TRight>
@@ -108,7 +87,7 @@ namespace Startup{
 	}
 	template<typename...Ts>
 	struct GetIsrPointers : Detail::CompileIsrPointerList<
-		-14,
+		Nvic::InterruptOffsetTraits<void>::begin,
 		MPL::List<
 			Nvic::Isr<&_vStackTop,Nvic::Index<0>>,
 			Nvic::Isr<ResetISR,Nvic::Index<0>>

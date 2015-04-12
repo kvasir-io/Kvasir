@@ -56,6 +56,13 @@ namespace Interrupt{
 }
 	namespace Nvic{
 		constexpr int baseAddress = 0xE000E000;
+
+		template<>
+				struct InterruptOffsetTraits<void>{
+					static constexpr int begin = -14;
+					static constexpr int end = 35;
+				};
+
 		template<int I>
 		struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
 			baseAddress + 0x100 +(I>32?4:0), (I & 0x1F)>{};

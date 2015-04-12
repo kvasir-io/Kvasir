@@ -84,11 +84,13 @@ namespace Timer{
 			static constexpr MPL::List<> captureReg0Init{};
 			static constexpr MPL::List<> captureReg1Init{};
 			static constexpr MPL::List<> captureReg2Init{};
+
+			static constexpr auto powerClockEnable = MPL::list();
 		};
 	}
-	using TC0DefaultConfig = Detail::TimerN<0x40004000,Interrupt::Uart0>;
-	using TC1DefaultConfig = Detail::TimerN<0x40008000,Interrupt::Uart1>;
-	using TC2DefaultConfig = Detail::TimerN<0x40090000,Interrupt::Uart2>;
-	using TC3DefaultConfig = Detail::TimerN<0x40094000,Interrupt::Uart3>;
+	using TC0DefaultConfig = Detail::TimerN<0x40004000,MPL::RemoveCVT<decltype(Interrupt::uart0)>>;
+	using TC1DefaultConfig = Detail::TimerN<0x40008000,MPL::RemoveCVT<decltype(Interrupt::uart1)>>;
+	using TC2DefaultConfig = Detail::TimerN<0x40090000,MPL::RemoveCVT<decltype(Interrupt::uart2)>>;
+	using TC3DefaultConfig = Detail::TimerN<0x40094000,MPL::RemoveCVT<decltype(Interrupt::uart3)>>;
 }
 }

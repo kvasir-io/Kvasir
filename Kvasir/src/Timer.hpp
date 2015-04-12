@@ -64,6 +64,7 @@ protected:
 	using Config = TConfig;
 public:
 	static constexpr Nvic::Isr<(&onIsr),MPL::RemoveCVT<decltype(TConfig::isr)>> isr{};
+	static constexpr auto powerClockEnable = Config::powerClockEnable;
 	static constexpr auto init = MPL::list(
 			Config::Prescale::template makeSet<Config::prescaleValue>(),
 			Config::matchReg0Init,
