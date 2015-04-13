@@ -1,12 +1,14 @@
 #pragma once
 #include "ChipLpc15xxInterrupt.hpp"
+#include "ChipLpc15xxSystem.hpp"
 
 namespace Kvasir{
 namespace Timer{
 struct Timer0DefaultConfig {
 	static constexpr auto isr = Interrupt::stateConfigurableTimer0;
-	static constexpr Register::WriteActionT<0x40048080,(1<<7),(1<<7)> clockEnable{};
-	static constexpr Register::WriteActionT<0x40048080,(1<<7),0> clockDisable{};
+	static constexpr auto powerClockEnable = MPL::list(
+			System::PowerConfiguration::sctOn,
+			System::AHBClockControl::sct0ClockOn);
 	static constexpr int baseAddress = 0x4000C000;
 	struct Interrupt{
 		static constexpr int address = baseAddress;

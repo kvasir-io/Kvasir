@@ -16,8 +16,8 @@ limitations under the License.
 #include "SystemClock.hpp"
 
 //#define LPC11U68_BOARD
-#define LPC1768_BOARD
-//#define LPC1549_BOARD
+//#define LPC1768_BOARD
+#define LPC1549_BOARD
 
 #ifdef LPC11U68_BOARD
 #include "ChipLpc11u6xE6x.hpp"
@@ -67,10 +67,23 @@ namespace Hardware{
 	using TimerDefaultConfig = Kvasir::Timer::TC0DefaultConfig;
 #else
 #ifdef LPC1549_BOARD
-	constexpr Kvasir::Io::PinLocationT<0,22> ledPin{};
+	constexpr Kvasir::Io::PinLocationT<0,25> ledPin{};
 	struct MyOsciSettings{
 		static void init(){
-
+			using namespace Kvasir::System;
+			apply(PowerConfiguration::systemOscillatorOn);
+			for (volatile int i = 0; i < 2500; i++) {} //wait for oscillator to stabilize
+			apply(SystemPll::ClockSource::systemOscilator);
+			apply(PowerConfiguration::systemPllOff);
+			apply(
+				SystemPll::Control::makeFeedbackDividerAction<5>(),
+				SystemPll::Control::makePostDividerAction<SystemPll::Control::PostDividerRatio::div4>());
+			apply(PowerConfiguration::systemPllOn);
+			while(!SystemPll::StatusLocked::read()){};
+			apply(
+				AHBCLock::Divider::makeWriteAction<1>(),
+				Flash::threeSysclock);
+			apply(MainClockSource::pllOutput);
 		}
 	};
 

@@ -182,7 +182,7 @@ public:
 		static constexpr Register::WriteBitActionT<address+4,0,false> 	sourceSame{};
 	};
 	struct SystemPLLControl{
-		enum class PostDividerRatio {div1 = 0, div2 = (1<<5), div4 = (2<<6), div8 = (3<<7)};
+		enum class PostDividerRatio {div1 = 0, div2 = (1<<5), div4 = (2<<5), div8 = (3<<5)};
 		using Address = MPL::Int<0x40048008>;
 		using FeedbackDivider = Register::Functional<Address,MPL::Int<0x1F>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
 		using PostDivider = Register::Functional<Address,MPL::Int<(3 << 5)>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>,Register::Policy::EnumConversionP<PostDividerRatio>>;

@@ -151,12 +151,6 @@ extern void (* const g_pfnVectors[])(void);
 
 #define KVASIR_START(...) \
 	void KVASIR_START_must_only_be_defined_once_and_KVASIR_CLOCK_must_be_the_same_type_in_all_units(typename KvasirSystemClock<Kvasir::Tag::User>::Type){} \
-	void _kvasirInit(){ \
-		using PowerClockInit = ::Kvasir::Startup::GetPowerClockInitT< __VA_ARGS__ >;\
-		using RegInit = ::Kvasir::Startup::GetInitT< __VA_ARGS__ >;\
-		::Kvasir::Register::apply<PowerClockInit>(); \
-		::Kvasir::Register::apply<RegInit>(); \
-	} \
 	using Init = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
 __attribute__ ((section(".isr_vector")))\
 void (* const g_pfnVectors[])(void) = {\
@@ -216,13 +210,33 @@ void (* const g_pfnVectors[])(void) = {\
  Sets up a simple runtime environment and initializes the C/C++
  library.
 *****************************************************************************/\
-/*__attribute__ ((section(".after_vectors")))\*/
+/*__attribute__ ((section(".after_vectors")))\*/\
 void ResetISR(void) {\
+	/*	this may be needed in order to activate ram for __libc_init_array(), it also
+	 * 	gives the user the ability to put code directly after reset by specializing
+	 * 	Kvasir::Startup::FirstInitStep<>, please don't specialize this unless you
+	 * 	know what your doing!
+	 */\
 	Kvasir::Startup::FirstInitStep<Kvasir::Tag::User>{}();\
-    /* Call C++ library initialisation */ \
+    /* Call C++ library initialization */ \
     __libc_init_array(); \
+    /* note that powerClockInit has not yet run so in the system clock initialization
+     * all power clock stuff related to the system clock must be done manually
+     */\
     KvasirSystemClock<Kvasir::Tag::User>::Type::init();\
-    _kvasirInit(); \
+    /* The PowerClockInit step extracts all 'powerClockEnable' action lists from all modules
+     * and executes them after merging.
+     * This is done as a separate step because the power and clock init stuff
+     * changes quite a bit between chips and Kvasir is usually capable of doing the right
+     * thing. Therefore by doing it as an extra step we can save the user a lot of code
+     */\
+	using PowerClockInit = ::Kvasir::Startup::GetPowerClockInitT<__VA_ARGS__ >;\
+	::Kvasir::Register::apply<PowerClockInit>(); \
+	/* The RegInit step extracts all 'init' action lists from all modules and executes them
+	 * after merging
+	 */\
+	using RegInit = ::Kvasir::Startup::GetInitT<__VA_ARGS__ >;\
+	::Kvasir::Register::apply<RegInit>(); \
     main(); \
     /* block if main() returns */ \
     while (1) {} \
