@@ -1,12 +1,16 @@
 #pragma once
 #include "interrupt.hpp"
 
+/*Corresponding to NXP user manual
+ *UM10360 LPC176x/5x Rev. 3.1 2 April 2014
+ */
+
 namespace Kvasir{
 	namespace Interrupt{
 		template<int I>
 		using Type = ::Kvasir::Nvic::Index<I>;
 
-		constexpr Type<0> watchdogTimer;
+		constexpr Type<0> wdt;
 		constexpr Type<1> timer0;
 		constexpr Type<2> timer1;
 		constexpr Type<3> timer2;
@@ -24,18 +28,18 @@ namespace Kvasir{
 		constexpr Type<15> ssp1;
 		constexpr Type<16> pll0;
 		constexpr Type<17> rtc;
-		constexpr Type<18> externalInt0;
-		constexpr Type<19> externalInt1;
-		constexpr Type<20> externalInt2;
-		constexpr Type<21> externalInt3;
-		constexpr Type<22> analogDiditalConverter;
-		constexpr Type<23> brownOutDetect;
+		constexpr Type<18> external0;
+		constexpr Type<19> external1;
+		constexpr Type<20> external2;
+		constexpr Type<21> external3;
+		constexpr Type<22> adc;
+		constexpr Type<23> bod;
 		constexpr Type<24> usb;
 		constexpr Type<25> can;
 		constexpr Type<26> dma;
 		constexpr Type<27> i2s;
 		constexpr Type<28> ethernet;
-		constexpr Type<29> repetitiveInterruptTimer;
+		constexpr Type<29> rit;
 		constexpr Type<30> motorControlPWM;
 		constexpr Type<31> qei;
 		constexpr Type<32> pll1;
@@ -52,7 +56,16 @@ namespace Kvasir{
 		};
 
 		template<int I>
-		struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
-			baseAddress + 0x100 +(I>32?4:0), (I & 0x1F)>{};
+		struct MakeAction<Action::Enable,Index<I>> :	Register::BlindSetBitActionT<
+			baseAddress + 0x100 +(I>31?4:0), (I & 0x1F)>{
+			static_assert(I<=34 && I>=0,"Interruptindex out of range");
+		};
+
+		template<int I>
+		struct MakeAction<Action::Disable,Index<I>>	:	Register::BlindSetBitActionT<
+			baseAddress + 0x180 +(I>31?4:0), (I & 0x1F)>{
+			static_assert(I<=34 && I>=0,"Interruptindex out of range");
+		};
+
 	}
 }
