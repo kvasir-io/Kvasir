@@ -1,25 +1,62 @@
 #pragma once
 #include "ChipLpc15xxInterrupt.hpp"
+#include "ChipLpc15xxSystem.hpp"
 
 namespace Kvasir{
 namespace Timer{
 struct Timer0DefaultConfig {
 	static constexpr auto isr = Interrupt::stateConfigurableTimer0;
-	static constexpr Register::WriteActionT<0x40048080,(1<<7),(1<<7)> clockEnable{};
-	static constexpr Register::WriteActionT<0x40048080,(1<<7),0> clockDisable{};
-	static constexpr int baseAddress = 0x4000C000;
+	static constexpr auto powerClockEnable = MPL::list(
+			System::AHBClockControl::sct0ClockOn,
+			Register::sequencePoint,
+			System::PeripheralReset::sct0ResetOn,
+			Register::sequencePoint,
+			System::PeripheralReset::sct0ResetOff
+			);
+	static constexpr int baseAddress = 0x1C018000;
+
+	struct Configuration{	//SCT CONFIG
+		static constexpr int address = baseAddress + 0x04;
+		static constexpr Register::WriteBitActionT<address,0,true> one32BitTimerMode{};
+		static constexpr Register::WriteBitActionT<address,0,false> two16BitTimersMode{};
+		struct ClockMode{
+			static constexpr Register::WriteActionT<address,(0x03 << 1),(0<<1)> system{};
+			static constexpr Register::WriteActionT<address,(0x03 << 1),(1<<1)> prescaledSystem{};
+			static constexpr Register::WriteActionT<address,(0x03 << 1),(2<<1)> sct{};
+			static constexpr Register::WriteActionT<address,(0x03 << 1),(3<<1)> prescaledSct{};
+		};
+		struct ClockSelect{
+			template<int I>
+			using MakeT = Register::WriteActionT<address,(0x0F << 3),(I<<3)>;
+			template<int InputNumber>
+			static constexpr MakeT<InputNumber+1> makeFallingEdgeInput(){ return MakeT<InputNumber+1>{}; }
+			template<int InputNumber>
+			static constexpr MakeT<InputNumber> makeRisingEdgeInput(){ return MakeT<InputNumber>{}; }
+		};
+		struct Count{
+			template<int I>
+			static constexpr Register::WriteActionT<baseAddress + 40,0xFFFFF,I> make16BitLowValue(){
+				static_assert(I>0xFFFF,"value out of range");
+				Register::WriteActionT<baseAddress + 40,0xFFFFF,I>{};
+			}
+			template<int I>
+			static constexpr Register::WriteActionT<baseAddress + 40,0xFFFFF0000,(I<<16)> make16BitHighValue(){
+				static_assert(I>0xFFFF,"value out of range");
+				Register::WriteActionT<baseAddress + 40,0xFFFFF0000,(I<<16)>{};
+			}
+			template<int I>
+			static constexpr Register::WriteActionT<baseAddress + 40,0xFFFFFFFFF,I> make32BitValue(){
+				Register::WriteActionT<baseAddress + 40,0xFFFFFFFFF,I>{};
+			}
+		};
+
+	};
+
+	//not working
 	struct Interrupt{
 		static constexpr int address = baseAddress;
 		using Status = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::ReadableP>;
 		using Clear = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::WriteableP>;
-	};
-	struct Control{
-		static constexpr int address = baseAddress + 0x04;
-		static constexpr Register::WriteBitActionT<address,0,true> couterEnable{};
-		static constexpr Register::WriteBitActionT<address,0,false> couterDisable{};
-		static constexpr Register::WriteBitActionT<address,1,true> holdInReset{};
-		static constexpr Register::WriteBitActionT<address,1,false> noReset{};
-
 	};
 	struct MatchControl{
 		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<0),(1<<0)> reg0InterruptEnable{};
@@ -46,33 +83,11 @@ struct Timer0DefaultConfig {
 		template<int I>
 		static constexpr auto makeSetValue(){ return MakeSetValueT<I>{};}
 	};
-	struct MatchRegister1{
-		template<int I>
-		using MakeSetValueT = Register::BlindWriteActionT<baseAddress + 0x1C,0xFFFFFFFF,I>;
-		template<int I>
-		static constexpr auto makeSetValue(){ return MakeSetValueT<I>{};}
-	};
-	struct MatchRegister2{
-		template<int I>
-		using MakeSetValueT = Register::BlindWriteActionT<baseAddress + 0x20,0xFFFFFFFF,I>;
-		template<int I>
-		static constexpr auto makeSetValue(){ return MakeSetValueT<I>{};}
-	};
-	struct MatchRegister3{
-		template<int I>
-		using MakeSetValueT = Register::BlindWriteActionT<baseAddress + 0x24,0xFFFFFFFF,I>;
-		template<int I>
-		static constexpr auto makeSetValue(){ return MakeSetValueT<I>{};}
-	};
+
 
 	static constexpr int prescaleValue = 1000;
 	static constexpr MPL::List<> matchReg0Init{};
-	static constexpr MPL::List<> matchReg1Init{};
-	static constexpr MPL::List<> matchReg2Init{};
-	static constexpr MPL::List<> matchReg3Init{};
 	static constexpr MPL::List<> captureReg0Init{};
-	static constexpr MPL::List<> captureReg1Init{};
-	static constexpr MPL::List<> captureReg2Init{};
 };
 }
 }

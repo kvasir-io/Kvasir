@@ -55,13 +55,13 @@ namespace Nvic{
 	template<typename TIndex>
 	constexpr MakeActionT<Action::Enable,TIndex> makeEnable(TIndex){ return MakeActionT<Action::Enable,TIndex>{}; };
 	template<typename TIndex>
-	constexpr auto makeDisable(TIndex){ return MakeActionT<Action::Disable,TIndex>{}; };
+	constexpr MakeActionT<Action::Disable,TIndex> makeDisable(TIndex){ return MakeActionT<Action::Disable,TIndex>{}; };
 	template<typename TIndex>
-	constexpr auto makeSetPending(TIndex){ return MakeActionT<Action::SetPending,TIndex>{}; };
+	constexpr MakeActionT<Action::SetPending,TIndex> makeSetPending(TIndex){ return MakeActionT<Action::SetPending,TIndex>{}; };
 	template<typename TIndex>
-	constexpr auto makeClearPending(TIndex){ return MakeActionT<Action::ClearPending,TIndex>{}; };
+	constexpr MakeActionT<Action::ClearPending,TIndex> makeClearPending(TIndex){ return MakeActionT<Action::ClearPending,TIndex>{}; };
 	template<typename TIndex>
-	constexpr auto makeTriggerInterrupt(TIndex){ return MakeActionT<Action::TriggerInterrupt,TIndex>{}; };
+	constexpr MakeActionT<Action::TriggerInterrupt,TIndex> makeTriggerInterrupt(TIndex){ return MakeActionT<Action::TriggerInterrupt,TIndex>{}; };
 
 	using IsrFunctionPointer = void(*)(void);
 

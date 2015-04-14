@@ -1,21 +1,25 @@
 #pragma once
 #include "interrupt.hpp"
 
+/*Corresponding to NXP user manual
+ *UM10732 LPC11U6x/E6x Rev. 1.3 19 May 2014
+ */
+
 namespace Kvasir{
 namespace Interrupt{
 	template<int I>
 	using Type = ::Kvasir::Nvic::Index<I>;
 
-	constexpr Type<0> pinInterrupt0{};
-	constexpr Type<1> pinInterrupt1{};
-	constexpr Type<2> pinInterrupt2{};
-	constexpr Type<3> pinInterrupt3{};
-	constexpr Type<4> pinInterrupt4{};
-	constexpr Type<5> pinInterrupt5{};
-	constexpr Type<6> pinInterrupt6{};
-	constexpr Type<7> pinInterrupt7{};
-	constexpr Type<8> groupInterrupt0{};
-	constexpr Type<9> groupInterrupt1{};
+	constexpr Type<0> pin0{};
+	constexpr Type<1> pin1{};
+	constexpr Type<2> pin2{};
+	constexpr Type<3> pin3{};
+	constexpr Type<4> pin4{};
+	constexpr Type<5> pin5{};
+	constexpr Type<6> pin6{};
+	constexpr Type<7> pin7{};
+	constexpr Type<8> gpioGroup0{};
+	constexpr Type<9> gpioGroup1{};
 	constexpr Type<10> i2C1{};
 	constexpr Type<11> uart1Or4{};
 	constexpr Type<12> uart2Or3{};
@@ -33,7 +37,7 @@ namespace Interrupt{
 	constexpr Type<24> adcA{};
 	constexpr Type<25> rtc{};
 	constexpr Type<26> bodAndWdt{};
-	constexpr Type<27> flash{};
+	constexpr Type<27> flashAndEeprom{};
 	constexpr Type<28> dma{};
 	constexpr Type<29> adcb{};
 	constexpr Type<30> usbWakeup{};
@@ -44,11 +48,19 @@ namespace Nvic{
 	template<>
 	struct InterruptOffsetTraits<void>{
 		static constexpr int begin = -14;
-		static constexpr int end = 47;
+		static constexpr int end = 31;
 	};
 
 	template<int I>
 	struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
-		baseAddress + 0x100 +(I>32?4:0), (I & 0x1F)>{};
+		baseAddress + 0x100, I>{
+		static_assert(I<=30 && I>=0,"Interruptindex out of range");
+	};
+
+	template<int I>
+	struct MakeAction<Action::Disable,Index<I>> : Register::BlindSetBitActionT<
+		baseAddress + 0x180, I>{
+		static_assert(I<=30 && I>=0,"Interruptindex out of range");
+	};
 }
 }

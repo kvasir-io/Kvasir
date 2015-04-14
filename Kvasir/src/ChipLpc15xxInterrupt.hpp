@@ -1,32 +1,36 @@
 #pragma once
 #include "interrupt.hpp"
 
+/*Corresponding to NXP user manual
+ *UM10736 LPC15xx Rev. 1.1 3 March 2014
+ */
+
 namespace Kvasir{
 namespace Interrupt{
 	template<int I>
 	using Type = ::Kvasir::Nvic::Index<I>;
 
-	constexpr Type<0> watchdog{};
-	constexpr Type<1> brownOutDetect{};
-	constexpr Type<2> flashController{};
-	constexpr Type<3> eepromController{};
+	constexpr Type<0> wdt{};
+	constexpr Type<1> bod{};
+	constexpr Type<2> flash{};
+	constexpr Type<3> eeprom{};
 	constexpr Type<4> dma{};
 	constexpr Type<5> gpioGroup0{};
 	constexpr Type<6> gpioGroup1{};
-	constexpr Type<7> pinInterrupt0{};
-	constexpr Type<8> pinInterrupt1{};
-	constexpr Type<9> pinInterrupt2{};
-	constexpr Type<10> pinInterrupt3{};
-	constexpr Type<11> pinInterrupt4{};
-	constexpr Type<12> pinInterrupt5{};
-	constexpr Type<13> pinInterrupt6{};
-	constexpr Type<14> pinInterrupt7{};
+	constexpr Type<7> pin0{};
+	constexpr Type<8> pin1{};
+	constexpr Type<9> pin2{};
+	constexpr Type<10> pin3{};
+	constexpr Type<11> pin4{};
+	constexpr Type<12> pin5{};
+	constexpr Type<13> pin6{};
+	constexpr Type<14> pin7{};
 	constexpr Type<15> rit{};
-	constexpr Type<16> stateConfigurableTimer0{};
-	constexpr Type<17> stateConfigurableTimer1{};
-	constexpr Type<18> stateConfigurableTimer2{};
-	constexpr Type<19> stateConfigurableTimer3{};
-	constexpr Type<20> multirateTimer{};
+	constexpr Type<16> sct0{};
+	constexpr Type<17> sct1{};
+	constexpr Type<18> sct2{};
+	constexpr Type<19> sct3{};
+	constexpr Type<20> mrt{};
 	constexpr Type<21> uart0{};
 	constexpr Type<22> uart1{};
 	constexpr Type<23> uart2{};
@@ -60,11 +64,19 @@ namespace Interrupt{
 		template<>
 				struct InterruptOffsetTraits<void>{
 					static constexpr int begin = -14;
-					static constexpr int end = 35;
+					static constexpr int end = 47;
 				};
 
 		template<int I>
 		struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
-			baseAddress + 0x100 +(I>32?4:0), (I & 0x1F)>{};
+			baseAddress + 0x100 +(I>31?4:0), (I & 0x1F)>{
+			static_assert(I<=46 && I>=0,"Interruptindex out of range");
+		};
+		template<int I>
+		struct MakeAction<Action::Disable,Index<I>>	:	Register::BlindSetBitActionT<
+			baseAddress + 0x180 +(I>31?4:0), (I & 0x1F)>{
+			static_assert(I<=46 && I>=0,"Interruptindex out of range");
+		};
+
 	}
 }

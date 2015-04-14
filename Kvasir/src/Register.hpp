@@ -246,6 +246,12 @@ namespace Kvasir {
 		template<int Address, int Mask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
 		using FunctionalT = Functional<MPL::Int<Address>,MPL::Int<Mask>,TPolicies,TConversionPolicy>;
 
+		template<int Address, int Offset, typename TPolicies>
+		using FunctionalBoolT = Functional<MPL::Int<Address>,MPL::Int<(1<<Offset)>,TPolicies,Policy::BoolConversionP>;
+
+		template<int Address, int Offset>
+		using ReadOnlyBoolT = Functional<MPL::Int<Address>,MPL::Int<(1<<Offset)>,Policy::ReadableP,Policy::BoolConversionP>;
+
 		namespace Detail {
 			//Merges single and multistep inits
 			template<typename T_Out, typename... Ts>

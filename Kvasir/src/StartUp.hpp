@@ -120,11 +120,26 @@ namespace Startup{
 	using GetInitT = typename GetInit<Ts...>::Type;
 	template<typename...Ts>
 	struct GetPowerClockInit {
-		//make list of lists of all actions from all devices
-		using Type = MPL::FlattenT<MPL::List<typename Detail::GetPCInit<Ts>::Type...>>;
+		//make list of lists of actions corresponding to each sequence for each module
+		using FlattenedSequencePieces = MPL::List<
+				MPL::SplitT<MPL::FlattenT<typename Detail::GetPCInit<Ts>::Type>,Register::SequencePoint>...
+				>;
+		//sort lists by length
+		using Sorted = MPL::SortT<FlattenedSequencePieces,Detail::ListLengthLessP>;
+		//merge lists
+		using MergedSequencePieces = typename Detail::Merge<MPL::List<>,Sorted>::Type;
+		using Type = MPL::JoinT<MergedSequencePieces,Register::SequencePoint>;
 	};
 	template<typename...Ts>
 	using GetPowerClockInitT = typename GetPowerClockInit<Ts...>::Type;
+
+	template<typename T>
+	struct NvicVectorTable;
+	template<typename... Ts>
+	struct NvicVectorTable<MPL::List<Ts...>>{
+		void (* const data[sizeof...(Ts)])(void) {Ts::value ...};
+		constexpr NvicVectorTable(){};
+	};
 }
 }
 
@@ -151,64 +166,8 @@ extern void (* const g_pfnVectors[])(void);
 
 #define KVASIR_START(...) \
 	void KVASIR_START_must_only_be_defined_once_and_KVASIR_CLOCK_must_be_the_same_type_in_all_units(typename KvasirSystemClock<Kvasir::Tag::User>::Type){} \
-	void _kvasirInit(){ \
-		using PowerClockInit = ::Kvasir::Startup::GetPowerClockInitT< __VA_ARGS__ >;\
-		using RegInit = ::Kvasir::Startup::GetInitT< __VA_ARGS__ >;\
-		::Kvasir::Register::apply<PowerClockInit>(); \
-		::Kvasir::Register::apply<RegInit>(); \
-	} \
-	using Init = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
-__attribute__ ((section(".isr_vector")))\
-void (* const g_pfnVectors[])(void) = {\
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<0>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<1>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<2>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<3>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<4>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<5>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<6>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<7>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<8>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<9>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<10>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<11>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<12>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<13>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<14>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<15>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<16>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<17>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<18>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<19>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<20>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<21>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<22>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<23>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<24>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<25>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<26>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<27>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<28>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<29>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<30>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<31>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<32>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<33>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<34>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<35>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<36>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<37>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<38>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<39>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<40>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<41>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<42>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<43>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<44>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<45>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<46>>::value, \
-    ::Kvasir::MPL::At<Init,Kvasir::MPL::Int<47>>::value \
-};\
+	using Pointers = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
+	__attribute__ ((section(".isr_vector"))) Kvasir::Startup::NvicVectorTable<Pointers> nvicIsrVectors{};\
 \
 \
 /*****************************************************************************
@@ -216,13 +175,33 @@ void (* const g_pfnVectors[])(void) = {\
  Sets up a simple runtime environment and initializes the C/C++
  library.
 *****************************************************************************/\
-/*__attribute__ ((section(".after_vectors")))\*/
+/*__attribute__ ((section(".after_vectors")))\*/\
 void ResetISR(void) {\
+	/*	this may be needed in order to activate ram for __libc_init_array(), it also
+	 * 	gives the user the ability to put code directly after reset by specializing
+	 * 	Kvasir::Startup::FirstInitStep<>, please don't specialize this unless you
+	 * 	know what your doing!
+	 */\
 	Kvasir::Startup::FirstInitStep<Kvasir::Tag::User>{}();\
-    /* Call C++ library initialisation */ \
+    /* Call C++ library initialization */ \
     __libc_init_array(); \
+    /* note that powerClockInit has not yet run so in the system clock initialization
+     * all power clock stuff related to the system clock must be done manually
+     */\
     KvasirSystemClock<Kvasir::Tag::User>::Type::init();\
-    _kvasirInit(); \
+    /* The PowerClockInit step extracts all 'powerClockEnable' action lists from all modules
+     * and executes them after merging.
+     * This is done as a separate step because the power and clock init stuff
+     * changes quite a bit between chips and Kvasir is usually capable of doing the right
+     * thing. Therefore by doing it as an extra step we can save the user a lot of code
+     */\
+	using PowerClockInit = ::Kvasir::Startup::GetPowerClockInitT<__VA_ARGS__ >;\
+	::Kvasir::Register::apply<PowerClockInit>(); \
+	/* The RegInit step extracts all 'init' action lists from all modules and executes them
+	 * after merging
+	 */\
+	using RegInit = ::Kvasir::Startup::GetInitT<__VA_ARGS__ >;\
+	::Kvasir::Register::apply<RegInit>(); \
     main(); \
     /* block if main() returns */ \
     while (1) {} \
