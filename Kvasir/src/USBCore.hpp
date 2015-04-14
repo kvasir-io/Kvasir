@@ -45,6 +45,7 @@ class Base : public USBHw<TConfig>
 	//redesign stuff
 public:
 	static constexpr auto init = MPL::list(TConfig::setPinFunction);
+	static constexpr auto powerClockEnable = MPL::list(System::PowerControlForPeripherals::usbPowerOn);
 private:
 	//old stuff
 	static uint8_t  deviceAddress_;

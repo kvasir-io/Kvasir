@@ -323,7 +323,6 @@ public:
 
 	  return (val);
 	}
-	//static constexpr auto init = MPL::list(/*TConfig::usbPinCfg(TConfig::usbPins)*/);
 	static void Init (void) {
 
 		  //LPC_SC->PCONP |= (1UL<<31);                /* USB PCLK -> enable USB Per.       */
