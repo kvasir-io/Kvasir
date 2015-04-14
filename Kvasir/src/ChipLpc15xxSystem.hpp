@@ -67,8 +67,8 @@ namespace PowerConfiguration {
 	constexpr Register::WriteBitActionT<address,23,false> 		usbPllOn{};
 	constexpr Register::WriteBitActionT<address,23,true> 		usbPllOff{};
 
-	constexpr Register::WriteBitActionT<address,24,false> 		sctOn{};
-	constexpr Register::WriteBitActionT<address,24,true> 		sctOff{};
+	constexpr Register::WriteBitActionT<address,24,false> 		sctPllOn{};
+	constexpr Register::WriteBitActionT<address,24,true> 		sctPllOff{};
 	//bits 31:25 reserved
 }
 
@@ -255,5 +255,90 @@ namespace AHBClockControl{			//SYSAHBCLKCTRL register actions
 	//bits 31:24 reserved
 }
 
+namespace PeripheralReset{			//PRESETCTRL register actions
+	constexpr int address{0x40074044};
+	//bit 6:0 reserved
+	constexpr Register::WriteBitActionT<address,7,true> 		flashResetOn{};
+	constexpr Register::WriteBitActionT<address,7,false> 		flashResetOff{};
+	//bit 8 reserved
+	constexpr Register::WriteBitActionT<address,9,true> 		eepromResetOn{};
+	constexpr Register::WriteBitActionT<address,9,false> 		eepromResetOff{};
+	//bit 10 reserved
+	constexpr Register::WriteBitActionT<address,11,true> 		inputMuxResetOn{};
+	constexpr Register::WriteBitActionT<address,11,false> 		inputMuxResetOff{};
+	//bit 12 reserved
+	constexpr Register::WriteBitActionT<address,13,true> 		ioConResetOn{};
+	constexpr Register::WriteBitActionT<address,13,false> 		ioConResetOff{};
+	//bit 17:14 reserved
+	constexpr Register::WriteBitActionT<address,18,true> 		pinInterruptResetOn{};
+	constexpr Register::WriteBitActionT<address,18,false> 		pinInterruptResetOff{};
+
+	constexpr Register::WriteBitActionT<address,19,true> 		groupedInterruptResetOn{};
+	constexpr Register::WriteBitActionT<address,19,false> 		groupedInterruptResetOff{};
+
+	constexpr Register::WriteBitActionT<address,20,true> 		dmaResetOn{};
+	constexpr Register::WriteBitActionT<address,20,false> 		dmaResetOff{};
+
+	constexpr Register::WriteBitActionT<address,21,true> 		crcResetOn{};
+	constexpr Register::WriteBitActionT<address,21,false> 		crcResetOff{};
+	//bit 26:22 reserved
+	constexpr Register::WriteBitActionT<address,27,true> 		adc0ResetOn{};
+	constexpr Register::WriteBitActionT<address,27,false> 		adc0ResetOff{};
+
+	constexpr Register::WriteBitActionT<address,28,true> 		adc1hResetOn{};
+	constexpr Register::WriteBitActionT<address,28,false> 		adc1ResetOff{};
+	//bit 29 reserved
+	constexpr Register::WriteBitActionT<address,30,true> 		analogComparatorResetOn{};
+	constexpr Register::WriteBitActionT<address,30,false> 		analogComparatorResetOff{};
+	//bit 31 reserved
+
+	constexpr Register::WriteBitActionT<address+4,0,true> 		multirateTimerResetOn{};
+	constexpr Register::WriteBitActionT<address+4,0,false> 		multirateTimerResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,1,true> 		ritResetOn{};
+	constexpr Register::WriteBitActionT<address+4,1,false> 		ritResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,2,true> 		sct0ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,2,false> 		sct0ResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,3,true> 		sct1ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,3,false> 		sct1ResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,4,true> 		sct2ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,4,false> 		sct2ResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,5,true> 		sct3ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,5,false> 		sct3ResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,6,true> 		sctIpuResetOn{};
+	constexpr Register::WriteBitActionT<address+4,6,false> 		sctIpuResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,7,true> 		cCanResetOn{};
+	constexpr Register::WriteBitActionT<address+4,7,false> 		cCanResetOff{};
+	//bit 8 reserved
+	constexpr Register::WriteBitActionT<address+4,9,true> 		spi0ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,9,false> 		spi0ResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,10,true> 		spi1ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,10,false> 	spi1ResetOff{};
+	//bit 12:11 reserved
+	constexpr Register::WriteBitActionT<address+4,13,true> 		i2c0ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,13,false> 	i2c0ResetOff{};
+	//bit 16:14 reserved
+	constexpr Register::WriteBitActionT<address+4,17,true> 		uart0ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,17,false> 	uart0ResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,18,true> 		uart1ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,18,false> 	uart1ResetOff{};
+
+	constexpr Register::WriteBitActionT<address+4,19,true> 		uart2ResetOn{};
+	constexpr Register::WriteBitActionT<address+4,19,false> 	uart2ResetOff{};
+	//bit 20 reserved
+	constexpr Register::WriteBitActionT<address+4,21,true> 		qeiResetOn{};
+	constexpr Register::WriteBitActionT<address+4,21,false> 	qeiResetOff{};
+	//bit 22 reserved
+	constexpr Register::WriteBitActionT<address+4,23,true> 		usbResetOn{};
+	constexpr Register::WriteBitActionT<address+4,23,false> 	usbResetOff{};
+	//bit 31:24 reserved
 }
 }

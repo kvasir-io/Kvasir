@@ -37,6 +37,7 @@ public:
 		Led::toggle();
 	}
 };
+
 int main(){
 	Led::toggle();
 	Led::toggle();

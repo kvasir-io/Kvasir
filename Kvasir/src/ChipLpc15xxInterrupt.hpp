@@ -60,7 +60,7 @@ namespace Interrupt{
 		template<>
 				struct InterruptOffsetTraits<void>{
 					static constexpr int begin = -14;
-					static constexpr int end = 35;
+					static constexpr int end = 47;
 				};
 
 		template<int I>

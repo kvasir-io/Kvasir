@@ -120,8 +120,15 @@ namespace Startup{
 	using GetInitT = typename GetInit<Ts...>::Type;
 	template<typename...Ts>
 	struct GetPowerClockInit {
-		//make list of lists of all actions from all devices
-		using Type = MPL::FlattenT<MPL::List<typename Detail::GetPCInit<Ts>::Type...>>;
+		//make list of lists of actions corresponding to each sequence for each module
+		using FlattenedSequencePieces = MPL::List<
+				MPL::SplitT<MPL::FlattenT<typename Detail::GetPCInit<Ts>::Type>,Register::SequencePoint>...
+				>;
+		//sort lists by length
+		using Sorted = MPL::SortT<FlattenedSequencePieces,Detail::ListLengthLessP>;
+		//merge lists
+		using MergedSequencePieces = typename Detail::Merge<MPL::List<>,Sorted>::Type;
+		using Type = MPL::JoinT<MergedSequencePieces,Register::SequencePoint>;
 	};
 	template<typename...Ts>
 	using GetPowerClockInitT = typename GetPowerClockInit<Ts...>::Type;
@@ -159,8 +166,8 @@ extern void (* const g_pfnVectors[])(void);
 
 #define KVASIR_START(...) \
 	void KVASIR_START_must_only_be_defined_once_and_KVASIR_CLOCK_must_be_the_same_type_in_all_units(typename KvasirSystemClock<Kvasir::Tag::User>::Type){} \
-	using Init = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
-	__attribute__ ((section(".isr_vector"))) Kvasir::Startup::NvicVectorTable<Init> nvicIsrVectors{};\
+	using Pointers = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\
+	__attribute__ ((section(".isr_vector"))) Kvasir::Startup::NvicVectorTable<Pointers> nvicIsrVectors{};\
 \
 \
 /*****************************************************************************
