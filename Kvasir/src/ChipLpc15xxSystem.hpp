@@ -342,3 +342,4 @@ namespace PeripheralReset{			//PRESETCTRL register actions
 	//bit 31:24 reserved
 }
 }
+}

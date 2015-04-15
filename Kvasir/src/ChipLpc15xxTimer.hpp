@@ -6,7 +6,7 @@
 namespace Kvasir{
 namespace Timer{
 struct Timer0DefaultConfig {
-	static constexpr auto isr = Interrupt::stateConfigurableTimer0;
+	static constexpr auto isr = Interrupt::sct0;
 	static constexpr auto powerClockEnable = MPL::list(
 			System::AHBClockControl::sct0ClockOn,
 			Register::sequencePoint,
@@ -63,26 +63,15 @@ struct Timer0DefaultConfig {
 		template<int I, int V>
 		using MakeT = Register::WriteBitActionT<baseAddress + 0x14,I,V>;
 		template<typename T>
-		static constexpr MakeT<(1<<(T::value * 3)),true> interruptEnable(){
+		static constexpr MakeT<(1<<(T::value * 3)),true> makeInterruptEnable(){
 			static_assert(T::value <= 3,"channel not supported");
-			return MakeT<(1<<(T::value * 3)),true>;
+			return MakeT<(1<<(T::value * 3)),true>{};
 		}
 		template<typename T>
-		static constexpr MakeT<(1<<(T::value * 3)),true> interruptEnable(){
+		static constexpr MakeT<(1<<(T::value * 3)),true> makeInterruptDisable(){
 			static_assert(T::value <= 3,"channel not supported");
-			return MakeT<(1<<(T::value * 3)),true>;
+			return MakeT<(1<<(T::value * 3)),true>{};
 		}
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<1),(1<<1)> reg0ResetOnMatch{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<2),(1<<2)> reg0StopOnMatch{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<3),(1<<3)> reg1InterruptEnable{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<4),(1<<4)> regResetOnMatch{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<5),(1<<5)> reg1StopOnMatch{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<6),(1<<6)> reg2InterruptEnable{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<7),(1<<7)> reg2ResetOnMatch{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<8),(1<<8)> reg2StopOnMatch{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<9),(1<<9)> reg3InterruptEnable{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<10),(1<<10)> reg3ResetOnMatch{};
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<11),(1<<11)> reg3StopOnMatch{};
 	};
 	struct Prescale{
 		static constexpr int address = baseAddress + 0x0C;

@@ -7,6 +7,7 @@
 #include "ChipLpc15xxIo.hpp"
 #include "ChipLpc15xxInterrupt.hpp"
 
+
 namespace Kvasir{
 	namespace Startup{
 		//*****************************************************************************
@@ -65,6 +66,5 @@ namespace Kvasir{
 			}
 		};
 	}
-
 }
 
