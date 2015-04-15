@@ -58,14 +58,27 @@ namespace Kvasir{
 		template<int I>
 		struct MakeAction<Action::Enable,Index<I>> :	Register::BlindSetBitActionT<
 			baseAddress + 0x100 +(I>31?4:0), (I & 0x1F)>{
-			static_assert(I<=34 && I>=0,"Interruptindex out of range");
+			static_assert(I<=34 && I>=0,"Unable to enable this Interrupt, index is out of range");
 		};
 
 		template<int I>
 		struct MakeAction<Action::Disable,Index<I>>	:	Register::BlindSetBitActionT<
 			baseAddress + 0x180 +(I>31?4:0), (I & 0x1F)>{
-			static_assert(I<=34 && I>=0,"Interruptindex out of range");
+			static_assert(I<=34 && I>=0,"Unable to disable this Interrupt, index is out of range");
 		};
+
+		template<int I>
+		struct MakeAction<Action::setPending,Index<I>>	:	Register::BlindSetBitActionT<
+			baseAddress + 0x200 +(I>31?4:0), I>{
+			static_assert(I<=30 && I>=0,"Unable to set pending on this interrupt, index is out of range");
+		};
+
+		template<int I>
+		struct MakeAction<Action::clearPending,Index<I>>	:	Register::BlindSetBitActionT<
+			baseAddress + 0x280 +(I>31?4:0), I>{
+			static_assert(I<=30 && I>=0,"Unable to clear pending on this interrupt, index is out of range");
+		};
+
 
 	}
 }
