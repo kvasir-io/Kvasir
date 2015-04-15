@@ -48,40 +48,36 @@ namespace Timer{
 				static constexpr int address = BaseAddress + 0x10;
 			};
 			struct MatchControl{
-				struct Detail{
-					template<int I, int V>
-					using MakeT = Register::WriteBitActionT<BaseAddress + 0x14,I,V>;
+				template<typename T>
+				static constexpr Register::WriteBitActionT<BaseAddress + 0x14,(T::value * 3),true> makeInterruptEnable(T){
+					static_assert(T::value <= 3,"channel not supported");
+					return Register::WriteBitActionT<BaseAddress + 0x14,(T::value * 3),true>{};
 				};
 				template<typename T>
-				static constexpr Detail::MakeT<(1<<(T::value * 3)),true> makeInterruptEnable(T){
+				static constexpr Register::WriteBitActionT<BaseAddress + 0x14,(1<<(T::value * 3)),false> makeInterruptDisable(T){
 					static_assert(T::value <= 3,"channel not supported");
-					return Detail::MakeT<(1<<(T::value * 3)),true>{};
-				}
+					return Register::WriteBitActionT<BaseAddress + 0x14,(T::value * 3),true>{};
+				};
 				template<typename T>
-				static constexpr Detail::MakeT<(1<<(T::value * 3)),false> makeInterruptDisable(T){
+				static constexpr Register::WriteBitActionT<BaseAddress + 0x14,(1<<((T::value * 3)+1)),true> makeResetOnMatch(T){
 					static_assert(T::value <= 3,"channel not supported");
-					return Detail::MakeT<(1<<(T::value * 3)),true>{};
-				}
+					return Register::WriteBitActionT<BaseAddress + 0x14,(1<<((T::value * 3)+1)),true>{};
+				};
 				template<typename T>
-				static constexpr Detail::MakeT<(1<<((T::value * 3)+1)),true> makeResetOnMatch(T){
+				static constexpr Register::WriteBitActionT<BaseAddress + 0x14,(1<<((T::value * 3)+1)),false> makeNoResetOnMatch(T){
 					static_assert(T::value <= 3,"channel not supported");
-					return Detail::MakeT<(1<<((T::value * 3)+1)),true>{};
-				}
+					return Register::WriteBitActionT<BaseAddress + 0x14,(1<<((T::value * 3)+1)),true>{};
+				};
 				template<typename T>
-				static constexpr Detail::MakeT<(1<<((T::value * 3)+1)),false> makeNoResetOnMatch(T){
+				static constexpr Register::WriteBitActionT<BaseAddress + 0x14,(1<<((T::value * 3)+2)),true> makeStopOnMatch(T){
 					static_assert(T::value <= 3,"channel not supported");
-					return Detail::MakeT<(1<<((T::value * 3)+1)),true>{};
-				}
+					return Register::WriteBitActionT<BaseAddress + 0x14,(1<<((T::value * 3)+1)),true>{};
+				};
 				template<typename T>
-				static constexpr Detail::MakeT<(1<<((T::value * 3)+2)),true> makeStopOnMatch(T){
+				static constexpr Register::WriteBitActionT<BaseAddress + 0x14,(1<<((T::value * 3)+2)),false> makeNoStopOnMatch(T){
 					static_assert(T::value <= 3,"channel not supported");
-					return Detail::MakeT<(1<<((T::value * 3)+1)),true>{};
-				}
-				template<typename T>
-				static constexpr Detail::MakeT<(1<<((T::value * 3)+2)),false> makeNoStopOnMatch(T){
-					static_assert(T::value <= 3,"channel not supported");
-					return Detail::MakeT<(1<<((T::value * 3)+1)),true>{};
-				}
+					return Register::WriteBitActionT<BaseAddress + 0x14,(1<<((T::value * 3)+1)),true>{};
+				};
 			};
 			struct MatchRegister{
 				static constexpr int address = BaseAddress + 0x18;
@@ -97,14 +93,7 @@ namespace Timer{
 			//TODO implement other registers
 
 			static constexpr int prescaleValue = 1000;
-			static constexpr MPL::List<> matchReg0Init{};
-			static constexpr MPL::List<> matchReg1Init{};
-			static constexpr MPL::List<> matchReg2Init{};
-			static constexpr MPL::List<> matchReg3Init{};
-			static constexpr MPL::List<> captureReg0Init{};
-			static constexpr MPL::List<> captureReg1Init{};
-			static constexpr MPL::List<> captureReg2Init{};
-
+			static constexpr MPL::List<> userInit{};
 			static constexpr TPCEnable powerClockEnable{};
 		};
 	}

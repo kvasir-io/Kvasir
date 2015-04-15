@@ -62,13 +62,7 @@ public:
 	static constexpr auto powerClockEnable = Config::powerClockEnable;
 	static constexpr auto init = MPL::list(
 			Config::Prescale::template makeSet<Config::prescaleValue>(),
-			Config::matchReg0Init,
-			Config::matchReg1Init,
-			Config::matchReg2Init,
-			Config::matchReg3Init,
-			Config::captureReg0Init,
-			Config::captureReg1Init,
-			Config::captureReg2Init,
+			Config::userInit,
 			Register::sequencePoint,
 			Config::Control::couterEnable,
 			makeEnable(TConfig::isr)

@@ -25,7 +25,7 @@ public:
 };
 
 struct TimerConfig : TimerDefaultConfig {
-	static constexpr auto matchReg0Init = list(
+	static constexpr auto userInit = list(
 			MatchRegister::makeSetValue<10000>(match0),
 			MatchControl::makeInterruptEnable(match0),
 			MatchControl::makeResetOnMatch(match0));
@@ -45,5 +45,6 @@ int main(){
 	return 0;
 }
 KVASIR_START(Timer,Led)
+
 
 

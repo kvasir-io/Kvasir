@@ -147,7 +147,6 @@ namespace Startup{
 
 
 extern int main(void);
-extern void _kvasirInit();
 
 //*****************************************************************************
 //

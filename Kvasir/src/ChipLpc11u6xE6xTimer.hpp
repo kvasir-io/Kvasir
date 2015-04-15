@@ -89,13 +89,7 @@ struct TC16B0DefaultConfig {
 	};
 
 	static constexpr int prescaleValue = 1000;
-	static constexpr MPL::List<> matchReg0Init{};
-	static constexpr MPL::List<> matchReg1Init{};
-	static constexpr MPL::List<> matchReg2Init{};
-	static constexpr MPL::List<> matchReg3Init{};
-	static constexpr MPL::List<> captureReg0Init{};
-	static constexpr MPL::List<> captureReg1Init{};
-	static constexpr MPL::List<> captureReg2Init{};
+	static constexpr MPL::List<> userInit{};
 	static constexpr auto powerClockEnable = MPL::list(clockEnable);
 };
 }
