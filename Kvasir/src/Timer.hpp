@@ -18,44 +18,39 @@ namespace Timer{
 template<typename TDerived, typename TConfig>
 struct Base {
 protected:
-	static void onMatch0() {};
-	static void onMatch1() {};
-	static void onMatch2() {};
-	static void onMatch3() {};
-	static void onCapture0() {};
-	static void onCapture1() {};
-	static void onCapture2() {};
+	static void onMatch(...) {};
+	static void onCapture(...) {};
 private:
 	static void onIsr(){
 		auto i = TConfig::Interrupt::Status::read();
 		int clearBits{0};
 		if(i & (1<<0)){
 			clearBits |= (1<<0);
-			TDerived::onMatch0();
+			TDerived::onMatch(TConfig::match0);
 		}
 		if(i & (1<<1)){
 			clearBits |= (1<<1);
-			TDerived::onMatch1();
+			TDerived::onMatch(TConfig::match0);
 		}
 		if(i & (1<<2)){
 			clearBits |= (1<<2);
-			TDerived::onMatch2();
+			TDerived::onMatch(TConfig::match0);
 		}
 		if(i & (1<<3)){
 			clearBits |= (1<<3);
-			TDerived::onMatch3();
+			TDerived::onMatch(TConfig::match0);
 		}
 		if(i & (1<<4)){
 			clearBits |= (1<<4);
-			TDerived::onCapture0();
+			TDerived::onCapture(TConfig::capture0);
 		}
 		if(i & (1<<5)){
 			clearBits |= (1<<5);
-			TDerived::onCapture1();
+			TDerived::onCapture(TConfig::capture1);
 		}
 		if(i & (1<<6)){
 			clearBits |= (1<<6);
-			TDerived::onCapture2();
+			TDerived::onCapture(TConfig::capture2);
 		}
 		TConfig::Interrupt::Clear::write(clearBits);
 

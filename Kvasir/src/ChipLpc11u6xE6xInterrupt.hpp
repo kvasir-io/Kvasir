@@ -54,13 +54,13 @@ namespace Nvic{
 	template<int I>
 	struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
 		baseAddress + 0x100, I>{
-		static_assert(I<=30 && I>=0,"Interruptindex out of range");
+		static_assert(I<=30 && I>=0,"Interrupt index out of range");
 	};
 
 	template<int I>
 	struct MakeAction<Action::Disable,Index<I>> : Register::BlindSetBitActionT<
 		baseAddress + 0x180, I>{
-		static_assert(I<=30 && I>=0,"Interruptindex out of range");
+		static_assert(I<=30 && I>=0,"Interrupt index out of range");
 	};
 }
 }

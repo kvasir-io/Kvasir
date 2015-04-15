@@ -1,7 +1,7 @@
 #pragma once
 #include "ChipLpc15xxInterrupt.hpp"
 #include "ChipLpc15xxSystem.hpp"
-#include "Tag.hpp"
+#include "Tags.hpp"
 
 namespace Kvasir{
 namespace Timer{
