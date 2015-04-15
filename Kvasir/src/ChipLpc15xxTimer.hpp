@@ -1,6 +1,7 @@
 #pragma once
 #include "ChipLpc15xxInterrupt.hpp"
 #include "ChipLpc15xxSystem.hpp"
+#include "Tag.hpp"
 
 namespace Kvasir{
 namespace Timer{
@@ -59,7 +60,18 @@ struct Timer0DefaultConfig {
 		using Clear = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::WriteableP>;
 	};
 	struct MatchControl{
-		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<0),(1<<0)> reg0InterruptEnable{};
+		template<int I, int V>
+		using MakeT = Register::WriteBitActionT<baseAddress + 0x14,I,V>;
+		template<typename T>
+		static constexpr MakeT<(1<<(T::value * 3)),true> interruptEnable(){
+			static_assert(T::value <= 3,"channel not supported");
+			return MakeT<(1<<(T::value * 3)),true>;
+		}
+		template<typename T>
+		static constexpr MakeT<(1<<(T::value * 3)),true> interruptEnable(){
+			static_assert(T::value <= 3,"channel not supported");
+			return MakeT<(1<<(T::value * 3)),true>;
+		}
 		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<1),(1<<1)> reg0ResetOnMatch{};
 		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<2),(1<<2)> reg0StopOnMatch{};
 		static constexpr Register::WriteActionT<baseAddress + 0x14,(1<<3),(1<<3)> reg1InterruptEnable{};

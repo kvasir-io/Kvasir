@@ -16,14 +16,61 @@ namespace Tag {
 	struct User {};
 	struct None {};
 	namespace ADC {
-	struct Channel{};
-	struct Channel0 : Channel{};
-	struct Channel1 : Channel{};
-	struct Channel2 : Channel{};
-	struct Channel3 : Channel{};
-	struct Channel4 : Channel{};
-	struct Channel5 : Channel{};
-	struct Channel6 : Channel{};
+		struct Channel{};
+		struct Channel0 : Channel{ static constexpr int value = 0; };
+		struct Channel1 : Channel{ static constexpr int value = 1; };
+		struct Channel2 : Channel{ static constexpr int value = 2; };
+		struct Channel3 : Channel{ static constexpr int value = 3; };
+		struct Channel4 : Channel{ static constexpr int value = 4; };
+		struct Channel5 : Channel{ static constexpr int value = 5; };
+		struct Channel6 : Channel{ static constexpr int value = 6; };
+		struct Channel7 : Channel{ static constexpr int value = 7; };
+		struct Channel8 : Channel{ static constexpr int value = 8; };
+		struct Channel9 : Channel{ static constexpr int value = 9; };
+		struct Channel10 : Channel{ static constexpr int value = 10; };
+		struct Channel11 : Channel{ static constexpr int value = 11; };
+		struct Channel12 : Channel{ static constexpr int value = 12; };
+		struct Channel13 : Channel{ static constexpr int value = 13; };
+		struct Channel14 : Channel{ static constexpr int value = 14; };
+		struct Channel15 : Channel{ static constexpr int value = 15; };
+	}
+	namespace Capture {
+		struct Channel{};
+		struct Channel0 : Channel{ static constexpr int value = 0; };
+		struct Channel1 : Channel{ static constexpr int value = 1; };
+		struct Channel2 : Channel{ static constexpr int value = 2; };
+		struct Channel3 : Channel{ static constexpr int value = 3; };
+		struct Channel4 : Channel{ static constexpr int value = 4; };
+		struct Channel5 : Channel{ static constexpr int value = 5; };
+		struct Channel6 : Channel{ static constexpr int value = 6; };
+		struct Channel7 : Channel{ static constexpr int value = 7; };
+		struct Channel8 : Channel{ static constexpr int value = 8; };
+		struct Channel9 : Channel{ static constexpr int value = 9; };
+		struct Channel10 : Channel{ static constexpr int value = 10; };
+		struct Channel11 : Channel{ static constexpr int value = 11; };
+		struct Channel12 : Channel{ static constexpr int value = 12; };
+		struct Channel13 : Channel{ static constexpr int value = 13; };
+		struct Channel14 : Channel{ static constexpr int value = 14; };
+		struct Channel15 : Channel{ static constexpr int value = 15; };
+	}
+	namespace Match{
+		struct Channel{};
+		struct Channel0 : Channel{ static constexpr int value = 0; };
+		struct Channel1 : Channel{ static constexpr int value = 1; };
+		struct Channel2 : Channel{ static constexpr int value = 2; };
+		struct Channel3 : Channel{ static constexpr int value = 3; };
+		struct Channel4 : Channel{ static constexpr int value = 4; };
+		struct Channel5 : Channel{ static constexpr int value = 5; };
+		struct Channel6 : Channel{ static constexpr int value = 6; };
+		struct Channel7 : Channel{ static constexpr int value = 7; };
+		struct Channel8 : Channel{ static constexpr int value = 8; };
+		struct Channel9 : Channel{ static constexpr int value = 9; };
+		struct Channel10 : Channel{ static constexpr int value = 10; };
+		struct Channel11 : Channel{ static constexpr int value = 11; };
+		struct Channel12 : Channel{ static constexpr int value = 12; };
+		struct Channel13 : Channel{ static constexpr int value = 13; };
+		struct Channel14 : Channel{ static constexpr int value = 14; };
+		struct Channel15 : Channel{ static constexpr int value = 15; };
 	}
 }
 }
