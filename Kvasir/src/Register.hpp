@@ -33,34 +33,60 @@ namespace Kvasir {
 		struct SequencePoint{};
 		constexpr SequencePoint sequencePoint{};
 
+		namespace Address{
+			template<int I>
+			struct ReadWrite{
+				static constexpr int value = I;
+			};
+			template<int I>
+			struct WriteOnly{
+				static constexpr int value = I;
+			};
+			template<int I>
+			struct ReadOnly{
+				static constexpr int value = I;
+			};
+			template<int I>
+			struct ClearOnRead{
+				static constexpr int value = I;
+			};
+			template<int I>
+			struct BlindWrite{
+				static constexpr int value = I;
+			};
+		}
+
+		template<typename Address, int Mask>
+		struct BitLocation{
+			static constexpr int mask = Mask;
+			using Type = BitLocation<Mask>;
+		};
+
 		template<int I>
-		struct WriteAddress{
+		struct WriteLiteralAction{
 			static constexpr int value = I;
 		};
 		template<int I>
-		struct WriteOnlyAddress{
+		struct XorLiteralAction{
 			static constexpr int value = I;
 		};
-		template<int I>
-		struct XorAddress{
-			static constexpr int value = I;
-		};
-		template<typename TAction, typename TMask, typename TData>
+		template<typename TLocation, typename TAction>
 		struct Action {
-			using Type = Action<TAction,TMask,TData>;
-			static constexpr Type value{};
+			using Type = Action<TLocation,TAction>;
 		};
+
+		//leagacy factories
 		template<int Address,int Mask, int Data>
-		using WriteActionT = Action<WriteAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
+		using WriteActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,WriteLiteralAction<Data>>;
 		template<int Address,int Offset, bool Data>
-		using WriteBitActionT = Action<WriteAddress<Address>,MPL::Int<(1<<Offset)>,MPL::Int<(Data<<Offset)>>;
+		using WriteBitActionT = Action<BitLocation<Address::ReadWrite<Address>,(1<<Offset)>,WriteLiteralAction<(Data<<Offset)>>;
 		template<int Address,int Offset>
-		using BlindSetBitActionT = Action<WriteOnlyAddress<Address>,MPL::Int<(1<<Offset)>,MPL::Int<(1<<Offset)>>;
+		using BlindSetBitActionT = Action<BitLocation<Address::BlindWrite<Address>,(1<<Offset)>,WriteLiteralAction<(1<<Offset)>>;
 
 		template<int Address,int Mask, int Data>
-		using BlindWriteActionT = Action<WriteOnlyAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
+		using BlindWriteActionT = Action<BitLocation<Address::BlindWrite<Address>,Mask>,WriteLiteralAction<Data>>;
 		template<int Address,int Mask, int Data>
-		using XorActionT = Action<XorAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
+		using XorActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,XorLiteralAction<Data>>;
 
 		namespace Detail{
 			using namespace MPL;
