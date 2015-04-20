@@ -56,15 +56,17 @@ namespace Kvasir {
 			};
 		}
 
-		template<typename Address, int Mask>
+		template<typename Address, int Mask, typename ResType = int>
 		struct BitLocation{
-			static constexpr int mask = Mask;
-			static constexpr int address = Address::value;
-			using Type = BitLocation<Address, Mask>;
+			using Type = BitLocation<Address, Mask, ResType>;
 		};
 
-		template<int Address, int Mask>
-		using RWLocation = BitLocation<>
+		template<int Address, int Mask, typename ResType = int>
+		using RWLocation = BitLocation<Address::ReadWrite<Address>,Mask,ResType>;
+		template<int Address, int Mask, typename ResType = int>
+		using BWLocation = BitLocation<Address::BlindWrite<Address>,Mask,ResType>;
+		template<int Address, int Mask, typename ResType = int>
+		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,ResType>;
 
 		template<int I>
 		struct WriteLiteralAction{
