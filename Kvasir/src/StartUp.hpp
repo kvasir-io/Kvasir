@@ -34,8 +34,8 @@ namespace Startup{
 		struct Listify{
 			static_assert(AlwaysFalse<T>::value,"implausible type");
 		};
-		template<typename T, typename U, typename V>
-		struct Listify<Register::Action<T,U,V>> : List<Register::Action<T,U,V>>{};
+		template<typename T, typename U>
+		struct Listify<Register::Action<T,U>> : List<Register::Action<T,U>>{};
 		template<typename... Ts>
 		struct Listify<List<Ts...>> : List<Ts...>{};
 		template<typename T, typename = void, typename = void>

@@ -33,49 +33,103 @@ namespace Kvasir {
 		struct SequencePoint{};
 		constexpr SequencePoint sequencePoint{};
 
+		namespace Address{
+			template<int I>
+			struct ReadWrite{
+				static constexpr int value = I;
+			};
+			template<int I>
+			struct WriteOnly{
+				static constexpr int value = I;
+			};
+			template<int I>
+			struct ReadOnly{
+				static constexpr int value = I;
+			};
+			template<int I>
+			struct ClearOnRead{
+				static constexpr int value = I;
+			};
+			template<int I>
+			struct BlindWrite{
+				static constexpr int value = I;
+			};
+		}
+
+		template<typename Address, int Mask>
+		struct BitLocation{
+			static constexpr int mask = Mask;
+			static constexpr int address = Address::value;
+			using Type = BitLocation<Address, Mask>;
+		};
+
+		template<int Address, int Mask>
+		using RWLocation = BitLocation<>
+
 		template<int I>
-		struct WriteAddress{
+		struct WriteLiteralAction{
 			static constexpr int value = I;
 		};
 		template<int I>
-		struct WriteOnlyAddress{
+		struct XorLiteralAction{
 			static constexpr int value = I;
 		};
-		template<int I>
-		struct XorAddress{
-			static constexpr int value = I;
-		};
-		template<typename TAction, typename TMask, typename TData>
+		template<typename TLocation, typename TAction>
 		struct Action {
-			using Type = Action<TAction,TMask,TData>;
-			static constexpr Type value{};
+			using Type = Action<TLocation,TAction>;
 		};
+
+		//leagacy factories
 		template<int Address,int Mask, int Data>
-		using WriteActionT = Action<WriteAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
+		using WriteActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,WriteLiteralAction<Data>>;
 		template<int Address,int Offset, bool Data>
-		using WriteBitActionT = Action<WriteAddress<Address>,MPL::Int<(1<<Offset)>,MPL::Int<(Data<<Offset)>>;
+		using WriteBitActionT = Action<BitLocation<Address::ReadWrite<Address>,(1<<Offset)>,WriteLiteralAction<(Data<<Offset)>>;
 		template<int Address,int Offset>
-		using BlindSetBitActionT = Action<WriteOnlyAddress<Address>,MPL::Int<(1<<Offset)>,MPL::Int<(1<<Offset)>>;
+		using BlindSetBitActionT = Action<BitLocation<Address::BlindWrite<Address>,(1<<Offset)>,WriteLiteralAction<(1<<Offset)>>;
 
 		template<int Address,int Mask, int Data>
-		using BlindWriteActionT = Action<WriteOnlyAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
+		using BlindWriteActionT = Action<BitLocation<Address::BlindWrite<Address>,Mask>,WriteLiteralAction<Data>>;
 		template<int Address,int Mask, int Data>
-		using XorActionT = Action<XorAddress<Address>,MPL::Int<Mask>,MPL::Int<Data>>;
+		using XorActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,XorLiteralAction<Data>>;
+
+		template<int Address>
+		struct ValueObject{
+			const int value_;
+			using Type = ValueObject<Address>;
+		};
+
 
 		namespace Detail{
 			using namespace MPL;
+
+			template<typename T>
+			struct GetAddress;
+			template<typename TLocation, typename TAction>
+			struct GetAddress<Action<TLocation,TAction>> {
+				static constexpr int value = TLocation::address;
+				static constexpr int read(){
+					return *((volatile int*)TLocation::address);
+				}
+			};
+
+			template<typename T, typename... Ts>
+			struct MakeReturn : ValueObject<GetAddress<T>::value>{
+				//TODO enforce that all addresses are the same
+			};
+			template<typename T, typename... Ts>
+			using MakeReturnT = typename MakeReturn<T,Ts...>::Type;
 			//predecate retuning result of left < right for RegisterOptions
 			template<typename T_Left, typename T_Right>
 			struct RegisterActionLess;
-			template<typename TA1, typename TC1, typename TS1, typename TA2, typename TC2, typename TS2>
-			struct RegisterActionLess< Register::Action<TA1,TC1,TS1>, Register::Action<TA2,TC2,TS2> > : Bool<(TA1::value < TA2::value)>{};
+			template<typename T1, typename U1, typename T2, typename U2>
+			struct RegisterActionLess< Register::Action<T1,U1>, Register::Action<T2,U2> > : Bool<(T1::address < T2::address)>{};
 			using RegisterActionLessP = Template<RegisterActionLess>;
 
 			template<typename TRegisterAction>
 			struct WriteRegister;
 
 			template<int A, int Mask, int Data>
-			struct WriteRegister<Register::Action<WriteAddress<A>,Int<Mask>,Int<Data>>>{
+			struct WriteRegister<Register::Action<BitLocation<Address::ReadWrite<A>,Mask>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				int operator()(){
 					auto& reg = *(volatile int*)A;
@@ -87,7 +141,7 @@ namespace Kvasir {
 				}
 			};
 			template<int A, int Mask, int Data>
-			struct WriteRegister<Register::Action<WriteOnlyAddress<A>,Int<Mask>,Int<Data>>>{
+			struct WriteRegister<Register::Action<BitLocation<Address::BlindWrite<A>,Mask>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				int operator()(){
 					auto& reg = *(volatile int*)A;
@@ -96,7 +150,7 @@ namespace Kvasir {
 				}
 			};
 			template<int A, int Mask, int Data>
-			struct WriteRegister<Register::Action<XorAddress<A>,Int<Mask>,Int<Data>>>{
+			struct WriteRegister<Register::Action<BitLocation<Address::ReadWrite<A>,Mask>,XorLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				int operator()(){
 					auto& reg = *(volatile int*)A;
@@ -120,9 +174,14 @@ namespace Kvasir {
 			template<typename TNext, typename... Ts> //none processed yet
 			struct MergeRegisterActions<List<TNext, Ts...>, List<>> : MergeRegisterActions<List<Ts...>,List<TNext>>{};
 
-			template<typename TNA, typename TNC, typename TNS, typename TLC, typename TLS, typename... Ts, typename... Us> //next and last mergable
-			struct MergeRegisterActions<List<Register::Action<TNA,TNC,TNS>, Ts...>,List<Register::Action<TNA,TLC,TLS>, Us...>> :
-				MergeRegisterActions<List<Ts...>,List<Register::Action<TNA,Int<TNC::value | TLC::value>,Int<TNS::value | TLS::value>>,Us...>>{};
+			template<template<int> class TAddressTemplate, int Address, int Mask1, int Mask2, template<int> class TActionTemplate, int Value1, int Value2, typename... Ts, typename... Us> //next and last mergable
+			struct MergeRegisterActions<
+					List<Register::Action<BitLocation<TAddressTemplate<Address>,Mask1>,TActionTemplate<Value1>>, Ts...>,
+					List<Register::Action<BitLocation<TAddressTemplate<Address>,Mask2>,TActionTemplate<Value2>>, Us...>
+				> :	MergeRegisterActions<
+					List<Ts...>,
+					List<Register::Action<BitLocation<TAddressTemplate<Address>,Mask1 | Mask2>,TActionTemplate<Value1 | Value2>>,Us...>
+			>{};
 
 			template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
 			struct MergeRegisterActions<List<TNext, Ts...>,List<TLast, Us...>> : MergeRegisterActions<List<Ts...>,List<TNext, TLast, Us...>>{};
@@ -147,88 +206,6 @@ namespace Kvasir {
 
 		}
 
-		namespace Policy{
-			template<typename TType, typename TRegisterType>
-			struct GenericConversion {
-				using Type = TType;
-				using RegisterType = TRegisterType;
-				static inline Type read(const TRegisterType& in){
-					return static_cast<Type>(in);
-				}
-				static inline RegisterType write(const Type &in){
-					return static_cast<RegisterType>(in);
-				}
-			};
-			//this conversion policy construcs a pod with the register
-			template<typename TType, typename TRegisterType>
-			struct PodConversion {
-				using Type = TType;
-				using RegisterType = TRegisterType;
-				static inline Type read(const TRegisterType& in){
-					return Type{in};
-				}
-				static inline RegisterType write(const Type &in){
-					return static_cast<RegisterType>(in);
-				}
-			};
-			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-			struct Readable {
-				static inline typename T_ConversionPolicy::Type read(){
-					auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
-					return T_ConversionPolicy::read(v & T_Mask::value);
-				}
-			};
-			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-			struct ClearOnRead{
-				static inline typename T_ConversionPolicy::Type readAndClear(){
-					auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
-					return T_ConversionPolicy::read(v & T_Mask::value);
-				}
-			};
-			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-			struct Popable{
-				static inline typename T_ConversionPolicy::Type pop(){
-					auto v = *static_cast<volatile typename T_ConversionPolicy::RegisterType*>((int*)T_Address::value);
-					return T_ConversionPolicy::read(v & T_Mask::value);
-				}
-			};
-			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-			struct Writeable{
-				static inline void write(typename T_ConversionPolicy::Type in){
-					auto maskedIn = T_ConversionPolicy::write(in) & T_Mask::value;
-					volatile typename T_ConversionPolicy::RegisterType &reg = *(typename T_ConversionPolicy::RegisterType*)T_Address::value;
-					auto tempReg = reg;
-					tempReg = tempReg & ((!T_Mask::value) | maskedIn);
-					reg = tempReg;
-				}
-			};
-			template<typename T_Address, typename T_Mask, typename T_ConversionPolicy>
-			struct Pushable{
-				static inline void push(typename T_ConversionPolicy::Type in){
-					volatile typename T_ConversionPolicy::RegisterType &reg = *(typename T_ConversionPolicy::RegisterType*)T_Address::value;
-					reg = T_ConversionPolicy::write(in) & T_Mask::value;
-				}
-			};
-			template<typename TEnum>
-			using EnumConversionP = GenericConversion<TEnum,int>;
-			using IntConversionP = GenericConversion<int,int>;
-			using CharConversionP = GenericConversion<char,char>;
-			using BoolConversionP = GenericConversion<bool,int>;
-			using ReadableP = MPL::Template<Readable>;
-			using ClearOnReadP = MPL::Template<ClearOnRead>;
-			using PopableP = MPL::Template<Popable>;
-			using WriteableP = MPL::Template<Writeable>;
-			using PushableP = MPL::Template<Pushable>;
-			using ReadWriteableP = MPL::List<ReadableP,WriteableP>;
-			template<typename TPod>
-			using PodConversionP = PodConversion<TPod,int>;
-		}
-
-		//this class is used to define multi-step inits, each parameter is an MPL::List of Register::Option(s)
-		template<typename... Ts>
-		struct InitSteps{};
-
-
 		template<typename...Ts,typename...Args>
 		inline void apply(Args...){
 			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
@@ -237,41 +214,11 @@ namespace Kvasir {
 			Detail::WriteRegister<MergedSteps>{}();
 		}
 
-		template<typename TAddress, typename TMask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
-		struct Functional : MPL::ApplyTemplateT<TPolicies,TAddress,TMask,TConversionPolicy> {}; //only one policy so derive directly
-
-		template<typename TAddress, typename TMask, typename... Ts, typename TConversionPolicy>
-		struct Functional<TAddress,TMask,MPL::List<Ts...>,TConversionPolicy> : MPL::DeriveFromTemplates<MPL::List<Ts...>,TAddress,TMask,TConversionPolicy>{};
-
-		template<int Address, int Mask, typename TPolicies, typename TConversionPolicy = Policy::IntConversionP>
-		using FunctionalT = Functional<MPL::Int<Address>,MPL::Int<Mask>,TPolicies,TConversionPolicy>;
-
-		template<int Address, int Offset, typename TPolicies>
-		using FunctionalBoolT = Functional<MPL::Int<Address>,MPL::Int<(1<<Offset)>,TPolicies,Policy::BoolConversionP>;
-
-		template<int Address, int Offset>
-		using ReadOnlyBoolT = Functional<MPL::Int<Address>,MPL::Int<(1<<Offset)>,Policy::ReadableP,Policy::BoolConversionP>;
-
-		namespace Detail {
-			//Merges single and multistep inits
-			template<typename T_Out, typename... Ts>
-			struct MergeInits;
-
-			template<typename TList>
-			struct ApplyInits;
-
-			template<typename...Ts>
-			struct ApplyInts {
-				void operator()(){
-					auto a = {apply<Ts>()...};
-				}
-			};
+		template<typename T, typename... Args>
+		inline Detail::MakeReturnT<T,Args...> read(T,Args...){
+			auto i = Detail::GetAddress<T>::read();
+			return Detail::MakeReturnT<T,Args...>{ };
 		}
 
-		template<typename... Ts>
-		inline void applyInits(){
-			using MergedInits = typename Detail::MergeInits<MPL::List<>,Ts...>::Type;
-			Detail::ApplyInits<MergedInits>{}();
-		}
 	}
 }
