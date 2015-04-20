@@ -56,9 +56,35 @@ namespace Kvasir {
 			};
 		}
 
+		template<int I>
+		struct WriteLiteralAction{
+			static constexpr int value = I;
+		};
+		struct WriteAction{
+			int value_;
+		};
+		template<int I>
+		struct XorLiteralAction{
+			static constexpr int value = I;
+		};
+		template<typename TLocation, typename TAction>
+		struct Action : TAction {
+			template<typename... Ts>
+			constexpr Action(Ts...args):TAction{args...}{};
+			using Type = Action<TLocation,TAction>;
+		};
+
 		template<typename Address, int Mask, typename ResType = int>
 		struct BitLocation{
 			using Type = BitLocation<Address, Mask, ResType>;
+			template<ResType Value>
+			constexpr Action<BitLocation<Address,Mask,ResType>,WriteLiteralAction<int(Value)>> write() const{
+				return Action<BitLocation<Address,Mask,ResType>,WriteLiteralAction<int(Value)>>{};
+			}
+			template<typename T>
+			constexpr Action<BitLocation<Address,Mask,ResType>,WriteAction> write(T in) const{
+				return Action<BitLocation<Address,Mask,ResType>,WriteAction>{int(in)};
+			}
 		};
 
 		template<int Address, int Mask, typename ResType = int>
@@ -68,18 +94,7 @@ namespace Kvasir {
 		template<int Address, int Mask, typename ResType = int>
 		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,ResType>;
 
-		template<int I>
-		struct WriteLiteralAction{
-			static constexpr int value = I;
-		};
-		template<int I>
-		struct XorLiteralAction{
-			static constexpr int value = I;
-		};
-		template<typename TLocation, typename TAction>
-		struct Action {
-			using Type = Action<TLocation,TAction>;
-		};
+
 
 		//leagacy factories
 		template<int Address,int Mask, int Data>
@@ -104,15 +119,65 @@ namespace Kvasir {
 		namespace Detail{
 			using namespace MPL;
 
+			constexpr bool onlyOneBitSet(int i){
+				return (i==(1<<0)) || (i==(1<<1)) || (i==(1<<2)) || (i==(1<<3)) || (i==(1<<4)) || (i==(1<<5)) || (i==(1<<6)) || (i==(1<<7)) || (i==(1<<8)) || (i==(1<<9)) || (i==(1<<10)) || (i==(1<<11)) || (i==(1<<12)) || (i==(1<<13)) || (i==(1<<14)) || (i==(1<<15)) || (i==(1<<16)) || (i==(1<<17)) || (i==(1<<18)) || (i==(1<<19)) || (i==(1<<20)) || (i==(1<<21)) || (i==(1<<22)) || (i==(1<<23)) || (i==(1<<24)) || (i==(1<<25)) || (i==(1<<26)) || (i==(1<<27)) || (i==(1<<28)) || (i==(1<<29)) || (i==(1<<30)) || (i==(1<<31));
+			}
+
+			//getters for specific parameters of an Action
 			template<typename T>
 			struct GetAddress;
-			template<typename TLocation, typename TAction>
-			struct GetAddress<Action<TLocation,TAction>> {
-				static constexpr int value = TLocation::address;
+			template<template<int I> class AC, int Address, int Mask, typename ResultType, typename TAction>
+			struct GetAddress<Action<BitLocation<AC<Address>,Mask,ResultType>,TAction>> {
+				static constexpr int value = Address;
 				static constexpr int read(){
-					return *((volatile int*)TLocation::address);
+					return *((volatile int*)value);
 				}
 			};
+
+			template<typename T>
+			struct GetResultType;
+			template<template<int I> class AC, int Address, int Mask, typename ResultType, typename TAction>
+			struct GetResultType<Action<BitLocation<AC<Address>,Mask,ResultType>,TAction>> {
+				using Type = ResultType;
+			};
+			template<typename T>
+			using GetResultTypeT = typename GetResultType<T>::Type;
+
+			template<typename TLocation>
+			struct Set;
+			template<int Address, int Mask>
+			struct Set<BitLocation<Address::ReadWrite<Address>,Mask,int>> : Action<BitLocation<Address::ReadWrite<Address>,Mask,int>,WriteLiteralAction<Mask>>{
+				static_assert(onlyOneBitSet(Mask),"Register::set only works on single bits. Use Register::write to write values to wider bit fields");
+			};
+			template<int Address, int Mask>
+			struct Set<BitLocation<Address::BlindWrite<Address>,Mask,int>> : Action<BitLocation<Address::BlindWrite<Address>,Mask,int>,WriteLiteralAction<Mask>>{
+				static_assert(onlyOneBitSet(Mask),"Register::set only works on single bits. Use Register::write to write values to wider bit fields");
+			};
+			template<typename TLocation>
+			struct Clear;
+			template<int Address, int Mask>
+			struct Clear<BitLocation<Address::ReadWrite<Address>,Mask,int>> : Action<BitLocation<Address::ReadWrite<Address>,Mask,int>,WriteLiteralAction<0>>{
+				static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
+			};
+			template<int Address, int Mask>
+			struct Clear<BitLocation<Address::BlindWrite<Address>,Mask,int>> : Action<BitLocation<Address::BlindWrite<Address>,Mask,int>,WriteLiteralAction<0>>{
+				static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
+			};
+
+			template<typename TLocation>
+			using SetT = typename Set<TLocation>::Type;
+			template<typename TLocation>
+			using ClearT = typename Clear<TLocation>::Type;
+
+
+			template<typename TLocation, int Value>
+			struct Write;
+			template<int Address, int Mask, int Value>
+			struct Write<BitLocation<Address::ReadWrite<Address>,Mask,int>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,int>,WriteLiteralAction<Value>>{};
+			template<int Address, int Mask, int Value>
+			struct Write<BitLocation<Address::BlindWrite<Address>,Mask,int>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,int>,WriteLiteralAction<Value>>{};
+			template<typename TLocation, int Value>
+			using WriteT = typename Write<TLocation,Value>::Type;
 
 			template<typename T, typename... Ts>
 			struct MakeReturn : ValueObject<GetAddress<T>::value>{
@@ -220,6 +285,21 @@ namespace Kvasir {
 		inline Detail::MakeReturnT<T,Args...> read(T,Args...){
 			auto i = Detail::GetAddress<T>::read();
 			return Detail::MakeReturnT<T,Args...>{ };
+		}
+
+		template<typename T>
+		inline Detail::SetT<T> set(T){
+			return Detail::SetT<T>{};
+		}
+
+		template<typename T>
+		inline Detail::ClearT<T> clear(T){
+			return Detail::ClearT<T>{};
+		}
+
+		template<typename T, int Value>
+		inline Detail::WriteT<T,int(Value)> write(T){
+			return Detail::WriteT<T,int(Value)>{};
 		}
 
 	}
