@@ -82,13 +82,13 @@ namespace Interrupt{
 		template<int I>
 		struct MakeAction<Action::SetPending,Index<I>>	:	Register::BlindSetBitActionT<
 			baseAddress + 0x200 +(I>31?4:0), I>{
-			static_assert(I<=30 && I>=0,"Unable to set pending on this interrupt, index is out of range");
+			static_assert(I<=46 && I>=0,"Unable to set pending on this interrupt, index is out of range");
 		};
 
 		template<int I>
 		struct MakeAction<Action::ClearPending,Index<I>>	:	Register::BlindSetBitActionT<
 			baseAddress + 0x280 +(I>31?4:0), I>{
-			static_assert(I<=30 && I>=0,"Unable to clear pending on this interrupt, index is out of range");
+			static_assert(I<=46 && I>=0,"Unable to clear pending on this interrupt, index is out of range");
 		};
 
 	}
