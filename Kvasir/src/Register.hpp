@@ -271,14 +271,17 @@ namespace Kvasir {
 			template<typename T>
 			using MergeActionStepsT = typename MergeActionSteps<T>::Type;
 
+			template<typename...
+
 		}
 
-		template<typename...Ts,typename...Args>
-		inline void apply(Args...){
-			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
-			using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
-			using MergedSteps = Detail::MergeActionStepsT<Steps>;
-			Detail::WriteRegister<MergedSteps>{}();
+		template<typename...Args>
+		inline void apply(Args...args){
+			Detail::Apply<Args...,MPL::BuildIndices<sizeof...(Args)>>{}(args...);
+//			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
+//			using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
+//			using MergedSteps = Detail::MergeActionStepsT<Steps>;
+//			Detail::WriteRegister<MergedSteps>{}();
 		}
 
 		template<typename T, typename... Args>
