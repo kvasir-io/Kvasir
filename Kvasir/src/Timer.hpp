@@ -22,7 +22,7 @@ protected:
 	static void onCapture(...) {};
 private:
 	static void onIsr(){
-		auto i = TConfig::Interrupt::Status::read();
+		auto i = apply(read(TConfig::Interrupt::status));
 		int clearBits{0};
 		if(i & (1<<0)){
 			clearBits |= (1<<0);
