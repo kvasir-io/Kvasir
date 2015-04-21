@@ -136,6 +136,17 @@ namespace MPL {
 		template<typename... Os>
 		struct Remove<List<Os...>,0,0> : List<Os...>{};
 
+		template<typename T, typename... Ts>
+		struct Unique;
+		template<typename... Rs, typename... Ts>
+		struct Unique<List<Rs...>,Ts...> : List<Rs...>{};
+		template<typename... Rs, typename T>	//only one left
+		struct Unique<List<Rs...>,T> : List<Rs...,T>{};
+		template<typename... Rs, typename T, typename U, typename... Ts>  //not same
+		struct Unique<List<Rs...>, T, U, Ts...> : Unique<List<Rs...,T>,U,Ts...>{};
+		template<typename... Rs, typename T, typename... Ts>  //same
+		struct Unique<List<Rs...>, T, T, Ts...> : Unique<List<Rs...>,T,Ts...>{};
+
 	}
 
 	template<typename TList, typename TIndex>
@@ -222,6 +233,15 @@ namespace MPL {
 	template<typename TList>
 	using FlattenT = typename Flatten<TList>::Type;
 
+	template<typename T, typename U, typename... Ts>
+	struct Transform{
+		static_assert(AlwaysFalse<T>::value,"implausible type");
+	};
+	template<typename... Ts, template<typename> class T>
+	struct Transform<List<Ts...>,Template<T>> : List<ApplyTemplateT<Template<T>,Ts>...>{};
+	template<typename...Ts>
+	using TransformT = typename Transform<Ts...>::Type;
+
 	//Sort
 	template<typename TList, typename TPred = LessP>
 	struct Sort{
@@ -255,7 +275,27 @@ namespace MPL {
 	template<typename TList,typename TFrom, typename TTo>
 	using RemoveT = typename Remove<TList,TFrom,TTo>::Type;
 
+	template<typename TList, typename TPred>
+	struct RemoveIf{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<typename ... Ts, template<typename> class TPred>
+	struct RemoveIf<MPL::List<Ts...>, Template<TPred>> : FlattenT<List<ConditionalT<TPred<Ts>::value,Ts,List<>>...>>{};
 
+	template<typename TList, typename TPred>
+	using RemoveIfT = typename RemoveIf<TList,TPred>::Type;
+
+	//expercts a sorted list, removes all consecutive duplicates
+	template<typename TList>
+	struct Unique{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+
+	template<typename...Ts>
+	struct Unique<MPL::List<Ts...>> : Detail::Unique<List<>,Ts...>{};
+
+	template<typename TList>
+	using UniqueT = typename Unique<TList>::Type;
 
 }
 }

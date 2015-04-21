@@ -112,7 +112,7 @@ namespace Kvasir {
 		template<int Address,int Mask, int Data>
 		using XorActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,XorLiteralAction<Data>>;
 
-		template<typename... TResults>
+		template<typename TAddresses, typename TActions>
 		struct ValueObject;		//see below for implementation in specialization
 
 
@@ -121,6 +121,10 @@ namespace Kvasir {
 
 			constexpr bool onlyOneBitSet(int i){
 				return (i==(1<<0)) || (i==(1<<1)) || (i==(1<<2)) || (i==(1<<3)) || (i==(1<<4)) || (i==(1<<5)) || (i==(1<<6)) || (i==(1<<7)) || (i==(1<<8)) || (i==(1<<9)) || (i==(1<<10)) || (i==(1<<11)) || (i==(1<<12)) || (i==(1<<13)) || (i==(1<<14)) || (i==(1<<15)) || (i==(1<<16)) || (i==(1<<17)) || (i==(1<<18)) || (i==(1<<19)) || (i==(1<<20)) || (i==(1<<21)) || (i==(1<<22)) || (i==(1<<23)) || (i==(1<<24)) || (i==(1<<25)) || (i==(1<<26)) || (i==(1<<27)) || (i==(1<<28)) || (i==(1<<29)) || (i==(1<<30)) || (i==(1<<31));
+			}
+
+			constexpr int positionOfFirstSetBit(int in, int pos=0){
+				return (in & 0x01)?pos:positionOfFirstSetBit(in >> 1, pos + 1);
 			}
 
 			//getters for specific parameters of an Action
@@ -132,6 +136,7 @@ namespace Kvasir {
 				static constexpr int read(){
 					return *((volatile int*)value);
 				}
+				using Type = Int<Address>;
 			};
 
 			template<typename T>
@@ -179,18 +184,22 @@ namespace Kvasir {
 			template<typename TLocation, int Value>
 			using WriteT = typename Write<TLocation,Value>::Type;
 
-			template<typename T, typename... Ts>
-			struct MakeReturn : ValueObject<T>{
-				//TODO enforce that all addresses are the same
-			};
-			template<typename T, typename... Ts>
-			using MakeReturnT = typename MakeReturn<T,Ts...>::Type;
 			//predecate retuning result of left < right for RegisterOptions
 			template<typename T_Left, typename T_Right>
 			struct RegisterActionLess;
 			template<typename T1, typename U1, typename T2, typename U2>
 			struct RegisterActionLess< Register::Action<T1,U1>, Register::Action<T2,U2> > : Bool<(T1::address < T2::address)>{};
 			using RegisterActionLessP = Template<RegisterActionLess>;
+
+			//predicate returns true if action is a read
+			template<typename T>
+			struct IsReadPred : MPL::FalseType {};
+			template<typename A>
+			struct IsReadPred< Register::Action<A,ReadAction> > : MPL::TrueType{};
+
+			template<typename T>
+			using IsNotReadPred = Not<typename IsReadPred<T>::Type>;
+
 
 			template<typename TRegisterAction>
 			struct WriteRegister;
@@ -296,10 +305,24 @@ namespace Kvasir {
 
 		//apply implementation
 		namespace Detail{
+
 			template<typename TAction, int Index>
 			struct IndexedAction{
 				using Type = IndexedAction<TAction,Index>;
 			};
+
+			template<int I>
+			struct AddFixedIndexPred{
+				template<typename T>
+				struct Apply : IndexedAction<T,I>{};
+			};
+
+			//special case where a list of actions is passed
+			template<typename... Ts, int Index>
+			struct IndexedAction<List<Ts...>,Index>:
+				TransformT<
+					FlattenT<List<Ts...>>,
+					Template<AddFixedIndexPred<Index>::template Apply>>{};
 
 			template<int I>
 			struct FindIndexPred{
@@ -309,35 +332,57 @@ namespace Kvasir {
 				struct Apply<IndexedAction<T,I>> : MPL::TrueType{};
 			};
 
-			template<typename T>
 
 
-			template<typename...Ts>
-			struct MakeReturnValueObject{
-				using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
-				using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
-
-			};
-
-			template<typename Indexes, typename...Ts>
+			template<typename Indexes, typename... TRawArgs>
 			struct Apply;
-			template<int... Is, typename...Ts>
-			struct Apply<Indices<Is...>,Ts...>{
-				template<typename...Ts>
-				typename MakeReturnValueObject<IndexedAction<Ts,Is>...>::Type operator()(Ts...args){
-					const int a_[]{args.value_...};
-					return MakeReturnValueObject<IndexedAction<Ts,Is>...>::Type{make};
+			template<int... Is, typename... TRawArgs>
+			struct Apply<Indices<Is...>,TRawArgs...>{
+				using ArgList = List<TRawArgs...>;
+				//find the result type
+				using Reads = RemoveIfT<ArgList,Template<IsNotReadPred>>;
+				using Addresses = UniqueT<SortT<TransformT<Reads,Template<GetAddress>>>>;
+				using ReturnType = ValueObject<Addresses,Reads>;
+				//associate all actions with their value index
+				using IndexedActions = List<IndexedAction<TRawArgs,Is>...>;
+				using FlattenedActions = MPL::FlattenT<IndexedActions>;
+				using Steps = MPL::SplitT<FlattenedActions,SequencePoint>;
+				using MergedSteps = Steps;
+
+				template<typename TMergedSteps, typename TReturnIndexes>
+				struct ExecuteMergedObjects;
+				template<typename... TMergedObjects, int... ReturnIndexes>
+				struct ExecuteMergedObjects<List<TMergedObjects...>,Indices<ReturnIndexes...>>{
+
+					template<int AddressIndex>
+					struct Filter{
+						int operator()(const int(&rets)[sizeof...(TMergedObjects)]){
+
+						}
+					};
+
+					ReturnType operator()(const int(&args)[sizeof...(TRawArgs)]){
+						const int returns[]{TMergedObjects{}(args)...};
+						return ReturnType{Filter<ReturnIndexes>{}(returns)...};
+					}
+				};
+				template<typename T, typename = decltype(T::value_)>
+				int argToInt(T arg){
+					return arg.value_;
+				}
+				int argToInt(...){
+					return 0;
+				}
+				ReturnType operator()(TRawArgs... args){
+					const int args_[]{argToInt(args)...};
+					return ExecuteMergedObjects<MergedSteps,BuildIndices<SizeT<Addresses>::value>>{}(args_);
 				}
 			};
 		}
 
 		template<typename...Args>
-		inline void apply(Args...args){
-			return Detail::Apply<Args...>{}(args...);
-//			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
-//			using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
-//			using MergedSteps = Detail::MergeActionStepsT<Steps>;
-//			Detail::WriteRegister<MergedSteps>{}();
+		inline typename Detail::Apply<MPL::BuildIndicesT<sizeof...(Args)>,Args...>::ReturnType apply(Args...args){
+			return Detail::Apply<MPL::BuildIndicesT<sizeof...(Args)>,Args...>{}(args...);
 		}
 
 
@@ -354,14 +399,20 @@ namespace Kvasir {
 			struct GetValueIndexFromIndex : GetValueIndexFromIndexHelper<I,0,TResults...>{};
 		}
 
-		template<typename T, typename... TResults>
-		struct ValueObject<T,TResults...>{
-			const int value_[sizeof...(TResults)+1];
-			template<int I>
-			const typename Detail::GetReturnTypeFromIndex<I,T,TResults...>::Type get(){
-				return typename Detail::GetReturnTypeFromIndex<I,T,TResults...>::Type(value_[Detail::GetValueIndexFromIndex<I,T,TResults...>::value]);
+		template<int... Is, typename... TAs, int... Masks, typename... TRs>
+		struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TRs>,ReadAction>>...>{
+			const int value_[sizeof...(Is)];
+			template<int Index>
+			MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
+				using namespace MPL;
+				using Address = Int<AtT<List<TAs...>,Int<Index>>::value>;
+				using ValueIndex = FindT<List<Int<Is>...>,Address>;
+				using ResultType = AtT<List<TRs...>,Int<Index>>;
+				using Mask = AtT<List<Int<Masks>...>,Int<Index>>;
+				int r = (value_[ValueIndex::value] & Mask::value) >> positionOfFirstSetBit(Mask::value);
+				return ResultType(r);
 			}
-			using Type = ValueObject<T,TResults...>;
+			using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TRs>,ReadAction>>...>;
 		};
 
 	}

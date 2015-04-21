@@ -102,11 +102,14 @@ namespace Kvasir {
 		using DisableIfT = typename DisableIf<B,U>::Type;
 
 		//build a sequence of indices from 0 to N-1
-		template<unsigned N, unsigned ... Is>
+		template<int N, int ... Is>
 		struct BuildIndices: BuildIndices<N - 1, N - 1, Is...> {};
 
-		template<unsigned ... Is>
+		template<int ... Is>
 		struct BuildIndices<0, Is...> : Indices<Is...> {};
+
+		template<int N>
+		using BuildIndicesT = typename BuildIndices<N>::Type;
 
 		template<typename TList>
 		struct Size;
