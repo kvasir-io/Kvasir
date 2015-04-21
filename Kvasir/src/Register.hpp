@@ -63,6 +63,9 @@ namespace Kvasir {
 		struct WriteAction{
 			int value_;
 		};
+		struct ReadAction{
+
+		};
 		template<int I>
 		struct XorLiteralAction{
 			static constexpr int value = I;
@@ -109,11 +112,8 @@ namespace Kvasir {
 		template<int Address,int Mask, int Data>
 		using XorActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,XorLiteralAction<Data>>;
 
-		template<int Address>
-		struct ValueObject{
-			const int value_;
-			using Type = ValueObject<Address>;
-		};
+		template<typename... TResults>
+		struct ValueObject;		//see below for implementation in specialization
 
 
 		namespace Detail{
@@ -180,7 +180,7 @@ namespace Kvasir {
 			using WriteT = typename Write<TLocation,Value>::Type;
 
 			template<typename T, typename... Ts>
-			struct MakeReturn : ValueObject<GetAddress<T>::value>{
+			struct MakeReturn : ValueObject<T>{
 				//TODO enforce that all addresses are the same
 			};
 			template<typename T, typename... Ts>
@@ -273,34 +273,96 @@ namespace Kvasir {
 
 		}
 
-		template<typename...Ts,typename...Args>
-		inline void apply(Args...){
-			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
-			using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
-			using MergedSteps = Detail::MergeActionStepsT<Steps>;
-			Detail::WriteRegister<MergedSteps>{}();
-		}
 
-		template<typename T, typename... Args>
-		inline Detail::MakeReturnT<T,Args...> read(T,Args...){
-			auto i = Detail::GetAddress<T>::read();
-			return Detail::MakeReturnT<T,Args...>{ };
+		template<typename T>
+		constexpr inline Action<T,ReadAction> read(T){
+			return Action<T,ReadAction>{};
 		}
 
 		template<typename T>
-		inline Detail::SetT<T> set(T){
+		constexpr inline Detail::SetT<T> set(T){
 			return Detail::SetT<T>{};
 		}
 
 		template<typename T>
-		inline Detail::ClearT<T> clear(T){
+		constexpr inline Detail::ClearT<T> clear(T){
 			return Detail::ClearT<T>{};
 		}
 
 		template<typename T, int Value>
-		inline Detail::WriteT<T,int(Value)> write(T){
+		constexpr inline Detail::WriteT<T,int(Value)> write(T){
 			return Detail::WriteT<T,int(Value)>{};
 		}
+
+		//apply implementation
+		namespace Detail{
+			template<typename TAction, int Index>
+			struct IndexedAction{
+				using Type = IndexedAction<TAction,Index>;
+			};
+
+			template<int I>
+			struct FindIndexPred{
+				template<typename T>
+				struct Apply : MPL::FalseType {};
+				template<typename T>
+				struct Apply<IndexedAction<T,I>> : MPL::TrueType{};
+			};
+
+			template<typename T>
+
+
+			template<typename...Ts>
+			struct MakeReturnValueObject{
+				using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
+				using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
+
+			};
+
+			template<typename Indexes, typename...Ts>
+			struct Apply;
+			template<int... Is, typename...Ts>
+			struct Apply<Indices<Is...>,Ts...>{
+				template<typename...Ts>
+				typename MakeReturnValueObject<IndexedAction<Ts,Is>...>::Type operator()(Ts...args){
+					const int a_[]{args.value_...};
+					return MakeReturnValueObject<IndexedAction<Ts,Is>...>::Type{make};
+				}
+			};
+		}
+
+		template<typename...Args>
+		inline void apply(Args...args){
+			return Detail::Apply<Args...>{}(args...);
+//			using FlattenedRegisters = MPL::FlattenT<MPL::List<Ts...,Args...>>;
+//			using Steps = MPL::SplitT<FlattenedRegisters,SequencePoint>;
+//			using MergedSteps = Detail::MergeActionStepsT<Steps>;
+//			Detail::WriteRegister<MergedSteps>{}();
+		}
+
+
+		// ValueObject implemtation
+		namespace Detail{
+			using namespace MPL;
+			template<int I, typename... TResults>
+			struct GetReturnTypeFromIndex : GetT<FlattenT<List<TResults...>>,Template<FindIndexPred<I>::template Apply>,void>{};
+			template<int I, int R, typename T, typename... TResults>
+			struct GetValueIndexFromIndexHelper : ConditionalT<ContainsT<T,Template<FindIndexPred<I>::template Apply>>::value,Int<R>,GetValueIndexFromIndexHelper<I,R+1,TResults...>>{
+				static_assert(ContainsT<T,Template<FindIndexPred<I>::template Apply>>::value || sizeof...(TResults),"internal error: index not found");
+			};
+			template<int I, typename... TResults>
+			struct GetValueIndexFromIndex : GetValueIndexFromIndexHelper<I,0,TResults...>{};
+		}
+
+		template<typename T, typename... TResults>
+		struct ValueObject<T,TResults...>{
+			const int value_[sizeof...(TResults)+1];
+			template<int I>
+			const typename Detail::GetReturnTypeFromIndex<I,T,TResults...>::Type get(){
+				return typename Detail::GetReturnTypeFromIndex<I,T,TResults...>::Type(value_[Detail::GetValueIndexFromIndex<I,T,TResults...>::value]);
+			}
+			using Type = ValueObject<T,TResults...>;
+		};
 
 	}
 }

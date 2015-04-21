@@ -190,16 +190,18 @@ private:
 	static constexpr Register::WriteBitActionT<ioconAddress,7,false> 		XtalinAnalogMode{};
 	static constexpr Register::WriteBitActionT<ioconAddress+4,7,false> 		XtaloutAnalogMode{};
 public:
-	static constexpr auto externalCrystalInit = MPL::list(ClockControl::ioconClockOn,Register::sequencePoint,
-	XtalinOscillatorMode,
-	XtaloutOscillatorMode,
-	XtalinPullUpInactive,
-	XtaloutPullUpInactive,
-	XtalinAnalogMode,
-	XtaloutAnalogMode);
-	static constexpr auto crystalOscillatorPowerOn = PowerConfiguration::crystalOscillatorOn;
-	static constexpr auto systemPllPowerOff = PowerConfiguration::systemPllOff ;
-	static constexpr auto systemPllPowerOn = PowerConfiguration::systemPllOn;
+	static constexpr auto externalCrystalInit = MPL::list(
+			set(ClockControl::ioconClockEnabled),
+			Register::sequencePoint,
+			XtalinOscillatorMode,
+			XtaloutOscillatorMode,
+			XtalinPullUpInactive,
+			XtaloutPullUpInactive,
+			XtalinAnalogMode,
+			XtaloutAnalogMode);
+	static constexpr auto crystalOscillatorPowerOn = clear(PowerConfiguration::crystalOscillatorDisabled);
+	static constexpr auto systemPllPowerOff = set(PowerConfiguration::systemPllDisabled);
+	static constexpr auto systemPllPowerOn = clear(PowerConfiguration::systemPllDisabled);
 
 	struct FlashConfiguration{
 		static constexpr int address{0x4003C010};
@@ -235,10 +237,10 @@ public:
 		static constexpr Register::RWLocation<address,(3 << 5),PostDividerRatio> PostDivider{};
 	};
 	enum class SystemPllStatusOption{noLock,lock};
-	using SystemPllStatus = Register::Functional<MPL::Int<0x4004800C>,MPL::Int<0x01>,Register::Policy::ReadableP,Register::Policy::EnumConversionP<SystemPllStatusOption>>;
+	static constexpr Register::RWLocation<0x4004800C,1> systemPllStatus{};
 	struct SystemAHBClock{
-		using Address = MPL::Int<0x40048078>;
-		using Divider = Register::Functional<Address,MPL::Int<0xFF>,MPL::List<Register::Policy::ReadableP,Register::Policy::WriteableP>>;
+		static constexpr int address = 0x40048078;
+		static constexpr Register::RWLocation<address,0xFF> divider{};
 	};
 };
 }

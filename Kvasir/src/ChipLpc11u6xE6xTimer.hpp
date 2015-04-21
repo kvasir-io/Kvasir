@@ -25,8 +25,8 @@ struct TC16B0DefaultConfig {
 	static constexpr Capture2 capture2{};
 	struct Interrupt{
 		static constexpr int address = baseAddress;
-		using Status = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::ReadableP>;
-		using Clear = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::WriteableP>;
+		static constexpr Register::RWLocation<address,0x7F> status{};
+		static constexpr Register::RWLocation<address,0x7F> clear{};
 	};
 	struct Control{
 		static constexpr int address = baseAddress + 0x04;
