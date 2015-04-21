@@ -6,60 +6,114 @@ namespace Kvasir{
 	namespace System{
 	namespace PowerControlForPeripherals{
 		constexpr int address{0x400FC0C4};
-		constexpr Register::WriteBitActionT<address,1,true> tc0PowerOn{};
-		constexpr Register::WriteBitActionT<address,1,false> tc0PowerOff{};
-		constexpr Register::WriteBitActionT<address,2,true> tc1PowerOn{};
-		constexpr Register::WriteBitActionT<address,2,false> tc1PowerOff{};
-		constexpr Register::WriteBitActionT<address,3,true> uart0PowerOn{};
-		constexpr Register::WriteBitActionT<address,3,false> uart0PowerOff{};
-		constexpr Register::WriteBitActionT<address,4,true> uart1PowerOn{};
-		constexpr Register::WriteBitActionT<address,4,false> uart1PowerOff{};
-		constexpr Register::WriteBitActionT<address,6,true> pwm1PowerOn{};
-		constexpr Register::WriteBitActionT<address,6,false> pwm1PowerOff{};
-		constexpr Register::WriteBitActionT<address,7,true> i2C0PowerOn{};
-		constexpr Register::WriteBitActionT<address,7,false> i2C0PowerOff{};
-		constexpr Register::WriteBitActionT<address,8,true> spiPowerOn{};
-		constexpr Register::WriteBitActionT<address,8,false> spiPowerOff{};
-		constexpr Register::WriteBitActionT<address,9,true> rtcPowerOn{};
-		constexpr Register::WriteBitActionT<address,9,false> rtcPowerOff{};
-		constexpr Register::WriteBitActionT<address,10,true> ssp1PowerOn{};
-		constexpr Register::WriteBitActionT<address,10,false> ssp1PowerOff{};
-		constexpr Register::WriteBitActionT<address,12,true> adcPowerOn{};
-		constexpr Register::WriteBitActionT<address,12,false> adcPowerOff{};
-		constexpr Register::WriteBitActionT<address,13,true> can1PowerOn{};
-		constexpr Register::WriteBitActionT<address,13,false> can1PowerOff{};
-		constexpr Register::WriteBitActionT<address,14,true> can2PowerOn{};
-		constexpr Register::WriteBitActionT<address,14,false> can2PowerOff{};
-		constexpr Register::WriteBitActionT<address,15,true> gpioPowerOn{};
-		constexpr Register::WriteBitActionT<address,15,false> gpioPowerOff{};
-		constexpr Register::WriteBitActionT<address,16,true> ritPowerOn{};
-		constexpr Register::WriteBitActionT<address,16,false> ritPowerOff{};
-		constexpr Register::WriteBitActionT<address,17,true> mcPwmPowerOn{};
-		constexpr Register::WriteBitActionT<address,17,false> mcPwmPowerOff{};
-		constexpr Register::WriteBitActionT<address,18,true> qeiPowerOn{};
-		constexpr Register::WriteBitActionT<address,18,false> qeiPowerOff{};
-		constexpr Register::WriteBitActionT<address,19,true> i2c1PowerOn{};
-		constexpr Register::WriteBitActionT<address,19,false> i2c1PowerOff{};
-		constexpr Register::WriteBitActionT<address,21,true> ssp0PowerOn{};
-		constexpr Register::WriteBitActionT<address,21,false> ssp0PowerOff{};
-		constexpr Register::WriteBitActionT<address,22,true> tc2PowerOn{};
-		constexpr Register::WriteBitActionT<address,22,false> tc2PowerOff{};
-		constexpr Register::WriteBitActionT<address,23,true> tc3PowerOn{};
-		constexpr Register::WriteBitActionT<address,23,false> tc3PowerOff{};
-		constexpr Register::WriteBitActionT<address,24,true> uart2PowerOn{};
-		constexpr Register::WriteBitActionT<address,24,false> uart2PowerOff{};
-		constexpr Register::WriteBitActionT<address,25,true> uart3PowerOn{};
-		constexpr Register::WriteBitActionT<address,25,false> uart3PowerOff{};
-		constexpr Register::WriteBitActionT<address,26,true> i2c2PowerOn{};
-		constexpr Register::WriteBitActionT<address,26,false> i2c2PowerOff{};
-		constexpr Register::WriteBitActionT<address,27,true> i2sPowerOn{};
-		constexpr Register::WriteBitActionT<address,27,false> i2sPowerOff{};
-		constexpr Register::WriteBitActionT<address,29,true> dmaPowerOn{};
-		constexpr Register::WriteBitActionT<address,29,false> dmaPowerOff{};
-		constexpr Register::WriteBitActionT<address,30,true> enetPowerOn{};
-		constexpr Register::WriteBitActionT<address,30,false> enetPowerOff{};
-		constexpr Register::WriteBitActionT<address,31,true> usbPowerOn{};
-		constexpr Register::WriteBitActionT<address,31,false> usbPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 << 1)>		tc0PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,1,true> tc0PowerOn{};
+//		constexpr Register::WriteBitActionT<address,1,false> tc0PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 << 2)>		tc1PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,2,true> tc1PowerOn{};
+//		constexpr Register::WriteBitActionT<address,2,false> tc1PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 << 3)>		uart0PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,3,true> uart0PowerOn{};
+//		constexpr Register::WriteBitActionT<address,3,false> uart0PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 << 4)>		uart1PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,4,true> uart1PowerOn{};
+//		constexpr Register::WriteBitActionT<address,4,false> uart1PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 << 6)>		pwm1PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,6,true> pwm1PowerOn{};
+//		constexpr Register::WriteBitActionT<address,6,false> pwm1PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 << 7)>		i2c0PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,7,true> i2C0PowerOn{};
+//		constexpr Register::WriteBitActionT<address,7,false> i2C0PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 << 8)>		spiPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,8,true> spiPowerOn{};
+//		constexpr Register::WriteBitActionT<address,8,false> spiPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 << 9)>		rtcPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,9,true> rtcPowerOn{};
+//		constexpr Register::WriteBitActionT<address,9,false> rtcPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<10)>		ssp1PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,10,true> ssp1PowerOn{};
+//		constexpr Register::WriteBitActionT<address,10,false> ssp1PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<12)>		adcPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,12,true> adcPowerOn{};
+//		constexpr Register::WriteBitActionT<address,12,false> adcPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<13)>		can1PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,13,true> can1PowerOn{};
+//		constexpr Register::WriteBitActionT<address,13,false> can1PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<14)>		can2PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,14,true> can2PowerOn{};
+//		constexpr Register::WriteBitActionT<address,14,false> can2PowerOff{};
+
+		static constexpr 	Register::RWLocation<address, (1 <<15)>		gpioPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,15,true> gpioPowerOn{};
+//		constexpr Register::WriteBitActionT<address,15,false> gpioPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<16)>		ritPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,16,true> ritPowerOn{};
+//		constexpr Register::WriteBitActionT<address,16,false> ritPowerOff{};
+
+		static constexpr 	Register::RWLocation<address, (1 <<17)>		mcPwmPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,17,true> mcPwmPowerOn{};
+//		constexpr Register::WriteBitActionT<address,17,false> mcPwmPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<18)>		qeiPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,18,true> qeiPowerOn{};
+//		constexpr Register::WriteBitActionT<address,18,false> qeiPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<19)>		i2c1PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,19,true> i2c1PowerOn{};
+//		constexpr Register::WriteBitActionT<address,19,false> i2c1PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<21)>		ssp0PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,21,true> ssp0PowerOn{};
+//		constexpr Register::WriteBitActionT<address,21,false> ssp0PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<22)>		tc2PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,22,true> tc2PowerOn{};
+//		constexpr Register::WriteBitActionT<address,22,false> tc2PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<23)>		tc3PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,23,true> tc3PowerOn{};
+//		constexpr Register::WriteBitActionT<address,23,false> tc3PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<24)>		uart2PowerEnable{};
+//		constexpr Register::WriteBitActionT<address,24,true> uart2PowerOn{};
+//		constexpr Register::WriteBitActionT<address,24,false> uart2PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<25)>		uart3PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,25,true> uart3PowerOn{};
+//		constexpr Register::WriteBitActionT<address,25,false> uart3PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<26)>		i2c2PowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,26,true> i2c2PowerOn{};
+//		constexpr Register::WriteBitActionT<address,26,false> i2c2PowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<27)>		i2sPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,27,true> i2sPowerOn{};
+//		constexpr Register::WriteBitActionT<address,27,false> i2sPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<29)>		dmaPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,29,true> dmaPowerOn{};
+//		constexpr Register::WriteBitActionT<address,29,false> dmaPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<30)>		enetPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,30,true> enetPowerOn{};
+//		constexpr Register::WriteBitActionT<address,30,false> enetPowerOff{};
+
+		static constexpr	Register::RWLocation<address, (1 <<31)>		usbPowerEnabled{};
+//		constexpr Register::WriteBitActionT<address,31,true> usbPowerOn{};
+//		constexpr Register::WriteBitActionT<address,31,false> usbPowerOff{};
 	}
 
 	namespace PeripheralClock{
