@@ -126,14 +126,24 @@ namespace Kvasir {
 		template<bool B, typename T, typename U>
 		using ConditionalT = typename Conditional<B,T,U>::Type;
 
-	//helper recursively derives from a list of base classes
-	template<typename TTemplateList, typename ... Ts>
-	struct DeriveFromTemplates{
-		static_assert(AlwaysFalse<TTemplateList>::value,"implausible type, first parameter must be a MPL::List");
-	};
-	template<typename ... Ts, typename ... Us>
-	struct DeriveFromTemplates<List<Ts...>, Us...> : ApplyTemplateT<Ts, Us...> ... {
-	};
+		//helper recursively derives from a list of base classes
+		template<typename TTemplateList, typename ... Ts>
+		struct DeriveFromTemplates{
+			static_assert(AlwaysFalse<TTemplateList>::value,"implausible type, first parameter must be a MPL::List");
+		};
+		template<typename ... Ts, typename ... Us>
+		struct DeriveFromTemplates<List<Ts...>, Us...> : ApplyTemplateT<Ts, Us...> ... {
+		};
+
+		//factory for compile time values
+		template<int I>
+		constexpr MPL::Int<I> value(){
+			return MPL::Int<I>{};
+		};
+		template<typename T, T I>
+		constexpr MPL::Value<T,I> value(){
+			return MPL::Value<T,I>{};
+		};
 	}
 
 	class StrConst {

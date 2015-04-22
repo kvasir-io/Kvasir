@@ -234,10 +234,9 @@ public:
 		enum class PostDividerRatio {div1, div2, div4, div8};
 		static constexpr int address{0x40048008};
 		static constexpr Register::RWLocation<address,0x1F> feedbackDivider{};
-		static constexpr Register::RWLocation<address,(3 << 5),PostDividerRatio> PostDivider{};
+		static constexpr Register::RWLocation<address,(3 << 5),PostDividerRatio> postDivider{};
 	};
-	enum class SystemPllStatusOption{noLock,lock};
-	static constexpr Register::RWLocation<0x4004800C,1> systemPllStatus{};
+	static constexpr Register::RWLocation<0x4004800C,1> systemPllStatusLocked{};
 	struct SystemAHBClock{
 		static constexpr int address = 0x40048078;
 		static constexpr Register::RWLocation<address,0xFF> divider{};

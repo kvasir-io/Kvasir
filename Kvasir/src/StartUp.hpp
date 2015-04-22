@@ -195,12 +195,12 @@ void ResetISR(void) {\
      * thing. Therefore by doing it as an extra step we can save the user a lot of code
      */\
 	using PowerClockInit = ::Kvasir::Startup::GetPowerClockInitT<__VA_ARGS__ >;\
-	::Kvasir::Register::apply<PowerClockInit>(); \
+	::Kvasir::Register::apply(PowerClockInit{}); \
 	/* The RegInit step extracts all 'init' action lists from all modules and executes them
 	 * after merging
 	 */\
-	using RegInit = ::Kvasir::Startup::GetInitT<__VA_ARGS__ >;\
-	::Kvasir::Register::apply<RegInit>(); \
+	constexpr ::Kvasir::Startup::GetInitT<__VA_ARGS__ > regInit{};\
+	::Kvasir::Register::apply(regInit); \
     main(); \
     /* block if main() returns */ \
     while (1) {} \

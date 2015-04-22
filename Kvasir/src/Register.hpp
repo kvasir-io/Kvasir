@@ -80,14 +80,6 @@ namespace Kvasir {
 		template<typename Address, int Mask, typename ResType = int>
 		struct BitLocation{
 			using Type = BitLocation<Address, Mask, ResType>;
-			template<ResType Value>
-			constexpr Action<BitLocation<Address,Mask,ResType>,WriteLiteralAction<int(Value)>> write() const{
-				return Action<BitLocation<Address,Mask,ResType>,WriteLiteralAction<int(Value)>>{};
-			}
-			template<typename T>
-			constexpr Action<BitLocation<Address,Mask,ResType>,WriteAction> write(T in) const{
-				return Action<BitLocation<Address,Mask,ResType>,WriteAction>{int(in)};
-			}
 		};
 
 		template<int Address, int Mask, typename ResType = int>
@@ -145,6 +137,10 @@ namespace Kvasir {
 			struct GetResultType<Action<BitLocation<AC<Address>,Mask,ResultType>,TAction>> {
 				using Type = ResultType;
 			};
+			template<template<int I> class AC, int Address, int Mask, typename ResultType>
+			struct GetResultType<BitLocation<AC<Address>,Mask,ResultType>>{
+				using Type = ResultType;
+			};
 			template<typename T>
 			using GetResultTypeT = typename GetResultType<T>::Type;
 
@@ -177,10 +173,10 @@ namespace Kvasir {
 
 			template<typename TLocation, int Value>
 			struct Write;
-			template<int Address, int Mask, int Value>
-			struct Write<BitLocation<Address::ReadWrite<Address>,Mask,int>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,int>,WriteLiteralAction<Value>>{};
-			template<int Address, int Mask, int Value>
-			struct Write<BitLocation<Address::BlindWrite<Address>,Mask,int>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,int>,WriteLiteralAction<Value>>{};
+			template<int Address, int Mask, typename TRes, int Value>
+			struct Write<BitLocation<Address::ReadWrite<Address>,Mask,TRes>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,TRes>,WriteLiteralAction<Value>>{};
+			template<int Address, int Mask, typename TRes, int Value>
+			struct Write<BitLocation<Address::BlindWrite<Address>,Mask,TRes>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,TRes>,WriteLiteralAction<Value>>{};
 			template<typename TLocation, int Value>
 			using WriteT = typename Write<TLocation,Value>::Type;
 
@@ -198,7 +194,7 @@ namespace Kvasir {
 			struct IsReadPred< Register::Action<A,ReadAction> > : MPL::TrueType{};
 
 			template<typename T>
-			using IsNotReadPred = Not<typename IsReadPred<T>::Type>;
+			struct IsNotReadPred : NotT<typename IsReadPred<T>::Type>{};
 
 
 			template<typename TRegisterAction>
@@ -298,9 +294,21 @@ namespace Kvasir {
 			return Detail::ClearT<T>{};
 		}
 
-		template<typename T, int Value>
-		constexpr inline Detail::WriteT<T,int(Value)> write(T){
-			return Detail::WriteT<T,int(Value)>{};
+		//runtime value
+		template<typename T>
+		constexpr Action<T,WriteAction> write(T,Detail::GetResultTypeT<T> in){
+			return Action<T,WriteAction>{int(in)};
+		}
+		//compile time value
+		namespace Detail{
+			template<typename T>
+			struct ValueToInt;
+			template<typename T, T I>
+			struct ValueToInt<MPL::Value<T,I>> : MPL::Int<int(I)>{};
+		}
+		template<typename T, typename U>
+		constexpr inline Detail::WriteT<T,Detail::ValueToInt<U>::value> write(T, U){
+			return Detail::WriteT<T,Detail::ValueToInt<U>::value>{};
 		}
 
 		//apply implementation
@@ -355,15 +363,15 @@ namespace Kvasir {
 				struct ExecuteMergedObjects<List<TMergedObjects...>,Indices<ReturnIndexes...>>{
 
 					template<int AddressIndex>
-					struct Filter{
+					struct ReturnFilter{
 						int operator()(const int(&rets)[sizeof...(TMergedObjects)]){
 
 						}
 					};
 
 					ReturnType operator()(const int(&args)[sizeof...(TRawArgs)]){
-						const int returns[]{TMergedObjects{}(args)...};
-						return ReturnType{Filter<ReturnIndexes>{}(returns)...};
+						const int returns[]{/*TMergedObjects{}(args)...*/1};
+						return ReturnType{ReturnFilter<ReturnIndexes>{}(returns)...};
 					}
 				};
 				template<typename T, typename = decltype(T::value_)>
@@ -375,7 +383,7 @@ namespace Kvasir {
 				}
 				ReturnType operator()(TRawArgs... args){
 					const int args_[]{argToInt(args)...};
-					return ExecuteMergedObjects<MergedSteps,BuildIndices<SizeT<Addresses>::value>>{}(args_);
+					return ExecuteMergedObjects<MergedSteps,BuildIndicesT<SizeT<Addresses>::value>>{}(args_);
 				}
 			};
 		}
@@ -414,6 +422,20 @@ namespace Kvasir {
 			}
 			using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TRs>,ReadAction>>...>;
 		};
-
+		template<int I, typename TA, int Mask, typename TR>
+		struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,TR>,ReadAction>>>{
+			const int value_;
+			operator TR(){
+				using namespace MPL;
+				using Address = TA;
+				using ResultType = TR;
+				return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
+			};
+			using Type = ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,TR>,ReadAction>>>;
+		};
+		template<>
+		struct ValueObject<MPL::List<>,MPL::List<>>{
+			using Type = ValueObject<MPL::List<>,MPL::List<>>;
+		};
 	}
 }

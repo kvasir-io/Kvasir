@@ -280,7 +280,7 @@ namespace MPL {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename ... Ts, template<typename> class TPred>
-	struct RemoveIf<MPL::List<Ts...>, Template<TPred>> : FlattenT<List<ConditionalT<TPred<Ts>::value,Ts,List<>>...>>{};
+	struct RemoveIf<MPL::List<Ts...>, Template<TPred>> : FlattenT<List<ConditionalT<TPred<Ts>::value,List<>,Ts>...>>{};
 
 	template<typename TList, typename TPred>
 	using RemoveIfT = typename RemoveIf<TList,TPred>::Type;

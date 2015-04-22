@@ -17,14 +17,12 @@
 using namespace Kvasir;
 using namespace MPL;
 
-
-template<typename>
-struct Print;
-
-void FTest(){
-
-}
 enum class E{a,b};
+void FTest(){
+	using namespace Register;
+
+	//Print<Reads> a{};
+}
 
 using Test = Kvasir::Register::RWLocation<1,2,E>;
 constexpr Test test{};

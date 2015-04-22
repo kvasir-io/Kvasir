@@ -52,7 +52,7 @@ private:
 			clearBits |= (1<<6);
 			TDerived::onCapture(TConfig::capture2);
 		}
-		TConfig::Interrupt::Clear::write(clearBits);
+		apply(write(TConfig::Interrupt::clear, clearBits));
 
 	}
 protected:

@@ -26,21 +26,23 @@ namespace SystemClock{
 
 	public:
 		static void init(){
-			Register::apply(TTraits::externalCrystalInit);
-			Register::apply(TTraits::crystalOscilatorPowerOn);
-			Register::apply(TTraits::systemPllPowerOff);
+			using namespace MPL;
+			apply(TTraits::externalCrystalInit);
+			apply(TTraits::crystalOscillatorPowerOn);
+			apply(TTraits::systemPllPowerOff);
 			/* Wait for at least 580uS for osc to stabilize */
 			for (volatile int i = 0; i < 2500; i++) {}
-			Register::apply(TTraits::SystemPllClock::systemOscilator);
-			Register::apply(TTraits::SystemPllClock::sourceSame);
-			Register::apply(TTraits::SystemPllClock::sourceUpdate);
-			Register::apply(TTraits::FlashConfiguration::twoSysclock);
-			TTraits::SystemPLLControl::FeedbackDivider::write(I);
-			TTraits::SystemPLLControl::PostDivider::write(static_cast<typename TTraits::SystemPLLControl::PostDividerRatio>(J));
+			using PllClock = typename TTraits::SystemPllClock;
+			apply(write(PllClock::source,value<typename PllClock::Source,PllClock::Source::systemOscillator>()));
+			apply(TTraits::SystemPllClock::sourceSame);
+			apply(TTraits::SystemPllClock::sourceUpdate);
+			apply(TTraits::FlashConfiguration::twoSysclock);
+			apply(Register::write(TTraits::SystemPLLControl::feedbackDivider,value<I>()),
+					Register::write(TTraits::SystemPLLControl::postDivider,value<J>()));
 			Register::apply(TTraits::systemPllPowerOn);
-			while(TTraits::SystemPllStatus::read() == TTraits::SystemPllStatusOption::noLock);
-			TTraits::SystemAHBClock::Divider::write(1);
-			Register::apply(TTraits::MainClock::pllOutput);
+			while(!apply(read(TTraits::systemPllStatusLocked)));
+			apply(write(TTraits::SystemAHBClock::divider,value<1>()));
+			Register::apply(write(TTraits::MainClock::source,TTraits::MainClock::Source::pllOutput));
 			Register::apply(TTraits::MainClock::sourceSame);
 			Register::apply(TTraits::MainClock::sourceUpdate);
 		}
