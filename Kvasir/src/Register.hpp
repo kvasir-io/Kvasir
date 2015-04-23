@@ -77,17 +77,17 @@ namespace Kvasir {
 			using Type = Action<TLocation,TAction>;
 		};
 
-		template<typename Address, int Mask, typename ResType = int>
+		template<typename TAddress, int Mask, int ReservedMask = 0, typename TFieldType = int>
 		struct BitLocation{
-			using Type = BitLocation<Address, Mask, ResType>;
+			using Type = BitLocation<TAddress, Mask, ReservedMask, TFieldType>;
 		};
 
-		template<int Address, int Mask, typename ResType = int>
-		using RWLocation = BitLocation<Address::ReadWrite<Address>,Mask,ResType>;
-		template<int Address, int Mask, typename ResType = int>
-		using BWLocation = BitLocation<Address::BlindWrite<Address>,Mask,ResType>;
-		template<int Address, int Mask, typename ResType = int>
-		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,ResType>;
+		template<int Address, int Mask, int ReservedMask = 0, typename TFieldType = int>
+		using RWLocation = BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TFieldType>;
+		template<int Address, int Mask, int ReservedMask = 0, typename TFieldType = int>
+		using BWLocation = BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TFieldType>;
+		template<int Address, int Mask, int ReservedMask = 0, typename TFieldType = int>
+		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,ReservedMask,TFieldType>;
 
 
 
@@ -122,8 +122,8 @@ namespace Kvasir {
 			//getters for specific parameters of an Action
 			template<typename T>
 			struct GetAddress;
-			template<template<int I> class AC, int Address, int Mask, typename ResultType, typename TAction>
-			struct GetAddress<Action<BitLocation<AC<Address>,Mask,ResultType>,TAction>> {
+			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename ResultType, typename TAction>
+			struct GetAddress<Action<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>,TAction>> {
 				static constexpr int value = Address;
 				static constexpr int read(){
 					return *((volatile int*)value);
@@ -133,12 +133,12 @@ namespace Kvasir {
 
 			template<typename T>
 			struct GetResultType;
-			template<template<int I> class AC, int Address, int Mask, typename ResultType, typename TAction>
-			struct GetResultType<Action<BitLocation<AC<Address>,Mask,ResultType>,TAction>> {
+			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename ResultType, typename TAction>
+			struct GetResultType<Action<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>,TAction>> {
 				using Type = ResultType;
 			};
-			template<template<int I> class AC, int Address, int Mask, typename ResultType>
-			struct GetResultType<BitLocation<AC<Address>,Mask,ResultType>>{
+			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename ResultType>
+			struct GetResultType<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>>{
 				using Type = ResultType;
 			};
 			template<typename T>
@@ -146,22 +146,22 @@ namespace Kvasir {
 
 			template<typename TLocation>
 			struct Set;
-			template<int Address, int Mask>
-			struct Set<BitLocation<Address::ReadWrite<Address>,Mask,int>> : Action<BitLocation<Address::ReadWrite<Address>,Mask,int>,WriteLiteralAction<Mask>>{
+			template<int Address, int Mask, int ReservedMask>
+			struct Set<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,int>> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,int>,WriteLiteralAction<Mask>>{
 				static_assert(onlyOneBitSet(Mask),"Register::set only works on single bits. Use Register::write to write values to wider bit fields");
 			};
-			template<int Address, int Mask>
-			struct Set<BitLocation<Address::BlindWrite<Address>,Mask,int>> : Action<BitLocation<Address::BlindWrite<Address>,Mask,int>,WriteLiteralAction<Mask>>{
+			template<int Address, int Mask, int ReservedMask>
+			struct Set<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,int>> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,int>,WriteLiteralAction<Mask>>{
 				static_assert(onlyOneBitSet(Mask),"Register::set only works on single bits. Use Register::write to write values to wider bit fields");
 			};
 			template<typename TLocation>
 			struct Clear;
-			template<int Address, int Mask>
-			struct Clear<BitLocation<Address::ReadWrite<Address>,Mask,int>> : Action<BitLocation<Address::ReadWrite<Address>,Mask,int>,WriteLiteralAction<0>>{
+			template<int Address, int Mask, int ReservedMask>
+			struct Clear<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,int>> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,int>,WriteLiteralAction<0>>{
 				static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
 			};
-			template<int Address, int Mask>
-			struct Clear<BitLocation<Address::BlindWrite<Address>,Mask,int>> : Action<BitLocation<Address::BlindWrite<Address>,Mask,int>,WriteLiteralAction<0>>{
+			template<int Address, int Mask, int ReservedMask>
+			struct Clear<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,int>> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,int>,WriteLiteralAction<0>>{
 				static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
 			};
 
@@ -173,10 +173,10 @@ namespace Kvasir {
 
 			template<typename TLocation, int Value>
 			struct Write;
-			template<int Address, int Mask, typename TRes, int Value>
-			struct Write<BitLocation<Address::ReadWrite<Address>,Mask,TRes>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,TRes>,WriteLiteralAction<Value>>{};
-			template<int Address, int Mask, typename TRes, int Value>
-			struct Write<BitLocation<Address::BlindWrite<Address>,Mask,TRes>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,TRes>,WriteLiteralAction<Value>>{};
+			template<int Address, int Mask, int ReservedMask, typename TRes, int Value>
+			struct Write<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TRes>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TRes>,WriteLiteralAction<Value>>{};
+			template<int Address, int Mask, int ReservedMask, typename TRes, int Value>
+			struct Write<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TRes>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TRes>,WriteLiteralAction<Value>>{};
 			template<typename TLocation, int Value>
 			using WriteT = typename Write<TLocation,Value>::Type;
 
@@ -365,7 +365,7 @@ namespace Kvasir {
 					template<int AddressIndex>
 					struct ReturnFilter{
 						int operator()(const int(&rets)[sizeof...(TMergedObjects)]){
-
+							return 0; //TODO
 						}
 					};
 
@@ -407,8 +407,8 @@ namespace Kvasir {
 			struct GetValueIndexFromIndex : GetValueIndexFromIndexHelper<I,0,TResults...>{};
 		}
 
-		template<int... Is, typename... TAs, int... Masks, typename... TRs>
-		struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TRs>,ReadAction>>...>{
+		template<int... Is, typename... TAs, int... Masks, int... Reserveds, typename... TRs>
+		struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,Reserveds,TRs>,ReadAction>>...>{
 			const int value_[sizeof...(Is)];
 			template<int Index>
 			MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
@@ -420,10 +420,10 @@ namespace Kvasir {
 				int r = (value_[ValueIndex::value] & Mask::value) >> positionOfFirstSetBit(Mask::value);
 				return ResultType(r);
 			}
-			using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TRs>,ReadAction>>...>;
+			using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,Reserveds,TRs>,ReadAction>>...>;
 		};
-		template<int I, typename TA, int Mask, typename TR>
-		struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,TR>,ReadAction>>>{
+		template<int I, typename TA, int Mask, int ReservedMask, typename TR>
+		struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,ReservedMask,TR>,ReadAction>>>{
 			const int value_;
 			operator TR(){
 				using namespace MPL;
@@ -431,7 +431,7 @@ namespace Kvasir {
 				using ResultType = TR;
 				return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
 			};
-			using Type = ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,TR>,ReadAction>>>;
+			using Type = ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,ReservedMask,TR>,ReadAction>>>;
 		};
 		template<>
 		struct ValueObject<MPL::List<>,MPL::List<>>{

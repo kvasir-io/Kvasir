@@ -28,8 +28,8 @@ public:
 struct TimerConfig : TimerDefaultConfig {
 	static constexpr auto userInit = list(
 			write(MatchRegister::select(match0),value<10000>()),
-			MatchControl::makeInterruptEnable(match0),
-			MatchControl::makeResetOnMatch(match0));
+			MatchControl::interruptEnable(match0),
+			MatchControl::resetOnMatch(match0));
 };
 
 class Timer : public Kvasir::Timer::Base<Timer,TimerConfig>{
