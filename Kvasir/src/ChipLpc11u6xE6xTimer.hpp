@@ -5,8 +5,10 @@ namespace Kvasir{
 namespace Timer{
 struct TC16B0DefaultConfig {
 	static constexpr auto isr = Interrupt::counterTimer16Bank0;
-	static constexpr Register::WriteActionT<0x40048080,(1<<7),(1<<7)> clockEnable{};
-	static constexpr Register::WriteActionT<0x40048080,(1<<7),0> clockDisable{};
+
+	static constexpr 	Register::RWLocation<0x40048080, (1 << 7)>		clockEnabled{};
+//	static constexpr Register::WriteActionT<0x40048080,(1<<7),(1<<7)> clockEnable{};
+//	static constexpr Register::WriteActionT<0x40048080,(1<<7),0> clockDisable{};
 	static constexpr int baseAddress = 0x4000C000;
 	//supported tags
 	using Match0 = Tag::Match::M0;
