@@ -5,8 +5,7 @@ namespace Kvasir{
 namespace Timer{
 struct TC16B0DefaultConfig {
 	static constexpr auto isr = Interrupt::counterTimer16Bank0;
-	static constexpr Register::WriteActionT<0x40048080,(1<<7),(1<<7)> clockEnable{};
-	static constexpr Register::WriteActionT<0x40048080,(1<<7),0> clockDisable{};
+	static constexpr Register::RWLocation<0x40048080,(1<<7)> clockEnable{};
 	static constexpr int baseAddress = 0x4000C000;
 	//supported tags
 	using Match0 = Tag::Match::M0;
@@ -30,61 +29,38 @@ struct TC16B0DefaultConfig {
 	};
 	struct Control{
 		static constexpr int address = baseAddress + 0x04;
-		static constexpr Register::WriteBitActionT<address,0,true> couterEnable{};
-		static constexpr Register::WriteBitActionT<address,0,false> couterDisable{};
-		static constexpr Register::WriteBitActionT<address,1,true> holdInReset{};
-		static constexpr Register::WriteBitActionT<address,1,false> noReset{};
-
+		static constexpr Register::RWLocation<address,(1<<0)> couterEnable{};
+		static constexpr Register::RWLocation<address,(1<<1)> holdInReset{};
 	};
 	struct MatchControl{
+		static constexpr int address = baseAddress + 0x14;
 		struct Detail{
 			template<int I, int V>
-			using MakeT = Register::WriteBitActionT<baseAddress + 0x14,I,V>;
+			using MakeT = Register::WriteBitActionT<,I,V>;
 		};
 		template<typename T>
-		static constexpr Detail::MakeT<(1<<(T::value * 3)),true> makeInterruptEnable(T){
+		static constexpr Register::RWLocation<address,(1<<(T::value * 3))> interruptEnable(T){
 			static_assert(T::value <= 3,"channel not supported");
-			return Detail::MakeT<(1<<(T::value * 3)),true>{};
+			return Register::RWLocation<address,(1<<(T::value * 3))>{};
 		}
 		template<typename T>
-		static constexpr Detail::MakeT<(1<<(T::value * 3)),false> makeInterruptDisable(T){
+		static constexpr Register::RWLocation<address,(1<<(T::value * 3)+1)> resetOnMatch(T){
 			static_assert(T::value <= 3,"channel not supported");
-			return Detail::MakeT<(1<<(T::value * 3)),true>{};
+			return Register::RWLocation<address,(1<<(T::value * 3)+1)>{};
 		}
 		template<typename T>
-		static constexpr Detail::MakeT<(1<<((T::value * 3)+1)),true> makeResetOnMatch(T){
+		static constexpr Register::RWLocation<address,(1<<(T::value * 3)+2)> stopOnMatch(T){
 			static_assert(T::value <= 3,"channel not supported");
-			return Detail::MakeT<(1<<((T::value * 3)+1)),true>{};
-		}
-		template<typename T>
-		static constexpr Detail::MakeT<(1<<((T::value * 3)+1)),false> makeNoResetOnMatch(T){
-			static_assert(T::value <= 3,"channel not supported");
-			return Detail::MakeT<(1<<((T::value * 3)+1)),true>{};
-		}
-		template<typename T>
-		static constexpr Detail::MakeT<(1<<((T::value * 3)+2)),true> makeStopOnMatch(T){
-			static_assert(T::value <= 3,"channel not supported");
-			return Detail::MakeT<(1<<((T::value * 3)+1)),true>{};
-		}
-		template<typename T>
-		static constexpr Detail::MakeT<(1<<((T::value * 3)+2)),false> makeNoStopOnMatch(T){
-			static_assert(T::value <= 3,"channel not supported");
-			return Detail::MakeT<(1<<((T::value * 3)+1)),true>{};
+			return Register::RWLocation<address,(1<<(T::value * 3)+2)>{};
 		}
 	};
-	struct Prescale{
-		static constexpr int address = baseAddress + 0x0C;
-		template<int I>
-		static constexpr auto makeSet(){ return Register::BlindWriteActionT<address,0xFFFFFFFF,I>{}; }
-	};
+	static constexpr Register::RWLocation<baseAddress + 0x0C,0xFFFFFFFF> prescale{};
 	struct MatchRegister{
 		static constexpr int address = baseAddress + 0x18;
-		template<int Offset, int I>
-		using MakeSetValueT = Register::BlindWriteActionT<address + Offset,0xFFFFFFFF,I>;
-		template<int I, typename T>
-		static constexpr auto makeSetValue(T){
+		template<typename T>
+		static constexpr auto select(T){
 			static_assert(T::value <= 3,"match register not supported on this chip");
-			return MakeSetValueT<(T::value * 4),I>{};
+			return Register::RWLocation<address + (T::value * 4),0xFFFFFFFF>{};
 		}
 	};
 

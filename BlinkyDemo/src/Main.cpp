@@ -15,6 +15,7 @@ limitations under the License.
 #include "StartUp.hpp"
 
 using namespace Hardware;
+using Kvasir::MPL::value;
 
 class Led {
 public:
@@ -26,7 +27,7 @@ public:
 
 struct TimerConfig : TimerDefaultConfig {
 	static constexpr auto userInit = list(
-			MatchRegister::makeSetValue<10000>(match0),
+			write(MatchRegister::select(match0),value<10000>()),
 			MatchControl::makeInterruptEnable(match0),
 			MatchControl::makeResetOnMatch(match0));
 };
