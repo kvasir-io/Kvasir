@@ -96,9 +96,9 @@ namespace Kvasir {
 		template<bool B, typename U = void>
 		struct DisableIf: EnableIf<!B, U> {};
 
-		template<bool B, typename U>
+		template<bool B, typename U = void>
 		using EnableIfT = typename EnableIf<B,U>::Type;
-		template<bool B, typename U>
+		template<bool B, typename U = void>
 		using DisableIfT = typename DisableIf<B,U>::Type;
 
 		//build a sequence of indices from 0 to N-1

@@ -36,6 +36,11 @@ namespace MPL {
 		template<int I, template<typename...> class Pred, typename T, typename ... Ts>
 		struct PredFind<I, false, Pred, T, Ts...> : PredFind<I + 1, Pred<T>::value,Pred, Ts...> {};
 
+		template<int Total, int... Is>
+		struct Sum : Int<Total>{};
+		template<int Total, int I, int...Is>
+		struct Sum<Total,I,Is...> : Sum<Total + I, Is...>{};
+
 		template<typename TOut, typename TDelim, typename... Ts>
 		struct Join{
 			static_assert(AlwaysFalse<TOut>::value,"Incorrect parameter format, expected list of lists");
@@ -175,14 +180,14 @@ namespace MPL {
 	using FindT = typename Find<TList,TToFind>::Type;
 
 	//Get returns first item matching Pred or default if none are matching
-	template<typename TList, typename TPred, typename TDefault>
+	template<typename TList, typename TPred, typename TDefault = void>
 	struct Get{
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<template<typename...> class Pred, typename D, typename... Ts>
 	struct Get<List<Ts...>, Template<Pred>,D> :
 		ConditionalT<(FindT<List<Ts...>,Template<Pred>>::value == -1),D,At<List<Ts...>,FindT<List<Ts...>,Template<Pred>>>>{};
-	template<typename TList, typename TPred, typename TDefault>
+	template<typename TList, typename TPred, typename TDefault = void>
 	using GetT = typename Get<TList, TPred, TDefault>::Type;
 
 	//returns true if T_ToFind is in T_Container, otherwise false
@@ -195,6 +200,16 @@ namespace MPL {
 			IsSameT<typename Detail::Find<0, TToFind, Ts...>::Type, Int<-1>>> {};
 	template<typename TContainer, typename TToFind>
 	using ContainsT = typename Contains<TContainer,TToFind>::Type;
+
+	template<typename TList>
+	struct Sum{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<typename... Ts>
+	struct Sum<List<Ts...>> : Detail::Sum<0,Ts::value...>{};
+
+	template<typename TList>
+	using SumT = typename Sum<TList>::Type;
 
 	//works like PHP explode, splits a list into a list of lists devided by a user provided delimiter
 	template<typename TList, typename TDelim>
@@ -265,25 +280,19 @@ namespace MPL {
 	template<typename TList, typename TPred = LessP>
 	using SortT = typename Sort<TList,TPred>::Type;
 
-	template<typename TList, typename TFrom, typename TTo>
+	//removed elements int From-To range (inclusive exclusive)
+	template<typename TList, typename TFrom, typename TTo = void>
 	struct Remove{
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename T, typename... Ts, int From, int To>
 	struct Remove<List<T, Ts...>,Int<From>,Int<To>> : Detail::Remove<List<>,From,To,T,Ts...>{};
 
-	template<typename TList,typename TFrom, typename TTo>
-	using RemoveT = typename Remove<TList,TFrom,TTo>::Type;
-
-	template<typename TList, typename TPred>
-	struct RemoveIf{
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
-	};
 	template<typename ... Ts, template<typename> class TPred>
-	struct RemoveIf<MPL::List<Ts...>, Template<TPred>> : FlattenT<List<ConditionalT<TPred<Ts>::value,List<>,Ts>...>>{};
+	struct Remove<MPL::List<Ts...>, Template<TPred>, void> : FlattenT<List<ConditionalT<TPred<Ts>::value,List<>,Ts>...>>{};
 
-	template<typename TList, typename TPred>
-	using RemoveIfT = typename RemoveIf<TList,TPred>::Type;
+	template<typename TList,typename TFrom, typename TTo = void>
+	using RemoveT = typename Remove<TList,TFrom,TTo>::Type;
 
 	//expercts a sorted list, removes all consecutive duplicates
 	template<typename TList>
@@ -296,6 +305,16 @@ namespace MPL {
 
 	template<typename TList>
 	using UniqueT = typename Unique<TList>::Type;
+
+	template<typename TList, typename TPred>
+	struct CountIf{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<typename ... Ts, template<typename> class TPred>
+	struct CountIf<MPL::List<Ts...>, Template<TPred>> : SumT<List<typename TPred<Ts>::Type...>>{};
+
+	template<typename TList, typename TPred>
+	using CountIfT = typename CountIf<TList,TPred>::Type;
 
 }
 }

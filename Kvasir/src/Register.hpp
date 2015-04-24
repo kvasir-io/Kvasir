@@ -1,19 +1,19 @@
 /**************************************************************************
- * This file contains the Kvasir Register Action DSL (Domain Specific Language)
- * and Single register abstraction which provide an extra layer between Hardware SFRs
+ * This file contains the Kvasir Register Abstraction DSL (Domain Specific Language)
+ * which provide an extra layer between Hardware SFRs
  * (Special Function Registers) and code accessing them.
-Copyright 2015 Odin Holmes
-Aditional contribution from Stephan Bökelmann
+ * Copyright 2015 Odin Holmes
+ * Aditional contribution from Stephan Bökelmann
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
 ****************************************************************************/
 #pragma once
 #include "MPLTypes.hpp"
@@ -33,43 +33,64 @@ namespace Kvasir {
 		struct SequencePoint{};
 		constexpr SequencePoint sequencePoint{};
 
+		template<int I>
+		struct IsolatedByte{
+			static constexpr int value = I;
+			using Type = IsolatedByte<I>;
+		};
+		namespace Isolated{
+			constexpr IsolatedByte<0> byte0{};
+			constexpr IsolatedByte<1> byte1{};
+			constexpr IsolatedByte<2> byte2{};
+			constexpr IsolatedByte<3> byte3{};
+		}
+
 		namespace Address{
 			template<int I>
 			struct ReadWrite{
-				static constexpr int value = I;
+				static constexpr unsigned value = I;
 			};
 			template<int I>
 			struct WriteOnly{
-				static constexpr int value = I;
+				static constexpr unsigned value = I;
 			};
 			template<int I>
 			struct ReadOnly{
-				static constexpr int value = I;
+				static constexpr unsigned value = I;
 			};
 			template<int I>
 			struct ClearOnRead{
-				static constexpr int value = I;
+				static constexpr unsigned value = I;
 			};
 			template<int I>
 			struct BlindWrite{
-				static constexpr int value = I;
+				static constexpr unsigned value = I;
 			};
 		}
 
+		//write a compile time known value
 		template<int I>
 		struct WriteLiteralAction{
-			static constexpr int value = I;
+			static constexpr unsigned value = I;
 		};
+
+		//write a run time known value
 		struct WriteAction{
-			int value_;
+			unsigned value_;
 		};
+
+		//read
 		struct ReadAction{
 
 		};
+
+		//xor a compile time known mask
 		template<int I>
 		struct XorLiteralAction{
-			static constexpr int value = I;
+			static constexpr unsigned value = I;
 		};
+
+
 		template<typename TLocation, typename TAction>
 		struct Action : TAction {
 			template<typename... Ts>
@@ -77,17 +98,17 @@ namespace Kvasir {
 			using Type = Action<TLocation,TAction>;
 		};
 
-		template<typename TAddress, int Mask, int ReservedMask = 0, typename TFieldType = int>
+		template<typename TAddress, int Mask, int WritableMask = 0, typename TFieldType = int>
 		struct BitLocation{
-			using Type = BitLocation<TAddress, Mask, ReservedMask, TFieldType>;
+			using Type = BitLocation<TAddress, Mask, WritableMask, TFieldType>;
 		};
 
-		template<int Address, int Mask, int ReservedMask = 0, typename TFieldType = int>
-		using RWLocation = BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TFieldType>;
-		template<int Address, int Mask, int ReservedMask = 0, typename TFieldType = int>
-		using BWLocation = BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TFieldType>;
-		template<int Address, int Mask, int ReservedMask = 0, typename TFieldType = int>
-		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,ReservedMask,TFieldType>;
+		template<int Address, int Mask, int WritableMask = 0, typename TFieldType = int>
+		using RWLocation = BitLocation<Address::ReadWrite<Address>,Mask,WritableMask,TFieldType>;
+		template<int Address, int Mask, int WritableMask = 0, typename TFieldType = int>
+		using BWLocation = BitLocation<Address::BlindWrite<Address>,Mask,WritableMask,TFieldType>;
+		template<int Address, int Mask, int WritableMask = 0, typename TFieldType = int>
+		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,WritableMask,TFieldType>;
 
 
 
@@ -103,6 +124,7 @@ namespace Kvasir {
 		using BlindWriteActionT = Action<BitLocation<Address::BlindWrite<Address>,Mask>,WriteLiteralAction<Data>>;
 		template<int Address,int Mask, int Data>
 		using XorActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,XorLiteralAction<Data>>;
+		//end legacy factories
 
 		template<typename TAddresses, typename TActions>
 		struct ValueObject;		//see below for implementation in specialization
@@ -278,7 +300,7 @@ namespace Kvasir {
 
 		}
 
-
+		//Action factories which turn a BitLocation into an Action
 		template<typename T>
 		constexpr inline Action<T,ReadAction> read(T){
 			return Action<T,ReadAction>{};
@@ -305,10 +327,44 @@ namespace Kvasir {
 			struct ValueToInt;
 			template<typename T, T I>
 			struct ValueToInt<MPL::Value<T,I>> : MPL::Int<int(I)>{};
+			template<typename T, typename U>
+			struct WirtLocationAndCompileTimeValueTypeAreSame : FalseType {};
+			template<typename AT, int M, int RM, typename FT, int V>
+			struct WirtLocationAndCompileTimeValueTypeAreSame<BitLocation<AT,M,RM,FT>,MPL::Value<FT,V>> : TrueType{};
 		}
 		template<typename T, typename U>
 		constexpr inline Detail::WriteT<T,Detail::ValueToInt<U>::value> write(T, U){
+			static_assert(Detail::WirtLocationAndCompileTimeValueTypeAreSame<T,U>::value,"type mismatch: the BitLocation field type and the compile time Value type must be the same");
 			return Detail::WriteT<T,Detail::ValueToInt<U>::value>{};
+		}
+
+
+		//constraint factories check constraints on actions or lists of actions and may add sequence points or other actions
+		namespace Detail{
+			template<typename T>
+			struct IsWriteLiteral : FalseType{};
+			template<typename T>
+			struct IsWriteRuntime : FalseType{};
+		}
+		template<typename T>
+		constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> atomic(T){
+
+		}
+		template<typename T>
+		constexpr MPL::EnableIfT<Detail::IsWriteRuntime<T>::value> atomic(T in){
+
+		}
+		template<typename T, typename U, typename...Ts>
+		constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> atomic(T in){
+
+		}
+		template<typename T, typename U, typename...Ts>
+		constexpr MPL::EnableIfT<Detail::IsWriteRuntime<T>::value> atomic(T in){
+
+		}
+		template<typename T>
+		constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> isolated(T){
+
 		}
 
 		//apply implementation
@@ -340,7 +396,19 @@ namespace Kvasir {
 				struct Apply<IndexedAction<T,I>> : MPL::TrueType{};
 			};
 
+			template<int I>
+			struct IsAddressPred{
+				template<typename T>
+				struct Apply : MPL::FalseType {};
+				template<template<int> class TAddressTemplate, int Mask, int ReservedMask, typename FieldType, typename Cmd>
+				struct Apply<Action<BitLocation<TAddressTemplate<I>,Mask,ReservedMask,FieldType>,Cmd>> : MPL::TrueType{};
+			};
 
+			template<typename TArgList>
+			using GetReadsT = RemoveT<TArgList,Template<IsNotReadPred>>;
+
+			template<typename T>
+			struct GetReadMask : Int<0>{};
 
 			template<typename Indexes, typename... TRawArgs>
 			struct Apply;
@@ -348,7 +416,7 @@ namespace Kvasir {
 			struct Apply<Indices<Is...>,TRawArgs...>{
 				using ArgList = List<TRawArgs...>;
 				//find the result type
-				using Reads = RemoveIfT<ArgList,Template<IsNotReadPred>>;
+				using Reads = GetReadsT<ArgList>;
 				using Addresses = UniqueT<SortT<TransformT<Reads,Template<GetAddress>>>>;
 				using ReturnType = ValueObject<Addresses,Reads>;
 				//associate all actions with their value index
@@ -357,21 +425,39 @@ namespace Kvasir {
 				using Steps = MPL::SplitT<FlattenedActions,SequencePoint>;
 				using MergedSteps = Steps;
 
-				template<typename TMergedSteps, typename TReturnIndexes>
+				template<typename TMergedSteps, typename TReturnAddress>
 				struct ExecuteMergedObjects;
-				template<typename... TMergedObjects, int... ReturnIndexes>
-				struct ExecuteMergedObjects<List<TMergedObjects...>,Indices<ReturnIndexes...>>{
+				template<typename... TMergedObjects, typename... TReturnAddresses>
+				struct ExecuteMergedObjects<List<TMergedObjects...>,List<TReturnAddresses...>>{
 
-					template<int AddressIndex>
+					template<int ReturnAddress, int Index, int Remaining>
 					struct ReturnFilter{
-						int operator()(const int(&rets)[sizeof...(TMergedObjects)]){
+						int operator()(const int(&rets)[sizeof...(TMergedObjects)],const int index, const int remaining){
+
 							return 0; //TODO
+						}
+					};
+					template<int ReturnAddress, int Index>
+					struct ReturnFilter<ReturnAddress,Index,1>{
+						int operator()(const int(&rets)[sizeof...(TMergedObjects)]){
+							using SubList = RemoveT<List<TMergedObjects...>,Int<0>,Int<Index>>;
+							using Pred = Template<IsAddressPred<ReturnAddress>::template Apply>;
+							return rets[Find<SubList,Pred>::value+Index] & GetReadMask<GetT<SubList,Pred>>::value;
 						}
 					};
 
 					ReturnType operator()(const int(&args)[sizeof...(TRawArgs)]){
-						const int returns[]{/*TMergedObjects{}(args)...*/1};
-						return ReturnType{ReturnFilter<ReturnIndexes>{}(returns)...};
+						const int returns[]{TMergedObjects{}(args)...};
+						return ReturnType{
+							ReturnFilter<
+								TReturnAddresses::value,
+								0,
+								CountIf<
+									List<TMergedObjects>,
+									Template<IsAddressPred<TReturnAddresses::value>::template Apply>
+								>::value
+							>{}(returns)...
+						};
 					}
 				};
 				template<typename T, typename = decltype(T::value_)>
@@ -383,15 +469,26 @@ namespace Kvasir {
 				}
 				ReturnType operator()(TRawArgs... args){
 					const int args_[]{argToInt(args)...};
-					return ExecuteMergedObjects<MergedSteps,BuildIndicesT<SizeT<Addresses>::value>>{}(args_);
+					return ExecuteMergedObjects<MergedSteps,Addresses>{}(args_);
 				}
 			};
 		}
 
+		//if apply contains reads return a ValueObject
 		template<typename...Args>
-		inline typename Detail::Apply<MPL::BuildIndicesT<sizeof...(Args)>,Args...>::ReturnType apply(Args...args){
+		inline MPL::DisableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::List<Args...>>>::value == 0),
+			typename Detail::Apply<MPL::BuildIndicesT<sizeof...(Args)>,Args...>::ReturnType>
+		apply(Args...args){
 			return Detail::Apply<MPL::BuildIndicesT<sizeof...(Args)>,Args...>{}(args...);
 		}
+
+		//if apply does not contain reads return is void
+		template<typename...Args>
+		inline MPL::EnableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::List<Args...>>>::value == 0)>
+		apply(Args...args){
+
+		}
+
 
 
 		// ValueObject implemtation

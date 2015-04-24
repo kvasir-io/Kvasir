@@ -66,7 +66,7 @@ namespace PowerConfiguration {
 }
 struct ClockControl{			//SYSAHBCLKCTRL register actions
 	static constexpr unsigned address{0x40048080};
-	static constexpr unsigned reserved{~((1<<17)|(1<<0))};
+	static constexpr unsigned reserved{~unsigned((1<<17)|(1<<0))};
 	//bit 0 is sys which is always on
 	static constexpr Register::RWLocation<address, (1 << 1),reserved>	romClockEnabled{};
 //	constexpr Register::WriteBitActionT<address,1,true> 		romClockOn{};

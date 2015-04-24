@@ -52,12 +52,12 @@ struct TC16B0DefaultConfig {
 			return Register::RWLocation<address,(1<<(T::value * 3))>{};
 		}
 		template<typename T>
-		static constexpr Register::RWLocation<address,(1<<(T::value * 3)+1)> resetOnMatch(T){
+		static constexpr Register::RWLocation<address,(1<<((T::value * 3)+1))> resetOnMatch(T){
 			static_assert(T::value <= 3,"channel not supported");
 			return Register::RWLocation<address,(1<<(T::value * 3)+1)>{};
 		}
 		template<typename T>
-		static constexpr Register::RWLocation<address,(1<<(T::value * 3)+2)> stopOnMatch(T){
+		static constexpr Register::RWLocation<address,(1<<((T::value * 3)+2))> stopOnMatch(T){
 			static_assert(T::value <= 3,"channel not supported");
 			return Register::RWLocation<address,(1<<(T::value * 3)+2)>{};
 		}
