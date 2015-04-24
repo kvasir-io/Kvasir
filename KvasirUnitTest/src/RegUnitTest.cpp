@@ -24,10 +24,10 @@ void FTest(){
 	//Print<Reads> a{};
 }
 
-using Test = Kvasir::Register::RWLocation<1,2,E>;
+using Test = Kvasir::Register::RWLocation<1,2,0,E>;
 constexpr Test test{};
 int main(){
 	auto b = E::b;
-	apply(test.write<E::a>(), test.write(b));
+	apply(write(test,value<E,E::a>()), write(test,value<E,E::a>()));
 }
 

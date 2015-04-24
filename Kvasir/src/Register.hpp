@@ -132,17 +132,17 @@ namespace Kvasir {
 			};
 
 			template<typename T>
-			struct GetResultType;
-			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename ResultType, typename TAction>
-			struct GetResultType<Action<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>,TAction>> {
-				using Type = ResultType;
+			struct GetFieldType;
+			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename FieldType, typename TAction>
+			struct GetFieldType<Action<BitLocation<AC<Address>,Mask,ReservedMask,FieldType>,TAction>> {
+				using Type = FieldType;
 			};
-			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename ResultType>
-			struct GetResultType<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>>{
-				using Type = ResultType;
+			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename FieldType>
+			struct GetFieldType<BitLocation<AC<Address>,Mask,ReservedMask,FieldType>>{
+				using Type = FieldType;
 			};
 			template<typename T>
-			using GetResultTypeT = typename GetResultType<T>::Type;
+			using GetFieldTypeT = typename GetFieldType<T>::Type;
 
 			template<typename TLocation>
 			struct Set;
@@ -173,15 +173,15 @@ namespace Kvasir {
 
 			template<typename TLocation, int Value>
 			struct Write;
-			template<int Address, int Mask, int ReservedMask, typename TRes, int Value>
-			struct Write<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TRes>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TRes>,WriteLiteralAction<Value>>{};
-			template<int Address, int Mask, int ReservedMask, typename TRes, int Value>
-			struct Write<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TRes>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TRes>,WriteLiteralAction<Value>>{};
+			template<int Address, int Mask, int ReservedMask, typename TField, int Value>
+			struct Write<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TField>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TField>,WriteLiteralAction<Value>>{};
+			template<int Address, int Mask, int ReservedMask, typename TField, int Value>
+			struct Write<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TField>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TField>,WriteLiteralAction<Value>>{};
 			template<typename TLocation, int Value>
 			using WriteT = typename Write<TLocation,Value>::Type;
 
 			//predecate retuning result of left < right for RegisterOptions
-			template<typename T_Left, typename T_Right>
+			template<typename TLeft, typename TRight>
 			struct RegisterActionLess;
 			template<typename T1, typename U1, typename T2, typename U2>
 			struct RegisterActionLess< Register::Action<T1,U1>, Register::Action<T2,U2> > : Bool<(T1::address < T2::address)>{};
@@ -198,10 +198,10 @@ namespace Kvasir {
 
 
 			template<typename TRegisterAction>
-			struct WriteRegister;
+			struct RegisterExec;
 
-			template<int A, int Mask, int Data>
-			struct WriteRegister<Register::Action<BitLocation<Address::ReadWrite<A>,Mask>,WriteLiteralAction<Data>>>{
+			template<int A, int Mask, int ReservedMask, typename FieldType, int Data>
+			struct RegisterExec<Register::Action<BitLocation<Address::ReadWrite<A>,Mask,ReservedMask,FieldType>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				int operator()(){
 					auto& reg = *(volatile int*)A;
@@ -209,11 +209,11 @@ namespace Kvasir {
 					i &= ~Mask;
 					i |= Data;
 					reg = i;
-					return 0;
+					return i;
 				}
 			};
-			template<int A, int Mask, int Data>
-			struct WriteRegister<Register::Action<BitLocation<Address::BlindWrite<A>,Mask>,WriteLiteralAction<Data>>>{
+			template<int A, int Mask, int ReservedMask, typename FieldType, int Data>
+			struct RegisterExec<Register::Action<BitLocation<Address::BlindWrite<A>,Mask,ReservedMask,FieldType>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				int operator()(){
 					auto& reg = *(volatile int*)A;
@@ -221,8 +221,8 @@ namespace Kvasir {
 					return 0;
 				}
 			};
-			template<int A, int Mask, int Data>
-			struct WriteRegister<Register::Action<BitLocation<Address::ReadWrite<A>,Mask>,XorLiteralAction<Data>>>{
+			template<int A, int Mask, int ReservedMask, typename FieldType, int Data>
+			struct RegisterExec<Register::Action<BitLocation<Address::ReadWrite<A>,Mask,ReservedMask,FieldType>,XorLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				int operator()(){
 					auto& reg = *(volatile int*)A;
@@ -232,9 +232,9 @@ namespace Kvasir {
 			};
 
 			template<typename...Ts>
-			struct WriteRegister<MPL::List<Ts...>>{
+			struct RegisterExec<MPL::List<Ts...>>{
 				int operator()(){
-					int a[] = {WriteRegister<Ts>{}()...};
+					int a[] = {RegisterExec<Ts>{}()...};
 					MPL::ignore(a);
 					return 0;
 				}
@@ -296,7 +296,7 @@ namespace Kvasir {
 
 		//runtime value
 		template<typename T>
-		constexpr Action<T,WriteAction> write(T,Detail::GetResultTypeT<T> in){
+		constexpr Action<T,WriteAction> write(T,Detail::GetFieldTypeT<T> in){
 			return Action<T,WriteAction>{int(in)};
 		}
 		//compile time value
