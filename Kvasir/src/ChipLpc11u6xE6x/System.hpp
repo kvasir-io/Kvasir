@@ -241,7 +241,7 @@ public:
 		static constexpr Register::RWLocation<address, 0x03, ~0x03, Source>	source{};
 
 		template<Source S>
-		static constexpr decltype(write(source,MPL::value<Source,S>())) writeSource(){ return {}; }
+		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return {}; }
 
 		static constexpr Register::WriteBitActionT<address+4,0,true> 	sourceUpdate{};
 		static constexpr Register::WriteBitActionT<address+4,0,false> 	sourceSame{};

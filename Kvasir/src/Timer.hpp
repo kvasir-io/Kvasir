@@ -24,31 +24,31 @@ private:
 	static void onIsr(){
 		auto i = apply(read(TConfig::Interrupt::status));
 		unsigned clearBits{0};
-		if(i & (1<<0)){
+		if((unsigned)i & (1u<<0)){
 			clearBits |= (1<<0);
 			TDerived::onMatch(TConfig::match0);
 		}
-		if(i & (1<<1)){
+		if(i & (1u<<1)){
 			clearBits |= (1<<1);
 			TDerived::onMatch(TConfig::match0);
 		}
-		if(i & (1<<2)){
+		if(i & (1u<<2)){
 			clearBits |= (1<<2);
 			TDerived::onMatch(TConfig::match0);
 		}
-		if(i & (1<<3)){
+		if(i & (1u<<3)){
 			clearBits |= (1<<3);
 			TDerived::onMatch(TConfig::match0);
 		}
-		if(i & (1<<4)){
+		if(i & (1u<<4)){
 			clearBits |= (1<<4);
 			TDerived::onCapture(TConfig::capture0);
 		}
-		if(i & (1<<5)){
+		if(i & (1u<<5)){
 			clearBits |= (1<<5);
 			TDerived::onCapture(TConfig::capture1);
 		}
-		if(i & (1<<6)){
+		if(i & (1u<<6)){
 			clearBits |= (1<<6);
 			TDerived::onCapture(TConfig::capture2);
 		}

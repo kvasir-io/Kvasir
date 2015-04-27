@@ -120,7 +120,7 @@ namespace Register{
 		using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,Reserveds,TRs>,ReadAction>>...>;
 	};
 	template<int I, typename TA, unsigned Mask, unsigned ReservedMask, typename TR>
-	struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,ReservedMask,TR>,ReadAction>>>{
+	struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<BitLocation<TA,Mask,ReservedMask,TR>>>{
 		const int value_;
 		operator TR(){
 			using namespace MPL;

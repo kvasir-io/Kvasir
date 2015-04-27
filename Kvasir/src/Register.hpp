@@ -79,6 +79,14 @@ namespace Kvasir {
 			//getters for specific parameters of an Action
 			template<typename T>
 			struct GetAddress;
+			template<template<unsigned I> class AC, unsigned Address, unsigned Mask, unsigned ReservedMask, typename ResultType>
+			struct GetAddress<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>> {
+				static constexpr unsigned value = Address;
+				static constexpr unsigned read(){
+					return *((volatile unsigned*)value);
+				}
+				using Type = Int<Address>;
+			};
 			template<template<unsigned I> class AC, unsigned Address, unsigned Mask, unsigned ReservedMask, typename ResultType, typename TAction>
 			struct GetAddress<Action<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>,TAction>> {
 				static constexpr unsigned value = Address;
@@ -213,6 +221,10 @@ namespace Kvasir {
 				}
 			};
 
+
+			template<typename TAction, unsigned ReadMask, typename... TInputs>
+			struct GetAddress<IndexedAction<TAction,ReadMask,TInputs...>> : GetAddress<TAction> {};
+
 			template<unsigned Mask, typename TAction>
 			struct MakeReadMask : Unsigned<0>{};
 			template<unsigned Mask>
@@ -326,7 +338,7 @@ namespace Kvasir {
 			using FlattenedActions = FlattenT<IndexedActions>;
 			using Steps = SplitT<FlattenedActions,SequencePoint>;
 			using Actions = MPL::FlattenT<Steps>;
-			return Detail::Apply<Actions>{}(a);
+			return Detail::Apply<Actions,Detail::GetReturnTypeT<Args...>>{}(a);
 		}
 
 		//if apply does not contain reads return is void
