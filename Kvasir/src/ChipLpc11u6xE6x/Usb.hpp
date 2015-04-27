@@ -38,7 +38,7 @@ struct UsbDefaultConfig{
 //		static constexpr Register::WriteBitActionT<address,7,true> deviceEnable;
 //		static constexpr Register::WriteBitActionT<address,7,false> deviceDisable;
 
-		static constexpr	Register::RWLocation<address, (1 << 8)>		clearSetupTokenReceived{};
+		static constexpr	Register::BWLocation<address, (1 << 8)>		clearSetupTokenReceived{};
 //		static constexpr Register::WriteBitActionT<address,8,true> clearSetupTokenReceived;
 
 		static constexpr	Register::RWLocation<address, (1 << 9)>		stopPllClockOnSuspendDisabled{};
