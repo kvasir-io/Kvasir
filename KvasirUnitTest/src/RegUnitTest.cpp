@@ -16,6 +16,7 @@
 
 using namespace Kvasir;
 using namespace MPL;
+using namespace Register;
 
 enum class E{a,b};
 void FTest(){
@@ -28,6 +29,8 @@ using Test = Kvasir::Register::RWLocation<1,2,0,E>;
 constexpr Test test{};
 int main(){
 	auto b = E::b;
-	apply(write(test,value<E,E::a>()), write(test,value<E,E::a>()));
+	constexpr auto w = write(test,value<E,E::a>());
+	constexpr auto d = write(test,value<E,E::a>());
+	apply(w, d);
 }
 

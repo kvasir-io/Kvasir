@@ -51,6 +51,9 @@ namespace Kvasir {
 		template<int I>
 		using Int = Value<int,I>;
 
+		template<unsigned I>
+		using Unsigned = Value<unsigned,I>;
+
 		//Type list
 		template<typename... Ts>
 		struct List{
@@ -59,12 +62,6 @@ namespace Kvasir {
 
 		template<typename... Ts>
 		constexpr List<Ts...> list(Ts...){ return List<Ts...>{}; };
-
-		//Indices into an array
-		template <int... Is>
-		struct Indices {
-			using Type = Indices<Is...>;
-		};
 
 		//wrapper for template template parameters
 		template<template<typename...> class T>

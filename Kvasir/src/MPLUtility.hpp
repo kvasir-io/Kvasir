@@ -102,11 +102,11 @@ namespace Kvasir {
 		using DisableIfT = typename DisableIf<B,U>::Type;
 
 		//build a sequence of indices from 0 to N-1
-		template<int N, int ... Is>
-		struct BuildIndices: BuildIndices<N - 1, N - 1, Is...> {};
+		template<int N, typename... Is>
+		struct BuildIndices: BuildIndices<N - 1, Int<N - 1>, Is...> {};
 
-		template<int ... Is>
-		struct BuildIndices<0, Is...> : Indices<Is...> {};
+		template<typename ... Is>
+		struct BuildIndices<0, Is...> : List<Is...> {};
 
 		template<int N>
 		using BuildIndicesT = typename BuildIndices<N>::Type;
@@ -135,15 +135,6 @@ namespace Kvasir {
 		struct DeriveFromTemplates<List<Ts...>, Us...> : ApplyTemplateT<Ts, Us...> ... {
 		};
 
-		//factory for compile time values
-		template<int I>
-		constexpr MPL::Int<I> value(){
-			return MPL::Int<I>{};
-		};
-		template<typename T, T I>
-		constexpr MPL::Value<T,I> value(){
-			return MPL::Value<T,I>{};
-		};
 	}
 
 	class StrConst {

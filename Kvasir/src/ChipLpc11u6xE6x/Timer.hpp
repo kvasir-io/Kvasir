@@ -11,7 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "ChipLpc11u6xE6xInterrupt.hpp"
+#include "Interrupt.hpp"
 
 namespace Kvasir{
 namespace Timer{
