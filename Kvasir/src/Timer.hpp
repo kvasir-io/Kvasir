@@ -23,7 +23,7 @@ protected:
 private:
 	static void onIsr(){
 		auto i = apply(read(TConfig::Interrupt::status));
-		int clearBits{0};
+		unsigned clearBits{0};
 		if(i & (1<<0)){
 			clearBits |= (1<<0);
 			TDerived::onMatch(TConfig::match0);
@@ -61,7 +61,7 @@ public:
 	static constexpr Nvic::Isr<(&onIsr),MPL::RemoveCVT<decltype(TConfig::isr)>> isr{};
 	static constexpr auto powerClockEnable = Config::powerClockEnable;
 	static constexpr auto init = MPL::list(
-			write(Config::prescale, MPL::value<Config::prescaleValue>()),
+			write(Config::prescale, Register::value<Config::prescaleValue>()),
 			Config::userInit,
 			Register::sequencePoint,
 			Config::Control::couterEnable,

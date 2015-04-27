@@ -14,9 +14,9 @@ limitations under the License.
 
 #include "CoreCommon.hpp"
 #include "Tags.hpp"
-#include "ChipLpc11u6xE6xSystem.hpp"
-#include "ChipLpc11u6xE6xTimer.hpp"
-#include "ChipLpc11u6xE6xIo.hpp"
+#include "System.hpp"
+#include "Timer.hpp"
+#include "Io.hpp"
 
 namespace Kvasir{
 	namespace Startup{

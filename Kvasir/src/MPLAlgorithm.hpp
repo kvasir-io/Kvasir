@@ -254,6 +254,8 @@ namespace MPL {
 	};
 	template<typename... Ts, template<typename> class T>
 	struct Transform<List<Ts...>,Template<T>> : List<ApplyTemplateT<Template<T>,Ts>...>{};
+	template<typename... Ts, typename... Us, template<typename,typename> class T>
+	struct Transform<List<Ts...>, List<Us...>, Template<T>> : List<ApplyTemplateT<Template<T>,Ts,Us>...>{};
 	template<typename...Ts>
 	using TransformT = typename Transform<Ts...>::Type;
 

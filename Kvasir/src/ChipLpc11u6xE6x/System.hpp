@@ -249,9 +249,9 @@ public:
 	struct SystemPLLControl{
 		enum class PostDividerRatio {div1, div2, div4, div8};
 		static constexpr unsigned address{0x40048008};
-		static constexpr unsigned reserved{0xFFFFFF80};
-		static constexpr Register::RWLocation<address,0x1F,reserved> feedbackDivider{};
-		static constexpr Register::RWLocation<address,(3 << 5),reserved,PostDividerRatio> postDivider{};
+		static constexpr unsigned writable{0xFFFFFF80};
+		static constexpr Register::RWLocation<address,0x1F,writable> feedbackDivider{};
+		static constexpr Register::RWLocation<address,(3 << 5),writable,PostDividerRatio> postDivider{};
 	};
 	static constexpr Register::RWLocation<0x4004800C,0x01,~0x01> systemPllStatusLocked{};
 	struct SystemAHBClock{

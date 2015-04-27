@@ -19,6 +19,9 @@
 #include "MPLTypes.hpp"
 #include "MPLUtility.hpp"
 #include "MPLAlgorithm.hpp"
+#include "RegisterTypes.hpp"
+#include "RegisterFactories.hpp"
+
 
 namespace Kvasir {
 
@@ -30,177 +33,64 @@ namespace Kvasir {
 		template<typename T, typename... Ts>
 		constexpr MPL::List<T,Ts...> list(T,Ts...){ return MPL::List<T,Ts...>{}; }
 
-		struct SequencePoint{};
-		constexpr SequencePoint sequencePoint{};
-
-		template<int I>
-		struct IsolatedByte{
-			static constexpr int value = I;
-			using Type = IsolatedByte<I>;
+		//factory for compile time values
+		template<unsigned I>
+		constexpr MPL::Value<unsigned, I> value(){
+			return MPL::Value<unsigned, I>{};
 		};
-		namespace Isolated{
-			constexpr IsolatedByte<0> byte0{};
-			constexpr IsolatedByte<1> byte1{};
-			constexpr IsolatedByte<2> byte2{};
-			constexpr IsolatedByte<3> byte3{};
-		}
-
-		namespace Address{
-			template<int I>
-			struct ReadWrite{
-				static constexpr unsigned value = I;
-			};
-			template<int I>
-			struct WriteOnly{
-				static constexpr unsigned value = I;
-			};
-			template<int I>
-			struct ReadOnly{
-				static constexpr unsigned value = I;
-			};
-			template<int I>
-			struct ClearOnRead{
-				static constexpr unsigned value = I;
-			};
-			template<int I>
-			struct BlindWrite{
-				static constexpr unsigned value = I;
-			};
-		}
-
-		//write a compile time known value
-		template<int I>
-		struct WriteLiteralAction{
-			static constexpr unsigned value = I;
+		template<typename T, T I>
+		constexpr MPL::Value<T,I> value(){
+			return MPL::Value<T,I>{};
 		};
 
-		//write a run time known value
-		struct WriteAction{
-			unsigned value_;
-		};
-
-		//read
-		struct ReadAction{
-
-		};
-
-		//xor a compile time known mask
-		template<int I>
-		struct XorLiteralAction{
-			static constexpr unsigned value = I;
-		};
-
-
-		template<typename TLocation, typename TAction>
-		struct Action : TAction {
-			template<typename... Ts>
-			constexpr Action(Ts...args):TAction{args...}{};
-			using Type = Action<TLocation,TAction>;
-		};
-
-		template<typename TAddress, int Mask, int WritableMask = 0, typename TFieldType = int>
-		struct BitLocation{
-			using Type = BitLocation<TAddress, Mask, WritableMask, TFieldType>;
-		};
-
-		template<int Address, int Mask, int WritableMask = 0, typename TFieldType = int>
+		template<int Address, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
 		using RWLocation = BitLocation<Address::ReadWrite<Address>,Mask,WritableMask,TFieldType>;
-		template<int Address, int Mask, int WritableMask = 0, typename TFieldType = int>
+		template<int Address, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
 		using BWLocation = BitLocation<Address::BlindWrite<Address>,Mask,WritableMask,TFieldType>;
-		template<int Address, int Mask, int WritableMask = 0, typename TFieldType = int>
+		template<int Address, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
 		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,WritableMask,TFieldType>;
 
-
-
 		//leagacy factories
-		template<int Address,int Mask, int Data>
+		template<unsigned Address,unsigned Mask, unsigned Data>
 		using WriteActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,WriteLiteralAction<Data>>;
-		template<int Address,int Offset, bool Data>
+		template<unsigned Address,unsigned Offset, bool Data>
 		using WriteBitActionT = Action<BitLocation<Address::ReadWrite<Address>,(1<<Offset)>,WriteLiteralAction<(Data<<Offset)>>;
-		template<int Address,int Offset>
+		template<unsigned Address,int Offset>
 		using BlindSetBitActionT = Action<BitLocation<Address::BlindWrite<Address>,(1<<Offset)>,WriteLiteralAction<(1<<Offset)>>;
 
-		template<int Address,int Mask, int Data>
+		template<unsigned Address,unsigned Mask, unsigned Data>
 		using BlindWriteActionT = Action<BitLocation<Address::BlindWrite<Address>,Mask>,WriteLiteralAction<Data>>;
-		template<int Address,int Mask, int Data>
+		template<unsigned Address,unsigned Mask, unsigned Data>
 		using XorActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,XorLiteralAction<Data>>;
 		//end legacy factories
-
-		template<typename TAddresses, typename TActions>
-		struct ValueObject;		//see below for implementation in specialization
-
 
 		namespace Detail{
 			using namespace MPL;
 
-			constexpr bool onlyOneBitSet(int i){
-				return (i==(1<<0)) || (i==(1<<1)) || (i==(1<<2)) || (i==(1<<3)) || (i==(1<<4)) || (i==(1<<5)) || (i==(1<<6)) || (i==(1<<7)) || (i==(1<<8)) || (i==(1<<9)) || (i==(1<<10)) || (i==(1<<11)) || (i==(1<<12)) || (i==(1<<13)) || (i==(1<<14)) || (i==(1<<15)) || (i==(1<<16)) || (i==(1<<17)) || (i==(1<<18)) || (i==(1<<19)) || (i==(1<<20)) || (i==(1<<21)) || (i==(1<<22)) || (i==(1<<23)) || (i==(1<<24)) || (i==(1<<25)) || (i==(1<<26)) || (i==(1<<27)) || (i==(1<<28)) || (i==(1<<29)) || (i==(1<<30)) || (i==(1<<31));
+			template<typename... Ts>
+			constexpr unsigned orAllOf(unsigned l, unsigned r, Ts... args){
+				return l | r | orAllOf(args...);
 			}
 
-			constexpr int positionOfFirstSetBit(int in, int pos=0){
-				return (in & 0x01)?pos:positionOfFirstSetBit(in >> 1, pos + 1);
+			constexpr unsigned orAllOf(unsigned l){
+				return l;
 			}
 
 			//getters for specific parameters of an Action
 			template<typename T>
 			struct GetAddress;
-			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename ResultType, typename TAction>
+			template<template<unsigned I> class AC, unsigned Address, unsigned Mask, unsigned ReservedMask, typename ResultType, typename TAction>
 			struct GetAddress<Action<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>,TAction>> {
-				static constexpr int value = Address;
-				static constexpr int read(){
-					return *((volatile int*)value);
+				static constexpr unsigned value = Address;
+				static constexpr unsigned read(){
+					return *((volatile unsigned*)value);
 				}
 				using Type = Int<Address>;
 			};
-
 			template<typename T>
-			struct GetFieldType;
-			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename FieldType, typename TAction>
-			struct GetFieldType<Action<BitLocation<AC<Address>,Mask,ReservedMask,FieldType>,TAction>> {
-				using Type = FieldType;
-			};
-			template<template<int I> class AC, int Address, int Mask, int ReservedMask, typename FieldType>
-			struct GetFieldType<BitLocation<AC<Address>,Mask,ReservedMask,FieldType>>{
-				using Type = FieldType;
-			};
-			template<typename T>
-			using GetFieldTypeT = typename GetFieldType<T>::Type;
-
-			template<typename TLocation>
-			struct Set;
-			template<int Address, int Mask, int ReservedMask>
-			struct Set<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,int>> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,int>,WriteLiteralAction<Mask>>{
-				static_assert(onlyOneBitSet(Mask),"Register::set only works on single bits. Use Register::write to write values to wider bit fields");
-			};
-			template<int Address, int Mask, int ReservedMask>
-			struct Set<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,int>> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,int>,WriteLiteralAction<Mask>>{
-				static_assert(onlyOneBitSet(Mask),"Register::set only works on single bits. Use Register::write to write values to wider bit fields");
-			};
-			template<typename TLocation>
-			struct Clear;
-			template<int Address, int Mask, int ReservedMask>
-			struct Clear<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,int>> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,int>,WriteLiteralAction<0>>{
-				static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
-			};
-			template<int Address, int Mask, int ReservedMask>
-			struct Clear<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,int>> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,int>,WriteLiteralAction<0>>{
-				static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
-			};
-
-			template<typename TLocation>
-			using SetT = typename Set<TLocation>::Type;
-			template<typename TLocation>
-			using ClearT = typename Clear<TLocation>::Type;
-
-
-			template<typename TLocation, int Value>
-			struct Write;
-			template<int Address, int Mask, int ReservedMask, typename TField, int Value>
-			struct Write<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TField>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TField>,WriteLiteralAction<Value>>{};
-			template<int Address, int Mask, int ReservedMask, typename TField, int Value>
-			struct Write<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TField>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TField>,WriteLiteralAction<Value>>{};
-			template<typename TLocation, int Value>
-			using WriteT = typename Write<TLocation,Value>::Type;
+			struct GetBitLocation;
+			template<typename TLocation, typename TAction>
+			struct GetBitLocation<Action<TLocation,TAction>> : TLocation {};
 
 			//predecate retuning result of left < right for RegisterOptions
 			template<typename TLeft, typename TRight>
@@ -218,46 +108,45 @@ namespace Kvasir {
 			template<typename T>
 			struct IsNotReadPred : NotT<typename IsReadPred<T>::Type>{};
 
+			template<typename T>
+			struct GetMask;
+			//from BitLocations
+			template<typename Address, unsigned Mask, unsigned ReservedMask, typename ResultType>
+			struct GetMask<BitLocation<Address,Mask,ReservedMask,ResultType>> : Value<unsigned,Mask>{};
+			//from Action
+			template<typename TBitLocation, typename TAction>
+			struct GetMask<Action<TBitLocation,TAction>> : GetMask<TBitLocation>{};
 
 			template<typename TRegisterAction>
 			struct RegisterExec;
 
-			template<int A, int Mask, int ReservedMask, typename FieldType, int Data>
+			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType, unsigned Data>
 			struct RegisterExec<Register::Action<BitLocation<Address::ReadWrite<A>,Mask,ReservedMask,FieldType>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
-				int operator()(){
-					auto& reg = *(volatile int*)A;
+				unsigned operator()(unsigned in = 0){
+					auto& reg = *(volatile unsigned*)A;
 					auto i = reg;
 					i &= ~Mask;
-					i |= Data;
+					i |= Data | in;
 					reg = i;
 					return i;
 				}
 			};
-			template<int A, int Mask, int ReservedMask, typename FieldType, int Data>
+			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType, unsigned Data>
 			struct RegisterExec<Register::Action<BitLocation<Address::BlindWrite<A>,Mask,ReservedMask,FieldType>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
-				int operator()(){
-					auto& reg = *(volatile int*)A;
-					reg = Data;
+				unsigned operator()(unsigned in){
+					auto& reg = *(volatile unsigned*)A;
+					reg = Data | in;
 					return 0;
 				}
 			};
-			template<int A, int Mask, int ReservedMask, typename FieldType, int Data>
+			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType, unsigned Data>
 			struct RegisterExec<Register::Action<BitLocation<Address::ReadWrite<A>,Mask,ReservedMask,FieldType>,XorLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
-				int operator()(){
-					auto& reg = *(volatile int*)A;
+				unsigned operator()(unsigned in = 0){
+					auto& reg = *(volatile unsigned*)A;
 					reg ^= Data;
-					return 0;
-				}
-			};
-
-			template<typename...Ts>
-			struct RegisterExec<MPL::List<Ts...>>{
-				int operator()(){
-					int a[] = {RegisterExec<Ts>{}()...};
-					MPL::ignore(a);
 					return 0;
 				}
 			};
@@ -268,7 +157,7 @@ namespace Kvasir {
 			template<typename TNext, typename... Ts> //none processed yet
 			struct MergeRegisterActions<List<TNext, Ts...>, List<>> : MergeRegisterActions<List<Ts...>,List<TNext>>{};
 
-			template<template<int> class TAddressTemplate, int Address, int Mask1, int Mask2, template<int> class TActionTemplate, int Value1, int Value2, typename... Ts, typename... Us> //next and last mergable
+			template<template<unsigned> class TAddressTemplate, unsigned Address, unsigned Mask1, unsigned Mask2, template<unsigned> class TActionTemplate, unsigned Value1, unsigned Value2, typename... Ts, typename... Us> //next and last mergable
 			struct MergeRegisterActions<
 					List<Register::Action<BitLocation<TAddressTemplate<Address>,Mask1>,TActionTemplate<Value1>>, Ts...>,
 					List<Register::Action<BitLocation<TAddressTemplate<Address>,Mask2>,TActionTemplate<Value2>>, Us...>
@@ -300,239 +189,157 @@ namespace Kvasir {
 
 		}
 
-		//Action factories which turn a BitLocation into an Action
-		template<typename T>
-		constexpr inline Action<T,ReadAction> read(T){
-			return Action<T,ReadAction>{};
-		}
-
-		template<typename T>
-		constexpr inline Detail::SetT<T> set(T){
-			return Detail::SetT<T>{};
-		}
-
-		template<typename T>
-		constexpr inline Detail::ClearT<T> clear(T){
-			return Detail::ClearT<T>{};
-		}
-
-		//runtime value
-		template<typename T>
-		constexpr Action<T,WriteAction> write(T,Detail::GetFieldTypeT<T> in){
-			return Action<T,WriteAction>{int(in)};
-		}
-		//compile time value
-		namespace Detail{
-			template<typename T>
-			struct ValueToInt;
-			template<typename T, T I>
-			struct ValueToInt<MPL::Value<T,I>> : MPL::Int<int(I)>{};
-			template<typename T, typename U>
-			struct WirtLocationAndCompileTimeValueTypeAreSame : FalseType {};
-			template<typename AT, int M, int RM, typename FT, int V>
-			struct WirtLocationAndCompileTimeValueTypeAreSame<BitLocation<AT,M,RM,FT>,MPL::Value<FT,V>> : TrueType{};
-		}
-		template<typename T, typename U>
-		constexpr inline Detail::WriteT<T,Detail::ValueToInt<U>::value> write(T, U){
-			static_assert(Detail::WirtLocationAndCompileTimeValueTypeAreSame<T,U>::value,"type mismatch: the BitLocation field type and the compile time Value type must be the same");
-			return Detail::WriteT<T,Detail::ValueToInt<U>::value>{};
-		}
-
-
-		//constraint factories check constraints on actions or lists of actions and may add sequence points or other actions
-		namespace Detail{
-			template<typename T>
-			struct IsWriteLiteral : FalseType{};
-			template<typename T>
-			struct IsWriteRuntime : FalseType{};
-		}
-		template<typename T>
-		constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> atomic(T){
-
-		}
-		template<typename T>
-		constexpr MPL::EnableIfT<Detail::IsWriteRuntime<T>::value> atomic(T in){
-
-		}
-		template<typename T, typename U, typename...Ts>
-		constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> atomic(T in){
-
-		}
-		template<typename T, typename U, typename...Ts>
-		constexpr MPL::EnableIfT<Detail::IsWriteRuntime<T>::value> atomic(T in){
-
-		}
-		template<typename T>
-		constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> isolated(T){
-
-		}
-
 		//apply implementation
 		namespace Detail{
-
-			template<typename TAction, int Index>
+			//indexed inputs keep track of the mask and location of an input
+			template<int Index, unsigned Mask>
+			struct IndexedInput{
+				static constexpr int index = Index;
+				static constexpr unsigned mask = Mask;
+				using Type = IndexedInput<Index,Mask>;
+				template<int I>
+				unsigned operator()(unsigned (&arg)[I]){
+					return arg[Index] & Mask;
+				}
+			};
+			//an index action consists of an action (possably merged) and
+			//the inputs including masks which it needs
+			template<typename TAction, unsigned ReadMask, typename... TInputs>
 			struct IndexedAction{
-				using Type = IndexedAction<TAction,Index>;
+				using Type = IndexedAction<TAction,ReadMask,TInputs...>;
+				template<int I>
+				unsigned operator()(unsigned (&arg)[I]){
+					return RegisterExec<TAction>{}(orAllOf(TInputs{}(arg)...)) & ReadMask;
+				}
 			};
 
-			template<int I>
-			struct AddFixedIndexPred{
-				template<typename T>
-				struct Apply : IndexedAction<T,I>{};
-			};
+			template<unsigned Mask, typename TAction>
+			struct MakeReadMask : Unsigned<0>{};
+			template<unsigned Mask>
+			struct MakeReadMask<Mask, ReadAction> : Unsigned<Mask>{};
 
+			template<typename TAction, typename Index>
+			struct MakeIndexedAction;
+			template<typename TAddress, unsigned Mask, unsigned RM, typename TR, typename TAction, int Index>
+			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,RM,TR>,TAction>,Int<Index>>:
+				IndexedAction<Action<BitLocation<TAddress,Mask,RM,TR>,TAction>,MakeReadMask<Mask,TAction>::value,IndexedInput<Index,Mask>>{};
 			//special case where a list of actions is passed
-			template<typename... Ts, int Index>
-			struct IndexedAction<List<Ts...>,Index>:
-				TransformT<
-					FlattenT<List<Ts...>>,
-					Template<AddFixedIndexPred<Index>::template Apply>>{};
+			template<typename... Ts, typename Index>
+			struct MakeIndexedAction<List<Ts...>,Index> : List<typename MakeIndexedAction<Ts,Index>::Type...>{};
+			//special case where a list of actions is passed
+			template<typename Index>
+			struct MakeIndexedAction<SequencePoint,Index> : SequencePoint{};
 
-			template<int I>
-			struct FindIndexPred{
-				template<typename T>
-				struct Apply : MPL::FalseType {};
-				template<typename T>
-				struct Apply<IndexedAction<T,I>> : MPL::TrueType{};
-			};
+			template<typename TAction, typename Index>
+			using MakeIndexedActionT = typename MakeIndexedAction<TAction,Index>::Type;
 
-			template<int I>
+
+			template<unsigned I>
 			struct IsAddressPred{
 				template<typename T>
 				struct Apply : MPL::FalseType {};
-				template<template<int> class TAddressTemplate, int Mask, int ReservedMask, typename FieldType, typename Cmd>
+				template<template<unsigned> class TAddressTemplate, unsigned Mask, unsigned ReservedMask, typename FieldType, typename Cmd>
 				struct Apply<Action<BitLocation<TAddressTemplate<I>,Mask,ReservedMask,FieldType>,Cmd>> : MPL::TrueType{};
 			};
 
 			template<typename TArgList>
-			using GetReadsT = RemoveT<TArgList,Template<IsNotReadPred>>;
+			using GetReadsT = TransformT<RemoveT<TArgList,Template<IsNotReadPred>>,Template<GetBitLocation>>;
 
 			template<typename T>
 			struct GetReadMask : Int<0>{};
 
-			template<typename Indexes, typename... TRawArgs>
+			template<typename T>
+			struct GetAddresses;
+			template<typename TAddresses, typename TLocations>
+			struct GetAddresses<ValueObject<TAddresses,TLocations>> : TAddresses{};
+
+
+			template<typename T, typename = decltype(T::value_)>
+			unsigned argToInt(T arg){
+				return arg.value_;
+			}
+			unsigned argToInt(...){
+				return 0;
+			}
+
+			template<typename TActionList, typename TRetType>
 			struct Apply;
-			template<int... Is, typename... TRawArgs>
-			struct Apply<Indices<Is...>,TRawArgs...>{
-				using ArgList = List<TRawArgs...>;
-				//find the result type
-				using Reads = GetReadsT<ArgList>;
-				using Addresses = UniqueT<SortT<TransformT<Reads,Template<GetAddress>>>>;
-				using ReturnType = ValueObject<Addresses,Reads>;
-				//associate all actions with their value index
-				using IndexedActions = List<IndexedAction<TRawArgs,Is>...>;
-				using FlattenedActions = MPL::FlattenT<IndexedActions>;
-				using Steps = MPL::SplitT<FlattenedActions,SequencePoint>;
-				using MergedSteps = Steps;
-
-				template<typename TMergedSteps, typename TReturnAddress>
-				struct ExecuteMergedObjects;
-				template<typename... TMergedObjects, typename... TReturnAddresses>
-				struct ExecuteMergedObjects<List<TMergedObjects...>,List<TReturnAddresses...>>{
-
-					template<int ReturnAddress, int Index, int Remaining>
-					struct ReturnFilter{
-						int operator()(const int(&rets)[sizeof...(TMergedObjects)],const int index, const int remaining){
-
-							return 0; //TODO
-						}
-					};
-					template<int ReturnAddress, int Index>
-					struct ReturnFilter<ReturnAddress,Index,1>{
-						int operator()(const int(&rets)[sizeof...(TMergedObjects)]){
-							using SubList = RemoveT<List<TMergedObjects...>,Int<0>,Int<Index>>;
-							using Pred = Template<IsAddressPred<ReturnAddress>::template Apply>;
-							return rets[Find<SubList,Pred>::value+Index] & GetReadMask<GetT<SubList,Pred>>::value;
-						}
-					};
-
-					ReturnType operator()(const int(&args)[sizeof...(TRawArgs)]){
-						const int returns[]{TMergedObjects{}(args)...};
-						return ReturnType{
-							ReturnFilter<
-								TReturnAddresses::value,
-								0,
-								CountIf<
-									List<TMergedObjects>,
-									Template<IsAddressPred<TReturnAddresses::value>::template Apply>
-								>::value
-							>{}(returns)...
-						};
+			template<typename... TActions, typename... TRetAddresses, typename TRetLocations>
+			struct Apply<List<TActions...>,ValueObject<List<TRetAddresses...>,TRetLocations>>{
+				template<typename T>
+				struct ReturnFilter;
+				template<int... Is>
+				struct ReturnFilter<List<Int<Is>...>>{
+					unsigned operator()(const unsigned(&rets)[sizeof...(TActions)]){
+						return orAllOf(rets[Is]...);
 					}
 				};
-				template<typename T, typename = decltype(T::value_)>
-				int argToInt(T arg){
-					return arg.value_;
-				}
-				int argToInt(...){
-					return 0;
-				}
-				ReturnType operator()(TRawArgs... args){
-					const int args_[]{argToInt(args)...};
-					return ExecuteMergedObjects<MergedSteps,Addresses>{}(args_);
+
+				template<typename T>
+				struct IndexNotAddressPred{
+					template<typename Index>
+					struct Apply : Bool<(GetAddress<AtT<List<TActions...>,Index>>::value != T::value)>{};
+				};
+				template<int I>
+				ValueObject<List<TRetAddresses...>,TRetLocations> operator()(const unsigned(&args)[I]){
+					using namespace MPL;
+					const unsigned returns[]{TActions{}(args)...};
+					return ValueObject<List<TRetAddresses...>,TRetLocations>{
+							ReturnFilter<
+								RemoveT<BuildIndicesT<sizeof...(TActions)>,Template<IndexNotAddressPred<TRetAddresses>::template Apply>>
+							>{}(returns)...
+					};
 				}
 			};
+
+			//no read apply
+			template<typename TActionList>
+			struct NoReadApply;
+			template<typename... TActions>
+			struct NoReadApply<List<TActions...>>{
+				template<int I>
+				void operator()(unsigned (&args)[I]){
+					unsigned a[] = {TActions{}(args)...};
+					ignore(a);
+				}
+			};
+
+			template<typename... Ts>
+			using GetReturnTypeT = ValueObject<
+					UniqueT<SortT<TransformT<
+						GetReadsT<List<Ts...>>,
+						Template<GetAddress>
+					>>>,
+					GetReadsT<List<Ts...>>
+				>;
 		}
 
 		//if apply contains reads return a ValueObject
 		template<typename...Args>
 		inline MPL::DisableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::List<Args...>>>::value == 0),
-			typename Detail::Apply<MPL::BuildIndicesT<sizeof...(Args)>,Args...>::ReturnType>
+			Detail::GetReturnTypeT<Args...>>
 		apply(Args...args){
-			return Detail::Apply<MPL::BuildIndicesT<sizeof...(Args)>,Args...>{}(args...);
+			using namespace MPL;
+			//associate all actions with their value index
+			unsigned a[] = {Detail::argToInt(args)...};
+			using IndexedActions = TransformT<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+			using FlattenedActions = FlattenT<IndexedActions>;
+			using Steps = SplitT<FlattenedActions,SequencePoint>;
+			using Actions = MPL::FlattenT<Steps>;
+			return Detail::Apply<Actions>{}(a);
 		}
 
 		//if apply does not contain reads return is void
 		template<typename...Args>
-		inline MPL::EnableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::List<Args...>>>::value == 0)>
+		inline MPL::EnableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::FlattenT<MPL::List<Args...>>>>::value == 0)>
 		apply(Args...args){
-
-		}
-
-
-
-		// ValueObject implemtation
-		namespace Detail{
 			using namespace MPL;
-			template<int I, typename... TResults>
-			struct GetReturnTypeFromIndex : GetT<FlattenT<List<TResults...>>,Template<FindIndexPred<I>::template Apply>,void>{};
-			template<int I, int R, typename T, typename... TResults>
-			struct GetValueIndexFromIndexHelper : ConditionalT<ContainsT<T,Template<FindIndexPred<I>::template Apply>>::value,Int<R>,GetValueIndexFromIndexHelper<I,R+1,TResults...>>{
-				static_assert(ContainsT<T,Template<FindIndexPred<I>::template Apply>>::value || sizeof...(TResults),"internal error: index not found");
-			};
-			template<int I, typename... TResults>
-			struct GetValueIndexFromIndex : GetValueIndexFromIndexHelper<I,0,TResults...>{};
+			unsigned a[] = {Detail::argToInt(args)...};
+			using IndexedActions = TransformT<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+			using FlattenedActions = FlattenT<IndexedActions>;
+			using Steps = SplitT<FlattenedActions,SequencePoint>;
+			using Actions = MPL::FlattenT<Steps>;
+			Detail::NoReadApply<Actions>{}(a);
 		}
-
-		template<int... Is, typename... TAs, int... Masks, int... Reserveds, typename... TRs>
-		struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,Reserveds,TRs>,ReadAction>>...>{
-			const int value_[sizeof...(Is)];
-			template<int Index>
-			MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
-				using namespace MPL;
-				using Address = Int<AtT<List<TAs...>,Int<Index>>::value>;
-				using ValueIndex = FindT<List<Int<Is>...>,Address>;
-				using ResultType = AtT<List<TRs...>,Int<Index>>;
-				using Mask = AtT<List<Int<Masks>...>,Int<Index>>;
-				int r = (value_[ValueIndex::value] & Mask::value) >> positionOfFirstSetBit(Mask::value);
-				return ResultType(r);
-			}
-			using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,Reserveds,TRs>,ReadAction>>...>;
-		};
-		template<int I, typename TA, int Mask, int ReservedMask, typename TR>
-		struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,ReservedMask,TR>,ReadAction>>>{
-			const int value_;
-			operator TR(){
-				using namespace MPL;
-				using Address = TA;
-				using ResultType = TR;
-				return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
-			};
-			using Type = ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,ReservedMask,TR>,ReadAction>>>;
-		};
-		template<>
-		struct ValueObject<MPL::List<>,MPL::List<>>{
-			using Type = ValueObject<MPL::List<>,MPL::List<>>;
-		};
 	}
 }
