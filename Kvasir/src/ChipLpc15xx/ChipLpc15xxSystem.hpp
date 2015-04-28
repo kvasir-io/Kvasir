@@ -16,94 +16,44 @@ limitations under the License.
 namespace Kvasir{
 namespace System{
 namespace PowerConfiguration {
-	constexpr int address{0x40074208};
-
+	template<int I>
+	using Helper = Register::RWLocation<0x40074208, (1u << I),unsigned(0x07 | (1 << 7) | (0x7F << 25))>;
 	//bits 2:0 reserved
-	static constexpr 	Register::RWLocation<address, (1 << 3)>		ircOscillatorOutputDisabled{};
-//	constexpr Register::WriteBitActionT<address,3,false> 		ircOscillatorOutputOn{};
-//	constexpr Register::WriteBitActionT<address,3,true> 		ircOscillatorOutputOff{};
-
-	static constexpr	Register::RWLocation<address, (1 << 4)>		ircOscillatorDisabled{};
-//	constexpr Register::WriteBitActionT<address,4,false>	 	ircOscillatorOn{};
-//	constexpr Register::WriteBitActionT<address,4,true>			ircOscillatorOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 << 5)>		flashDisabled{};
-//	constexpr Register::WriteBitActionT<address,5,false> 		flashOn{};
-//	constexpr Register::WriteBitActionT<address,5,true>			flashOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 << 6)>		eepromDisabled{};
-//	constexpr Register::WriteBitActionT<address,6,false> 		eepromOn{};
-//	constexpr Register::WriteBitActionT<address,6,true> 		eepromOff{};
+	static constexpr 	Helper<3>		ircOscillatorOutputDisabled{};
+	static constexpr	Helper<4>		ircOscillatorDisabled{};
+	static constexpr 	Helper<5>		flashDisabled{};
+	static constexpr 	Helper<6>		eepromDisabled{};
 	//bit 7 reserved
-
-	static constexpr 	Register::RWLocation<address, (1 << 8)>		brownOutDetectDisabled{};
-//	constexpr Register::WriteBitActionT<address,8,false> 		brownOutDetectOn{};
-//	constexpr Register::WriteBitActionT<address,8,true> 		brownOutDetectOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 << 9)>		usbPhyDisabled{};
-//	constexpr Register::WriteBitActionT<address,9,false> 		usbPhyOn{};
-//	constexpr Register::WriteBitActionT<address,9,true> 		usbPhyOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<10)>		adc0Disabled{};
-//	constexpr Register::WriteBitActionT<address,10,false> 		adc0On{};
-//	constexpr Register::WriteBitActionT<address,10,true> 		adc0Off{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<11)>		adc19Disabled{};
-//	constexpr Register::WriteBitActionT<address,11,false> 		adc1On{};
-//	constexpr Register::WriteBitActionT<address,11,true> 		adc1Off{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<12)>		dacDisabled{};
-//	constexpr Register::WriteBitActionT<address,12,false> 		dacOn{};
-//	constexpr Register::WriteBitActionT<address,12,true> 		dacOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<13)>		analogComperator0Disabled{};
-//	constexpr Register::WriteBitActionT<address,13,false> 		analogComparator0On{};
-//	constexpr Register::WriteBitActionT<address,13,true> 		analogComparator0Off{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<14)>		analogComparator1Disabled{};
-//	constexpr Register::WriteBitActionT<address,14,false> 		analogComparator1On{};
-//	constexpr Register::WriteBitActionT<address,14,true> 		analogComparator1Off{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<15)>		analogComparator2Disabled{};
-//	constexpr Register::WriteBitActionT<address,15,false> 		analogComparator2On{};
-//	constexpr Register::WriteBitActionT<address,15,true> 		analogComparator2Off{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<16)>		analogComparator3Disabled{};
-//	constexpr Register::WriteBitActionT<address,16,false> 		analogComparator3On{};
-//	constexpr Register::WriteBitActionT<address,16,true> 		analogComparator3Off{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<17)>		internalVoltageRefDisabled{};
-//	constexpr Register::WriteBitActionT<address,17,false> 		internalVoltageRefOn{};
-//	constexpr Register::WriteBitActionT<address,17,true> 		internalVoltageRefOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<18)>		temperaturSensorDisabled{};
-//	constexpr Register::WriteBitActionT<address,18,false> 		temperaturSensorOn{};
-//	constexpr Register::WriteBitActionT<address,18,true> 		temperaturSensorOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<19)>		vddaDivDisabled{};
-//	constexpr Register::WriteBitActionT<address,19,false> 		vddaDivOn{};
-//	constexpr Register::WriteBitActionT<address,19,true> 		vddaDivOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<20)>		watchdogOscillatorDisabled{};
-//	constexpr Register::WriteBitActionT<address,20,false> 		watchdogOscillatorOn{};
-//	constexpr Register::WriteBitActionT<address,20,true>	 	watchdogOscillatorOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<21)>		systemOscillatorDisabled{};
-//	constexpr Register::WriteBitActionT<address,21,false> 		systemOscillatorOn{};
-//	constexpr Register::WriteBitActionT<address,21,true> 		systemOscillatorOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<22)>		systemPllDisabled{};
-//	constexpr Register::WriteBitActionT<address,22,false> 		systemPllOn{};
-//	constexpr Register::WriteBitActionT<address,22,true> 		systemPllOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<23)>		usbPllDisabled{};
-//	constexpr Register::WriteBitActionT<address,23,false> 		usbPllOn{};
-//	constexpr Register::WriteBitActionT<address,23,true> 		usbPllOff{};
-
-	static constexpr 	Register::RWLocation<address, (1 <<24)>		sctPllDisabled{};
-//	constexpr Register::WriteBitActionT<address,24,false> 		sctPllOn{};
-//	constexpr Register::WriteBitActionT<address,24,true> 		sctPllOff{};
+	static constexpr 	Helper<8>		brownOutDetectDisabled{};
+	static constexpr 	Helper<9>		usbPhyDisabled{};
+	static constexpr 	Helper<10>		adc0Disabled{};
+	static constexpr 	Helper<11>		adc19Disabled{};
+	static constexpr 	Helper<12>		dacDisabled{};
+	static constexpr 	Helper<13>		analogComperator0Disabled{};
+	static constexpr 	Helper<14>		analogComparator1Disabled{};
+	static constexpr 	Helper<15>		analogComparator2Disabled{};
+	static constexpr 	Helper<16>		analogComparator3Disabled{};
+	static constexpr 	Helper<17>		internalVoltageRefDisabled{};
+	static constexpr 	Helper<18>		temperaturSensorDisabled{};
+	static constexpr 	Helper<19>		vddaDivDisabled{};
+	static constexpr 	Helper<20>		watchdogOscillatorDisabled{};
+	static constexpr 	Helper<21>		systemOscillatorDisabled{};
+	static constexpr 	Helper<22>		systemPllDisabled{};
+	static constexpr 	Helper<23>		usbPllDisabled{};
+	static constexpr 	Helper<24>		sctPllDisabled{};
 	//bits 31:25 reserved
+}
+
+namespace PowerControl {
+	template<int I>
+	using Helper = Register::RWLocation<0x4003C000, (1u << I),~unsigned((1 << 3) | (1 << 8) | (1 << 11))>;
+	//bits 2:0 reserved
+	static constexpr 	Helper<3>		noPowerDown{};
+	//bits 7:4 reserved
+	static constexpr	Helper<8>		ircOscillatorDisabled{};
+	//bits 10:9 reserved
+	static constexpr 	Helper<11>		flashDisabled{};
+	//bits 31:12 reserved
 }
 
 namespace MainClockSource{
