@@ -13,7 +13,7 @@ limitations under the License.
 #pragma once
 #include "Interrupt.hpp"
 #include "System.hpp"
-#include "Tags.hpp"
+#include "../Tags.hpp"
 
 namespace Kvasir{
 namespace Timer{

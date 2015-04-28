@@ -12,9 +12,9 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "Register.hpp"
-#include "UsbConfig.hpp"
-#include "ChipLpc11u6xE6xInterrupt.hpp"
+#include "../Register.hpp"
+#include "../UsbConfig.hpp"
+#include "Interrupt.hpp"
 
 namespace Kvasir{
 struct UsbDefaultConfig{
