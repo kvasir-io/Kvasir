@@ -24,10 +24,10 @@ limitations under the License.
 #include "ChipLpc11u6xE6x/All.hpp"
 #else
 #ifdef LPC1768_BOARD
-#include "ChipLpc175x6x.hpp"
+#include "ChipLpc175x6x/All.hpp"
 #else
 #ifdef LPC1549_BOARD
-#include "ChipLpc15xx.hpp"
+#include "ChipLpc15xx/All.hpp"
 #else
 
 #endif
