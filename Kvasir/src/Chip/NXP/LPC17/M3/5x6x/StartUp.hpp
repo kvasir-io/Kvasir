@@ -12,13 +12,9 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "../CoreCommon.hpp"
-#include "../Tags.hpp"
-#include "System.hpp"
-#include "Timer.hpp"
-#include "Io.hpp"
-#include "Interrupt.hpp"
 
+#include "Io.hpp"
+#include "System.hpp"
 
 namespace Kvasir{
 	namespace Startup{
@@ -48,12 +44,6 @@ namespace Kvasir{
 		struct FirstInitStep<Tag::User, Ts...>{
 			void operator()(){
 
-				// enable RAM banks that may be off by default at reset
-				volatile unsigned int *SYSCON_SYSAHBCLKCTRL = (unsigned int *) 0x40048080;
-				// Ensure that RAM1(26) and USBSRAM(27) bits in SYSAHBCLKCTRL are set
-				*SYSCON_SYSAHBCLKCTRL |= (1 << 26) | (1 <<27);
-
-
 			    // Copy the data sections from flash to SRAM.
 			    unsigned int LoadAddr, ExeAddr, SectionLen;
 			    unsigned int *SectionTableAddr;
@@ -79,4 +69,3 @@ namespace Kvasir{
 		};
 	}
 }
-

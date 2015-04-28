@@ -11,7 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "../Register.hpp"
+#include "../../../../../Register.hpp"
 
 namespace Kvasir{
 namespace System{
@@ -21,22 +21,22 @@ namespace PowerConfiguration {
 		using Helper = Register::RWLocation	<0x40048238,
 											(1u << I),
 											unsigned((1 << 9)|
-													(0x02 << 11)|
-													(0x3FFF << 14))>;
+													(0x03 << 11)|
+													(0x3FFFF << 14))>;
 
-	static constexpr 	Helper< 0>		ircOscillatorOutputDisabled{};
-	static constexpr 	Helper< 1>		ircOscillatorDisabled{};
-	static constexpr 	Helper< 2>		flashDisabled{};
-	static constexpr	Helper< 3>		brownOutDetectDisabled{};
-	static constexpr 	Helper< 4>		adcDisabled{};
-	static constexpr 	Helper< 5>		crystalOscillatorDisabled{};
-	static constexpr 	Helper< 6>		watchdogOscillatorDisabled{};
-	static constexpr 	Helper< 7>		systemPllDisabled{};
-	static constexpr 	Helper< 8>		usbPllDisabled{};
+	static constexpr 	Helper< 0>		ircOscillatorOutputPoweredDown{};
+	static constexpr 	Helper< 1>		ircOscillatorPoweredDown{};
+	static constexpr 	Helper< 2>		flashPoweredDown{};
+	static constexpr	Helper< 3>		brownOutDetectPoweredDown{};
+	static constexpr 	Helper< 4>		adcPoweredDown{};
+	static constexpr 	Helper< 5>		crystalOscillatorPoweredDown{};
+	static constexpr 	Helper< 6>		watchdogOscillatorPoweredDown{};
+	static constexpr 	Helper< 7>		systemPllPoweredDown{};
+	static constexpr 	Helper< 8>		usbPllPoweredDown{};
 	// bit  9 reserved
-	static constexpr 	Helper<10>		usbTransceiverDisabled{};
+	static constexpr 	Helper<10>		usbTransceiverPoweredDown{};
 	// bits 12:11 reserved
-	static constexpr 	Helper<13>		temperaturSensorDisabled{};
+	static constexpr 	Helper<13>		temperaturSensorPoweredDown{};
 	// bits 31:14 reserved
 
 }
@@ -79,7 +79,7 @@ struct ClockControl{			//SYSAHBCLKCTRL register actions
 	static constexpr 	Helper<30>			rtcClockEnabled{};
 	static constexpr 	Helper<31>			sctClockEnabled{};
 
-	static constexpr 	Register::RWLocation<address,0x1F> feedbackDivider{};
+	static constexpr 	Register::RWLocation<0x40048094,0x1F> feedbackDivider{};
 };
 
 struct ClockConfig{
@@ -101,9 +101,9 @@ public:
 			XtaloutPullUpInactive,
 			XtalinAnalogMode,
 			XtaloutAnalogMode);
-	static constexpr auto crystalOscillatorPowerOn = clear(PowerConfiguration::crystalOscillatorDisabled);
-	static constexpr auto systemPllPowerOff = set(PowerConfiguration::systemPllDisabled);
-	static constexpr auto systemPllPowerOn = clear(PowerConfiguration::systemPllDisabled);
+	static constexpr auto crystalOscillatorPowerOn = clear(PowerConfiguration::crystalOscillatorPoweredDown);
+	static constexpr auto systemPllPowerOff = set(PowerConfiguration::systemPllPoweredDown);
+	static constexpr auto systemPllPowerOn = clear(PowerConfiguration::systemPllPoweredDown);
 
 	struct FlashConfiguration{
 		static constexpr unsigned address{0x4003C010};
@@ -128,8 +128,8 @@ public:
 		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return{}; }
 
 		static constexpr	Register::RWLocation<address+4, 1, ~1>		sourceUpdater{};
-		static constexpr auto updateSource =
-				MPL::list(clear(sourceUpdater,0),Register::sequencePoint,set(sourceUpdater,0));
+		static constexpr auto updateSourceSequence =
+				MPL::list(clear(sourceUpdater),Register::sequencePoint,set(sourceUpdater));
 
 
 //		static constexpr Register::WriteBitActionT<address+4,0,true> 	sourceUpdate{};
@@ -144,8 +144,8 @@ public:
 		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return {}; }
 
 		static constexpr	Register::RWLocation<address+4, 1, ~1>		sourceUpdater{};
-		static constexpr auto updateSource =
-				MPL::list(clear(sourceUpdater,0),Register::sequencePoint,set(sourceUpdater,0));
+		static constexpr auto updateSourceSequence =
+				MPL::list(clear(sourceUpdater),Register::sequencePoint,set(sourceUpdater));
 	};
 	struct SystemPLLControl{
 		enum class PostDividerRatio {div1, div2, div4, div8};

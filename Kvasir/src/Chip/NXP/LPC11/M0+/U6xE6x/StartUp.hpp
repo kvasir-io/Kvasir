@@ -12,8 +12,8 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "../CoreCommon.hpp"
-#include "../Tags.hpp"
+#include "../../../../../CoreCommon.hpp"
+#include "../../../../../Tags.hpp"
 #include "System.hpp"
 #include "Timer.hpp"
 #include "Io.hpp"
