@@ -318,5 +318,28 @@ namespace MPL {
 	template<typename TList, typename TPred>
 	using CountIfT = typename CountIf<TList,TPred>::Type;
 
+	template<typename TList, typename TPred = void>
+	struct AllOf{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<bool B>
+	struct AllOf<List<Bool<B>>,void> : Bool<B>{};
+	template<bool B1, bool B2, typename... Bs>
+	struct AllOf<List<Bool<B1>,Bool<B2>,Bs...>,void> : AllOf<List<Bool<B1 && B2>,Bs...>,void>{};
+
+	template<typename TList, typename TPred>
+	using AllOfT = typename AllOf<TList, TPred>::Type;
+
+	template<typename TList, typename TPred = void>
+	struct AnyOf{
+		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	};
+	template<bool B>
+	struct AnyOf<List<Bool<B>>,void> : Bool<B>{};
+	template<bool B1, bool B2, typename... Bs>
+	struct AnyOf<List<Bool<B1>,Bool<B2>,Bs...>,void> : AnyOf<List<Bool<B1 || B2>,Bs...>,void>{};
+
+	template<typename TList, typename TPred>
+	using AnyOfT = typename AnyOf<TList, TPred>::Type;
 }
 }

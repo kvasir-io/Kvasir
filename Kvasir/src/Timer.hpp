@@ -64,7 +64,7 @@ public:
 			write(Config::prescale, Register::value<Config::prescaleValue>()),
 			Config::userInit,
 			Register::sequencePoint,
-			Config::Control::couterEnable,
+			set(Config::Control::couterEnable),
 			makeEnable(TConfig::isr)
 			);
 };

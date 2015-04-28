@@ -140,6 +140,24 @@ namespace Kvasir {
 					return i;
 				}
 			};
+			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType>
+			struct RegisterExec<Register::Action<BitLocation<Address::ReadWrite<A>,Mask,ReservedMask,FieldType>,WriteAction>>{
+				unsigned operator()(unsigned in){
+					auto& reg = *(volatile unsigned*)A;
+					auto i = reg;
+					i &= ~Mask;
+					i |= in;
+					reg = i;
+					return i;
+				}
+			};
+			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType>
+			struct RegisterExec<Register::Action<BitLocation<Address::ReadWrite<A>,Mask,ReservedMask,FieldType>,ReadAction>>{
+				unsigned operator()(unsigned in = 0){
+					auto& reg = *(volatile unsigned*)A;
+					return reg;
+				}
+			};
 			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType, unsigned Data>
 			struct RegisterExec<Register::Action<BitLocation<Address::BlindWrite<A>,Mask,ReservedMask,FieldType>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
@@ -206,7 +224,7 @@ namespace Kvasir {
 				static constexpr unsigned mask = Mask;
 				using Type = IndexedInput<Index,Mask>;
 				template<int I>
-				unsigned operator()(unsigned (&arg)[I]){
+				unsigned operator()(const unsigned (&arg)[I]){
 					return arg[Index] & Mask;
 				}
 			};
@@ -216,7 +234,7 @@ namespace Kvasir {
 			struct IndexedAction{
 				using Type = IndexedAction<TAction,ReadMask,TInputs...>;
 				template<int I>
-				unsigned operator()(unsigned (&arg)[I]){
+				unsigned operator()(const unsigned (&arg)[I]){
 					return RegisterExec<TAction>{}(orAllOf(TInputs{}(arg)...)) & ReadMask;
 				}
 			};
@@ -324,6 +342,15 @@ namespace Kvasir {
 					>>>,
 					GetReadsT<List<Ts...>>
 				>;
+			template<typename T>
+			struct ArgToApplyIsPlausible : FalseType{};
+			template<typename L, typename A>
+			struct ArgToApplyIsPlausible<Action<L,A>> : TrueType{};
+			template<>
+			struct ArgToApplyIsPlausible<SequencePoint> : TrueType{};
+			template<typename... Ts>
+			struct ArgsToApplyArePlausible : AllOf<TransformT<FlattenT<List<Ts...>>, Template<ArgToApplyIsPlausible>>>{};
+
 		}
 
 		//if apply contains reads return a ValueObject
@@ -331,6 +358,7 @@ namespace Kvasir {
 		inline MPL::DisableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::List<Args...>>>::value == 0),
 			Detail::GetReturnTypeT<Args...>>
 		apply(Args...args){
+			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
 			using namespace MPL;
 			//associate all actions with their value index
 			unsigned a[] = {Detail::argToInt(args)...};
@@ -345,6 +373,7 @@ namespace Kvasir {
 		template<typename...Args>
 		inline MPL::EnableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::FlattenT<MPL::List<Args...>>>>::value == 0)>
 		apply(Args...args){
+			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
 			using namespace MPL;
 			unsigned a[] = {Detail::argToInt(args)...};
 			using IndexedActions = TransformT<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;

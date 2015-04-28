@@ -124,7 +124,6 @@ namespace Register{
 		const int value_;
 		operator TR(){
 			using namespace MPL;
-			using Address = TA;
 			using ResultType = TR;
 			return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
 		};
