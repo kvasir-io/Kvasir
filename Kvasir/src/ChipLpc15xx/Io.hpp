@@ -12,7 +12,7 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "Io.hpp"
+#include "src/Io.hpp"
 
 namespace Kvasir{
 namespace Io{

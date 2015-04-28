@@ -12,12 +12,12 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "CoreCommon.hpp"
-#include "Tags.hpp"
-#include "ChipLpc15xxSystem.hpp"
-#include "ChipLpc15xxTimer.hpp"
-#include "ChipLpc15xxIo.hpp"
-#include "ChipLpc15xxInterrupt.hpp"
+#include "../CoreCommon.hpp"
+#include "../Tags.hpp"
+#include "System.hpp"
+#include "Timer.hpp"
+#include "Io.hpp"
+#include "Interrupt.hpp"
 
 
 namespace Kvasir{
