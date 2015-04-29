@@ -14,10 +14,12 @@ limitations under the License.
 
 #include "../../../../Register/Register.hpp"
 #include "../../../../Interrupt.hpp"
+#include "../../../../Common/UsbConfig.hpp"
 
 namespace Kvasir{
 	namespace Usb{
-	struct DefaultConfig{
+	struct DefaultConfig : Detail::DefaultConfig {
+		//TODO calculate real amount of usb ram needed
 		static unsigned char usbmem[2048] __attribute__((aligned(2048)));
 		static constexpr unsigned char& usbRamStart = usbmem[0];
 		static constexpr int usbRamSize = sizeof(usbmem);

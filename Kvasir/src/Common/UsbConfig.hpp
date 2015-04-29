@@ -20,6 +20,7 @@ namespace Usb{
 		struct DefaultConfig{
 			static constexpr Detail::DoNothingAction onInput{};
 			static constexpr Detail::DoNothingAction onOutputDone{};
+			static constexpr int maxPacket = 64;
 			//todo add other default config stuff
 		};
 	}
@@ -27,6 +28,7 @@ namespace Usb{
 		struct DefaultConfig{
 			static constexpr Detail::DoNothingAction onInput{};
 			static constexpr Detail::DoNothingAction onOutputDone{};
+			static constexpr int maxPacket = 64;
 			//todo add other default config stuff
 		};
 	}
