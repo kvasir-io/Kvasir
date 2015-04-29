@@ -16,11 +16,11 @@
  * limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "MPLTypes.hpp"
-#include "MPLUtility.hpp"
-#include "MPLAlgorithm.hpp"
-#include "RegisterTypes.hpp"
-#include "RegisterFactories.hpp"
+#include "MPL/Types.hpp"
+#include "MPL/Utility.hpp"
+#include "MPL/Algorithm.hpp"
+#include "Types.hpp"
+#include "Factories.hpp"
 
 
 namespace Kvasir {
@@ -47,8 +47,8 @@ namespace Kvasir {
 		using RWLocation = BitLocation<Address::ReadWrite<Address>,Mask,WritableMask,TFieldType>;
 		template<int Address, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
 		using BWLocation = BitLocation<Address::BlindWrite<Address>,Mask,WritableMask,TFieldType>;
-		template<int Address, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
-		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,WritableMask,TFieldType>;
+		template<int Address, unsigned Mask, typename TFieldType = unsigned>
+		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,0xFFFFFFFF,TFieldType>;
 
 		//leagacy factories
 		template<unsigned Address,unsigned Mask, unsigned Data>
@@ -153,6 +153,13 @@ namespace Kvasir {
 			};
 			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType>
 			struct RegisterExec<Register::Action<BitLocation<Address::ReadWrite<A>,Mask,ReservedMask,FieldType>,ReadAction>>{
+				unsigned operator()(unsigned in = 0){
+					auto& reg = *(volatile unsigned*)A;
+					return reg;
+				}
+			};
+			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType>
+			struct RegisterExec<Register::Action<BitLocation<Address::ReadOnly<A>,Mask,ReservedMask,FieldType>,ReadAction>>{
 				unsigned operator()(unsigned in = 0){
 					auto& reg = *(volatile unsigned*)A;
 					return reg;
@@ -348,8 +355,8 @@ namespace Kvasir {
 			struct ArgToApplyIsPlausible<Action<L,A>> : TrueType{};
 			template<>
 			struct ArgToApplyIsPlausible<SequencePoint> : TrueType{};
-			template<typename... Ts>
-			struct ArgsToApplyArePlausible : AllOf<TransformT<FlattenT<List<Ts...>>, Template<ArgToApplyIsPlausible>>>{};
+			template<typename T, typename... Ts>
+			struct ArgsToApplyArePlausible : AllOf<TransformT<FlattenT<List<T,Ts...>>, Template<ArgToApplyIsPlausible>>>{};
 
 		}
 
@@ -382,5 +389,10 @@ namespace Kvasir {
 			using Actions = MPL::FlattenT<Steps>;
 			Detail::NoReadApply<Actions>{}(a);
 		}
+
+		//no parameters is allowed because it could be used in maschine generated code
+		//it does nothing
+		void apply(){};
+		void apply(MPL::List<>){};
 	}
 }

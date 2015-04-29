@@ -5,9 +5,6 @@
 using namespace Hardware;
 int main(void) {
 
-	apply(makeOutput(ledPin));
-
-
 
     // Force the counter to be placed into memory
     volatile static int i = 0 ;

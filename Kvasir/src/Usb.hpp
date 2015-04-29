@@ -1,8 +1,15 @@
 #pragma once
 
-#include "usb.h"
-#include "usbcfg.h"
-#include "usbreg.h"
-#include "USBCore.hpp"
-#include "USBHw.hpp"
-#include "UsbConfig.hpp"
+namespace Kvasir{
+namespace Usb{
+template<typename TDerived, typename TConfig>
+struct Base{
+private:
+	void onInterrupt(){
+
+	}
+public:
+//			static constexpr auto isr = MPL::list(Interrupt::usbIrq, Interrupt::usbFiq)
+};
+}
+}

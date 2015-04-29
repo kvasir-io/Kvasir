@@ -12,7 +12,7 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "../../../../../Register.hpp"
+#include "../../../../../Register/Register.hpp"
 
 namespace Kvasir{
 	namespace Detail{

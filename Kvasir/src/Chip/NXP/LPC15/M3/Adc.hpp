@@ -11,7 +11,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "../Io.hpp"
+#include "../../../../Io.hpp"
+#include "System.hpp"
 
 namespace Kvasir{
 namespace ADC{
@@ -335,49 +336,49 @@ namespace ADC{
 		constexpr Register::WriteActionT<address,0x3<<3,0x1>		channel00InterruptIfOutside{};
 		constexpr Register::WriteActionT<address,0x3<<3,0x2>		channel00InterruptIfCrossing{};
 
-		constexpr Register::WriteActionT<address,0x3<<5,0x0>		channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<5,0x1>		channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<5,0x2>		channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<7,0x0>		channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<7,0x1>		channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<7,0x2>		channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<9,0x0>		channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<9,0x1>		channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<9,0x2>		channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<11,0x0>	channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<11,0x1>	channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<11,0x2>	channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<12,0x0>	channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<12,0x1>	channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<12,0x2>	channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<15,0x0>	channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<15,0x1>	channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<15,0x2>	channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<17,0x0>	channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<17,0x1>	channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<17,0x2>	channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<19,0x0>	channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<19,0x1>	channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<19,0x2>	channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<21,0x0>	channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<21,0x1>	channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<21,0x2>	channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<23,0x0>	channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<23,0x1>	channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<23,0x2>	channel00InterruptIfCrossing{};
-
-		constexpr Register::WriteActionT<address,0x3<<25,0x0>	channel00InterruptDisable{};
-		constexpr Register::WriteActionT<address,0x3<<25,0x1>	channel00InterruptIfOutside{};
-		constexpr Register::WriteActionT<address,0x3<<25,0x2>	channel00InterruptIfCrossing{};
+//		constexpr Register::WriteActionT<address,0x3<<5,0x0>		channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<5,0x1>		channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<5,0x2>		channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<7,0x0>		channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<7,0x1>		channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<7,0x2>		channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<9,0x0>		channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<9,0x1>		channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<9,0x2>		channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<11,0x0>	channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<11,0x1>	channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<11,0x2>	channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<12,0x0>	channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<12,0x1>	channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<12,0x2>	channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<15,0x0>	channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<15,0x1>	channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<15,0x2>	channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<17,0x0>	channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<17,0x1>	channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<17,0x2>	channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<19,0x0>	channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<19,0x1>	channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<19,0x2>	channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<21,0x0>	channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<21,0x1>	channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<21,0x2>	channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<23,0x0>	channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<23,0x1>	channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<23,0x2>	channel00InterruptIfCrossing{};
+//
+//		constexpr Register::WriteActionT<address,0x3<<25,0x0>	channel00InterruptDisable{};
+//		constexpr Register::WriteActionT<address,0x3<<25,0x1>	channel00InterruptIfOutside{};
+//		constexpr Register::WriteActionT<address,0x3<<25,0x2>	channel00InterruptIfCrossing{};
 
 		//Bits 31:27 are reserved
 	}
@@ -437,8 +438,25 @@ namespace ADC{
 		Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort0(Pin)>,Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>>{
 		static_assert(Detail::getAdcPinLocationPort0(Pin) != -1,"the supplied pin does not have ADC functionality");
 	};
-	struct Config{
-		static constexpr auto powerOn = PowerConfiguration::adcOn;
+
+	struct Config0{
+		//static constexpr auto powerOn = clear(System::PowerConfiguration::adc0PoweredDown);
+		static constexpr Tag::None channel0Pin{};
+		static constexpr Tag::None channel1Pin{};
+		static constexpr Tag::None channel2Pin{};
+		static constexpr Tag::None channel3Pin{};
+		static constexpr Tag::None channel4Pin{};
+		static constexpr Tag::None channel5Pin{};
+		static constexpr Tag::None channel6Pin{};
+		static constexpr Tag::None channel7Pin{};
+		static constexpr Tag::None channel8Pin{};
+		static constexpr Tag::None channel9Pin{};
+		static constexpr Tag::None channel10Pin{};
+		static constexpr Tag::None channel11Pin{};
+	};
+
+	struct Config1{
+		static constexpr auto powerOn = clear(System::PowerConfiguration::adc1PoweredDown);
 		static constexpr Tag::None channel0Pin{};
 		static constexpr Tag::None channel1Pin{};
 		static constexpr Tag::None channel2Pin{};

@@ -11,7 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "../../../../../Register.hpp"
+#include "../../../../../Register/Register.hpp"
 
 namespace Kvasir{
 namespace System{
@@ -118,10 +118,6 @@ public:
 	struct MainClock{
 		static constexpr unsigned address{0x40048070};
 
-//		static constexpr Register::WriteActionT<address,0x03,0x00> 		internalRc{};
-//		static constexpr Register::WriteActionT<address,0x03,0x01> 		pllInput{};
-//		static constexpr Register::WriteActionT<address,0x03,0x02> 		watchdogOscillator{};
-//		static constexpr Register::WriteActionT<address,0x03,0x03> 		pllOutput{};
 		enum class Source {internalRc, pllInput, warchdogOscillator, pllOutput};
 		static constexpr Register::RWLocation<address, 0x03, ~0x03, Source>	source{};
 		template<Source S>
@@ -130,10 +126,6 @@ public:
 		static constexpr	Register::RWLocation<address+4, 1, ~1>		sourceUpdater{};
 		static constexpr auto updateSourceSequence =
 				MPL::list(clear(sourceUpdater),Register::sequencePoint,set(sourceUpdater));
-
-
-//		static constexpr Register::WriteBitActionT<address+4,0,true> 	sourceUpdate{};
-//		static constexpr Register::WriteBitActionT<address+4,0,false> 	sourceSame{};
 	};
 	struct SystemPllClock{
 		static constexpr unsigned address{0x40048040};

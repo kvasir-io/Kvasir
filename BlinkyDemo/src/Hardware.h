@@ -11,7 +11,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
-#include "Register.hpp"
+#include "Register/Register.hpp"
 #include "Io.hpp"
 #include "SystemClock.hpp"
 #include "Tags.hpp"
@@ -72,17 +72,17 @@ namespace Hardware{
 	struct MyOsciSettings{
 		static void init(){
 			using namespace Kvasir::System;
-			apply(PowerConfiguration::systemOscillatorOn);
+			using Kvasir::Register::value;
+			apply(clear(PowerConfiguration::systemOscillatorPoweredDown));
 			for (volatile int i = 0; i < 2500; i++) {} //wait for oscillator to stabilize
-			apply(SystemPll::ClockSource::systemOscilator);
-			apply(PowerConfiguration::systemPllOff);
+			apply(Pll::ClockSource::systemOscillator);
+			apply(set(PowerConfiguration::systemPllPoweredDown));
+			apply(write(Pll::Control::feedbackDivider,value<5>()),
+				write(Pll::Control::postDivider,value<Pll::Control::PostDividerRatio,Pll::Control::PostDividerRatio::div4>()));
+			apply(clear(PowerConfiguration::systemPllPoweredDown));
+			while(!apply(read(Pll::statusLocked))){};
 			apply(
-				SystemPll::Control::makeFeedbackDividerAction<5>(),
-				SystemPll::Control::makePostDividerAction<SystemPll::Control::PostDividerRatio::div4>());
-			apply(PowerConfiguration::systemPllOn);
-			while(!SystemPll::StatusLocked::read()){};
-			apply(
-				AHBCLock::Divider::makeWriteAction<1>(),
+				write(AHBCLock::divider,value<1>()),
 				Flash::threeSysclock);
 			apply(MainClockSource::pllOutput);
 		}

@@ -11,7 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "src/Interrupt.hpp"
+#include "../../../../Interrupt.hpp"
 
 /*Corresponding to NXP user manual
  *UM10736 LPC15xx Rev. 1.1 3 March 2014

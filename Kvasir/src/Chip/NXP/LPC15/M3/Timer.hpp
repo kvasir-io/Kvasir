@@ -13,7 +13,7 @@ limitations under the License.
 #pragma once
 #include "Interrupt.hpp"
 #include "System.hpp"
-#include "../Tags.hpp"
+#include "../../../../Tags.hpp"
 
 namespace Kvasir{
 namespace Timer{
@@ -89,11 +89,11 @@ struct TagSupport{
 struct Timer0DefaultConfig : Detail::TagSupport {
 	static constexpr auto isr = Interrupt::sct0;
 	static constexpr auto powerClockEnable = MPL::list(
-			System::AHBClockControl::sct0ClockOn,
+			set(System::AHBCLock::Control::sct0ClockEnabled),
 			Register::sequencePoint,
-			System::PeripheralReset::sct0ResetOn,
+			set(System::PeripheralReset::sct0ResetEnabled),
 			Register::sequencePoint,
-			System::PeripheralReset::sct0ResetOff
+			clear(System::PeripheralReset::sct0ResetEnabled)
 			);
 	static constexpr int baseAddress = 0x1C018000;
 
@@ -156,25 +156,6 @@ struct Timer0DefaultConfig : Detail::TagSupport {
 		static constexpr Register::WriteBitActionT<baseAddress,17,true> makeResetOnMatch(Match0){
 			return Register::WriteBitActionT<baseAddress,17,true>{};
 		}
-	};
-
-	//not working
-	struct Interrupt{
-		static constexpr int address = baseAddress;
-		using Status = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::ReadableP>;
-		using Clear = Register::Functional<MPL::Int<address>,MPL::Int<0x7F>,Register::Policy::WriteableP>;
-	};
-	struct Prescale{
-		static constexpr int address = baseAddress + 0x0C;
-		template<int I>
-		static constexpr auto makeSet(){ return Register::BlindWriteActionT<address,0xFFFFFFFF,I>{}; }
-	};
-	struct MatchRegister{
-		static constexpr int address = baseAddress + 0x18;
-		template<int I, int Offset>
-		using MakeSetValueT = Register::BlindWriteActionT<address,0xFFFFFFFF,I>;
-		template<int I, typename T>
-		static constexpr auto makeSetValue(T){ return MakeSetValueT<I, T::value>{};}
 	};
 
 

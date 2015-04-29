@@ -13,9 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
-#include "Register.hpp"
+#include "Register/Register.hpp"
 #include "Interrupt.hpp"
-#include "MPLUtility.hpp"
+#include "MPL/Utility.hpp"
 
 namespace Kvasir{
 	namespace Startup{

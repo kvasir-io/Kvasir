@@ -12,10 +12,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
-#include "MPLUtility.hpp"
-#include "MPLAlgorithm.hpp"
+#include "MPL/Utility.hpp"
+#include "MPL/Algorithm.hpp"
 #include "Interrupt.hpp"
-#include "Register.hpp"
+#include "Register/Register.hpp"
 #include "Tags.hpp"
 #include "SystemClock.hpp"
 

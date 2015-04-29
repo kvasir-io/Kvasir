@@ -12,8 +12,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #include "Tags.hpp"
-#include "MPLUtility.hpp"
-#include "Register.hpp"
+#include "MPL/Utility.hpp"
+#include "Register/Register.hpp"
 template<typename T>
 struct KvasirSystemClock {
 	static_assert(Kvasir::MPL::AlwaysFalse<T>::value,"You must define the system clock in every source file, put it in a header");

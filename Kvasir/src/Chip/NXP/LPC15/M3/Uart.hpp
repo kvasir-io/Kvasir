@@ -12,7 +12,7 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "../Register.hpp"
+#include "../../../../Register/Register.hpp"
 
 namespace Kvasir{
 	namespace Detail{
@@ -60,12 +60,12 @@ namespace Kvasir{
 	struct Usart0{
 		static constexpr int baseAddress = 0x40008000;
 		struct NormalMode{
-			using Tx = Register::FunctionalT<baseAddress,0xFF,Register::Policy::PushableP>;
-			using Rx = Register::FunctionalT<baseAddress,0xFF,Register::Policy::PopableP>;
+			//using Tx = Register::FunctionalT<baseAddress,0xFF,Register::Policy::PushableP>;
+			//using Rx = Register::FunctionalT<baseAddress,0xFF,Register::Policy::PopableP>;
 		};
 		struct DivisorLatchAccessMode{
-			using DivisorLatchLSB = Register::FunctionalT<baseAddress,0xFF,Register::Policy::ReadWriteableP>;
-			using DivisorLatchMSB = Register::FunctionalT<baseAddress+4,0xFF,Register::Policy::ReadWriteableP>;
+			//using DivisorLatchLSB = Register::FunctionalT<baseAddress,0xFF,Register::Policy::ReadWriteableP>;
+			//using DivisorLatchMSB = Register::FunctionalT<baseAddress+4,0xFF,Register::Policy::ReadWriteableP>;
 		};
 
 		struct InterruptStatusPod{
@@ -84,7 +84,7 @@ namespace Kvasir{
 				return raw_ & (1<<9);
 			}
 		};
-		using InterruptStatus = Register::FunctionalT<baseAddress+8,0x03CF,Register::Policy::ReadableP,RegisterPolicy::PodConversionP<InterruptStatusPod>>;
+		//using InterruptStatus = Register::FunctionalT<baseAddress+8,0x03CF,Register::Policy::ReadableP,RegisterPolicy::PodConversionP<InterruptStatusPod>>;
 		struct FifoControl{
 			static constexpr int address = baseAddress + 0x08;
 		};
@@ -134,8 +134,8 @@ namespace Kvasir{
 			static constexpr int address = baseAddress + 0x58;
 		};
 	};
-	using Usart1 = UsartN<0x4006C000>;
-	using Usart2 = UsartN<0x40070000>;
-	using Usart3 = UsartN<0x40074000>;
-	using Usart4 = UsartN<0x4004C000>;
+	using Usart1 = Detail::UsartN<0x4006C000>;
+	using Usart2 = Detail::UsartN<0x40070000>;
+	using Usart3 = Detail::UsartN<0x40074000>;
+	using Usart4 = Detail::UsartN<0x4004C000>;
 }

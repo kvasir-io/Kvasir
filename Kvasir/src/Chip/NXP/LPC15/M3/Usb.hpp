@@ -12,17 +12,13 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "../Register.hpp"
-#include "../UsbConfig.hpp"
-#include "../Interrupt.hpp"
+#include "../../../../Register/Register.hpp"
+#include "../../../../Interrupt.hpp"
 
 namespace Kvasir{
 	namespace Usb{
-	struct DefaultConfig : Detail::DefaultConfig{
+	struct DefaultConfig{
 		static constexpr int baseAddress = 0x40080000;
-		struct DeviceCommandStatus{
-			static constexpr int address = baseAddress;
-		};
 		struct DeviceCommandStatus{
 			static constexpr int address = baseAddress;
 			struct Pod{
@@ -31,7 +27,7 @@ namespace Kvasir{
 					return raw_;
 				}
 			};
-			using Reg = Register::Functional<address,0xFFFF,Register::Policy::ReadWritableP,Register::Policy::PodConversionP<Pod>>;
+//			using Reg = Register::Functional<address,0xFFFF,Register::Policy::ReadWritableP,Register::Policy::PodConversionP<Pod>>;
 			template<int I>
 			constexpr Register::WriteActionT<address,0x7F,I> makeDeviceAddress(){ return Register::WriteActionT<address,0x7F,I>{}; }
 
@@ -71,7 +67,7 @@ namespace Kvasir{
 //			static constexpr Register::WriteBitActionT<address,16,false> deviceDisconnect;
 
 			//TODO still dont know what to do with that bit
-			static constexpr Register::WriteBitActionT<address,17,false> remoteWakeup;
+//			static constexpr Register::WriteBitActionT<address,17,false> remoteWakeup;
 
 			static constexpr	Register::RWLocation<address, (1 <<19)>		deviceSuspendEnabled{};
 //			static constexpr Register::WriteBitActionT<address,19,true> deviceSuspend;
@@ -84,25 +80,17 @@ namespace Kvasir{
 //			static constexpr Register::WriteBitActionT<address,25,true> deviceSuspendChangeReset;
 
 			static constexpr 	Register::BWLocation<address, (1 <<26)>		deviceResetChangeReset{};
-			static constexpr Register::WriteBitActionT<address,26,true> deviceResetChangeReset;
+//			static constexpr Register::WriteBitActionT<address,26,true> deviceResetChangeReset;
 		};
 		struct Info{
 			static constexpr int address = baseAddress+4;
 			enum class Error {none,pidEncoding,pidUnknown,packetUnexpected};
-			using FrameNumber = Register::Functional<address,0x03FF,Register::Policy::ReadableP>;
-			using ErrorCode = Register::Functional<address,0x0C00,Register::Policy::ReadWritableP,Register::Policy::EnumConversionP<Error>>;
+//			using FrameNumber = Register::Functional<address,0x03FF,Register::Policy::ReadableP>;
+//			using ErrorCode = Register::Functional<address,0x0C00,Register::Policy::ReadWritableP,Register::Policy::EnumConversionP<Error>>;
 		};
-		using EpCommandStatusListAddress = Register::Functional<baseAddress+8,0xFFFFFFFF,Register::Policy::ReadWritableP>;
+//		using EpCommandStatusListAddress = Register::Functional<baseAddress+8,0xFFFFFFFF,Register::Policy::ReadWritableP>;
 		//TODO add rest
 	};
-		template<typename TDerived, typename TConfig>
-		struct Base{
-		private:
-			void onInterrupt(){
 
-			}
-		public:
-			static constexpr auto isr = MPL::list(Interrupt::usbIrq, Interrupt::usbFiq)
-		};
 	}
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "Usb.hpp"
 #include "Hardware.h"
-#include "ChipLpc175x6xUsb.hpp"
+#include "Common\UsbConfig.hpp"
 
 struct CdcConfig : Kvasir::Usb::DefaultConfig {
 	static constexpr int vid = 0x1234;

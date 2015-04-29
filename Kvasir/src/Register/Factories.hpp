@@ -16,7 +16,7 @@
  * limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "RegisterTypes.hpp"
+#include "Types.hpp"
 
 namespace Kvasir{
 namespace Register{
@@ -44,9 +44,9 @@ namespace Register{
 		template<typename TLocation, unsigned Value>
 		struct Write;
 		template<unsigned Address, unsigned Mask, unsigned ReservedMask, typename TField, unsigned Value>
-		struct Write<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TField>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TField>,WriteLiteralAction<Value>>{};
+		struct Write<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TField>,Value> : Action<BitLocation<Address::ReadWrite<Address>,Mask,ReservedMask,TField>,WriteLiteralAction<(Value<<positionOfFirstSetBit(Mask))>>{};
 		template<unsigned Address, unsigned Mask, unsigned ReservedMask, typename TField, unsigned Value>
-		struct Write<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TField>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TField>,WriteLiteralAction<Value>>{};
+		struct Write<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TField>,Value> : Action<BitLocation<Address::BlindWrite<Address>,Mask,ReservedMask,TField>,WriteLiteralAction<(Value<<positionOfFirstSetBit(Mask))>>{};
 		template<typename TLocation, unsigned Value>
 		using WriteT = typename Write<TLocation,Value>::Type;
 
@@ -113,7 +113,7 @@ namespace Register{
 	template<typename T, typename U>
 	constexpr inline Detail::WriteT<T,Detail::ValueToInt<U>::value> write(T, U){
 		static_assert(Detail::WirtLocationAndCompileTimeValueTypeAreSame<T,U>::value,"type mismatch: the BitLocation field type and the compile time Value type must be the same");
-		return Detail::WriteT<T,Detail::ValueToInt<U>::value>{};
+		return {};
 	}
 
 	//constraint factories check constraints on actions or lists of actions and may add sequence points or other actions

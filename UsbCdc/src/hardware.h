@@ -1,14 +1,18 @@
 #pragma once
-#include "Register.hpp"
+#include "Register/Register.hpp"
 #include "SystemClock.hpp"
 #include "Io.hpp"
 //#define LPC11U68_BOARD
-#define LPC1769_BOARD
+//#define LPC1769_BOARD
+#define LPC1549_BOARD
 #ifdef LPC11U68_BOARD
 #include "ChipLpc11u6xE6x.hpp"
 #endif
 #ifdef LPC1769_BOARD
 #include "ChipLpc175x6x.hpp"
+#endif
+#ifdef LPC1549_BOARD
+#include "Chip/Lpc1549.hpp"
 #endif
 
 namespace Hardware{
@@ -43,6 +47,27 @@ struct MyOsciSettings{
 	}
 };
 #endif
+#ifdef LPC1549_BOARD
+struct MyOsciSettings{
+	static void init(){
+		using namespace Kvasir::System;
+		using Kvasir::Register::value;
+		apply(clear(PowerConfiguration::systemOscillatorPoweredDown));
+		for (volatile int i = 0; i < 2500; i++) {} //wait for oscillator to stabilize
+		apply(Pll::ClockSource::systemOscillator);
+		apply(set(PowerConfiguration::systemPllPoweredDown));
+		apply(write(Pll::Control::feedbackDivider,value<5>()),
+			write(Pll::Control::postDivider,value<Pll::Control::PostDividerRatio,Pll::Control::PostDividerRatio::div4>()));
+		apply(clear(PowerConfiguration::systemPllPoweredDown));
+		while(!apply(read(Pll::statusLocked))){};
+		apply(
+			write(AHBCLock::divider,value<1>()),
+			Flash::threeSysclock);
+		apply(MainClockSource::pllOutput);
+	}
+};
+#endif
+
 using Clock = MyOsciSettings;
 }
 
