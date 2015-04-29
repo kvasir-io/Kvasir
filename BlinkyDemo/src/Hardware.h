@@ -21,13 +21,13 @@ limitations under the License.
 //#define LPC1549_BOARD
 
 #ifdef LPC11U68_BOARD
-#include "ChipLpc11u6xE6x/All.hpp"
+#include "Chip/Lpc11u68.hpp"
 #else
 #ifdef LPC1768_BOARD
-#include "ChipLpc175x6x/All.hpp"
+#include "Chip/Lpc1768.hpp"
 #else
 #ifdef LPC1549_BOARD
-#include "ChipLpc15xx/All.hpp"
+#include "Chip/Lpc1549.hpp"
 #else
 
 #endif
