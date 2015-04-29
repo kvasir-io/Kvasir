@@ -89,11 +89,11 @@ struct TagSupport{
 struct Timer0DefaultConfig : Detail::TagSupport {
 	static constexpr auto isr = Interrupt::sct0;
 	static constexpr auto powerClockEnable = MPL::list(
-			set(System::AHBCLock::Control::sct0ClockEnabled),
+			set(System::AHBClock::Enabled::sct0),
 			Register::sequencePoint,
-			set(System::PeripheralReset::sct0ResetEnabled),
+			set(System::PeripheralResetEnabled::sct0),
 			Register::sequencePoint,
-			clear(System::PeripheralReset::sct0ResetEnabled)
+			clear(System::PeripheralResetEnabled::sct0)
 			);
 	static constexpr int baseAddress = 0x1C018000;
 
@@ -122,19 +122,19 @@ struct Timer0DefaultConfig : Detail::TagSupport {
 		static constexpr Register::WriteBitActionT<address,18,true> couterDisable{};
 	};
 	struct Count{
-		template<int I>
-		static constexpr Register::WriteActionT<baseAddress + 40,0xFFFFF,I> make16BitLowValue(){
+		template<unsigned I>
+		static constexpr Register::WriteActionT<baseAddress + 40,0xFFFFFu,I> make16BitLowValue(){
 			static_assert(I>0xFFFF,"value out of range");
 			Register::WriteActionT<baseAddress + 40,0xFFFFF,I>{};
 		}
-		template<int I>
-		static constexpr Register::WriteActionT<baseAddress + 40,0xFFFFF0000,(I<<16)> make16BitHighValue(){
+		template<unsigned I>
+		static constexpr Register::WriteActionT<baseAddress + 40u,0xFFFF0000u,(I<<16)> make16BitHighValue(){
 			static_assert(I>0xFFFF,"value out of range");
-			Register::WriteActionT<baseAddress + 40,0xFFFFF0000,(I<<16)>{};
+			Register::WriteActionT<baseAddress + 40,0xFFFF0000,(I<<16)>{};
 		}
-		template<int I>
-		static constexpr Register::WriteActionT<baseAddress + 40,0xFFFFFFFFF,I> make32BitValue(){
-			Register::WriteActionT<baseAddress + 40,0xFFFFFFFFF,I>{};
+		template<unsigned I>
+		static constexpr Register::WriteActionT<baseAddress + 40,0xFFFFFFFFu,I> make32BitValue(){
+			Register::WriteActionT<baseAddress + 40,0xFFFFFFFF,I>{};
 		}
 	};
 	struct MatchControl{

@@ -18,6 +18,9 @@ limitations under the License.
 namespace Kvasir{
 	namespace Usb{
 	struct DefaultConfig{
+		static unsigned char usbmem[2048] __attribute__((aligned(2048)));
+		static constexpr unsigned char& usbRamStart = usbmem[0];
+		static constexpr int usbRamSize = sizeof(usbmem);
 		static constexpr int baseAddress = 0x40080000;
 		struct DeviceCommandStatus{
 			static constexpr int address = baseAddress;

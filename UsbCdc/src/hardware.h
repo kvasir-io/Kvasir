@@ -52,18 +52,37 @@ struct MyOsciSettings{
 	static void init(){
 		using namespace Kvasir::System;
 		using Kvasir::Register::value;
+		using Kvasir::Register::sequencePoint;
 		apply(clear(PowerConfiguration::systemOscillatorPoweredDown));
 		for (volatile int i = 0; i < 2500; i++) {} //wait for oscillator to stabilize
 		apply(Pll::ClockSource::systemOscillator);
 		apply(set(PowerConfiguration::systemPllPoweredDown));
 		apply(write(Pll::Control::feedbackDivider,value<5>()),
-			write(Pll::Control::postDivider,value<Pll::Control::PostDividerRatio,Pll::Control::PostDividerRatio::div4>()));
+			write(Pll::Control::postDivider,value<Pll::PostDividerRatio,Pll::PostDividerRatio::div4>()));
 		apply(clear(PowerConfiguration::systemPllPoweredDown));
 		while(!apply(read(Pll::statusLocked))){};
 		apply(
-			write(AHBCLock::divider,value<1>()),
-			Flash::threeSysclock);
-		apply(MainClockSource::pllOutput);
+			write(AHBClock::divider,value<1>()),
+			Flash::threeSysclock,
+			sequencePoint,
+			ClockSource::Main::pllOutput,
+			UsbPll::ClockSource::systemOscillator,
+			sequencePoint,
+			write(Pll::Control::feedbackDivider,value<3>()),
+			write(Pll::Control::postDivider,value<Pll::PostDividerRatio,Pll::PostDividerRatio::div2>()),
+			sequencePoint,
+			clear(PowerConfiguration::usbPllPoweredDown),
+			clear(PowerConfiguration::usbPhyPoweredDown));
+		while(!apply(read(UsbPll::statusLocked))){};
+		apply(
+			write(ClockSource::Usb::source,value<ClockSource::Usb::Source,ClockSource::Usb::Source::usbPllOut>()),
+			sequencePoint,
+			write(ClockDivide::usb,value<1>()),
+			sequencePoint,
+			set(AHBClock::Enabled::usb),
+			set(PeripheralResetEnabled::usb),
+			sequencePoint,
+			clear(PeripheralResetEnabled::usb));
 	}
 };
 #endif

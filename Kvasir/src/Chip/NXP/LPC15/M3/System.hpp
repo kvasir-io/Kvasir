@@ -56,23 +56,40 @@ namespace PowerControl {
 	//bits 31:12 reserved
 }
 
-namespace MainClockSource{
-	constexpr int address = 0x40074080;
-	namespace Detail{
-		using SourceAIrc = Register::BlindWriteActionT<address,0x03,0>;
-		using SourceASystemOscillator = Register::BlindWriteActionT<address,0x03,1>;
-		using SourceAWatchdogOscillator = Register::BlindWriteActionT<address,0x03,2>;
-		using SourceBSourceA = Register::BlindWriteActionT<address+4,0x03,0>;
+namespace ClockSource{
+	namespace Main{
+		constexpr int address = 0x40074080;
+		namespace Detail{
+			using SourceAIrc = Register::BlindWriteActionT<address,0x03,0>;
+			using SourceASystemOscillator = Register::BlindWriteActionT<address,0x03,1>;
+			using SourceAWatchdogOscillator = Register::BlindWriteActionT<address,0x03,2>;
+			using SourceBSourceA = Register::BlindWriteActionT<address+4,0x03,0>;
+		}
+		constexpr MPL::List<Detail::SourceAIrc,Detail::SourceBSourceA> irc{};
+		constexpr MPL::List<Detail::SourceASystemOscillator,Detail::SourceBSourceA> systemOscillator{};
+		constexpr MPL::List<Detail::SourceAWatchdogOscillator,Detail::SourceBSourceA> watchdogOscillator{};
+		constexpr Register::BlindWriteActionT<address+4,0x03,1> pllInput{};
+		constexpr Register::BlindWriteActionT<address+4,0x03,2> pllOutput{};
+		constexpr Register::BlindWriteActionT<address+4,0x03,3> rtcOscillator{};
 	}
-	constexpr MPL::List<Detail::SourceAIrc,Detail::SourceBSourceA> irc{};
-	constexpr MPL::List<Detail::SourceASystemOscillator,Detail::SourceBSourceA> systemOscillator{};
-	constexpr MPL::List<Detail::SourceAWatchdogOscillator,Detail::SourceBSourceA> watchdogOscillator{};
-	constexpr Register::BlindWriteActionT<address+4,0x03,1> pllInput{};
-	constexpr Register::BlindWriteActionT<address+4,0x03,2> pllOutput{};
-	constexpr Register::BlindWriteActionT<address+4,0x03,3> rtcOscillator{};
+	namespace Usb{
+		enum class Source{ircOscillator,systemOscillator,usbPllOut,mainClock};
+		constexpr Register::RWLocation<0x40074088,0x03,~0x03,Source> source;
+	}
+}
+
+namespace ClockDivide{
+	constexpr Register::RWLocation<0x400740CC,0xFF,~0xFF> systick;
+	constexpr Register::RWLocation<0x400740D0,0xFF,~0xFF> usart;
+	constexpr Register::RWLocation<0x400740D4,0xFF,~0xFF> ioconGlitchFilter;
+	constexpr Register::RWLocation<0x400740D8,0xFF,~0xFF> armTrace;
+	constexpr Register::RWLocation<0x400740EC,0xFF,~0xFF> usb;
+	constexpr Register::RWLocation<0x400740F0,0xFF,~0xFF> adcSync;
+	constexpr Register::RWLocation<0x400740F8,0xFF,~0xFF> clkOut;
 }
 
 namespace Pll{
+	enum class PostDividerRatio {div1, div2, div4, div8};
 	struct ClockSource{
 		static constexpr int address{0x400740A0};
 		static constexpr Register::WriteActionT<address,0x03,0x00> 		internalRc{};
@@ -80,7 +97,6 @@ namespace Pll{
 	};
 
 	struct Control{
-		enum class PostDividerRatio {div1, div2, div4, div8};
 		static constexpr unsigned address{0x40074198u};
 		static constexpr unsigned writable{0xFFFFFF00u};
 		static constexpr Register::RWLocation<address,0x3F,writable> feedbackDivider{};
@@ -90,185 +106,80 @@ namespace Pll{
 
 }
 
-struct AHBCLock{
+namespace UsbPll{
+	struct ClockSource{
+		static constexpr int address{0x400740A4};
+		static constexpr Register::WriteActionT<address,0x03,0x00> 		internalRc{};
+		static constexpr Register::WriteActionT<address,0x03,0x01> 		systemOscillator{};
+	};
 	struct Control{
-		static constexpr int address{0x400740C4};
+		static constexpr int address{0x400741A0};
+		static constexpr unsigned writable{0xFFFFFF00u};
+		static constexpr Register::RWLocation<address,0x3F,writable> feedbackDivider{};
+		static constexpr Register::RWLocation<address,(3 << 6),writable,Pll::PostDividerRatio> postDivider{};
+	};
+	constexpr Register::ROLocation<0x400741A4,0x01> statusLocked{};
+}
+
+struct AHBClock{
+	struct Enabled{
+		template<int Bit>
+		using Helper1 = Register::RWLocation<0x400740C4,(1u << Bit),~unsigned((1<<0) | (1<<2) | (3<<5) | ( 1<<8) | (1<<10) | (1<<17) | (7<<24) | (1<<31))>;
+		template<int Bit>
+		using Helper2 = Register::RWLocation<0x400740C8,(1u << Bit),~unsigned((1<<8) | (3<<11) | (7<<14) | ( 1<<20) | (1<<22) | (0xFF<<24))>;
+
 		//bit 0 is sys which is always on
-
-		static constexpr	Register::RWLocation<address, (1 << 1)>		romClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,1,true> 		romClockOn{};
-	//	constexpr Register::WriteBitActionT<address,1,false> 		romClockOff{};
-
+		static constexpr	Helper1<1>		rom{};
 		//bit 2 reserved
-
-		static constexpr	Register::RWLocation<address, (1 << 3)>		ram1ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,3,true> 		ram1ClockOn{};
-	//	constexpr Register::WriteBitActionT<address,3,false> 		ram1ClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 << 4)>		ram2ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,4,true> 		ram2ClockOn{};
-	//	constexpr Register::WriteBitActionT<address,4,false> 		ram2ClockOff{};
-
+		static constexpr	Helper1<3>		ram1{};
+		static constexpr	Helper1<4>		ram2{};
 		//bit 6:5 reserved
-
-		static constexpr	Register::RWLocation<address, (1 << 7)>		flashRegClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,7,true> 		flashRegClockOn{};
-	//	constexpr Register::WriteBitActionT<address,7,false> 		flashRegClockOff{};
-
+		static constexpr	Helper1<7>		flashReg{};
 		//bit 8 reserved
-
-		static constexpr 	Register::RWLocation<address, (1 << 9)>		eepromClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,9,true> 		eepromClockOn{};
-	//	constexpr Register::WriteBitActionT<address,9,false> 		eepromClockOff{};
-
+		static constexpr 	Helper1<9>		eeprom{};
 		//bit 10 reserved
-
-		static constexpr	Register::RWLocation<address, (1 <<11)>		inputMuxClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,11,true> 		inputMuxClockOn{};
-	//	constexpr Register::WriteBitActionT<address,11,false> 		inputMuxClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<12)>		switchMatrixClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,12,true> 		switchMatrixClockOn{};
-	//	constexpr Register::WriteBitActionT<address,12,false> 		switchMatrixClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<13)>		ioconClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,13,true> 		ioconClockOn{};
-	//	constexpr Register::WriteBitActionT<address,13,false> 		ioconClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<14)>		gpio0ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,14,true> 		gpio0ClockOn{};
-	//	constexpr Register::WriteBitActionT<address,14,false> 		gpio0ClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<15)>		gpio1ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,15,true> 		gpio1ClockOn{};
-	//	constexpr Register::WriteBitActionT<address,15,false> 		gpio1ClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<16)>		gpio2ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,16,true> 		gpio2ClockOn{};
-	//	constexpr Register::WriteBitActionT<address,16,false> 		gpio2ClockOff{};
-
+		static constexpr	Helper1<11>		inputMux{};
+		static constexpr	Helper1<12>		switchMatrix{};
+		static constexpr	Helper1<13>		iocon{};
+		static constexpr	Helper1<14>		gpio0{};
+		static constexpr	Helper1<15>		gpio1{};
+		static constexpr	Helper1<16>		gpio2{};
 		//bit 17 reserved
-
-		static constexpr	Register::RWLocation<address, (1 <<18)>		pinIntClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,18,true> 		pinIntClockOn{};
-	//	constexpr Register::WriteBitActionT<address,18,false> 		pinIntClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<19)>		groupedPinIntClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,19,true> 		groupedPinIntClockOn{};
-	//	constexpr Register::WriteBitActionT<address,19,false> 		groupedPinIntClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<20)>		dmaClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,20,true> 		dmaClockOn{};
-	//	constexpr Register::WriteBitActionT<address,20,false> 		dmaClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<21)>		crcClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,21,true> 		crcClockOn{};
-	//	constexpr Register::WriteBitActionT<address,21,false> 		crcClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<22)>		wwdtClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,22,true> 		wwdtClockOn{};
-	//	constexpr Register::WriteBitActionT<address,22,false> 		wwdtClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<23)>		rtcClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,23,true> 		rtcClockOn{};
-	//	constexpr Register::WriteBitActionT<address,23,false> 		rtcClockOff{};
-
+		static constexpr	Helper1<18>		pinInt{};
+		static constexpr	Helper1<19>		groupedPinInt{};
+		static constexpr	Helper1<20>		dma{};
+		static constexpr	Helper1<21>		crc{};
+		static constexpr	Helper1<22>		wwdt{};
+		static constexpr	Helper1<23>		rtc{};
 		//bit 26:24 reserved
-
-		static constexpr	Register::RWLocation<address, (1 <<27)>		adc0ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,27,true> 		adc0ClockOn{};
-	//	constexpr Register::WriteBitActionT<address,27,false> 		adc0ClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<28)>		adc1ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,28,true> 		adc1ClockOn{};
-	//	constexpr Register::WriteBitActionT<address,28,false> 		adc1ClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<29)>		dacClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,29,true> 		dacClockOn{};
-	//	constexpr Register::WriteBitActionT<address,29,false> 		dacClockOff{};
-
-		static constexpr	Register::RWLocation<address, (1 <<30)>		analogComparatorClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address,30,true> 		analogComparatorClockOn{};
-	//	constexpr Register::WriteBitActionT<address,30,false> 		analogComparatorClockOff{};
-
+		static constexpr	Helper1<27>		adc0{};
+		static constexpr	Helper1<28>		adc1{};
+		static constexpr	Helper1<29>		dac{};
+		static constexpr	Helper1<30>		analogComparator{};
 		//bit 31 reserved
 
 		//SYSAHBCLKCTRL1
-
-		static constexpr	Register::RWLocation<address+4, (1 << 0)>	mrtClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,0,true> 		mrtClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,0,false> 		mrtClockOff{};
-
-		static constexpr	Register::RWLocation<address+4, (1 << 1)>	ritClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,1,true> 		ritClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,1,false> 		ritClockOff{};
-
-		static constexpr	Register::RWLocation<address+4, (1 << 2)>	sct0ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,2,true> 		sct0ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,2,false> 		sct0ClockOff{};
-
-		static constexpr	Register::RWLocation<address+4, (1 << 3)>	sct1ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,3,true> 		sct1ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,3,false> 		sct1ClockOff{};
-
-		static constexpr	Register::RWLocation<address+4, (1 << 4)>	sct2ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,4,true> 		sct2ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,4,false> 		sct2ClockOff{};
-
-		static constexpr	Register::RWLocation<address+4, (1 << 5)>	sct3ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,5,true> 		sct3ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,5,false> 		sct3ClockOff{};
-
-		static constexpr 	Register::RWLocation<address+4, (1 << 6)>	sctIpuClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,6,true> 		sctIpuCLockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,6,false> 		sctIpuCLockOff{};
-
-		static constexpr	Register::RWLocation<address+4, (1 << 7)>	cCanClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,7,true> 		cCanClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,7,false> 		cCanClockOff{};
-
+		static constexpr	Helper2<0>	mrt{};
+		static constexpr	Helper2<1>	rit{};
+		static constexpr	Helper2<2>	sct0{};
+		static constexpr	Helper2<3>	sct1{};
+		static constexpr	Helper2<4>	sct2{};
+		static constexpr	Helper2<5>	sct3{};
+		static constexpr 	Helper2<6>	sctIpu{};
+		static constexpr	Helper2<7>	cCan{};
 		//bit 8 is reserved
-
-		static constexpr	Register::RWLocation<address+4, (1 << 9)>	spi0ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,9,true> 		spi0ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,9,false> 		spi0ClockOff{};
-
-		static constexpr	Register::RWLocation<address+4, (1 <<10)>	spi1ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,10,true> 		spi1ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,10,false> 	spi1ClockOff{};
-
+		static constexpr	Helper2<9>	spi0{};
+		static constexpr	Helper2<10>	spi1{};
 		//bit 12:11 are reserved
-
-		static constexpr	Register::RWLocation<address+4, (1 <<13)>	i2c0IntClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,13,true> 		i2c0IntClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,13,false> 	i2c0IntClockOff{};
-
+		static constexpr	Helper2<13>	i2c0Int{};
 		//bit 16:14
-
-		static constexpr	Register::RWLocation<address+4, (1 <<17)>	uart0ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,17,true> 		uart0ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,17,false> 	urat0ClockOff{};
-
-		static constexpr	Register::RWLocation<address+4, (1 <<18)>	uart1ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,18,true> 		uart1ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,18,false>		uart1ClockOff{};
-
-		static constexpr 	Register::RWLocation<address+4, (1 <<19)>	uart2ClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,19,true> 		uart2ClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,19,false> 	uart2ClockOff{};
-
+		static constexpr	Helper2<17>	uart0{};
+		static constexpr	Helper2<18>	uart1{};
+		static constexpr 	Helper2<19>	uart2{};
 		//bit 20 reserved
-
-		static constexpr	Register::RWLocation<address+4, (1  <21)>	qeiClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,21,true> 		qeiClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,21,false> 	qeiClockOff{};
-
+		static constexpr	Helper1<21>	qei{};
 		//bit 22 reserved
-
-		static constexpr	Register::RWLocation<address+4, (1 <<23)>	usbClockEnabled{};
-	//	constexpr Register::WriteBitActionT<address+4,23,true> 		usbClockOn{};
-	//	constexpr Register::WriteBitActionT<address+4,23,false> 	usbClockOff{};
-
+		static constexpr	Helper2<23>	usb{};
 		//bits 31:24 reserved
 	};
 
@@ -287,143 +198,54 @@ namespace Flash{
 	static constexpr MakeActionT<2> threeSysclock{};	//up to 72mhz
 };
 
-namespace PeripheralReset{			//PRESETCTRL register actions
+namespace PeripheralResetEnabled{			//PRESETCTRL register actions
 	constexpr int address{0x40074044};
+	template<int Bit>
+	using Helper1 = Register::RWLocation<0x40074044,(1u << Bit),~unsigned((7<<0) | (1<<8) | (1<<10) | ( 1<<12) | (0xF<<14) | (0x1F<<22) | (1<<29) | (1<<31))>;
+	template<int Bit>
+	using Helper2 = Register::RWLocation<0x40074048,(1u << Bit),~unsigned((1<<8) | (3<<11) | (7<<14) | ( 1<<20) | (1<<22) | (0xFF<<24))>;
 
 	//bit 6:0 reserved
-
-	static constexpr	Register::RWLocation<address, (1 << 7)>		flashResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,7,true> 		flashResetOn{};
-//	constexpr Register::WriteBitActionT<address,7,false> 		flashResetOff{};
-
+	static constexpr	Helper1<7>		flash{};
 	//bit 8 reserved
-
-	static constexpr	Register::RWLocation<address, (1 << 9)>		eepromResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,9,true> 		eepromResetOn{};
-//	constexpr Register::WriteBitActionT<address,9,false> 		eepromResetOff{};
-
+	static constexpr	Helper1<9>		eeprom{};
 	//bit 10 reserved
-
-	static constexpr	Register::RWLocation<address, (1 <<11)>		inputMuxResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,11,true> 		inputMuxResetOn{};
-//	constexpr Register::WriteBitActionT<address,11,false> 		inputMuxResetOff{};
-
+	static constexpr	Helper1<11>		inputMux{};
 	//bit 12 reserved
-
-	static constexpr	Register::RWLocation<address, (1 <<13)>		ioConResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,13,true> 		ioConResetOn{};
-//	constexpr Register::WriteBitActionT<address,13,false> 		ioConResetOff{};
-
+	static constexpr	Helper1<13>		ioCon{};
 	//bit 17:14 reserved
-
-	static constexpr	Register::RWLocation<address, (1 <<18)>		pinInterruptResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,18,true> 		pinInterruptResetOn{};
-//	constexpr Register::WriteBitActionT<address,18,false> 		pinInterruptResetOff{};
-
-	static constexpr	Register::RWLocation<address, (1 <<19)>		groupedInterruptResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,19,true> 		groupedInterruptResetOn{};
-//	constexpr Register::WriteBitActionT<address,19,false> 		groupedInterruptResetOff{};
-
-	static constexpr	Register::RWLocation<address, (1 <<20)>		dmaResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,20,true> 		dmaResetOn{};
-//	constexpr Register::WriteBitActionT<address,20,false> 		dmaResetOff{};
-
-	static constexpr	Register::RWLocation<address, (1 <<21)>		crcResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,21,true> 		crcResetOn{};
-//	constexpr Register::WriteBitActionT<address,21,false> 		crcResetOff{};
-
+	static constexpr	Helper1<18>		pinInterrupt{};
+	static constexpr	Helper1<19>		groupedInterrupt{};
+	static constexpr	Helper1<20>		dma{};
+	static constexpr	Helper1<21>		crc{};
 	//bit 26:22 reserved
-
-	static constexpr	Register::RWLocation<address, (1 <<27)>		adc0ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,27,true> 		adc0ResetOn{};
-//	constexpr Register::WriteBitActionT<address,27,false> 		adc0ResetOff{};
-
-	static constexpr	Register::RWLocation<address, (1 <<18)>		adc1ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,28,true> 		adc1ResetOn{};
-//	constexpr Register::WriteBitActionT<address,28,false> 		adc1ResetOff{};
-
+	static constexpr	Helper1<27>		adc0{};
+	static constexpr	Helper1<18>		adc1{};
 	//bit 29 reserved
-
-	static constexpr	Register::RWLocation<address, (1 <<30)>		analogComparatorResetEnabled{};
-//	constexpr Register::WriteBitActionT<address,30,true> 		analogComparatorResetOn{};
-//	constexpr Register::WriteBitActionT<address,30,false> 		analogComparatorResetOff{};
-
+	static constexpr	Helper1<30>		analogComparator{};
 	//bit 31 reserved
 
-	static constexpr	Register::RWLocation<address+4, (1 << 0)>	multirateTimerResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,0,true> 		multirateTimerResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,0,false> 		multirateTimerResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 << 1)>	ritResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,1,true> 		ritResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,1,false> 		ritResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 << 2)>	sct0ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,2,true> 		sct0ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,2,false> 		sct0ResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 << 3)>	sct1ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,3,true> 		sct1ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,3,false> 		sct1ResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 << 4)>	sct2ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,4,true> 		sct2ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,4,false> 		sct2ResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 << 5)>	sct3ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,5,true> 		sct3ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,5,false> 		sct3ResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 << 6)>	sctInputResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,6,true> 		sctIpuResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,6,false> 		sctIpuResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 << 7)>	cCanResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,7,true> 		cCanResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,7,false> 		cCanResetOff{};
-
+	static constexpr	Helper2<0>	multirateTimer{};
+	static constexpr	Helper2<1>	rit{};
+	static constexpr	Helper2<2>	sct0{};
+	static constexpr	Helper2<3>	sct1{};
+	static constexpr	Helper2<4>	sct2{};
+	static constexpr	Helper2<5>	sct3{};
+	static constexpr	Helper2<6>	sctInput{};
+	static constexpr	Helper2<7>	cCan{};
 	//bit 8 reserved
-
-	static constexpr	Register::RWLocation<address+4, (1 << 9)>	spi0ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,9,true> 		spi0ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,9,false> 		spi0ResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 <<10)>	spi1ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,10,true> 		spi1ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,10,false> 	spi1ResetOff{};
-
+	static constexpr	Helper2<9>	spi0{};
+	static constexpr	Helper2<10>	spi1{};
 	//bit 12:11 reserved
-
-	static constexpr	Register::RWLocation<address+4, (1 <<13)>	i2c0ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,13,true> 		i2c0ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,13,false> 	i2c0ResetOff{};
-
+	static constexpr	Helper2<13>	i2c0{};
 	//bit 16:14 reserved
-
-	static constexpr	Register::RWLocation<address+4, (1 <<17)>	uart0ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,17,true> 		uart0ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,17,false> 	uart0ResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 <<18)>	uart1ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,18,true> 		uart1ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,18,false> 	uart1ResetOff{};
-
-	static constexpr	Register::RWLocation<address+4, (1 <<19)>	uart2ResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,19,true> 		uart2ResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,19,false> 	uart2ResetOff{};
-
+	static constexpr	Helper2<17>	uart0{};
+	static constexpr	Helper2<18>	uart1{};
+	static constexpr	Helper2<19>	uart2{};
 	//bit 20 reserved
-
-	static constexpr	Register::RWLocation<address+4, (1 <<21)>	qeiResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,21,true> 		qeiResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,21,false> 	qeiResetOff{};
-
+	static constexpr	Helper2<21>	qei{};
 	//bit 22 reserved
-
-	static constexpr	Register::RWLocation<address+4, (1 <<23)>	usbResetEnabled{};
-//	constexpr Register::WriteBitActionT<address+4,23,true> 		usbResetOn{};
-//	constexpr Register::WriteBitActionT<address+4,23,false> 	usbResetOff{};
-
+	static constexpr	Helper2<23>	usb{};
 	//bit 31:24 reserved
 
 };
