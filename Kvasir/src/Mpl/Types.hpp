@@ -36,6 +36,11 @@ namespace Kvasir {
 			};
 		};
 
+		template<typename T>
+		struct Return{
+			using Type = T;
+		};
+
 		//Wrapper for integral type template parameters
 		template<typename T, T I>
 		struct Value {
