@@ -30,55 +30,19 @@ namespace Pipe{
 	template<typename T>
 	using TagTraitsT = typename TagTraits<T>::Type;
 
-	struct OverFlowPolicyIgnore{
-		static void overflow(){}
-	};
-
-	namespace Detail{
-		using namespace MPL;
-		template<unsigned Size, typename = void>
-		struct GetIndexType : Type<unsigned>{};
-		template<unsigned Size>
-		struct GetIndexType<Size,EnableIfT<(Size <= 256)>> : Type<unsigned char>{};
-		template<unsigned Size>
-		struct GetIndexType<Size,EnableIfT<(Size <= 65536)>> : Type<unsigned short>{};
-		template<unsigned Size>
-		using GetIndexTypeT = typename GetIndexType<Size,void>::Type;
-
-	}
 
 	template<typename TName, typename TDataType, unsigned Size, typename TEventAction = Action::DoNothing, typename TOverflowPolicy = OverFlowPolicyIgnore>
 	struct Fifo{
 	private:
-		using IndexType = GetIndexTypeT<Size>;
-		static TDataType data_[Size];
-		volatile IndexType head_{0};
-		volatile IndexType tail_{0};
-		IndexType distance(IndexType head, IndexType tail){
-			int d = tail - head;
-			if(d < 0){
-				d += Size;
-			}
-			return d;
-		}
-		IndexType next(IndexType in){
-			return (in+1)%Size;
-		}
+		static Atomic::Queue<TDataType,Size> queue_;
 	public:
 		void push(TDataType in){
-			auto tail = tail_;
-			auto head = head_;
-			auto nextTail = next(tail);
-			if(head != nextTail){
-				data_[tail] = in;
-				tail_ = nextTail;		//commit
-				TagTraitsT<TEventAction>{}();
-			}
-			else{
-				TOverflowPolicy::overflow();
-			}
+			queue_.push(in);
+			TagTraitsT<TEventAction>{}();
 		}
-		void push(TDataType* begin, TDataType* end){
+		template<typename T, typename =
+				MPL::EnableIfT<MPL::IsSame<MPL::RemoveConstT<decltype(*DeclVal<T>().begin())>,TDataType>::value>>
+		void push(T& range){
 			auto tail = tail_;
 			auto head = head_;
 			if((end-begin) < Size - distance(head,tail)){
@@ -100,7 +64,7 @@ namespace Pipe{
 			head_ = next(head); 	//commit
 			return true;
 		}
-		bool pop(TDataType* begin, TDataType* end){
+		bool pop(RandomAccessRange<TDataType*>){
 			auto tail = tail_;
 			auto head = head_;
 			int size = distance(head,tail);

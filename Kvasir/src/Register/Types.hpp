@@ -106,7 +106,7 @@ namespace Register{
 	struct ValueObject;		//see below for implementation in specialization
 	template<int... Is, typename... TAs, unsigned... Masks, unsigned... Reserveds, typename... TRs>
 	struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<BitLocation<TAs,Masks,Reserveds,TRs>>...>{
-		const int value_[sizeof...(Is)];
+		const unsigned value_[sizeof...(Is)];
 		template<int Index>
 		MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
 			using namespace MPL;
@@ -121,7 +121,7 @@ namespace Register{
 	};
 	template<int I, typename TA, unsigned Mask, unsigned ReservedMask, typename TR>
 	struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<BitLocation<TA,Mask,ReservedMask,TR>>>{
-		const int value_;
+		const unsigned value_;
 		operator TR(){
 			using namespace MPL;
 			using ResultType = TR;

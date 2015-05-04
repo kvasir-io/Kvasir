@@ -63,6 +63,36 @@ namespace Kvasir {
 		template<typename T, typename U>
 		using IsSameT = typename IsSame<T,U>::Type;
 
+		template<typename T>
+		struct IsIntegral : FalseType{};
+		template<>
+		struct IsIntegral<long long> : TrueType{};
+		template<>
+		struct IsIntegral<unsigned long long> : TrueType{};
+		template<>
+		struct IsIntegral<long> : TrueType{};
+		template<>
+		struct IsIntegral<unsigned long> : TrueType{};
+		template<>
+		struct IsIntegral<int> : TrueType{};
+		template<>
+		struct IsIntegral<unsigned> : TrueType{};
+		template<>
+		struct IsIntegral<short> : TrueType{};
+		template<>
+		struct IsIntegral<unsigned short> : TrueType{};
+		template<>
+		struct IsIntegral<char> : TrueType{};
+		template<>
+		struct IsIntegral<signed char> : TrueType{};
+		template<>
+		struct IsIntegral<unsigned char> : TrueType{};
+		template<>
+		struct IsIntegral<bool> : TrueType{};
+
+		template<typename T>
+		using IsIntegralT = typename IsIntegral<T>::Type;
+
 		template<class T> struct RemoveConst {
 			typedef T Type;
 		};
