@@ -8,7 +8,6 @@ optimizations must be switched off locally (by using the volatile keyword) when 
 Example 1:
 
 <code>
-
     volatile int& mySfr = 0x40123456;
     
     //in user code
@@ -16,7 +15,6 @@ Example 1:
  
     //in an ISR
     sfr &= ~(1<<16);
-    
 </code>
 
 This approach is effective but far less efficient than possible.
