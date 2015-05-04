@@ -2,18 +2,14 @@
 #ifndef __CDC_H
 #define __CDC_H
 
-#include "usb.h"
-#include "usbdesc.h"
-#include "usbcfg.h"
-
 namespace Kvasir{
-namespace CDC{
+namespace Cdc{
 
 /*----------------------------------------------------------------------------
 	 *      Definitions  based on usbcdc11.pdf (www.usb.org)
 	 *---------------------------------------------------------------------------*/
 	// Communication device class specification version 1.10
-	static const uint32_t CDC_V1_10    =                      0x0110;
+	static const unsigned version{0x0110};
 
 	// Communication interface class code
 	// (usbcdc11.pdf, 4.2, Table 15)
