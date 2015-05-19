@@ -3,6 +3,32 @@
 #include "MPL/Utility.hpp"
 
 namespace Kvasir{
+
+	template<int I, int J>
+	struct CoutFromTo{
+		constexpr bool isLast = false;
+		constexpr int value = I;
+		using Next = CountFromTo<I+1,J>;
+	};
+
+	template<int I>
+	struct CountFromTo<I,I>{
+		constexpr bool isLast = true;
+		constexpr int value = I;
+	};
+
+	template<int I>
+	struct CoutTo{
+		constexpr bool isLast = false;
+		constexpr int value = 0;
+		using Next = CountFromTo<1,I>;
+	};
+
+	template<>
+	struct CountTo<1>{
+		constexpr bool isLast = true;
+		constexpr int value = 0;
+	};
 	template<typename T>
 	class SinglePassRange{
 		const T begin_;
