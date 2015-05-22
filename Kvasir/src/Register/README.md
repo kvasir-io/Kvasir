@@ -17,7 +17,7 @@ Example 1:
 
 This approach is effective but far less efficient than possible.
 
-Besides being inefficient this approach can be unsafe and unflexable. For example the register "mySfr" may contain bits which are cleared by writing a 1. This harmless looking |= reads the register, changes bit 14 and leaves the rest unchanged, however with the above mentioned special behavior unrelated bits would be cleared unexpectedly by this action. The "mySfr" in code example above could also be modified from an ISR which would cause a race condition. 
+Besides being inefficient this approach can be unsafe and unflexable. We can all imagine errors like shifting too far or using the wrong mask, however it can even be much mor subtle. For example the register "mySfr" may contain bits which are cleared by writing a 1. This harmless looking |= reads the register, changes bit 14 and leaves the rest unchanged, however with the above mentioned special behavior unrelated bits would be cleared unexpectedly by this action. The "mySfr" in code example above could also be modified from an ISR which would cause a race condition. 
 
 The root of the problem is that the compiler (and often the user) does not have enough information about the special functios contained in a given SFR to do static checking, provide flexable forms of expression or optimize the code correctly. 
 
@@ -39,7 +39,7 @@ Example 2:
     apply(clear(mySfrBitName3));
 ```
 
-here `apply` executes its parameters, in unspecified order. `set` and `clear` are essentially command factories which convert a `BitLocation` (which `RWLocation` is an alias of) into a `Register::Action` which in turn can be executed by `apply`. 
+here `apply` executes its parameters, in unspecified order. `set` and `clear` are essentially command factories which convert a `Register::BitLocation` (which `RWLocation` is an alias of) into a `Register::Action` which in turn can be executed by `apply`. 
 
 In example 2 we still have the same problem of a race condition, we could however remidy this with the `atomic` factory function which changes its parameter into an atomic operation or issues a compiler error if it is not possible. 
 
@@ -76,10 +76,4 @@ Now this is thread safe because we are accessing different bytes in bytewise mod
 ```
     assertNoConflicts(isolated(set(mySfrBitName1),set(mySfrBitName2)),isolated(clear(mySfrBitName3))); //no error
     assertNoConflicts(isolated(set(mySfrBitName1)),isolated(set(mySfrBitName2))); //error both bits are in the same byte
-    
-    //in user code
-    apply(isolated(set(mySfrBitName1),set(mySfrBitName2)));
-    
-    //in an ISR
-    apply(isolated(clear(mySfrBitName3)));
 ```
