@@ -79,6 +79,7 @@ Now this is thread safe because we are accessing different bytes in bytewise mod
 ```
 
 What about efficientcy? Great care has been taken to make the abstraction always be at least as efficient as a typical hand written equivalent. However there are a few tricks which we can use to increase efficientcy:
+
 1. change single bit manipulations into bit banded manipulations. This is considerably faster because a read-mask-modify-write cycle becomes just a write cycle and loading a single bool value into a work register can also be more efficent than loading a 32 bit mask literal. 
 2. merge manipulations that act on the same register. This dosn't need much explainations, if you write to the same register multiple times within one apply call the writes will be merged into one single write.
 3. sory by address. This may not seem like an optimization, however if we imagine accessing one register, then a different one and then another which is near the first we may be loading the address of all three where as if we switch around the last two then we can profit from the 'load with offset' ability of the processor.
