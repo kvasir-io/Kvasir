@@ -14,258 +14,355 @@ limitations under the License.
 #include "../../../../../Io.hpp"
 #include "System.hpp"
 
+//#define LQFP48_Package
+//#define LQFP64_Package
+//#define LQFP100_Package
+
+
 namespace Kvasir{
 namespace ADC{
-	namespace CON
+
+	constexpr int baseAddressAdc				{0x4001C000};
+
+
+	constexpr int offsetCtrl					{0x000};
+	//reserved offset							{0x004};
+	constexpr int offsetSeqA_Ctrl				{0x008};
+	constexpr int offsetSeqB_Ctrl				{0x00C};
+	constexpr int offsetSeqA_Gdat				{0x010};
+	constexpr int offsetSeqB_Gdat				{0x014};
+	constexpr int offsetDat0					{0x020};
+	constexpr int offsetDat1					{0x024};
+	constexpr int offsetDat2					{0x028};
+	constexpr int offsetDat3					{0x02C};
+	constexpr int offsetDat4					{0x030};
+	constexpr int offsetDat5					{0x034};
+	constexpr int offsetDat6					{0x038};
+	constexpr int offsetDat7					{0x03C};
+	constexpr int offsetDat8					{0x040};
+	constexpr int offsetDat9					{0x044};
+	constexpr int offsetDat10					{0x048};
+	constexpr int offsetDat11					{0x04C};
+	constexpr int offsetThr0_Low				{0x050};
+	constexpr int offsetThr1_Low				{0x054};
+	constexpr int offsetThr0_High				{0x058};
+	constexpr int offsetThr1_High				{0x05C};
+	constexpr int offsetChannelThrSel			{0x060};
+	constexpr int offsetInten					{0x064};
+	constexpr int offsetFlags					{0x068};
+	constexpr int offsetTrm						{0x06C};
+
+	namespace Ctrl
 	{
-		constexpr int address{0x4001C000};
+		constexpr int address{baseAddressAdc+offsetCtrl};
 
-		//TODO make function register abstraction for CLKDIV
-
+		static constexpr	Register::RWLocation<address, 0xFF> 		clkDiv{};
 		//Bits 9:8 are reserved
-
-		static constexpr Register::RWLocation<address, (1 <<10)>	lowPowerModeEnabled{};
-//		constexpr Register::WriteBitActionT<address,10,true>		lowPowerModeEnable{};
-//		constexpr Register::WriteBitActionT<address,10,false>	lowPowerModeDisable{};
-
+		static constexpr 	Register::RWLocation<address, (1 <<10)>	lowPowerModeEnabled{};
 		//Bits 29:11 are reserved
-
-		static constexpr Register::RWLocation<address, (1 <<30)>	calibrationCycleStart{};
-//		constexpr Register::WriteBitActionT<address,30,true>		calibrationCycleStart{};
-
+		static constexpr 	Register::BWLocation<address, (1 <<30)>	calibrationCycleStart{};
 		//Bit 30 is reserved
 	}
 	namespace ConversionSequenceACON
 	{
-		constexpr int address{0x4001C008};
+		constexpr int address{baseAddressAdc+offsetSeqA_Ctrl};
 
-		static constexpr	Register::RWLocation<address, 1>			channel00Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 1)>		channel01Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 2)>		channel02Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 3)>		channel03Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 4)>		channel04Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 5)>		channel05Enabled{};
-		static constexpr 	Register::RWLocation<address, (1 << 6)>		channel06Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 7)>		channel07Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 8)>		channel08Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 9)>		channel09Enabled{};
-		static constexpr	Register::RWLocation<address, (1 <<10)>		channel10Enabled{};
-		static constexpr	Register::RWLocation<address, (1 <<11)>		channel11Enabled{};
-
-		// TODO implement routine to write whole byte
-		constexpr Register::WriteActionT<address,0xFFF,0>		channelDisable_ALL{};
-
-		//TODO make enum for triggerdistinction
-
+		static constexpr	Register::RWLocation<address, 1>					channel00Enabled{};
+		static constexpr	Register::RWLocation<address, (1 << 1)>				channel01Enabled{};
+		static constexpr	Register::RWLocation<address, (1 << 2)>				channel02Enabled{};
+		static constexpr	Register::RWLocation<address, (1 << 3)>				channel03Enabled{};
+		static constexpr	Register::RWLocation<address, (1 << 4)>				channel04Enabled{};
+		static constexpr	Register::RWLocation<address, (1 << 5)>				channel05Enabled{};
+		static constexpr 	Register::RWLocation<address, (1 << 6)>				channel06Enabled{};
+		static constexpr	Register::RWLocation<address, (1 << 7)>				channel07Enabled{};
+		static constexpr	Register::RWLocation<address, (1 << 8)>				channel08Enabled{};
+		static constexpr	Register::RWLocation<address, (1 << 9)>				channel09Enabled{};
+		static constexpr	Register::RWLocation<address, (1 <<10)>				channel10Enabled{};
+		static constexpr	Register::RWLocation<address, (1 <<11)>				channel11Enabled{};
+		constexpr 			Register::WriteActionT<address,0xFFF,0>				channelDisable_ALL{};
+		static constexpr	Register::RWLocation<address, (0x07 << 12)> 		writeHardwareTriggerSource{};
 		//Bits 17:15 are reserved
-
-		constexpr Register::WriteBitActionT<address,18,true>		triggerOnRisingEdge{};
-		constexpr Register::WriteBitActionT<address,18,false>	triggerOnFallingEdge{};
-
-		static constexpr	Register::RWLocation<address, (1 <<19)>		syncBypassEnabled{};
-
+		enum class TriggerPolicy {	triggerOnRisingEdge,
+									triggerOnFallingEdge};
+			static constexpr Register::RWLocation<address,(1 <<18),~(1 <<18), TriggerPolicy> triggerPolicy{};
+			template<TriggerPolicy T>
+			static constexpr decltype(write(triggerPolicy,Register::value<TriggerPolicy, T>())) writeTriggerPolicy(){ return{}; }
+		static constexpr	Register::RWLocation<address, (1 <<19)>				syncBypassEnabled{};
 		//Bits 20:25 are reserved
-
-		constexpr Register::WriteActionT<address,0x3<<26,0x1>	startOneConversion{};
-		constexpr Register::WriteActionT<address,0x3<<26,0x2>	stratBurstConversion{};
-		constexpr Register::WriteActionT<address,0x3<<26,0x0>	terminateMultipleConversions{};
-		constexpr Register::WriteBitActionT<address,28,true>		stepConversionModeEnable{};
-		constexpr Register::WriteBitActionT<address,28,false>	stepConversionModeDisable{};
-
-		static constexpr	Register::RWLocation<address, (1 <<29)>		priorityOnSeqADecreaseEnabled{};
-		constexpr Register::WriteBitActionT<address,30,true>		interruptAfterEachSequence{};
-		constexpr Register::WriteBitActionT<address,30,false>	interruptAfterEachConversion{};
-
-		static constexpr	Register::RWLocation<address, (1 <<31)>		sequenceEnabled{};
+		enum class ConversionControl {	startOneConversion,
+										startBurstConversion,
+										terminateMultipleConversion};
+			static constexpr Register::RWLocation<address,(0x03 <<26),~(0x03 <<26), ConversionControl> conversionControl{};
+			template<ConversionControl C>
+			static constexpr decltype(write(conversionControl, Register::value<ConversionControl, C>())) writeConversionControl(){ return{}; }
+		static constexpr	Register::RWLocation<address, (1 <<28)>				stepConversionModeEnabled{};
+		static constexpr	Register::RWLocation<address, (1 <<29)>				setLowPriorityOnSeqAEnabled{};
+		enum class InterruptThrowCondition {interruptAfterEachSequence,
+											interruptAfterEachConversion};
+			static constexpr Register::RWLocation<address,(1 <<30),~(1 <<30), InterruptThrowCondition> interruptThrowCondition{};
+			template<InterruptThrowCondition I>
+			static constexpr decltype(write(interruptThrowCondition, Register::value<InterruptThrowCondition, I>())) writeInterruptThrowCondition(){ return{}; };
+		static constexpr	Register::RWLocation<address, (1 <<31)>				sequenceEnabled{};
 	}
 	namespace ConversionSequenceBCON
 	{
-		constexpr int address{0x4001C00C};
+			constexpr int address{baseAddressAdc+offsetSeqB_Ctrl};
 
-		static constexpr	Register::RWLocation<address, 1>			channel00Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 1)>		channel01Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 2)>		channel02Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 3)>		channel03Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 4)>		channel04Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 5)>		channel05Enabled{};
-		static constexpr 	Register::RWLocation<address, (1 << 6)>		channel06Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 7)>		channel07Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 8)>		channel08Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 9)>		channel09Enabled{};
-		static constexpr	Register::RWLocation<address, (1 <<10)>		channel10Enabled{};
-		static constexpr	Register::RWLocation<address, (1 <<11)>		channel11Enabled{};
-
-		// TODO implement routine to write whole byte
-		constexpr Register::WriteActionT<address,0xFFF,0>		channelDisable_ALL{};
-
-		//TODO make enum for triggerdistinction
-
-		//Bits 17:15 are reserved
-
-		constexpr Register::WriteBitActionT<address,18,true>		triggerOnRisingEdge{};
-		constexpr Register::WriteBitActionT<address,18,false>	triggerOnFallingEdge{};
-
-		static constexpr	Register::RWLocation<address, (1 <<19)>		syncBypassEnabled{};
-
-		//Bits 20:25 are reserved
-
-		constexpr Register::WriteActionT<address,0x3<<26,0x1>	startOneConversion{};
-		constexpr Register::WriteActionT<address,0x3<<26,0x2>	stratBurstConversion{};
-		constexpr Register::WriteActionT<address,0x3<<26,0x0>	terminateMultipleConversions{};
-		constexpr Register::WriteBitActionT<address,28,true>		stepConversionModeEnable{};
-		constexpr Register::WriteBitActionT<address,28,false>	stepConversionModeDisable{};
-
-		// Bit 29 is reserved ->have a look at Kvasir::ADC::ConversionSequanceACON
-
-		constexpr Register::WriteBitActionT<address,30,true>		interruptAfterEachSequence{};
-		constexpr Register::WriteBitActionT<address,30,false>	interruptAfterEachConversion{};
-
-		static constexpr	Register::RWLocation<address, (1 <<31)>		sequenceEnabled{};
+			static constexpr	Register::RWLocation<address, 1>					channel00Enabled{};
+			static constexpr	Register::RWLocation<address, (1 << 1)>				channel01Enabled{};
+			static constexpr	Register::RWLocation<address, (1 << 2)>				channel02Enabled{};
+			static constexpr	Register::RWLocation<address, (1 << 3)>				channel03Enabled{};
+			static constexpr	Register::RWLocation<address, (1 << 4)>				channel04Enabled{};
+			static constexpr	Register::RWLocation<address, (1 << 5)>				channel05Enabled{};
+			static constexpr 	Register::RWLocation<address, (1 << 6)>				channel06Enabled{};
+			static constexpr	Register::RWLocation<address, (1 << 7)>				channel07Enabled{};
+			static constexpr	Register::RWLocation<address, (1 << 8)>				channel08Enabled{};
+			static constexpr	Register::RWLocation<address, (1 << 9)>				channel09Enabled{};
+			static constexpr	Register::RWLocation<address, (1 <<10)>				channel10Enabled{};
+			static constexpr	Register::RWLocation<address, (1 <<11)>				channel11Enabled{};
+			constexpr 			Register::WriteActionT<address,0xFFF,0>				channelDisable_ALL{};
+			static constexpr	Register::RWLocation<address, (0x07 << 12)> 		writeHardwareTriggerSource{};
+			//Bits 17:15 are reserved
+			enum class TriggerPolicy {	triggerOnRisingEdge,
+										triggerOnFallingEdge};
+				static constexpr Register::RWLocation<address,(1 <<18),~(1 <<18), TriggerPolicy> triggerPolicy{};
+				template<TriggerPolicy T>
+				static constexpr decltype(write(triggerPolicy,Register::value<TriggerPolicy, T>())) writeTriggerPolicy(){ return{}; }
+			static constexpr	Register::RWLocation<address, (1 <<19)>				syncBypassEnabled{};
+			//Bits 20:25 are reserved
+			enum class ConversionControl {	startOneConversion,
+											startBurstConversion,
+											terminateMultipleConversion};
+				static constexpr Register::RWLocation<address,(0x03 <<26),~(0x03 <<26), ConversionControl> conversionControl{};
+				template<ConversionControl C>
+				static constexpr decltype(write(conversionControl, Register::value<ConversionControl, C>())) writeConversionControl(){ return{}; }
+			static constexpr	Register::RWLocation<address, (1 <<28)>				stepConversionModeEnabled{};
+			static constexpr	Register::RWLocation<address, (1 <<29)>				setLowPriorityOnSeqAEnabled{};
+			enum class InterruptThrowCondition {interruptAfterEachSequence,
+												interruptAfterEachConversion};
+				static constexpr Register::RWLocation<address,(1 <<30),~(1 <<30), InterruptThrowCondition> interruptThrowCondition{};
+				template<InterruptThrowCondition I>
+				static constexpr decltype(write(interruptThrowCondition, Register::value<InterruptThrowCondition, I>())) writeInterruptThrowCondition(){ return{}; };
+			static constexpr	Register::RWLocation<address, (1 <<31)>				sequenceEnabled{};
 	}
 
-	namespace GlobalDataRegisterSequenceA{constexpr int address{0x4001C010};/*Fill in the getters*/}
-	namespace GlobalDataRegisterSequenceB{constexpr int address{0x4001C014};/*Fill in the getters*/}
-	namespace Channel00DataRegister{constexpr int address{0x4001C020};/*Fill in the getters*/}
-	namespace Channel01DataRegister{constexpr int address{0x4001C024};/*Fill in the getters*/}
-	namespace Channel02DataRegister{constexpr int address{0x4001C028};/*Fill in the getters*/}
-	namespace Channel03DataRegister{constexpr int address{0x4001C02C};/*Fill in the getters*/}
-	namespace Channel04DataRegister{constexpr int address{0x4001C030};/*Fill in the getters*/}
-	namespace Channel05DataRegister{constexpr int address{0x4001C034};/*Fill in the getters*/}
-	namespace Channel06DataRegister{constexpr int address{0x4001C038};/*Fill in the getters*/}
-	namespace Channel07DataRegister{constexpr int address{0x4001C03C};/*Fill in the getters*/}
-	namespace Channel08DataRegister{constexpr int address{0x4001C040};/*Fill in the getters*/}
-	namespace Channel09DataRegister{constexpr int address{0x4001C044};/*Fill in the getters*/}
-	namespace Channel10DataRegister{constexpr int address{0x4001C048};/*Fill in the getters*/}
-	namespace Channel11DataRegister{constexpr int address{0x4001C04C};/*Fill in the getters*/}
+	namespace GlobalDataRegisterSequenceAAdc{
+		constexpr int address{baseAddressAdc+offsetSeqA_Gdat};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	lastConvertedChannel{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace GlobalDataRegisterSequenceBAdc{
+		constexpr int address{baseAddressAdc+offsetSeqB_Gdat};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	lastConvertedChannel{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat0{
+		constexpr int address{baseAddressAdc+offsetDat0};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat1{
+		constexpr int address{baseAddressAdc+offsetDat1};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat2{
+		constexpr int address{baseAddressAdc+offsetDat2};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat3{
+		constexpr int address{baseAddressAdc+offsetDat3};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat5{
+		constexpr int address{baseAddressAdc+offsetDat5};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat6{
+		constexpr int address{baseAddressAdc+offsetDat6};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat7{
+		constexpr int address{baseAddressAdc+offsetDat7};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat8{
+		constexpr int address{baseAddressAdc+offsetDat8};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat9{
+		constexpr int address{baseAddressAdc+offsetDat9};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat10{
+		constexpr int address{baseAddressAdc+offsetDat10};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
+	namespace DataRegisterDat11{
+		constexpr int address{baseAddressAdc+offsetDat11};
+	//Bits 3:0 are reserved
+		static constexpr 	Register::ROLocation<address, (0xFFF<<4)>	lastConvertedResult{};
+		static constexpr	Register::ROLocation<address, (0x03<<16)>	thCmpRange{};
+		static constexpr	Register::ROLocation<address, (0x03<<18)>	thCmpCross{};
+	//Bits 25:20 are reserved
+		static constexpr	Register::ROLocation<address, (0xF <<26)>	channelIdentity{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		overrun{};
+		static constexpr	Register::ROLocation<address, (1 <<31)>		dataValid{};
+	}
 
 	namespace CompareLowThresh0
 	{
-		constexpr int address{0x4001C050};
-
-		//Bits 3:0 are reserved
-
-		//TODO fill in method to set lower threshold 15:4
-
-		//Bits 26:31 are reserved
+		constexpr int address{baseAddressAdc+offsetThr0_Low};
+	//Bits 3:0 are reserved
+		static constexpr	Register::RWLocation<address, (0xFFF<<4)>	thLow{};
+	//Bits 26:31 are reserved
 	}
 	namespace CompareLowThresh1
 	{
-		constexpr int address{0x4001C054};
-
-		//Bits 3:0 are reserved
-
-		//TODO fill in method to set lower threshold 15:4
-
-		//Bits 26:31 are reserved
+		constexpr int address{baseAddressAdc+offsetThr1_Low};
+	//Bits 3:0 are reserved
+		static constexpr	Register::RWLocation<address, (0xFFF<<4)>	thLow{};
+	//Bits 26:31 are reserved
 	}
 	namespace CompareHighThresh0
 	{
-		constexpr int address{0x4001C058};
-
-		//Bits 3:0 are reserved
-
-		//TODO fill in method to set upper threshold 15:4
-
-		//Bits 26:31 are reserved
+		constexpr int address{baseAddressAdc+offsetThr0_High};
+	//Bits 3:0 are reserved
+		static constexpr	Register::RWLocation<address, (0xFFF<<4)>	thHigh{};
+	//Bits 26:31 are reserved
 	}
 	namespace CompareHighThresh1
 	{
-		constexpr int address{0x4001C05C};
-
-		//Bits 3:0 are reserved
-
-		//TODO fill in method to set upper threshold 15:4
-
-		//Bits 26:31 are reserved
+		constexpr int address{baseAddressAdc+offsetThr1_High};
+	//Bits 3:0 are reserved
+		static constexpr	Register::RWLocation<address, (0xFFF<<4)>	thHigh{};
+	//Bits 26:31 are reserved
 	}
-	namespace ChannelThresholdSelect
+	namespace ChannelThrSel
 	{
-		constexpr int address{0x4001C060};
-
-		static constexpr 	Register::RWLocation<address, 1>			channel00ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 1)>		channel01ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 2)>		channel02ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 3)>		channel03ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 4)>		channel04ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 5)>		channel05ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 6)>		channel06ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 7)>		channelThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 8)>		channel08ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 << 9)>		channel09ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 <<10)>		channel10ThresholdEnabled{};
-		static constexpr	Register::RWLocation<address, (1 <<11)>		channel11ThresholdEnabled{};
-
+		constexpr int address{baseAddressAdc+offsetChannelThrSel};
+		enum class ChannelThresholdSelect{		compareAgainstThreshold0,
+												compareAgainstThreshold1};
+		template<ChannelThresholdSelect C, typename TChannel>
+		static constexpr decltype(write(Register::RWLocation<address,(1 << (TChannel::value)),~(1 << (TChannel::value)),ChannelThresholdSelect>{},
+										Register::value<ChannelThresholdSelect, C>()))	writeChannelThresholdSelect(TChannel){ return{}; };
 		//Bits 31:12 are reserved
 	}
 
+
 	namespace InterruptEnable
 	{
-		constexpr int address{0x4001C064};
+		constexpr int address{baseAddressAdc+offsetInten};
 
-		static constexpr 	Register::RWLocation<address, 1>			seqAInterruptEnabled{};
+		static constexpr	Register::RWLocation<address, (1 << 0)>		seqAInterruptEnabled{};
 		static constexpr	Register::RWLocation<address, (1 << 1)>		seqBInterruptEnabled{};
 		static constexpr	Register::RWLocation<address, (1 << 2)>		overrunInterruptEnabled{};
 
-		enum class ThreshCompareInterruptTrigger {disableInterrupt, ifOutside, onCrossing, doNotUse};
-
-		static constexpr Register::RWLocation<address, 0x03<< 3, ~0x03<< 3, TheshCompareInterruptTrigger> threshCompareTrigger00{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger00, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger00(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<< 5, ~0x03<< 5, TheshCompareInterruptTrigger> threshCompareTrigger01{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger01, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger01(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<< 7, ~0x03<< 7, TheshCompareInterruptTrigger> threshCompareTrigger02{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger02, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger02(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<< 9, ~0x03<< 9, TheshCompareInterruptTrigger> threshCompareTrigger03{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger03, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger03(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<<11, ~0x03<<11, TheshCompareInterruptTrigger> threshCompareTrigger04{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger04, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger04(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<<13, ~0x03<<13, TheshCompareInterruptTrigger> threshCompareTrigger05{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger05, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger05(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<<15, ~0x03<<15, TheshCompareInterruptTrigger> threshCompareTrigger06{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger06, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger06(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<<17, ~0x03<<17, TheshCompareInterruptTrigger> threshCompareTrigger07{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger07, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger07(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<<19, ~0x03<<19, TheshCompareInterruptTrigger> threshCompareTrigger08{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger08, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger08(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<<21, ~0x03<<21, TheshCompareInterruptTrigger> threshCompareTrigger09{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger09, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger09(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<<23, ~0x03<<23, TheshCompareInterruptTrigger> threshCompareTrigger10{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger10, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger10(){ return{}; }
-
-		static constexpr Register::RWLocation<address, 0x03<<25, ~0x03<<25, TheshCompareInterruptTrigger> threshCompareTrigger11{};
-		template <ThreshCompareInterruptTrigger T>
-		constexpr decltype(write(theshCompareTrigger11, Register::value<ThreshCompareInterruptTrigger,T>())) setThreshCompareTrigger11(){ return{}; }
-
-
-		//Bits 31:27 are reserved
+		enum class InterruptPolicy { 	interruptDisabled,
+										interruptIfOutside,
+										interruptOnCrossing};
+		template<InterruptPolicy I, typename TChannel>
+		static constexpr decltype(write(Register::RWLocation<address, (0x03 << (3+2*TChannel::value)),~(0x03 << (3+2*TChannel::value)), InterruptPolicy>{},
+										Register::value<InterruptPolicy, I>())) writeInterruptPolicy(TChannel){ return{}; };
+	//Bits 31:27 are reserved
 	}
 
 	namespace Flags
 	{
-		constexpr int address{0x4001C068};
-
-		//TODO fill in getter methods
+		constexpr int address{baseAddressAdc+offsetFlags};
+		template<typename TChannel>
+		static constexpr decltype(read(Register::ROLocation<address, (1 << (1*TChannel::value))>())) thCompareStatus(TChannel){ return{}; };
+		template<typename TChannel>
+		static constexpr decltype(write(Register::BWLocation<address, (1 << (1*TChannel::value))>())) resetThCompareStatus(TChannel){ return{}; };
+		template<typename TChannel>
+		static constexpr decltype(read(Register::ROLocation<address, (1 << (12+TChannel::value))>())) overrunStatus(TChannel){ return{}; };
+		static constexpr 	Register::ROLocation<address, (1 <<24)>		seqAOverrun{};
+		static constexpr	Register::ROLocation<address, (1 <<25)>		seqBOverrun{};
 		//Bits 27:26 are reserved
+		static constexpr 	Register::ROLocation<address, (1 <<28)>		seqAInt{};
+		static constexpr 	Register::ROLocation<address, (1 <<29)>		seqBInt{};
+		static constexpr	Register::ROLocation<address, (1 <<30)>		thCmpInt{};
+		static constexpr 	Register::ROLocation<address, (1 <<31)>		ovRInt{};
 	}
 
 	namespace Trim
@@ -274,7 +371,7 @@ namespace ADC{
 
 		//Bits 4:0 are reserved
 
-		constexpr Register::WriteBitActionT<address,5,true>		vddaHigh{};		// 2.7 to 3.6 Volts
+		constexpr Register::WriteBitActionT<address,5,true>			vddaHigh{};		// 2.7 to 3.6 Volts
 		constexpr Register::WriteBitActionT<address,5,false>		vddaLow{};		// 2.4 to 2.7 Volts
 
 		//Bits 31:6 are reserved

@@ -113,7 +113,7 @@ public:
 		enum class Source {oneSysclock, twoSysclock};
 		static constexpr Register::RWLocation<address, 0x03, ~0x03, Source> source{};
 		template<Source S>
-		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return {}; }
+		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return {}; };
 	};
 	struct MainClock{
 		static constexpr unsigned address{0x40048070};
@@ -121,7 +121,7 @@ public:
 		enum class Source {internalRc, pllInput, warchdogOscillator, pllOutput};
 		static constexpr Register::RWLocation<address, 0x03, ~0x03, Source>	source{};
 		template<Source S>
-		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return{}; }
+		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return{}; };
 
 		static constexpr	Register::RWLocation<address+4, 1, ~1>		sourceUpdater{};
 		static constexpr auto updateSourceSequence =
@@ -133,7 +133,7 @@ public:
 		enum class Source {internalRc, systemOscillator, clock32khz};
 		static constexpr Register::RWLocation<address, 0x03, ~0x03, Source>	source{};
 		template<Source S>
-		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return {}; }
+		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return {}; };
 
 		static constexpr	Register::RWLocation<address+4, 1, ~1>		sourceUpdater{};
 		static constexpr auto updateSourceSequence =

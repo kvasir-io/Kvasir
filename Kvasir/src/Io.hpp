@@ -21,10 +21,12 @@ namespace Io{
 		struct Set{};
 		struct Clear{};
 		struct Toggle{};
+		struct PinLocation{};
 		template<int I>
 		struct PinFunction{ static constexpr int value = I;};
 		constexpr Input input;
 		constexpr Output output{};
+		constexpr PinLocation pinlocation{};
 		constexpr Set set{};
 		constexpr Clear clear{};
 		constexpr Toggle toggle{};
@@ -34,6 +36,67 @@ namespace Io{
 		constexpr PinFunction<3> pinFunction3{};
 		constexpr PinFunction<4> pinFunction4{};
 	};
+
+	template<int I>
+	struct Port{
+		static constexpr int value = I;
+		using Type = Port<I>;
+	};
+	constexpr Port< 0> 	port0 ;
+	constexpr Port< 1> 	port1 ;
+	constexpr Port< 2> 	port2 ;
+	constexpr Port< 3> 	port3 ;
+	constexpr Port< 4> 	port4 ;
+	constexpr Port< 5> 	port5 ;
+	constexpr Port< 6> 	port6 ;
+	constexpr Port< 7> 	port7 ;
+	constexpr Port< 8> 	port8 ;
+	constexpr Port< 9> 	port9 ;
+	constexpr Port<10> 	port10;
+	constexpr Port<11> 	port11;
+	constexpr Port<12> 	port12;
+	constexpr Port<13> 	port13;
+	constexpr Port<14> 	port14;
+	constexpr Port<15> 	port15;
+
+	template<int I>
+	struct Pin{
+		static constexpr int value = I;
+		using Type = Port<I>;
+	};
+	constexpr Pin< 0> 	Pin0 ;
+	constexpr Pin< 1> 	Pin1 ;
+	constexpr Pin< 2> 	Pin2 ;
+	constexpr Pin< 3> 	Pin3 ;
+	constexpr Pin< 4> 	Pin4 ;
+	constexpr Pin< 5> 	Pin5 ;
+	constexpr Pin< 6> 	Pin6 ;
+	constexpr Pin< 7> 	Pin7 ;
+	constexpr Pin< 8> 	Pin8 ;
+	constexpr Pin< 9> 	Pin9 ;
+	constexpr Pin<10> 	Pin10;
+	constexpr Pin<11> 	Pin11;
+	constexpr Pin<12> 	Pin12;
+	constexpr Pin<13> 	Pin13;
+	constexpr Pin<14> 	Pin14;
+	constexpr Pin<15> 	Pin15;
+	constexpr Pin<16> 	Pin16;
+	constexpr Pin<17> 	Pin17;
+	constexpr Pin<18> 	Pin18;
+	constexpr Pin<19> 	Pin19;
+	constexpr Pin<20> 	Pin20;
+	constexpr Pin<21> 	Pin21;
+	constexpr Pin<22> 	Pin22;
+	constexpr Pin<23> 	Pin23;
+	constexpr Pin<24> 	Pin24;
+	constexpr Pin<25> 	Pin25;
+	constexpr Pin<26> 	Pin26;
+	constexpr Pin<27> 	Pin27;
+	constexpr Pin<28> 	Pin28;
+	constexpr Pin<29> 	Pin29;
+	constexpr Pin<30> 	Pin30;
+	constexpr Pin<31> 	Pin31;
+
 
 	template<typename TPort, typename TPin>
 	struct PinLocation {
@@ -54,14 +117,17 @@ namespace Io{
 	constexpr MakeActionT<TAction,TPortPin> action(TAction,TPortPin){ return MakeActionT<TAction,TPortPin>{}; };
 
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Input,TPortPin> makeInput(TPortPin){ return MakeActionT<Action::Input,TPortPin>{}; };
+	constexpr MakeActionT<Action::Input,TPortPin> makeInput(TPortPin){ return{}; };
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Output,TPortPin> makeOutput(TPortPin){ return MakeActionT<Action::Output,TPortPin>{}; };
+	constexpr MakeActionT<Action::Output,TPortPin> makeOutput(TPortPin){ return{}; };
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Set,TPortPin> makeSet(TPortPin){ return MakeActionT<Action::Set,TPortPin>{}; };
+	constexpr MakeActionT<Action::Set,TPortPin> makeSet(TPortPin){ return{}; };
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Clear,TPortPin> makeClear(TPortPin){ return MakeActionT<Action::Clear,TPortPin>{}; };
+	constexpr MakeActionT<Action::Clear,TPortPin> makeClear(TPortPin){ return{}; };
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Toggle,TPortPin> makeToggle(TPortPin){ return MakeActionT<Action::Toggle,TPortPin>{}; };
+	constexpr MakeActionT<Action::Toggle,TPortPin> makeToggle(TPortPin){ return{}; };
+
+	template<typename TPort, typename TPin>
+	constexpr PinLocationT<TPort::value,TPin::value> makePinlocation(TPort,TPin){ return{}; };
 }
 }
