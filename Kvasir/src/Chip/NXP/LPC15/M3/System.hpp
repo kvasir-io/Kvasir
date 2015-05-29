@@ -171,7 +171,7 @@ struct AHBClock{
 		static constexpr	Helper2<9>	spi0{};
 		static constexpr	Helper2<10>	spi1{};
 		//bit 12:11 are reserved
-		static constexpr	Helper2<13>	i2c0Int{};
+		static constexpr	Helper2<13>	i2c0{};
 		//bit 16:14
 		static constexpr	Helper2<17>	uart0{};
 		static constexpr	Helper2<18>	uart1{};
