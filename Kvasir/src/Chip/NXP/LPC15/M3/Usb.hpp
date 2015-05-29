@@ -37,55 +37,22 @@ namespace Kvasir{
 			constexpr Register::WriteActionT<address,0x7F,I> makeDeviceAddress(){ return Register::WriteActionT<address,0x7F,I>{}; }
 
 			static constexpr	Register::RWLocation<address, (1 << 7)>		deviceEnabled{};
-//			static constexpr Register::WriteBitActionT<address,7,true> deviceEnable;
-//			static constexpr Register::WriteBitActionT<address,7,false> deviceDisable;
-
 			static constexpr	Register::BWLocation<address, (1 << 8)>		clearSetupTokenRecieved{};
-//			static constexpr Register::WriteBitActionT<address,8,true> clearSetupTokenReceived;
-
 			static constexpr	Register::RWLocation<address, (1 << 9)>		stopPllClockOnSuspendDisabled{};
-//			static constexpr Register::WriteBitActionT<address,9,true> stopPllClockOnSuspendOff;
-//			static constexpr Register::WriteBitActionT<address,9,false> stopPllClockOnSuspendOn;
-
 			static constexpr	Register::RWLocation<address, (1 <<11)>		lpmSupported{};
-//			static constexpr Register::WriteBitActionT<address,11,true> lpmSupported;
-//			static constexpr Register::WriteBitActionT<address,11,false> lpmNotSupported;
-
 			static constexpr	Register::RWLocation<address, (1 <<12)>		bulkOutInterruptOnNAckEnabled{};
-//			static constexpr Register::WriteBitActionT<address,12,true> bulkOutInterruptOnNackOn;
-//			static constexpr Register::WriteBitActionT<address,12,false> bulkOutInterruptOnNackOff;
-
 			static constexpr	Register::RWLocation<address, (1 <<13)>		bulkInInterruptOnNAckEnabled{};
-//			static constexpr Register::WriteBitActionT<address,13,true> bulkInInterruptOnNackOn;
-//			static constexpr Register::WriteBitActionT<address,13,false> bulkInInterruptOnNackOff;
-
 			static constexpr	Register::RWLocation<address, (1 <<14)>		controlOutInterruptOnNAckEnabled{};
-//			static constexpr Register::WriteBitActionT<address,14,true> controlOutInterruptOnNackOn;
-//			static constexpr Register::WriteBitActionT<address,14,false> controlOutInterruptOnNackOff;
-
 			static constexpr	Register::RWLocation<address, (1 <<15)>		controlInInterruptNAckEnabled{};
-//			static constexpr Register::WriteBitActionT<address,15,true> controlInInterruptOnNackOn;
-//			static constexpr Register::WriteBitActionT<address,15,false> controlInInterruptOnNackOff;
-
 			static constexpr 	Register::RWLocation<address, (1 <<16)>		deviceConnected{};
-//			static constexpr Register::WriteBitActionT<address,16,true> deviceConnect;
-//			static constexpr Register::WriteBitActionT<address,16,false> deviceDisconnect;
 
 			//TODO still dont know what to do with that bit
 //			static constexpr Register::WriteBitActionT<address,17,false> remoteWakeup;
 
 			static constexpr	Register::RWLocation<address, (1 <<19)>		deviceSuspendEnabled{};
-//			static constexpr Register::WriteBitActionT<address,19,true> deviceSuspend;
-//			static constexpr Register::WriteBitActionT<address,19,false> deviceWakeUp;
-
 			static constexpr	Register::BWLocation<address, (1 <<24)>		deviceConnectChangeReset{};
-//			static constexpr Register::WriteBitActionT<address,24,true> deviceConnectChangeReset;
-
 			static constexpr 	Register::BWLocation<address, (1 <<25)>		deviceSuspendChangeReset{};
-//			static constexpr Register::WriteBitActionT<address,25,true> deviceSuspendChangeReset;
-
 			static constexpr 	Register::BWLocation<address, (1 <<26)>		deviceResetChangeReset{};
-//			static constexpr Register::WriteBitActionT<address,26,true> deviceResetChangeReset;
 		};
 		struct Info{
 			static constexpr int address = baseAddress+4;

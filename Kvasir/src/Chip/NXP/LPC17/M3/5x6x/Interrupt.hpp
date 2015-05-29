@@ -18,6 +18,27 @@ limitations under the License.
  */
 
 namespace Kvasir{
+	namespace ExtInterrupt{//this namespace needs some additional safety features
+
+			constexpr int address =  0x400FC148;
+
+			enum class ExtInterruptMode { levelSensitiveInterrupt, edgeSensitivInterrupt};
+
+			static constexpr Register::RWLocation<address, (1 << 0),~(1 << 0), ExtInterruptMode> extInterrupt0Mode{};
+			template<ExtInterruptMode E>
+			static constexpr decltype(write(extInterrupt0Mode, Register::value<ExtInterruptMode, E>())) writeExtInterrupt0Mode(){ return{}; };
+			static constexpr Register::RWLocation<address, (1 << 1),~(1 << 1), ExtInterruptMode> extInterrupt1Mode{};
+			template<ExtInterruptMode E>
+			static constexpr decltype(write(extInterrupt1Mode, Register::value<ExtInterruptMode, E>())) writeExtInterrupt1Mode(){ return{}; };
+			static constexpr Register::RWLocation<address, (1 << 2),~(1 << 2), ExtInterruptMode> extInterrupt2Mode{};
+			template<ExtInterruptMode E>
+			static constexpr decltype(write(extInterrupt2Mode, Register::value<ExtInterruptMode, E>())) writeExtInterrupt2Mode(){ return{}; };
+			static constexpr Register::RWLocation<address, (1 << 3),~(1 << 3), ExtInterruptMode> extInterrupt3Mode{};
+			template<ExtInterruptMode E>
+			static constexpr decltype(write(extInterrupt3Mode, Register::value<ExtInterruptMode, E>())) writeExtInterrupt3Mode(){ return{}; };
+
+	}
+
 	namespace Interrupt{
 		template<int I>
 		using Type = ::Kvasir::Nvic::Index<I>;

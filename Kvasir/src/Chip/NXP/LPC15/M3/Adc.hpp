@@ -603,7 +603,7 @@ namespace ADC{
 		enum class ChannelThresholdSelect{		compareAgainstThreshold0,
 												compareAgainstThreshold1};
 		template<ChannelThresholdSelect C, typename TChannel>
-		static constexpr decltype(write(Register::RWLocation<address, (1 << (TChannel::value)),~(1 << (TChannel::value)), ChannelThresholdSelect>,
+		static constexpr decltype(write(Register::RWLocation<address, (1 << (TChannel::value)),~(1 << (TChannel::value)), ChannelThresholdSelect>{},
 				Register::value<ChannelThresholdSelect, C>())) writeChannelThresholdSelect(TChannel){ return{}; };
 	//Bits 31:12 are reserved
 	}
@@ -614,7 +614,7 @@ namespace ADC{
 		enum class ChannelThresholdSelect{		compareAgainstThreshold0,
 												compareAgainstThreshold1};
 		template<ChannelThresholdSelect C, typename TChannel>
-		static constexpr decltype(write(Register::RWLocation<address, (1 << (TChannel::value)),~(1 << (TChannel::value)), ChannelThresholdSelect>,
+		static constexpr decltype(write(Register::RWLocation<address, (1 << (TChannel::value)),~(1 << (TChannel::value)), ChannelThresholdSelect>{},
 				Register::value<ChannelThresholdSelect, C>())) writeChannelThresholdSelect(TChannel){ return{}; };
 	//Bits 31:12 are reserved
 	}
@@ -647,7 +647,7 @@ namespace ADC{
 										interruptIfOutside,
 										interruptOnCrossing};
 		template<InterruptPolicy I, typename TChannel>
-		static constexpr decltype(write(Register::RWLocation<address, (0x03 << (3+2*TChannel::value)),~(0x03 << (3+2*TChannel::value)), InterruptPolicy>,
+		static constexpr decltype(write(Register::RWLocation<address, (0x03 << (3+2*TChannel::value)),~(0x03 << (3+2*TChannel::value)), InterruptPolicy>{},
 				Register::value<InterruptPolicy, I>())) writeInterruptPolicy(TChannel){ return{}; };
 	//Bits 31:27 are reserved
 	}
