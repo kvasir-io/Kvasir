@@ -27,14 +27,14 @@ private:
 	TDataType data_[Size];
 	Integral<IndexType> head_{};
 	Integral<IndexType> tail_{};
-	IndexType distance(IndexType head, IndexType tail){
+	static IndexType distance(IndexType head, IndexType tail){
 		int d = tail - head;
 		if(d < 0){
 			d += Size;
 		}
 		return d;
 	}
-	IndexType next(IndexType in){
+	static IndexType next(IndexType in){
 		return (in+1)%Size;
 	}
 public:
