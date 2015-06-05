@@ -78,13 +78,13 @@ namespace Hardware{
 			apply(Pll::ClockSource::systemOscillator);
 			apply(set(PowerConfiguration::systemPllPoweredDown));
 			apply(write(Pll::Control::feedbackDivider,value<5>()),
-				write(Pll::Control::postDivider,value<Pll::Control::PostDividerRatio,Pll::Control::PostDividerRatio::div4>()));
+				write(Pll::Control::postDivider,value<Pll::PostDividerRatio,Pll::PostDividerRatio::div4>()));
 			apply(clear(PowerConfiguration::systemPllPoweredDown));
 			while(!apply(read(Pll::statusLocked))){};
 			apply(
-				write(AHBCLock::divider,value<1>()),
+				write(AHBClock::divider,value<1>()),
 				Flash::threeSysclock);
-			apply(MainClockSource::pllOutput);
+			apply(ClockSource::Main::pllOutput);
 		}
 	};
 

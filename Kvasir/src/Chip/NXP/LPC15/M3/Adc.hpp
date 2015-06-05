@@ -11,8 +11,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "../../../../Io.hpp"
+#include "Io.hpp"
 #include "System.hpp"
+#include "Register/Register.hpp"
 
 namespace Kvasir{
 namespace ADC{
@@ -631,7 +632,7 @@ namespace ADC{
 										interruptIfOutside,
 										interruptOnCrossing};
 		template<InterruptPolicy I, typename TChannel>
-		static constexpr decltype(write(Register::RWLocation<address, (0x03 << (3+2*TChannel::value)),~(0x03 << (3+2*TChannel::value)), InterruptPolicy>,
+		static constexpr decltype(write(Register::RWLocation<address, (0x03 << (3+2*TChannel::value)),~(0x03 << (3+2*TChannel::value)), InterruptPolicy>{},
 				Register::value<InterruptPolicy, I>())) writeInterruptPolicy(TChannel){ return{}; };
 	//Bits 31:27 are reserved
 	}

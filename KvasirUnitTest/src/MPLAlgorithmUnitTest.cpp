@@ -10,8 +10,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
-#include "MPLUtility.hpp"
-#include "MPLAlgorithm.hpp"
+#include "MPL\Utility.hpp"
+#include "MPL\Algorithm.hpp"
 
 using namespace Kvasir::MPL;
 using TestList1 = List<int,short,void,long,float,void,void,char>;

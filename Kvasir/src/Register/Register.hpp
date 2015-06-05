@@ -67,14 +67,19 @@ namespace Kvasir {
 		namespace Detail{
 			using namespace MPL;
 
+			constexpr unsigned orAllOf(){
+				return 0;
+			}
+			constexpr unsigned orAllOf(unsigned l){
+				return l;
+			}
+
 			template<typename... Ts>
 			constexpr unsigned orAllOf(unsigned l, unsigned r, Ts... args){
 				return l | r | orAllOf(args...);
 			}
 
-			constexpr unsigned orAllOf(unsigned l){
-				return l;
-			}
+
 
 			//getters for specific parameters of an Action
 			template<typename T>
@@ -104,7 +109,7 @@ namespace Kvasir {
 			template<typename TLeft, typename TRight>
 			struct RegisterActionLess;
 			template<typename T1, typename U1, typename T2, typename U2>
-			struct RegisterActionLess< Register::Action<T1,U1>, Register::Action<T2,U2> > : Bool<(T1::address < T2::address)>{};
+			struct RegisterActionLess< Register::Action<T1,U1>, Register::Action<T2,U2> > : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)>{};
 			using RegisterActionLessP = Template<RegisterActionLess>;
 
 			//predicate returns true if action is a read
@@ -183,43 +188,6 @@ namespace Kvasir {
 					return 0;
 				}
 			};
-
-			template<typename TRegisters, typename TRet = List<>> //default
-			struct MergeRegisterActions;
-
-			template<typename TNext, typename... Ts> //none processed yet
-			struct MergeRegisterActions<List<TNext, Ts...>, List<>> : MergeRegisterActions<List<Ts...>,List<TNext>>{};
-
-			template<template<unsigned> class TAddressTemplate, unsigned Address, unsigned Mask1, unsigned Mask2, template<unsigned> class TActionTemplate, unsigned Value1, unsigned Value2, typename... Ts, typename... Us> //next and last mergable
-			struct MergeRegisterActions<
-					List<Register::Action<BitLocation<TAddressTemplate<Address>,Mask1>,TActionTemplate<Value1>>, Ts...>,
-					List<Register::Action<BitLocation<TAddressTemplate<Address>,Mask2>,TActionTemplate<Value2>>, Us...>
-				> :	MergeRegisterActions<
-					List<Ts...>,
-					List<Register::Action<BitLocation<TAddressTemplate<Address>,Mask1 | Mask2>,TActionTemplate<Value1 | Value2>>,Us...>
-			>{};
-
-			template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
-			struct MergeRegisterActions<List<TNext, Ts...>,List<TLast, Us...>> : MergeRegisterActions<List<Ts...>,List<TNext, TLast, Us...>>{};
-
-			template<typename... Ts> //done
-			struct MergeRegisterActions<List<>,List<Ts...>> : List<Ts...>{};
-
-			template<typename T>
-			using MergeRegisterActionsT = typename MergeRegisterActions<T>::Type;
-
-			template<typename TList>
-			struct MergeActionSteps;
-			template<typename... Ts>
-			struct MergeActionSteps<MPL::List<Ts...>> : MPL::List<
-				MergeRegisterActionsT<
-					MPL::SortT<MPL::FlattenT<Ts>,Detail::RegisterActionLessP>
-				>...
-				>{};
-
-			template<typename T>
-			using MergeActionStepsT = typename MergeActionSteps<T>::Type;
-
 		}
 
 		//apply implementation
@@ -244,7 +212,62 @@ namespace Kvasir {
 				unsigned operator()(const unsigned (&arg)[I]){
 					return RegisterExec<TAction>{}(orAllOf(TInputs{}(arg)...)) & ReadMask;
 				}
+				unsigned operator()(){
+					return RegisterExec<TAction>{}(0) & ReadMask;
+				}
 			};
+
+			//predecate retuning result of left < right for RegisterOptions
+			template<typename TLeft, typename TRight>
+			struct IndexedActionLess;
+			template<typename T1, typename U1, typename T2, typename U2, unsigned Mask1, unsigned Mask2, typename... TInputs1, typename... TInputs2>
+			struct IndexedActionLess< IndexedAction<Action<T1,U1>, Mask1, TInputs1...>, IndexedAction<Action<T2,U2>, Mask2, TInputs2... >> : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)>{};
+			using IndexedActionLessP = Template<IndexedActionLess>;
+
+			template<typename TRegisters, typename TRet = List<>> //default
+			struct MergeRegisterActions;
+
+			template<typename TNext, typename... Ts> //none processed yet
+			struct MergeRegisterActions<List<TNext, Ts...>, List<>> : MergeRegisterActions<List<Ts...>,List<TNext>>{};
+
+			template<template<unsigned> class TAddressTemplate,
+				unsigned Address,
+				unsigned Mask1, unsigned Mask2,
+				unsigned WritableMask,
+				typename TFieldType1, typename TFieldType2,
+				template<unsigned> class TActionTemplate,
+				unsigned Value1, unsigned Value2,
+				unsigned ReadMask1, unsigned ReadMask2,
+				typename... TInputs1, typename... TInputs2,
+				typename... Ts, typename... Us> //next and last mergable
+			struct MergeRegisterActions<
+					List<IndexedAction<Action<BitLocation<TAddressTemplate<Address>,Mask1,WritableMask,TFieldType1>,TActionTemplate<Value1>>, ReadMask1, TInputs1...>, Ts...>,
+					List<IndexedAction<Action<BitLocation<TAddressTemplate<Address>,Mask2,WritableMask,TFieldType2>,TActionTemplate<Value2>>, ReadMask2, TInputs2...>, Us...>
+				> :	MergeRegisterActions<
+					List<Ts...>,
+					List<IndexedAction<Action<BitLocation<TAddressTemplate<Address>,Mask1 | Mask2, WritableMask>,TActionTemplate<Value1 | Value2>>, ReadMask1 | ReadMask2, TInputs1..., TInputs2...>,Us...>
+			>{};
+
+			template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
+			struct MergeRegisterActions<List<TNext, Ts...>,List<TLast, Us...>> : MergeRegisterActions<List<Ts...>,List<TNext, TLast, Us...>>{};
+
+			template<typename... Ts> //done
+			struct MergeRegisterActions<List<>,List<Ts...>> : List<Ts...>{};
+
+			template<typename T>
+			using MergeRegisterActionsT = typename MergeRegisterActions<T>::Type;
+
+			template<typename TList>
+			struct MergeActionSteps;
+			template<typename... Ts>
+			struct MergeActionSteps<MPL::List<Ts...>> : MPL::List<
+				MergeRegisterActionsT<
+					MPL::SortT<MPL::FlattenT<Ts>,Detail::IndexedActionLessP>
+				>...
+				>{};
+
+			template<typename T>
+			using MergeActionStepsT = typename MergeActionSteps<T>::Type;
 
 
 			template<typename TAction, unsigned ReadMask, typename... TInputs>
@@ -257,9 +280,16 @@ namespace Kvasir {
 
 			template<typename TAction, typename Index>
 			struct MakeIndexedAction;
+			//in default case there is no actual expected input
 			template<typename TAddress, unsigned Mask, unsigned RM, typename TR, typename TAction, int Index>
 			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,RM,TR>,TAction>,Int<Index>>:
-				IndexedAction<Action<BitLocation<TAddress,Mask,RM,TR>,TAction>,MakeReadMask<Mask,TAction>::value,IndexedInput<Index,Mask>>{};
+					IndexedAction<Action<BitLocation<TAddress,Mask,RM,TR>,TAction>,MakeReadMask<Mask,TAction>::value>{};
+
+			//special case where there actually is expected input
+			template<typename TAddress, unsigned Mask, unsigned RM, typename TR, int Index>
+			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,RM,TR>,WriteAction>,Int<Index>>:
+					IndexedAction<Action<BitLocation<TAddress,Mask,RM,TR>,WriteAction>,MakeReadMask<Mask,WriteAction>::value,IndexedInput<Index,Mask>>{};
+
 			//special case where a list of actions is passed
 			template<typename... Ts, typename Index>
 			struct MakeIndexedAction<List<Ts...>,Index> : List<typename MakeIndexedAction<Ts,Index>::Type...>{};
@@ -340,6 +370,14 @@ namespace Kvasir {
 					ignore(a);
 				}
 			};
+			template<typename... TAction, unsigned... Mask>
+			struct NoReadApply<List<IndexedAction<TAction,Mask>...>>{
+				template<typename T>
+				void operator()(T){
+					unsigned a[] = {IndexedAction<TAction,Mask>{}()...};
+					ignore(a);
+				}
+			};
 
 			template<typename... Ts>
 			using GetReturnTypeT = ValueObject<
@@ -372,7 +410,8 @@ namespace Kvasir {
 			using IndexedActions = TransformT<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
 			using FlattenedActions = FlattenT<IndexedActions>;
 			using Steps = SplitT<FlattenedActions,SequencePoint>;
-			using Actions = MPL::FlattenT<Steps>;
+			using Merged = Detail::MergeActionStepsT<Steps>;
+			using Actions = MPL::FlattenT<Merged>;
 			return Detail::Apply<Actions,Detail::GetReturnTypeT<Args...>>{}(a);
 		}
 
@@ -386,7 +425,8 @@ namespace Kvasir {
 			using IndexedActions = TransformT<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
 			using FlattenedActions = FlattenT<IndexedActions>;
 			using Steps = SplitT<FlattenedActions,SequencePoint>;
-			using Actions = MPL::FlattenT<Steps>;
+			using Merged = Detail::MergeActionStepsT<Steps>;
+			using Actions = MPL::FlattenT<Merged>;
 			Detail::NoReadApply<Actions>{}(a);
 		}
 

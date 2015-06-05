@@ -66,9 +66,9 @@ struct TC16B0DefaultConfig {
 	struct MatchRegister{
 		static constexpr int address = baseAddress + 0x18;
 		template<typename T>
-		static constexpr auto select(T){
+		static constexpr Register::RWLocation<address + (T::value * 4),0xFFFFFFFF> select(T){
 			static_assert(T::value <= 3,"match register not supported on this chip");
-			return Register::RWLocation<address + (T::value * 4),0xFFFFFFFF>{};
+			return {};
 		}
 	};
 

@@ -40,6 +40,7 @@ namespace PowerConfiguration {
 	// bits 31:14 reserved
 
 }
+
 struct ClockControl{			//SYSAHBCLKCTRL register actions
 	template<int I>
 		using Helper = Register::RWLocation<0x40048080,
@@ -89,8 +90,8 @@ private:
 	static constexpr Register::WriteActionT<ioconAddress+4,0x07,0x01> 		XtaloutOscillatorMode{};
 	static constexpr Register::WriteActionT<ioconAddress,0x18,0x00> 		XtalinPullUpInactive{};
 	static constexpr Register::WriteActionT<ioconAddress+4,0x18,0x00> 		XtaloutPullUpInactive{};
-	static constexpr Register::WriteBitActionT<ioconAddress,7,false> 		XtalinAnalogMode{};
-	static constexpr Register::WriteBitActionT<ioconAddress+4,7,false> 		XtaloutAnalogMode{};
+	static constexpr Register::RWLocation<ioconAddress, (1<<7)>				xtalinIsDigitalMode{};
+	static constexpr Register::RWLocation<ioconAddress+4,(1<<7)> 			xtaloutIsDigitalMode{};
 public:
 	static constexpr auto externalCrystalInit = MPL::list(
 			set(ClockControl::ioconClockEnabled),
@@ -99,8 +100,9 @@ public:
 			XtaloutOscillatorMode,
 			XtalinPullUpInactive,
 			XtaloutPullUpInactive,
-			XtalinAnalogMode,
-			XtaloutAnalogMode);
+			clear(xtalinIsDigitalMode),
+			clear(xtaloutIsDigitalMode)
+			);
 	static constexpr auto crystalOscillatorPowerOn = clear(PowerConfiguration::crystalOscillatorPoweredDown);
 	static constexpr auto systemPllPowerOff = set(PowerConfiguration::systemPllPoweredDown);
 	static constexpr auto systemPllPowerOn = clear(PowerConfiguration::systemPllPoweredDown);

@@ -10,21 +10,32 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
-#include "Register.hpp"
+#include "Register/Register.hpp"
+#include "Chip/Lpc1549.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
 using namespace Register;
 
 enum class E{a,b};
+using Test = Kvasir::Register::RWLocation<1,2,0,E>;
+using Test1 = Kvasir::Register::RWLocation<1,4,0>;
+using Test2 = Kvasir::Register::RWLocation<1,8,0>;
+constexpr Test test{};
+constexpr Test1 test1{};
+constexpr Test2 test2{};
 void FTest(){
 	using namespace Register;
-
-	//Print<Reads> a{};
+	using namespace MPL;
+	using IndexedActions = TransformT<List<decltype(set(System::AHBClock::Enabled::spi0)),decltype(set(System::AHBClock::Enabled::spi1))>,BuildIndicesT<2>,Template<Register::Detail::MakeIndexedAction>>;
+	using FlattenedActions = FlattenT<IndexedActions>;
+	using Steps = SplitT<FlattenedActions,SequencePoint>;
+	using Merged = Register::Detail::MergeActionStepsT<Steps>;
+	using Actions = MPL::FlattenT<Merged>;
+	Print<Merged> a{};
 }
 
-using Test = Kvasir::Register::RWLocation<1,2,0,E>;
-constexpr Test test{};
+
 int main(){
 	auto b = E::b;
 	constexpr auto w = write(test,value<E,E::a>());

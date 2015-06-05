@@ -50,7 +50,7 @@ namespace Nvic{
 	using MakeActionT = typename MakeAction<TAction,TIndex>::Type;
 
 	template<typename TAction, typename TIndex>
-	constexpr auto action(TAction,TIndex){ return MakeActionT<TAction,TIndex>{}; };
+	constexpr MakeActionT<TAction,TIndex> action(TAction,TIndex){ return {}; };
 
 	template<typename TIndex>
 	constexpr MakeActionT<Action::Enable,TIndex> makeEnable(TIndex){ return MakeActionT<Action::Enable,TIndex>{}; };

@@ -12,8 +12,8 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 
-#include "Register.hpp"
-#include "UsbConfig.hpp"
+#include "Register/Register.hpp"
+//#include "UsbConfig.hpp"
 #include "Interrupt.hpp"
 #include "Io.hpp"
 
