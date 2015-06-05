@@ -25,8 +25,8 @@ struct Queue{
 private:
 	using IndexType = GetIndexTypeT<Size>;
 	TDataType data_[Size];
-	volatile Integral<IndexType> head_{};
-	volatile Integral<IndexType> tail_{};
+	Integral<IndexType> head_{};
+	Integral<IndexType> tail_{};
 	IndexType distance(IndexType head, IndexType tail){
 		int d = tail - head;
 		if(d < 0){
