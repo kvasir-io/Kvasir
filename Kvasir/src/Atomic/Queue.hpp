@@ -63,7 +63,9 @@ public:
 				tail = next(tail);
 			}
 			tail_.store(tail); 		//commit
-			TagTraitsT<TEventAction>{}();
+		}
+		else{
+			TOverflowPolicy::overflow();
 		}
 	}
 	bool pop(TDataType& out){
@@ -104,7 +106,7 @@ public:
 	///It is only safe to call this function if you are sure that no other thread is using the fifo
 	void unsafeClear(){
 		head_.store(0);
-		tail_ = store(0);
+		tail_.store(0);
 	}
 };
 }
