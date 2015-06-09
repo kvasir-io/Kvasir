@@ -25,16 +25,16 @@ struct Queue{
 private:
 	using IndexType = GetIndexTypeT<Size>;
 	TDataType data_[Size];
-	volatile Integral<IndexType> head_{};
-	volatile Integral<IndexType> tail_{};
-	IndexType distance(IndexType head, IndexType tail){
+	Integral<IndexType> head_{};
+	Integral<IndexType> tail_{};
+	static IndexType distance(IndexType head, IndexType tail){
 		int d = tail - head;
 		if(d < 0){
 			d += Size;
 		}
 		return d;
 	}
-	IndexType next(IndexType in){
+	static IndexType next(IndexType in){
 		return (in+1)%Size;
 	}
 public:
@@ -63,7 +63,9 @@ public:
 				tail = next(tail);
 			}
 			tail_.store(tail); 		//commit
-			TagTraitsT<TEventAction>{}();
+		}
+		else{
+			TOverflowPolicy::overflow();
 		}
 	}
 	bool pop(TDataType& out){
@@ -104,7 +106,7 @@ public:
 	///It is only safe to call this function if you are sure that no other thread is using the fifo
 	void unsafeClear(){
 		head_.store(0);
-		tail_ = store(0);
+		tail_.store(0);
 	}
 };
 }
