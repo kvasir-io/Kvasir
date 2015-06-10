@@ -43,26 +43,21 @@ namespace Kvasir {
 			return MPL::Value<T,I>{};
 		};
 
-		template<int Address, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
-		using RWLocation = BitLocation<Address::ReadWrite<Address>,Mask,WritableMask,TFieldType>;
-		template<int Address, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
-		using BWLocation = BitLocation<Address::BlindWrite<Address>,Mask,WritableMask,TFieldType>;
-		template<int Address, unsigned Mask, typename TFieldType = unsigned>
-		using ROLocation = BitLocation<Address::ReadOnly<Address>,Mask,0xFFFFFFFF,TFieldType>;
+		//bit helpers
+		template<typename Address, int Position>
+		using BitLocT = BitLocation<Address,(1<<Position),true,true,bool>;
+		template<typename Address, int Position>
+		using ROBitLocT = BitLocation<Address,(1<<Position),true,false,bool>;
+		template<typename Address, int Position>
+		using WOBitLocT = BitLocation<Address,(1<<Position),false,true,bool>;
 
-		//leagacy factories
-		template<unsigned Address,unsigned Mask, unsigned Data>
-		using WriteActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,WriteLiteralAction<Data>>;
-		template<unsigned Address,unsigned Offset, bool Data>
-		using WriteBitActionT = Action<BitLocation<Address::ReadWrite<Address>,(1<<Offset)>,WriteLiteralAction<(Data<<Offset)>>;
-		template<unsigned Address,int Offset>
-		using BlindSetBitActionT = Action<BitLocation<Address::BlindWrite<Address>,(1<<Offset)>,WriteLiteralAction<(1<<Offset)>>;
-
-		template<unsigned Address,unsigned Mask, unsigned Data>
-		using BlindWriteActionT = Action<BitLocation<Address::BlindWrite<Address>,Mask>,WriteLiteralAction<Data>>;
-		template<unsigned Address,unsigned Mask, unsigned Data>
-		using XorActionT = Action<BitLocation<Address::ReadWrite<Address>,Mask>,XorLiteralAction<Data>>;
-		//end legacy factories
+		//bit field helpers
+		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
+		using FieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),true,true,TFieldType>;
+		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
+		using ROFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),true,false,TFieldType>;
+		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
+		using WOFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),false,true,TFieldType>;
 
 		namespace Detail{
 			using namespace MPL;
@@ -84,22 +79,20 @@ namespace Kvasir {
 			//getters for specific parameters of an Action
 			template<typename T>
 			struct GetAddress;
-			template<template<unsigned I> class AC, unsigned Address, unsigned Mask, unsigned ReservedMask, typename ResultType>
-			struct GetAddress<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>> {
-				static constexpr unsigned value = Address;
-				static constexpr unsigned read(){
+			template<typename TAddress, unsigned Mask, bool Readable, bool Writable, typename ResultType>
+			struct GetAddress<BitLocation<TAddress,Mask,Readable,Writable,ResultType>> {
+				static constexpr unsigned value = TAddress::value;
+				static unsigned read(){
 					return *((volatile unsigned*)value);
 				}
-				using Type = Int<Address>;
-			};
-			template<template<unsigned I> class AC, unsigned Address, unsigned Mask, unsigned ReservedMask, typename ResultType, typename TAction>
-			struct GetAddress<Action<BitLocation<AC<Address>,Mask,ReservedMask,ResultType>,TAction>> {
-				static constexpr unsigned value = Address;
-				static constexpr unsigned read(){
-					return *((volatile unsigned*)value);
+				static void write(unsigned i){
+					*((volatile unsigned*)value) = i;
 				}
-				using Type = Int<Address>;
+				using Type = Int<TAddress::value>;
 			};
+			template<typename TBitLocation, typename TAction>
+			struct GetAddress<Action<TBitLocation,TAction>> : GetAddress<TBitLocation> {};
+
 			template<typename T>
 			struct GetBitLocation;
 			template<typename TLocation, typename TAction>
@@ -124,8 +117,8 @@ namespace Kvasir {
 			template<typename T>
 			struct GetMask;
 			//from BitLocations
-			template<typename Address, unsigned Mask, unsigned ReservedMask, typename ResultType>
-			struct GetMask<BitLocation<Address,Mask,ReservedMask,ResultType>> : Value<unsigned,Mask>{};
+			template<typename Address, unsigned Mask, bool Readable, bool Writable, typename ResultType>
+			struct GetMask<BitLocation<Address,Mask,Readable,Writable,ResultType>> : Value<unsigned,Mask>{};
 			//from Action
 			template<typename TBitLocation, typename TAction>
 			struct GetMask<Action<TBitLocation,TAction>> : GetMask<TBitLocation>{};
@@ -133,15 +126,14 @@ namespace Kvasir {
 			template<typename TRegisterAction>
 			struct RegisterExec;
 
-			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType, unsigned Data>
-			struct RegisterExec<Register::Action<BitLocation<Address::ReadWrite<A>,Mask,ReservedMask,FieldType>,WriteLiteralAction<Data>>>{
+			template<typename TAddress, unsigned Mask, bool Readable, typename FieldType, unsigned Data>
+			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,Readable,true,FieldType>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				unsigned operator()(unsigned in = 0){
-					auto& reg = *(volatile unsigned*)A;
-					auto i = reg;
+					auto i = GetAddress<TAddress>::read();
 					i &= ~Mask;
 					i |= Data | in;
-					reg = i;
+					GetAddress<TAddress>::write(i);
 					return i;
 				}
 			};
@@ -168,15 +160,6 @@ namespace Kvasir {
 				unsigned operator()(unsigned in = 0){
 					auto& reg = *(volatile unsigned*)A;
 					return reg;
-				}
-			};
-			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType, unsigned Data>
-			struct RegisterExec<Register::Action<BitLocation<Address::BlindWrite<A>,Mask,ReservedMask,FieldType>,WriteLiteralAction<Data>>>{
-				static_assert((Data & (~Mask))==0,"bad mask");
-				unsigned operator()(unsigned in){
-					auto& reg = *(volatile unsigned*)A;
-					reg = Data | in;
-					return 0;
 				}
 			};
 			template<unsigned A, unsigned Mask, unsigned ReservedMask, typename FieldType, unsigned Data>

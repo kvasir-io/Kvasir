@@ -11,16 +11,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #include "Register/Register.hpp"
-#include "Chip/Lpc1549.hpp"
+//#include "Chip/Lpc1549.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
 using namespace Register;
 
+using Address1 = Address::Normal<1,0>;
+
 enum class E{a,b};
-using Test = Kvasir::Register::RWLocation<1,2,0,E>;
-using Test1 = Kvasir::Register::RWLocation<1,4,0>;
-using Test2 = Kvasir::Register::RWLocation<1,8,0>;
+using Test = Register::FieldLocT<Address1,2,0,E>;
+using Test1 = Register::FieldLocT<Address1,4,3>;
+using Test2 = Register::FieldLocT<Address1,8,7>;
 constexpr Test test{};
 constexpr Test1 test1{};
 constexpr Test2 test2{};

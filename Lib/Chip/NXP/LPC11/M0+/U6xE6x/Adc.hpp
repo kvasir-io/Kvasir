@@ -54,33 +54,37 @@ namespace ADC{
 
 	namespace Ctrl
 	{
-		constexpr int address{baseAddressAdc+offsetCtrl};
-
-		static constexpr	Register::RWLocation<address, 0xFF> 		clkDiv{};
+		using Address = Register::Address::Normal<
+				baseAddressAdc+offsetCtrl,
+				Register::maskFromRange(9,8,29,11,31,31)>;
+		static constexpr	Register::FieldLocT<Address,7,0> 		clkDiv{};
 		//Bits 9:8 are reserved
-		static constexpr 	Register::RWLocation<address, (1 <<10)>	lowPowerModeEnabled{};
+		static constexpr 	Register::BitLocT<Address,10>	lowPowerModeEnabled{};
 		//Bits 29:11 are reserved
-		static constexpr 	Register::BWLocation<address, (1 <<30)>	calibrationCycleStart{};
-		//Bit 30 is reserved
+		static constexpr 	Register::BitLocT<Address,30>	calibrationCycleStart{};
+		//Bit 31 is reserved
 	}
 	namespace ConversionSequenceACON
 	{
-		constexpr int address{baseAddressAdc+offsetSeqA_Ctrl};
+		using Address = Register::Address::Normal<
+				baseAddressAdc+offsetSeqA_Ctrl,
+				Register::maskFromRange(17,15,25,20)
+				>;
 
-		static constexpr	Register::RWLocation<address, 1>					channel00Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 1)>				channel01Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 2)>				channel02Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 3)>				channel03Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 4)>				channel04Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 5)>				channel05Enabled{};
-		static constexpr 	Register::RWLocation<address, (1 << 6)>				channel06Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 7)>				channel07Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 8)>				channel08Enabled{};
-		static constexpr	Register::RWLocation<address, (1 << 9)>				channel09Enabled{};
-		static constexpr	Register::RWLocation<address, (1 <<10)>				channel10Enabled{};
-		static constexpr	Register::RWLocation<address, (1 <<11)>				channel11Enabled{};
-		constexpr 			Register::WriteActionT<address,0xFFF,0>				channelDisable_ALL{};
-		static constexpr	Register::RWLocation<address, (0x07 << 12)> 		writeHardwareTriggerSource{};
+		static constexpr	Register::BitLocT<Address, 0>				channel00Enabled{};
+		static constexpr	Register::BitLocT<Address, 1>				channel01Enabled{};
+		static constexpr	Register::BitLocT<Address, 2>				channel02Enabled{};
+		static constexpr	Register::BitLocT<Address, 3>				channel03Enabled{};
+		static constexpr	Register::BitLocT<Address, 4>				channel04Enabled{};
+		static constexpr	Register::BitLocT<Address, 5>				channel05Enabled{};
+		static constexpr 	Register::BitLocT<Address, 6>				channel06Enabled{};
+		static constexpr	Register::BitLocT<Address, 7>				channel07Enabled{};
+		static constexpr	Register::BitLocT<Address, 8>				channel08Enabled{};
+		static constexpr	Register::BitLocT<Address, 9>				channel09Enabled{};
+		static constexpr	Register::BitLocT<Address, 10>				channel10Enabled{};
+		static constexpr	Register::BitLocT<Address, 11>				channel11Enabled{};
+		constexpr 			Register::WriteActionT<FieldLocT<Address,11,0>,0xFFF,0>				channelDisable_ALL{};
+		static constexpr	Register::RWLocation<address, 14, 12> 		writeHardwareTriggerSource{};
 		//Bits 17:15 are reserved
 		enum class TriggerPolicy {	triggerOnRisingEdge,
 									triggerOnFallingEdge};

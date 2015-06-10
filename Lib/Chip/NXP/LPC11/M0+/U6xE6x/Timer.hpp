@@ -17,7 +17,7 @@ namespace Kvasir{
 namespace Timer{
 struct TC16B0DefaultConfig {
 	static constexpr auto isr = Interrupt::counterTimer16Bank0;
-	static constexpr 	Register::RWLocation<0x40048080, (1 << 7)>		clockEnabled{};
+	static constexpr 	Register::BitLocT<Register::Address::Normal<0x40048080,0x00>, 7>		clockEnabled{};
 	static constexpr int baseAddress = 0x4000C000;
 	//supported tags
 	using Match0 = Tag::Match::M0;

@@ -16,9 +16,17 @@ limitations under the License.
 
 namespace Kvasir{
 namespace Io{
+	namespace Detail{
+		template<int Address, int Pin, bool Value>
+		using WriteActionT = Register::Action<
+				Register::BitLocation<
+					Register::Address::Normal<Address,0>,
+					(1<<Pin)>,
+				Register::WriteLiteralAction<Value>>;
+	}
 	template<int Port, int Pin>
 	struct MakeAction<Action::Input,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
-		Register::WriteActionT<(0xA0002000 + Port*4),(1<<Pin),0>{};
+		Detail::WriteActionT<(0xA0002000 + Port*4),Pin,0>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Output,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 		Register::WriteActionT<(0xA0002000 + Port*4),(1<<Pin),(1<<Pin)>{};

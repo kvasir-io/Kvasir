@@ -38,25 +38,21 @@ namespace Register{
 	}
 
 	namespace Address{
-		template<unsigned I>
-		struct ReadWrite{
-			static constexpr unsigned value = I;
+		template<unsigned A, unsigned WriteIgnoredIfZeroMask, unsigned SetOneToClearMask = 0, typename TRegType = unsigned>
+		struct Pushable{
+			static constexpr unsigned value = A;
 		};
-		template<unsigned I>
-		struct WriteOnly{
-			static constexpr unsigned value = I;
+		template<unsigned A, unsigned WriteIgnoredIfZeroMask, unsigned SetOneToClearMask = 0, typename TRegType = unsigned>
+		struct Popable{
+			static constexpr unsigned value = A;
 		};
-		template<unsigned I>
-		struct ReadOnly{
-			static constexpr unsigned value = I;
+		template<unsigned A, unsigned WriteIgnoredIfZeroMask, unsigned SetOneToClearMask = 0, typename TRegType = unsigned>
+		struct Normal{
+			static constexpr unsigned value = A;
 		};
-		template<unsigned I>
+		template<unsigned A, unsigned WriteIgnoredIfZeroMask, unsigned SetOneToClearMask = 0, typename TRegType = unsigned>
 		struct ClearOnRead{
-			static constexpr unsigned value = I;
-		};
-		template<unsigned I>
-		struct BlindWrite{
-			static constexpr unsigned value = I;
+			static constexpr unsigned value = A;
 		};
 	}
 
@@ -90,9 +86,9 @@ namespace Register{
 		using Type = Action<TLocation,TAction>;
 	};
 
-	template<typename TAddress, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
+	template<typename TAddress, unsigned Mask, bool Readable = true, bool Writable = true, typename TFieldType = unsigned>
 	struct BitLocation{
-		using Type = BitLocation<TAddress, Mask, WritableMask, TFieldType>;
+		using Type = BitLocation<TAddress, Mask, Readable, Writable, TFieldType>;
 	};
 
 	namespace Detail{
@@ -104,8 +100,8 @@ namespace Register{
 
 	template<typename TAddresses, typename TBitLocation>
 	struct ValueObject;		//see below for implementation in specialization
-	template<int... Is, typename... TAs, unsigned... Masks, unsigned... Reserveds, typename... TRs>
-	struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<BitLocation<TAs,Masks,Reserveds,TRs>>...>{
+	template<int... Is, typename... TAs, unsigned... Masks, bool... Readables, bool... Writables, typename... TRs>
+	struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<BitLocation<TAs,Masks,Readables,Writables,TRs>>...>{
 		const unsigned value_[sizeof...(Is)];
 		template<int Index>
 		MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
@@ -117,17 +113,17 @@ namespace Register{
 			unsigned r = (value_[ValueIndex::value] & Mask::value) >> positionOfFirstSetBit(Mask::value);
 			return ResultType(r);
 		}
-		using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,Reserveds,TRs>,ReadAction>>...>;
+		using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,Readables,Writables,TRs>,ReadAction>>...>;
 	};
-	template<int I, typename TA, unsigned Mask, unsigned ReservedMask, typename TR>
-	struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<BitLocation<TA,Mask,ReservedMask,TR>>>{
+	template<int I, typename TA, unsigned Mask, bool Readable, bool Writable, typename TR>
+	struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<BitLocation<TA, Mask, Readable, Writable, TR>>>{
 		const unsigned value_;
 		operator TR(){
 			using namespace MPL;
 			using ResultType = TR;
 			return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
 		};
-		using Type = ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,ReservedMask,TR>,ReadAction>>>;
+		using Type = ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA, Mask, Readable, Writable, TR>,ReadAction>>>;
 	};
 	template<>
 	struct ValueObject<MPL::List<>,MPL::List<>>{
