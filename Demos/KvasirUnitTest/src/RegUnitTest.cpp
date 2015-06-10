@@ -12,6 +12,8 @@ limitations under the License.
 ****************************************************************************/
 #include "Register/Register.hpp"
 //#include "Chip/Lpc1549.hpp"
+#include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
+#include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
@@ -29,12 +31,12 @@ constexpr Test2 test2{};
 void FTest(){
 	using namespace Register;
 	using namespace MPL;
-	using IndexedActions = TransformT<List<decltype(set(System::AHBClock::Enabled::spi0)),decltype(set(System::AHBClock::Enabled::spi1))>,BuildIndicesT<2>,Template<Register::Detail::MakeIndexedAction>>;
-	using FlattenedActions = FlattenT<IndexedActions>;
-	using Steps = SplitT<FlattenedActions,SequencePoint>;
-	using Merged = Register::Detail::MergeActionStepsT<Steps>;
-	using Actions = MPL::FlattenT<Merged>;
-	Print<Merged> a{};
+//	using IndexedActions = TransformT<List<decltype(set(System::AHBClock::Enabled::spi0)),decltype(set(System::AHBClock::Enabled::spi1))>,BuildIndicesT<2>,Template<Register::Detail::MakeIndexedAction>>;
+//	using FlattenedActions = FlattenT<IndexedActions>;
+//	using Steps = SplitT<FlattenedActions,SequencePoint>;
+//	using Merged = Register::Detail::MergeActionStepsT<Steps>;
+//	using Actions = MPL::FlattenT<Merged>;
+//	Print<Merged> a{};
 }
 
 

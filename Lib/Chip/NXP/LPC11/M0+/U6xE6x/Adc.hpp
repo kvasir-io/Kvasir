@@ -13,6 +13,7 @@ limitations under the License.
 #pragma once
 #include "Io/Io.hpp"
 #include "System.hpp"
+#include "Common/Tags.hpp"
 
 //#define LQFP48_Package
 //#define LQFP64_Package
@@ -52,7 +53,7 @@ namespace ADC{
 	constexpr int offsetFlags					{0x068};
 	constexpr int offsetTrm						{0x06C};
 
-	namespace Ctrl
+	namespace Controal
 	{
 		using Address = Register::Address::Normal<
 				baseAddressAdc+offsetCtrl,
@@ -63,69 +64,24 @@ namespace ADC{
 		//Bits 29:11 are reserved
 		static constexpr 	Register::BitLocT<Address,30>	calibrationCycleStart{};
 		//Bit 31 is reserved
-	}
-	namespace ConversionSequenceACON
-	{
-		using Address = Register::Address::Normal<
-				baseAddressAdc+offsetSeqA_Ctrl,
-				Register::maskFromRange(17,15,25,20)
-				>;
 
-		static constexpr	Register::BitLocT<Address, 0>				channel00Enabled{};
-		static constexpr	Register::BitLocT<Address, 1>				channel01Enabled{};
-		static constexpr	Register::BitLocT<Address, 2>				channel02Enabled{};
-		static constexpr	Register::BitLocT<Address, 3>				channel03Enabled{};
-		static constexpr	Register::BitLocT<Address, 4>				channel04Enabled{};
-		static constexpr	Register::BitLocT<Address, 5>				channel05Enabled{};
-		static constexpr 	Register::BitLocT<Address, 6>				channel06Enabled{};
-		static constexpr	Register::BitLocT<Address, 7>				channel07Enabled{};
-		static constexpr	Register::BitLocT<Address, 8>				channel08Enabled{};
-		static constexpr	Register::BitLocT<Address, 9>				channel09Enabled{};
-		static constexpr	Register::BitLocT<Address, 10>				channel10Enabled{};
-		static constexpr	Register::BitLocT<Address, 11>				channel11Enabled{};
-		constexpr 			Register::WriteActionT<FieldLocT<Address,11,0>,0xFFF,0>				channelDisable_ALL{};
-		static constexpr	Register::RWLocation<address, 14, 12> 		writeHardwareTriggerSource{};
-		//Bits 17:15 are reserved
-		enum class TriggerPolicy {	triggerOnRisingEdge,
-									triggerOnFallingEdge};
-			static constexpr Register::RWLocation<address,(1 <<18),~(1 <<18), TriggerPolicy> triggerPolicy{};
-			template<TriggerPolicy T>
-			static constexpr decltype(write(triggerPolicy,Register::value<TriggerPolicy, T>())) writeTriggerPolicy(){ return{}; }
-		static constexpr	Register::RWLocation<address, (1 <<19)>				syncBypassEnabled{};
-		//Bits 20:25 are reserved
-		enum class ConversionControl {	startOneConversion,
-										startBurstConversion,
-										terminateMultipleConversion};
-			static constexpr Register::RWLocation<address,(0x03 <<26),~(0x03 <<26), ConversionControl> conversionControl{};
-			template<ConversionControl C>
-			static constexpr decltype(write(conversionControl, Register::value<ConversionControl, C>())) writeConversionControl(){ return{}; }
-		static constexpr	Register::RWLocation<address, (1 <<28)>				stepConversionModeEnabled{};
-		static constexpr	Register::RWLocation<address, (1 <<29)>				setLowPriorityOnSeqAEnabled{};
-		enum class InterruptThrowCondition {interruptAfterEachSequence,
-											interruptAfterEachConversion};
-			static constexpr Register::RWLocation<address,(1 <<30),~(1 <<30), InterruptThrowCondition> interruptThrowCondition{};
-			template<InterruptThrowCondition I>
-			static constexpr decltype(write(interruptThrowCondition, Register::value<InterruptThrowCondition, I>())) writeInterruptThrowCondition(){ return{}; };
-		static constexpr	Register::RWLocation<address, (1 <<31)>				sequenceEnabled{};
-	}
-	namespace ConversionSequenceBCON
-	{
-			constexpr int address{baseAddressAdc+offsetSeqB_Ctrl};
+		//SEQA_CTRL
+		struct ConversionSequenceA
+		{
+			using Address = Register::Address::Normal<
+					baseAddressAdc+offsetSeqA_Ctrl,
+					Register::maskFromRange(17,15,25,20)
+					>;
 
-			static constexpr	Register::RWLocation<address, 1>					channel00Enabled{};
-			static constexpr	Register::RWLocation<address, (1 << 1)>				channel01Enabled{};
-			static constexpr	Register::RWLocation<address, (1 << 2)>				channel02Enabled{};
-			static constexpr	Register::RWLocation<address, (1 << 3)>				channel03Enabled{};
-			static constexpr	Register::RWLocation<address, (1 << 4)>				channel04Enabled{};
-			static constexpr	Register::RWLocation<address, (1 << 5)>				channel05Enabled{};
-			static constexpr 	Register::RWLocation<address, (1 << 6)>				channel06Enabled{};
-			static constexpr	Register::RWLocation<address, (1 << 7)>				channel07Enabled{};
-			static constexpr	Register::RWLocation<address, (1 << 8)>				channel08Enabled{};
-			static constexpr	Register::RWLocation<address, (1 << 9)>				channel09Enabled{};
-			static constexpr	Register::RWLocation<address, (1 <<10)>				channel10Enabled{};
-			static constexpr	Register::RWLocation<address, (1 <<11)>				channel11Enabled{};
-			constexpr 			Register::WriteActionT<address,0xFFF,0>				channelDisable_ALL{};
-			static constexpr	Register::RWLocation<address, (0x07 << 12)> 		writeHardwareTriggerSource{};
+			//factory for CHANNELS bits
+			template<typename TChannel>
+			static constexpr Register::BitLocT<Address,TChannel::value> sampled(TChannel){
+				static_assert(TChannel::value < 12, "adc channel not supported on this chip");
+				return {};
+			}
+			//shortcut for disabling all CHANNELS
+			constexpr 			Register::WriteActionT<FieldLocT<Address,11,0>,0xFFF,0>				sampledDisableAllChannels{};
+			static constexpr	Register::RWLocation<address, 14, 12> 		hardwareTriggerSourceSelect{};
 			//Bits 17:15 are reserved
 			enum class TriggerPolicy {	triggerOnRisingEdge,
 										triggerOnFallingEdge};
@@ -148,7 +104,50 @@ namespace ADC{
 				template<InterruptThrowCondition I>
 				static constexpr decltype(write(interruptThrowCondition, Register::value<InterruptThrowCondition, I>())) writeInterruptThrowCondition(){ return{}; };
 			static constexpr	Register::RWLocation<address, (1 <<31)>				sequenceEnabled{};
+		}
+		struct ConversionSequenceB
+		{
+				constexpr int address{baseAddressAdc+offsetSeqB_Ctrl};
+
+				static constexpr	Register::RWLocation<address, 1>					channel00Enabled{};
+				static constexpr	Register::RWLocation<address, (1 << 1)>				channel01Enabled{};
+				static constexpr	Register::RWLocation<address, (1 << 2)>				channel02Enabled{};
+				static constexpr	Register::RWLocation<address, (1 << 3)>				channel03Enabled{};
+				static constexpr	Register::RWLocation<address, (1 << 4)>				channel04Enabled{};
+				static constexpr	Register::RWLocation<address, (1 << 5)>				channel05Enabled{};
+				static constexpr 	Register::RWLocation<address, (1 << 6)>				channel06Enabled{};
+				static constexpr	Register::RWLocation<address, (1 << 7)>				channel07Enabled{};
+				static constexpr	Register::RWLocation<address, (1 << 8)>				channel08Enabled{};
+				static constexpr	Register::RWLocation<address, (1 << 9)>				channel09Enabled{};
+				static constexpr	Register::RWLocation<address, (1 <<10)>				channel10Enabled{};
+				static constexpr	Register::RWLocation<address, (1 <<11)>				channel11Enabled{};
+				constexpr 			Register::WriteActionT<address,0xFFF,0>				channelDisable_ALL{};
+				static constexpr	Register::RWLocation<address, (0x07 << 12)> 		writeHardwareTriggerSource{};
+				//Bits 17:15 are reserved
+				enum class TriggerPolicy {	triggerOnRisingEdge,
+											triggerOnFallingEdge};
+					static constexpr Register::RWLocation<address,(1 <<18),~(1 <<18), TriggerPolicy> triggerPolicy{};
+					template<TriggerPolicy T>
+					static constexpr decltype(write(triggerPolicy,Register::value<TriggerPolicy, T>())) writeTriggerPolicy(){ return{}; }
+				static constexpr	Register::RWLocation<address, (1 <<19)>				syncBypassEnabled{};
+				//Bits 20:25 are reserved
+				enum class ConversionControl {	startOneConversion,
+												startBurstConversion,
+												terminateMultipleConversion};
+					static constexpr Register::RWLocation<address,(0x03 <<26),~(0x03 <<26), ConversionControl> conversionControl{};
+					template<ConversionControl C>
+					static constexpr decltype(write(conversionControl, Register::value<ConversionControl, C>())) writeConversionControl(){ return{}; }
+				static constexpr	Register::RWLocation<address, (1 <<28)>				stepConversionModeEnabled{};
+				static constexpr	Register::RWLocation<address, (1 <<29)>				setLowPriorityOnSeqAEnabled{};
+				enum class InterruptThrowCondition {interruptAfterEachSequence,
+													interruptAfterEachConversion};
+					static constexpr Register::RWLocation<address,(1 <<30),~(1 <<30), InterruptThrowCondition> interruptThrowCondition{};
+					template<InterruptThrowCondition I>
+					static constexpr decltype(write(interruptThrowCondition, Register::value<InterruptThrowCondition, I>())) writeInterruptThrowCondition(){ return{}; };
+				static constexpr	Register::RWLocation<address, (1 <<31)>				sequenceEnabled{};
+		}
 	}
+
 
 	namespace GlobalDataRegisterSequenceAAdc{
 		constexpr int address{baseAddressAdc+offsetSeqA_Gdat};

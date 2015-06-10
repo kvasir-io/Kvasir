@@ -16,23 +16,24 @@ namespace Tag {
 	struct User {};
 	struct None {};
 	namespace ADC {
-		struct Channel{};
-		struct Channel0 : Channel{ static constexpr int value = 0; };
-		struct Channel1 : Channel{ static constexpr int value = 1; };
-		struct Channel2 : Channel{ static constexpr int value = 2; };
-		struct Channel3 : Channel{ static constexpr int value = 3; };
-		struct Channel4 : Channel{ static constexpr int value = 4; };
-		struct Channel5 : Channel{ static constexpr int value = 5; };
-		struct Channel6 : Channel{ static constexpr int value = 6; };
-		struct Channel7 : Channel{ static constexpr int value = 7; };
-		struct Channel8 : Channel{ static constexpr int value = 8; };
-		struct Channel9 : Channel{ static constexpr int value = 9; };
-		struct Channel10 : Channel{ static constexpr int value = 10; };
-		struct Channel11 : Channel{ static constexpr int value = 11; };
-		struct Channel12 : Channel{ static constexpr int value = 12; };
-		struct Channel13 : Channel{ static constexpr int value = 13; };
-		struct Channel14 : Channel{ static constexpr int value = 14; };
-		struct Channel15 : Channel{ static constexpr int value = 15; };
+		template<int I>
+		struct Channel{static constexpr int value = I;};
+		using Channel0 : Channel<0>;
+		using Channel1 : Channel<1>;
+		using Channel2 : Channel<2>;
+		using Channel3 : Channel<3>;
+		using Channel4 : Channel<4>;
+		using Channel5 : Channel<5>;
+		using Channel6 : Channel<6>;
+		using Channel7 : Channel<7>;
+		using Channel8 : Channel<8>;
+		using Channel9 : Channel<9>;
+		using Channel10 : Channel<10>;
+		using Channel11 : Channel<11>;
+		using Channel12 : Channel<12>;
+		using Channel13 : Channel<13>;
+		using Channel14 : Channel<14>;
+		using Channel15 : Channel<15>;
 	}
 	namespace Capture {
 		struct Base{};
