@@ -12,7 +12,7 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 #include "Io/Io.hpp"
-#include "System.hpp"
+//#include "System.hpp"
 #include "Common/Tags.hpp"
 
 //#define LQFP48_Package
@@ -53,7 +53,7 @@ namespace ADC{
 	constexpr int offsetFlags					{0x068};
 	constexpr int offsetTrm						{0x06C};
 
-	namespace Controal
+	namespace Control
 	{
 		using Address = Register::Address::Normal<
 				baseAddressAdc+offsetCtrl,
@@ -80,12 +80,12 @@ namespace ADC{
 				return {};
 			}
 			//shortcut for disabling all CHANNELS
-			constexpr 			Register::WriteActionT<FieldLocT<Address,11,0>,0xFFF,0>				sampledDisableAllChannels{};
-			static constexpr	Register::RWLocation<address, 14, 12> 		hardwareTriggerSourceSelect{};
+			static constexpr 	auto sampledDisableAllChannels = write(Register::FieldLocT<Address,11,0>{},Register::value<0>());
+			static constexpr	Register::FieldLocT<Address, 14, 12> 						hardwareTriggerSourceSelect{};
 			//Bits 17:15 are reserved
 			enum class TriggerPolicy {	triggerOnRisingEdge,
 										triggerOnFallingEdge};
-				static constexpr Register::RWLocation<address,(1 <<18),~(1 <<18), TriggerPolicy> triggerPolicy{};
+			static constexpr Register::BitLocT<Address, 18, TriggerPolicy> triggerPolicy{};
 				template<TriggerPolicy T>
 				static constexpr decltype(write(triggerPolicy,Register::value<TriggerPolicy, T>())) writeTriggerPolicy(){ return{}; }
 			static constexpr	Register::RWLocation<address, (1 <<19)>				syncBypassEnabled{};

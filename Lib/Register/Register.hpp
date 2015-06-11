@@ -44,12 +44,12 @@ namespace Kvasir {
 		};
 
 		//bit helpers
-		template<typename Address, int Position>
-		using BitLocT = BitLocation<Address,(1<<Position),true,true,bool>;
-		template<typename Address, int Position>
-		using ROBitLocT = BitLocation<Address,(1<<Position),true,false,bool>;
-		template<typename Address, int Position>
-		using WOBitLocT = BitLocation<Address,(1<<Position),false,true,bool>;
+		template<typename Address, int Position, typename TFieldType = bool>
+		using BitLocT = BitLocation<Address,(1<<Position),true,true,TFieldType>;
+		template<typename Address, int Position, typename TFieldType = bool>
+		using ROBitLocT = BitLocation<Address,(1<<Position),true,false,TFieldType>;
+		template<typename Address, int Position, typename TFieldType = bool>
+		using WOBitLocT = BitLocation<Address,(1<<Position),false,true,TFieldType>;
 
 		//bit field helpers
 		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
