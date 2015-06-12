@@ -12,8 +12,10 @@ limitations under the License.
 ****************************************************************************/
 #include "Register/Register.hpp"
 //#include "Chip/Lpc1549.hpp"
+//#include "Chip/Lpc11u68.hpp"
 #include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
 #include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
+#include "Chip/NXP/LPC11/M0+/U6xE6x/Interrupt.hpp"
 
 using namespace Kvasir;
 using namespace MPL;

@@ -15,25 +15,25 @@ namespace Kvasir{
 namespace Tag {
 	struct User {};
 	struct None {};
-	namespace ADC {
+	namespace Adc {
 		template<int I>
 		struct Channel{static constexpr int value = I;};
-		using Channel0 = Channel<0>;
-		using Channel1 = Channel<1>;
-		using Channel2 = Channel<2>;
-		using Channel3 = Channel<3>;
-		using Channel4 = Channel<4>;
-		using Channel5 = Channel<5>;
-		using Channel6 = Channel<6>;
-		using Channel7 = Channel<7>;
-		using Channel8 = Channel<8>;
-		using Channel9 = Channel<9>;
-		using Channel10 = Channel<10>;
-		using Channel11 = Channel<11>;
-		using Channel12 = Channel<12>;
-		using Channel13 = Channel<13>;
-		using Channel14 = Channel<14>;
-		using Channel15 = Channel<15>;
+		constexpr Channel<0> channel0{};
+		constexpr Channel<1> channel1{};
+		constexpr Channel<2> channel2{};
+		constexpr Channel<3> channel3{};
+		constexpr Channel<4> channel4{};
+		constexpr Channel<5> channel5{};
+		constexpr Channel<6> channel6{};
+		constexpr Channel<7> channel7{};
+		constexpr Channel<8> channel8{};
+		constexpr Channel<9> channel9{};
+		constexpr Channel<10> channel10{};
+		constexpr Channel<11> channel11{};
+		constexpr Channel<12> channel12{};
+		constexpr Channel<13> channel13{};
+		constexpr Channel<14> channel14{};
+		constexpr Channel<15> channel15{};
 	}
 	namespace Capture {
 		struct Base{};
@@ -73,5 +73,20 @@ namespace Tag {
 		struct M14 : Base{ static constexpr int value = 14; };
 		struct M15 : Base{ static constexpr int value = 15; };
 	};
+	namespace Detail{
+		template<typename T>
+		struct IsChannel{
+			static constexpr bool value = false;
+		};
+		template<int I>
+		struct IsChannel<Adc::Channel<I>>{
+			static constexpr bool value = true;
+		};
+		template<typename T>
+		constexpr int getChannelValue(){
+			static_assert(IsChannel<T>::value,"expected a Tags::Adc::Channel");
+			return T::value;
+		}
+	}
 }
 }
