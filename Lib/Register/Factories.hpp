@@ -38,12 +38,12 @@ namespace Register{
 
 		template<typename T>
 		struct GetFieldType;
-		template<typename TAddress, unsigned Mask, bool Readable, bool Writable, typename TFieldType, typename TAction>
-		struct GetFieldType<Action<BitLocation<TAddress,Mask,Readable,Writable,TFieldType>,TAction>> {
+		template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType, typename TAction>
+		struct GetFieldType<Action<BitLocation<TAddress,Mask,TAccess,TFieldType>,TAction>> {
 			using Type = TFieldType;
 		};
-		template<typename TAddress, unsigned Mask, bool Readable, bool Writable, typename TFieldType>
-		struct GetFieldType<BitLocation<TAddress,Mask,Readable,Writable,TFieldType>>{
+		template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType>
+		struct GetFieldType<BitLocation<TAddress,Mask,TAccess,TFieldType>>{
 			using Type = TFieldType;
 		};
 		template<typename T>
@@ -52,28 +52,78 @@ namespace Register{
 		//factory for write literal
 		template<typename TLocation, unsigned Value>
 		struct Write;
-		template<unsigned Address, unsigned IgnoreIfZero, unsigned SetOneToClear, unsigned Mask, bool Readable, typename TFieldType, unsigned Value>
-		struct Write<BitLocation<Address::Normal<Address, IgnoreIfZero, SetOneToClear>, Mask, Readable, true, TFieldType>, Value> : Action<BitLocation<Address::Normal<Address, IgnoreIfZero, SetOneToClear>, Mask, Readable, true, TFieldType>,WriteLiteralAction<(Value<<positionOfFirstSetBit(Mask))>>{};
+		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType, unsigned Value>
+		struct Write<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>, Value> :
+			Action<
+				BitLocation<
+					TAddress,
+					Mask,
+					Access<Readable,true,ClearOnRead,false,false>,
+					TFieldType>,
+				WriteLiteralAction<(Value<<positionOfFirstSetBit(Mask))>>{};
+
 		template<typename TLocation, unsigned Value>
 		using WriteT = typename Write<TLocation,Value>::Type;
 
 		template<typename TLocation>
 		struct Set;
-		template<unsigned Address, unsigned IgnoreIfZero, unsigned SetOneToClear, unsigned Mask, bool Readable, typename TFieldType>
-		struct Set<BitLocation<Address::Normal<Address, IgnoreIfZero, SetOneToClear>, Mask, Readable, true, TFieldType>> : Action<BitLocation<Address::Normal<Address, IgnoreIfZero, SetOneToClear>, Mask, Readable, true, TFieldType>,WriteLiteralAction<Mask>>{
+		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
+		struct Set<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>> :
+			Action<
+				BitLocation<
+					TAddress,
+					Mask,
+					Access<Readable,true,ClearOnRead,false,false>,
+					TFieldType>,
+				WriteLiteralAction<Mask>>
+		{
 			static_assert(onlyOneBitSet(Mask),"Register::set only works on single bits. Use Register::write to write values to wider bit fields");
 		};
 		template<typename TLocation>
 		struct Clear;
-		template<unsigned Address, unsigned IgnoreIfZero, unsigned SetOneToClear, unsigned Mask, bool Readable, typename TFieldType>
-		struct Clear<BitLocation<Address::Normal<Address, IgnoreIfZero, SetOneToClear>, Mask, Readable, true, TFieldType>> : Action<BitLocation<Address::Normal<Address, IgnoreIfZero, SetOneToClear>, Mask, Readable, true, TFieldType>,WriteLiteralAction<0>>{
+		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
+		struct Clear<
+			BitLocation<
+				TAddress,
+				Mask,
+				Access<Readable,true,ClearOnRead,false,false>,
+				TFieldType>> :
+			Action<
+				BitLocation<
+					TAddress,
+					Mask,
+					Access<Readable,true,ClearOnRead,false,false>,
+					TFieldType>,
+				WriteLiteralAction<0>>
+		{
 			static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
+		};
+		template<typename TLocation>
+		struct Reset;
+		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
+		struct Reset<
+			BitLocation<
+				TAddress,
+				Mask,
+				Access<Readable,true,ClearOnRead,false,true>,
+				TFieldType>> :
+			Action<
+				BitLocation<
+					TAddress,
+					Mask,
+					Access<Readable,true,ClearOnRead,false,true>,
+					TFieldType>,
+				WriteLiteralAction<1>>
+		{
+			static_assert(onlyOneBitSet(Mask),"Register::reset only works on single bits that are marked as set to clear");
 		};
 
 		template<typename TLocation>
 		using SetT = typename Set<TLocation>::Type;
 		template<typename TLocation>
 		using ClearT = typename Clear<TLocation>::Type;
+		template<typename TLocation>
+		using ResetT = typename Reset<TLocation>::Type;
 
 	}
 
@@ -85,12 +135,17 @@ namespace Register{
 
 	template<typename T>
 	constexpr inline Detail::SetT<T> set(T){
-		return Detail::SetT<T>{};
+		return {};
 	}
 
 	template<typename T>
 	constexpr inline Detail::ClearT<T> clear(T){
-		return Detail::ClearT<T>{};
+		return {};
+	}
+
+	template<typename T>
+	constexpr inline Detail::ResetT<T> reset(T){
+		return {};
 	}
 
 	//runtime value
@@ -106,8 +161,8 @@ namespace Register{
 		struct ValueToInt<MPL::Value<T,I>> : MPL::Int<int(I)>{};
 		template<typename T, typename U>
 		struct WriteLocationAndCompileTimeValueTypeAreSame : FalseType {};
-		template<typename AT, unsigned M, bool Readable, typename FT, FT V>
-		struct WriteLocationAndCompileTimeValueTypeAreSame<BitLocation<AT, M, Readable, true, FT>,MPL::Value<FT,V>> : TrueType{};
+		template<typename AT, unsigned M, bool Readable, bool ClearOnRead, typename FT, FT V>
+		struct WriteLocationAndCompileTimeValueTypeAreSame<BitLocation<AT, M, Access<Readable,true,ClearOnRead,false,false>, FT>,MPL::Value<FT,V>> : TrueType{};
 	}
 	template<typename T, typename U>
 	constexpr inline Detail::WriteT<T,Detail::ValueToInt<U>::value> write(T, U){

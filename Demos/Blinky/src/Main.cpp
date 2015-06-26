@@ -28,13 +28,13 @@ public:
 struct TimerConfig : TimerDefaultConfig {
 	static constexpr auto userInit = list(
 			write(MatchRegister::select(match0),value<10000u>()),
-			set(MatchControl::interruptEnable(match0)),
+			set(MatchControl::interruptOnMatch(match0)),
 			set(MatchControl::resetOnMatch(match0)));
 };
 
 class Timer : public Kvasir::Timer::Base<Timer,TimerConfig>{
 public:
-	static void onMatch(Config::Match0){
+	static void onMatch(decltype(Config::match0)){
 		Led::toggle();
 	}
 };

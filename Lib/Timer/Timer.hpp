@@ -22,33 +22,43 @@ protected:
 	static void onCapture(...) {};
 private:
 	static void onIsr(){
-		auto i = apply(read(TConfig::Interrupt::status));
+		using TC = TConfig;
+		using IS = typename TC::InterruptStatus;
+		auto res = apply(
+				IS::read(TC::match0),
+				IS::read(TC::match1),
+				IS::read(TC::match2),
+				IS::read(TC::match3),
+				IS::read(TC::capture0),
+				IS::read(TC::capture1),
+				IS::read(TC::capture2)
+				);
 		unsigned clearBits{0};
-		if((unsigned)i & (1u<<0)){
+		if(get<0>(res)){
 			clearBits |= (1<<0);
 			TDerived::onMatch(TConfig::match0);
 		}
-		if(i & (1u<<1)){
+		if(get<1>(res)){
 			clearBits |= (1<<1);
-			TDerived::onMatch(TConfig::match0);
+			TDerived::onMatch(TConfig::match1);
 		}
-		if(i & (1u<<2)){
+		if(get<2>(res)){
 			clearBits |= (1<<2);
-			TDerived::onMatch(TConfig::match0);
+			TDerived::onMatch(TConfig::match2);
 		}
-		if(i & (1u<<3)){
+		if(get<3>(res)){
 			clearBits |= (1<<3);
-			TDerived::onMatch(TConfig::match0);
+			TDerived::onMatch(TConfig::match3);
 		}
-		if(i & (1u<<4)){
+		if(get<4>(res)){
 			clearBits |= (1<<4);
 			TDerived::onCapture(TConfig::capture0);
 		}
-		if(i & (1u<<5)){
+		if(get<5>(res)){
 			clearBits |= (1<<5);
 			TDerived::onCapture(TConfig::capture1);
 		}
-		if(i & (1u<<6)){
+		if(get<6>(res)){
 			clearBits |= (1<<6);
 			TDerived::onCapture(TConfig::capture2);
 		}

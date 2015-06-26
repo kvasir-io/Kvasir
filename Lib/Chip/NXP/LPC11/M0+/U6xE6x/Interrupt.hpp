@@ -55,6 +55,17 @@ namespace Interrupt{
 	constexpr Type<30> usbWakeup{};
 }
 namespace Nvic{
+	namespace Detail{
+		using namespace Register;
+		template<unsigned A, int BitPos>
+		using BlindSet = Register::Action<
+				BitLocation<Register::Address<
+					A,
+					maskFromRange(31,0)
+					>,
+				(1<<BitPos),false,true>,
+				WriteLiteralAction<1>>;
+	}
 	constexpr int baseAddress = 0xE000E000;
 
 	template<>
@@ -64,25 +75,25 @@ namespace Nvic{
 	};
 
 	template<int I>
-	struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
+	struct MakeAction<Action::Enable,Index<I>> : Detail::BlindSet<
 		baseAddress + 0x100, I>{
 		static_assert(I<=30 && I>=0,"Unable to enable this interrupt, index is out of range");
 	};
 
 	template<int I>
-	struct MakeAction<Action::Disable,Index<I>> : Register::BlindSetBitActionT<
+	struct MakeAction<Action::Disable,Index<I>> : Detail::BlindSet<
 		baseAddress + 0x180, I>{
 		static_assert(I<=30 && I>=0,"Unable to disable this interrupt, index is out of range");
 	};
 
 	template<int I>
-	struct MakeAction<Action::SetPending,Index<I>>	:	Register::BlindSetBitActionT<
+	struct MakeAction<Action::SetPending,Index<I>>	:	Detail::BlindSet<
 		baseAddress + 0x200, I>{
 		static_assert(I<=30 && I>=0,"Unable to set pending on this interrupt, index is out of range");
 	};
 
 	template<int I>
-	struct MakeAction<Action::ClearPending,Index<I>>	:	Register::BlindSetBitActionT<
+	struct MakeAction<Action::ClearPending,Index<I>>	:	Detail::BlindSet<
 		baseAddress + 0x280, I>{
 		static_assert(I<=30 && I>=0,"Unable to clear pending on this interrupt, index is out of range");
 	};

@@ -45,19 +45,19 @@ namespace Kvasir {
 
 		//bit helpers
 		template<typename Address, int Position, typename TFieldType = bool>
-		using BitLocT = BitLocation<Address,(1<<Position),true,true,TFieldType>;
+		using RWBitLocT = BitLocation<Address,(1<<Position),ReadWriteAccess,TFieldType>;
 		template<typename Address, int Position, typename TFieldType = bool>
-		using ROBitLocT = BitLocation<Address,(1<<Position),true,false,TFieldType>;
+		using ROBitLocT = BitLocation<Address,(1<<Position),ReadOnlyAccess,TFieldType>;
 		template<typename Address, int Position, typename TFieldType = bool>
-		using WOBitLocT = BitLocation<Address,(1<<Position),false,true,TFieldType>;
+		using WOBitLocT = BitLocation<Address,(1<<Position),WriteOnlyAccess,TFieldType>;
 
 		//bit field helpers
 		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
-		using FieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),true,true,TFieldType>;
+		using RWFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),ReadWriteAccess,TFieldType>;
 		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
-		using ROFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),true,false,TFieldType>;
+		using ROFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),ReadOnlyAccess,TFieldType>;
 		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
-		using WOFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),false,true,TFieldType>;
+		using WOFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),WriteOnlyAccess,TFieldType>;
 
 		namespace Detail{
 			using namespace MPL;
@@ -90,8 +90,8 @@ namespace Kvasir {
 				}
 				using Type = Unsigned<A>;
 			};
-			template<typename TAddress, unsigned Mask, bool Readable, bool Writable, typename ResultType>
-			struct GetAddress<BitLocation<TAddress,Mask,Readable,Writable,ResultType>> {
+			template<typename TAddress, unsigned Mask, typename TAccess, typename ResultType>
+			struct GetAddress<BitLocation<TAddress,Mask,TAccess,ResultType>> {
 				static constexpr unsigned value = TAddress::value;
 				static unsigned read(){
 					return *((volatile unsigned*)value);
@@ -128,8 +128,8 @@ namespace Kvasir {
 			template<typename T>
 			struct GetMask;
 			//from BitLocations
-			template<typename Address, unsigned Mask, bool Readable, bool Writable, typename ResultType>
-			struct GetMask<BitLocation<Address,Mask,Readable,Writable,ResultType>> : Value<unsigned,Mask>{};
+			template<typename Address, unsigned Mask, typename TAccess, typename ResultType>
+			struct GetMask<BitLocation<Address,Mask,TAccess,ResultType>> : Value<unsigned,Mask>{};
 			//from Action
 			template<typename TBitLocation, typename TAction>
 			struct GetMask<Action<TBitLocation,TAction>> : GetMask<TBitLocation>{};
@@ -219,10 +219,8 @@ namespace Kvasir {
 			template<
 				typename TAddress,
 				unsigned Mask1, unsigned Mask2,
-				bool Readable1,
-				bool Readable2,
-				bool Writable1,
-				bool Writable2,
+				typename TAccess1,
+				typename TAccess2,
 				typename TFieldType1, typename TFieldType2,
 				template<unsigned> class TActionTemplate,
 				unsigned Value1, unsigned Value2,
@@ -230,15 +228,15 @@ namespace Kvasir {
 				typename... TInputs1, typename... TInputs2,
 				typename... Ts, typename... Us> //next input and last merged are mergable
 			struct MergeRegisterActions<
-					List<IndexedAction<Action<BitLocation<TAddress,Mask1,Readable1,Writable1,TFieldType1>,TActionTemplate<Value1>>, ReadMask1, TInputs1...>, Ts...>,
-					List<IndexedAction<Action<BitLocation<TAddress,Mask2,Readable2,Writable2,TFieldType2>,TActionTemplate<Value2>>, ReadMask2, TInputs2...>, Us...>
+					List<IndexedAction<Action<BitLocation<TAddress,Mask1,TAccess1,TFieldType1>,TActionTemplate<Value1>>, ReadMask1, TInputs1...>, Ts...>,
+					List<IndexedAction<Action<BitLocation<TAddress,Mask2,TAccess2,TFieldType2>,TActionTemplate<Value2>>, ReadMask2, TInputs2...>, Us...>
 				> :	MergeRegisterActions<
 					List<Ts...>,
 					List<IndexedAction<Action<
 						BitLocation<
 							TAddress,
 							Mask1 | Mask2, 						//merge
-							true, true>,						//dont care, plausibility check has already been done
+							TAccess1>,							//dont care, plausibility check has already been done
 							TActionTemplate<Value1 | Value2>	//merge
 							//TODO implement register type here
 						>,
@@ -280,14 +278,14 @@ namespace Kvasir {
 			template<typename TAction, typename Index>
 			struct MakeIndexedAction;
 			//in default case there is no actual expected input
-			template<typename TAddress, unsigned Mask, bool Reradable, bool Writable, typename TR, typename TAction, int Index>
-			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,Reradable,Writable,TR>,TAction>,Int<Index>>:
-					IndexedAction<Action<BitLocation<TAddress,Mask,Reradable,Writable,TR>,TAction>,MakeReadMask<Mask,TAction>::value>{};
+			template<typename TAddress, unsigned Mask, typename TAccess, typename TR, typename TAction, int Index>
+			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,TAction>,Int<Index>>:
+					IndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,TAction>,MakeReadMask<Mask,TAction>::value>{};
 
 			//special case where there actually is expected input
-			template<typename TAddress, unsigned Mask, bool Reradable, bool Writable, typename TR, int Index>
-			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,Reradable,Writable,TR>,WriteAction>,Int<Index>>:
-					IndexedAction<Action<BitLocation<TAddress,Mask,Reradable,Writable,TR>,WriteAction>,MakeReadMask<Mask,WriteAction>::value,IndexedInput<Index,Mask>>{};
+			template<typename TAddress, unsigned Mask, typename TAccess, typename TR, int Index>
+			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,WriteAction>,Int<Index>>:
+					IndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,WriteAction>,MakeReadMask<Mask,WriteAction>::value,IndexedInput<Index,Mask>>{};
 
 			//special case where a list of actions is passed
 			template<typename... Ts, typename Index>
@@ -304,8 +302,8 @@ namespace Kvasir {
 			struct IsAddressPred{
 				template<typename T>
 				struct Apply : MPL::FalseType {};
-				template<typename TAddress, unsigned Mask, bool Reradable, bool Writable, typename FieldType, typename Cmd>
-				struct Apply<Action<BitLocation<TAddress,Mask,Reradable,Writable,FieldType>,Cmd>> : MPL::Value<bool,(I==GetAddress<TAddress>::value)>{};
+				template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType, typename Cmd>
+				struct Apply<Action<BitLocation<TAddress,Mask,TAccess,TFieldType>,Cmd>> : MPL::Value<bool,(I==GetAddress<TAddress>::value)>{};
 			};
 
 			template<typename TArgList>

@@ -13,20 +13,20 @@ limitations under the License.
 #include "Register/Register.hpp"
 //#include "Chip/Lpc1549.hpp"
 //#include "Chip/Lpc11u68.hpp"
-#include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
-#include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
-#include "Chip/NXP/LPC11/M0+/U6xE6x/Interrupt.hpp"
+//#include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
+//#include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
+//#include "Chip/NXP/LPC11/M0+/U6xE6x/Interrupt.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
 using namespace Register;
 
-using Address1 = Address::Normal<1,0>;
+using Address1 = Address<1,0>;
 
 enum class E{a,b};
-using Test = Register::FieldLocT<Address1,2,0,E>;
-using Test1 = Register::FieldLocT<Address1,4,3>;
-using Test2 = Register::FieldLocT<Address1,8,7>;
+using Test = Register::RWFieldLocT<Address1,2,0,E>;
+using Test1 = Register::RWFieldLocT<Address1,4,3>;
+using Test2 = Register::RWFieldLocT<Address1,8,7>;
 constexpr Test test{};
 constexpr Test1 test1{};
 constexpr Test2 test2{};
