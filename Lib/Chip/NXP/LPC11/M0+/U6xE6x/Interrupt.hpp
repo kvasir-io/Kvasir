@@ -59,12 +59,12 @@ namespace Nvic{
 		using namespace Register;
 		template<unsigned A, int BitPos>
 		using BlindSet = Register::Action<
-				BitLocation<Register::Address<
+				WOBitLocT<Register::Address<
 					A,
 					maskFromRange(31,0)
 					>,
-				(1<<BitPos),false,true>,
-				WriteLiteralAction<1>>;
+				BitPos>,
+				WriteLiteralAction<(1<<BitPos)>>;
 	}
 	constexpr int baseAddress = 0xE000E000;
 

@@ -35,7 +35,7 @@ namespace SystemClock{
 			using PllClock = typename TTraits::SystemPllClock;
 			apply(write(PllClock::source,PllClock::Source::systemOscillator));
 			apply(TTraits::SystemPllClock::updateSourceSequence);
-			apply(TTraits::FlashConfiguration::twoSysclock);
+			apply(TTraits::FlashConfiguration::defaultConfig);
 			apply(write(TTraits::SystemPLLControl::feedbackDivider,value<I>()),
 					write(TTraits::SystemPLLControl::postDivider,typename TTraits::SystemPLLControl::PostDividerRatio(J)));
 			apply(TTraits::systemPllPowerOn);

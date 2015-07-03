@@ -161,7 +161,7 @@ namespace MPL {
 	template<typename T, typename...Ts, int I>
 	struct At<List<T, Ts...>,Int<I>> : At<List<Ts...>,Int<I-1>>{};
 	template<typename T, typename... Ts>
-	struct At<List<T, Ts...>,Int<0>> : T{};
+	struct At<List<T, Ts...>,Int<0>> : Return<T>{};
 	template<typename TList, typename TIndex>
 	using AtT = typename At<TList,TIndex>::Type;
 

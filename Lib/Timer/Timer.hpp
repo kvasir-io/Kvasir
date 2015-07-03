@@ -15,54 +15,66 @@ limitations under the License.
 
 namespace Kvasir{
 namespace Timer{
+namespace Detail{
+	template<typename T, typename U>
+	auto callOnMatch(U u)->MPL::VoidT<decltype((T::onMatch(U{})))>{
+		T::onMatch(u);
+	}
+	void callOnMatch(...){
+
+	}
+	template<typename T, typename U>
+	auto callOnCapture(U u)->MPL::VoidT<decltype((T::onCapture(U{})))>{
+		T::onCapture(u);
+	}
+	void callOnCapture(...){
+
+	}
+}
 template<typename TDerived, typename TConfig>
 struct Base {
-protected:
-	static void onMatch(...) {};
-	static void onCapture(...) {};
 private:
 	static void onIsr(){
 		using TC = TConfig;
 		using IS = typename TC::InterruptStatus;
 		auto res = apply(
-				IS::read(TC::match0),
-				IS::read(TC::match1),
-				IS::read(TC::match2),
-				IS::read(TC::match3),
-				IS::read(TC::capture0),
-				IS::read(TC::capture1),
-				IS::read(TC::capture2)
+				read(IS::select(TC::match0)),
+				read(IS::select(TC::match1)),
+				read(IS::select(TC::match2)),
+				read(IS::select(TC::match3)),
+				read(IS::select(TC::capture0)),
+				read(IS::select(TC::capture1)),
+				read(IS::select(TC::capture2))
 				);
 		unsigned clearBits{0};
-		if(get<0>(res)){
-			clearBits |= (1<<0);
-			TDerived::onMatch(TConfig::match0);
+		if(::Kvasir::Register::get<0>(res)){
+			apply(reset(IS::select(TC::match0)));
+			Detail::callOnMatch(TConfig::match0);
 		}
-		if(get<1>(res)){
-			clearBits |= (1<<1);
-			TDerived::onMatch(TConfig::match1);
+		if(::Kvasir::Register::get<1>(res)){
+			apply(reset(IS::select(TC::match1)));
+			Detail::callOnMatch(TConfig::match1);
 		}
-		if(get<2>(res)){
-			clearBits |= (1<<2);
-			TDerived::onMatch(TConfig::match2);
+		if(::Kvasir::Register::get<2>(res)){
+			apply(reset(IS::select(TC::match2)));
+			Detail::callOnMatch(TConfig::match2);
 		}
-		if(get<3>(res)){
-			clearBits |= (1<<3);
-			TDerived::onMatch(TConfig::match3);
+		if(::Kvasir::Register::get<3>(res)){
+			apply(reset(IS::select(TC::match3)));
+			Detail::callOnMatch(TConfig::match3);
 		}
-		if(get<4>(res)){
-			clearBits |= (1<<4);
-			TDerived::onCapture(TConfig::capture0);
+		if(::Kvasir::Register::get<4>(res)){
+			apply(reset(IS::select(TC::capture0)));
+			Detail::callOnCapture(TConfig::capture0);
 		}
-		if(get<5>(res)){
-			clearBits |= (1<<5);
-			TDerived::onCapture(TConfig::capture1);
+		if(::Kvasir::Register::get<5>(res)){
+			apply(reset(IS::select(TC::capture1)));
+			Detail::callOnCapture(TConfig::capture1);
 		}
-		if(get<6>(res)){
-			clearBits |= (1<<6);
-			TDerived::onCapture(TConfig::capture2);
+		if(::Kvasir::Register::get<6>(res)){
+			apply(reset(IS::select(TC::capture2)));
+			Detail::callOnCapture(TConfig::capture2);
 		}
-		apply(write(TConfig::Interrupt::clear, clearBits));
 
 	}
 protected:

@@ -20,13 +20,13 @@ namespace Kvasir{
 	namespace USB{
 		static constexpr int baseAddress = 0x40080000;
 		struct DeviceCommandStatus{
-			template<unsigned Mask, typename Access = Register::ReadWriteAccess, typename TFieldType = unsigned>
+			template<unsigned Mask, typename TAccess = Register::ReadWriteAccess, typename TFieldType = unsigned>
 			using Helper = Register::BitLocation<
 					Register::Address<
 						baseAddress,
 						Register::maskFromRange(8,8,10,10,18,18,23,20,27,27,31,29),
 						Register::maskFromRange(17,17,19,19)>,
-					Mask,Readable,Writable,TFieldType>;
+					Mask,TAccess,TFieldType>;
 			static constexpr Helper<Register::maskFromRange(6,0)> deviceAddress{};
 
 			static constexpr Helper<(1 << 7)>				deviceEnabled{};
@@ -52,7 +52,7 @@ namespace Kvasir{
 			static constexpr Helper<(1 <<25),Register::RSetToClearAccess>				deviceSuspendChange{};
 			static constexpr Helper<(1 <<26),Register::RSetToClearAccess>				deviceResetChange{};
 
-			static constexpr Helper<(1 <<28),true,false>	vbusDebounced{};
+			static constexpr Helper<(1 <<28),Register::ReadOnlyAccess>	vbusDebounced{};
 		};
 		struct Info{
 			static constexpr int address = baseAddress+4;

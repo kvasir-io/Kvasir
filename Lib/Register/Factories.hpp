@@ -113,7 +113,7 @@ namespace Register{
 					Mask,
 					Access<Readable,true,ClearOnRead,false,true>,
 					TFieldType>,
-				WriteLiteralAction<1>>
+				WriteLiteralAction<(1<<positionOfFirstSetBit(Mask))>>
 		{
 			static_assert(onlyOneBitSet(Mask),"Register::reset only works on single bits that are marked as set to clear");
 		};

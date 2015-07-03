@@ -28,7 +28,7 @@ namespace Detail{
 }
 struct TC16B0DefaultConfig {
 	static constexpr auto isr = Interrupt::counterTimer16Bank0;
-	static constexpr 	Register::BitLocation<Register::Address<0x40048080,0x00>, 7>		clockEnabled{};
+	static constexpr 	Register::RWBitLocT<Register::Address<0x40048080,0x00>, 7>		clockEnabled{};
 	static constexpr int baseAddress = 0x4000C000;
 	//supported tags
 	static constexpr auto match0 = Tag::Match::m0;

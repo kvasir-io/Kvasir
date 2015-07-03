@@ -89,7 +89,7 @@ private:
 			Register::maskFromRange(9,9,31,16)>;
 	static constexpr Register::RWFieldLocT<Address1,2,0> 		xtalinFunction{};
 	static constexpr Register::RWFieldLocT<Address2,2,0> 		xtaloutFunction{};
-//	static constexpr Register::RWFieldLocT<Address1,4,3> 		xtalinMode{};
+	static constexpr Register::RWFieldLocT<Address1,4,3> 		xtalinMode{};
 	static constexpr Register::RWFieldLocT<Address2,4,3> 		xtaloutMode{};
 	static constexpr Register::RWBitLocT<Address1,7>			xtalinIsDigitalMode{};
 	static constexpr Register::RWBitLocT<Address2,7> 			xtaloutIsDigitalMode{};
@@ -99,7 +99,7 @@ public:
 			Register::sequencePoint,
 			write(xtalinFunction,Register::value<1>()),
 			write(xtaloutFunction,Register::value<1>()),
-//			write(xtalinMode,Register::value<0>()),
+			write(xtalinMode,Register::value<0>()),
 			write(xtaloutMode,Register::value<0>()),
 			clear(xtalinIsDigitalMode),
 			clear(xtaloutIsDigitalMode)
@@ -112,10 +112,9 @@ public:
 		using Address = Register::Address<
 				0x4003C010,
 				Register::maskFromRange(31,2)>;
-		enum class Source {oneSysclock, twoSysclock};
-		static constexpr Register::RWFieldLocT<Address, 1, 0, Source> source{};
-		template<Source S>
-		static constexpr decltype(write(source,Register::value<Source,S>())) writeSource(){ return {}; };
+		enum class Config {oneSysclock, twoSysclock};
+		static constexpr Register::RWFieldLocT<Address, 1, 0, Config> config{};
+		static constexpr auto defaultConfig = write(config,Register::value<Config,Config::twoSysclock>());
 	};
 	struct MainClock{
 		using Address1 = Register::Address<

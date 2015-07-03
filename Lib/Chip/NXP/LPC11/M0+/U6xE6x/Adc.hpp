@@ -120,7 +120,7 @@ namespace ADC{
 			}
 
 			//shortcut for disabling all CHANNELS
-			static constexpr 	auto sampledDisableAllChannels = write(Register::FieldLocT<Address,11,0>{},Register::value<0>());
+			static constexpr 	auto sampledDisableAllChannels = write(Register::RWFieldLocT<Address,11,0>{},Register::value<0>());
 			static constexpr	Register::RWFieldLocT<Address, 14, 12> 						hardwareTriggerSourceSelect{};
 			//Bits 17:15 are reserved
 			enum class TriggerPolicy {	triggerOnRisingEdge,
@@ -282,9 +282,9 @@ namespace ADC{
 				Register::maskFromRange(27,26)
 				>;
 		template<typename TChannel>
-		static constexpr decltype(read(Register::BitLocT<Address, Tag::Detail::getChannelValue<TChannel>()>())) thCompareStatus(TChannel){ return{}; };
+		static constexpr decltype(read(Register::RWBitLocT<Address, Tag::Detail::getChannelValue<TChannel>()>())) thCompareStatus(TChannel){ return{}; };
 		template<typename TChannel>
-		static constexpr decltype(write(Register::BitLocT<Address, Tag::Detail::getChannelValue<TChannel>()>())) resetThCompareStatus(TChannel){ return{}; };
+		static constexpr decltype(write(Register::RWBitLocT<Address, Tag::Detail::getChannelValue<TChannel>()>())) resetThCompareStatus(TChannel){ return{}; };
 		template<typename TChannel>
 		static constexpr decltype(read(Register::ROBitLocT<Address, Tag::Detail::getChannelValue<TChannel>()>())) overrunStatus(TChannel){ return{}; };
 		static constexpr 	Register::ROBitLocT<Address, 24>		seqAOverrun{};
@@ -305,8 +305,8 @@ namespace ADC{
 
 		//Bits 4:0 are reserved
 
-		constexpr decltype(set(Register::BitLocT<Address,5>{}))			vddaHigh{};		// 2.7 to 3.6 Volts
-		constexpr decltype(clear(Register::BitLocT<Address,5>{}))		vddaLow{};		// 2.4 to 2.7 Volts
+		constexpr decltype(set(Register::RWBitLocT<Address,5>{}))			vddaHigh{};		// 2.7 to 3.6 Volts
+		constexpr decltype(clear(Register::RWBitLocT<Address,5>{}))		vddaLow{};		// 2.4 to 2.7 Volts
 
 		//Bits 31:6 are reserved
 	}
@@ -347,7 +347,6 @@ namespace ADC{
 		static_assert(Detail::getAdcPinLocationPort2(Pin) != -1,"the supplied pin does not have ADC functionality");
 	};
 	struct Config{
-		static constexpr auto powerOn = clear(System::PowerConfiguration::adcPoweredDown);
 		static constexpr Tag::None channel0Pin{};
 		static constexpr Tag::None channel1Pin{};
 		static constexpr Tag::None channel2Pin{};
@@ -360,6 +359,7 @@ namespace ADC{
 		static constexpr Tag::None channel9Pin{};
 		static constexpr Tag::None channel10Pin{};
 		static constexpr Tag::None channel11Pin{};
+		static constexpr auto powerOn = clear(System::PowerConfiguration::adcPoweredDown);
 	};
 }
 }

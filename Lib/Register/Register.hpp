@@ -79,8 +79,8 @@ namespace Kvasir {
 			//getters for specific parameters of an Action
 			template<typename T>
 			struct GetAddress;
-			template<template<unsigned, unsigned, unsigned, typename> class TA, unsigned A, unsigned WIIZ, unsigned SOTC, typename TRegType>
-			struct GetAddress<TA<A,WIIZ,SOTC,TRegType>> {
+			template<template<unsigned, unsigned, unsigned, typename, typename> class TA, unsigned A, unsigned WIIZ, unsigned SOTC, typename TRegType, typename TMode>
+			struct GetAddress<TA<A,WIIZ,SOTC,TRegType,TMode>> {
 				static constexpr unsigned value = A;
 				static unsigned read(){
 					return *((volatile unsigned*)value);
@@ -90,8 +90,8 @@ namespace Kvasir {
 				}
 				using Type = Unsigned<A>;
 			};
-			template<typename TAddress, unsigned Mask, typename TAccess, typename ResultType>
-			struct GetAddress<BitLocation<TAddress,Mask,TAccess,ResultType>> {
+			template<typename TAddress, unsigned Mask, typename TAccess, typename TFiledType>
+			struct GetAddress<BitLocation<TAddress,Mask,TAccess,TFiledType>> {
 				static constexpr unsigned value = TAddress::value;
 				static unsigned read(){
 					return *((volatile unsigned*)value);
@@ -137,8 +137,9 @@ namespace Kvasir {
 			template<typename TRegisterAction>
 			struct RegisterExec;
 
-			template<typename TAddress, unsigned Mask, bool Readable, typename FieldType, unsigned Data>
-			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,Readable,true,FieldType>,WriteLiteralAction<Data>>>{
+			//write literal with read modify write
+			template<typename TAddress, unsigned Mask, bool Readable, bool SetToClear, typename FieldType, unsigned Data>
+			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,WriteLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				unsigned operator()(unsigned in = 0){
 					auto i = GetAddress<TAddress>::read();
@@ -148,8 +149,8 @@ namespace Kvasir {
 					return i;
 				}
 			};
-			template<typename TAddress, unsigned Mask, bool Readable, typename FieldType>
-			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,Readable,true,FieldType>,WriteAction>>{
+			template<typename TAddress, unsigned Mask, bool Readable, bool SetToClear, typename FieldType>
+			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,WriteAction>>{
 				unsigned operator()(unsigned in){
 					auto i = GetAddress<TAddress>::read();
 					i &= ~Mask;
@@ -158,14 +159,14 @@ namespace Kvasir {
 					return i;
 				}
 			};
-			template<typename TAddress, unsigned Mask, bool Writable, typename FieldType>
-			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,true,Writable,FieldType>,ReadAction>>{
+			template<typename TAddress, unsigned Mask, bool Writable, bool SetToClear, typename FieldType>
+			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,Access<true,Writable,false,false,SetToClear>,FieldType>,ReadAction>>{
 				unsigned operator()(unsigned in = 0){
 					return GetAddress<TAddress>::read();
 				}
 			};
 			template<typename TAddress, unsigned Mask, typename FieldType, unsigned Data>
-			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,true,true,FieldType>,XorLiteralAction<Data>>>{
+			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,Access<true,true,false,false,false>,FieldType>,XorLiteralAction<Data>>>{
 				static_assert((Data & (~Mask))==0,"bad mask");
 				unsigned operator()(unsigned in = 0){
 					auto i = GetAddress<TAddress>::read();

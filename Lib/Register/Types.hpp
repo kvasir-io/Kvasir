@@ -85,7 +85,7 @@ namespace Register{
 	using ReadWriteAccess = Access<true,true>;
 	using ReadOnlyAccess = Access<true,false>;
 	using WriteOnlyAccess = Access<false,true>;
-	using RSetToClearAccess = Access<true,false,false,false,true>;
+	using RSetToClearAccess = Access<true,true,false,false,true>;
 
 	template<typename TAddress, unsigned Mask, typename Access = ReadWriteAccess, typename TFieldType = unsigned>
 	struct BitLocation{
@@ -101,8 +101,8 @@ namespace Register{
 
 	template<typename TAddresses, typename TBitLocation>
 	struct ValueObject;		//see below for implementation in specialization
-	template<int... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
-	struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<BitLocation<TAs,Masks,TAccesss,TRs>>...>{
+	template<unsigned... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
+	struct ValueObject<MPL::List<MPL::Unsigned<Is>...>,MPL::List<BitLocation<TAs,Masks,TAccesss,TRs>...>>{
 		const unsigned value_[sizeof...(Is)];
 		template<int Index>
 		MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
@@ -111,25 +111,29 @@ namespace Register{
 			using ValueIndex = FindT<List<Int<Is>...>,Address>;
 			using ResultType = AtT<List<TRs...>,Int<Index>>;
 			using Mask = AtT<List<Int<Masks>...>,Int<Index>>;
-			unsigned r = (value_[ValueIndex::value] & Mask::value) >> positionOfFirstSetBit(Mask::value);
+			unsigned r = (value_[ValueIndex::value] & Mask::value) >> Detail::positionOfFirstSetBit(Mask::value);
 			return ResultType(r);
 		}
-		using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TAccesss,TRs>,ReadAction>>...>;
+		using Type = ValueObject<MPL::List<MPL::Unsigned<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TAccesss,TRs>,ReadAction>...>>;
 	};
-	template<int I, typename TA, unsigned Mask, typename TAccess, typename TR>
-	struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<BitLocation<TA, Mask, TAccess, TR>>>{
+	template<unsigned I, typename TA, unsigned Mask, typename TAccess, typename TR>
+	struct ValueObject<MPL::List<MPL::Unsigned<I>>,MPL::List<BitLocation<TA, Mask, TAccess, TR>>>{
 		const unsigned value_;
 		operator TR(){
 			using namespace MPL;
 			using ResultType = TR;
 			return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
 		};
-		using Type = ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA, Mask, TAccess, TR>,ReadAction>>>;
+		using Type = ValueObject<MPL::List<MPL::Unsigned<I>>,MPL::List<Action<BitLocation<TA, Mask, TAccess, TR>,ReadAction>>>;
 	};
 	template<>
 	struct ValueObject<MPL::List<>,MPL::List<>>{
 		using Type = ValueObject<MPL::List<>,MPL::List<>>;
 	};
 
+	template<int I, typename TValueObject>
+	auto get(TValueObject o)->decltype(o.template get<I>()){
+		return o.template get<I>();
+	}
 }
 }

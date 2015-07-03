@@ -20,8 +20,8 @@ using Kvasir::Register::value;
 class Led {
 public:
 	static constexpr auto init = makeOutput(ledPin);  //init can be a single action or a list of actions
-	static void toggle(){
-		apply(makeToggle(ledPin));
+	static void blink(){
+		apply(toggle(ledPin));
 	}
 };
 
@@ -35,13 +35,11 @@ struct TimerConfig : TimerDefaultConfig {
 class Timer : public Kvasir::Timer::Base<Timer,TimerConfig>{
 public:
 	static void onMatch(decltype(Config::match0)){
-		Led::toggle();
+		Led::blink();
 	}
 };
 
 int main(){
-	Led::toggle();
-	Led::toggle();
 	while(1);
 	return 0;
 }

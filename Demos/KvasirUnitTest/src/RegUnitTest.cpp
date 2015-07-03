@@ -12,10 +12,10 @@ limitations under the License.
 ****************************************************************************/
 #include "Register/Register.hpp"
 //#include "Chip/Lpc1549.hpp"
-//#include "Chip/Lpc11u68.hpp"
-//#include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
-//#include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
-//#include "Chip/NXP/LPC11/M0+/U6xE6x/Interrupt.hpp"
+#include "Chip/Lpc11u68.hpp"
+#include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
+#include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
+#include "Chip/NXP/LPC11/M0+/U6xE6x/Interrupt.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
@@ -47,5 +47,32 @@ int main(){
 	constexpr auto w = write(test,value<E,E::a>());
 	constexpr auto d = write(test,value<E,E::a>());
 	apply(w, d);
+	Kvasir::Register::ValueObject<
+		Kvasir::MPL::List<Kvasir::MPL::Value<unsigned int, 1u> >,
+		Kvasir::MPL::List<
+			Kvasir::Register::BitLocation<
+				Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>,
+				3u,
+				Kvasir::Register::Access<true, true, false, false, false>,
+				E
+			>
+		>
+	> ii{4};
+	using aa = Kvasir::Register::Detail::GetReturnTypeT<Kvasir::Register::Action<Kvasir::Register::BitLocation<Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>, 3u, Kvasir::Register::Access<true, true, false, false, false>, E>, Kvasir::Register::ReadAction>, Kvasir::Register::Action<Kvasir::Register::BitLocation<Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>, 8u, Kvasir::Register::Access<true, true, false, false, false>, unsigned int>, Kvasir::Register::ReadAction>>;
+	using t = Kvasir::Register::ValueObject<Kvasir::MPL::List<Kvasir::MPL::Value<unsigned int, 1u> >,
+		Kvasir::MPL::List<Kvasir::Register::BitLocation<
+			Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>,
+			3u,
+			Kvasir::Register::Access<true, true, false, false, false>,
+			E
+		>,
+		Kvasir::Register::BitLocation<
+			Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>,
+			8u,
+			Kvasir::Register::Access<true, true, false, false, false>,
+			unsigned int
+		>>>;
+	auto res = apply(read(test),read(test1));
+	auto aai = get<0>(res);
 }
 
