@@ -12,61 +12,72 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 #include "Common/Interrupt.hpp"
+#include "Common/Tags.hpp"
 
 namespace Kvasir{
 namespace Timer{
+namespace Detail{
+	template<typename T>
+	struct GetInterruptStatusOffset{
+		static_assert(MPL::AlwaysFalse<T>::value,"");
+	};
+	template<int I>
+	struct GetInterruptStatusOffset<Tag::Match::Channel<I>>:MPL::Int<I>{};
+	template<int I>
+	struct GetInterruptStatusOffset<Tag::Capture::Channel<I>>:MPL::Int<I+4>{};
+}
 struct TC16B0DefaultConfig {
 	static constexpr auto isr = Interrupt::counterTimer16Bank0;
-	static constexpr 	Register::RWLocation<0x40048080, (1 << 7)>		clockEnabled{};
+	static constexpr 	Register::RWBitLocT<Register::Address<0x40048080,0x00>, 7>		clockEnabled{};
 	static constexpr int baseAddress = 0x4000C000;
 	//supported tags
-	using Match0 = Tag::Match::M0;
-	using Match1 = Tag::Match::M1;
-	using Match2 = Tag::Match::M2;
-	using Match3 = Tag::Match::M3;
-	using Capture0 = Tag::Capture::C0;
-	using Capture1 = Tag::Capture::C1;
-	using Capture2 = Tag::Capture::C2;
-	static constexpr Match0 match0{};
-	static constexpr Match1 match1{};
-	static constexpr Match2 match2{};
-	static constexpr Match3 match3{};
-	static constexpr Capture0 capture0{};
-	static constexpr Capture1 capture1{};
-	static constexpr Capture2 capture2{};
-	struct Interrupt{
-		static constexpr int address = baseAddress;
-		static constexpr Register::RWLocation<address,0x7F> status{};
-		static constexpr Register::RWLocation<address,0x7F> clear{};
+	static constexpr auto match0 = Tag::Match::m0;
+	static constexpr auto match1 = Tag::Match::m1;
+	static constexpr auto match2 = Tag::Match::m2;
+	static constexpr auto match3 = Tag::Match::m3;;
+	static constexpr auto capture0 = Tag::Capture::c0;
+	static constexpr auto capture1 = Tag::Capture::c1;
+	static constexpr auto capture2 = Tag::Capture::c2;
+
+	struct InterruptStatus{
+		using Addr = Register::Address<baseAddress,Register::maskFromRange(31,0)>;
+		template<typename T>
+		static constexpr Register::BitLocation<Addr,(1<<Detail::GetInterruptStatusOffset<T>::value),Register::RSetToClearAccess,bool>
+			select(T){ return {}; }
 	};
 	struct Control{
-		static constexpr int address = baseAddress + 0x04;
-		static constexpr Register::RWLocation<address,(1<<0)> couterEnable{};
-		static constexpr Register::RWLocation<address,(1<<1)> holdInReset{};
+		using Addr = Register::Address<baseAddress + 0x04,Register::maskFromRange(31,2)>;
+		static constexpr Register::BitLocation<Addr,(1<<0)> couterEnable{};
+		static constexpr Register::BitLocation<Addr,(1<<1)> holdInReset{};
 	};
 	struct MatchControl{
-		static constexpr int address = baseAddress + 0x14;
+		using Addr = Register::Address<baseAddress + 0x14,Register::maskFromRange(31,12)>;
 		template<typename T>
-		static constexpr Register::RWLocation<address,(1<<(T::value * 3))> interruptEnable(T){
+		static constexpr Register::BitLocation<Addr,(1<<(T::value * 3))> interruptOnMatch(T){
 			static_assert(T::value <= 3,"channel not supported");
-			return Register::RWLocation<address,(1<<(T::value * 3))>{};
+			return {};
 		}
 		template<typename T>
-		static constexpr Register::RWLocation<address,(1<<((T::value * 3)+1))> resetOnMatch(T){
+		static constexpr Register::BitLocation<Addr,(1<<((T::value * 3)+1))> resetOnMatch(T){
 			static_assert(T::value <= 3,"channel not supported");
-			return Register::RWLocation<address,(1<<(T::value * 3)+1)>{};
+			return {};
 		}
 		template<typename T>
-		static constexpr Register::RWLocation<address,(1<<((T::value * 3)+2))> stopOnMatch(T){
+		static constexpr Register::BitLocation<Addr,(1<<((T::value * 3)+2))> stopOnMatch(T){
 			static_assert(T::value <= 3,"channel not supported");
-			return Register::RWLocation<address,(1<<(T::value * 3)+2)>{};
+			return {};
 		}
 	};
-	static constexpr Register::RWLocation<baseAddress + 0x0C,0xFFFFFFFF> prescale{};
+	static constexpr Register::BitLocation<
+		Register::Address<baseAddress + 0x0C,Register::maskFromRange(31,16)>,
+		Register::maskFromRange(15,0)> prescale{};
 	struct MatchRegister{
 		static constexpr int address = baseAddress + 0x18;
 		template<typename T>
-		static constexpr Register::RWLocation<address + (T::value * 4),0xFFFFFFFF> select(T){
+		static constexpr Register::BitLocation<
+			Register::Address<baseAddress + 0x18 + (T::value * 4),Register::maskFromRange(31,16)>,
+			Register::maskFromRange(15,0)>
+		select(T){
 			static_assert(T::value <= 3,"match register not supported on this chip");
 			return {};
 		}

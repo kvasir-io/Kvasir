@@ -97,6 +97,12 @@ namespace Io{
 	constexpr Pin<30> 	Pin30;
 	constexpr Pin<31> 	Pin31;
 
+	template<typename TAction, typename TPortPin>
+	struct MakeAction{
+		static_assert(MPL::AlwaysFalse<TAction>::value,"could not find this configuration in the included Core");
+	};
+
+	//common public interface
 
 	template<typename TPort, typename TPin>
 	struct PinLocation {
@@ -104,11 +110,6 @@ namespace Io{
 	};
 	template<int Port, int Pin>
 	using PinLocationT = PinLocation<MPL::Int<Port>,MPL::Int<Pin>>;
-
-	template<typename TAction, typename TPortPin>
-	struct MakeAction{
-		static_assert(MPL::AlwaysFalse<TAction>::value,"could not find this configuration in the included Core");
-	};
 
 	template<typename TAction, typename TPortPin>
 	using MakeActionT = typename MakeAction<TAction,TPortPin>::Type;
@@ -121,13 +122,13 @@ namespace Io{
 	template<typename TPortPin>
 	constexpr MakeActionT<Action::Output,TPortPin> makeOutput(TPortPin){ return{}; };
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Set,TPortPin> makeSet(TPortPin){ return{}; };
+	constexpr MakeActionT<Action::Set,TPortPin> set(TPortPin){ return{}; };
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Clear,TPortPin> makeClear(TPortPin){ return{}; };
+	constexpr MakeActionT<Action::Clear,TPortPin> clear(TPortPin){ return{}; };
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Toggle,TPortPin> makeToggle(TPortPin){ return{}; };
+	constexpr MakeActionT<Action::Toggle,TPortPin> toggle(TPortPin){ return{}; };
 
 	template<typename TPort, typename TPin>
-	constexpr PinLocationT<TPort::value,TPin::value> makePinlocation(TPort,TPin){ return{}; };
+	constexpr PinLocationT<TPort::value,TPin::value> makePinLocation(TPort,TPin){ return{}; };
 }
 }

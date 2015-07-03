@@ -37,28 +37,15 @@ namespace Register{
 		constexpr IsolatedByte<3> byte3{};
 	}
 
-	namespace Address{
-		template<unsigned I>
-		struct ReadWrite{
-			static constexpr unsigned value = I;
-		};
-		template<unsigned I>
-		struct WriteOnly{
-			static constexpr unsigned value = I;
-		};
-		template<unsigned I>
-		struct ReadOnly{
-			static constexpr unsigned value = I;
-		};
-		template<unsigned I>
-		struct ClearOnRead{
-			static constexpr unsigned value = I;
-		};
-		template<unsigned I>
-		struct BlindWrite{
-			static constexpr unsigned value = I;
-		};
-	}
+	struct PushableMode{};
+	struct NormalMode{};
+	struct SpecialReadMode{};
+
+	template<unsigned A, unsigned WriteIgnoredIfZeroMask, unsigned WriteIgnoredIfOneMask = 0, typename TRegType = unsigned, typename TMode = NormalMode>
+	struct Address{
+		using Type = Address<A,WriteIgnoredIfZeroMask,WriteIgnoredIfOneMask,TRegType,TMode>;
+		static constexpr unsigned value = A;
+	};
 
 	//write a compile time known value
 	template<unsigned I>
@@ -90,9 +77,19 @@ namespace Register{
 		using Type = Action<TLocation,TAction>;
 	};
 
-	template<typename TAddress, unsigned Mask, unsigned WritableMask = 0, typename TFieldType = unsigned>
+	template<bool Readable, bool Writable, bool ClearOnRead = false, bool Popable = false, bool SetToClear = false>
+	struct Access {
+		using Type = Access<Readable,Writable,ClearOnRead,Popable,SetToClear>;
+	};
+
+	using ReadWriteAccess = Access<true,true>;
+	using ReadOnlyAccess = Access<true,false>;
+	using WriteOnlyAccess = Access<false,true>;
+	using RSetToClearAccess = Access<true,true,false,false,true>;
+
+	template<typename TAddress, unsigned Mask, typename Access = ReadWriteAccess, typename TFieldType = unsigned>
 	struct BitLocation{
-		using Type = BitLocation<TAddress, Mask, WritableMask, TFieldType>;
+		using Type = BitLocation<TAddress, Mask, Access, TFieldType>;
 	};
 
 	namespace Detail{
@@ -104,8 +101,8 @@ namespace Register{
 
 	template<typename TAddresses, typename TBitLocation>
 	struct ValueObject;		//see below for implementation in specialization
-	template<int... Is, typename... TAs, unsigned... Masks, unsigned... Reserveds, typename... TRs>
-	struct ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<BitLocation<TAs,Masks,Reserveds,TRs>>...>{
+	template<unsigned... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
+	struct ValueObject<MPL::List<MPL::Unsigned<Is>...>,MPL::List<BitLocation<TAs,Masks,TAccesss,TRs>...>>{
 		const unsigned value_[sizeof...(Is)];
 		template<int Index>
 		MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
@@ -114,25 +111,29 @@ namespace Register{
 			using ValueIndex = FindT<List<Int<Is>...>,Address>;
 			using ResultType = AtT<List<TRs...>,Int<Index>>;
 			using Mask = AtT<List<Int<Masks>...>,Int<Index>>;
-			unsigned r = (value_[ValueIndex::value] & Mask::value) >> positionOfFirstSetBit(Mask::value);
+			unsigned r = (value_[ValueIndex::value] & Mask::value) >> Detail::positionOfFirstSetBit(Mask::value);
 			return ResultType(r);
 		}
-		using Type = ValueObject<MPL::List<MPL::Int<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,Reserveds,TRs>,ReadAction>>...>;
+		using Type = ValueObject<MPL::List<MPL::Unsigned<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TAccesss,TRs>,ReadAction>...>>;
 	};
-	template<int I, typename TA, unsigned Mask, unsigned ReservedMask, typename TR>
-	struct ValueObject<MPL::List<MPL::Int<I>>,MPL::List<BitLocation<TA,Mask,ReservedMask,TR>>>{
+	template<unsigned I, typename TA, unsigned Mask, typename TAccess, typename TR>
+	struct ValueObject<MPL::List<MPL::Unsigned<I>>,MPL::List<BitLocation<TA, Mask, TAccess, TR>>>{
 		const unsigned value_;
 		operator TR(){
 			using namespace MPL;
 			using ResultType = TR;
 			return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
 		};
-		using Type = ValueObject<MPL::List<MPL::Int<I>>,MPL::List<Action<BitLocation<TA,Mask,ReservedMask,TR>,ReadAction>>>;
+		using Type = ValueObject<MPL::List<MPL::Unsigned<I>>,MPL::List<Action<BitLocation<TA, Mask, TAccess, TR>,ReadAction>>>;
 	};
 	template<>
 	struct ValueObject<MPL::List<>,MPL::List<>>{
 		using Type = ValueObject<MPL::List<>,MPL::List<>>;
 	};
 
+	template<int I, typename TValueObject>
+	auto get(TValueObject o)->decltype(o.template get<I>()){
+		return o.template get<I>();
+	}
 }
 }
