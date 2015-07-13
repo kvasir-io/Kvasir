@@ -17,37 +17,14 @@
 ****************************************************************************/
 #pragma once
 #include "Types.hpp"
+#include "AtomicFactories.hpp"
+#include "IsolatedFactories.hpp"
+#include "Utility.hpp"
 
 namespace Kvasir{
 namespace Register{
-	constexpr unsigned maskFromRange(int high, int low){
-		return (0xFFFFFFFF >> (32-(high-low)))<<low;
-	}
-	template<typename... Is>
-	constexpr unsigned maskFromRange(int high, int low, Is...args){
-		return maskFromRange(high,low) | maskFromRange(args...);
-	}
 	namespace Detail{
 		using namespace MPL;
-
-		constexpr bool onlyOneBitSet(unsigned i){
-			return (i==(1u<<0)) || (i==(1u<<1)) || (i==(1u<<2)) || (i==(1u<<3)) || (i==(1u<<4)) || (i==(1u<<5)) || (i==(1u<<6)) || (i==(1u<<7)) || (i==(1u<<8)) || (i==(1u<<9)) || (i==(1u<<10)) || (i==(1u<<11)) || (i==(1u<<12)) || (i==(1u<<13)) || (i==(1u<<14)) || (i==(1u<<15)) || (i==(1u<<16)) || (i==(1u<<17)) || (i==(1u<<18)) || (i==(1u<<19)) || (i==(1u<<20)) || (i==(1u<<21)) || (i==(1u<<22)) || (i==(1u<<23)) || (i==(1u<<24)) || (i==(1u<<25)) || (i==(1u<<26)) || (i==(1u<<27)) || (i==(1u<<28)) || (i==(1u<<29)) || (i==(1u<<30)) || (i==(1u<<31));
-		}
-
-
-
-		template<typename T>
-		struct GetFieldType;
-		template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType, typename TAction>
-		struct GetFieldType<Action<BitLocation<TAddress,Mask,TAccess,TFieldType>,TAction>> {
-			using Type = TFieldType;
-		};
-		template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType>
-		struct GetFieldType<BitLocation<TAddress,Mask,TAccess,TFieldType>>{
-			using Type = TFieldType;
-		};
-		template<typename T>
-		using GetFieldTypeT = typename GetFieldType<T>::Type;
 
 		//factory for write literal
 		template<typename TLocation, unsigned Value>
@@ -79,6 +56,11 @@ namespace Register{
 		{
 			static_assert(onlyOneBitSet(Mask),"Register::set only works on single bits. Use Register::write to write values to wider bit fields");
 		};
+
+		template<typename TLocation>
+		using SetT = typename Set<TLocation>::Type;
+
+
 		template<typename TLocation>
 		struct Clear;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
@@ -98,6 +80,11 @@ namespace Register{
 		{
 			static_assert(onlyOneBitSet(Mask),"Register::clear only works on single bits. Use Register::write to write values to wider bit fields");
 		};
+
+		template<typename TLocation>
+		using ClearT = typename Clear<TLocation>::Type;
+
+
 		template<typename TLocation>
 		struct Reset;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
@@ -119,10 +106,6 @@ namespace Register{
 		};
 
 		template<typename TLocation>
-		using SetT = typename Set<TLocation>::Type;
-		template<typename TLocation>
-		using ClearT = typename Clear<TLocation>::Type;
-		template<typename TLocation>
 		using ResetT = typename Reset<TLocation>::Type;
 
 	}
@@ -130,11 +113,21 @@ namespace Register{
 //Action factories which turn a BitLocation into an Action
 	template<typename T>
 	constexpr inline Action<T,ReadAction> read(T){
-		return Action<T,ReadAction>{};
+		return {};
+	}
+
+	template<typename T, typename U, typename... Ts>
+	constexpr inline decltype(MPL::list(read(T{}), read(U{}), read(Ts{})...)) read(T,U,Ts...){
+		return {};
 	}
 
 	template<typename T>
 	constexpr inline Detail::SetT<T> set(T){
+		return {};
+	}
+
+	template<typename T, typename U, typename... Ts>
+	constexpr inline decltype(MPL::list(set(T{}), set(U{}), set(Ts{})...)) set(T,U,Ts...){
 		return {};
 	}
 
@@ -143,60 +136,36 @@ namespace Register{
 		return {};
 	}
 
+	template<typename T, typename U, typename... Ts>
+	constexpr inline decltype(MPL::list(clear(T{}), clear(U{}), clear(Ts{})...)) clear(T,U,Ts...){
+		return {};
+	}
+
 	template<typename T>
 	constexpr inline Detail::ResetT<T> reset(T){
 		return {};
 	}
+
+	template<typename T, typename U, typename... Ts>
+	constexpr inline decltype(MPL::list(reset(T{}), reset(U{}), reset(Ts{})...)) reset(T,U,Ts...){
+		return {};
+	}
+
 
 	//runtime value
 	template<typename T>
 	constexpr Action<T,WriteAction> write(T,Detail::GetFieldTypeT<T> in){
 		return Action<T,WriteAction>{unsigned(in)};
 	}
+
 	//compile time value
-	namespace Detail{
-		template<typename T>
-		struct ValueToInt;
-		template<typename T, T I>
-		struct ValueToInt<MPL::Value<T,I>> : MPL::Int<int(I)>{};
-		template<typename T, typename U>
-		struct WriteLocationAndCompileTimeValueTypeAreSame : FalseType {};
-		template<typename AT, unsigned M, bool Readable, bool ClearOnRead, typename FT, FT V>
-		struct WriteLocationAndCompileTimeValueTypeAreSame<BitLocation<AT, M, Access<Readable,true,ClearOnRead,false,false>, FT>,MPL::Value<FT,V>> : TrueType{};
-	}
 	template<typename T, typename U>
 	constexpr inline Detail::WriteT<T,Detail::ValueToInt<U>::value> write(T, U){
 		static_assert(Detail::WriteLocationAndCompileTimeValueTypeAreSame<T,U>::value,"type mismatch: the BitLocation field type and the compile time Value type must be the same");
 		return {};
 	}
 
-	//constraint factories check constraints on actions or lists of actions and may add sequence points or other actions
-	namespace Detail{
-		template<typename T>
-		struct IsWriteLiteral : FalseType{};
-		template<typename T>
-		struct IsWriteRuntime : FalseType{};
-	}
-	template<typename T>
-	constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> atomic(T){
 
-	}
-	template<typename T>
-	constexpr MPL::EnableIfT<Detail::IsWriteRuntime<T>::value> atomic(T in){
-
-	}
-	template<typename T, typename U, typename...Ts>
-	constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> atomic(T in){
-
-	}
-	template<typename T, typename U, typename...Ts>
-	constexpr MPL::EnableIfT<Detail::IsWriteRuntime<T>::value> atomic(T in){
-
-	}
-	template<typename T>
-	constexpr MPL::EnableIfT<Detail::IsWriteLiteral<T>::value> isolated(T){
-
-	}
 
 }
 }

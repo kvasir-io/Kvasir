@@ -30,6 +30,12 @@ using Test2 = Register::RWFieldLocT<Address1,8,7>;
 constexpr Test test{};
 constexpr Test1 test1{};
 constexpr Test2 test2{};
+
+using namespace Kvasir::Io;
+constexpr auto mpin1 = makePinLocation(port0,pin1);
+constexpr auto mpin2 = makePinLocation(port0,pin2);
+constexpr auto mpin3 = makePinLocation(port0,pin3);
+
 void FTest(){
 	using namespace Register;
 	using namespace MPL;
@@ -74,5 +80,7 @@ int main(){
 		>>>;
 	auto res = apply(read(test),read(test1));
 	auto aai = get<0>(res);
+	auto ttt = set(mpin1,mpin2,mpin3);
+	auto tttt = set(mpin2,mpin3);
 }
 
