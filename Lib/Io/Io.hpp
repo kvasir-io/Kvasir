@@ -12,58 +12,30 @@ limitations under the License.
 ****************************************************************************/
 #pragma once
 #include "MPL/Utility.hpp"
+#include "Types.hpp"
+#include "PinFactories.hpp"
+#include "PortFactories.hpp"
 
 namespace Kvasir {
 namespace Io{
-	namespace Action{
-		struct Input{};
-		struct Output{};
-		struct Set{};
-		struct Clear{};
-		struct Toggle{};
-		struct PinLocation{};
-		template<int I>
-		struct PinFunction{ static constexpr int value = I;};
-		constexpr Input input;
-		constexpr Output output{};
-		constexpr PinLocation pinlocation{};
-		constexpr Set set{};
-		constexpr Clear clear{};
-		constexpr Toggle toggle{};
-		constexpr PinFunction<0> pinFunction0{};
-		constexpr PinFunction<1> pinFunction1{};
-		constexpr PinFunction<2> pinFunction2{};
-		constexpr PinFunction<3> pinFunction3{};
-		constexpr PinFunction<4> pinFunction4{};
-	};
 
-	template<int I>
-	struct Port{
-		static constexpr int value = I;
-		using Type = Port<I>;
-	};
-	constexpr Port< 0> 	port0{};
-	constexpr Port< 1> 	port1{};
-	constexpr Port< 2> 	port2{};
-	constexpr Port< 3> 	port3{};
-	constexpr Port< 4> 	port4{};
-	constexpr Port< 5> 	port5{};
-	constexpr Port< 6> 	port6{};
-	constexpr Port< 7> 	port7{};
-	constexpr Port< 8> 	port8{};
-	constexpr Port< 9> 	port9{};
-	constexpr Port<10> 	port10{};
-	constexpr Port<11> 	port11{};
-	constexpr Port<12> 	port12{};
-	constexpr Port<13> 	port13{};
-	constexpr Port<14> 	port14{};
-	constexpr Port<15> 	port15{};
+	constexpr HwPort< 0> 	port0{};
+	constexpr HwPort< 1> 	port1{};
+	constexpr HwPort< 2> 	port2{};
+	constexpr HwPort< 3> 	port3{};
+	constexpr HwPort< 4> 	port4{};
+	constexpr HwPort< 5> 	port5{};
+	constexpr HwPort< 6> 	port6{};
+	constexpr HwPort< 7> 	port7{};
+	constexpr HwPort< 8> 	port8{};
+	constexpr HwPort< 9> 	port9{};
+	constexpr HwPort<10> 	port10{};
+	constexpr HwPort<11> 	port11{};
+	constexpr HwPort<12> 	port12{};
+	constexpr HwPort<13> 	port13{};
+	constexpr HwPort<14> 	port14{};
+	constexpr HwPort<15> 	port15{};
 
-	template<int I>
-	struct Pin{
-		static constexpr int value = I;
-		using Type = Port<I>;
-	};
 	constexpr Pin< 0> 	pin0{};
 	constexpr Pin< 1> 	pin1{};
 	constexpr Pin< 2> 	pin2{};
@@ -97,38 +69,5 @@ namespace Io{
 	constexpr Pin<30> 	pin30{};
 	constexpr Pin<31> 	pin31{};
 
-	template<typename TAction, typename TPortPin>
-	struct MakeAction{
-		static_assert(MPL::AlwaysFalse<TAction>::value,"could not find this configuration in the included Core");
-	};
-
-	//common public interface
-
-	template<typename TPort, typename TPin>
-	struct PinLocation {
-		using Type = PinLocation<TPort,TPin>;
-	};
-	template<int Port, int Pin>
-	using PinLocationT = PinLocation<MPL::Int<Port>,MPL::Int<Pin>>;
-
-	template<typename TAction, typename TPortPin>
-	using MakeActionT = typename MakeAction<TAction,TPortPin>::Type;
-
-	template<typename TAction, typename TPortPin>
-	constexpr MakeActionT<TAction,TPortPin> action(TAction,TPortPin){ return MakeActionT<TAction,TPortPin>{}; };
-
-	template<typename TPortPin>
-	constexpr MakeActionT<Action::Input,TPortPin> makeInput(TPortPin){ return{}; };
-	template<typename TPortPin>
-	constexpr MakeActionT<Action::Output,TPortPin> makeOutput(TPortPin){ return{}; };
-	template<typename TPortPin>
-	constexpr MakeActionT<Action::Set,TPortPin> set(TPortPin){ return{}; };
-	template<typename TPortPin>
-	constexpr MakeActionT<Action::Clear,TPortPin> clear(TPortPin){ return{}; };
-	template<typename TPortPin>
-	constexpr MakeActionT<Action::Toggle,TPortPin> toggle(TPortPin){ return{}; };
-
-	template<typename TPort, typename TPin>
-	constexpr PinLocationT<TPort::value,TPin::value> makePinLocation(TPort,TPin){ return{}; };
 }
 }
