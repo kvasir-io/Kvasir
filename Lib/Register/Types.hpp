@@ -63,6 +63,103 @@ namespace Register{
 
 	};
 
+	constexpr auto res = apply(read(thing1),read(thing2));
+	if(get(res,thing1)){/*...*/}
+	if(get(res,thing2)){/*...*/}
+
+unsigned volatile &reg1 = *(unsigned*)0x40013004;
+unsigned volatile &reg2 = *(unsigned*)0x40024000;
+unsigned volatile &reg3 = *(unsigned*)0x40013008;
+reg1 += 4;
+reg2 += 5;
+reg3 += 6;
+//becomes
+auto a = reg1;
+auto b = reg3;
+a += 4;
+b += 5;
+reg1 = a;
+reg3 = b;
+reg2 += 6;
+
+auto i = reg;
+i &= ~0x10;
+i |= 0x100;
+reg = i;
+
+auto i = reg;
+i &= ~0x03;
+i |= 0x08;
+reg = i;
+
+//becomes
+
+auto i = reg;
+i &= ~0x13;
+i |= 0x108;
+reg = i;
+
+
+struct transition_table : mpl::vector<
+    //    Start     Event         Next      Action                 Guard
+    //    +---------+-------------+---------+---------------------+----------------------+
+      _row < Stopped , play        , Playing                      >,
+      _row < Stopped , open_close  , Open                             >,
+      _row < Stopped , stop        , Stopped                         >,
+    //    +---------+-------------+---------+---------------------+----------------------+
+      _row < Open    , open_close  , Empty                            >,
+    //    +---------+-------------+---------+---------------------+----------------------+
+      _row < Empty   , open_close  , Open                              >,
+      _row < Empty   , cd_detected , Stopped                         >,
+    //    +---------+-------------+---------+---------------------+----------------------+
+      _row < Playing , stop        , Stopped                         >,
+      _row < Playing , pause       , Paused                         >,
+      _row < Playing , open_close  , Open                            >,
+    //    +---------+-------------+---------+---------------------+----------------------+
+      _row < Paused  , end_pause   , Playing                      >,
+      _row < Paused  , stop        , Stopped                         >,
+      _row < Paused  , open_close  , Open                            >
+    //    +---------+-------------+---------+---------------------+----------------------+
+> {};
+
+struct Paused : public msm::front::state<>
+{
+    template <class Event,class FSM>
+    void on_entry(Event const&,FSM& ) {/*std::cout << "entering: Paused" << std::endl;*/}
+    template <class Event,class FSM>
+    void on_exit(Event const&,FSM& ) {/*std::cout << "leaving: Paused" << std::endl;*/}
+};
+
+//states
+constexpr auto stopped = []{};
+constexpr auto open = []{};
+constexpr auto empty = []{};
+constexpr auto paused = []{};
+//events
+constexpr auto play = []{};
+constexpr auto openClose = []{};
+constexpr auto stop = []{};
+constexpr auto cdDetected = []{};
+constexpr auto pause = []{};
+
+using namespace SM = Kvasir::Msm;
+constexpr auto sm = SM::make(
+		SM::initial(stopped),
+		SM::transition(stopped, play, playing),
+		SM::transition(stopped, openClose, open),
+		SM::transition(stopped, stop, stopped),
+		SM::transition(open, openClose, empty),
+		SM::transition(empty, openClose, open),
+		SM::transition(empty, cdDetected, stopped),
+		SM::transition(playing, openClose, empty),
+		SM::transition(playing, openClose, open),
+		SM::transition(playing, cdDetected, stopped),
+		SM::transition(paused, openClose, empty),
+		SM::transition(paused, openClose, open),
+		SM::transition(paused, cdDetected, stopped),
+
+	)
+
 	//xor a compile time known mask
 	template<unsigned I>
 	struct XorLiteralAction{
