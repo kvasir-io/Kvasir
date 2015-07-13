@@ -86,7 +86,9 @@ namespace Register{
 
 
 		template<typename TLocation>
-		struct Reset;
+		struct Reset{
+			static_assert(Detail::IsSetToClear<TLocation>::value,"Access violation: Register::reset only works on set to clear bits");
+		};
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
 		struct Reset<
 			BitLocation<
@@ -112,7 +114,8 @@ namespace Register{
 
 //Action factories which turn a BitLocation into an Action
 	template<typename T>
-	constexpr inline Action<T,ReadAction> read(T){
+	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Action<T,ReadAction>>
+	read(T){
 		return {};
 	}
 
@@ -122,7 +125,8 @@ namespace Register{
 	}
 
 	template<typename T>
-	constexpr inline Detail::SetT<T> set(T){
+	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::SetT<T>>
+	set(T){
 		return {};
 	}
 
@@ -132,7 +136,8 @@ namespace Register{
 	}
 
 	template<typename T>
-	constexpr inline Detail::ClearT<T> clear(T){
+	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::ClearT<T>>
+	clear(T){
 		return {};
 	}
 
@@ -142,7 +147,9 @@ namespace Register{
 	}
 
 	template<typename T>
-	constexpr inline Detail::ResetT<T> reset(T){
+	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::ResetT<T>>
+	reset(T){
+		static_assert(Detail::IsSetToClear<T>::value,"Access violation: Register::reset only works on set to clear bits");
 		return {};
 	}
 
@@ -152,20 +159,25 @@ namespace Register{
 	}
 
 
-	//runtime value
+	//Write of runtime value
+	//T must be bit location or function will be removed from overload set
 	template<typename T>
-	constexpr Action<T,WriteAction> write(T,Detail::GetFieldTypeT<T> in){
+	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Action<T,WriteAction>>
+	write(T,Detail::GetFieldTypeT<T> in){
+		static_assert(Detail::IsWritable<T>::value,"Access violation: The BitLocation provided is not marked as writable");
 		return Action<T,WriteAction>{unsigned(in)};
 	}
 
 	//compile time value
+	//T must be bit location or function will be removed from overload set
+	//U mst be compile time value or function will be removed from overload set
 	template<typename T, typename U>
-	constexpr inline Detail::WriteT<T,Detail::ValueToInt<U>::value> write(T, U){
+	constexpr inline MPL::EnableIfT<
+		(Detail::IsBitLocation<T>::value && Detail::IsCompileTimeValue<U>::value),
+		Detail::WriteT<T,Detail::ValueToUnsigned<U>::value>>
+	write(T, U){
 		static_assert(Detail::WriteLocationAndCompileTimeValueTypeAreSame<T,U>::value,"type mismatch: the BitLocation field type and the compile time Value type must be the same");
 		return {};
 	}
-
-
-
 }
 }

@@ -50,6 +50,9 @@ namespace Kvasir {
 		using ROBitLocT = BitLocation<Address,(1<<Position),ReadOnlyAccess,TFieldType>;
 		template<typename Address, int Position, typename TFieldType = bool>
 		using WOBitLocT = BitLocation<Address,(1<<Position),WriteOnlyAccess,TFieldType>;
+		///Readable bit Write in set to clear mode
+		template<typename Address, int Position, typename TFieldType = bool>
+		using RSTCBitLocT = BitLocation<Address,(1<<Position),RSetToClearAccess,TFieldType>;
 
 		//bit field helpers
 		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
