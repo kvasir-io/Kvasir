@@ -149,9 +149,9 @@ namespace Kvasir {
 		using SizeT = typename Size<TList>::Type;
 
 		template<bool B, typename T, typename U>
-		struct Conditional : U {};
+		struct Conditional : Return<U> {};
 		template<typename T, typename U>
-		struct Conditional<true,T,U> : T {};
+		struct Conditional<true,T,U> : Return<T> {};
 
 		template<bool B, typename T, typename U>
 		using ConditionalT = typename Conditional<B,T,U>::Type;

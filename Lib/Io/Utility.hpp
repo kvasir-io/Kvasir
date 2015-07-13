@@ -16,6 +16,17 @@ limitations under the License.
 
 namespace Kvasir {
 namespace Io{
+	namespace Detail{
+	using namespace MPL;
+		template<typename T>
+		struct IsPinLoaction : FalseType {};
+		template<typename TPort, typename TPin>
+		struct IsPinLoaction<PinLocation<TPort,TPin>> : TrueType{};
 
+		template<typename T>
+		struct IsPort : FalseType {};
+		template<typename T, typename... Ts>
+		struct IsPort<Port<T,Ts...>> : TrueType{};
+	}
 }
 }

@@ -55,5 +55,19 @@ namespace Io{
 	template<int Port, int Pin>
 	using PinLocationT = PinLocation<MPL::Int<Port>,MPL::Int<Pin>>;
 
+	template<typename TAccess, typename... Ts>
+	struct Port{
+		using Type = Port<Ts...>;
+	};
+
+	template<bool Input, bool Output>
+	struct Access{
+		using Type = Access<Input,Output>;
+	};
+
+	using IAccess = Access<true,false>;
+	using OAccess = Access<false,true>;
+	using IOAccess = Access<true,true>;
+
 }
 }

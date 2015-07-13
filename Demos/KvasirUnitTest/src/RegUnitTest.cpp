@@ -11,6 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #include "Register/Register.hpp"
+#include "Io/Io.hpp"
 //#include "Chip/Lpc1549.hpp"
 //#include "Chip/Lpc11u68.hpp"
 #include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
@@ -41,6 +42,12 @@ using namespace Kvasir::Io;
 constexpr auto mpin1 = makePinLocation(port0,pin1);
 constexpr auto mpin2 = makePinLocation(port0,pin2);
 constexpr auto mpin3 = makePinLocation(port0,pin3);
+
+constexpr auto pocmd = makeOutput(mpin1,mpin2);
+constexpr auto myPort = makeIOPort(mpin1,mpin2,mpin3);
+constexpr auto oCmd = makeOutput(myPort);
+constexpr auto iCmd = makeInput(myPort);
+constexpr auto wcmd = write(myPort,value<100>());
 
 void FTest(){
 	using namespace Register;

@@ -120,41 +120,41 @@ namespace Register{
 	}
 
 	template<typename T, typename U, typename... Ts>
-	constexpr inline decltype(MPL::list(read(T{}), read(U{}), read(Ts{})...)) read(T,U,Ts...){
+	constexpr decltype(MPL::list(read(T{}), read(U{}), read(Ts{})...)) read(T,U,Ts...){
 		return {};
 	}
 
 	template<typename T>
-	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::SetT<T>>
+	constexpr MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::SetT<T>>
 	set(T){
 		return {};
 	}
 
 	template<typename T, typename U, typename... Ts>
-	constexpr inline decltype(MPL::list(set(T{}), set(U{}), set(Ts{})...)) set(T,U,Ts...){
+	constexpr decltype(MPL::list(set(T{}), set(U{}), set(Ts{})...)) set(T,U,Ts...){
 		return {};
 	}
 
 	template<typename T>
-	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::ClearT<T>>
+	constexpr MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::ClearT<T>>
 	clear(T){
 		return {};
 	}
 
 	template<typename T, typename U, typename... Ts>
-	constexpr inline decltype(MPL::list(clear(T{}), clear(U{}), clear(Ts{})...)) clear(T,U,Ts...){
+	constexpr decltype(MPL::list(clear(T{}), clear(U{}), clear(Ts{})...)) clear(T,U,Ts...){
 		return {};
 	}
 
 	template<typename T>
-	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::ResetT<T>>
+	constexpr MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::ResetT<T>>
 	reset(T){
 		static_assert(Detail::IsSetToClear<T>::value,"Access violation: Register::reset only works on set to clear bits");
 		return {};
 	}
 
 	template<typename T, typename U, typename... Ts>
-	constexpr inline decltype(MPL::list(reset(T{}), reset(U{}), reset(Ts{})...)) reset(T,U,Ts...){
+	constexpr decltype(MPL::list(reset(T{}), reset(U{}), reset(Ts{})...)) reset(T,U,Ts...){
 		return {};
 	}
 

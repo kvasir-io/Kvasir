@@ -16,28 +16,76 @@ limitations under the License.
 
 namespace Kvasir {
 namespace Io{
-	template<typename TAction, typename TPortPin>
+	template<typename TAction, typename TPinLocation>
 	struct MakeAction{
 		static_assert(MPL::AlwaysFalse<TAction>::value,"could not find this configuration in the included Core");
 	};
-	template<typename TAction, typename TPortPin>
-	using MakeActionT = typename MakeAction<TAction,TPortPin>::Type;
+	template<typename TAction, typename TPinLocation>
+	using MakeActionT = typename MakeAction<TAction,TPinLocation>::Type;
 
-	template<typename TAction, typename TPortPin>
-	constexpr MakeActionT<TAction,TPortPin> action(TAction,TPortPin){ return MakeActionT<TAction,TPortPin>{}; };
+	namespace Detail{
+		template<typename TAction, typename TPortPin>
+		struct MakeActionIfPinLocation{};
+		template<typename TAction, typename TPort, typename TPin>
+		struct MakeActionIfPinLocation<TAction, PinLocation<TPort,TPin>>{
+			using Type = MakeActionT<TAction, PinLocation<TPort,TPin>>;
+		};
+		template<typename TAction, typename TPinLocation>
+		using MakeActionIfPinLocationT = typename MakeActionIfPinLocation<TAction,TPinLocation>::Type;
+	}
+
+	template<typename TAction, typename T>
+	constexpr Detail::MakeActionIfPinLocationT<TAction,T>
+	action(TAction,T){
+		return {};
+	};
+
+	template<typename T>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Input,T>
+	makeInput(T){
+		return{};
+	};
+
+	template<typename T, typename U, typename... Ts>
+	constexpr decltype(MPL::list(makeInput(T{}),makeInput(U{}),makeInput(Ts{})...))
+	makeInput(T,U,Ts...){
+		return {};
+	}
+
+	template<typename T>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Output,T>
+	makeOutput(T){
+		return{};
+	};
+
+	template<typename T, typename U, typename... Ts>
+	constexpr decltype(MPL::list(makeOutput(T{}),makeOutput(U{}),makeOutput(Ts{})...))
+	makeOutput(T,U,Ts...){
+		return {};
+	}
 
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Input,TPortPin> makeInput(TPortPin){ return{}; };
+	constexpr Detail::MakeActionIfPinLocationT<Action::Set,TPortPin>
+	set(TPortPin){
+		return{};
+	};
+
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Output,TPortPin> makeOutput(TPortPin){ return{}; };
+	constexpr Detail::MakeActionIfPinLocationT<Action::Clear,TPortPin>
+	clear(TPortPin){
+		return{};
+	};
+
 	template<typename TPortPin>
-	constexpr MakeActionT<Action::Set,TPortPin> set(TPortPin){ return{}; };
-	template<typename TPortPin>
-	constexpr MakeActionT<Action::Clear,TPortPin> clear(TPortPin){ return{}; };
-	template<typename TPortPin>
-	constexpr MakeActionT<Action::Toggle,TPortPin> toggle(TPortPin){ return{}; };
+	constexpr Detail::MakeActionIfPinLocationT<Action::Toggle,TPortPin>
+	toggle(TPortPin){
+		return{};
+	};
 
 	template<typename TPort, typename TPin>
-	constexpr PinLocationT<TPort::value,TPin::value> makePinLocation(TPort,TPin){ return{}; };
+	constexpr PinLocationT<TPort::value,TPin::value>
+	makePinLocation(TPort,TPin){
+		return{};
+	};
 }
 }
