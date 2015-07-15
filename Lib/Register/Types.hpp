@@ -41,7 +41,7 @@ namespace Register{
 	struct NormalMode{};
 	struct SpecialReadMode{};
 
-	template<unsigned A, unsigned WriteIgnoredIfZeroMask, unsigned WriteIgnoredIfOneMask = 0, typename TRegType = unsigned, typename TMode = NormalMode>
+	template<unsigned A, unsigned WriteIgnoredIfZeroMask=0, unsigned WriteIgnoredIfOneMask = 0, typename TRegType = unsigned, typename TMode = NormalMode>
 	struct Address{
 		using Type = Address<A,WriteIgnoredIfZeroMask,WriteIgnoredIfOneMask,TRegType,TMode>;
 		static constexpr unsigned value = A;

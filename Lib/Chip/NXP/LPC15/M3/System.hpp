@@ -15,6 +15,79 @@ limitations under the License.
 
 namespace Kvasir{
 namespace System{
+namespace SysCon{
+constexpr int baseAddress = 									0x40074000;
+struct SysMemReMap		{using address =	Register::Address<baseAddress+	0x000,
+											Register::maskFromRange(31,2)>;};
+struct AhbBufEn0		{using address =	Register::Address<baseAddress+	0x00C,
+											Register::maskFromRange(4,3,9,6,13,12,21,21,28,23,31,30)>;};
+struct AhbBufEn1		{constexpr int address = baseAddress+ 	0x010;};
+struct SysTckCal		{constexpr int address = baseAddress+	0x018;};
+struct NmiSrc			{constexpr int address = baseAddress+	0x01C;};
+struct SysRstStat		{constexpr int address = baseAddress+	0x040;};
+struct PResetCtrl0		{constexpr int address = baseAddress+	0x044;};
+struct PResetCtrl1		{constexpr int address = baseAddress+	0x048;};
+struct PioPorCap0		{constexpr int address = baseAddress+	0x04c;};
+struct PioPorCap1		{constexpr int address = baseAddress+	0x050;};
+struct PioPorCap2		{constexpr int address = baseAddress+	0x054;};
+struct MainClkSelA		{constexpr int address = baseAddress+ 	0x080;};
+struct MainClkSelB		{constexpr int address = baseAddress+ 	0x084;};
+struct UsbClkSel		{constexpr int address = baseAddress+ 	0x088;};
+struct AdcAsyncClkSel	{constexpr int address = baseAddress+	0x08C;};
+struct ClkOutSelA		{constexpr int address = baseAddress+	0x094;};
+struct ClkOutSelB		{constexpr int address = baseAddress+	0x098;};
+struct SysPllClkSel		{constexpr int address = baseAddress+	0x0A0;};
+struct UsbPllClkSel		{constexpr int address = baseAddress+ 	0x0A4;};
+struct SctPllClkSel		{constexpr int address = baseAddress+	0x0A8;};
+struct SysAhbClkDiv		{constexpr int address = baseAddress+	0x0C0;};
+struct SysAhbClkCtrl0	{constexpr int address = baseAddress+	0x0C4;};
+struct SysAhbClkCtrl1	{constexpr int address = baseAddress+	0x0C8;};
+struct SysTickClkDiv	{constexpr int address = baseAddress+	0x0cc;};
+struct UartClkDiv		{constexpr int address = baseAddress+	0x0D0;};
+struct IoConClkDiv		{constexpr int address = baseAddress+	0x0D4;};
+struct TraceClkDiv		{constexpr int address = baseAddress+	0x0D8;};
+struct UsbClkDiv		{constexpr int address = baseAddress+	0x0EC;};
+struct AdcAsyncClkDiv	{constexpr int address = baseAddress+	0x0F0;};
+struct ClkOutDiv		{constexpr int address = baseAddress+	0x0F8;};
+struct FreqMeCtrl		{constexpr int address = baseAddress+ 	0x120;};
+struct FlashCfg			{constexpr int address = baseAddress+ 	0x124;};
+struct FrgCtrl			{constexpr int address = baseAddress+	0x128;};
+struct UsbClkCtrl		{constexpr int address = baseAddress+	0x12C;};
+struct BodCtrl			{constexpr int address = baseAddress+	0x180;};
+struct IrcCtrl			{constexpr int address = baseAddress+	0x184;};
+struct SysOscCtrl		{constexpr int address = baseAddress+	0x188;};
+struct RtcOscCtrl		{constexpr int address = baseAddress+	0x190;};
+struct SysPllCtrl		{constexpr int address = baseAddress+	0x198;};
+struct SysPllStat		{constexpr int address = baseAddress+	0x19C;};
+struct UsbPllCtrl		{constexpr int address = baseAddress+ 	0x1A0;};
+struct UsbPllStat		{constexpr int address = baseAddress+	0x1A4;};
+struct SctPllCtrl		{constexpr int address = baseAddress+	0x1A8;};
+struct SctPllStat		{constexpr int address = baseAddress+	0x1AC;};
+struct PdaWakeCfg		{constexpr int address = baseAddress+	0x204;};
+struct PdRunCfg			{constexpr int address = baseAddress+	0x208;};
+struct StartErp0		{constexpr int address = baseAddress+	0x218;};
+struct StartErp1		{constexpr int address = baseAddress+	0x21C;};
+struct Jtag_IDCode		{constexpr int address = baseAddress+	0x3F4;};
+struct Device_ID0		{constexpr int address = baseAddress+	0x3F8;};
+struct Device_ID1		{constexpr int address = baseAddress+	0x3FC;};
+
+struct SysMemReMap{
+	enum class Map {	BootLoaderMode,
+							UserRamMode,
+							UserFlashMode,
+							DoNotUse};
+	static constexpr Register::RWFieldLocT<Address, 1, 0, Map>	map{};
+	template<Map M>
+	static constexpr decltype(write(map,Register::value<Map,M>())) writeMap(){ return{}; };
+};
+
+struct AhbBufEn0{
+
+	static constexpr Register::RWBitLocT<Address,22>		QeiAhbApbWritingBufferingEneabled{};
+	static constexpr Register::RWBitLocT<Address,29>		SysconAhbApbWriteBufferingEnabled{};
+};
+
+}//end of SysCon
 namespace PowerConfiguration {
 	template<int I>
 	using Helper = Register::RWLocation<0x40074208, (1u << I),unsigned(0x07 | (1 << 7) | (0x7F << 25))>;
