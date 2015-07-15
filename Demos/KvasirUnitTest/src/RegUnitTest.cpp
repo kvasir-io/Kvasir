@@ -44,7 +44,7 @@ constexpr auto mpin2 = makePinLocation(port0,pin2);
 constexpr auto mpin3 = makePinLocation(port0,pin3);
 
 constexpr auto pocmd = makeOutput(mpin1,mpin2);
-constexpr auto myPort = makeIOPort(mpin1,mpin2,mpin3);
+constexpr auto myPort = makePort(mpin1,mpin2,mpin3);
 constexpr auto oCmd = makeOutput(myPort);
 constexpr auto iCmd = makeInput(myPort);
 constexpr auto wcmd = write(myPort,value<100>());

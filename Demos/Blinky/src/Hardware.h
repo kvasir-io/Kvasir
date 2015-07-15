@@ -37,12 +37,12 @@ limitations under the License.
 
 namespace Hardware{
 #ifdef LPC11U68_BOARD
-	constexpr Kvasir::Io::PinLocationT<2,16> ledPin{};
+	constexpr Kvasir::Io::PinLocation<2,16> ledPin{};
 	using Clock = Kvasir::SystemClock::ExternalOsciRawSettings<Kvasir::System::ClockConfig,3,1>;
 	using TimerDefaultConfig = Kvasir::Timer::TC16B0DefaultConfig;
 #else
 #ifdef LPC1768_BOARD
-	constexpr Kvasir::Io::PinLocationT<0,22> ledPin{};
+	constexpr Kvasir::Io::PinLocation<0,22> ledPin{};
 	struct MyOsciSettings{
 		static void init(){
 			using namespace Kvasir;

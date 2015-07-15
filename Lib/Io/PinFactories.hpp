@@ -26,9 +26,9 @@ namespace Io{
 	namespace Detail{
 		template<typename TAction, typename TPortPin>
 		struct MakeActionIfPinLocation{};
-		template<typename TAction, typename TPort, typename TPin>
-		struct MakeActionIfPinLocation<TAction, PinLocation<TPort,TPin>>{
-			using Type = MakeActionT<TAction, PinLocation<TPort,TPin>>;
+		template<typename TAction, int Port, int Pin>
+		struct MakeActionIfPinLocation<TAction, PinLocation<Port,Pin>>{
+			using Type = MakeActionT<TAction, PinLocation<Port,Pin>>;
 		};
 		template<typename TAction, typename TPinLocation>
 		using MakeActionIfPinLocationT = typename MakeActionIfPinLocation<TAction,TPinLocation>::Type;
@@ -83,7 +83,7 @@ namespace Io{
 	};
 
 	template<typename TPort, typename TPin>
-	constexpr PinLocationT<TPort::value,TPin::value>
+	constexpr PinLocation<TPort::value,TPin::value>
 	makePinLocation(TPort,TPin){
 		return{};
 	};
