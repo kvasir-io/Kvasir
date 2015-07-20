@@ -1,3 +1,25 @@
 .tabs, .tabs2, .tabs3 {
 	background: #C23B22;
 }
+
+.tablist a {
+	background: none;
+	text-shadow: none;
+	color: #ccc;
+}
+
+.tablist a:hover {
+	background: none;
+}
+
+.tablist li {
+	background-image: none;
+}
+
+.tablist li.current a {
+	background: none;
+}
+
+.tabs2, .tabs3 {
+	border-top: 1px solid darkred;
+}
