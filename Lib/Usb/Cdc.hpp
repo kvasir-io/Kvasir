@@ -38,6 +38,3 @@ class Core {
 
 }
 }
-
-#endif  /* __CDCUSER_H__ */
-
