@@ -80,7 +80,9 @@ namespace Kvasir {
 
 
 			template<typename TAddress, unsigned Mask, bool Writable, bool SetToClear, typename FieldType>
-			struct RegisterExec<Register::Action<BitLocation<TAddress,Mask,Access<true,Writable,false,false,SetToClear>,FieldType>,ReadAction>>{
+			struct RegisterExec<Register::Action<
+				BitLocation<TAddress,Mask,Access<true,Writable,false,false,SetToClear>,FieldType>,ReadAction>>
+			{
 				unsigned operator()(unsigned in = 0){
 					return GetAddress<TAddress>::read();
 				}

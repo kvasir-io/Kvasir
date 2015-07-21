@@ -97,7 +97,11 @@ namespace Kvasir {
 			>{};
 
 			template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
-			struct MergeRegisterActions<List<TNext, Ts...>,List<TLast, Us...>> : MergeRegisterActions<List<Ts...>,List<TNext, TLast, Us...>>{};
+			struct MergeRegisterActions<
+				List<TNext, Ts...>,List<TLast, Us...>>
+				: MergeRegisterActions<
+				  	  List<Ts...>,
+					  List<TNext, TLast, Us...>>{};
 
 			template<typename... Ts> //done
 			struct MergeRegisterActions<List<>,List<Ts...>> : List<Ts...>{};
@@ -108,18 +112,20 @@ namespace Kvasir {
 			template<typename TList>
 			struct MergeActionSteps;
 			template<typename... Ts>
-			struct MergeActionSteps<MPL::List<Ts...>> : MPL::List<
-				MergeRegisterActionsT<
-					MPL::SortT<MPL::FlattenT<Ts>,Detail::IndexedActionLessP>
-				>...
-				>{};
+			struct MergeActionSteps<MPL::List<Ts...>>
+				: MPL::List<
+					MergeRegisterActionsT<
+						MPL::SortT<MPL::FlattenT<Ts>,Detail::IndexedActionLessP>
+					>...
+					>{};
 
 			template<typename T>
 			using MergeActionStepsT = typename MergeActionSteps<T>::Type;
 
 
 			template<typename TAction, unsigned ReadMask, typename... TInputs>
-			struct GetAddress<IndexedAction<TAction,ReadMask,TInputs...>> : GetAddress<TAction> {};
+			struct GetAddress<IndexedAction<TAction,ReadMask,TInputs...>>
+				: GetAddress<TAction> {};
 
 			template<unsigned Mask, typename TAction>
 			struct MakeReadMask : Unsigned<0>{};
@@ -130,17 +136,21 @@ namespace Kvasir {
 			struct MakeIndexedAction;
 			//in default case there is no actual expected input
 			template<typename TAddress, unsigned Mask, typename TAccess, typename TR, typename TAction, int Index>
-			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,TAction>,Int<Index>>:
-					IndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,TAction>,MakeReadMask<Mask,TAction>::value>{};
+			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,TAction>,Int<Index>>
+				:	IndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,TAction>,MakeReadMask<Mask,TAction>::value>{};
 
 			//special case where there actually is expected input
 			template<typename TAddress, unsigned Mask, typename TAccess, typename TR, int Index>
-			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,WriteAction>,Int<Index>>:
-					IndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,WriteAction>,MakeReadMask<Mask,WriteAction>::value,IndexedInput<Index,Mask>>{};
+			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,WriteAction>,Int<Index>>
+				:	IndexedAction<
+					Action<BitLocation<TAddress,Mask,TAccess,TR>,WriteAction>,
+					MakeReadMask<Mask,WriteAction>::value,
+					IndexedInput<Index,Mask>>{};
 
 			//special case where a list of actions is passed
 			template<typename... Ts, typename Index>
-			struct MakeIndexedAction<List<Ts...>,Index> : List<typename MakeIndexedAction<Ts,Index>::Type...>{};
+			struct MakeIndexedAction<List<Ts...>,Index>
+				: List<typename MakeIndexedAction<Ts,Index>::Type...>{};
 			//special case where a list of actions is passed
 			template<typename Index>
 			struct MakeIndexedAction<SequencePoint,Index> : SequencePoint{};
@@ -154,7 +164,8 @@ namespace Kvasir {
 				template<typename T>
 				struct Apply : MPL::FalseType {};
 				template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType, typename Cmd>
-				struct Apply<Action<BitLocation<TAddress,Mask,TAccess,TFieldType>,Cmd>> : MPL::Value<bool,(I==GetAddress<TAddress>::value)>{};
+				struct Apply<Action<BitLocation<TAddress,Mask,TAccess,TFieldType>,Cmd>>
+					: MPL::Value<bool,(I==GetAddress<TAddress>::value)>{};
 			};
 
 			template<typename TArgList>

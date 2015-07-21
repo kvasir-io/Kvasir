@@ -30,8 +30,8 @@ namespace Register{
 		template<typename TLocation, unsigned Value>
 		struct Write;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType, unsigned Value>
-		struct Write<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>, Value> :
-			Action<
+		struct Write<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>, Value>
+			: Action<
 				BitLocation<
 					TAddress,
 					Mask,
@@ -45,8 +45,8 @@ namespace Register{
 		template<typename TLocation>
 		struct Set;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
-		struct Set<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>> :
-			Action<
+		struct Set<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>>
+			: Action<
 				BitLocation<
 					TAddress,
 					Mask,
