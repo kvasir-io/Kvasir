@@ -332,18 +332,18 @@ namespace ADC{
 		static_assert(MPL::AlwaysFalse<T>::value,"");
 	};
 	template<int Pin>
-	struct SetPinFunctionToAdc<Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>> :
-		Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort0(Pin)>,Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>>{
+	struct SetPinFunctionToAdc<Io::PinLocation<0,Pin>> :
+		Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort0(Pin)>,Io::PinLocation<0,Pin>>{
 		static_assert(Detail::getAdcPinLocationPort0(Pin) != -1,"the supplied pin does not have ADC functionality");
 	};
 	template<int Pin>
-	struct SetPinFunctionToAdc<Io::PinLocation<MPL::Int<1>,MPL::Int<Pin>>> :
-		Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort1(Pin)>,Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>>{
+	struct SetPinFunctionToAdc<Io::PinLocation<1,Pin>> :
+		Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort1(Pin)>,Io::PinLocation<1,Pin>>{
 		static_assert(Detail::getAdcPinLocationPort1(Pin) != -1,"the supplied pin does not have ADC functionality");
 	};
 	template<int Pin>
-	struct SetPinFunctionToAdc<Io::PinLocation<MPL::Int<2>,MPL::Int<Pin>>> :
-		Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort2(Pin)>,Io::PinLocation<MPL::Int<0>,MPL::Int<Pin>>>{
+	struct SetPinFunctionToAdc<Io::PinLocation<2,Pin>> :
+		Io::MakeAction<Io::Action::PinFunction<Detail::getAdcPinLocationPort2(Pin)>,Io::PinLocation<2,Pin>>{
 		static_assert(Detail::getAdcPinLocationPort2(Pin) != -1,"the supplied pin does not have ADC functionality");
 	};
 	struct Config{

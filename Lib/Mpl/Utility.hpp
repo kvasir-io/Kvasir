@@ -53,6 +53,16 @@ namespace Kvasir {
 		struct Less<Value<T, v1>, Value<T, v2>> : Bool<(v1 < v2)> {};
 		using LessP = Template<Less>;
 
+		template<typename T>
+		struct IsValue : FalseType{};
+		template<typename T, T I>
+		struct IsValue<MPL::Value<T, I>> : TrueType {};
+
+		template<typename T>
+		constexpr bool isValue(T){
+			return IsValue<T>::value;
+		}
+
 		//equivalent to std::is_same
 		template<typename T, typename U>
 		struct IsSame: FalseType {};
@@ -62,6 +72,7 @@ namespace Kvasir {
 
 		template<typename T, typename U>
 		using IsSameT = typename IsSame<T,U>::Type;
+		using IsSameP = Template<IsSame>;
 
 		template<typename T>
 		struct IsIntegral : FalseType{};

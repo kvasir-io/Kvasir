@@ -1,4 +1,4 @@
-#Kvasir Register Abstraction 
+# Kvasir Register Abstraction
 
 This C++ library provides a highly optimized and powerful abstraction to Special Function Registers (SFRs). 
 SFRs are essentially address locations which look like ram to the Processor and compiler but are hard wired to 
@@ -6,14 +6,13 @@ special functions of the core and peripherials of a microcontroller/microprocess
 optimizations must be switched off locally (by using the volatile keyword) when dealing with SFRs. 
 
 Example 1:
-```
+
     volatile int& mySfr = 0x40123456;
     //in user code
     sfr |= (1<<14) | (1<<13);  //set bit 14
     
     //in an ISR
     sfr &= ~(1<<16);
-```
 
 This approach is effective but far less efficient than possible.
 
@@ -26,7 +25,7 @@ This library allows the user to provide abstraction information for all SFRs in 
 Lets see some code.
 
 Example 2:
-```
+
     //in a headder abstracting the particular chip in question
     constexpr RWLocation<0x40123456,(1<<13)> mySfrBitName1;
     constexpr RWLocation<0x40123456,(1<<14)> mySfrBitName2;
@@ -37,13 +36,11 @@ Example 2:
     
     //in an ISR
     apply(clear(mySfrBitName3));
-```
 
 here `apply` executes its parameters, in unspecified order. `set` and `clear` are essentially command factories which convert a `BitLocation` (which `RWLocation` is an alias of) into a `Register::Action` which in turn can be executed by `apply`. 
 
 In example 2 we still have the same problem of a race condition, we could however remidy this with the `atomic` factory function which changes its parameter into an atomic operation or issues a compiler error if it is not possible. 
 
-```
     //in a headder abstracting the particular chip in question
     constexpr RWLocation<0x40123456,(1<<13)> mySfrBitName1;
     constexpr RWLocation<0x40123456,(1<<14)> mySfrBitName2;
@@ -54,11 +51,9 @@ In example 2 we still have the same problem of a race condition, we could howeve
     
     //in an ISR
     apply(atomic(clear(mySfrBitName3)));
-```
 
 This is now thread safe (using bit banding internally). What if we require that mySfrBitName1 and mySfrBitName2 are set at the same time? Notice that bit 16 used in the ISR is in byte 2 of the SFR and bits 13 and 14 are in byte 1, if we change our read modify write aroud to only access one single byte rather than the whole register we would remove the race condition. This kind of refactoring can be a source of bugs an confusion in normal code but here we can just use the `isolated` factory function. 
 
-```
     //in a headder abstracting the particular chip in question
     constexpr RWLocation<0x40123456,(1<<13)> mySfrBitName1;
     constexpr RWLocation<0x40123456,(1<<14)> mySfrBitName2;
@@ -69,11 +64,9 @@ This is now thread safe (using bit banding internally). What if we require that 
     
     //in an ISR
     apply(isolated(clear(mySfrBitName3)));
-```
 
 Now this is thread safe because we are accessing different bytes in bytewise mode in the ISR. It may not however be as clear as it should be during code review. Luckely there is a compile time evaluated `assertNoConflicts` function which can be used to enforce this at compile time. 
 
-```
     assertNoConflicts(isolated(set(mySfrBitName1),set(mySfrBitName2)),isolated(clear(mySfrBitName3))); //no error
     assertNoConflicts(isolated(set(mySfrBitName1)),isolated(set(mySfrBitName2))); //error both bits are in the same byte
     
@@ -82,4 +75,3 @@ Now this is thread safe because we are accessing different bytes in bytewise mod
     
     //in an ISR
     apply(isolated(clear(mySfrBitName3)));
-```

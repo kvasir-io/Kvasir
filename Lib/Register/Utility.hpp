@@ -65,6 +65,18 @@ namespace Register{
 					(i==(1u<<31));
 		}
 
+		constexpr unsigned orAllOf(){
+			return 0;
+		}
+		constexpr unsigned orAllOf(unsigned l){
+			return l;
+		}
+
+		template<typename... Ts>
+		constexpr unsigned orAllOf(unsigned l, unsigned r, Ts... args){
+			return l | r | orAllOf(args...);
+		}
+
 
 		template<typename T>
 		struct ValueToUnsigned;
@@ -93,11 +105,6 @@ namespace Register{
 		struct IsWriteRuntime : FalseType{};
 
 		template<typename T>
-		struct IsCompileTimeValue : FalseType{};
-		template<typename T, T I>
-		struct IsCompileTimeValue<MPL::Value<T, I>> : TrueType {};
-
-		template<typename T>
 		struct IsBitLocation : FalseType{};
 		template<typename TAddress, unsigned Mask, typename Access, typename TFieldType>
 		struct IsBitLocation<BitLocation<TAddress, Mask, Access, TFieldType>> : TrueType {};
@@ -117,6 +124,74 @@ namespace Register{
 		template<typename AT, unsigned M, bool Readable, bool ClearOnRead, typename FT, FT V>
 		struct WriteLocationAndCompileTimeValueTypeAreSame<BitLocation<AT, M, Access<Readable,true,ClearOnRead,false,false>, FT>,MPL::Value<FT,V>> : TrueType{};
 
+		//getters for specific parameters of an Action
+		template<typename T>
+		struct GetAddress;
+		template<unsigned A, unsigned WIIZ, unsigned SOTC, typename TRegType, typename TMode>
+		struct GetAddress<Address<A,WIIZ,SOTC,TRegType,TMode>> {
+			static constexpr unsigned value = A;
+			static unsigned read(){
+				return *((volatile unsigned*)value);
+			}
+			static void write(unsigned i){
+				*((volatile unsigned*)value) = i;
+			}
+			using Type = Unsigned<A>;
+		};
+		template<typename TAddress, unsigned Mask, typename TAccess, typename TFiledType>
+		struct GetAddress<BitLocation<TAddress,Mask,TAccess,TFiledType>> {
+			static constexpr unsigned value = TAddress::value;
+			static unsigned read(){
+				return *((volatile unsigned*)value);
+			}
+			static void write(unsigned i){
+				*((volatile unsigned*)value) = i;
+			}
+			using Type = Unsigned<TAddress::value>;
+		};
+		template<typename TReadLoc, typename TWriteLoc>
+		struct GetAddress<BitLocationPair<TReadLoc,TWriteLoc>> {
+			static constexpr unsigned value = TReadLoc::value;
+			static unsigned read(){
+				return *((volatile unsigned*)value);
+			}
+			static void write(unsigned i){
+				*((volatile unsigned*)TWriteLoc::value) = i;
+			}
+			using Type = Unsigned<value>;
+		};
+		template<typename TBitLocation, typename TAction>
+		struct GetAddress<Action<TBitLocation,TAction>> : GetAddress<TBitLocation> {};
+
+		template<typename T>
+		struct GetBitLocation;
+		template<typename TLocation, typename TAction>
+		struct GetBitLocation<Action<TLocation,TAction>> : TLocation {};
+
+		//predecate retuning result of left < right for RegisterOptions
+		template<typename TLeft, typename TRight>
+		struct RegisterActionLess;
+		template<typename T1, typename U1, typename T2, typename U2>
+		struct RegisterActionLess< Register::Action<T1,U1>, Register::Action<T2,U2> > : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)>{};
+		using RegisterActionLessP = Template<RegisterActionLess>;
+
+		//predicate returns true if action is a read
+		template<typename T>
+		struct IsReadPred : MPL::FalseType {};
+		template<typename A>
+		struct IsReadPred< Register::Action<A,ReadAction> > : MPL::TrueType{};
+
+		template<typename T>
+		struct IsNotReadPred : NotT<typename IsReadPred<T>::Type>{};
+
+		template<typename T>
+		struct GetMask;
+		//from BitLocations
+		template<typename Address, unsigned Mask, typename TAccess, typename ResultType>
+		struct GetMask<BitLocation<Address,Mask,TAccess,ResultType>> : Value<unsigned,Mask>{};
+		//from Action
+		template<typename TBitLocation, typename TAction>
+		struct GetMask<Action<TBitLocation,TAction>> : GetMask<TBitLocation>{};
 
 	}
 }

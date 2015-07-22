@@ -16,46 +16,78 @@ limitations under the License.
 
 namespace Kvasir {
 namespace Io{
-	template<typename... Ts>
-	constexpr Port<IOAccess,Ts...> makeIOPort(Ts...){
+	template<typename T, typename... Ts>
+	constexpr MPL::EnableIfT<Detail::IsPinLoaction<T>::value, Port<PortAccess::defaultMode, T, Ts...>>
+	makePort(T,Ts...){
 		return {};
 	}
-	template<typename... Ts>
-	constexpr Port<IAccess,Ts...> makeIPort(Ts...){
+	template<typename T, typename... Ts>
+	constexpr MPL::DisableIfT<Detail::IsPinLoaction<T>::value, Port<T::Value,Ts...>>
+	makePort(T,Ts...){
 		return {};
 	}
-	template<typename... Ts>
-	constexpr Port<OAccess,Ts...> makeOPort(Ts...){
-		return {};
-	}
+
 
 	namespace Detail{
 		template<typename T>
 		struct PortMakeOutput;
-		template<typename TAccess, typename... Ts>
-		struct PortMakeOutput<Port<TAccess,Ts...>> : decltype(makeOutput(Ts{}...)){};
+		template<PortAccess A, typename... Ts>
+		struct PortMakeOutput<Port<A,Ts...>> : decltype(makeOutput(Ts{}...)){};
 		template<typename T>
 		using PortMakeOutputT = typename PortMakeOutput<T>::Type;
 
 		template<typename T>
 		struct PortMakeInput;
-		template<typename TAccess, typename... Ts>
-		struct PortMakeInput<Port<TAccess,Ts...>> : decltype(makeInput(Ts{}...)){};
+		template<PortAccess A, typename... Ts>
+		struct PortMakeInput<Port<A,Ts...>> : decltype(makeInput(Ts{}...)){};
 		template<typename T>
 		using PortMakeInputT = typename PortMakeInput<T>::Type;
 
-		template<typename T, typename U, int I>
-		struct MakeSetClearList;
-		template<int...Is, typename... Ts, int I>
-		struct MakeSetClearList<MPL::List<MPL::Int<Is>...>,MPL::List<Ts...>, I> :
-			MPL::List<MakeActionT<MPL::ConditionalT<((I>>Is)&0x01),Action::Set,Action::Clear> ,Ts>...>{};
 
-		template<typename T, typename V>
-		struct WriteLiteral;
-		template<typename TAccess, typename... Ts, typename V>
-		struct WriteLiteral<Port<TAccess,Ts...>, V> : MakeSetClearList<MPL::BuildIndicesT<sizeof...(Ts)>,MPL::List<Ts...>,V::value>::Type{};
-		template<typename T, typename V>
-		using WriteLiteralT = typename WriteLiteral<T,V>::Type;
+		//###### Traits that a chip file should specialize
+		template<PortAccess A, unsigned PortNumber, unsigned PinMask, typename Value>
+		struct WriteLiteralToSinglePort{
+			static_assert(MPL::AlwaysFalse<Value>::value,"this functionality is not supported by the included chip file");
+			using Type = int; //SFINAE should not fail but should static assert
+		};
+
+		template<PortAccess A, typename PortNumbers, typename PinMasks, typename Values>
+		struct WriteLiteralToDistributedPort{
+			static_assert(MPL::AlwaysFalse<Values>::value,"this functionality is not supported by the included chip file");
+			using Type = int; //SFINAE should not fail but should static assert
+		};
+
+		template<typename TPort>
+		struct WriteRuntimeToPort{
+			static_assert(MPL::AlwaysFalse<TPort>::value,"this functionality is not supported by the included chip file");
+			using Type = int; //SFINAE should not fail but should static assert
+		};
+		template<typename TPort>
+		using WriteRuntimeToPortT = typename WriteRuntimeToPort<TPort>::Type;
+
+		template<typename TPort>
+		struct IsIsolated{
+			static_assert(MPL::AlwaysFalse<TPort>::value,"this functionality is not supported by the included chip file");
+			using Type = int; //SFINAE should not fail but should static assert
+		};
+
+		template<typename TPort>
+		struct IsSynchronous{
+			static_assert(MPL::AlwaysFalse<TPort>::value,"this functionality is not supported by the included chip file");
+			using Type = int; //SFINAE should not fail but should static assert
+		};
+
+
+		template<bool IsSingle, typename TPort, typename Value>
+		struct WriteLiteralToPortHelper;
+		template<PortAccess A, typename... Ts, typename Value>
+		struct WriteLiteralToPortHelper<false, Port<A,Ts...>, Value> : WriteLiteralToDistributedPort<A,List<>,List<>,Value>{};	//TODO
+		template<PortAccess A, typename... Ts, typename Value>
+		struct WriteLiteralToPortHelper<true, Port<A,Ts...>, Value> : WriteLiteralToSinglePort<A,AtT<GetPortNumbersT<List<Ts...>>,Int<0>>::value,0,Value>{}; //TODO
+
+		template<bool IsSingle, typename TPort, typename Value>
+		using WriteLiteralToPortHelperT = typename WriteLiteralToPortHelper<IsSingle, TPort, Value>::Type;
+
 	}
 
 	template<typename TPort>
@@ -69,8 +101,26 @@ namespace Io{
 	}
 
 	template<typename TPort, typename TValue>
-	constexpr MPL::EnableIfT<Detail::IsPort<TPort>::value,Detail::WriteLiteralT<TPort,TValue>> write(TPort,TValue){
+	constexpr MPL::EnableIfT<
+		Detail::IsPort<TPort>::value,
+		Detail::WriteLiteralToPortHelperT<Detail::IsSinglePort<TPort>::value,TPort,TValue>>
+	write(TPort,TValue)
+	{
 		return {};
+	}
+
+	template<typename TPort>
+	constexpr MPL::EnableIfT<Detail::IsPort<TPort>::value,Detail::WriteRuntimeToPortT<TPort>> write(TPort ,unsigned value){
+		return Detail::WriteRuntimeToPortT<TPort>{value};
+	}
+
+	template<typename T>
+	constexpr bool isIsolated(T){
+		return Detail::IsIsolated<T>::value;
+	}
+	template<typename T>
+	constexpr bool isSynchronous(T){
+		return Detail::IsSynchronous<T>::value;
 	}
 }
 }

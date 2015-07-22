@@ -30,8 +30,8 @@ namespace Register{
 		template<typename TLocation, unsigned Value>
 		struct Write;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType, unsigned Value>
-		struct Write<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>, Value> :
-			Action<
+		struct Write<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>, Value>
+			: Action<
 				BitLocation<
 					TAddress,
 					Mask,
@@ -45,8 +45,8 @@ namespace Register{
 		template<typename TLocation>
 		struct Set;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
-		struct Set<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>> :
-			Action<
+		struct Set<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>>
+			: Action<
 				BitLocation<
 					TAddress,
 					Mask,
@@ -173,7 +173,7 @@ namespace Register{
 	//U mst be compile time value or function will be removed from overload set
 	template<typename T, typename U>
 	constexpr inline MPL::EnableIfT<
-		(Detail::IsBitLocation<T>::value && Detail::IsCompileTimeValue<U>::value),
+		(Detail::IsBitLocation<T>::value && MPL::IsValue<U>::value),
 		Detail::WriteT<T,Detail::ValueToUnsigned<U>::value>>
 	write(T, U){
 		static_assert(Detail::WriteLocationAndCompileTimeValueTypeAreSame<T,U>::value,"type mismatch: the BitLocation field type and the compile time Value type must be the same");

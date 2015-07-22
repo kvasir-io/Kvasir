@@ -20,12 +20,10 @@ namespace Io{
 		struct Set{};
 		struct Clear{};
 		struct Toggle{};
-		struct PinLocation{};
 		template<int I>
 		struct PinFunction{ static constexpr int value = I;};
 		constexpr Input input;
 		constexpr Output output{};
-		constexpr PinLocation pinlocation{};
 		constexpr Set set{};
 		constexpr Clear clear{};
 		constexpr Toggle toggle{};
@@ -48,26 +46,26 @@ namespace Io{
 		using Type = Pin<I>;
 	};
 
-	template<typename TPort, typename TPin>
-	struct PinLocation {
-		using Type = PinLocation<TPort,TPin>;
-	};
 	template<int Port, int Pin>
-	using PinLocationT = PinLocation<MPL::Int<Port>,MPL::Int<Pin>>;
+	struct PinLocation {
+		using Type = PinLocation<Port,Pin>;
+	};
 
-	template<typename TAccess, typename... Ts>
+	enum class PortAccess{ defaultMode, setClear, toggle, exclusiveMask, sharedMask, readModifyWrite };
+
+	template<PortAccess Access, typename... Ts>
 	struct Port{
-		using Type = Port<Ts...>;
+		using Type = Port<Access, Ts...>;
 	};
 
-	template<bool Input, bool Output>
-	struct Access{
-		using Type = Access<Input,Output>;
-	};
-
-	using IAccess = Access<true,false>;
-	using OAccess = Access<false,true>;
-	using IOAccess = Access<true,true>;
+	namespace Access{
+		constexpr MPL::Value<PortAccess,PortAccess::defaultMode> defaultMode;	//this will try to select the best mode for the chip used
+		constexpr MPL::Value<PortAccess,PortAccess::setClear> setClear;
+		constexpr MPL::Value<PortAccess,PortAccess::toggle> toggle;
+		constexpr MPL::Value<PortAccess,PortAccess::exclusiveMask> exclusiveMask;
+		constexpr MPL::Value<PortAccess,PortAccess::sharedMask> sharedMask;
+		constexpr MPL::Value<PortAccess,PortAccess::readModifyWrite> readModifyWrite;
+	}
 
 }
 }
