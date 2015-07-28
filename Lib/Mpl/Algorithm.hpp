@@ -141,16 +141,16 @@ namespace MPL {
 		template<typename... Os>
 		struct Remove<List<Os...>,0,0> : List<Os...>{};
 
-		template<typename T, typename... Ts>
+		template<bool FirstTwoSame, typename T, template<typename, typename > class Pred, typename... Ts>
 		struct Unique;
-		template<typename... Rs, typename... Ts>
-		struct Unique<List<Rs...>,Ts...> : List<Rs...>{};
-		template<typename... Rs, typename T>	//only one left
-		struct Unique<List<Rs...>,T> : List<Rs...,T>{};
-		template<typename... Rs, typename T, typename U, typename... Ts>  //not same
-		struct Unique<List<Rs...>, T, U, Ts...> : Unique<List<Rs...,T>,U,Ts...>{};
-		template<typename... Rs, typename T, typename... Ts>  //same
-		struct Unique<List<Rs...>, T, T, Ts...> : Unique<List<Rs...>,T,Ts...>{};
+		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U>	//only two left
+		struct Unique<true, List<Rs...>, Pred, T, U> : List<Rs...,T>{};
+		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U>	//only two left
+		struct Unique<false, List<Rs...>, Pred, T, U> : List<Rs...,T,U>{};
+		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U, typename V, typename... Ts>  //not same
+		struct Unique<false,List<Rs...>, Pred, T, U, V, Ts...> : Unique<Pred<U,V>::value,List<Rs...,T>,Pred,U,V,Ts...>{};
+		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U, typename V, typename... Ts>  //same
+		struct Unique<true,List<Rs...>, Pred, T, U, V, Ts...> : Unique<Pred<U,V>::value,List<Rs...>,Pred,U,V,Ts...>{};
 
 	}
 
@@ -296,17 +296,21 @@ namespace MPL {
 	template<typename TList,typename TFrom, typename TTo = void>
 	using RemoveT = typename Remove<TList,TFrom,TTo>::Type;
 
-	//expercts a sorted list, removes all consecutive duplicates
-	template<typename TList>
+	//expercts a sorted list, removes all consecutive duplicates fullfilling pred
+	template<typename TList, typename TPred = IsSameP>
 	struct Unique{
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 
-	template<typename...Ts>
-	struct Unique<MPL::List<Ts...>> : Detail::Unique<List<>,Ts...>{};
+	template< template<typename, typename > class TPred>
+	struct Unique<List<>, Template<TPred>> : List<>{};
+	template<typename T, template<typename, typename > class TPred>
+	struct Unique<List<T>, Template<TPred>> : List<T>{};
+	template<typename T, typename U, typename...Ts, template<typename, typename > class TPred>
+	struct Unique<MPL::List<T,U,Ts...>, Template<TPred>> : Detail::Unique<TPred<T,U>::value, List<>, TPred, T,U,Ts...>{};
 
-	template<typename TList>
-	using UniqueT = typename Unique<TList>::Type;
+	template<typename TList, typename TPred = IsSameP>
+	using UniqueT = typename Unique<TList, TPred>::Type;
 
 	template<typename TList, typename TPred>
 	struct CountIf{

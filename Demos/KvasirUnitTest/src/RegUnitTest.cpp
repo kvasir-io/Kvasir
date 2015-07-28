@@ -11,11 +11,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #include "Register/Register.hpp"
+#include "Io/Io.hpp"
 //#include "Chip/Lpc1549.hpp"
-#include "Chip/Lpc11u68.hpp"
+//#include "Chip/Lpc11u68.hpp"
 #include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
-#include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
-#include "Chip/NXP/LPC11/M0+/U6xE6x/Interrupt.hpp"
+//#include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
+//#include "Chip/NXP/LPC11/M0+/U6xE6x/Interrupt.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
@@ -30,6 +31,24 @@ using Test2 = Register::RWFieldLocT<Address1,8,7>;
 constexpr Test test{};
 constexpr Test1 test1{};
 constexpr Test2 test2{};
+
+constexpr Register::RWBitLocT<Address1,1> bit1{};
+constexpr Register::RWBitLocT<Address1,2> bit2{};
+constexpr Register::RWBitLocT<Address1,3> bit3{};
+constexpr Register::RSTCBitLocT<Address1,4> bit4{};
+constexpr Register::RSTCBitLocT<Address1,5> bit5{};
+
+using namespace Kvasir::Io;
+constexpr auto mpin1 = makePinLocation(port0,pin1);
+constexpr auto mpin2 = makePinLocation(port0,pin2);
+constexpr auto mpin3 = makePinLocation(port0,pin3);
+
+constexpr auto pocmd = makeOutput(mpin1,mpin2);
+constexpr auto myPort = makePort(mpin1,mpin2,mpin3);
+constexpr auto oCmd = makeOutput(myPort);
+constexpr auto iCmd = makeInput(myPort);
+constexpr auto wcmd = write(myPort,value<100>());
+
 void FTest(){
 	using namespace Register;
 	using namespace MPL;
@@ -43,36 +62,13 @@ void FTest(){
 
 
 int main(){
-	auto b = E::b;
-	constexpr auto w = write(test,value<E,E::a>());
-	constexpr auto d = write(test,value<E,E::a>());
-	apply(w, d);
-	Kvasir::Register::ValueObject<
-		Kvasir::MPL::List<Kvasir::MPL::Value<unsigned int, 1u> >,
-		Kvasir::MPL::List<
-			Kvasir::Register::BitLocation<
-				Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>,
-				3u,
-				Kvasir::Register::Access<true, true, false, false, false>,
-				E
-			>
-		>
-	> ii{4};
-	using aa = Kvasir::Register::Detail::GetReturnTypeT<Kvasir::Register::Action<Kvasir::Register::BitLocation<Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>, 3u, Kvasir::Register::Access<true, true, false, false, false>, E>, Kvasir::Register::ReadAction>, Kvasir::Register::Action<Kvasir::Register::BitLocation<Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>, 8u, Kvasir::Register::Access<true, true, false, false, false>, unsigned int>, Kvasir::Register::ReadAction>>;
-	using t = Kvasir::Register::ValueObject<Kvasir::MPL::List<Kvasir::MPL::Value<unsigned int, 1u> >,
-		Kvasir::MPL::List<Kvasir::Register::BitLocation<
-			Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>,
-			3u,
-			Kvasir::Register::Access<true, true, false, false, false>,
-			E
-		>,
-		Kvasir::Register::BitLocation<
-			Kvasir::Register::Address<1u, 0u, 0u, unsigned int, Kvasir::Register::NormalMode>,
-			8u,
-			Kvasir::Register::Access<true, true, false, false, false>,
-			unsigned int
-		>>>;
+	auto a = read(test,test1); //multiple reads factory
+	auto b = set(bit1,bit2);
+	auto c = clear(bit1,bit2);
+	auto d = reset(bit4,bit5);
 	auto res = apply(read(test),read(test1));
 	auto aai = get<0>(res);
+	auto ttt = set(mpin1,mpin2,mpin3);
+	auto tttt = set(mpin2,mpin3);
 }
 

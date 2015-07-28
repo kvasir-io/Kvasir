@@ -5,9 +5,14 @@
 
 namespace Kvasir{
 namespace Atomic{
+
+//OverFlowPolicyIgnore is the default action which is taken if
+//an overflow occurs. The user is encurraged to provide their
+//own policy which call reset or some other error handler
 struct OverFlowPolicyIgnore{
-	static void overflow(){}
+	static void operator(){}
 };
+
 namespace Detail{
 	using namespace MPL;
 	template<unsigned Size, typename = void>
@@ -20,6 +25,7 @@ namespace Detail{
 	using GetIndexTypeT = typename GetIndexType<Size,void>::Type;
 
 }
+
 template<typename TDataType, unsigned Size, typename TOverflowPolicy = OverFlowPolicyIgnore>
 struct Queue{
 private:
@@ -47,7 +53,7 @@ public:
 			tail_.store(nextTail);		//commit
 		}
 		else{
-			TOverflowPolicy::overflow();
+			TOverflowPolicy{}();
 		}
 	}
 	template<typename TRange, typename =
@@ -65,7 +71,7 @@ public:
 			tail_.store(tail); 		//commit
 		}
 		else{
-			TOverflowPolicy::overflow();
+			TOverflowPolicy{}();
 		}
 	}
 	bool pop(TDataType& out){

@@ -62,5 +62,32 @@ namespace Io{
 		Register::WriteActionT<0x4002C024,(0x03 << (Pin==28?18:24)),(Function << (Pin==28?18:24))>{
 		static_assert(Pin == 28 || Pin == 29,"Pin function not supported on this chip");
 	};
+
+
+	//###### port actions #######
+	namespace Detail{
+		template<PortAccess A, typename... Ts, typename V>
+		struct WriteLiteralToPort<Port<A,Ts...>,V>{
+			static_assert(MPL::AlwaysFalse<TPort>::value,"this functionality is not supported by the included chip file");
+		};
+		template<typename... Ts, typename V>
+		struct WriteLiteralToPort<Port<PortAccess::sharedMask,Ts...>,V>{};
+		template<typename... Ts, typename V>
+		struct WriteLiteralToPort<Port<PortAccess::defaultMode,Ts...>,V> :
+			WriteLiteralToPort<Port<PortAccess::sharedMask,Ts...>,V>{};
+
+		template<typename T, typename U, int I>
+		struct MakeSetClearList;
+		template<int...Is, typename... Ts, int I>
+		struct MakeSetClearList<MPL::List<MPL::Int<Is>...>,MPL::List<Ts...>, I> :
+			MPL::List<MakeActionT<MPL::ConditionalT<((I>>Is)&0x01),Action::Set,Action::Clear> ,Ts>...>{};
+
+		template<typename T, typename V>
+		struct WriteLiteral;
+		template<typename TAccess, typename... Ts, typename V>
+		struct WriteLiteral<Port<TAccess,Ts...>, V> : MakeSetClearList<MPL::BuildIndicesT<sizeof...(Ts)>,MPL::List<Ts...>,V::value>::Type{};
+		template<typename T, typename V>
+		using WriteLiteralT = typename WriteLiteral<T,V>::Type;
+	}
 }
 }

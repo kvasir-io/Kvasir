@@ -41,7 +41,7 @@ namespace Register{
 	struct NormalMode{};
 	struct SpecialReadMode{};
 
-	template<unsigned A, unsigned WriteIgnoredIfZeroMask, unsigned WriteIgnoredIfOneMask = 0, typename TRegType = unsigned, typename TMode = NormalMode>
+	template<unsigned A, unsigned WriteIgnoredIfZeroMask=0, unsigned WriteIgnoredIfOneMask = 0, typename TRegType = unsigned, typename TMode = NormalMode>
 	struct Address{
 		using Type = Address<A,WriteIgnoredIfZeroMask,WriteIgnoredIfOneMask,TRegType,TMode>;
 		static constexpr unsigned value = A;
@@ -69,6 +69,11 @@ namespace Register{
 		static constexpr unsigned value = I;
 	};
 
+	//xor a run time known value
+	struct XorAction{
+		unsigned value_;
+	};
+
 
 	template<typename TLocation, typename TAction>
 	struct Action : TAction {
@@ -90,6 +95,11 @@ namespace Register{
 	template<typename TAddress, unsigned Mask, typename Access = ReadWriteAccess, typename TFieldType = unsigned>
 	struct BitLocation{
 		using Type = BitLocation<TAddress, Mask, Access, TFieldType>;
+	};
+
+	template<typename T, typename U>
+	struct BitLocationPair{
+		using Type = BitLocationPair<T,U>;
 	};
 
 	namespace Detail{
