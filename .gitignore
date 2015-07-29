@@ -2,3 +2,5 @@
 *Release/
 *.metadata/
 doc/html
+Lib/.cproject
+Lib/.project
