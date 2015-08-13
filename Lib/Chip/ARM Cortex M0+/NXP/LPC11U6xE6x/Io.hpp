@@ -37,48 +37,28 @@ namespace Io{
 				Register::WriteLiteralAction<(1<<Pin)>>;
 	}
 	template<int Port, int Pin>
-	struct MakeAction<Action::Input,PinLocation<Port,Pin>> :
+	struct MakeAction<Action::Input,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 		Detail::WriteBitActionT<(0xA0002000 + Port*4),Pin,0>{};
 	template<int Port, int Pin>
-	struct MakeAction<Action::Output,PinLocation<Port,Pin>> :
+	struct MakeAction<Action::Output,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 		Detail::WriteBitActionT<(0xA0002000 + Port*4),Pin,1>{};
 	template<int Port, int Pin>
-	struct MakeAction<Action::Set,PinLocation<Port,Pin>> :
+	struct MakeAction<Action::Set,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 		Detail::BlindSetActionT<(0xA0002200 + Port*4),Pin>{};
 	template<int Port, int Pin>
-	struct MakeAction<Action::Clear,PinLocation<Port,Pin>> :
+	struct MakeAction<Action::Clear,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 		Detail::BlindSetActionT<(0xA0002280 + Port*4),Pin>{};
 	template<int Port, int Pin>
-	struct MakeAction<Action::Toggle,PinLocation<Port,Pin>> :
+	struct MakeAction<Action::Toggle,PinLocation<MPL::Int<Port>,MPL::Int<Pin>>> :
 		Detail::BlindSetActionT<(0xA0002300 + Port*4),Pin>{};
 	template<int Pin, int Function>
-	struct MakeAction<Action::PinFunction<Function>,PinLocation<0,Pin>> :
+	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<0>,MPL::Int<Pin>>> :
 		Detail::WriteFunctionActionT<(0x40044000 + Pin*4),Function>{};
 	template<int Pin, int Function>
-	struct MakeAction<Action::PinFunction<Function>,PinLocation<1,Pin>> :
+	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<1>,MPL::Int<Pin>>> :
 		Detail::WriteFunctionActionT<(0x40044060 + Pin*4),Function>{};
 	template<int Pin, int Function>
-	struct MakeAction<Action::PinFunction<Function>,PinLocation<2,Pin>> :
+	struct MakeAction<Action::PinFunction<Function>,PinLocation<MPL::Int<2>,MPL::Int<Pin>>> :
 		Detail::WriteFunctionActionT<(0x400440F0 + Pin*4),Function>{};
-
-	//###### port actions #######
-	namespace Detail{
-		//########## traits specializations ############
-		///write a compile time known value to a unique port
-		template<PortAccess A, unsigned PortNumber, unsigned PinMask, unsigned Value>
-		struct WriteLiteralToSinglePort<A,PortNumber,PinMask,Unsigned<Value>>{
-			static_assert(PortNumber!= -1,"this functionality is not supported by the included chip file");
-			using Type = int;  //SFINAE should not fail but should static assert
-		};
-//		template<typename... Ts, typename V>
-//		struct WriteLiteralToSinglePort<Port<PortAccess::sharedMask,Ts...>,V>
-//			:
-//		{};
-//		template<typename... Ts, typename V>
-//		struct WriteLiteralToSinglePort<Port<PortAccess::defaultMode,Ts...>,V> :
-//			WriteLiteralToPort<Port<PortAccess::sharedMask,Ts...>,V>{};
-
-
-	}
 }
 }
