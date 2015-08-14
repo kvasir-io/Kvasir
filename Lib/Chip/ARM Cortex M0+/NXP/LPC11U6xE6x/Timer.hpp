@@ -13,6 +13,7 @@ limitations under the License.
 #pragma once
 #include "Common/Interrupt.hpp"
 #include "Common/Tags.hpp"
+#include "Timer/Timer.hpp"
 
 namespace Kvasir{
 namespace Timer{
@@ -25,6 +26,53 @@ namespace Detail{
 	struct GetInterruptStatusOffset<Tag::Match::Channel<I>>:MPL::Int<I>{};
 	template<int I>
 	struct GetInterruptStatusOffset<Tag::Capture::Channel<I>>:MPL::Int<I+4>{};
+
+	template<typename TDerived>
+	struct OnIsrActionTraits<::Kvasir::Tag::User,TDerived> {
+		void operator()(){
+			using namespace Tag::Match;
+			using namespace Tag::Capture;
+			using IS = typename TDerived::Config::InterruptStatus;
+			auto res = apply(
+					read(IS::select(m0)),
+					read(IS::select(m1)),
+					read(IS::select(m2)),
+					read(IS::select(m3)),
+					read(IS::select(c0)),
+					read(IS::select(c1)),
+					read(IS::select(c2))
+					);
+			unsigned clearBits{0};
+			if(::Kvasir::Register::get<0>(res)){
+				apply(reset(IS::select(m0)));
+				Detail::callOnMatch<TDerived>(m0);
+			}
+			if(::Kvasir::Register::get<1>(res)){
+				apply(reset(IS::select(m1)));
+				Detail::callOnMatch<TDerived>(m1);
+			}
+			if(::Kvasir::Register::get<2>(res)){
+				apply(reset(IS::select(m2)));
+				Detail::callOnMatch<TDerived>(m2);
+			}
+			if(::Kvasir::Register::get<3>(res)){
+				apply(reset(IS::select(m3)));
+				Detail::callOnMatch<TDerived>(m3);
+			}
+			if(::Kvasir::Register::get<4>(res)){
+				apply(reset(IS::select(c0)));
+				Detail::callOnCapture<TDerived>(c0);
+			}
+			if(::Kvasir::Register::get<5>(res)){
+				apply(reset(IS::select(c1)));
+				Detail::callOnCapture<TDerived>(c1);
+			}
+			if(::Kvasir::Register::get<6>(res)){
+				apply(reset(IS::select(c2)));
+				Detail::callOnCapture<TDerived>(c2);
+			}
+		}
+	};
 }
 struct TC16B0DefaultConfig {
 	static constexpr auto isr = Interrupt::counterTimer16Bank0;

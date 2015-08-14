@@ -35,7 +35,7 @@ namespace Tag {
 		static constexpr Channel<14> channel14{};
 		static constexpr Channel<15> channel15{};
 	}
-	struct Capture {
+	namespace Capture {
 		template<int I>
 		struct Channel{ static constexpr int value{I}; };
 		static constexpr Channel<0> c0{};
@@ -55,7 +55,7 @@ namespace Tag {
 		static constexpr Channel<14> c14{};
 		static constexpr Channel<15> c15{};
 	};
-	struct Match{
+	namespace Match{
 		template<int I>
 		struct Channel{ static constexpr int value{I}; };
 		static constexpr Channel<0> m0{};

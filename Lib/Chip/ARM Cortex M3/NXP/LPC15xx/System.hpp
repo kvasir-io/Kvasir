@@ -17,12 +17,8 @@ namespace Kvasir{
 namespace System{
 namespace SysCon{
 constexpr int baseAddress = 									0x40074000;
-struct SysMemReMap		{using address =	Register::Address<baseAddress+	0x000,
-											Register::maskFromRange(31,2)>;};
-struct AhbBufEn0		{using address =	Register::Address<baseAddress+	0x00C,
-											Register::maskFromRange(4,3,9,6,13,12,21,21,28,23,31,30)>;};
-struct AhbBufEn1		{using address = 	Register::Address<baseAddress+  0x010,
-											Register::maskFromRange(7,1,12,12,27,17,29,29)>;};
+
+
 struct SysTckCal		{using address = 	Register::Address<baseAddress+  0x018,
 											Register::maskFromRange(31,26)>;};
 struct NmiSrc			{using address = 	Register::Address<baseAddress+  0x01C,
@@ -117,6 +113,8 @@ struct Device_ID0		{using address = 	Register::Address<baseAddress+  0x3F8>;};
 struct Device_ID1		{using address = 	Register::Address<baseAddress+  0x3FC>;};
 
 struct SysMemReMap{
+	using address =	Register::Address<baseAddress+	0x000,
+			Register::maskFromRange(31,2)>;
 	enum class Map {	BootLoaderMode,
 						UserRamMode,
 						UserFlashMode,
@@ -126,6 +124,8 @@ struct SysMemReMap{
 	static constexpr decltype(write(map,Register::value<Map,M>())) writeMap(){ return{}; };
 };
 struct AhbBufEn0{
+	using address =	Register::Address<baseAddress+	0x00C,
+			Register::maskFromRange(4,3,9,6,13,12,21,21,28,23,31,30)>;
 	static constexpr Register::RWBitLocT<address, 0>		adc0AhbApbWriteBufferingEnabled{};
 	static constexpr Register::RWBitLocT<address, 1>		dacAhbApbWriteBufferingEnabled{};
 	static constexpr Register::RWBitLocT<address, 2>		acmpAhbApbWriteEnabled{};
@@ -143,6 +143,8 @@ struct AhbBufEn0{
 	static constexpr Register::RWBitLocT<address,29>		sysconAhbApbWriteBufferingEnabled{};
 };
 struct AhbBufEn1{
+	using address = 	Register::Address<baseAddress+  0x010,
+			Register::maskFromRange(7,1,12,12,27,17,29,29)>;
 	static constexpr Register::RWBitLocT<address, 0>		adc1AhbApbWriteBufferingEnabled{};
 	static constexpr Register::RWBitLocT<address, 8>		mrtAhbApbWriteBufferingEnabled{};
 	static constexpr Register::RWBitLocT<address, 9>		pintAhbApbWriteBufferingEnabled{};
