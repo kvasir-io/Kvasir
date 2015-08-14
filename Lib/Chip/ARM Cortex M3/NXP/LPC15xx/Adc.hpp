@@ -52,7 +52,7 @@ namespace ADC{
 	namespace CtrlAdc0
 	{
 		constexpr int address{baseAddressAdc0+offsetCtrl};
-		static constexpr	Register::RWLocation<address, 0xFF> 		clkDiv{};
+		static constexpr	Register::RWFieldLocT<address, 0xFF> 		clkDiv{};
 		static constexpr 	Register::RWLocation<address, (1 << 8)>		asynchronousModeEnabled{};
 		static constexpr 	Register::RWLocation<address, (1 << 9)>		mode10BitEnabled{};
 		static constexpr 	Register::RWLocation<address, (1 <<10)>		lowPowerModeEnabled{};

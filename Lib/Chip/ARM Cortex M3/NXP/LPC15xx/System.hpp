@@ -15,102 +15,8 @@ limitations under the License.
 
 namespace Kvasir{
 namespace System{
-namespace SysCon{
+
 constexpr int baseAddress = 									0x40074000;
-
-
-struct SysTckCal		{using address = 	Register::Address<baseAddress+  0x018,
-											Register::maskFromRange(31,26)>;};
-struct NmiSrc			{using address = 	Register::Address<baseAddress+  0x01C,
-											Register::maskFromRange(30,6)>;};
-struct SysRstStat		{using address = 	Register::Address<baseAddress+  0x040,
-											Register::maskFromRange(31,5)>;};
-struct PResetCtrl0		{using address = 	Register::Address<baseAddress+  0x044,
-											Register::maskFromRange(6,0,8,8,10,10,12,12,17,14,26,22,29,29,31,31)>;};
-struct PResetCtrl1		{using address = 	Register::Address<baseAddress+  0x048,
-											Register::maskFromRange(8,8,12,11,16,14,20,20,22,22,27,24,31,29)>;};
-struct PioPorCap0		{using address = 	Register::Address<baseAddress+  0x04C>;};
-struct PioPorCap1		{using address = 	Register::Address<baseAddress+  0x050>;};
-struct PioPorCap2		{using address = 	Register::Address<baseAddress+  0x054,
-											Register::maskFromRange(31,12)>;};
-struct MainClkSelA		{using address = 	Register::Address<baseAddress+  0x080,
-											Register::maskFromRange(31,2)>;};
-struct MainClkSelB		{using address = 	Register::Address<baseAddress+  0x084,
-											Register::maskFromRange(31,2)>;};
-struct UsbClkSel		{using address = 	Register::Address<baseAddress+  0x088,
-											Register::maskFromRange(31,2)>;};
-struct AdcAsyncClkSel	{using address = 	Register::Address<baseAddress+  0x08C,
-											Register::maskFromRange(31,2)>;};
-struct ClkOutSelA		{using address = 	Register::Address<baseAddress+  0x094,
-											Register::maskFromRange(31,2)>;};
-struct ClkOutSelB		{using address = 	Register::Address<baseAddress+  0x098,
-											Register::maskFromRange(31,2)>;};
-struct SysPllClkSel		{using address = 	Register::Address<baseAddress+  0x0A0,
-											Register::maskFromRange(31,2)>;};
-struct UsbPllClkSel		{using address = 	Register::Address<baseAddress+  0x0A4,
-											Register::maskFromRange(31,2)>;};
-struct SctPllClkSel		{using address = 	Register::Address<baseAddress+  0x0A8,
-											Register::maskFromRange(31,2)>;};
-struct SysAhbClkDiv		{using address = 	Register::Address<baseAddress+  0x0C0,
-											Register::maskFromRange(31,8)>;};
-struct SysAhbClkCtrl0	{using address = 	Register::Address<baseAddress+  0x0C4,
-											Register::maskFromRange(0,0,2,2,6,5,8,8,10,10,17,17,26,24,31,31)>;};
-struct SysAhbClkCtrl1	{using address = 	Register::Address<baseAddress+  0x0C8,
-											Register::maskFromRange(8,8,12,11,16,14,20,20,22,22,31,24)>;};
-struct SysTickClkDiv	{using address = 	Register::Address<baseAddress+  0x0CC,
-											Register::maskFromRange(31,8)>;};
-struct UartClkDiv		{using address = 	Register::Address<baseAddress+  0x0D0,
-											Register::maskFromRange(31,8)>;};
-struct IoConClkDiv		{using address = 	Register::Address<baseAddress+  0x0D4,
-											Register::maskFromRange(31,8)>;};
-struct TraceClkDiv		{using address = 	Register::Address<baseAddress+  0x0D8,
-											Register::maskFromRange(31,8)>;};
-struct UsbClkDiv		{using address = 	Register::Address<baseAddress+  0x0EC,
-											Register::maskFromRange(31,8)>;};
-struct AdcAsyncClkDiv	{using address = 	Register::Address<baseAddress+  0x0F0,
-											Register::maskFromRange(31,8)>;};
-struct ClkOutDiv		{using address = 	Register::Address<baseAddress+  0x0F8,
-											Register::maskFromRange(31,8)>;};
-struct FreqMeCtrl		{using address = 	Register::Address<baseAddress+  0x120,
-											Register::maskFromRange(30,14)>;};
-struct FlashCfg			{using address = 	Register::Address<baseAddress+  0x124>;};
-struct FrgCtrl			{using address = 	Register::Address<baseAddress+  0x128,
-											Register::maskFromRange(31,16)>;};
-struct UsbClkCtrl		{using address = 	Register::Address<baseAddress+  0x12C,
-											Register::maskFromRange(31,2)>;};
-struct UsbClkSt			{using address =	Register::Address<baseAddress+	0x130,
-											Register::maskFromRange(31,1)>;};
-struct BodCtrl			{using address =	Register::Address<baseAddress+	0x180,
-											Register::maskFromRange(31,5)>;};
-struct IrcCtrl			{using address =	Register::Address<baseAddress+	0x184,
-											Register::maskFromRange(31,8)>;};
-struct SysOscCtrl		{using address =	Register::Address<baseAddress+	0x188,
-											Register::maskFromRange(31,2)>;};
-struct RtcOscCtrl		{using address =	Register::Address<baseAddress+	0x190,
-											Register::maskFromRange(31,1)>;};
-struct SysPllCtrl		{using address =	Register::Address<baseAddress+	0x198,
-											Register::maskFromRange(31,8)>;};
-struct SysPllStat		{using address =	Register::Address<baseAddress+	0x19C,
-											Register::maskFromRange(31,1)>;};
-struct UsbPllCtrl		{using address =	Register::Address<baseAddress+	0x1A0,
-											Register::maskFromRange(31,8)>;};
-struct UsbPllStat		{using address =	Register::Address<baseAddress+	0x1A4,
-											Register::maskFromRange(31,1)>;};
-struct SctPllCtrl		{using address =	Register::Address<baseAddress+	0x1A8,
-											Register::maskFromRange(31,8)>;};
-struct SctPllStat		{using address =	Register::Address<baseAddress+	0x1AC,
-											Register::maskFromRange(31,1)>;};
-struct PdaWakeCfg		{using address =	Register::Address<baseAddress+	0x204,
-											Register::maskFromRange(2,0,7,7,31,25)>;};
-struct PdRunCfg			{using address =	Register::Address<baseAddress+	0x208,
-											Register::maskFromRange(2,0,7,7,31,25)>;};
-struct StartErp0		{using address =	Register::Address<baseAddress+	0x218,
-											Register::maskFromRange(4,2,20,15,29,27,31,31)>;};
-struct StartErp1		{using address =	Register::Address<baseAddress+	0x218,
-											Register::maskFromRange(7,0,31,15)>;};
-struct Jtag_IDCode		{using address = 	Register::Address<baseAddress+  0x3F4>;};
-struct Device_ID0		{using address = 	Register::Address<baseAddress+  0x3F8>;};
-struct Device_ID1		{using address = 	Register::Address<baseAddress+  0x3FC>;};
 
 struct SysMemReMap{
 	using address =	Register::Address<baseAddress+	0x000,
@@ -159,13 +65,19 @@ struct AhbBufEn1{
 	static constexpr Register::RWBitLocT<address,31>		eepromAhbApbWriteBufferingEnabled{};
 };
 struct SysTckCal{
+	using address = 	Register::Address<baseAddress+  0x018,
+			Register::maskFromRange(31,26)>;
 	static constexpr Register::RWFieldLocT<address,25,0>		systemTickTimerCalibrationValue{};
 };
 struct NmiSrc{
+	using address = 	Register::Address<baseAddress+  0x01C,
+			Register::maskFromRange(30,6)>;
 	static constexpr Register::RWFieldLocT<address,5,0>		selectedNMINumber{};
 	static constexpr Register::RWBitLocT<address,31>		nonMaskableInterruptEnabeld{};
 };
 struct SysRstStat{
+	using address = 	Register::Address<baseAddress+  0x040,
+			Register::maskFromRange(31,5)>;
 	static constexpr Register::RSTCBitLocT<address,0>			porResetDetected{};
 	static constexpr Register::RSTCBitLocT<address,1>			extResetDetected{};
 	static constexpr Register::RSTCBitLocT<address,2>			wdtResetDetected{};
@@ -173,6 +85,8 @@ struct SysRstStat{
 	static constexpr Register::RSTCBitLocT<address,4>			softwareSystemResetDetected{};
 };
 struct PResetCtrl0{
+	using address = 	Register::Address<baseAddress+  0x044,
+			Register::maskFromRange(6,0,8,8,10,10,12,12,17,14,26,22,29,29,31,31)>;
 	static constexpr Register::RWBitLocT<address, 7>		flashResetAsserted{};
 	static constexpr Register::RWBitLocT<address, 9>		eepromResetAsserted{};
 	static constexpr Register::RWBitLocT<address,11>		muxResetAsserted{};
@@ -186,6 +100,8 @@ struct PResetCtrl0{
 	static constexpr Register::RWBitLocT<address,30>		acmpResetAsserted{};
 };
 struct PResetCtrl1{
+	using address = 	Register::Address<baseAddress+  0x048,
+				Register::maskFromRange(8,8,12,11,16,14,20,20,22,22,27,24,31,29)>;
 	static constexpr Register::RWBitLocT<address, 0>		mrtResetAsserted{};
 	static constexpr Register::RWBitLocT<address, 1>		ritResetAsserted{};
 	static constexpr Register::RWBitLocT<address, 2>		sct0ResetAsserted{};
@@ -205,15 +121,21 @@ struct PResetCtrl1{
 	static constexpr Register::RWBitLocT<address,28>		pvtResetAsserted{};
 };
 struct PioPorCap0{
+	using address = 	Register::Address<baseAddress+  0x04C>;
 	static constexpr Register::RWFieldLocT<address,31,0>		stateOfPio0_31to0_0AtPowerOn{};
 };
 struct PioPorCap1{
+	using address = 	Register::Address<baseAddress+  0x050>;
 	static constexpr Register::RWFieldLocT<address,31,0>		stateOfPio1_31to1_0AtPowerOn{};
 };
 struct PioPorCap2{
+	using address = 	Register::Address<baseAddress+  0x054,
+			Register::maskFromRange(31,12)>;
 	static constexpr Register::RWFieldLocT<address,11,0>		stateOfPio2_11to2_0AtPowerOn{};
 };
 struct MainClkSelA{
+	using address = 	Register::Address<baseAddress+  0x080,
+			Register::maskFromRange(31,2)>;
 	enum class Sel {	ircOscillator,
 						systemOscilaltor,
 						watchdogOscillator,
@@ -223,6 +145,8 @@ struct MainClkSelA{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeMainClockSourceSelectorA(){ return{}; };
 };
 struct MainClkSelB{
+	using address = 	Register::Address<baseAddress+  0x084,
+			Register::maskFromRange(31,2)>;
 	enum class Sel {	mainClkSelA,
 						systemPllInput,
 						systemPllOutput,
@@ -232,6 +156,8 @@ struct MainClkSelB{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeMainClockSourceSelectorB(){ return{}; };
 };
 struct UsbClkSel{
+	using address = 	Register::Address<baseAddress+  0x088,
+			Register::maskFromRange(31,2)>;
 	enum class Sel {	ircOscillator,
 						systemOscillator,
 						usbPllOut,
@@ -241,6 +167,8 @@ struct UsbClkSel{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeUsbClockSource(){ return{};};
 };
 struct AdcAsyncClkSel{
+	using address = 	Register::Address<baseAddress+  0x08C,
+			Register::maskFromRange(31,2)>;
 		enum class Sel {	ircOscillator,
 							systemOscillator,
 							usbPllOut,
@@ -250,6 +178,8 @@ struct AdcAsyncClkSel{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeAdcAsyncClockSource(){ return{}; };
 };
 struct ClkOutSelA{
+	using address = 	Register::Address<baseAddress+  0x094,
+			Register::maskFromRange(31,2)>;
 		enum class Sel {	ircOscillator,
 							crystalOscillator,
 							watchdogOscillator,
@@ -259,6 +189,8 @@ struct ClkOutSelA{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeClockOutSourceSelectA(){ return{}; };
 };
 struct ClkOutSelB{
+	using address = 	Register::Address<baseAddress+  0x098,
+			Register::maskFromRange(31,2)>;
 		enum class Sel {	clkOutSelA,
 							usbPll,
 							sctPll,
@@ -268,6 +200,8 @@ struct ClkOutSelB{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeClockOutSourceSelectB(){ return{};};
 };
 struct SysPllClkSel{
+	using address = 	Register::Address<baseAddress+  0x0A0,
+												Register::maskFromRange(31,2)>;
 	enum class Sel {	irc,
 						crystalOscillator,
 						doNotUse,
@@ -277,6 +211,8 @@ struct SysPllClkSel{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeSystemPllClockSource(){ return{};};
 };
 struct UsbPllClkSel{
+	using address = 	Register::Address<baseAddress+  0x0A4,
+				Register::maskFromRange(31,2)>;
 	enum class Sel {	ircButNotRecommended,
 						systemOscillator,
 						doNotUseAs,
@@ -286,6 +222,8 @@ struct UsbPllClkSel{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeUsbPllClockSource(){ return{};};
 };
 struct SctPllClkSel{
+	using address = 	Register::Address<baseAddress+  0x0A8,
+				Register::maskFromRange(31,2)>;
 	enum class Sel {	irc,
 						crystalOscillator,
 						doNotUse,
@@ -295,9 +233,13 @@ struct SctPllClkSel{
 	static constexpr decltype(write(sel,Register::value<Sel,S>())) writeSystemSctClockSource(){ return{};};
 };
 struct SysAhbClkDiv{
+	using address = Register::Address<baseAddress+  0x0C0,
+				Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			systemClockDividerValue{};
 };
 struct SysAhbClkCtrl0{
+	using address = Register::Address<baseAddress+  0x0C4,
+				Register::maskFromRange(0,0,2,2,6,5,8,8,10,10,17,17,26,24,31,31)>;
 	static constexpr Register::RWBitLocT<address,1>				clockForRomEnabled{};
 	static constexpr Register::RWBitLocT<address,3>				clockForSram1Enabled{};
 	static constexpr Register::RWBitLocT<address,4>				clockForSram2Enabled{};
@@ -321,6 +263,8 @@ struct SysAhbClkCtrl0{
 	static constexpr Register::RWBitLocT<address,30>			clockForAcmpEnabled{};
 };
 struct SysAhbClkCtrl1{
+	using address = 	Register::Address<baseAddress+  0x0C8,
+				Register::maskFromRange(8,8,12,11,16,14,20,20,22,22,31,24)>;
 	static constexpr Register::RWBitLocT<address,0>				clockForMrtEnabled{};
 	static constexpr Register::RWBitLocT<address,1>				clockForRitEnabled{};
 	static constexpr Register::RWBitLocT<address,2>				clockForSct0Enabled{};
@@ -339,43 +283,70 @@ struct SysAhbClkCtrl1{
 	static constexpr Register::RWBitLocT<address,23>			clockForUsbEnabled{};
 };
 struct SysTickClkDiv{
+	using address = 	Register::Address<baseAddress+  0x0CC,
+				Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			systickClockDivider{};
 };
 struct UartClkDiv{
+	using address = 	Register::Address<baseAddress+  0x0D0,
+				Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			uartClockDivider{};
 };
 struct IoConClkDiv{
+	using address = 	Register::Address<baseAddress+  0x0D4,
+				Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			ioconClockDivider{};
 };
 struct TraceClkDiv{
+	using address = 	Register::Address<baseAddress+  0x0D8,
+				Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			traceClockDivider{};
 };
 struct UsbClkDiv{
+	using address = 	Register::Address<baseAddress+  0x0EC,
+				Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			usbClockDivider{};
 };
 struct AdcAsyncClkDiv{
+	using address = 	Register::Address<baseAddress+  0x0F0,
+				Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			adcasyncClockDivider{};
 };
 struct ClkOutDiv{
+	using address = 	Register::Address<baseAddress+  0x0F8,
+				Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			clockoutClockDivider{};
 };
 struct FreqMeCtrl{
+	using address = 	Register::Address<baseAddress+  0x120,
+				Register::maskFromRange(30,14)>;
 	static constexpr Register::ROFieldLocT<address,13,0>		capturedValue{};
 	static constexpr Register::RWBitLocT<address,31>			startMeasurmentCycle_bitIsClearedBySystem{};
 };
-struct FlashCfg			{constexpr int address = baseAddress+ 	0x124;/*here is an error not yet erased*/};
+struct FlashCfg			{
+	using address = 	Register::Address<baseAddress+  0x124>;
+	/*here is an error not yet erased*/};
 struct FrgCtrl{
+	using address = 	Register::Address<baseAddress+  0x128,
+				Register::maskFromRange(31,16)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			denominatorOfUsartFractionalBaudGenerator{};
 	static constexpr Register::RWFieldLocT<address,15,8>		numeratorOFUsartFractionalBaudGenerator{};
 };
 struct UsbClkCtrl{
+	using address = 	Register::Address<baseAddress+  0x12C,
+				Register::maskFromRange(31,2)>;
 	static constexpr Register::RWBitLocT<address,0>		forceUsbNeedClockSignalEnabled{};
 	static constexpr Register::RWBitLocT<address,1>		risingEdgeTriggersUsbWakeInsteadOfFallingEnabled{};
 };
 struct UsbClkSt{
+	using address =	Register::Address<baseAddress+	0x130,
+				Register::maskFromRange(31,1)>;
 	static constexpr Register::ROBitLocT<address,0>		usbNeedClockSignalStatus{};
 };
+
 struct BodCtrl{
+	using address =	Register::Address<baseAddress+	0x180,
+				Register::maskFromRange(31,5)>;
 	enum class Level {	DoNotUse,
 						DoNotUseNeither,
 						Level2,
@@ -391,16 +362,24 @@ struct BodCtrl{
 	static constexpr Register::RWBitLocT<address,4>				bodResetEnabled{};
 };
 struct IrcCtrl{
+	using address =	Register::Address<baseAddress+	0x184,
+												Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,7,0>			ircTrimValue_WriteOnlyInBootCode{};
 };
 struct SysOscCtrl{
+	using address =	Register::Address<baseAddress+	0x188,
+												Register::maskFromRange(31,2)>;
 	static constexpr Register::RWBitLocT<address,0>				bypassSysOsciAndFeedPllFormXtalInEnabled{};
 	static constexpr Register::RWBitLocT<address,1>				setHighFreqSysOsci_15MhzTo25Mhz{};
 };
 struct RtcOscCtrl{
+	using address =	Register::Address<baseAddress+	0x190,
+												Register::maskFromRange(31,1)>;
 	static constexpr Register::RWBitLocT<address,0>				rtc32kHzEnabled{};
 };
 struct SysPllCtrl{
+	using address =	Register::Address<baseAddress+	0x198,
+												Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,5,0>			feedbackDivider{};
 
 	enum class Divider{	postdivider1,
@@ -412,9 +391,13 @@ struct SysPllCtrl{
 	static constexpr decltype(write(postDividerRatio,Register::value<Divider,D>())) writePostDividerRatio(){ return{}; };
 };
 struct SysPllStat{
+	using address =	Register::Address<baseAddress+	0x19C,
+												Register::maskFromRange(31,1)>;
 	static constexpr Register::ROBitLocT<address,0>			pllLockStatus{};
 };
 struct UsbPllCtrl{
+	using address =	Register::Address<baseAddress+	0x1A0,
+			Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,5,0>			feedbackDivider{};
 
 	enum class Divider{	postdivider1,
@@ -426,9 +409,13 @@ struct UsbPllCtrl{
 	static constexpr decltype(write(postDividerRatio,Register::value<Divider,D>())) writePostDividerRatio(){ return{}; };
 };
 struct UsbPllStat{
+	using address =	Register::Address<baseAddress+	0x1A4,
+			Register::maskFromRange(31,1)>;
 	static constexpr Register::ROBitLocT<address,0>			pllLockStatus{};
 };
 struct SctPllCtrl{
+	using address =	Register::Address<baseAddress+	0x1A8,
+			Register::maskFromRange(31,8)>;
 	static constexpr Register::RWFieldLocT<address,5,0>			feedbackDivider{};
 
 	enum class Divider{	postdivider1,
@@ -440,9 +427,13 @@ struct SctPllCtrl{
 	static constexpr decltype(write(postDividerRatio,Register::value<Divider,D>())) writePostDividerRatio(){ return{}; };
 };
 struct SctPllStat{
+	using address =	Register::Address<baseAddress+	0x1AC,
+			Register::maskFromRange(31,1)>;
 	static constexpr Register::ROBitLocT<address,0>			pllLockStatus{};
 };
 struct PdaWakeCfg{
+	using address =	Register::Address<baseAddress+	0x204,
+			Register::maskFromRange(2,0,7,7,31,25)>;
 	static constexpr Register::RWBitLocT<address,3>		ircOsciOutputWakeUpPoweredDown{};
 	static constexpr Register::RWBitLocT<address,4>		ircOsciWakeUpPoweredDown{};
 	static constexpr Register::RWBitLocT<address,5>		flashWakeUpPoweredDown{};
@@ -466,6 +457,8 @@ struct PdaWakeCfg{
 	static constexpr Register::RWBitLocT<address,24>	sctPllWakeUpPoweredDown{};
 };
 struct PdRunCfg{
+	using address =	Register::Address<baseAddress+	0x208,
+				Register::maskFromRange(2,0,7,7,31,25)>;
 	static constexpr Register::RWBitLocT<address,3>		ircOsciOutputPoweredDown{};
 	static constexpr Register::RWBitLocT<address,4>		ircOsciPoweredDown{};
 	static constexpr Register::RWBitLocT<address,5>		flashPoweredDown{};
@@ -490,6 +483,8 @@ struct PdRunCfg{
 };
 
 struct StartErp0{
+	using address =	Register::Address<baseAddress+	0x218,
+				Register::maskFromRange(4,2,20,15,29,27,31,31)>;
 	static constexpr Register::RWBitLocT<address,0>		wwdtInterruptWakeUpEnabeld{};
 	static constexpr Register::RWBitLocT<address,1>		bodInterruptWakeUpEnabeld{};
 	static constexpr Register::RWBitLocT<address,5>		gint0InterruptWakeUpEnabeld{};
@@ -511,6 +506,8 @@ struct StartErp0{
 	static constexpr Register::RWBitLocT<address,30>	usbNeedClockSignalWakeUp{};
 };
 struct StartErp1{
+	using address =	Register::Address<baseAddress+	0x218,
+				Register::maskFromRange(7,0,31,15)>;
 	static constexpr Register::RWBitLocT<address,8>		acmp0InterruptWakeUpEnabeld{};
 	static constexpr Register::RWBitLocT<address,9>		acmp1InterruptWakeUpEnabeld{};
 	static constexpr Register::RWBitLocT<address,10>	acmp2InterruptWakeUpEnabeld{};
@@ -520,15 +517,18 @@ struct StartErp1{
 };
 
 struct Jtag_IDCode{
+	using address = 	Register::Address<baseAddress+  0x3F4>;
 	static constexpr Register::ROFieldLocT<address,31,0>	jtagIdCode{};
 };
 struct Device_ID0{
+	using address = 	Register::Address<baseAddress+  0x3F8>;
 	static constexpr Register::ROFieldLocT<address,31,0>	partId{};
 };
 struct Device_ID1{
+	using address = 	Register::Address<baseAddress+  0x3FC>;
 	static constexpr Register::ROFieldLocT<address,31,0>	revisionId{};
 };
-}//end of SysCon
+
 }
 }
 

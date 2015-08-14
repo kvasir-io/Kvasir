@@ -16,9 +16,9 @@ limitations under the License.
 #include "StartUp/SystemClock.hpp"
 #include "Common/Tags.hpp"
 
-#define LPC11U68_BOARD
+//#define LPC11U68_BOARD
 //#define LPC1768_BOARD
-//#define LPC1549_BOARD
+#define LPC1549_BOARD
 
 #ifdef LPC11U68_BOARD
 #include "Chip/Lpc11u68.hpp"
@@ -92,23 +92,23 @@ namespace Hardware{
 	using TimerDefaultConfig = Kvasir::Timer::TC0DefaultConfig;
 #else
 #ifdef LPC1549_BOARD
-	constexpr Kvasir::Io::PinLocationT<0,25> ledPin{};
+	constexpr Kvasir::Io::PinLocation<0,25> ledPin{};
 	struct MyOsciSettings{
 		static void init(){
 			using namespace Kvasir::System;
 			using Kvasir::Register::value;
-			apply(clear(PowerConfiguration::systemOscillatorPoweredDown));
+			apply(clear(PdRunCfg::sysOscPoweredDown));
 			for (volatile int i = 0; i < 2500; i++) {} //wait for oscillator to stabilize
-			apply(Pll::ClockSource::systemOscillator);
-			apply(set(PowerConfiguration::systemPllPoweredDown));
-			apply(write(Pll::Control::feedbackDivider,value<5>()),
-				write(Pll::Control::postDivider,value<Pll::PostDividerRatio,Pll::PostDividerRatio::div4>()));
-			apply(clear(PowerConfiguration::systemPllPoweredDown));
-			while(!apply(read(Pll::statusLocked))){};
-			apply(
-				write(AHBClock::divider,value<1>()),
-				Flash::threeSysclock);
-			apply(ClockSource::Main::pllOutput);
+			apply(SysPllClkSel::writeSystemPllClockSource<SysPllClkSel::Sel::crystalOscillator>());
+			apply(set(PdRunCfg::sysPllPoweredDown));
+//			apply(write(SysPllCtrl::feedbackDivider,value<5>()),
+//				write(SysPllCtrl::writePostDividerRatio<SysPllCtrl::Divider::postivider4>()));
+			apply(clear(PdRunCfg::sysPllPoweredDown));
+//			while(!apply(read(Pll::statusLocked))){};
+//			apply(
+//				write(SysAhbClkDiv::systemClockDividerValue,value<1>()),
+//				Flash::threeSysclock);
+//			apply(ClockSource::Main::pllOutput);
 		}
 	};
 

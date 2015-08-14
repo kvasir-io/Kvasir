@@ -14,6 +14,7 @@ limitations under the License.
 #include "Common/Interrupt.hpp"
 #include "System.hpp"
 #include "Common/Tags.hpp"
+#include "Timer/Timer.hpp"
 
 namespace Kvasir{
 namespace Timer{
@@ -27,11 +28,11 @@ namespace Detail  {
 struct Timer0DefaultConfig {
 	static constexpr auto isr = Interrupt::sct0;
 	static constexpr auto powerClockEnable = MPL::list(
-			set(System::AHBClock::Enabled::sct0),
+			set(System::SysAhbClkCtrl1::clockForSct0Enabled),
 			Register::sequencePoint,
-			set(System::PeripheralResetEnabled::sct0),
+			set(System::PResetCtrl1::sct0ResetAsserted),
 			Register::sequencePoint,
-			clear(System::PeripheralResetEnabled::sct0)
+			clear(System::PResetCtrl1::sct0ResetAsserted)
 			);
 	static constexpr int baseAddress = 0x1C018000;
 
