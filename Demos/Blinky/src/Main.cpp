@@ -16,6 +16,7 @@ limitations under the License.
 
 using namespace Hardware;
 using Kvasir::Register::value;
+using namespace Kvasir::Tag;
 
 class Led {
 public:
@@ -27,14 +28,14 @@ public:
 
 struct TimerConfig : TimerDefaultConfig {
 	static constexpr auto userInit = list(
-			write(MatchRegister::select(match0),value<10000u>()),
-			set(MatchControl::interruptOnMatch(match0),
-			MatchControl::resetOnMatch(match0)));
+			write(MatchRegister::select(Match::m0),value<10000u>()),
+			set(MatchControl::interruptOnMatch(Match::m0),
+			MatchControl::resetOnMatch(Match::m0)));
 };
 
 class Timer : public Kvasir::Timer::Base<Timer,TimerConfig>{
 public:
-	static void onMatch(decltype(Config::match0)){
+	static void onMatch(decltype(Match::m0)){
 		Led::blink();
 	}
 };

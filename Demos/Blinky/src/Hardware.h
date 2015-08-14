@@ -38,7 +38,31 @@ limitations under the License.
 namespace Hardware{
 #ifdef LPC11U68_BOARD
 	constexpr Kvasir::Io::PinLocation<2,16> ledPin{};
-	using Clock = Kvasir::SystemClock::ExternalOsciRawSettings<Kvasir::System::ClockConfig,3,1>;
+	struct MyOsciSettings {
+		static void init(){
+			using namespace Kvasir;
+			using namespace Register;
+			using namespace Kvasir::System;
+			apply(ClockConfig::externalCrystalInit);
+			apply(ClockConfig::crystalOscillatorPowerOn);
+			apply(ClockConfig::systemPllPowerOff);
+			/* Wait for at least 580uS for osc to stabilize */
+			for (volatile int i = 0; i < 2500; i++) {}
+			using PllClock = ClockConfig::SystemPllClock;
+			using PllControl = ClockConfig::SystemPLLControl;
+			apply(write(PllClock::source,PllClock::Source::systemOscillator));
+			apply(PllClock::updateSourceSequence);
+			apply(ClockConfig::FlashConfiguration::defaultConfig);
+			apply(write(ClockConfig::SystemPLLControl::feedbackDivider,value<0>()),
+					write(PllControl::postDivider,value<PllControl::PostDividerRatio,PllControl::PostDividerRatio::div2>()));
+			apply(ClockConfig::systemPllPowerOn);
+			while(!apply(read(ClockConfig::systemPllStatusLocked)));
+			apply(write(ClockConfig::SystemAHBClock::divider,value<1u>()));
+			Register::apply(write(ClockConfig::MainClock::source,ClockConfig::MainClock::Source::pllOutput));
+			Register::apply(ClockConfig::MainClock::updateSourceSequence);
+		}
+	};
+	using Clock = MyOsciSettings;
 	using TimerDefaultConfig = Kvasir::Timer::TC16B0DefaultConfig;
 #else
 #ifdef LPC1768_BOARD

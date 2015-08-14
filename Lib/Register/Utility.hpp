@@ -21,7 +21,7 @@
 namespace Kvasir{
 namespace Register{
 	constexpr unsigned maskFromRange(int high, int low){
-		return (0xFFFFFFFF >> (32-(high-low)))<<low;
+		return (0xFFFFFFFFULL >> (31-(high-low)))<<low;
 	}
 	template<typename... Is>
 	constexpr unsigned maskFromRange(int high, int low, Is...args){
@@ -131,10 +131,12 @@ namespace Register{
 		struct GetAddress<Address<A,WIIZ,SOTC,TRegType,TMode>> {
 			static constexpr unsigned value = A;
 			static unsigned read(){
-				return *((volatile unsigned*)value);
+				volatile unsigned& reg = *((volatile unsigned*)value);
+				return reg;
 			}
 			static void write(unsigned i){
-				*((volatile unsigned*)value) = i;
+				volatile unsigned& reg = *((volatile unsigned*)value);
+				reg = i;
 			}
 			using Type = Unsigned<A>;
 		};
@@ -142,10 +144,12 @@ namespace Register{
 		struct GetAddress<BitLocation<TAddress,Mask,TAccess,TFiledType>> {
 			static constexpr unsigned value = TAddress::value;
 			static unsigned read(){
-				return *((volatile unsigned*)value);
+				volatile unsigned& reg = *((volatile unsigned*)value);
+				return reg;
 			}
 			static void write(unsigned i){
-				*((volatile unsigned*)value) = i;
+				volatile unsigned& reg = *((volatile unsigned*)value);
+				reg = i;
 			}
 			using Type = Unsigned<TAddress::value>;
 		};
@@ -153,10 +157,12 @@ namespace Register{
 		struct GetAddress<BitLocationPair<TReadLoc,TWriteLoc>> {
 			static constexpr unsigned value = TReadLoc::value;
 			static unsigned read(){
-				return *((volatile unsigned*)value);
+				volatile unsigned& reg = *((volatile unsigned*)value);
+				return reg;
 			}
 			static void write(unsigned i){
-				*((volatile unsigned*)TWriteLoc::value) = i;
+				volatile unsigned& reg = *((volatile unsigned*)value);
+				reg = i;
 			}
 			using Type = Unsigned<value>;
 		};
