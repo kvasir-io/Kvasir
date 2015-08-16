@@ -17,19 +17,19 @@ limitations under the License.
 namespace Kvasir{
 namespace Io{
 	namespace Detail{
-		template<int A, int Value>
+		template<unsigned A, int Value>
 		using WriteFunctionActionT = Register::Action<
 				Register::BitLocation<
 					Register::Address<A,0>,
 					0x03>,
 				Register::WriteLiteralAction<Value>>;
-		template<int A, int Pin, bool Value>
+		template<unsigned A, int Pin, bool Value>
 		using WriteBitActionT = Register::Action<
 				Register::BitLocation<
 					Register::Address<A,0>,
 					(1<<Pin)>,
 				Register::WriteLiteralAction<(Value<<Pin)>>;
-		template<int A, int Pin>
+		template<unsigned A, int Pin>
 		using BlindSetActionT = Register::Action<
 				Register::BitLocation<
 					Register::Address<A,0xFFFFFFFF>,

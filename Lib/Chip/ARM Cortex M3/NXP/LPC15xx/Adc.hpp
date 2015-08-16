@@ -14,80 +14,84 @@ limitations under the License.
 #include "Io/Io.hpp"
 #include "System.hpp"
 #include "Register/Register.hpp"
+#include "Common/Tags.hpp"
 
 namespace Kvasir{
 namespace ADC{
 
-	constexpr int baseAddressAdc0				{0x40000000};
-	constexpr int baseAddressAdc1				{0x40080000};
+	namespace Detail{
+		constexpr unsigned baseAddressAdc0				{0x40000000};
+		constexpr unsigned offsetAdc1					{0x80000};
 
-	constexpr int offsetCtrl					{0x000};
-	constexpr int offsetInsel					{0x004};
-	constexpr int offsetSeqA_Ctrl				{0x008};
-	constexpr int offsetSeqB_Ctrl				{0x00C};
-	constexpr int offsetSeqA_Gdat				{0x010};
-	constexpr int offsetSeqB_Gdat				{0x014};
-	constexpr int offsetDat0					{0x020};
-	constexpr int offsetDat1					{0x024};
-	constexpr int offsetDat2					{0x028};
-	constexpr int offsetDat3					{0x02C};
-	constexpr int offsetDat4					{0x030};
-	constexpr int offsetDat5					{0x034};
-	constexpr int offsetDat6					{0x038};
-	constexpr int offsetDat7					{0x03C};
-	constexpr int offsetDat8					{0x040};
-	constexpr int offsetDat9					{0x044};
-	constexpr int offsetDat10					{0x048};
-	constexpr int offsetDat11					{0x04C};
-	constexpr int offsetThr0_Low				{0x050};
-	constexpr int offsetThr1_Low				{0x054};
-	constexpr int offsetThr0_High				{0x058};
-	constexpr int offsetThr1_High				{0x05C};
-	constexpr int offsetChannelThrSel			{0x060};
-	constexpr int offsetInten					{0x064};
-	constexpr int offsetFlags					{0x068};
-	constexpr int offsetTrm						{0x06C};
+		constexpr unsigned addrCtrl					{baseAddressAdc0 + 0x000};
+		constexpr unsigned addrInsel					{baseAddressAdc0 + 0x004};
+		constexpr unsigned addrSeqA_Ctrl				{baseAddressAdc0 + 0x008};
+		constexpr unsigned addrSeqB_Ctrl				{baseAddressAdc0 + 0x00C};
+		constexpr unsigned addrSeqA_Gdat				{baseAddressAdc0 + 0x010};
+		constexpr unsigned addrSeqB_Gdat				{baseAddressAdc0 + 0x014};
+		constexpr unsigned addrDat0					{baseAddressAdc0 + 0x020};
+		constexpr unsigned addrDat1					{baseAddressAdc0 + 0x024};
+		constexpr unsigned addrDat2					{baseAddressAdc0 + 0x028};
+		constexpr unsigned addrDat3					{baseAddressAdc0 + 0x02C};
+		constexpr unsigned addrDat4					{baseAddressAdc0 + 0x030};
+		constexpr unsigned addrDat5					{baseAddressAdc0 + 0x034};
+		constexpr unsigned addrDat6					{baseAddressAdc0 + 0x038};
+		constexpr unsigned addrDat7					{baseAddressAdc0 + 0x03C};
+		constexpr unsigned addrDat8					{baseAddressAdc0 + 0x040};
+		constexpr unsigned addrDat9					{baseAddressAdc0 + 0x044};
+		constexpr unsigned addrDat10					{baseAddressAdc0 + 0x048};
+		constexpr unsigned addrDat11					{baseAddressAdc0 + 0x04C};
+		constexpr unsigned addrThr0_Low				{baseAddressAdc0 + 0x050};
+		constexpr unsigned addrThr1_Low				{baseAddressAdc0 + 0x054};
+		constexpr unsigned addrThr0_High				{baseAddressAdc0 + 0x058};
+		constexpr unsigned addrThr1_High				{baseAddressAdc0 + 0x05C};
+		constexpr unsigned addrChannelThrSel			{baseAddressAdc0 + 0x060};
+		constexpr unsigned addrunsigneden				{baseAddressAdc0 + 0x064};
+		constexpr unsigned addrFlags					{baseAddressAdc0 + 0x068};
+		constexpr unsigned addrTrm					{baseAddressAdc0 + 0x06C};
+	}
 
 
 	namespace CtrlAdc0
 	{
-		constexpr int address{baseAddressAdc0+offsetCtrl};
-		static constexpr	Register::RWFieldLocT<address, 0xFF> 		clkDiv{};
-		static constexpr 	Register::RWLocation<address, (1 << 8)>		asynchronousModeEnabled{};
-		static constexpr 	Register::RWLocation<address, (1 << 9)>		mode10BitEnabled{};
-		static constexpr 	Register::RWLocation<address, (1 <<10)>		lowPowerModeEnabled{};
+		using Address = Register::Address<addrCtrl,Register::maskFromRange(29,11,31,31)>;
+		static constexpr	Register::RWFieldLocT<Address, 7, 0> 	clkDiv{};
+		static constexpr 	Register::RWBitLocT<Address, 8>			asynchronousModeEnabled{};
+		static constexpr 	Register::RWBitLocT<Address, 9>			mode10BitEnabled{};
+		static constexpr 	Register::RWBitLocT<Address, 10>		lowPowerModeEnabled{};
 	//Bits 29:11 are reserved
-		static constexpr	Register::BWLocation<address, (1 <<30)>		calibrationCycleStart{};
+		static constexpr	Register::RWBitLocT<Address, 30>		calibrationCycleStart{};
 		//Bit 30 is reserved
 	}
 	namespace CtrlAdc1
 	{
-		constexpr int address{baseAddressAdc1+offsetCtrl};
-		static constexpr	Register::RWLocation<address, 0xFF> 		clkDiv{};
-		static constexpr 	Register::RWLocation<address, (1 << 8)>		asynchronousModeEnabled{};
-		static constexpr 	Register::RWLocation<address, (1 << 9)>		mode10BitEnabled{};
-		static constexpr 	Register::RWLocation<address, (1 <<10)>		lowPowerModeEnabled{};
-	//Bits 29:11 are reserved
-		static constexpr	Register::BWLocation<address, (1 <<30)>		calibrationCycleStart{};
-	//Bit 30 is reserved
+		using Address = Register::Address<(addrCtrl+offsetAdc1),Register::maskFromRange(29,11,31,31)>;
+		static constexpr	Register::RWFieldLocT<Address, 7, 0> 	clkDiv{};
+		static constexpr 	Register::RWBitLocT<Address, 8>			asynchronousModeEnabled{};
+		static constexpr 	Register::RWBitLocT<Address, 9>			mode10BitEnabled{};
+		static constexpr 	Register::RWBitLocT<Address, 10>		lowPowerModeEnabled{};
+		//Bits 29:11 are reserved
+		static constexpr	Register::RWBitLocT<Address, 30>		calibrationCycleStart{};
+		//Bit 30 is reserved
 	}
 
 
 	namespace InselAdc0
 	{
-		constexpr int address{baseAddressAdc0+offsetInsel};
+		using Address = Register::Address<(addrInsel),Register::maskFromRange(31,4)>;
 		enum class InputChannel0 {	adcn_0,
 									coreVoltageRegulator,
 									internalVoltageRef,
 									temperaturSensor,
 									vdda,
 									noConnectionOrLoad};
-		static constexpr Register::RWLocation<address,(0xF<<18),~(0xF<<18), InputChannel0> inputChannel0{};
+		static constexpr Register::RWFieldLocT<Address, 3, 0, InputChannel0> inputChannel0{};
 		template<InputChannel0 I>
 		static constexpr decltype(write(inputChannel0,Register::value<InputChannel0, I>())) writeInputChannel0(){ return{}; };
 	}
 	namespace InselAdc1
 	{
+		using Address = Register::Address<(addrInsel+offsetAdc1),Register::maskFromRange(31,4)>;
 		constexpr int address{baseAddressAdc1+offsetInsel};
 		enum class InputChannel0 {	adcn_0,
 									coreVoltageRegulator,
@@ -95,7 +99,7 @@ namespace ADC{
 									temperaturSensor,
 									vdda,
 									noConnectionOrLoad};
-		static constexpr Register::RWLocation<address,(0xF<<18),~(0xF<<18), InputChannel0> inputChannel0{};
+		static constexpr Register::RWFieldLocT<Address, 3, 0, InputChannel0> inputChannel0{};
 		template<InputChannel0 I>
 		static constexpr decltype(write(inputChannel0,Register::value<InputChannel0, I>())) writeInputChannel0(){ return{}; };
 	}
@@ -730,7 +734,7 @@ namespace ADC{
 	};
 
 	struct Config0{
-		//static constexpr auto powerOn = clear(System::PowerConfiguration::adc0PoweredDown);
+		static constexpr auto powerOn = clear(System::PowerConfiguration::adc0PoweredDown);
 		static constexpr Tag::None channel0Pin{};
 		static constexpr Tag::None channel1Pin{};
 		static constexpr Tag::None channel2Pin{};

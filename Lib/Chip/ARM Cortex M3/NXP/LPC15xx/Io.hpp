@@ -16,29 +16,49 @@ limitations under the License.
 
 namespace Kvasir{
 namespace Io{
+	namespace Detail{
+		template<unsigned A, int Value>
+		using WriteFunctionActionT = Register::Action<
+				Register::BitLocation<
+					Register::Address<A,0>,
+					0x03>,
+				Register::WriteLiteralAction<Value>>;
+		template<unsigned A, int Pin>
+		using ClearBitActionT = Register::Action<
+				Register::BitLocation<
+					Register::Address<A,0>,
+					(1<<Pin)>,
+				Register::WriteLiteralAction<0>>;
+		template<unsigned A, int Pin>
+		using SetBitActionT = Register::Action<
+				Register::BitLocation<
+					Register::Address<A,0xFFFFFFFF>,
+					(1<<Pin)>,
+				Register::WriteLiteralAction<(1<<Pin)>>;
+	}
 	template<int Port, int Pin>
 	struct MakeAction<Action::Input,PinLocation<Port,Pin>> :
-		Register::WriteBitActionT<(0xA0002000 + Port*4),Pin,0>{};
+		Detail::ClearBitActionT<(0xA0002000U + Port*4),Pin>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Output,PinLocation<Port,Pin>> :
-		Register::BlindSetActionT<(0xA0002000 + Port*4),Pin>{};
+		Detail::SetBitActionT<(0xA0002000U + Port*4),Pin>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Set,PinLocation<Port,Pin>> :
-		Register::BlindSetActionT<(0xA0002200 + Port*4),Pin>{};
+		Detail::SetBitActionT<(0xA0002200U + Port*4),Pin>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Clear,PinLocation<Port,Pin>> :
-		Register::BlindSetActionT<(0xA0002280 + Port*4),Pin>{};
+		Detail::SetBitActionT<(0xA0002280U + Port*4),Pin>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Toggle,PinLocation<Port,Pin>> :
-		Register::BlindSetActionT<(0xA0002300 + Port*4),Pin>{};
+		Detail::SetBitActionT<(0xA0002300U + Port*4),Pin>{};
 	template<int Pin, int Function>
 	struct MakeAction<Action::PinFunction<Function>,PinLocation<0,Pin>> :
-		Register::WriteActionT<Register::Address<(0x40044000 + Pin*4)>,0x03,Function>{};
+		Detail::WriteFunctionActionT<(0x40044000U + Pin*4),Function>{};
 	template<int Pin, int Function>
 	struct MakeAction<Action::PinFunction<Function>,PinLocation<1,Pin>> :
-		Register::WriteActionT<Register::Address<(0x40044060 + Pin*4)>,0x03,Function>{};
+		Detail::WriteFunctionActionT<(0x40044060U + Pin*4),Function>{};
 	template<int Pin, int Function>
 	struct MakeAction<Action::PinFunction<Function>,PinLocation<2,Pin>> :
-		Register::WriteActionT<Register::Address<(0x400440F0 + Pin*4)>,0x03,Function>{};
+		Detail::WriteFunctionActionT<(0x400440F0U + Pin*4),Function>{};
 }
 }

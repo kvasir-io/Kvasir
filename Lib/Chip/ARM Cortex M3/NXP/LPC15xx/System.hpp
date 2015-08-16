@@ -345,21 +345,19 @@ struct UsbClkSt{
 };
 
 struct BodCtrl{
-	using address =	Register::Address<baseAddress+	0x180,
+	using Address =	Register::Address<baseAddress+	0x180,
 				Register::maskFromRange(31,5)>;
-	enum class Level {	DoNotUse,
-						DoNotUseNeither,
-						Level2,
+	enum class Level {	Level2 = 2,
 						Level3};
-	static constexpr Register::RWFieldLocT<address, 1, 0, Map>	bodRsLevel{};
-	static constexpr Register::RWFieldLocT<address, 3, 2, Level>bodIntLevel{};
+	static constexpr Register::RWFieldLocT<Address, 1, 0, Level>	bodRsLevel{};
+	static constexpr Register::RWFieldLocT<Address, 3, 2, Level>	bodIntLevel{};
 	template<Level L>
 	static constexpr decltype(write(bodRsLevel,Register::value<Level,L>())) writeBodRsLevel(){ return{}; };
 
 	template<Level L>
 	static constexpr decltype(write(bodIntLevel,Register::value<Level,L>())) writeBodIntLevel(){ return{}; };
 
-	static constexpr Register::RWBitLocT<address,4>				bodResetEnabled{};
+	static constexpr Register::RWBitLocT<Address,4>				bodResetEnabled{};
 };
 struct IrcCtrl{
 	using address =	Register::Address<baseAddress+	0x184,
