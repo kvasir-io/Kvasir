@@ -20,6 +20,7 @@ namespace Io{
 		struct Set{};
 		struct Clear{};
 		struct Toggle{};
+		struct Read{};
 		template<int I>
 		struct PinFunction{ static constexpr int value = I;};
 		constexpr Input input;

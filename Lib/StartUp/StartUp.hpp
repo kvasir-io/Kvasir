@@ -163,6 +163,11 @@ struct VoidFunction0{
 
 extern void (* const g_pfnVectors[])(void);
 
+//use this if you do not want Kvasir to handle start up code, connect isrs etc.
+#define KVASIR_NO_START void KVASIR_START_must_only_be_defined_once_and_KVASIR_CLOCK_must_be_the_same_type_in_all_units(typename KvasirSystemClock<Kvasir::Tag::User>::Type){}
+
+//use this if you want Kvasir to handle start up code and connect isrs.
+//Also pass all classes with merged initialization routines
 #define KVASIR_START(...) \
 	void KVASIR_START_must_only_be_defined_once_and_KVASIR_CLOCK_must_be_the_same_type_in_all_units(typename KvasirSystemClock<Kvasir::Tag::User>::Type){} \
 	using Pointers = ::Kvasir::Startup::GetIsrPointersT< __VA_ARGS__ >;\

@@ -82,6 +82,12 @@ namespace Io{
 		return{};
 	};
 
+	template<typename TPortPin>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Read,TPortPin>
+	read(TPortPin){
+		return{};
+	};
+
 	template<typename TPort, typename TPin>
 	constexpr PinLocation<TPort::value,TPin::value>
 	makePinLocation(TPort,TPin){
