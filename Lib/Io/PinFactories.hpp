@@ -16,16 +16,22 @@ limitations under the License.
 
 namespace Kvasir {
 namespace Io{
+	/// This generic Metafunction which all pin factores resolve to. 
+	/// It relies on the user to include a chip file which specializes this template
+	/// with the propper resulting Register::Action
 	template<typename TAction, typename TPinLocation>
 	struct MakeAction{
-		static_assert(MPL::AlwaysFalse<TAction>::value,"could not find this configuration in the included Core");
+		static_assert(MPL::AlwaysFalse<TAction>::value,"could not find this configuration in the included chip file");
 	};
 	template<typename TAction, typename TPinLocation>
 	using MakeActionT = typename MakeAction<TAction,TPinLocation>::Type;
 
 	namespace Detail{
+		//make sure we actually got a PinLocation as a parameter
 		template<typename TAction, typename TPortPin>
-		struct MakeActionIfPinLocation{};
+		struct MakeActionIfPinLocation{
+			static_assert(MPL::AlwaysFalse<TAction>::value,"parameter is not a PinLocation");	
+		};
 		template<typename TAction, int Port, int Pin>
 		struct MakeActionIfPinLocation<TAction, PinLocation<Port,Pin>>{
 			using Type = MakeActionT<TAction, PinLocation<Port,Pin>>;
