@@ -74,32 +74,47 @@ namespace Interrupt{
 		constexpr int baseAddress = 0xE000E000;
 
 		template<>
-				struct InterruptOffsetTraits<void>{
-					static constexpr int begin = -14;
-					static constexpr int end = 47;
-				};
+		struct InterruptOffsetTraits<void>{
+			static constexpr int begin = -14;
+			static constexpr int end = 47;
+		};
+
+		namespace Detail {
+			template<unsigned A, int Bit>
+			using BlindSetBitT = decltype(set(
+					Register::RWBitLocT<
+						Register::Address<
+							A,
+							Register::maskFromRange(31,0)
+						>,
+						Bit
+					>{}
+				)
+			);
+		}
 
 		template<int I>
-		struct MakeAction<Action::Enable,Index<I>> : Register::BlindSetBitActionT<
-			baseAddress + 0x100 +(I>31?4:0), (I & 0x1F)>{
+		struct MakeAction<Action::Enable,Index<I>> :
+			Detail::BlindSetBitT<(baseAddress + 0x100 +(I>31?4:0)),(I & 0x1F)>
+			{
 			static_assert(I<=46 && I>=0,"Unable to enable this Interrupt, index is out of range");
 		};
 
 		template<int I>
-		struct MakeAction<Action::Disable,Index<I>>	:	Register::BlindSetBitActionT<
-			baseAddress + 0x180 +(I>31?4:0), (I & 0x1F)>{
+		struct MakeAction<Action::Disable,Index<I>>	:
+			Detail::BlindSetBitT<(baseAddress + 0x180 +(I>31?4:0)),(I & 0x1F)>{
 			static_assert(I<=46 && I>=0,"Unable to disable this Interrupt, index is out of range");
 		};
 
 		template<int I>
-		struct MakeAction<Action::SetPending,Index<I>>	:	Register::BlindSetBitActionT<
-			baseAddress + 0x200 +(I>31?4:0), I>{
+		struct MakeAction<Action::SetPending,Index<I>>	:
+			Detail::BlindSetBitT<(baseAddress + 0x200 +(I>31?4:0)),(I & 0x1F)>{
 			static_assert(I<=46 && I>=0,"Unable to set pending on this interrupt, index is out of range");
 		};
 
 		template<int I>
-		struct MakeAction<Action::ClearPending,Index<I>>	:	Register::BlindSetBitActionT<
-			baseAddress + 0x280 +(I>31?4:0), I>{
+		struct MakeAction<Action::ClearPending,Index<I>>	:
+			Detail::BlindSetBitT<(baseAddress + 0x280 +(I>31?4:0)),(I & 0x1F)>{
 			static_assert(I<=46 && I>=0,"Unable to clear pending on this interrupt, index is out of range");
 		};
 

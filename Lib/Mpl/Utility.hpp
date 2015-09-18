@@ -12,12 +12,27 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
+#if (_MSC_VER == 1900)
+#include<type_traits>
+#endif
 #include "Types.hpp"
 namespace Kvasir {
 	namespace MPL {
 
 		template<class T> void ignore( const T& ) { }  //used to surpress compiler warning
 
+		//type traits equivalents in case there is no standard library
+//#if (_MSC_VER == 1900)
+//		template<typename T>
+//		using VoidT = std::void_t<T>;
+//
+//		template<typename T>
+//		using AddRvalueReferenceT = std::add_rvalue_reference_t<T>;
+//
+//		template<typename T>
+//		AddRvalueReferenceT<T> Declval() noexcept;
+//
+//#else
 		//equivalent to std::void_t
 		template<typename T>
 		struct TypeSink{
@@ -26,9 +41,15 @@ namespace Kvasir {
 		template<typename T>
 		using VoidT = typename TypeSink<T>::Type;
 
-		template<typename T>
-		T Declval();
+		template<class _Ty>
+		struct AddRvalueReference
+		{	// add rvalue reference
+			typedef _Ty&& Type;
+		};
 
+		template<typename T>
+		typename AddRvalueReference<T>::Type Declval();
+//#endif
 		//invert bool types
 		template<typename T>
 		struct Not {
@@ -185,9 +206,9 @@ namespace Kvasir {
 		const int sz_;
 		public:
 		template<int N> constexpr StrConst(const char(&a)[N]) : p_(a), sz_(N-1) {}
-		constexpr char operator[](int n) {
+		constexpr char operator[](int n) const {
 			return n < sz_ ? p_[n] : '\n';
 		}
-		constexpr int size() { return sz_; }
+		constexpr int size() const { return sz_; }
 	};
 }

@@ -21,11 +21,11 @@ namespace Kvasir{
 	struct DefaultConfig : Detail::DefaultConfig {
 		//TODO calculate real amount of usb ram needed
 		static unsigned char usbmem[2048] __attribute__((aligned(2048)));
-		static constexpr unsigned char& usbRamStart = usbmem[0];
+//		static constexpr unsigned char& usbRamStart = usbmem[0];
 		static constexpr int usbRamSize = sizeof(usbmem);
-		static constexpr int baseAddress = 0x40080000;
+		static constexpr unsigned baseAddress = 0x40080000;
 		struct DeviceCommandStatus{
-			static constexpr int address = baseAddress;
+			using Address = Register::Address<baseAddress>;
 			struct Pod{
 				int raw_;
 				explicit operator int(){
@@ -34,25 +34,25 @@ namespace Kvasir{
 			};
 //			using Reg = Register::Functional<address,0xFFFF,Register::Policy::ReadWritableP,Register::Policy::PodConversionP<Pod>>;
 			template<int I>
-			constexpr Register::WriteActionT<address,0x7F,I> makeDeviceAddress(){ return Register::WriteActionT<address,0x7F,I>{}; }
+			constexpr Register::WriteActionT<Address,0x7F,I> makeDeviceAddress(){ return Register::WriteActionT<address,0x7F,I>{}; }
 
-			static constexpr	Register::RWLocation<address, (1 << 7)>		deviceEnabled{};
-			static constexpr	Register::BWLocation<address, (1 << 8)>		clearSetupTokenRecieved{};
-			static constexpr	Register::RWLocation<address, (1 << 9)>		stopPllClockOnSuspendDisabled{};
-			static constexpr	Register::RWLocation<address, (1 <<11)>		lpmSupported{};
-			static constexpr	Register::RWLocation<address, (1 <<12)>		bulkOutInterruptOnNAckEnabled{};
-			static constexpr	Register::RWLocation<address, (1 <<13)>		bulkInInterruptOnNAckEnabled{};
-			static constexpr	Register::RWLocation<address, (1 <<14)>		controlOutInterruptOnNAckEnabled{};
-			static constexpr	Register::RWLocation<address, (1 <<15)>		controlInInterruptNAckEnabled{};
-			static constexpr 	Register::RWLocation<address, (1 <<16)>		deviceConnected{};
+			static constexpr	Register::RWBitLocT<Address, 7>		deviceEnabled{};
+			static constexpr	Register::RWBitLocT<Address, 8>		clearSetupTokenRecieved{};
+			static constexpr	Register::RWBitLocT<Address, 9>		stopPllClockOnSuspendDisabled{};
+			static constexpr	Register::RWBitLocT<Address, 11>		lpmSupported{};
+			static constexpr	Register::RWBitLocT<Address, 12>		bulkOutInterruptOnNAckEnabled{};
+			static constexpr	Register::RWBitLocT<Address, 13>		bulkInInterruptOnNAckEnabled{};
+			static constexpr	Register::RWBitLocT<Address, 14>		controlOutInterruptOnNAckEnabled{};
+			static constexpr	Register::RWBitLocT<Address, 15>		controlInInterruptNAckEnabled{};
+			static constexpr 	Register::RWBitLocT<Address, 16>		deviceConnected{};
 
 			//TODO still dont know what to do with that bit
 //			static constexpr Register::WriteBitActionT<address,17,false> remoteWakeup;
 
-			static constexpr	Register::RWLocation<address, (1 <<19)>		deviceSuspendEnabled{};
-			static constexpr	Register::BWLocation<address, (1 <<24)>		deviceConnectChangeReset{};
-			static constexpr 	Register::BWLocation<address, (1 <<25)>		deviceSuspendChangeReset{};
-			static constexpr 	Register::BWLocation<address, (1 <<26)>		deviceResetChangeReset{};
+			static constexpr	Register::RWBitLocT<Address, 19>		deviceSuspendEnabled{};
+			static constexpr	Register::RWBitLocT<Address, 24>		deviceConnectChangeReset{};
+			static constexpr 	Register::RWBitLocT<Address, 25>		deviceSuspendChangeReset{};
+			static constexpr 	Register::RWBitLocT<Address, 26>		deviceResetChangeReset{};
 		};
 		struct Info{
 			static constexpr int address = baseAddress+4;

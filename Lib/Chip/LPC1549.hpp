@@ -1,9 +1,9 @@
 #pragma once
 
-#include "NXP/LPC15/M3/StartUp.hpp"
-#include "NXP/LPC15/M3/Adc.hpp"
-#include "NXP/LPC15/M3/Interrupt.hpp"
-#include "NXP/LPC15/M3/Io.hpp"
-#include "NXP/LPC15/M3/Timer.hpp"
-#include "NXP/LPC15/M3/Uart.hpp"
-#include "NXP/LPC15/M3/Usb.hpp"
+#include "ARM Cortex M3/NXP/LPC15xx/StartUp.hpp"
+//#include "ARM Cortex M3/NXP/LPC15xx/Adc.hpp"
+#include "ARM Cortex M3/NXP/LPC15xx/Interrupt.hpp"
+#include "ARM Cortex M3/NXP/LPC15xx/Io.hpp"
+#include "ARM Cortex M3/NXP/LPC15xx/Timer.hpp"
+#include "ARM Cortex M3/NXP/LPC15xx/Uart.hpp"
+//#include "ARM Cortex M3/NXP/LPC15xx/Usb.hpp"

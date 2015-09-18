@@ -17,19 +17,19 @@ limitations under the License.
 namespace Kvasir{
 namespace Io{
 	namespace Detail{
-		template<int A, int Value>
+		template<unsigned A, int Value>
 		using WriteFunctionActionT = Register::Action<
 				Register::BitLocation<
 					Register::Address<A,0>,
 					0x03>,
 				Register::WriteLiteralAction<Value>>;
-		template<int A, int Pin, bool Value>
+		template<unsigned A, int Pin, bool Value>
 		using WriteBitActionT = Register::Action<
 				Register::BitLocation<
 					Register::Address<A,0>,
 					(1<<Pin)>,
 				Register::WriteLiteralAction<(Value<<Pin)>>;
-		template<int A, int Pin>
+		template<unsigned A, int Pin>
 		using BlindSetActionT = Register::Action<
 				Register::BitLocation<
 					Register::Address<A,0xFFFFFFFF>,
@@ -60,25 +60,5 @@ namespace Io{
 	template<int Pin, int Function>
 	struct MakeAction<Action::PinFunction<Function>,PinLocation<2,Pin>> :
 		Detail::WriteFunctionActionT<(0x400440F0 + Pin*4),Function>{};
-
-	//###### port actions #######
-	namespace Detail{
-		//########## traits specializations ############
-		///write a compile time known value to a unique port
-		template<PortAccess A, unsigned PortNumber, unsigned PinMask, unsigned Value>
-		struct WriteLiteralToSinglePort<A,PortNumber,PinMask,Unsigned<Value>>{
-			static_assert(PortNumber!= -1,"this functionality is not supported by the included chip file");
-			using Type = int;  //SFINAE should not fail but should static assert
-		};
-//		template<typename... Ts, typename V>
-//		struct WriteLiteralToSinglePort<Port<PortAccess::sharedMask,Ts...>,V>
-//			:
-//		{};
-//		template<typename... Ts, typename V>
-//		struct WriteLiteralToSinglePort<Port<PortAccess::defaultMode,Ts...>,V> :
-//			WriteLiteralToPort<Port<PortAccess::sharedMask,Ts...>,V>{};
-
-
-	}
 }
 }

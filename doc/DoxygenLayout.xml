@@ -3,6 +3,7 @@
   <!-- Navigation index tabs for HTML output -->
   <navindex>
     <tab type="mainpage" visible="yes" title=""/>
+	<tab type="user" url="http://github.com/kvasir-io/kvasir/" title="GitHub"/>
     <tab type="pages" visible="yes" title="" intro=""/>
     <tab type="namespaces" visible="yes" title="">
       <tab type="namespacelist" visible="yes" title="" intro=""/>

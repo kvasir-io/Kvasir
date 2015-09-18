@@ -20,31 +20,7 @@ struct KvasirSystemClock {
 };
 namespace Kvasir{
 namespace SystemClock{
-	template<typename TTraits, int I, int J>
-	struct ExternalOsciRawSettings{
-	protected:
 
-	public:
-		static void init(){
-			using namespace Register;
-			apply(TTraits::externalCrystalInit);
-			apply(TTraits::crystalOscillatorPowerOn);
-			apply(TTraits::systemPllPowerOff);
-			/* Wait for at least 580uS for osc to stabilize */
-			for (volatile int i = 0; i < 2500; i++) {}
-			using PllClock = typename TTraits::SystemPllClock;
-			apply(write(PllClock::source,PllClock::Source::systemOscillator));
-			apply(TTraits::SystemPllClock::updateSourceSequence);
-			apply(TTraits::FlashConfiguration::defaultConfig);
-			apply(write(TTraits::SystemPLLControl::feedbackDivider,value<I>()),
-					write(TTraits::SystemPLLControl::postDivider,typename TTraits::SystemPLLControl::PostDividerRatio(J)));
-			apply(TTraits::systemPllPowerOn);
-			while(!apply(read(TTraits::systemPllStatusLocked)));
-			apply(write(TTraits::SystemAHBClock::divider,value<1u>()));
-			Register::apply(write(TTraits::MainClock::source,TTraits::MainClock::Source::pllOutput));
-			Register::apply(TTraits::MainClock::updateSourceSequence);
-		}
-	};
 }
 }
 

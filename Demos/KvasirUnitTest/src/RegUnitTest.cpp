@@ -14,9 +14,9 @@ limitations under the License.
 #include "Io/Io.hpp"
 //#include "Chip/Lpc1549.hpp"
 //#include "Chip/Lpc11u68.hpp"
-#include "Chip/NXP/LPC11/M0+/U6xE6x/Io.hpp"
-//#include "Chip/NXP/LPC11/M0+/U6xE6x/Adc.hpp"
-//#include "Chip/NXP/LPC11/M0+/U6xE6x/Interrupt.hpp"
+#include "Chip/ARM Cortex M3/NXP/LPC15xx/Io.hpp"
+//#include "Chip/ARM Cortex M3/NXP/LPC15xx/Adc.hpp"
+#include "Chip/ARM Cortex M3/NXP/LPC15xx/Interrupt.hpp"
 
 using namespace Kvasir;
 using namespace MPL;
@@ -44,10 +44,10 @@ constexpr auto mpin2 = makePinLocation(port0,pin2);
 constexpr auto mpin3 = makePinLocation(port0,pin3);
 
 constexpr auto pocmd = makeOutput(mpin1,mpin2);
-constexpr auto myPort = makePort(mpin1,mpin2,mpin3);
-constexpr auto oCmd = makeOutput(myPort);
-constexpr auto iCmd = makeInput(myPort);
-constexpr auto wcmd = write(myPort,value<100>());
+//constexpr auto myPort = makePort(mpin1,mpin2,mpin3);
+//constexpr auto oCmd = makeOutput(myPort);
+//constexpr auto iCmd = makeInput(myPort);
+//constexpr auto wcmd = write(myPort,value<100>());
 
 void FTest(){
 	using namespace Register;

@@ -86,12 +86,12 @@ namespace Kvasir {
 					List<IndexedAction<Action<
 						BitLocation<
 							TAddress,
-							Mask1 | Mask2, 						//merge
+							(Mask1 | Mask2), 						//merge
 							TAccess1>,							//dont care, plausibility check has already been done
-							TActionTemplate<Value1 | Value2>	//merge
+							TActionTemplate<(Value1 | Value2)>	//merge
 							//TODO implement register type here
 						>,
-						ReadMask1 | ReadMask2, 					//merge
+						(ReadMask1 | ReadMask2), 					//merge
 						TInputs1..., TInputs2...>,				//concatinate
 						Us...>									//pass through rest
 			>{};
