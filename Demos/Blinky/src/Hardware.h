@@ -16,9 +16,9 @@ limitations under the License.
 #include "StartUp/SystemClock.hpp"
 #include "Common/Tags.hpp"
 
-//#define LPC11U68_BOARD
+#define LPC11U68_BOARD
 //#define LPC1768_BOARD
-#define LPC1549_BOARD
+//#define LPC1549_BOARD
 
 #ifdef LPC11U68_BOARD
 #include "Chip/Lpc11u68.hpp"
