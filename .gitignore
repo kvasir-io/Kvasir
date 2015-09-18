@@ -2,5 +2,8 @@
 *Release/
 *.metadata/
 doc/html
-Lib/.cproject
-Lib/.project
+*.cproject
+*.project
+*.launch
+Demos/Blinky/.settings/*
+Demos/KvasirUnitTest/.settings/*
