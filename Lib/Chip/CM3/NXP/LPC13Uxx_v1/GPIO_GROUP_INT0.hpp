@@ -1,0 +1,150 @@
+#pragma once 
+#include "Register/Utility.hpp"
+namespace Kvasir {
+    namespace Nonectrl{
+        using Addr = Register::Address<0x4005c000,0xfffffff8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> INT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> COMB; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TRIG; 
+    }
+    namespace Noneport_pol0{
+        using Addr = Register::Address<0x4005c020,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> POL_0; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> POL_1; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> POL_2; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> POL_3; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> POL_4; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> POL_5; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> POL_6; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> POL_7; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> POL_8; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> POL_9; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> POL_10; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> POL_11; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> POL_12; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> POL_13; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> POL_14; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> POL_15; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> POL_16; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> POL_17; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> POL_18; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> POL_19; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> POL_20; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> POL_21; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> POL_22; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> POL_23; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> POL_24; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> POL_25; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> POL_26; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> POL_27; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> POL_28; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> POL_29; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> POL_30; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> POL_31; 
+    }
+    namespace Noneport_pol1{
+        using Addr = Register::Address<0x4005c024,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> POL_0; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> POL_1; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> POL_2; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> POL_3; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> POL_4; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> POL_5; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> POL_6; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> POL_7; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> POL_8; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> POL_9; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> POL_10; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> POL_11; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> POL_12; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> POL_13; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> POL_14; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> POL_15; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> POL_16; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> POL_17; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> POL_18; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> POL_19; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> POL_20; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> POL_21; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> POL_22; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> POL_23; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> POL_24; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> POL_25; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> POL_26; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> POL_27; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> POL_28; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> POL_29; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> POL_30; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> POL_31; 
+    }
+    namespace Noneport_ena0{
+        using Addr = Register::Address<0x4005c040,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ENA_0; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ENA_1; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ENA_2; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ENA_3; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ENA_4; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> ENA_5; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> ENA_6; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENA_7; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ENA_8; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> ENA_9; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ENA_10; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> ENA_11; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ENA_12; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ENA_13; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ENA_14; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> ENA_15; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> ENA_16; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> ENA_17; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ENA_18; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> ENA_19; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> ENA_20; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> ENA_21; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> ENA_22; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> ENA_23; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ENA_24; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> ENA_25; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> ENA_26; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> ENA_27; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> ENA_28; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> ENA_29; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> ENA_30; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> ENA_31; 
+    }
+    namespace Noneport_ena1{
+        using Addr = Register::Address<0x4005c044,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ENA_0; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ENA_1; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ENA_2; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ENA_3; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ENA_4; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> ENA_5; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> ENA_6; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENA_7; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ENA_8; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> ENA_9; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ENA_10; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> ENA_11; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ENA_12; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ENA_13; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ENA_14; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> ENA_15; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> ENA_16; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> ENA_17; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ENA_18; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> ENA_19; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> ENA_20; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> ENA_21; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> ENA_22; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> ENA_23; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ENA_24; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> ENA_25; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> ENA_26; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> ENA_27; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> ENA_28; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> ENA_29; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> ENA_30; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> ENA_31; 
+    }
+}

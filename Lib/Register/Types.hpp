@@ -16,6 +16,7 @@
  * limitations under the License.
 ****************************************************************************/
 #pragma once
+#include "Mpl\Algorithm.hpp"
 
 namespace Kvasir{
 namespace Register{

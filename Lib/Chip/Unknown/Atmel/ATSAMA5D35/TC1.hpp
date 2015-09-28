@@ -1,0 +1,395 @@
+#pragma once 
+#include "Register/Utility.hpp"
+namespace Kvasir {
+    namespace TC1_ccr0{
+        using Addr = Register::Address<0xf8014000,0xfffffff8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CLKEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CLKDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SWTRG; 
+    }
+    namespace TC1_cmr0{
+        using Addr = Register::Address<0xf8014004,0xfff03800>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TCCLKS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CLKI; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> BURST; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDBSTOP; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> LDBDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> ETRGEDG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ABETRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> CPCTRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> WAVE; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> LDRA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> LDRB; 
+    }
+    namespace TC1_cmr0_wave_eq_1{
+        using Addr = Register::Address<0xf8014004,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TCCLKS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CLKI; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> BURST; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CPCSTOP; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CPCDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> EEVTEDG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> EEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ENETRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,13)> WAVSEL; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> WAVE; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> ACPA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> ACPC; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> AEEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22)> ASWTRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24)> BCPB; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26)> BCPC; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> BEEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30)> BSWTRG; 
+    }
+    namespace TC1_smmr0{
+        using Addr = Register::Address<0xf8014008,0xfffffffc>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> GCEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DOWN; 
+    }
+    namespace TC1_rab0{
+        using Addr = Register::Address<0xf801400c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RAB; 
+    }
+    namespace TC1_cv0{
+        using Addr = Register::Address<0xf8014010,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CV; 
+    }
+    namespace TC1_ra0{
+        using Addr = Register::Address<0xf8014014,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RA; 
+    }
+    namespace TC1_rb0{
+        using Addr = Register::Address<0xf8014018,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RB; 
+    }
+    namespace TC1_rc0{
+        using Addr = Register::Address<0xf801401c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RC; 
+    }
+    namespace TC1_sr0{
+        using Addr = Register::Address<0xf8014020,0xfff8ff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> CLKSTA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> MTIOA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> MTIOB; 
+    }
+    namespace TC1_ier0{
+        using Addr = Register::Address<0xf8014024,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_idr0{
+        using Addr = Register::Address<0xf8014028,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_imr0{
+        using Addr = Register::Address<0xf801402c,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_ccr1{
+        using Addr = Register::Address<0xf8014040,0xfffffff8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CLKEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CLKDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SWTRG; 
+    }
+    namespace TC1_cmr1{
+        using Addr = Register::Address<0xf8014044,0xfff03800>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TCCLKS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CLKI; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> BURST; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDBSTOP; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> LDBDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> ETRGEDG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ABETRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> CPCTRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> WAVE; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> LDRA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> LDRB; 
+    }
+    namespace TC1_cmr1_wave_eq_1{
+        using Addr = Register::Address<0xf8014044,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TCCLKS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CLKI; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> BURST; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CPCSTOP; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CPCDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> EEVTEDG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> EEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ENETRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,13)> WAVSEL; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> WAVE; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> ACPA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> ACPC; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> AEEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22)> ASWTRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24)> BCPB; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26)> BCPC; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> BEEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30)> BSWTRG; 
+    }
+    namespace TC1_smmr1{
+        using Addr = Register::Address<0xf8014048,0xfffffffc>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> GCEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DOWN; 
+    }
+    namespace TC1_rab1{
+        using Addr = Register::Address<0xf801404c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RAB; 
+    }
+    namespace TC1_cv1{
+        using Addr = Register::Address<0xf8014050,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CV; 
+    }
+    namespace TC1_ra1{
+        using Addr = Register::Address<0xf8014054,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RA; 
+    }
+    namespace TC1_rb1{
+        using Addr = Register::Address<0xf8014058,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RB; 
+    }
+    namespace TC1_rc1{
+        using Addr = Register::Address<0xf801405c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RC; 
+    }
+    namespace TC1_sr1{
+        using Addr = Register::Address<0xf8014060,0xfff8ff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> CLKSTA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> MTIOA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> MTIOB; 
+    }
+    namespace TC1_ier1{
+        using Addr = Register::Address<0xf8014064,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_idr1{
+        using Addr = Register::Address<0xf8014068,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_imr1{
+        using Addr = Register::Address<0xf801406c,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_ccr2{
+        using Addr = Register::Address<0xf8014080,0xfffffff8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CLKEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CLKDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SWTRG; 
+    }
+    namespace TC1_cmr2{
+        using Addr = Register::Address<0xf8014084,0xfff03800>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TCCLKS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CLKI; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> BURST; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDBSTOP; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> LDBDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> ETRGEDG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ABETRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> CPCTRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> WAVE; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> LDRA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> LDRB; 
+    }
+    namespace TC1_cmr2_wave_eq_1{
+        using Addr = Register::Address<0xf8014084,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TCCLKS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CLKI; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> BURST; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CPCSTOP; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CPCDIS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> EEVTEDG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> EEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ENETRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,13)> WAVSEL; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> WAVE; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> ACPA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> ACPC; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> AEEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22)> ASWTRG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24)> BCPB; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26)> BCPC; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> BEEVT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30)> BSWTRG; 
+    }
+    namespace TC1_smmr2{
+        using Addr = Register::Address<0xf8014088,0xfffffffc>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> GCEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DOWN; 
+    }
+    namespace TC1_rab2{
+        using Addr = Register::Address<0xf801408c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RAB; 
+    }
+    namespace TC1_cv2{
+        using Addr = Register::Address<0xf8014090,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CV; 
+    }
+    namespace TC1_ra2{
+        using Addr = Register::Address<0xf8014094,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RA; 
+    }
+    namespace TC1_rb2{
+        using Addr = Register::Address<0xf8014098,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RB; 
+    }
+    namespace TC1_rc2{
+        using Addr = Register::Address<0xf801409c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RC; 
+    }
+    namespace TC1_sr2{
+        using Addr = Register::Address<0xf80140a0,0xfff8ff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> CLKSTA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> MTIOA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> MTIOB; 
+    }
+    namespace TC1_ier2{
+        using Addr = Register::Address<0xf80140a4,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_idr2{
+        using Addr = Register::Address<0xf80140a8,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_imr2{
+        using Addr = Register::Address<0xf80140ac,0xffffff00>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COVFS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LOVRS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CPCS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LDRAS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> LDRBS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ETRGS; 
+    }
+    namespace TC1_bcr{
+        using Addr = Register::Address<0xf80140c0,0xfffffffe>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SYNC; 
+    }
+    namespace TC1_bmr{
+        using Addr = Register::Address<0xf80140c4,0xfc0400c0>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> TC0XC0S; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> TC1XC1S; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> TC2XC2S; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> QDEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> POSEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> SPEEDEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> QDTRANS; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> EDGPHA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> INVA; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> INVB; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> INVIDX; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> SWAP; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> IDXPHB; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> FILTER; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,20)> MAXFILT; 
+    }
+    namespace TC1_qier{
+        using Addr = Register::Address<0xf80140c8,0xfffffff8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IDX; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DIRCHG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> QERR; 
+    }
+    namespace TC1_qidr{
+        using Addr = Register::Address<0xf80140cc,0xfffffff8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IDX; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DIRCHG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> QERR; 
+    }
+    namespace TC1_qimr{
+        using Addr = Register::Address<0xf80140d0,0xfffffff8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IDX; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DIRCHG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> QERR; 
+    }
+    namespace TC1_qisr{
+        using Addr = Register::Address<0xf80140d4,0xfffffef8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IDX; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DIRCHG; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> QERR; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DIR; 
+    }
+    namespace TC1_wpmr{
+        using Addr = Register::Address<0xf80140e4,0x000000fe>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8)> WPKEY; 
+    }
+}

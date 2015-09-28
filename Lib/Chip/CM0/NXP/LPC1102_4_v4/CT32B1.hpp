@@ -1,0 +1,93 @@
+#pragma once 
+#include "Register/Utility.hpp"
+namespace Kvasir {
+    namespace Noneir{
+        using Addr = Register::Address<0x40018000,0xffffffe0>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MR0INT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MR1INT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MR2INT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MR3INT; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CR0INT; 
+    }
+    namespace Nonetcr{
+        using Addr = Register::Address<0x40018004,0xfffffffc>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CEN; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CRST; 
+    }
+    namespace Nonetc{
+        using Addr = Register::Address<0x40018008,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TC; 
+    }
+    namespace Nonepr{
+        using Addr = Register::Address<0x4001800c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PR; 
+    }
+    namespace Nonepc{
+        using Addr = Register::Address<0x40018010,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PC; 
+    }
+    namespace Nonemcr{
+        using Addr = Register::Address<0x40018014,0xfffff000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MR0I; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MR0R; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MR0S; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MR1I; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> MR1R; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> MR1S; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MR2I; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MR2R; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> MR2S; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> MR3I; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> MR3R; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> MR3S; 
+    }
+    namespace Nonemr0{
+        using Addr = Register::Address<0x40018018,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MATCH; 
+    }
+    namespace Nonemr1{
+        using Addr = Register::Address<0x4001801c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MATCH; 
+    }
+    namespace Nonemr2{
+        using Addr = Register::Address<0x40018020,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MATCH; 
+    }
+    namespace Nonemr3{
+        using Addr = Register::Address<0x40018024,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MATCH; 
+    }
+    namespace Noneccr{
+        using Addr = Register::Address<0x40018028,0xfffffff8>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CAP0RE; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CAP0FE; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CAP0I; 
+    }
+    namespace Nonecr0{
+        using Addr = Register::Address<0x4001802c,0x00000000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CAP; 
+    }
+    namespace Noneemr{
+        using Addr = Register::Address<0x4001803c,0xfffff000>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EM0; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EM1; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EM2; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EM3; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EMC0; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> EMC1; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> EMC2; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> EMC3; 
+    }
+    namespace Nonectcr{
+        using Addr = Register::Address<0x40018070,0xfffffff0>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> CTM; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> CIS; 
+    }
+    namespace Nonepwmc{
+        using Addr = Register::Address<0x40018074,0xfffffff0>;
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PWMEN0; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PWMEN1; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PWMEN2; 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PWMEN3; 
+    }
+}
