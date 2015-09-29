@@ -1,44 +1,61 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace XBARB_sel0{
-        using Addr = Register::Address<0x4005a000,0xffffe0e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> SEL0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> SEL1; 
+//Crossbar Switch
+    namespace XbarbSel0{    ///<Crossbar B Select Register 0
+        using Addr = Register::Address<0x4005a000,0xffffe0e0,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sel0{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sel1{}; 
     }
-    namespace XBARB_sel1{
-        using Addr = Register::Address<0x4005a002,0xffffe0e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> SEL2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> SEL3; 
+    namespace XbarbSel1{    ///<Crossbar B Select Register 1
+        using Addr = Register::Address<0x4005a002,0xffffe0e0,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sel2{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sel3{}; 
     }
-    namespace XBARB_sel2{
-        using Addr = Register::Address<0x4005a004,0xffffe0e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> SEL4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> SEL5; 
+    namespace XbarbSel2{    ///<Crossbar B Select Register 2
+        using Addr = Register::Address<0x4005a004,0xffffe0e0,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sel4{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sel5{}; 
     }
-    namespace XBARB_sel3{
-        using Addr = Register::Address<0x4005a006,0xffffe0e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> SEL6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> SEL7; 
+    namespace XbarbSel3{    ///<Crossbar B Select Register 3
+        using Addr = Register::Address<0x4005a006,0xffffe0e0,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sel6{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sel7{}; 
     }
-    namespace XBARB_sel4{
-        using Addr = Register::Address<0x4005a008,0xffffe0e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> SEL8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> SEL9; 
+    namespace XbarbSel4{    ///<Crossbar B Select Register 4
+        using Addr = Register::Address<0x4005a008,0xffffe0e0,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sel8{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sel9{}; 
     }
-    namespace XBARB_sel5{
-        using Addr = Register::Address<0x4005a00a,0xffffe0e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> SEL10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> SEL11; 
+    namespace XbarbSel5{    ///<Crossbar B Select Register 5
+        using Addr = Register::Address<0x4005a00a,0xffffe0e0,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sel10{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sel11{}; 
     }
-    namespace XBARB_sel6{
-        using Addr = Register::Address<0x4005a00c,0xffffe0e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> SEL12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> SEL13; 
+    namespace XbarbSel6{    ///<Crossbar B Select Register 6
+        using Addr = Register::Address<0x4005a00c,0xffffe0e0,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sel12{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sel13{}; 
     }
-    namespace XBARB_sel7{
-        using Addr = Register::Address<0x4005a00e,0xffffe0e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> SEL14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> SEL15; 
+    namespace XbarbSel7{    ///<Crossbar B Select Register 7
+        using Addr = Register::Address<0x4005a00e,0xffffe0e0,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> sel14{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sel15{}; 
     }
 }

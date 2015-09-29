@@ -1,196 +1,805 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace DMAMUX_chcfg0{
-        using Addr = Register::Address<0x40021000,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+//DMA channel multiplexor
+    namespace DmamuxChcfg0{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021000,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg1{
-        using Addr = Register::Address<0x40021001,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg1{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021001,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg2{
-        using Addr = Register::Address<0x40021002,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg2{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021002,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg3{
-        using Addr = Register::Address<0x40021003,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg3{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021003,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg4{
-        using Addr = Register::Address<0x40021004,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg4{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021004,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg5{
-        using Addr = Register::Address<0x40021005,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg5{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021005,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg6{
-        using Addr = Register::Address<0x40021006,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg6{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021006,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg7{
-        using Addr = Register::Address<0x40021007,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg7{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021007,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg8{
-        using Addr = Register::Address<0x40021008,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg8{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021008,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg9{
-        using Addr = Register::Address<0x40021009,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg9{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021009,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg10{
-        using Addr = Register::Address<0x4002100a,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg10{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002100a,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg11{
-        using Addr = Register::Address<0x4002100b,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg11{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002100b,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg12{
-        using Addr = Register::Address<0x4002100c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg12{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002100c,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg13{
-        using Addr = Register::Address<0x4002100d,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg13{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002100d,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg14{
-        using Addr = Register::Address<0x4002100e,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg14{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002100e,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg15{
-        using Addr = Register::Address<0x4002100f,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg15{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002100f,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg16{
-        using Addr = Register::Address<0x40021010,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg16{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021010,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg17{
-        using Addr = Register::Address<0x40021011,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg17{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021011,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg18{
-        using Addr = Register::Address<0x40021012,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg18{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021012,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg19{
-        using Addr = Register::Address<0x40021013,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg19{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021013,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg20{
-        using Addr = Register::Address<0x40021014,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg20{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021014,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg21{
-        using Addr = Register::Address<0x40021015,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg21{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021015,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg22{
-        using Addr = Register::Address<0x40021016,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg22{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021016,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg23{
-        using Addr = Register::Address<0x40021017,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg23{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021017,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg24{
-        using Addr = Register::Address<0x40021018,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg24{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021018,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg25{
-        using Addr = Register::Address<0x40021019,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg25{    ///<Channel Configuration register
+        using Addr = Register::Address<0x40021019,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg26{
-        using Addr = Register::Address<0x4002101a,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg26{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002101a,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg27{
-        using Addr = Register::Address<0x4002101b,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg27{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002101b,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg28{
-        using Addr = Register::Address<0x4002101c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg28{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002101c,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg29{
-        using Addr = Register::Address<0x4002101d,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg29{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002101d,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg30{
-        using Addr = Register::Address<0x4002101e,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg30{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002101e,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
-    namespace DMAMUX_chcfg31{
-        using Addr = Register::Address<0x4002101f,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> SOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ENBL; 
+    namespace DmamuxChcfg31{    ///<Channel Configuration register
+        using Addr = Register::Address<0x4002101f,0xffffff00,0,unsigned char>;
+        ///DMA Channel Source (Slot)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> source{}; 
+        ///DMA Channel Trigger Enable
+        enum class trigVal {
+            v0=0x00000000,     ///<Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
+            v1=0x00000001,     ///<Triggering is enabled. If triggering is enabled and ENBL is set, the DMAMUX is in Periodic Trigger mode.
+        };
+        namespace trigValC{
+            constexpr MPL::Value<trigVal,trigVal::v0> v0{};
+            constexpr MPL::Value<trigVal,trigVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,trigVal> trig{}; 
+        ///DMA Channel Enable
+        enum class enblVal {
+            v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
+            v1=0x00000001,     ///<DMA channel is enabled
+        };
+        namespace enblValC{
+            constexpr MPL::Value<enblVal,enblVal::v0> v0{};
+            constexpr MPL::Value<enblVal,enblVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enblVal> enbl{}; 
     }
 }

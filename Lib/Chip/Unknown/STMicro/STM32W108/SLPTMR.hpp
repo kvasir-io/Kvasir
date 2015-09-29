@@ -1,54 +1,78 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneslptmr_cr{
-        using Addr = Register::Address<0x4000600c,0xffffe30e>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> REVERSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> DBGP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> PSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CLKSEL; 
+//Sleep timer
+    namespace NoneslptmrCr{    ///<SLPTMR configuration register
+        using Addr = Register::Address<0x4000600c,0xffffe30e,0,unsigned>;
+        ///REVERSE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> reverse{}; 
+        ///EN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> en{}; 
+        ///DBGP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dbgp{}; 
+        ///PSC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> psc{}; 
+        ///CLKSEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clksel{}; 
     }
-    namespace Noneslptmr_cnth{
-        using Addr = Register::Address<0x40006010,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CNTH; 
+    namespace NoneslptmrCnth{    ///<SLPTMR counter high register
+        using Addr = Register::Address<0x40006010,0xffff0000,0,unsigned>;
+        ///CNTH
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnth{}; 
     }
-    namespace Noneslptmr_cntl{
-        using Addr = Register::Address<0x40006014,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CNTL; 
+    namespace NoneslptmrCntl{    ///<SLPTMR counter high register
+        using Addr = Register::Address<0x40006014,0xffff0000,0,unsigned>;
+        ///CNTL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cntl{}; 
     }
-    namespace Noneslptmr_cmpah{
-        using Addr = Register::Address<0x40006018,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CMPAH; 
+    namespace NoneslptmrCmpah{    ///<SLPTMR compare A high register
+        using Addr = Register::Address<0x40006018,0xffff0000,0,unsigned>;
+        ///CMPAH
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpah{}; 
     }
-    namespace Noneslptmr_cmpal{
-        using Addr = Register::Address<0x4000601c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CMPAL; 
+    namespace NoneslptmrCmpal{    ///<SLPTMR compare A low register
+        using Addr = Register::Address<0x4000601c,0xffff0000,0,unsigned>;
+        ///CMPAL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpal{}; 
     }
-    namespace Noneslptmr_cmpbh{
-        using Addr = Register::Address<0x40006020,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CMPBH; 
+    namespace NoneslptmrCmpbh{    ///<SLPTMR compare B high register
+        using Addr = Register::Address<0x40006020,0xffff0000,0,unsigned>;
+        ///CMPBH
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpbh{}; 
     }
-    namespace Noneslptmr_cmpbl{
-        using Addr = Register::Address<0x40006024,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CMPBL; 
+    namespace NoneslptmrCmpbl{    ///<SLPTMR compare B low register
+        using Addr = Register::Address<0x40006024,0xffff0000,0,unsigned>;
+        ///CMPBL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpbl{}; 
     }
-    namespace Noneslptmr_isr{
-        using Addr = Register::Address<0x4000a014,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CMPB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CMPA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OW; 
+    namespace NoneslptmrIsr{    ///<SLPTMR interrupt status
+          register
+        using Addr = Register::Address<0x4000a014,0xfffffff8,0,unsigned>;
+        ///CMPB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cmpb{}; 
+        ///CMPA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cmpa{}; 
+        ///OW
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ow{}; 
     }
-    namespace Noneslptmr_ifr{
-        using Addr = Register::Address<0x4000a020,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CMPB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CMPA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OW; 
+    namespace NoneslptmrIfr{    ///<SLPTMR force interrupts
+          register
+        using Addr = Register::Address<0x4000a020,0xfffffff8,0,unsigned>;
+        ///CMPB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cmpb{}; 
+        ///CMPA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cmpa{}; 
+        ///OW
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ow{}; 
     }
-    namespace Noneslptmr_ier{
-        using Addr = Register::Address<0x4000a054,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WRAP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CMPA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CMPB; 
+    namespace NoneslptmrIer{    ///<SLPTMR interrupt enable
+          register
+        using Addr = Register::Address<0x4000a054,0xfffffff8,0,unsigned>;
+        ///WRAP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wrap{}; 
+        ///CMPA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cmpa{}; 
+        ///CMPB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cmpb{}; 
     }
 }

@@ -1,28 +1,35 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace FGPIOD_pdor{
-        using Addr = Register::Address<0xf80000c0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PDO; 
+//General Purpose Input/Output
+    namespace FgpiodPdor{    ///<Port Data Output Register
+        using Addr = Register::Address<0xf80000c0,0x00000000,0,unsigned>;
+        ///Port Data Output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pdo{}; 
     }
-    namespace FGPIOD_psor{
-        using Addr = Register::Address<0xf80000c4,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PTSO; 
+    namespace FgpiodPsor{    ///<Port Set Output Register
+        using Addr = Register::Address<0xf80000c4,0x00000000,0,unsigned>;
+        ///Port Set Output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ptso{}; 
     }
-    namespace FGPIOD_pcor{
-        using Addr = Register::Address<0xf80000c8,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PTCO; 
+    namespace FgpiodPcor{    ///<Port Clear Output Register
+        using Addr = Register::Address<0xf80000c8,0x00000000,0,unsigned>;
+        ///Port Clear Output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ptco{}; 
     }
-    namespace FGPIOD_ptor{
-        using Addr = Register::Address<0xf80000cc,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PTTO; 
+    namespace FgpiodPtor{    ///<Port Toggle Output Register
+        using Addr = Register::Address<0xf80000cc,0x00000000,0,unsigned>;
+        ///Port Toggle Output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ptto{}; 
     }
-    namespace FGPIOD_pdir{
-        using Addr = Register::Address<0xf80000d0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PDI; 
+    namespace FgpiodPdir{    ///<Port Data Input Register
+        using Addr = Register::Address<0xf80000d0,0x00000000,0,unsigned>;
+        ///Port Data Input
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pdi{}; 
     }
-    namespace FGPIOD_pddr{
-        using Addr = Register::Address<0xf80000d4,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PDD; 
+    namespace FgpiodPddr{    ///<Port Data Direction Register
+        using Addr = Register::Address<0xf80000d4,0x00000000,0,unsigned>;
+        ///Port Data Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pdd{}; 
     }
 }

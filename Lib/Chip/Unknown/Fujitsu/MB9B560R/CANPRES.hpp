@@ -1,8 +1,10 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecanpre{
-        using Addr = Register::Address<0x40037000,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> CANPRE; 
+//CAN Prescaler Register
+    namespace Nonecanpre{    ///<CAN Prescaler Register
+        using Addr = Register::Address<0x40037000,0xfffffff0,0,unsigned char>;
+        ///CAN prescaler setting bits
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> canpre{}; 
     }
 }

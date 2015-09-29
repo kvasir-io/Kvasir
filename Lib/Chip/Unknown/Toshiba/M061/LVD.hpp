@@ -1,15 +1,21 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneicr{
-        using Addr = Register::Address<0x400f4004,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LVDEN2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1)> LVDLVL2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> INTSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LVDINTEN; 
+//Low Voltage detector control register
+    namespace Noneicr{    ///<LVD-NMI Control Register
+        using Addr = Register::Address<0x400f4004,0xffffffc0,0,unsigned>;
+        ///LVDEN2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lvden2{}; 
+        ///LVDLVL2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> lvdlvl2{}; 
+        ///INTSEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> intsel{}; 
+        ///LVDINTEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lvdinten{}; 
     }
-    namespace Nonesr{
-        using Addr = Register::Address<0x400f4008,0xfffffffd>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LVDST2; 
+    namespace Nonesr{    ///<LVD Status Control Register
+        using Addr = Register::Address<0x400f4008,0xfffffffd,0,unsigned>;
+        ///LVDST2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lvdst2{}; 
     }
 }

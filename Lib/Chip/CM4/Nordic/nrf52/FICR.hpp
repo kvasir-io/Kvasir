@@ -1,69 +1,95 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecodepagesize{
-        using Addr = Register::Address<0x10000010,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CODEPAGESIZE; 
+//Factory Information Configuration Registers
+    namespace Nonecodepagesize{    ///<Code memory page size
+        using Addr = Register::Address<0x10000010,0x00000000,0,unsigned>;
+        ///Code memory page size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> codepagesize{}; 
     }
-    namespace Nonecodesize{
-        using Addr = Register::Address<0x10000014,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CODESIZE; 
+    namespace Nonecodesize{    ///<Code memory size
+        using Addr = Register::Address<0x10000014,0x00000000,0,unsigned>;
+        ///Code memory size in number of pages
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> codesize{}; 
     }
-    namespace Noneconfigid{
-        using Addr = Register::Address<0x1000005c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> HWID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> FWID; 
+    namespace Noneconfigid{    ///<Configuration identifier
+        using Addr = Register::Address<0x1000005c,0x00000000,0,unsigned>;
+        ///Identification number for the HW
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> hwid{}; 
+        ///Deprecated field -  Identification number for the FW that is pre-loaded into the chip
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> fwid{}; 
     }
-    namespace Nonedeviceid0{
-        using Addr = Register::Address<0x10000060,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> DEVICEID; 
+    namespace Nonedeviceid0{    ///<Description collection[0]:  Device identifier
+        using Addr = Register::Address<0x10000060,0x00000000,0,unsigned>;
+        ///64 bit unique device identifier
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceid{}; 
     }
-    namespace Nonedeviceid1{
-        using Addr = Register::Address<0x10000064,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> DEVICEID; 
+    namespace Nonedeviceid1{    ///<Description collection[0]:  Device identifier
+        using Addr = Register::Address<0x10000064,0x00000000,0,unsigned>;
+        ///64 bit unique device identifier
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceid{}; 
     }
-    namespace Noneer0{
-        using Addr = Register::Address<0x10000080,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ER; 
+    namespace Noneer0{    ///<Description collection[0]:  Encryption Root, word 0
+        using Addr = Register::Address<0x10000080,0x00000000,0,unsigned>;
+        ///Encryption Root, word n
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> er{}; 
     }
-    namespace Noneer1{
-        using Addr = Register::Address<0x10000084,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ER; 
+    namespace Noneer1{    ///<Description collection[0]:  Encryption Root, word 0
+        using Addr = Register::Address<0x10000084,0x00000000,0,unsigned>;
+        ///Encryption Root, word n
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> er{}; 
     }
-    namespace Noneer2{
-        using Addr = Register::Address<0x10000088,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ER; 
+    namespace Noneer2{    ///<Description collection[0]:  Encryption Root, word 0
+        using Addr = Register::Address<0x10000088,0x00000000,0,unsigned>;
+        ///Encryption Root, word n
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> er{}; 
     }
-    namespace Noneer3{
-        using Addr = Register::Address<0x1000008c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ER; 
+    namespace Noneer3{    ///<Description collection[0]:  Encryption Root, word 0
+        using Addr = Register::Address<0x1000008c,0x00000000,0,unsigned>;
+        ///Encryption Root, word n
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> er{}; 
     }
-    namespace Noneir0{
-        using Addr = Register::Address<0x10000090,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> IR; 
+    namespace Noneir0{    ///<Description collection[0]:  Identity Root, word 0
+        using Addr = Register::Address<0x10000090,0x00000000,0,unsigned>;
+        ///Identity Root, word n
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ir{}; 
     }
-    namespace Noneir1{
-        using Addr = Register::Address<0x10000094,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> IR; 
+    namespace Noneir1{    ///<Description collection[0]:  Identity Root, word 0
+        using Addr = Register::Address<0x10000094,0x00000000,0,unsigned>;
+        ///Identity Root, word n
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ir{}; 
     }
-    namespace Noneir2{
-        using Addr = Register::Address<0x10000098,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> IR; 
+    namespace Noneir2{    ///<Description collection[0]:  Identity Root, word 0
+        using Addr = Register::Address<0x10000098,0x00000000,0,unsigned>;
+        ///Identity Root, word n
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ir{}; 
     }
-    namespace Noneir3{
-        using Addr = Register::Address<0x1000009c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> IR; 
+    namespace Noneir3{    ///<Description collection[0]:  Identity Root, word 0
+        using Addr = Register::Address<0x1000009c,0x00000000,0,unsigned>;
+        ///Identity Root, word n
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ir{}; 
     }
-    namespace Nonedeviceaddrtype{
-        using Addr = Register::Address<0x100000a0,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DEVICEADDRTYPE; 
+    namespace Nonedeviceaddrtype{    ///<Device address type
+        using Addr = Register::Address<0x100000a0,0xfffffffe,0,unsigned>;
+        ///Device address type
+        enum class deviceaddrtypeVal {
+            public_=0x00000000,     ///<Public address
+            random=0x00000001,     ///<Random address
+        };
+        namespace deviceaddrtypeValC{
+            constexpr MPL::Value<deviceaddrtypeVal,deviceaddrtypeVal::public_> public_{};
+            constexpr MPL::Value<deviceaddrtypeVal,deviceaddrtypeVal::random> random{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,deviceaddrtypeVal> deviceaddrtype{}; 
     }
-    namespace Nonedeviceaddr0{
-        using Addr = Register::Address<0x100000a4,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> DEVICEADDR; 
+    namespace Nonedeviceaddr0{    ///<Description collection[0]:  Device address 0
+        using Addr = Register::Address<0x100000a4,0x00000000,0,unsigned>;
+        ///48 bit device address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceaddr{}; 
     }
-    namespace Nonedeviceaddr1{
-        using Addr = Register::Address<0x100000a8,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> DEVICEADDR; 
+    namespace Nonedeviceaddr1{    ///<Description collection[0]:  Device address 0
+        using Addr = Register::Address<0x100000a8,0x00000000,0,unsigned>;
+        ///48 bit device address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceaddr{}; 
     }
 }

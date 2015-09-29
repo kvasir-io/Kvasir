@@ -1,139 +1,248 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonedata{
-        using Addr = Register::Address<0x50003ffc,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DATA0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DATA1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> DATA2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DATA3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> DATA4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> DATA5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATA6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DATA7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DATA8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> DATA9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> DATA10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> DATA11; 
+//GPIO0
+    namespace Nonedata{    ///<Port n data register for pins PIOn_0 to PIOn_11
+        using Addr = Register::Address<0x50003ffc,0xfffff000,0,unsigned>;
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> data0{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> data1{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> data2{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> data3{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> data4{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> data5{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> data6{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> data7{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> data8{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> data9{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> data10{}; 
+        ///Logic levels for pins PIOn_0 to PIOn_11. HIGH = 1, LOW = 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> data11{}; 
     }
-    namespace Nonedir{
-        using Addr = Register::Address<0x50008000,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IO0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> IO1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> IO2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> IO3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IO4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> IO5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> IO6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> IO7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> IO8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> IO9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> IO10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> IO11; 
+    namespace Nonedir{    ///<Data direction register for port n
+        using Addr = Register::Address<0x50008000,0xfffff000,0,unsigned>;
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> io0{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> io1{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> io2{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> io3{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> io4{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> io5{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> io6{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> io7{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> io8{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> io9{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> io10{}; 
+        ///Selects pin x as input or output (x = 0 to 11). 0 = Pin PIOn_x is configured as input. 1 = Pin PIOn_x is configured as output.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> io11{}; 
     }
-    namespace Noneis{
-        using Addr = Register::Address<0x50008004,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ISENSE0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ISENSE1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ISENSE2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ISENSE3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ISENSE4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> ISENSE5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> ISENSE6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ISENSE7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ISENSE8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> ISENSE9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ISENSE10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> ISENSE11; 
+    namespace Noneis{    ///<Interrupt sense register for port n
+        using Addr = Register::Address<0x50008004,0xfffff000,0,unsigned>;
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> isense0{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> isense1{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> isense2{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> isense3{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> isense4{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> isense5{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> isense6{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> isense7{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> isense8{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> isense9{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> isense10{}; 
+        ///Selects interrupt on pin x as level or edge sensitive (x = 0 to 11). 0 = Interrupt on pin PIOn_x is configured as edge sensitive. 1 = Interrupt on pin PIOn_x is configured as level sensitive.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> isense11{}; 
     }
-    namespace Noneibe{
-        using Addr = Register::Address<0x50008008,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IBE0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> IBE1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> IBE2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> IBE3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IBE4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> IBE5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> IBE6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> IBE7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> IBE8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> IBE9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> IBE10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> IBE11; 
+    namespace Noneibe{    ///<Interrupt both edges register for port n
+        using Addr = Register::Address<0x50008008,0xfffff000,0,unsigned>;
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ibe0{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ibe1{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ibe2{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ibe3{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ibe4{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ibe5{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ibe6{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ibe7{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ibe8{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ibe9{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ibe10{}; 
+        ///Selects interrupt on pin x to be triggered on both edges (x = 0 to 11). 0 = Interrupt on pin PIOn_x is controlled through register GPIOnIEV. 1 = Both edges on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ibe11{}; 
     }
-    namespace Noneiev{
-        using Addr = Register::Address<0x5000800c,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IEV0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> IEV1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> IEV2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> IEV3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IEV4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> IEV5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> IEV6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> IEV7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> IEV8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> IEV9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> IEV10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> IEV11; 
+    namespace Noneiev{    ///<Interrupt event register for port n
+        using Addr = Register::Address<0x5000800c,0xfffff000,0,unsigned>;
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> iev0{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> iev1{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> iev2{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> iev3{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> iev4{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> iev5{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> iev6{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> iev7{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> iev8{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> iev9{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iev10{}; 
+        ///Selects interrupt on pin x to be triggered rising or falling edges (x = 0 to 11). 0 = Depending on setting in register GPIOnIS (see Table 109), falling edges or LOW level on pin PIOn_x trigger an interrupt. 1 = Depending on setting in register GPIOnIS (see Table 109), rising edges or HIGH level on pin PIOn_x trigger an interrupt.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> iev11{}; 
     }
-    namespace Noneie{
-        using Addr = Register::Address<0x50008010,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MASK0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MASK1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MASK2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASK3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> MASK4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> MASK5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MASK6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MASK7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> MASK8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> MASK9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> MASK10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> MASK11; 
+    namespace Noneie{    ///<Interrupt mask register for port n
+        using Addr = Register::Address<0x50008010,0xfffff000,0,unsigned>;
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mask0{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mask1{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mask2{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mask3{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mask4{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mask5{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mask6{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mask7{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mask8{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> mask9{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> mask10{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = Interrupt on pin PIOn_x is masked. 1 = Interrupt on pin PIOn_x is not masked.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> mask11{}; 
     }
-    namespace Noneris{
-        using Addr = Register::Address<0x50008014,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RAWST0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RAWST1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RAWST2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> RAWST3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RAWST4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> RAWST5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> RAWST6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> RAWST7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> RAWST8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RAWST9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> RAWST10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> RAWST11; 
+    namespace Noneris{    ///<Raw interrupt status register for port n
+        using Addr = Register::Address<0x50008014,0xfffff000,0,unsigned>;
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rawst0{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rawst1{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rawst2{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rawst3{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rawst4{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rawst5{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rawst6{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rawst7{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rawst8{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rawst9{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rawst10{}; 
+        ///Raw interrupt status (x = 0 to 11). 0 = No interrupt on pin PIOn_x. 1 = Interrupt requirements met on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> rawst11{}; 
     }
-    namespace Nonemis{
-        using Addr = Register::Address<0x50008018,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MASK0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MASK1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MASK2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASK3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> MASK4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> MASK5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MASK6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MASK7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> MASK8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> MASK9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> MASK10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> MASK11; 
+    namespace Nonemis{    ///<Masked interrupt status register for port n
+        using Addr = Register::Address<0x50008018,0xfffff000,0,unsigned>;
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mask0{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mask1{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mask2{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mask3{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mask4{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mask5{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mask6{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mask7{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mask8{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> mask9{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> mask10{}; 
+        ///Selects interrupt on pin x to be masked (x = 0 to 11). 0 = No interrupt or interrupt masked on pin PIOn_x. 1 = Interrupt on PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> mask11{}; 
     }
-    namespace Noneic{
-        using Addr = Register::Address<0x5000801c,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CLR0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CLR1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CLR2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CLR3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CLR4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CLR5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CLR6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CLR7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> CLR8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> CLR9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> CLR10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> CLR11; 
+    namespace Noneic{    ///<Interrupt clear register for port n
+        using Addr = Register::Address<0x5000801c,0xfffff000,0,unsigned>;
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clr0{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> clr1{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> clr2{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clr3{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> clr4{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> clr5{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> clr6{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> clr7{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> clr8{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> clr9{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> clr10{}; 
+        ///Selects interrupt on pin x to be cleared (x = 0 to 11). Clears the interrupt edge detection logic. This register is write-only. The synchronizer between the GPIO and the NVIC blocks causes a delay of 2 clocks. It is recommended to add two NOPs after the clear of the interrupt edge detection logic before the exit of the interrupt service routine. 0 = No effect. 1 = Clears edge detection logic for pin PIOn_x.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> clr11{}; 
     }
 }

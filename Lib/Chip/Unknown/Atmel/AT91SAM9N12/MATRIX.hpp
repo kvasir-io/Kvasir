@@ -1,122 +1,184 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace MATRIX_mcfg0{
-        using Addr = Register::Address<0xffffde00,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> ULBT; 
+//AHB Bus Matrix
+    namespace MatrixMcfg0{    ///<Master Configuration Register
+        using Addr = Register::Address<0xffffde00,0xfffffff8,0,unsigned>;
+        ///Undefined Length Burst Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ulbt{}; 
     }
-    namespace MATRIX_mcfg1{
-        using Addr = Register::Address<0xffffde04,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> ULBT; 
+    namespace MatrixMcfg1{    ///<Master Configuration Register
+        using Addr = Register::Address<0xffffde04,0xfffffff8,0,unsigned>;
+        ///Undefined Length Burst Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ulbt{}; 
     }
-    namespace MATRIX_mcfg2{
-        using Addr = Register::Address<0xffffde08,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> ULBT; 
+    namespace MatrixMcfg2{    ///<Master Configuration Register
+        using Addr = Register::Address<0xffffde08,0xfffffff8,0,unsigned>;
+        ///Undefined Length Burst Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ulbt{}; 
     }
-    namespace MATRIX_mcfg3{
-        using Addr = Register::Address<0xffffde0c,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> ULBT; 
+    namespace MatrixMcfg3{    ///<Master Configuration Register
+        using Addr = Register::Address<0xffffde0c,0xfffffff8,0,unsigned>;
+        ///Undefined Length Burst Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ulbt{}; 
     }
-    namespace MATRIX_mcfg4{
-        using Addr = Register::Address<0xffffde10,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> ULBT; 
+    namespace MatrixMcfg4{    ///<Master Configuration Register
+        using Addr = Register::Address<0xffffde10,0xfffffff8,0,unsigned>;
+        ///Undefined Length Burst Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ulbt{}; 
     }
-    namespace MATRIX_mcfg5{
-        using Addr = Register::Address<0xffffde14,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> ULBT; 
+    namespace MatrixMcfg5{    ///<Master Configuration Register
+        using Addr = Register::Address<0xffffde14,0xfffffff8,0,unsigned>;
+        ///Undefined Length Burst Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ulbt{}; 
     }
-    namespace MATRIX_scfg0{
-        using Addr = Register::Address<0xffffde40,0xffc0fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> SLOT_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> DEFMSTR_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18)> FIXED_DEFMSTR; 
+    namespace MatrixScfg0{    ///<Slave Configuration Register
+        using Addr = Register::Address<0xffffde40,0xffc0fe00,0,unsigned>;
+        ///Maximum Bus Grant Duration for Masters
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> slotCycle{}; 
+        ///Default Master Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> defmstrType{}; 
+        ///Fixed Default Master
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18),Register::ReadWriteAccess,unsigned> fixedDefmstr{}; 
     }
-    namespace MATRIX_scfg1{
-        using Addr = Register::Address<0xffffde44,0xffc0fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> SLOT_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> DEFMSTR_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18)> FIXED_DEFMSTR; 
+    namespace MatrixScfg1{    ///<Slave Configuration Register
+        using Addr = Register::Address<0xffffde44,0xffc0fe00,0,unsigned>;
+        ///Maximum Bus Grant Duration for Masters
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> slotCycle{}; 
+        ///Default Master Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> defmstrType{}; 
+        ///Fixed Default Master
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18),Register::ReadWriteAccess,unsigned> fixedDefmstr{}; 
     }
-    namespace MATRIX_scfg2{
-        using Addr = Register::Address<0xffffde48,0xffc0fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> SLOT_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> DEFMSTR_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18)> FIXED_DEFMSTR; 
+    namespace MatrixScfg2{    ///<Slave Configuration Register
+        using Addr = Register::Address<0xffffde48,0xffc0fe00,0,unsigned>;
+        ///Maximum Bus Grant Duration for Masters
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> slotCycle{}; 
+        ///Default Master Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> defmstrType{}; 
+        ///Fixed Default Master
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18),Register::ReadWriteAccess,unsigned> fixedDefmstr{}; 
     }
-    namespace MATRIX_scfg3{
-        using Addr = Register::Address<0xffffde4c,0xffc0fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> SLOT_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> DEFMSTR_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18)> FIXED_DEFMSTR; 
+    namespace MatrixScfg3{    ///<Slave Configuration Register
+        using Addr = Register::Address<0xffffde4c,0xffc0fe00,0,unsigned>;
+        ///Maximum Bus Grant Duration for Masters
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> slotCycle{}; 
+        ///Default Master Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> defmstrType{}; 
+        ///Fixed Default Master
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18),Register::ReadWriteAccess,unsigned> fixedDefmstr{}; 
     }
-    namespace MATRIX_scfg4{
-        using Addr = Register::Address<0xffffde50,0xffc0fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> SLOT_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> DEFMSTR_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18)> FIXED_DEFMSTR; 
+    namespace MatrixScfg4{    ///<Slave Configuration Register
+        using Addr = Register::Address<0xffffde50,0xffc0fe00,0,unsigned>;
+        ///Maximum Bus Grant Duration for Masters
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> slotCycle{}; 
+        ///Default Master Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> defmstrType{}; 
+        ///Fixed Default Master
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18),Register::ReadWriteAccess,unsigned> fixedDefmstr{}; 
     }
-    namespace MATRIX_pras0{
-        using Addr = Register::Address<0xffffde80,0xffcccccc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> M0PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> M1PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> M2PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> M3PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> M4PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> M5PR; 
+    namespace MatrixPras0{    ///<Priority Register A for Slave 0
+        using Addr = Register::Address<0xffffde80,0xffcccccc,0,unsigned>;
+        ///Master 0 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> m0pr{}; 
+        ///Master 1 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> m1pr{}; 
+        ///Master 2 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> m2pr{}; 
+        ///Master 3 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> m3pr{}; 
+        ///Master 4 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> m4pr{}; 
+        ///Master 5 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> m5pr{}; 
     }
-    namespace MATRIX_pras1{
-        using Addr = Register::Address<0xffffde88,0xffcccccc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> M0PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> M1PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> M2PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> M3PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> M4PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> M5PR; 
+    namespace MatrixPras1{    ///<Priority Register A for Slave 1
+        using Addr = Register::Address<0xffffde88,0xffcccccc,0,unsigned>;
+        ///Master 0 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> m0pr{}; 
+        ///Master 1 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> m1pr{}; 
+        ///Master 2 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> m2pr{}; 
+        ///Master 3 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> m3pr{}; 
+        ///Master 4 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> m4pr{}; 
+        ///Master 5 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> m5pr{}; 
     }
-    namespace MATRIX_pras2{
-        using Addr = Register::Address<0xffffde90,0xffcccccc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> M0PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> M1PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> M2PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> M3PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> M4PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> M5PR; 
+    namespace MatrixPras2{    ///<Priority Register A for Slave 2
+        using Addr = Register::Address<0xffffde90,0xffcccccc,0,unsigned>;
+        ///Master 0 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> m0pr{}; 
+        ///Master 1 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> m1pr{}; 
+        ///Master 2 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> m2pr{}; 
+        ///Master 3 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> m3pr{}; 
+        ///Master 4 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> m4pr{}; 
+        ///Master 5 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> m5pr{}; 
     }
-    namespace MATRIX_pras3{
-        using Addr = Register::Address<0xffffde98,0xffcccccc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> M0PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> M1PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> M2PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> M3PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> M4PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> M5PR; 
+    namespace MatrixPras3{    ///<Priority Register A for Slave 3
+        using Addr = Register::Address<0xffffde98,0xffcccccc,0,unsigned>;
+        ///Master 0 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> m0pr{}; 
+        ///Master 1 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> m1pr{}; 
+        ///Master 2 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> m2pr{}; 
+        ///Master 3 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> m3pr{}; 
+        ///Master 4 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> m4pr{}; 
+        ///Master 5 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> m5pr{}; 
     }
-    namespace MATRIX_pras4{
-        using Addr = Register::Address<0xffffdea0,0xffcccccc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> M0PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> M1PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> M2PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> M3PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> M4PR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> M5PR; 
+    namespace MatrixPras4{    ///<Priority Register A for Slave 4
+        using Addr = Register::Address<0xffffdea0,0xffcccccc,0,unsigned>;
+        ///Master 0 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> m0pr{}; 
+        ///Master 1 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> m1pr{}; 
+        ///Master 2 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> m2pr{}; 
+        ///Master 3 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> m3pr{}; 
+        ///Master 4 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> m4pr{}; 
+        ///Master 5 Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> m5pr{}; 
     }
-    namespace MATRIX_mrcr{
-        using Addr = Register::Address<0xffffdf00,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RCB0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RCB1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RCB2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> RCB3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RCB4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> RCB5; 
+    namespace MatrixMrcr{    ///<Master Remap Control Register
+        using Addr = Register::Address<0xffffdf00,0xffffffc0,0,unsigned>;
+        ///Remap Command Bit for Master 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rcb0{}; 
+        ///Remap Command Bit for Master 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rcb1{}; 
+        ///Remap Command Bit for Master 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rcb2{}; 
+        ///Remap Command Bit for Master 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rcb3{}; 
+        ///Remap Command Bit for Master 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rcb4{}; 
+        ///Remap Command Bit for Master 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rcb5{}; 
     }
-    namespace MATRIX_wpmr{
-        using Addr = Register::Address<0xffffdfe4,0x000000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8)> WPKEY; 
+    namespace MatrixWpmr{    ///<Write Protect Mode Register
+        using Addr = Register::Address<0xffffdfe4,0x000000fe,0,unsigned>;
+        ///Write Protect ENable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
+        ///Write Protect KEY (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
     }
-    namespace MATRIX_wpsr{
-        using Addr = Register::Address<0xffffdfe8,0xff0000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPVS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8)> WPVSRC; 
+    namespace MatrixWpsr{    ///<Write Protect Status Register
+        using Addr = Register::Address<0xffffdfe8,0xff0000fe,0,unsigned>;
+        ///Write Protect Violation Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpvs{}; 
+        ///Write Protect Violation Source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpvsrc{}; 
     }
 }

@@ -1,309 +1,472 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonereset_ctrl0{
-        using Addr = Register::Address<0x40053100,0xef80d8c8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CORE_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PERIPH_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MASTER_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> WWDT_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CREG_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> BUS_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SCU_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> PINMUX_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> M3_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> LCD_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> USB0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> USB1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> DMA_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> SDIO_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> EMC_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> ETHERNET_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> GPIO_RST; 
+//Product name title=UM10430 Chapter title=LPC18xx Reset Generation
+Unit (RGU) Modification date=7/20/2011 Major revision=0 Minor revision=13 
+    namespace NoneresetCtrl0{    ///<Reset control register 0
+        using Addr = Register::Address<0x40053100,0xef80d8c8,0,unsigned>;
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> coreRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after three clock cycles.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> periphRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after three clock cycles.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> masterRst{}; 
+        ///Writing a one to this bit has no effect.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> wwdtRst{}; 
+        ///Writing a one to this bit has no effect.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cregRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle. Do not use during normal operation
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> busRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> scuRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pinmuxRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> m3Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> lcdRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> usb0Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> usb1Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> dmaRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> sdioRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> emcRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ethernetRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> gpioRst{}; 
     }
-    namespace Nonereset_ctrl1{
-        using Addr = Register::Address<0x40053104,0xff000800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TIMER0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TIMER1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TIMER2_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TIMER3_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> OSTIMER_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SCT_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MOTOCONPWM_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> QEI_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ADC0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> ADC1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> DAC_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> UART0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> UART1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> UART2_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> UART3_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> I2C0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> I2C1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> SSP0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> SSP1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> I2S_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> SPIFI_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> CAN1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> CAN0_RST; 
+    namespace NoneresetCtrl1{    ///<Reset control register 1
+        using Addr = Register::Address<0x40053104,0xff000800,0,unsigned>;
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> timer0Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> timer1Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> timer2Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timer3Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ostimerRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sctRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> motoconpwmRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> qeiRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> adc0Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> adc1Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dacRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> uart0Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> uart1Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> uart2Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> uart3Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> i2c0Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> i2c1Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ssp0Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ssp1Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> i2sRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> spifiRst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> can1Rst{}; 
+        ///Writing a one activates the reset. This bit is automatically cleared to 0 after one clock cycle.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> can0Rst{}; 
     }
-    namespace Nonereset_status0{
-        using Addr = Register::Address<0x40053110,0xf3f0f0c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> CORE_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> PERIPH_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> MASTER_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> WWDT_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> CREG_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> BUS_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> SCU_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26)> M3_RST; 
+    namespace NoneresetStatus0{    ///<Reset status register 0
+        using Addr = Register::Address<0x40053110,0xf3f0f0c0,0,unsigned>;
+        ///Status of the CORE_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> coreRst{}; 
+        ///Status of the PERIPH_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> periphRst{}; 
+        ///Status of the MASTER_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> masterRst{}; 
+        ///Status of the WWDT_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reserved
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> wwdtRst{}; 
+        ///Status of the CREG_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reserved
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> cregRst{}; 
+        ///Status of the BUS_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> busRst{}; 
+        ///Status of the SCU_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> scuRst{}; 
+        ///Status of the M3_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> m3Rst{}; 
     }
-    namespace Nonereset_status1{
-        using Addr = Register::Address<0x40053114,0xfcffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> LCD_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> USB0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> USB1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> DMA_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> SDIO_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> EMC_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> ETHERNET_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24)> GPIO_RST; 
+    namespace NoneresetStatus1{    ///<Reset status register 1
+        using Addr = Register::Address<0x40053114,0xfcffc000,0,unsigned>;
+        ///Status of the LCD_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> lcdRst{}; 
+        ///Status of the USB0_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> usb0Rst{}; 
+        ///Status of the USB1_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> usb1Rst{}; 
+        ///Status of the DMA_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> dmaRst{}; 
+        ///Status of the SDIO_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> sdioRst{}; 
+        ///Status of the EMC_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> emcRst{}; 
+        ///Status of the ETHERNET_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> ethernetRst{}; 
+        ///Status of the GPIO_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> gpioRst{}; 
     }
-    namespace Nonereset_status2{
-        using Addr = Register::Address<0x40053118,0x00c00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> TIMER0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> TIMER1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> TIMER2_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TIMER3_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> RITIMER_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> SCT_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> MOTOCONPWM_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14)> QEI_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> ADC0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> ADC1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> DAC_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24)> UART0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26)> UART1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> UART2_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30)> UART3_RST; 
+    namespace NoneresetStatus2{    ///<Reset status register 2
+        using Addr = Register::Address<0x40053118,0x00c00000,0,unsigned>;
+        ///Status of the TIMER0_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> timer0Rst{}; 
+        ///Status of the TIMER1_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> timer1Rst{}; 
+        ///Status of the TIMER2_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> timer2Rst{}; 
+        ///Status of the TIMER3_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> timer3Rst{}; 
+        ///Status of the OSTIMER_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> ritimerRst{}; 
+        ///Status of the SCT_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> sctRst{}; 
+        ///Status of the MOTOCONPWM_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> motoconpwmRst{}; 
+        ///Status of the QEI_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> qeiRst{}; 
+        ///Status of the ADC0_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> adc0Rst{}; 
+        ///Status of the ADC1_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> adc1Rst{}; 
+        ///Status of the DAC_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> dacRst{}; 
+        ///Status of the UART0_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> uart0Rst{}; 
+        ///Status of the UART1_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> uart1Rst{}; 
+        ///Status of the UART2_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> uart2Rst{}; 
+        ///Status of the UART3_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> uart3Rst{}; 
     }
-    namespace Nonereset_status3{
-        using Addr = Register::Address<0x4005311c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> I2C0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> I2C1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> SSP0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> SSP1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> I2S_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> SPIFI_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> CAN1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14)> CAN0_RST; 
+    namespace NoneresetStatus3{    ///<Reset status register 3
+        using Addr = Register::Address<0x4005311c,0xffff0000,0,unsigned>;
+        ///Status of the I2C0_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> i2c0Rst{}; 
+        ///Status of the I2C1_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> i2c1Rst{}; 
+        ///Status of the SSP0_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> ssp0Rst{}; 
+        ///Status of the SSP1_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> ssp1Rst{}; 
+        ///Status of the I2S_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> i2sRst{}; 
+        ///Status of the SPIFI_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> spifiRst{}; 
+        ///Status of the CAN1_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> can1Rst{}; 
+        ///Status of the CAN0_RST reset generator output 00 = No reset activated 01 = Reset output activated by input to the reset generator 10 = Reserved 11 = Reset output activated by software write to RESET_CTRL register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> can0Rst{}; 
     }
-    namespace Nonereset_active_status0{
-        using Addr = Register::Address<0x40053150,0xef80d8c8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CORE_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PERIPH_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MASTER_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> WWDT_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CREG_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> BUS_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SCU_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> PINMUX_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> M3_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> LCD_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> USB0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> USB1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> DMA_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> SDIO_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> EMC_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> ETHERNET_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> GPIO_RST; 
+    namespace NoneresetActiveStatus0{    ///<Reset active status register 0
+        using Addr = Register::Address<0x40053150,0xef80d8c8,0,unsigned>;
+        ///Current status of the CORE_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> coreRst{}; 
+        ///Current status of the PERIPH_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> periphRst{}; 
+        ///Current status of the MASTER_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> masterRst{}; 
+        ///Current status of the WWDT_RS 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> wwdtRst{}; 
+        ///Current status of the CREG_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cregRst{}; 
+        ///Current status of the BUS_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> busRst{}; 
+        ///Current status of the SCU_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> scuRst{}; 
+        ///Current status of the PINMUX_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pinmuxRst{}; 
+        ///Current status of the M3_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> m3Rst{}; 
+        ///Current status of the LCD_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> lcdRst{}; 
+        ///Current status of the USB0_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> usb0Rst{}; 
+        ///Current status of the USB1_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> usb1Rst{}; 
+        ///Current status of the DMA_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> dmaRst{}; 
+        ///Current status of the SDIO_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> sdioRst{}; 
+        ///Current status of the EMC_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> emcRst{}; 
+        ///Current status of the ETHERNET_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ethernetRst{}; 
+        ///Current status of the GPIO_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> gpioRst{}; 
     }
-    namespace Nonereset_active_status1{
-        using Addr = Register::Address<0x40053154,0xff000800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TIMER0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TIMER1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TIMER2_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TIMER3_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RITIMER_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SCT_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MOTOCONPWM_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> QEI_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ADC0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> ADC1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> DAC_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> UART0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> UART1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> UART2_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> UART3_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> I2C0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> I2C1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> SSP0_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> SSP1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> I2S_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> SPIFI_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> CAN1_RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> CAN0_RST; 
+    namespace NoneresetActiveStatus1{    ///<Reset active status register 1
+        using Addr = Register::Address<0x40053154,0xff000800,0,unsigned>;
+        ///Current status of the TIMER0_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> timer0Rst{}; 
+        ///Current status of the TIMER1_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> timer1Rst{}; 
+        ///Current status of the TIMER2_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> timer2Rst{}; 
+        ///Current status of the TIMER3_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timer3Rst{}; 
+        ///Current status of the OSTIMER_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ritimerRst{}; 
+        ///Current status of the SCT_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sctRst{}; 
+        ///Current status of the MOTOCONPWM_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> motoconpwmRst{}; 
+        ///Current status of the QEI_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> qeiRst{}; 
+        ///Current status of the ADC0_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> adc0Rst{}; 
+        ///Current status of the ADC1_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> adc1Rst{}; 
+        ///Current status of the DAC_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dacRst{}; 
+        ///Current status of the UART0_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> uart0Rst{}; 
+        ///Current status of the UART1_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> uart1Rst{}; 
+        ///Current status of the UART2_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> uart2Rst{}; 
+        ///Current status of the UART3_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> uart3Rst{}; 
+        ///Current status of the I2C0_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> i2c0Rst{}; 
+        ///Current status of the I2C1_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> i2c1Rst{}; 
+        ///Current status of the SSP0_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ssp0Rst{}; 
+        ///Current status of the SSP1_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ssp1Rst{}; 
+        ///Current status of the I2S_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> i2sRst{}; 
+        ///Current status of the SPIFI_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> spifiRst{}; 
+        ///Current status of the CAN1_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> can1Rst{}; 
+        ///Current status of the CAN0_RST 0 = Reset asserted 1 = No reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> can0Rst{}; 
     }
-    namespace Nonereset_ext_stat0{
-        using Addr = Register::Address<0x40053400,0xffffffce>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EXT_RESET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BOD_RESET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> WWDT_RESET; 
+    namespace NoneresetExtStat0{    ///<Reset external status register 0 for CORE_RST
+        using Addr = Register::Address<0x40053400,0xffffffce,0,unsigned>;
+        ///Reset activated by external reset from reset pin. Write 0 to clear. 0 = Reset not activated by reset pin 1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> extReset{}; 
+        ///Reset activated by BOD reset. Write 0 to clear. 0 = Reset not activated by BOD 1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> bodReset{}; 
+        ///Reset activated by WWDT time-out. Write 0 to clear. 0 = Reset not activated by WWDT 1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> wwdtReset{}; 
     }
-    namespace Nonereset_ext_stat1{
-        using Addr = Register::Address<0x40053404,0xfffffffd>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CORE_RESET; 
+    namespace NoneresetExtStat1{    ///<Reset external status register 1 for PERIPH_RST
+        using Addr = Register::Address<0x40053404,0xfffffffd,0,unsigned>;
+        ///Reset activated by CORE_RST output. Write 0 to clear. 0 = Reset not activated 1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> coreReset{}; 
     }
-    namespace Nonereset_ext_stat2{
-        using Addr = Register::Address<0x40053408,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat2{    ///<Reset external status register 2 for MASTER_RST
+        using Addr = Register::Address<0x40053408,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat4{
-        using Addr = Register::Address<0x40053410,0xfffffffd>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CORE_RESET; 
+    namespace NoneresetExtStat4{    ///<Reset external status register 4 for WWDT_RST
+        using Addr = Register::Address<0x40053410,0xfffffffd,0,unsigned>;
+        ///Reset activated by CORE_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> coreReset{}; 
     }
-    namespace Nonereset_ext_stat5{
-        using Addr = Register::Address<0x40053414,0xfffffffd>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CORE_RESET; 
+    namespace NoneresetExtStat5{    ///<Reset external status register 5 for CREG_RST
+        using Addr = Register::Address<0x40053414,0xfffffffd,0,unsigned>;
+        ///Reset activated by CORE_RST output. Write 0 to clear. 0 = Reset not activated 1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> coreReset{}; 
     }
-    namespace Nonereset_ext_stat8{
-        using Addr = Register::Address<0x40053420,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat8{    ///<Reset external status register
+        using Addr = Register::Address<0x40053420,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat9{
-        using Addr = Register::Address<0x40053424,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat9{    ///<Reset external status register
+        using Addr = Register::Address<0x40053424,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat13{
-        using Addr = Register::Address<0x40053434,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat13{    ///<Reset external status register
+        using Addr = Register::Address<0x40053434,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat16{
-        using Addr = Register::Address<0x40053440,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat16{    ///<Reset external status register
+        using Addr = Register::Address<0x40053440,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat17{
-        using Addr = Register::Address<0x40053444,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat17{    ///<Reset external status register
+        using Addr = Register::Address<0x40053444,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat18{
-        using Addr = Register::Address<0x40053448,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat18{    ///<Reset external status register
+        using Addr = Register::Address<0x40053448,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat19{
-        using Addr = Register::Address<0x4005344c,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat19{    ///<Reset external status register
+        using Addr = Register::Address<0x4005344c,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat20{
-        using Addr = Register::Address<0x40053450,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat20{    ///<Reset external status register
+        using Addr = Register::Address<0x40053450,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat21{
-        using Addr = Register::Address<0x40053454,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat21{    ///<Reset external status register
+        using Addr = Register::Address<0x40053454,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat22{
-        using Addr = Register::Address<0x40053458,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat22{    ///<Reset external status register
+        using Addr = Register::Address<0x40053458,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat23{
-        using Addr = Register::Address<0x4005345c,0xfffffff7>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MASTER_RESET; 
+    namespace NoneresetExtStat23{    ///<Reset external status register
+        using Addr = Register::Address<0x4005345c,0xfffffff7,0,unsigned>;
+        ///Reset activated by MASTER_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> masterReset{}; 
     }
-    namespace Nonereset_ext_stat28{
-        using Addr = Register::Address<0x40053470,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat28{    ///<Reset external status register
+        using Addr = Register::Address<0x40053470,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat32{
-        using Addr = Register::Address<0x40053480,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat32{    ///<Reset external status register
+        using Addr = Register::Address<0x40053480,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat33{
-        using Addr = Register::Address<0x40053484,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat33{    ///<Reset external status register
+        using Addr = Register::Address<0x40053484,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat34{
-        using Addr = Register::Address<0x40053488,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat34{    ///<Reset external status register
+        using Addr = Register::Address<0x40053488,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat35{
-        using Addr = Register::Address<0x4005348c,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat35{    ///<Reset external status register
+        using Addr = Register::Address<0x4005348c,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat36{
-        using Addr = Register::Address<0x40053490,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat36{    ///<Reset external status register
+        using Addr = Register::Address<0x40053490,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat37{
-        using Addr = Register::Address<0x40053494,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat37{    ///<Reset external status register
+        using Addr = Register::Address<0x40053494,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat38{
-        using Addr = Register::Address<0x40053498,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat38{    ///<Reset external status register
+        using Addr = Register::Address<0x40053498,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat39{
-        using Addr = Register::Address<0x4005349c,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat39{    ///<Reset external status register
+        using Addr = Register::Address<0x4005349c,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat40{
-        using Addr = Register::Address<0x400534a0,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat40{    ///<Reset external status register
+        using Addr = Register::Address<0x400534a0,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat41{
-        using Addr = Register::Address<0x400534a4,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat41{    ///<Reset external status register
+        using Addr = Register::Address<0x400534a4,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat42{
-        using Addr = Register::Address<0x400534a8,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat42{    ///<Reset external status register
+        using Addr = Register::Address<0x400534a8,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat44{
-        using Addr = Register::Address<0x400534b0,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat44{    ///<Reset external status register
+        using Addr = Register::Address<0x400534b0,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat45{
-        using Addr = Register::Address<0x400534b4,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat45{    ///<Reset external status register
+        using Addr = Register::Address<0x400534b4,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat46{
-        using Addr = Register::Address<0x400534b8,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat46{    ///<Reset external status register
+        using Addr = Register::Address<0x400534b8,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat47{
-        using Addr = Register::Address<0x400534bc,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat47{    ///<Reset external status register
+        using Addr = Register::Address<0x400534bc,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat48{
-        using Addr = Register::Address<0x400534c0,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat48{    ///<Reset external status register
+        using Addr = Register::Address<0x400534c0,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat49{
-        using Addr = Register::Address<0x400534c4,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat49{    ///<Reset external status register
+        using Addr = Register::Address<0x400534c4,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat50{
-        using Addr = Register::Address<0x400534c8,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat50{    ///<Reset external status register
+        using Addr = Register::Address<0x400534c8,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat51{
-        using Addr = Register::Address<0x400534cc,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat51{    ///<Reset external status register
+        using Addr = Register::Address<0x400534cc,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat52{
-        using Addr = Register::Address<0x400534d0,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat52{    ///<Reset external status register
+        using Addr = Register::Address<0x400534d0,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat53{
-        using Addr = Register::Address<0x400534d4,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat53{    ///<Reset external status register
+        using Addr = Register::Address<0x400534d4,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat54{
-        using Addr = Register::Address<0x400534d8,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat54{    ///<Reset external status register
+        using Addr = Register::Address<0x400534d8,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
-    namespace Nonereset_ext_stat55{
-        using Addr = Register::Address<0x400534dc,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERIPHERAL_RESET; 
+    namespace NoneresetExtStat55{    ///<Reset external status register
+        using Addr = Register::Address<0x400534dc,0xfffffffb,0,unsigned>;
+        ///Reset activated by PERIPHERAL_RST output. Write 0 to clear. 0 = Reset not activated  1 = Reset activated
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> peripheralReset{}; 
     }
 }

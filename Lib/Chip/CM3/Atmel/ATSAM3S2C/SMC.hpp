@@ -1,146 +1,314 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace SMC_setup0{
-        using Addr = Register::Address<0x400e0000,0xc0c0c0c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> NWE_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8)> NCS_WR_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16)> NRD_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24)> NCS_RD_SETUP; 
+//Static Memory Controller
+    namespace SmcSetup0{    ///<SMC Setup Register (CS_number = 0)
+        using Addr = Register::Address<0x400e0000,0xc0c0c0c0,0,unsigned>;
+        ///NWE Setup Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> nweSetup{}; 
+        ///NCS Setup Length in WRITE Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> ncsWrSetup{}; 
+        ///NRD Setup Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> nrdSetup{}; 
+        ///NCS Setup Length in READ Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> ncsRdSetup{}; 
     }
-    namespace SMC_pulse0{
-        using Addr = Register::Address<0x400e0004,0x80808080>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> NWE_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8)> NCS_WR_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16)> NRD_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24)> NCS_RD_PULSE; 
+    namespace SmcPulse0{    ///<SMC Pulse Register (CS_number = 0)
+        using Addr = Register::Address<0x400e0004,0x80808080,0,unsigned>;
+        ///NWE Pulse Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> nwePulse{}; 
+        ///NCS Pulse Length in WRITE Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> ncsWrPulse{}; 
+        ///NRD Pulse Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> nrdPulse{}; 
+        ///NCS Pulse Length in READ Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> ncsRdPulse{}; 
     }
-    namespace SMC_cycle0{
-        using Addr = Register::Address<0x400e0008,0xfe00fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> NWE_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,16)> NRD_CYCLE; 
+    namespace SmcCycle0{    ///<SMC Cycle Register (CS_number = 0)
+        using Addr = Register::Address<0x400e0008,0xfe00fe00,0,unsigned>;
+        ///Total Write Cycle Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> nweCycle{}; 
+        ///Total Read Cycle Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,16),Register::ReadWriteAccess,unsigned> nrdCycle{}; 
     }
-    namespace SMC_mode0{
-        using Addr = Register::Address<0x400e000c,0xcee0ffcc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> READ_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WRITE_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EXNW_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> TDF_CYCLES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> TDF_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> PMEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> PS; 
+    namespace SmcMode0{    ///<SMC Mode Register (CS_number = 0)
+        using Addr = Register::Address<0x400e000c,0xcee0ffcc,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> readMode{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> writeMode{}; 
+        ///NWAIT Mode
+        enum class exnwModeVal {
+            disabled=0x00000000,     ///<Disabled
+            frozen=0x00000002,     ///<Frozen Mode
+            ready=0x00000003,     ///<Ready Mode
+        };
+        namespace exnwModeValC{
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::disabled> disabled{};
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::frozen> frozen{};
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::ready> ready{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,exnwModeVal> exnwMode{}; 
+        ///Data Float Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
+        ///TDF Optimization
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> tdfMode{}; 
+        ///Page Mode Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pmen{}; 
+        ///Page Size
+        enum class psVal {
+            v4Byte=0x00000000,     ///<4-byte page
+            v8Byte=0x00000001,     ///<8-byte page
+            v16Byte=0x00000002,     ///<16-byte page
+            v32Byte=0x00000003,     ///<32-byte page
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v4Byte> v4Byte{};
+            constexpr MPL::Value<psVal,psVal::v8Byte> v8Byte{};
+            constexpr MPL::Value<psVal,psVal::v16Byte> v16Byte{};
+            constexpr MPL::Value<psVal,psVal::v32Byte> v32Byte{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,psVal> ps{}; 
     }
-    namespace SMC_setup1{
-        using Addr = Register::Address<0x400e0010,0xc0c0c0c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> NWE_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8)> NCS_WR_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16)> NRD_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24)> NCS_RD_SETUP; 
+    namespace SmcSetup1{    ///<SMC Setup Register (CS_number = 1)
+        using Addr = Register::Address<0x400e0010,0xc0c0c0c0,0,unsigned>;
+        ///NWE Setup Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> nweSetup{}; 
+        ///NCS Setup Length in WRITE Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> ncsWrSetup{}; 
+        ///NRD Setup Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> nrdSetup{}; 
+        ///NCS Setup Length in READ Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> ncsRdSetup{}; 
     }
-    namespace SMC_pulse1{
-        using Addr = Register::Address<0x400e0014,0x80808080>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> NWE_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8)> NCS_WR_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16)> NRD_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24)> NCS_RD_PULSE; 
+    namespace SmcPulse1{    ///<SMC Pulse Register (CS_number = 1)
+        using Addr = Register::Address<0x400e0014,0x80808080,0,unsigned>;
+        ///NWE Pulse Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> nwePulse{}; 
+        ///NCS Pulse Length in WRITE Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> ncsWrPulse{}; 
+        ///NRD Pulse Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> nrdPulse{}; 
+        ///NCS Pulse Length in READ Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> ncsRdPulse{}; 
     }
-    namespace SMC_cycle1{
-        using Addr = Register::Address<0x400e0018,0xfe00fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> NWE_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,16)> NRD_CYCLE; 
+    namespace SmcCycle1{    ///<SMC Cycle Register (CS_number = 1)
+        using Addr = Register::Address<0x400e0018,0xfe00fe00,0,unsigned>;
+        ///Total Write Cycle Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> nweCycle{}; 
+        ///Total Read Cycle Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,16),Register::ReadWriteAccess,unsigned> nrdCycle{}; 
     }
-    namespace SMC_mode1{
-        using Addr = Register::Address<0x400e001c,0xcee0ffcc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> READ_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WRITE_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EXNW_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> TDF_CYCLES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> TDF_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> PMEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> PS; 
+    namespace SmcMode1{    ///<SMC Mode Register (CS_number = 1)
+        using Addr = Register::Address<0x400e001c,0xcee0ffcc,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> readMode{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> writeMode{}; 
+        ///NWAIT Mode
+        enum class exnwModeVal {
+            disabled=0x00000000,     ///<Disabled
+            frozen=0x00000002,     ///<Frozen Mode
+            ready=0x00000003,     ///<Ready Mode
+        };
+        namespace exnwModeValC{
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::disabled> disabled{};
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::frozen> frozen{};
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::ready> ready{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,exnwModeVal> exnwMode{}; 
+        ///Data Float Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
+        ///TDF Optimization
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> tdfMode{}; 
+        ///Page Mode Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pmen{}; 
+        ///Page Size
+        enum class psVal {
+            v4Byte=0x00000000,     ///<4-byte page
+            v8Byte=0x00000001,     ///<8-byte page
+            v16Byte=0x00000002,     ///<16-byte page
+            v32Byte=0x00000003,     ///<32-byte page
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v4Byte> v4Byte{};
+            constexpr MPL::Value<psVal,psVal::v8Byte> v8Byte{};
+            constexpr MPL::Value<psVal,psVal::v16Byte> v16Byte{};
+            constexpr MPL::Value<psVal,psVal::v32Byte> v32Byte{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,psVal> ps{}; 
     }
-    namespace SMC_setup2{
-        using Addr = Register::Address<0x400e0020,0xc0c0c0c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> NWE_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8)> NCS_WR_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16)> NRD_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24)> NCS_RD_SETUP; 
+    namespace SmcSetup2{    ///<SMC Setup Register (CS_number = 2)
+        using Addr = Register::Address<0x400e0020,0xc0c0c0c0,0,unsigned>;
+        ///NWE Setup Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> nweSetup{}; 
+        ///NCS Setup Length in WRITE Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> ncsWrSetup{}; 
+        ///NRD Setup Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> nrdSetup{}; 
+        ///NCS Setup Length in READ Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> ncsRdSetup{}; 
     }
-    namespace SMC_pulse2{
-        using Addr = Register::Address<0x400e0024,0x80808080>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> NWE_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8)> NCS_WR_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16)> NRD_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24)> NCS_RD_PULSE; 
+    namespace SmcPulse2{    ///<SMC Pulse Register (CS_number = 2)
+        using Addr = Register::Address<0x400e0024,0x80808080,0,unsigned>;
+        ///NWE Pulse Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> nwePulse{}; 
+        ///NCS Pulse Length in WRITE Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> ncsWrPulse{}; 
+        ///NRD Pulse Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> nrdPulse{}; 
+        ///NCS Pulse Length in READ Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> ncsRdPulse{}; 
     }
-    namespace SMC_cycle2{
-        using Addr = Register::Address<0x400e0028,0xfe00fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> NWE_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,16)> NRD_CYCLE; 
+    namespace SmcCycle2{    ///<SMC Cycle Register (CS_number = 2)
+        using Addr = Register::Address<0x400e0028,0xfe00fe00,0,unsigned>;
+        ///Total Write Cycle Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> nweCycle{}; 
+        ///Total Read Cycle Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,16),Register::ReadWriteAccess,unsigned> nrdCycle{}; 
     }
-    namespace SMC_mode2{
-        using Addr = Register::Address<0x400e002c,0xcee0ffcc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> READ_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WRITE_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EXNW_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> TDF_CYCLES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> TDF_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> PMEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> PS; 
+    namespace SmcMode2{    ///<SMC Mode Register (CS_number = 2)
+        using Addr = Register::Address<0x400e002c,0xcee0ffcc,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> readMode{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> writeMode{}; 
+        ///NWAIT Mode
+        enum class exnwModeVal {
+            disabled=0x00000000,     ///<Disabled
+            frozen=0x00000002,     ///<Frozen Mode
+            ready=0x00000003,     ///<Ready Mode
+        };
+        namespace exnwModeValC{
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::disabled> disabled{};
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::frozen> frozen{};
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::ready> ready{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,exnwModeVal> exnwMode{}; 
+        ///Data Float Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
+        ///TDF Optimization
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> tdfMode{}; 
+        ///Page Mode Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pmen{}; 
+        ///Page Size
+        enum class psVal {
+            v4Byte=0x00000000,     ///<4-byte page
+            v8Byte=0x00000001,     ///<8-byte page
+            v16Byte=0x00000002,     ///<16-byte page
+            v32Byte=0x00000003,     ///<32-byte page
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v4Byte> v4Byte{};
+            constexpr MPL::Value<psVal,psVal::v8Byte> v8Byte{};
+            constexpr MPL::Value<psVal,psVal::v16Byte> v16Byte{};
+            constexpr MPL::Value<psVal,psVal::v32Byte> v32Byte{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,psVal> ps{}; 
     }
-    namespace SMC_setup3{
-        using Addr = Register::Address<0x400e0030,0xc0c0c0c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> NWE_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8)> NCS_WR_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16)> NRD_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24)> NCS_RD_SETUP; 
+    namespace SmcSetup3{    ///<SMC Setup Register (CS_number = 3)
+        using Addr = Register::Address<0x400e0030,0xc0c0c0c0,0,unsigned>;
+        ///NWE Setup Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> nweSetup{}; 
+        ///NCS Setup Length in WRITE Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> ncsWrSetup{}; 
+        ///NRD Setup Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> nrdSetup{}; 
+        ///NCS Setup Length in READ Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> ncsRdSetup{}; 
     }
-    namespace SMC_pulse3{
-        using Addr = Register::Address<0x400e0034,0x80808080>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> NWE_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8)> NCS_WR_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16)> NRD_PULSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24)> NCS_RD_PULSE; 
+    namespace SmcPulse3{    ///<SMC Pulse Register (CS_number = 3)
+        using Addr = Register::Address<0x400e0034,0x80808080,0,unsigned>;
+        ///NWE Pulse Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> nwePulse{}; 
+        ///NCS Pulse Length in WRITE Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> ncsWrPulse{}; 
+        ///NRD Pulse Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> nrdPulse{}; 
+        ///NCS Pulse Length in READ Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> ncsRdPulse{}; 
     }
-    namespace SMC_cycle3{
-        using Addr = Register::Address<0x400e0038,0xfe00fe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> NWE_CYCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,16)> NRD_CYCLE; 
+    namespace SmcCycle3{    ///<SMC Cycle Register (CS_number = 3)
+        using Addr = Register::Address<0x400e0038,0xfe00fe00,0,unsigned>;
+        ///Total Write Cycle Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> nweCycle{}; 
+        ///Total Read Cycle Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,16),Register::ReadWriteAccess,unsigned> nrdCycle{}; 
     }
-    namespace SMC_mode3{
-        using Addr = Register::Address<0x400e003c,0xcee0ffcc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> READ_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WRITE_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EXNW_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> TDF_CYCLES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> TDF_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> PMEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> PS; 
+    namespace SmcMode3{    ///<SMC Mode Register (CS_number = 3)
+        using Addr = Register::Address<0x400e003c,0xcee0ffcc,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> readMode{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> writeMode{}; 
+        ///NWAIT Mode
+        enum class exnwModeVal {
+            disabled=0x00000000,     ///<Disabled
+            frozen=0x00000002,     ///<Frozen Mode
+            ready=0x00000003,     ///<Ready Mode
+        };
+        namespace exnwModeValC{
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::disabled> disabled{};
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::frozen> frozen{};
+            constexpr MPL::Value<exnwModeVal,exnwModeVal::ready> ready{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,exnwModeVal> exnwMode{}; 
+        ///Data Float Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
+        ///TDF Optimization
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> tdfMode{}; 
+        ///Page Mode Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pmen{}; 
+        ///Page Size
+        enum class psVal {
+            v4Byte=0x00000000,     ///<4-byte page
+            v8Byte=0x00000001,     ///<8-byte page
+            v16Byte=0x00000002,     ///<16-byte page
+            v32Byte=0x00000003,     ///<32-byte page
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v4Byte> v4Byte{};
+            constexpr MPL::Value<psVal,psVal::v8Byte> v8Byte{};
+            constexpr MPL::Value<psVal,psVal::v16Byte> v16Byte{};
+            constexpr MPL::Value<psVal,psVal::v32Byte> v32Byte{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,psVal> ps{}; 
     }
-    namespace SMC_ocms{
-        using Addr = Register::Address<0x400e0080,0xfff0fffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SMSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> CS0SE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> CS1SE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> CS2SE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> CS3SE; 
+    namespace SmcOcms{    ///<SMC OCMS MODE Register
+        using Addr = Register::Address<0x400e0080,0xfff0fffe,0,unsigned>;
+        ///Static Memory Controller Scrambling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> smse{}; 
+        ///Chip Select (x = 0 to 3) Scrambling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> cs0se{}; 
+        ///Chip Select (x = 0 to 3) Scrambling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cs1se{}; 
+        ///Chip Select (x = 0 to 3) Scrambling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> cs2se{}; 
+        ///Chip Select (x = 0 to 3) Scrambling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cs3se{}; 
     }
-    namespace SMC_key1{
-        using Addr = Register::Address<0x400e0084,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> KEY1; 
+    namespace SmcKey1{    ///<SMC OCMS KEY1 Register
+        using Addr = Register::Address<0x400e0084,0x00000000,0,unsigned>;
+        ///Off Chip Memory Scrambling (OCMS) Key Part 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> key1{}; 
     }
-    namespace SMC_key2{
-        using Addr = Register::Address<0x400e0088,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> KEY2; 
+    namespace SmcKey2{    ///<SMC OCMS KEY2 Register
+        using Addr = Register::Address<0x400e0088,0x00000000,0,unsigned>;
+        ///Off Chip Memory Scrambling (OCMS) Key Part 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> key2{}; 
     }
-    namespace SMC_wpmr{
-        using Addr = Register::Address<0x400e00e4,0x000000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8)> WPKEY; 
+    namespace SmcWpmr{    ///<SMC Write Protect Mode Register
+        using Addr = Register::Address<0x400e00e4,0x000000fe,0,unsigned>;
+        ///Write Protect Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
+        ///Write Protect KEY
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
     }
-    namespace SMC_wpsr{
-        using Addr = Register::Address<0x400e00e8,0xff0000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPVS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8)> WPVSRC; 
+    namespace SmcWpsr{    ///<SMC Write Protect Status Register
+        using Addr = Register::Address<0x400e00e8,0xff0000fe,0,unsigned>;
+        ///Write Protect Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpvs{}; 
+        ///Write Protect Violation Source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpvsrc{}; 
     }
 }

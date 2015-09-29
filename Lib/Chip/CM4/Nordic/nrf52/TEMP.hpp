@@ -1,25 +1,49 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonetasks_start{
-        using Addr = Register::Address<0x4000c000,0xffffffff>;
+//Temperature Sensor
+    namespace NonetasksStart{    ///<Start temperature measurement
+        using Addr = Register::Address<0x4000c000,0xffffffff,0,unsigned>;
     }
-    namespace Nonetasks_stop{
-        using Addr = Register::Address<0x4000c004,0xffffffff>;
+    namespace NonetasksStop{    ///<Stop temperature measurement
+        using Addr = Register::Address<0x4000c004,0xffffffff,0,unsigned>;
     }
-    namespace Noneevents_datardy{
-        using Addr = Register::Address<0x4000c100,0xffffffff>;
+    namespace NoneeventsDatardy{    ///<Temperature measurement complete, data ready
+        using Addr = Register::Address<0x4000c100,0xffffffff,0,unsigned>;
     }
-    namespace Noneintenset{
-        using Addr = Register::Address<0x4000c304,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DATARDY; 
+    namespace Noneintenset{    ///<Enable interrupt
+        using Addr = Register::Address<0x4000c304,0xfffffffe,0,unsigned>;
+        ///Write '1' to Enable interrupt on EVENTS_DATARDY event
+        enum class datardyVal {
+            disabled=0x00000000,     ///<Read: Disabled
+            enabled=0x00000001,     ///<Read: Enabled
+            set=0x00000001,     ///<Enable
+        };
+        namespace datardyValC{
+            constexpr MPL::Value<datardyVal,datardyVal::disabled> disabled{};
+            constexpr MPL::Value<datardyVal,datardyVal::enabled> enabled{};
+            constexpr MPL::Value<datardyVal,datardyVal::set> set{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,datardyVal> datardy{}; 
     }
-    namespace Noneintenclr{
-        using Addr = Register::Address<0x4000c308,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DATARDY; 
+    namespace Noneintenclr{    ///<Disable interrupt
+        using Addr = Register::Address<0x4000c308,0xfffffffe,0,unsigned>;
+        ///Write '1' to Clear interrupt on EVENTS_DATARDY event
+        enum class datardyVal {
+            disabled=0x00000000,     ///<Read: Disabled
+            enabled=0x00000001,     ///<Read: Enabled
+            clear=0x00000001,     ///<Disable
+        };
+        namespace datardyValC{
+            constexpr MPL::Value<datardyVal,datardyVal::disabled> disabled{};
+            constexpr MPL::Value<datardyVal,datardyVal::enabled> enabled{};
+            constexpr MPL::Value<datardyVal,datardyVal::clear> clear{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,datardyVal> datardy{}; 
     }
-    namespace Nonetemp{
-        using Addr = Register::Address<0x4000c508,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TEMP; 
+    namespace Nonetemp{    ///<Temperature in degC
+        using Addr = Register::Address<0x4000c508,0x00000000,0,unsigned>;
+        ///Temperature in degC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> temp{}; 
     }
 }

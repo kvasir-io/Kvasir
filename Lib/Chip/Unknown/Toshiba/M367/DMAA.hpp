@@ -1,68 +1,85 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonestatus{
-        using Addr = Register::Address<0x4004c000,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MASTER_ENABLE; 
+//DMA Controller
+    namespace Nonestatus{    ///<DMA Status Register
+        using Addr = Register::Address<0x4004c000,0xfffffffe,0,unsigned>;
+        ///MASTER_ENABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> masterEnable{}; 
     }
-    namespace Nonecfg{
-        using Addr = Register::Address<0x4004c004,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MASTER_ENABLE; 
+    namespace Nonecfg{    ///<DMA Configuration Register
+        using Addr = Register::Address<0x4004c004,0xfffffffe,0,unsigned>;
+        ///MASTER_ENABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> masterEnable{}; 
     }
-    namespace Nonectrlbaseptr{
-        using Addr = Register::Address<0x4004c008,0x000003ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,10)> CTRL_BASE_PTR; 
+    namespace Nonectrlbaseptr{    ///<DMA Control Data Base Pointer Register
+        using Addr = Register::Address<0x4004c008,0x000003ff,0,unsigned>;
+        ///CTRL_BASE_PTR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,10),Register::ReadWriteAccess,unsigned> ctrlBasePtr{}; 
     }
-    namespace Nonealtctrlbaseptr{
-        using Addr = Register::Address<0x4004c00c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ALT_CTRL_BASE_PTR; 
+    namespace Nonealtctrlbaseptr{    ///<DMA Channel Alternate Control Data Base Pointer Register
+        using Addr = Register::Address<0x4004c00c,0x00000000,0,unsigned>;
+        ///ALT_CTRL_BASE_PTR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> altCtrlBasePtr{}; 
     }
-    namespace Nonechnlswrequest{
-        using Addr = Register::Address<0x4004c014,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_SW_REQUEST; 
+    namespace Nonechnlswrequest{    ///<DMA Channel Software Request Register
+        using Addr = Register::Address<0x4004c014,0x00000000,0,unsigned>;
+        ///CHNL_SW_REQUEST
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlSwRequest{}; 
     }
-    namespace Nonechnluseburstset{
-        using Addr = Register::Address<0x4004c018,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_USEBURST_SET; 
+    namespace Nonechnluseburstset{    ///<DMA Channel Useburst Set Register
+        using Addr = Register::Address<0x4004c018,0x00000000,0,unsigned>;
+        ///CHNL_USEBURST_SET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlUseburstSet{}; 
     }
-    namespace Nonechnluseburstclr{
-        using Addr = Register::Address<0x4004c01c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_USEBURST_CLR; 
+    namespace Nonechnluseburstclr{    ///<DMA Channel Useburst Clear Register
+        using Addr = Register::Address<0x4004c01c,0x00000000,0,unsigned>;
+        ///CHNL_USEBURST_CLR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlUseburstClr{}; 
     }
-    namespace Nonechnlreqmaskset{
-        using Addr = Register::Address<0x4004c020,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_REQ_MASK_SET; 
+    namespace Nonechnlreqmaskset{    ///<DMA Channel Request Mask Set Register
+        using Addr = Register::Address<0x4004c020,0x00000000,0,unsigned>;
+        ///CHNL_REQ_MASK_SET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlReqMaskSet{}; 
     }
-    namespace Nonechnlreqmaskclr{
-        using Addr = Register::Address<0x4004c024,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_REQ_MASK_CLR; 
+    namespace Nonechnlreqmaskclr{    ///<DMA Channel Request Mask Clear Register
+        using Addr = Register::Address<0x4004c024,0x00000000,0,unsigned>;
+        ///CHNL_REQ_MASK_CLR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlReqMaskClr{}; 
     }
-    namespace Nonechnlenableset{
-        using Addr = Register::Address<0x4004c028,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_ENABLE_SET; 
+    namespace Nonechnlenableset{    ///<DMA Channel Enable Set Register
+        using Addr = Register::Address<0x4004c028,0x00000000,0,unsigned>;
+        ///CHNL_ENABLE_SET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlEnableSet{}; 
     }
-    namespace Nonechnlenableclr{
-        using Addr = Register::Address<0x4004c02c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_ENABLE_CLR; 
+    namespace Nonechnlenableclr{    ///<DMA Channel Enable Clear Register
+        using Addr = Register::Address<0x4004c02c,0x00000000,0,unsigned>;
+        ///CHNL_ENABLE_CLR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlEnableClr{}; 
     }
-    namespace Nonechnlprialtset{
-        using Addr = Register::Address<0x4004c030,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_PRI_ALT_SET; 
+    namespace Nonechnlprialtset{    ///<DMA Channel Primary-Alternate Set Register
+        using Addr = Register::Address<0x4004c030,0x00000000,0,unsigned>;
+        ///CHNL_PRI_ALT_SET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlPriAltSet{}; 
     }
-    namespace Nonechnlprialtclr{
-        using Addr = Register::Address<0x4004c034,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_PRI_ALT_CLR; 
+    namespace Nonechnlprialtclr{    ///<DMA Channel Primary-Alternate Clear Register
+        using Addr = Register::Address<0x4004c034,0x00000000,0,unsigned>;
+        ///CHNL_PRI_ALT_CLR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlPriAltClr{}; 
     }
-    namespace Nonechnlpriorityset{
-        using Addr = Register::Address<0x4004c038,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_PRIORITY_SET; 
+    namespace Nonechnlpriorityset{    ///<DMA Channel Priority Set Register
+        using Addr = Register::Address<0x4004c038,0x00000000,0,unsigned>;
+        ///CHNL_PRIORITY_SET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlPrioritySet{}; 
     }
-    namespace Nonechnlpriorityclr{
-        using Addr = Register::Address<0x4004c03c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CHNL_PRIORITY_CLR; 
+    namespace Nonechnlpriorityclr{    ///<DMA Channel Priority Clear Register
+        using Addr = Register::Address<0x4004c03c,0x00000000,0,unsigned>;
+        ///CHNL_PRIORITY_CLR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> chnlPriorityClr{}; 
     }
-    namespace Noneerrclr{
-        using Addr = Register::Address<0x4004c04c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ERR_CLR; 
+    namespace Noneerrclr{    ///<DMA Bus Error Clear Register
+        using Addr = Register::Address<0x4004c04c,0xfffffffe,0,unsigned>;
+        ///ERR_CLR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> errClr{}; 
     }
 }

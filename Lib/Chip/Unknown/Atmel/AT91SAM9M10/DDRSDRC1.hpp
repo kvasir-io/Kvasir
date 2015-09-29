@@ -1,131 +1,211 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace DDRSDRC1_mr{
-        using Addr = Register::Address<0xffffe400,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> MODE; 
+//DDR_SDR SDRAM Controller 1
+    namespace Ddrsdrc1Mr{    ///<DDRSDRC Mode Register
+        using Addr = Register::Address<0xffffe400,0xfffffff8,0,unsigned>;
+        ///DDRSDRC Command Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> mode{}; 
     }
-    namespace DDRSDRC1_rtr{
-        using Addr = Register::Address<0xffffe404,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,0)> COUNT; 
+    namespace Ddrsdrc1Rtr{    ///<DDRSDRC Refresh Timer Register
+        using Addr = Register::Address<0xffffe404,0xfffff000,0,unsigned>;
+        ///DDRSDRC Refresh Timer Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> count{}; 
     }
-    namespace DDRSDRC1_cr{
-        using Addr = Register::Address<0xffffe408,0xfffa8c00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> NC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> NR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> CAS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DLL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> DIS_DLL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12)> OCD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> EBISHARE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ACTBST; 
+    namespace Ddrsdrc1Cr{    ///<DDRSDRC Configuration Register
+        using Addr = Register::Address<0xffffe408,0xfffa8c00,0,unsigned>;
+        ///Number of Column Bits
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> nc{}; 
+        ///Number of Row Bits
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> nr{}; 
+        ///CAS Latency
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> cas{}; 
+        ///Reset DLL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dll{}; 
+        ///Output Driver Impedance Control
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dic{}; 
+        ///Disable DLL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> disDll{}; 
+        ///Off-chip Driver
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> ocd{}; 
+        ///External Bus Interface is Shared
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ebishare{}; 
+        ///ACTIVE Bank X to Burst Stop Read Access Bank Y
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> actbst{}; 
     }
-    namespace DDRSDRC1_tpr0{
-        using Addr = Register::Address<0xffffe40c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> TRAS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> TRCD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> TWR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> TRC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> TRP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20)> TRRD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,24)> TWTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> REDUCE_WRRD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28)> TMRD; 
+    namespace Ddrsdrc1Tpr0{    ///<DDRSDRC Timing Parameter 0 Register
+        using Addr = Register::Address<0xffffe40c,0x00000000,0,unsigned>;
+        ///Active to Precharge Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tras{}; 
+        ///Row to Column Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> trcd{}; 
+        ///Write Recovery Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> twr{}; 
+        ///Row Cycle Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> trc{}; 
+        ///Row Precharge Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> trp{}; 
+        ///Active bankA to Active bankB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> trrd{}; 
+        ///Internal Write to Read Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> twtr{}; 
+        ///Reduce Write to Read Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> reduceWrrd{}; 
+        ///Load Mode Register Command to Active or Refresh Command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> tmrd{}; 
     }
-    namespace DDRSDRC1_tpr1{
-        using Addr = Register::Address<0xffffe410,0xf00000e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> TRFC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> TXSNR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> TXSRD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> TXP; 
+    namespace Ddrsdrc1Tpr1{    ///<DDRSDRC Timing Parameter 1 Register
+        using Addr = Register::Address<0xffffe410,0xf00000e0,0,unsigned>;
+        ///Row Cycle Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trfc{}; 
+        ///Exit Self Refresh Delay to Non-read Command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> txsnr{}; 
+        ///ExiT Self Refresh Delay to Read Command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> txsrd{}; 
+        ///Exit Power-down Delay to First Command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> txp{}; 
     }
-    namespace DDRSDRC1_tpr2{
-        using Addr = Register::Address<0xffffe414,0xffff8000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> TXARD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> TXARDS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> TRPA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12)> TRTP; 
+    namespace Ddrsdrc1Tpr2{    ///<DDRSDRC Timing Parameter 2 Register
+        using Addr = Register::Address<0xffffe414,0xffff8000,0,unsigned>;
+        ///Exit Active Power Down Delay to Read Command in Mode "Fast Exit".
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> txard{}; 
+        ///Exit Active Power Down Delay to Read Command in Mode "Slow Exit".
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> txards{}; 
+        ///Row Precharge All Delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> trpa{}; 
+        ///Read to Precharge
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> trtp{}; 
     }
-    namespace DDRSDRC1_lpr{
-        using Addr = Register::Address<0xffffe41c,0xffcec088>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> LPCB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CLK_FR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> PASR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> TCR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> DS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TIMEOUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> APDE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> UPD_MR; 
+    namespace Ddrsdrc1Lpr{    ///<DDRSDRC Low-power Register
+        using Addr = Register::Address<0xffffe41c,0xffcec088,0,unsigned>;
+        ///Low-power Command Bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> lpcb{}; 
+        ///Clock Frozen Command Bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> clkFr{}; 
+        ///Partial Array Self Refresh
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> pasr{}; 
+        ///Temperature Compensated Self Refresh
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> tcr{}; 
+        ///Drive Strength
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> ds{}; 
+        ///Low Power Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> timeout{}; 
+        ///Active Power Down Exit Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> apde{}; 
+        ///Update Load Mode Register and Extended Mode Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> updMr{}; 
     }
-    namespace DDRSDRC1_md{
-        using Addr = Register::Address<0xffffe420,0xffffffe8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> MD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> DBW; 
+    namespace Ddrsdrc1Md{    ///<DDRSDRC Memory Device Register
+        using Addr = Register::Address<0xffffe420,0xffffffe8,0,unsigned>;
+        ///Memory Device
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> md{}; 
+        ///Data Bus Width
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dbw{}; 
     }
-    namespace DDRSDRC1_dll{
-        using Addr = Register::Address<0xffffe424,0xffff00f8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MDINC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MDDEC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MDOVF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> MDVAL; 
+    namespace Ddrsdrc1Dll{    ///<DDRSDRC DLL Information Register
+        using Addr = Register::Address<0xffffe424,0xffff00f8,0,unsigned>;
+        ///DLL Master Delay Increment
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mdinc{}; 
+        ///DLL Master Delay Decrement
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mddec{}; 
+        ///DLL Master Delay Overflow Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mdovf{}; 
+        ///DLL Master Delay Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> mdval{}; 
     }
-    namespace DDRSDRC1_hs{
-        using Addr = Register::Address<0xffffe42c,0xfffffffb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> DIS_ANTICIP_READ; 
+    namespace Ddrsdrc1Hs{    ///<DDRSDRC High Speed Register
+        using Addr = Register::Address<0xffffe42c,0xfffffffb,0,unsigned>;
+        ///Anticip Read Access
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> disAnticipRead{}; 
     }
-    namespace DDRSDRC1_delay0{
-        using Addr = Register::Address<0xffffe440,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> DELAY1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> DELAY2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> DELAY3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> DELAY4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> DELAY5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20)> DELAY6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> DELAY7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28)> DELAY8; 
+    namespace Ddrsdrc1Delay0{    ///<DDRSDRC Delay I/O Register
+        using Addr = Register::Address<0xffffe440,0x00000000,0,unsigned>;
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> delay1{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> delay2{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> delay3{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> delay4{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> delay5{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> delay6{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> delay7{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> delay8{}; 
     }
-    namespace DDRSDRC1_delay1{
-        using Addr = Register::Address<0xffffe444,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> DELAY1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> DELAY2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> DELAY3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> DELAY4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> DELAY5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20)> DELAY6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> DELAY7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28)> DELAY8; 
+    namespace Ddrsdrc1Delay1{    ///<DDRSDRC Delay I/O Register
+        using Addr = Register::Address<0xffffe444,0x00000000,0,unsigned>;
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> delay1{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> delay2{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> delay3{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> delay4{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> delay5{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> delay6{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> delay7{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> delay8{}; 
     }
-    namespace DDRSDRC1_delay2{
-        using Addr = Register::Address<0xffffe448,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> DELAY1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> DELAY2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> DELAY3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> DELAY4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> DELAY5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20)> DELAY6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> DELAY7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28)> DELAY8; 
+    namespace Ddrsdrc1Delay2{    ///<DDRSDRC Delay I/O Register
+        using Addr = Register::Address<0xffffe448,0x00000000,0,unsigned>;
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> delay1{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> delay2{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> delay3{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> delay4{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> delay5{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> delay6{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> delay7{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> delay8{}; 
     }
-    namespace DDRSDRC1_delay3{
-        using Addr = Register::Address<0xffffe44c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> DELAY1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> DELAY2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> DELAY3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> DELAY4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> DELAY5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20)> DELAY6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> DELAY7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28)> DELAY8; 
+    namespace Ddrsdrc1Delay3{    ///<DDRSDRC Delay I/O Register
+        using Addr = Register::Address<0xffffe44c,0x00000000,0,unsigned>;
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> delay1{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> delay2{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> delay3{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> delay4{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> delay5{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> delay6{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> delay7{}; 
+        ///Delay1..Delay8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> delay8{}; 
     }
-    namespace DDRSDRC1_wpmr{
-        using Addr = Register::Address<0xffffe4e4,0x000000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8)> WPKEY; 
+    namespace Ddrsdrc1Wpmr{    ///<DDRSDRC Write Protect Mode Register
+        using Addr = Register::Address<0xffffe4e4,0x000000fe,0,unsigned>;
+        ///Write Protect Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
+        ///Write Protect KEY
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
     }
-    namespace DDRSDRC1_wpsr{
-        using Addr = Register::Address<0xffffe4e8,0xff0000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPVS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8)> WPVSRC; 
+    namespace Ddrsdrc1Wpsr{    ///<DDRSDRC Write Protect Status Register
+        using Addr = Register::Address<0xffffe4e8,0xff0000fe,0,unsigned>;
+        ///Write Protect Violation Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpvs{}; 
+        ///Write Protect Violation Source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpvsrc{}; 
     }
 }

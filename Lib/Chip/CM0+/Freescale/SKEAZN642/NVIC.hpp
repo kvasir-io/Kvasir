@@ -1,76 +1,113 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonenvic_iser{
-        using Addr = Register::Address<0xe000e100,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> SETENA; 
+//Nested Vectored Interrupt Controller
+    namespace NonenvicIser{    ///<Interrupt Set Enable Register
+        using Addr = Register::Address<0xe000e100,0x00000000,0,unsigned>;
+        ///Interrupt set enable bits
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> setena{}; 
     }
-    namespace Nonenvic_icer{
-        using Addr = Register::Address<0xe000e180,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CLRENA; 
+    namespace NonenvicIcer{    ///<Interrupt Clear Enable Register
+        using Addr = Register::Address<0xe000e180,0x00000000,0,unsigned>;
+        ///Interrupt clear-enable bits
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> clrena{}; 
     }
-    namespace Nonenvic_ispr{
-        using Addr = Register::Address<0xe000e200,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> SETPEND; 
+    namespace NonenvicIspr{    ///<Interrupt Set Pending Register
+        using Addr = Register::Address<0xe000e200,0x00000000,0,unsigned>;
+        ///Interrupt set-pending bits
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> setpend{}; 
     }
-    namespace Nonenvic_icpr{
-        using Addr = Register::Address<0xe000e280,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CLRPEND; 
+    namespace NonenvicIcpr{    ///<Interrupt Clear Pending Register
+        using Addr = Register::Address<0xe000e280,0x00000000,0,unsigned>;
+        ///Interrupt clear-pending bits
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> clrpend{}; 
     }
-    namespace Nonenvic_ipr0{
-        using Addr = Register::Address<0xe000e400,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> PRI_0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRI_1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> PRI_2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PRI_3; 
+    namespace NonenvicIpr0{    ///<Interrupt Priority Register n
+        using Addr = Register::Address<0xe000e400,0x00000000,0,unsigned>;
+        ///Priority of interrupt 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri0{}; 
+        ///Priority of interrupt 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pri1{}; 
+        ///Priority of interrupt 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pri2{}; 
+        ///Priority of interrupt 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri3{}; 
     }
-    namespace Nonenvic_ipr1{
-        using Addr = Register::Address<0xe000e404,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> PRI_4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRI_5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> PRI_6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PRI_7; 
+    namespace NonenvicIpr1{    ///<Interrupt Priority Register n
+        using Addr = Register::Address<0xe000e404,0x00000000,0,unsigned>;
+        ///Priority of interrupt 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri4{}; 
+        ///Priority of interrupt 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pri5{}; 
+        ///Priority of interrupt 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pri6{}; 
+        ///Priority of interrupt 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri7{}; 
     }
-    namespace Nonenvic_ipr2{
-        using Addr = Register::Address<0xe000e408,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> PRI_8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRI_9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> PRI_10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PRI_11; 
+    namespace NonenvicIpr2{    ///<Interrupt Priority Register n
+        using Addr = Register::Address<0xe000e408,0x00000000,0,unsigned>;
+        ///Priority of interrupt 8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri8{}; 
+        ///Priority of interrupt 9
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pri9{}; 
+        ///Priority of interrupt 10
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pri10{}; 
+        ///Priority of interrupt 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri11{}; 
     }
-    namespace Nonenvic_ipr3{
-        using Addr = Register::Address<0xe000e40c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> PRI_12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRI_13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> PRI_14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PRI_15; 
+    namespace NonenvicIpr3{    ///<Interrupt Priority Register n
+        using Addr = Register::Address<0xe000e40c,0x00000000,0,unsigned>;
+        ///Priority of interrupt 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri12{}; 
+        ///Priority of interrupt 12
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pri13{}; 
+        ///Priority of interrupt 14
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pri14{}; 
+        ///Priority of interrupt 15
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri15{}; 
     }
-    namespace Nonenvic_ipr4{
-        using Addr = Register::Address<0xe000e410,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> PRI_16; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRI_17; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> PRI_18; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PRI_19; 
+    namespace NonenvicIpr4{    ///<Interrupt Priority Register n
+        using Addr = Register::Address<0xe000e410,0x00000000,0,unsigned>;
+        ///Priority of interrupt 17
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri16{}; 
+        ///Priority of interrupt 18
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pri17{}; 
+        ///Priority of interrupt 19
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pri18{}; 
+        ///Priority of interrupt 20
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri19{}; 
     }
-    namespace Nonenvic_ipr5{
-        using Addr = Register::Address<0xe000e414,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> PRI_20; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRI_21; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> PRI_22; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PRI_23; 
+    namespace NonenvicIpr5{    ///<Interrupt Priority Register n
+        using Addr = Register::Address<0xe000e414,0x00000000,0,unsigned>;
+        ///Priority of interrupt 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri20{}; 
+        ///Priority of interrupt 21
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pri21{}; 
+        ///Priority of interrupt 22
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pri22{}; 
+        ///Priority of interrupt 23
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri23{}; 
     }
-    namespace Nonenvic_ipr6{
-        using Addr = Register::Address<0xe000e418,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> PRI_24; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRI_25; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> PRI_26; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PRI_27; 
+    namespace NonenvicIpr6{    ///<Interrupt Priority Register n
+        using Addr = Register::Address<0xe000e418,0x00000000,0,unsigned>;
+        ///Priority of interrupt 24
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri24{}; 
+        ///Priority of interrupt 25
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pri25{}; 
+        ///Priority of interrupt 26
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pri26{}; 
+        ///Priority of interrupt 27
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri27{}; 
     }
-    namespace Nonenvic_ipr7{
-        using Addr = Register::Address<0xe000e41c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> PRI_28; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRI_29; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> PRI_30; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PRI_31; 
+    namespace NonenvicIpr7{    ///<Interrupt Priority Register n
+        using Addr = Register::Address<0xe000e41c,0x00000000,0,unsigned>;
+        ///Priority of interrupt 28
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pri28{}; 
+        ///Priority of interrupt 29
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pri29{}; 
+        ///Priority of interrupt 30
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pri30{}; 
+        ///Priority of interrupt 31
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pri31{}; 
     }
 }

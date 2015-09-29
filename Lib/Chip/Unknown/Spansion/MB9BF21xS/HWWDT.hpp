@@ -1,25 +1,29 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonewdg_ldr{
-        using Addr = Register::Address<0x40011000,0xffffffff>;
+//Hardware Watchdog Timer
+    namespace NonewdgLdr{    ///<Hardware Watchdog Timer Load Register
+        using Addr = Register::Address<0x40011000,0xffffffff,0,unsigned>;
     }
-    namespace Nonewdg_vlr{
-        using Addr = Register::Address<0x40011004,0xffffffff>;
+    namespace NonewdgVlr{    ///<Hardware Watchdog Timer Value Register
+        using Addr = Register::Address<0x40011004,0xffffffff,0,unsigned>;
     }
-    namespace Nonewdg_ctl{
-        using Addr = Register::Address<0x40011008,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RESEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> INTEN; 
+    namespace NonewdgCtl{    ///<Hardware Watchdog Timer Control Register
+        using Addr = Register::Address<0x40011008,0xfffffffc,0,unsigned>;
+        ///Hardware watchdog reset enable bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> resen{}; 
+        ///Hardware watchdog interrupt and counter enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inten{}; 
     }
-    namespace Nonewdg_icl{
-        using Addr = Register::Address<0x4001100c,0xffffffff>;
+    namespace NonewdgIcl{    ///<Hardware Watchdog Timer Clear Register
+        using Addr = Register::Address<0x4001100c,0xffffffff,0,unsigned char>;
     }
-    namespace Nonewdg_ris{
-        using Addr = Register::Address<0x40011010,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RIS; 
+    namespace NonewdgRis{    ///<Hardware Watchdog Timer Interrupt Status Register
+        using Addr = Register::Address<0x40011010,0xfffffffe,0,unsigned>;
+        ///Hardware watchdog interrupt status bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ris{}; 
     }
-    namespace Nonewdg_lck{
-        using Addr = Register::Address<0x40011c00,0xffffffff>;
+    namespace NonewdgLck{    ///<Hardware Watchdog Timer Lock Register
+        using Addr = Register::Address<0x40011c00,0xffffffff,0,unsigned>;
     }
 }

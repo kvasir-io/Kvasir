@@ -1,18 +1,24 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecr{
-        using Addr = Register::Address<0x400f3100,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> USBPLLON; 
+//Low Voltage detector control register
+    namespace Nonecr{    ///<USB PLL Control Register
+        using Addr = Register::Address<0x400f3100,0xfffffffe,0,unsigned>;
+        ///USBPLLON
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbpllon{}; 
     }
-    namespace Noneen{
-        using Addr = Register::Address<0x400f3104,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> USBDEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> USBHEN; 
+    namespace Noneen{    ///<USB PLL Enable Register
+        using Addr = Register::Address<0x400f3104,0xfffffffc,0,unsigned>;
+        ///USBDEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbden{}; 
+        ///USBHEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> usbhen{}; 
     }
-    namespace Nonesel{
-        using Addr = Register::Address<0x400f3108,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> USBPLLSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,1)> USBPLLSET; 
+    namespace Nonesel{    ///<USB PLL Select Register
+        using Addr = Register::Address<0x400f3108,0xffff0000,0,unsigned>;
+        ///USBPLLSEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbpllsel{}; 
+        ///USBPLLSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,1),Register::ReadWriteAccess,unsigned> usbpllset{}; 
     }
 }

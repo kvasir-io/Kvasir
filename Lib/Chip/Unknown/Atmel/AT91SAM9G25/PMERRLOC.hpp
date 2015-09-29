@@ -1,238 +1,299 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace PMERRLOC_elcfg{
-        using Addr = Register::Address<0xffffe600,0xffe0fffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SECTORSZ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16)> ERRNUM; 
+//Programmable Multibit ECC Error Location
+    namespace PmerrlocElcfg{    ///<Error Location Configuration Register
+        using Addr = Register::Address<0xffffe600,0xffe0fffe,0,unsigned>;
+        ///Sector Size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sectorsz{}; 
+        ///Number of Errors
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> errnum{}; 
     }
-    namespace PMERRLOC_elprim{
-        using Addr = Register::Address<0xffffe604,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> PRIMITIV; 
+    namespace PmerrlocElprim{    ///<Error Location Primitive Register
+        using Addr = Register::Address<0xffffe604,0xffff0000,0,unsigned>;
+        ///Primitive Polynomial
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> primitiv{}; 
     }
-    namespace PMERRLOC_elen{
-        using Addr = Register::Address<0xffffe608,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ENINIT; 
+    namespace PmerrlocElen{    ///<Error Location Enable Register
+        using Addr = Register::Address<0xffffe608,0xffffc000,0,unsigned>;
+        ///Initial Number of Bits in the Codeword
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> eninit{}; 
     }
-    namespace PMERRLOC_eldis{
-        using Addr = Register::Address<0xffffe60c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DIS; 
+    namespace PmerrlocEldis{    ///<Error Location Disable Register
+        using Addr = Register::Address<0xffffe60c,0xfffffffe,0,unsigned>;
+        ///Disable Error Location Engine
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dis{}; 
     }
-    namespace PMERRLOC_elsr{
-        using Addr = Register::Address<0xffffe610,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BUSY; 
+    namespace PmerrlocElsr{    ///<Error Location Status Register
+        using Addr = Register::Address<0xffffe610,0xfffffffe,0,unsigned>;
+        ///Error Location Engine Busy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> busy{}; 
     }
-    namespace PMERRLOC_elier{
-        using Addr = Register::Address<0xffffe614,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DONE; 
+    namespace PmerrlocElier{    ///<Error Location Interrupt Enable register
+        using Addr = Register::Address<0xffffe614,0xfffffffe,0,unsigned>;
+        ///Computation Terminated Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> done{}; 
     }
-    namespace PMERRLOC_elidr{
-        using Addr = Register::Address<0xffffe618,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DONE; 
+    namespace PmerrlocElidr{    ///<Error Location Interrupt Disable Register
+        using Addr = Register::Address<0xffffe618,0xfffffffe,0,unsigned>;
+        ///Computation Terminated Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> done{}; 
     }
-    namespace PMERRLOC_elimr{
-        using Addr = Register::Address<0xffffe61c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DONE; 
+    namespace PmerrlocElimr{    ///<Error Location Interrupt Mask Register
+        using Addr = Register::Address<0xffffe61c,0xfffffffe,0,unsigned>;
+        ///Computation Terminated Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> done{}; 
     }
-    namespace PMERRLOC_elisr{
-        using Addr = Register::Address<0xffffe620,0xffffe0fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DONE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> ERR_CNT; 
+    namespace PmerrlocElisr{    ///<Error Location Interrupt Status Register
+        using Addr = Register::Address<0xffffe620,0xffffe0fe,0,unsigned>;
+        ///Computation Terminated Interrupt Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> done{}; 
+        ///Error Counter Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> errCnt{}; 
     }
-    namespace PMERRLOC_sigma0{
-        using Addr = Register::Address<0xffffe628,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA0; 
+    namespace PmerrlocSigma0{    ///<PMECC SIGMA 0 Register
+        using Addr = Register::Address<0xffffe628,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma0{}; 
     }
-    namespace PMERRLOC_sigma1{
-        using Addr = Register::Address<0xffffe62c,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA1; 
+    namespace PmerrlocSigma1{    ///<PMECC SIGMA 1 Register
+        using Addr = Register::Address<0xffffe62c,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma1{}; 
     }
-    namespace PMERRLOC_sigma2{
-        using Addr = Register::Address<0xffffe630,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA2; 
+    namespace PmerrlocSigma2{    ///<PMECC SIGMA 2 Register
+        using Addr = Register::Address<0xffffe630,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma2{}; 
     }
-    namespace PMERRLOC_sigma3{
-        using Addr = Register::Address<0xffffe634,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA3; 
+    namespace PmerrlocSigma3{    ///<PMECC SIGMA 3 Register
+        using Addr = Register::Address<0xffffe634,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma3{}; 
     }
-    namespace PMERRLOC_sigma4{
-        using Addr = Register::Address<0xffffe638,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA4; 
+    namespace PmerrlocSigma4{    ///<PMECC SIGMA 4 Register
+        using Addr = Register::Address<0xffffe638,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma4{}; 
     }
-    namespace PMERRLOC_sigma5{
-        using Addr = Register::Address<0xffffe63c,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA5; 
+    namespace PmerrlocSigma5{    ///<PMECC SIGMA 5 Register
+        using Addr = Register::Address<0xffffe63c,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma5{}; 
     }
-    namespace PMERRLOC_sigma6{
-        using Addr = Register::Address<0xffffe640,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA6; 
+    namespace PmerrlocSigma6{    ///<PMECC SIGMA 6 Register
+        using Addr = Register::Address<0xffffe640,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma6{}; 
     }
-    namespace PMERRLOC_sigma7{
-        using Addr = Register::Address<0xffffe644,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA7; 
+    namespace PmerrlocSigma7{    ///<PMECC SIGMA 7 Register
+        using Addr = Register::Address<0xffffe644,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma7{}; 
     }
-    namespace PMERRLOC_sigma8{
-        using Addr = Register::Address<0xffffe648,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA8; 
+    namespace PmerrlocSigma8{    ///<PMECC SIGMA 8 Register
+        using Addr = Register::Address<0xffffe648,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma8{}; 
     }
-    namespace PMERRLOC_sigma9{
-        using Addr = Register::Address<0xffffe64c,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA9; 
+    namespace PmerrlocSigma9{    ///<PMECC SIGMA 9 Register
+        using Addr = Register::Address<0xffffe64c,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma9{}; 
     }
-    namespace PMERRLOC_sigma10{
-        using Addr = Register::Address<0xffffe650,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA10; 
+    namespace PmerrlocSigma10{    ///<PMECC SIGMA 10 Register
+        using Addr = Register::Address<0xffffe650,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma10{}; 
     }
-    namespace PMERRLOC_sigma11{
-        using Addr = Register::Address<0xffffe654,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA11; 
+    namespace PmerrlocSigma11{    ///<PMECC SIGMA 11 Register
+        using Addr = Register::Address<0xffffe654,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma11{}; 
     }
-    namespace PMERRLOC_sigma12{
-        using Addr = Register::Address<0xffffe658,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA12; 
+    namespace PmerrlocSigma12{    ///<PMECC SIGMA 12 Register
+        using Addr = Register::Address<0xffffe658,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma12{}; 
     }
-    namespace PMERRLOC_sigma13{
-        using Addr = Register::Address<0xffffe65c,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA13; 
+    namespace PmerrlocSigma13{    ///<PMECC SIGMA 13 Register
+        using Addr = Register::Address<0xffffe65c,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma13{}; 
     }
-    namespace PMERRLOC_sigma14{
-        using Addr = Register::Address<0xffffe660,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA14; 
+    namespace PmerrlocSigma14{    ///<PMECC SIGMA 14 Register
+        using Addr = Register::Address<0xffffe660,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma14{}; 
     }
-    namespace PMERRLOC_sigma15{
-        using Addr = Register::Address<0xffffe664,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA15; 
+    namespace PmerrlocSigma15{    ///<PMECC SIGMA 15 Register
+        using Addr = Register::Address<0xffffe664,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma15{}; 
     }
-    namespace PMERRLOC_sigma16{
-        using Addr = Register::Address<0xffffe668,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA16; 
+    namespace PmerrlocSigma16{    ///<PMECC SIGMA 16 Register
+        using Addr = Register::Address<0xffffe668,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma16{}; 
     }
-    namespace PMERRLOC_sigma17{
-        using Addr = Register::Address<0xffffe66c,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA17; 
+    namespace PmerrlocSigma17{    ///<PMECC SIGMA 17 Register
+        using Addr = Register::Address<0xffffe66c,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma17{}; 
     }
-    namespace PMERRLOC_sigma18{
-        using Addr = Register::Address<0xffffe670,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA18; 
+    namespace PmerrlocSigma18{    ///<PMECC SIGMA 18 Register
+        using Addr = Register::Address<0xffffe670,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma18{}; 
     }
-    namespace PMERRLOC_sigma19{
-        using Addr = Register::Address<0xffffe674,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA19; 
+    namespace PmerrlocSigma19{    ///<PMECC SIGMA 19 Register
+        using Addr = Register::Address<0xffffe674,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma19{}; 
     }
-    namespace PMERRLOC_sigma20{
-        using Addr = Register::Address<0xffffe678,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA20; 
+    namespace PmerrlocSigma20{    ///<PMECC SIGMA 20 Register
+        using Addr = Register::Address<0xffffe678,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma20{}; 
     }
-    namespace PMERRLOC_sigma21{
-        using Addr = Register::Address<0xffffe67c,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA21; 
+    namespace PmerrlocSigma21{    ///<PMECC SIGMA 21 Register
+        using Addr = Register::Address<0xffffe67c,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma21{}; 
     }
-    namespace PMERRLOC_sigma22{
-        using Addr = Register::Address<0xffffe680,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA22; 
+    namespace PmerrlocSigma22{    ///<PMECC SIGMA 22 Register
+        using Addr = Register::Address<0xffffe680,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma22{}; 
     }
-    namespace PMERRLOC_sigma23{
-        using Addr = Register::Address<0xffffe684,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA23; 
+    namespace PmerrlocSigma23{    ///<PMECC SIGMA 23 Register
+        using Addr = Register::Address<0xffffe684,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma23{}; 
     }
-    namespace PMERRLOC_sigma24{
-        using Addr = Register::Address<0xffffe688,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> SIGMA24; 
+    namespace PmerrlocSigma24{    ///<PMECC SIGMA 24 Register
+        using Addr = Register::Address<0xffffe688,0xffffc000,0,unsigned>;
+        ///Coefficient of Degree x in the SIGMA Polynomial.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> sigma24{}; 
     }
-    namespace PMERRLOC_el0{
-        using Addr = Register::Address<0xffffe68c,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl0{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe68c,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el1{
-        using Addr = Register::Address<0xffffe690,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl1{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe690,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el2{
-        using Addr = Register::Address<0xffffe694,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl2{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe694,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el3{
-        using Addr = Register::Address<0xffffe698,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl3{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe698,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el4{
-        using Addr = Register::Address<0xffffe69c,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl4{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe69c,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el5{
-        using Addr = Register::Address<0xffffe6a0,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl5{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6a0,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el6{
-        using Addr = Register::Address<0xffffe6a4,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl6{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6a4,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el7{
-        using Addr = Register::Address<0xffffe6a8,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl7{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6a8,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el8{
-        using Addr = Register::Address<0xffffe6ac,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl8{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6ac,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el9{
-        using Addr = Register::Address<0xffffe6b0,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl9{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6b0,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el10{
-        using Addr = Register::Address<0xffffe6b4,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl10{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6b4,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el11{
-        using Addr = Register::Address<0xffffe6b8,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl11{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6b8,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el12{
-        using Addr = Register::Address<0xffffe6bc,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl12{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6bc,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el13{
-        using Addr = Register::Address<0xffffe6c0,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl13{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6c0,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el14{
-        using Addr = Register::Address<0xffffe6c4,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl14{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6c4,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el15{
-        using Addr = Register::Address<0xffffe6c8,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl15{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6c8,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el16{
-        using Addr = Register::Address<0xffffe6cc,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl16{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6cc,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el17{
-        using Addr = Register::Address<0xffffe6d0,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl17{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6d0,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el18{
-        using Addr = Register::Address<0xffffe6d4,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl18{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6d4,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el19{
-        using Addr = Register::Address<0xffffe6d8,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl19{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6d8,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el20{
-        using Addr = Register::Address<0xffffe6dc,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl20{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6dc,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el21{
-        using Addr = Register::Address<0xffffe6e0,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl21{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6e0,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el22{
-        using Addr = Register::Address<0xffffe6e4,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl22{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6e4,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
-    namespace PMERRLOC_el23{
-        using Addr = Register::Address<0xffffe6e8,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> ERRLOCN; 
+    namespace PmerrlocEl23{    ///<PMECC Error Location 0 Register
+        using Addr = Register::Address<0xffffe6e8,0xffffc000,0,unsigned>;
+        ///Error Position within the Set {sector area, spare area}.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> errlocn{}; 
     }
 }

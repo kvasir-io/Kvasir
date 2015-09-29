@@ -1,103 +1,149 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecsif_enr{
-        using Addr = Register::Address<0x400cc000,0x7fffffff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> CSIF_EN; 
+//CSIF
+    namespace NonecsifEnr{    ///<CSIF_ENR
+        using Addr = Register::Address<0x400cc000,0x7fffffff,0,unsigned>;
+        ///CSIF_EN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> csifEn{}; 
     }
-    namespace Nonecsif_cr{
-        using Addr = Register::Address<0x400cc004,0xff000021>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> VSYNCTYP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> HSYNCTYP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CLKEDGE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IMG_FMT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> VSYNCPOL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> HSYNCPOL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> IMG_SLD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> IMG_SFD; 
+    namespace NonecsifCr{    ///<CSIF_CR
+        using Addr = Register::Address<0x400cc004,0xff000021,0,unsigned>;
+        ///VSYNCTYP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vsynctyp{}; 
+        ///HSYNCTYP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hsynctyp{}; 
+        ///CLKEDGE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clkedge{}; 
+        ///IMG_FMT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> imgFmt{}; 
+        ///VSYNCPOL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> vsyncpol{}; 
+        ///HSYNCPOL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> hsyncpol{}; 
+        ///IMG_SLD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> imgSld{}; 
+        ///IMG_SFD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> imgSfd{}; 
     }
-    namespace Nonecsif_imgwh{
-        using Addr = Register::Address<0x400cc008,0xf800f800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> IMG_WID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16)> IMG_HGH; 
+    namespace NonecsifImgwh{    ///<CSIF_IMGWH
+        using Addr = Register::Address<0x400cc008,0xf800f800,0,unsigned>;
+        ///IMG_WID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> imgWid{}; 
+        ///IMG_HGH
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> imgHgh{}; 
     }
-    namespace Nonecsif_wcr0{
-        using Addr = Register::Address<0x400cc00c,0x7800f800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> WIN_HSTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16)> WIN_VSTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> WIN_EN; 
+    namespace NonecsifWcr0{    ///<CSIF_WCR0
+        using Addr = Register::Address<0x400cc00c,0x7800f800,0,unsigned>;
+        ///WIN_HSTR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> winHstr{}; 
+        ///WIN_VSTR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> winVstr{}; 
+        ///WIN_EN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> winEn{}; 
     }
-    namespace Nonecsif_wcr1{
-        using Addr = Register::Address<0x400cc010,0xf800f800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> WIN_WID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16)> WIN_HGH; 
+    namespace NonecsifWcr1{    ///<CSIF_WCR1
+        using Addr = Register::Address<0x400cc010,0xf800f800,0,unsigned>;
+        ///WIN_WID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> winWid{}; 
+        ///WIN_HGH
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> winHgh{}; 
     }
-    namespace Nonecsif_smp{
-        using Addr = Register::Address<0x400cc014,0x7fe0e0ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> CSML; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16)> RSML; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SMP_EN; 
+    namespace NonecsifSmp{    ///<CSIF_SMP
+        using Addr = Register::Address<0x400cc014,0x7fe0e0ff,0,unsigned>;
+        ///CSML
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> csml{}; 
+        ///RSML
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> rsml{}; 
+        ///SMP_EN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> smpEn{}; 
     }
-    namespace Nonecsif_smpcol{
-        using Addr = Register::Address<0x400cc018,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CSM; 
+    namespace NonecsifSmpcol{    ///<CSIF_SMPCOL
+        using Addr = Register::Address<0x400cc018,0x00000000,0,unsigned>;
+        ///CSM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> csm{}; 
     }
-    namespace Nonecsif_smprow{
-        using Addr = Register::Address<0x400cc01c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RSM; 
+    namespace NonecsifSmprow{    ///<CSIF_SMPROW
+        using Addr = Register::Address<0x400cc01c,0x00000000,0,unsigned>;
+        ///RSM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rsm{}; 
     }
-    namespace Nonecsif_fifo0{
-        using Addr = Register::Address<0x400cc020,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FIFODATA; 
+    namespace NonecsifFifo0{    ///<CSIF_FIFO0
+        using Addr = Register::Address<0x400cc020,0x00000000,0,unsigned>;
+        ///FIFODATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
-    namespace Nonecsif_fifo1{
-        using Addr = Register::Address<0x400cc024,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FIFODATA; 
+    namespace NonecsifFifo1{    ///<CSIF_FIFO1
+        using Addr = Register::Address<0x400cc024,0x00000000,0,unsigned>;
+        ///FIFODATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
-    namespace Nonecsif_fifo2{
-        using Addr = Register::Address<0x400cc028,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FIFODATA; 
+    namespace NonecsifFifo2{    ///<CSIF_FIFO2
+        using Addr = Register::Address<0x400cc028,0x00000000,0,unsigned>;
+        ///FIFODATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
-    namespace Nonecsif_fifo3{
-        using Addr = Register::Address<0x400cc02c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FIFODATA; 
+    namespace NonecsifFifo3{    ///<CSIF_FIFO3
+        using Addr = Register::Address<0x400cc02c,0x00000000,0,unsigned>;
+        ///FIFODATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
-    namespace Nonecsif_fifo4{
-        using Addr = Register::Address<0x400cc030,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FIFODATA; 
+    namespace NonecsifFifo4{    ///<CSIF_FIFO4
+        using Addr = Register::Address<0x400cc030,0x00000000,0,unsigned>;
+        ///FIFODATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
-    namespace Nonecsif_fifo5{
-        using Addr = Register::Address<0x400cc034,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FIFODATA; 
+    namespace NonecsifFifo5{    ///<CSIF_FIFO5
+        using Addr = Register::Address<0x400cc034,0x00000000,0,unsigned>;
+        ///FIFODATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
-    namespace Nonecsif_fifo6{
-        using Addr = Register::Address<0x400cc038,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FIFODATA; 
+    namespace NonecsifFifo6{    ///<CSIF_FIFO6
+        using Addr = Register::Address<0x400cc038,0x00000000,0,unsigned>;
+        ///FIFODATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
-    namespace Nonecsif_fifo7{
-        using Addr = Register::Address<0x400cc03c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FIFODATA; 
+    namespace NonecsifFifo7{    ///<CSIF_FIFO7
+        using Addr = Register::Address<0x400cc03c,0x00000000,0,unsigned>;
+        ///FIFODATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fifodata{}; 
     }
-    namespace Nonecsif_ier{
-        using Addr = Register::Address<0x400cc040,0xfffff8e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SOFFLGE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EOFFLGE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CAPSTAE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CAPSTSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BADFRME; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FIFOOVRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> FIFOEMPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> FIFOFULE; 
+    namespace NonecsifIer{    ///<CSIF_IER
+        using Addr = Register::Address<0x400cc040,0xfffff8e0,0,unsigned>;
+        ///SOFFLGE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sofflge{}; 
+        ///EOFFLGE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eofflge{}; 
+        ///CAPSTAE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> capstae{}; 
+        ///CAPSTSE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> capstse{}; 
+        ///BADFRME
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> badfrme{}; 
+        ///FIFOOVRE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> fifoovre{}; 
+        ///FIFOEMPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> fifoempe{}; 
+        ///FIFOFULE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> fifofule{}; 
     }
-    namespace Nonecsif_sr{
-        using Addr = Register::Address<0x400cc044,0xfffff8e0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SOF_FLG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EOF_FLG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CAP_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CAP_STS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BAD_FRM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FIFO_OVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> FIFO_EMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> FIFO_FUL; 
+    namespace NonecsifSr{    ///<CSIF_SR
+        using Addr = Register::Address<0x400cc044,0xfffff8e0,0,unsigned>;
+        ///SOF_FLG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sofFlg{}; 
+        ///EOF_FLG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eofFlg{}; 
+        ///CAP_STA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> capSta{}; 
+        ///CAP_STS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> capSts{}; 
+        ///BAD_FRM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> badFrm{}; 
+        ///FIFO_OVR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> fifoOvr{}; 
+        ///FIFO_EMP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> fifoEmp{}; 
+        ///FIFO_FUL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> fifoFul{}; 
     }
 }

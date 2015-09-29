@@ -1,21 +1,27 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonedeviceid0{
-        using Addr = Register::Address<0x400490c0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> REVID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,4)> DEVICEID0; 
+//None
+    namespace Nonedeviceid0{    ///<Device ID Word 0
+        using Addr = Register::Address<0x400490c0,0x00000000,0,unsigned>;
+        ///Revision ID. 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> revid{}; 
+        ///Device ID 0. 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> deviceid0{}; 
     }
-    namespace Nonedeviceid1{
-        using Addr = Register::Address<0x400490d0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> DEVICEID1; 
+    namespace Nonedeviceid1{    ///<Device ID Word 1
+        using Addr = Register::Address<0x400490d0,0x00000000,0,unsigned>;
+        ///Device ID 1. 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceid1{}; 
     }
-    namespace Nonedeviceid2{
-        using Addr = Register::Address<0x400490e0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> DEVICEID2; 
+    namespace Nonedeviceid2{    ///<Device ID Word 2
+        using Addr = Register::Address<0x400490e0,0x00000000,0,unsigned>;
+        ///Device ID 2. 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceid2{}; 
     }
-    namespace Nonedeviceid3{
-        using Addr = Register::Address<0x400490f0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> DEVICEID3; 
+    namespace Nonedeviceid3{    ///<Device ID Word 3
+        using Addr = Register::Address<0x400490f0,0x00000000,0,unsigned>;
+        ///Device ID 3. 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceid3{}; 
     }
 }

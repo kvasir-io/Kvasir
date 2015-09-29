@@ -1,19 +1,50 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace KBI1_sc{
-        using Addr = Register::Address<0x4007a000,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> KBMOD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> KBIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> KBACK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> KBF; 
+//Keyboard interrupts
+    namespace Kbi1Sc{    ///<KBI Status and Control Register
+        using Addr = Register::Address<0x4007a000,0xfffffff0,0,unsigned char>;
+        ///KBI Detection Mode
+        enum class kbmodVal {
+            v0=0x00000000,     ///<Keyboard detects edges only.
+            v1=0x00000001,     ///<Keyboard detects both edges and levels.
+        };
+        namespace kbmodValC{
+            constexpr MPL::Value<kbmodVal,kbmodVal::v0> v0{};
+            constexpr MPL::Value<kbmodVal,kbmodVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,kbmodVal> kbmod{}; 
+        ///KBI Interrupt Enable
+        enum class kbieVal {
+            v0=0x00000000,     ///<KBI interrupt not enabled.
+            v1=0x00000001,     ///<KBI interrupt enabled.
+        };
+        namespace kbieValC{
+            constexpr MPL::Value<kbieVal,kbieVal::v0> v0{};
+            constexpr MPL::Value<kbieVal,kbieVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,kbieVal> kbie{}; 
+        ///KBI Acknowledge
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> kback{}; 
+        ///KBI Interrupt Flag
+        enum class kbfVal {
+            v0=0x00000000,     ///<KBI interrupt request not detected.
+            v1=0x00000001,     ///<KBI interrupt request detected.
+        };
+        namespace kbfValC{
+            constexpr MPL::Value<kbfVal,kbfVal::v0> v0{};
+            constexpr MPL::Value<kbfVal,kbfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,kbfVal> kbf{}; 
     }
-    namespace KBI1_pe{
-        using Addr = Register::Address<0x4007a001,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> KBIPE; 
+    namespace Kbi1Pe{    ///<KBIx Pin Enable Register
+        using Addr = Register::Address<0x4007a001,0xffffff00,0,unsigned char>;
+        ///KBI Pin Enables
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> kbipe{}; 
     }
-    namespace KBI1_es{
-        using Addr = Register::Address<0x4007a002,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> KBEDG; 
+    namespace Kbi1Es{    ///<KBIx Edge Select Register
+        using Addr = Register::Address<0x4007a002,0xffffff00,0,unsigned char>;
+        ///KBI Edge Selects
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> kbedg{}; 
     }
 }

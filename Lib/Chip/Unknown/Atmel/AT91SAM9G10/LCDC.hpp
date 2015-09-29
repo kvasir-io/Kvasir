@@ -1,955 +1,1040 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonedmabaddr1{
-        using Addr = Register::Address<0x00600000,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BADDR_U; 
-    }
-    namespace Nonedmabaddr2{
-        using Addr = Register::Address<0x00600004,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BADDR_L; 
-    }
-    namespace Nonedmafrmpt1{
-        using Addr = Register::Address<0x00600008,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> FRMPT_U; 
-    }
-    namespace Nonedmafrmpt2{
-        using Addr = Register::Address<0x0060000c,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> FRMPT_L; 
-    }
-    namespace Nonedmafrmadd1{
-        using Addr = Register::Address<0x00600010,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FRMADD_U; 
-    }
-    namespace Nonedmafrmadd2{
-        using Addr = Register::Address<0x00600014,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> FRMADD_L; 
-    }
-    namespace Nonedmafrmcfg{
-        using Addr = Register::Address<0x00600018,0x80800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> FRMSIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24)> BRSTLN; 
-    }
-    namespace Nonedmacon{
-        using Addr = Register::Address<0x0060001c,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DMAEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DMARST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> DMABUSY; 
-    }
-    namespace Nonelcdcon1{
-        using Addr = Register::Address<0x00600800,0x00000ffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BYPASS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,12)> CLKVAL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,21)> LINECNT; 
-    }
-    namespace Nonelcdcon2{
-        using Addr = Register::Address<0x00600804,0x3fff6000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> DISTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SCANMOD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> IFWIDTH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5)> PIXELSIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> INVVD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> INVFRAME; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> INVLINE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> INVCLK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> INVDVAL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CLKMOD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30)> MEMOR; 
-    }
-    namespace Nonelcdtim1{
-        using Addr = Register::Address<0x00600808,0x70c00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> VFP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> VBP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16)> VPW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> VHDLY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> STUCKTO1; 
-    }
-    namespace Nonelcdtim2{
-        using Addr = Register::Address<0x0060080c,0x001fc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> HBP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8)> HPW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,21)> HFP; 
-    }
-    namespace Nonelcdfrmcfg{
-        using Addr = Register::Address<0x00600810,0x001ff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> LINEVAL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,21)> HOZVAL; 
-    }
-    namespace Nonelcdfifo{
-        using Addr = Register::Address<0x00600814,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> FIFOTH; 
-    }
-    namespace Nonelcdmval{
-        using Addr = Register::Address<0x00600818,0x7fffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> MVAL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> MMODE; 
-    }
-    namespace Nonedp1_2{
-        using Addr = Register::Address<0x0060081c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> DP1_2; 
-    }
-    namespace Nonedp4_7{
-        using Addr = Register::Address<0x00600820,0xf0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,0)> DP4_7; 
-    }
-    namespace Nonedp3_5{
-        using Addr = Register::Address<0x00600824,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0)> DP3_5; 
-    }
-    namespace Nonedp2_3{
-        using Addr = Register::Address<0x00600828,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,0)> DP2_3; 
-    }
-    namespace Nonedp5_7{
-        using Addr = Register::Address<0x0060082c,0xf0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,0)> DP5_7; 
-    }
-    namespace Nonedp3_4{
-        using Addr = Register::Address<0x00600830,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DP3_4; 
-    }
-    namespace Nonedp4_5{
-        using Addr = Register::Address<0x00600834,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0)> DP4_5; 
-    }
-    namespace Nonedp6_7{
-        using Addr = Register::Address<0x00600838,0xf0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,0)> DP6_7; 
-    }
-    namespace Nonepwrcon{
-        using Addr = Register::Address<0x0060083c,0x7fffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LCD_PWR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1)> GUARD_TIME; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> LCD_BUSY; 
-    }
-    namespace Nonecontrast_ctr{
-        using Addr = Register::Address<0x00600840,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> POL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ENA; 
-    }
-    namespace Nonecontrast_val{
-        using Addr = Register::Address<0x00600844,0xffffffff>;
-    }
-    namespace Nonelcd_ier{
-        using Addr = Register::Address<0x00600848,0xffffff88>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LNIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LSTLNIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOFIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> UFLWIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OWRIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MERIE; 
-    }
-    namespace Nonelcd_idr{
-        using Addr = Register::Address<0x0060084c,0xffffff88>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LNID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LSTLNID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOFID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> UFLWID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OWRID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MERID; 
-    }
-    namespace Nonelcd_imr{
-        using Addr = Register::Address<0x00600850,0xffffff88>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LNIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LSTLNIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOFIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> UFLWIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OWRIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MERIM; 
-    }
-    namespace Nonelcd_isr{
-        using Addr = Register::Address<0x00600854,0xffffff88>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LNIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LSTLNIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOFIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> UFLWIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OWRIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MERIS; 
-    }
-    namespace Nonelcd_icr{
-        using Addr = Register::Address<0x00600858,0xffffff88>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LNIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LSTLNIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOFIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> UFLWIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OWRIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MERIC; 
+//LCD Controller
+    namespace Nonedmabaddr1{    ///<DMA Base Address Register 1
+        using Addr = Register::Address<0x00600000,0x00000003,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> baddrU{}; 
+    }
+    namespace Nonedmabaddr2{    ///<DMA Base Address Register 2
+        using Addr = Register::Address<0x00600004,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> baddrL{}; 
+    }
+    namespace Nonedmafrmpt1{    ///<DMA Frame Pointer Register 1
+        using Addr = Register::Address<0x00600008,0xff800000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> frmptU{}; 
+    }
+    namespace Nonedmafrmpt2{    ///<DMA Frame Pointer Register 2
+        using Addr = Register::Address<0x0060000c,0xff800000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> frmptL{}; 
+    }
+    namespace Nonedmafrmadd1{    ///<DMA Frame Address Register 1
+        using Addr = Register::Address<0x00600010,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> frmaddU{}; 
+    }
+    namespace Nonedmafrmadd2{    ///<DMA Frame Address Register 2
+        using Addr = Register::Address<0x00600014,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> frmaddL{}; 
+    }
+    namespace Nonedmafrmcfg{    ///<DMA Frame Configuration Register
+        using Addr = Register::Address<0x00600018,0x80800000,0,unsigned>;
+        ///Frame Size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> frmsize{}; 
+        ///Burst Length in Words
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> brstln{}; 
+    }
+    namespace Nonedmacon{    ///<DMA Control Register
+        using Addr = Register::Address<0x0060001c,0xfffffff8,0,unsigned>;
+        ///DMA Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaen{}; 
+        ///DMA Reset (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmarst{}; 
+        ///DMA Busy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dmabusy{}; 
+    }
+    namespace Nonelcdcon1{    ///<LCD Control Register 1
+        using Addr = Register::Address<0x00600800,0x00000ffe,0,unsigned>;
+        ///Bypass LCDDOTCK Divider
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bypass{}; 
+        ///Clock Divider
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,12),Register::ReadWriteAccess,unsigned> clkval{}; 
+        ///Line Counter (Read-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> linecnt{}; 
+    }
+    namespace Nonelcdcon2{    ///<LCD Control Register 2
+        using Addr = Register::Address<0x00600804,0x3fff6000,0,unsigned>;
+        ///Display Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> distype{}; 
+        ///Scan Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> scanmod{}; 
+        ///Interface width (STN)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,unsigned> ifwidth{}; 
+        ///Bits per pixel
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> pixelsize{}; 
+        ///LCDD polarity
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> invvd{}; 
+        ///LCDVSYNC polarity
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> invframe{}; 
+        ///LCDHSYNC polarity
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> invline{}; 
+        ///LCDDOTCK polarity
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> invclk{}; 
+        ///LCDDEN polarity
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> invdval{}; 
+        ///LCDDOTCK mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> clkmod{}; 
+        ///Memory Ordering Format
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> memor{}; 
+    }
+    namespace Nonelcdtim1{    ///<LCD Timing Register 1
+        using Addr = Register::Address<0x00600808,0x70c00000,0,unsigned>;
+        ///Vertical Front Porch
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> vfp{}; 
+        ///Vertical Back Porch
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> vbp{}; 
+        ///Vertical Synchronization pulse width
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> vpw{}; 
+        ///Vertical to horizontal delay
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> vhdly{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> stuckto1{}; 
+    }
+    namespace Nonelcdtim2{    ///<LCD Timing Register 2
+        using Addr = Register::Address<0x0060080c,0x001fc000,0,unsigned>;
+        ///Horizontal Back Porch
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> hbp{}; 
+        ///Horizontal synchronization pulse width
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> hpw{}; 
+        ///Horizontal Front Porch
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> hfp{}; 
+    }
+    namespace Nonelcdfrmcfg{    ///<LCD Frame Configuration Register
+        using Addr = Register::Address<0x00600810,0x001ff800,0,unsigned>;
+        ///Vertical size of LCD module
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> lineval{}; 
+        ///Horizontal size of LCD module
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> hozval{}; 
+    }
+    namespace Nonelcdfifo{    ///<LCD FIFO Register
+        using Addr = Register::Address<0x00600814,0xffff0000,0,unsigned>;
+        ///FIFO Threshold
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> fifoth{}; 
+    }
+    namespace Nonelcdmval{    ///<LCDMOD Toggle Rate Value Register
+        using Addr = Register::Address<0x00600818,0x7fffff00,0,unsigned>;
+        ///LCDMOD toggle rate value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> mval{}; 
+        ///LCDMOD toggle rate select
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> mmode{}; 
+    }
+    namespace Nonedp12{    ///<Dithering Pattern DP1_2
+        using Addr = Register::Address<0x0060081c,0xffffff00,0,unsigned>;
+        ///Pattern value for half duty cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dp12{}; 
+    }
+    namespace Nonedp47{    ///<Dithering Pattern DP4_7
+        using Addr = Register::Address<0x00600820,0xf0000000,0,unsigned>;
+        ///Pattern value for 4/7 duty cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dp47{}; 
+    }
+    namespace Nonedp35{    ///<Dithering Pattern DP3_5
+        using Addr = Register::Address<0x00600824,0xfff00000,0,unsigned>;
+        ///Pattern value for 3/5 duty cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> dp35{}; 
+    }
+    namespace Nonedp23{    ///<Dithering Pattern DP2_3
+        using Addr = Register::Address<0x00600828,0xfffff000,0,unsigned>;
+        ///Pattern value for 2/3 duty cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> dp23{}; 
+    }
+    namespace Nonedp57{    ///<Dithering Pattern DP5_7
+        using Addr = Register::Address<0x0060082c,0xf0000000,0,unsigned>;
+        ///Pattern value for 5/7 duty cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dp57{}; 
+    }
+    namespace Nonedp34{    ///<Dithering Pattern DP3_4
+        using Addr = Register::Address<0x00600830,0xffff0000,0,unsigned>;
+        ///Pattern value for 3/4 duty cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dp34{}; 
+    }
+    namespace Nonedp45{    ///<Dithering Pattern DP4_5
+        using Addr = Register::Address<0x00600834,0xfff00000,0,unsigned>;
+        ///Pattern value for 4/5 duty cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> dp45{}; 
+    }
+    namespace Nonedp67{    ///<Dithering Pattern DP6_7
+        using Addr = Register::Address<0x00600838,0xf0000000,0,unsigned>;
+        ///Pattern value for 6/7 duty cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dp67{}; 
+    }
+    namespace Nonepwrcon{    ///<Power Control Register
+        using Addr = Register::Address<0x0060083c,0x7fffff00,0,unsigned>;
+        ///LCD module power control
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lcdPwr{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> guardTime{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lcdBusy{}; 
+    }
+    namespace NonecontrastCtr{    ///<Contrast Control Register
+        using Addr = Register::Address<0x00600840,0xfffffff0,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ps{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pol{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ena{}; 
+    }
+    namespace NonecontrastVal{    ///<Contrast Value Register
+        using Addr = Register::Address<0x00600844,0xffffffff,0,unsigned>;
+    }
+    namespace NonelcdIer{    ///<LCD Interrupt Enable Register
+        using Addr = Register::Address<0x00600848,0xffffff88,0,unsigned>;
+        ///Line interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnie{}; 
+        ///Last line interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnie{}; 
+        ///DMA End of frame interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofie{}; 
+        ///FIFO underflow interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwie{}; 
+        ///FIFO overwrite interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owrie{}; 
+        ///DMA memory error interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> merie{}; 
+    }
+    namespace NonelcdIdr{    ///<LCD Interrupt Disable Register
+        using Addr = Register::Address<0x0060084c,0xffffff88,0,unsigned>;
+        ///Line interrupt disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnid{}; 
+        ///Last line interrupt disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnid{}; 
+        ///DMA End of frame interrupt disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofid{}; 
+        ///FIFO underflow interrupt disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwid{}; 
+        ///FIFO overwrite interrupt disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owrid{}; 
+        ///DMA Memory error interrupt disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> merid{}; 
+    }
+    namespace NonelcdImr{    ///<LCD Interrupt Mask Register
+        using Addr = Register::Address<0x00600850,0xffffff88,0,unsigned>;
+        ///Line interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnim{}; 
+        ///Last line interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnim{}; 
+        ///DMA End of frame interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofim{}; 
+        ///FIFO underflow interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwim{}; 
+        ///FIFO overwrite interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owrim{}; 
+        ///DMA Memory error interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> merim{}; 
+    }
+    namespace NonelcdIsr{    ///<LCD Interrupt Status Register
+        using Addr = Register::Address<0x00600854,0xffffff88,0,unsigned>;
+        ///Line interrupt status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnis{}; 
+        ///Last line interrupt status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnis{}; 
+        ///DMA End of frame interrupt status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofis{}; 
+        ///FIFO underflow interrupt status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwis{}; 
+        ///FIFO overwrite interrupt status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owris{}; 
+        ///DMA Memory error interrupt status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> meris{}; 
+    }
+    namespace NonelcdIcr{    ///<LCD Interrupt Clear Register
+        using Addr = Register::Address<0x00600858,0xffffff88,0,unsigned>;
+        ///Line interrupt clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnic{}; 
+        ///Last line interrupt clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnic{}; 
+        ///DMA End of frame interrupt clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofic{}; 
+        ///FIFO underflow interrupt clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwic{}; 
+        ///FIFO overwrite interrupt clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owric{}; 
+        ///DMA Memory error interrupt clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> meric{}; 
+    }
+    namespace NonelcdWpcr{    ///<Write Protection Control Register
+        using Addr = Register::Address<0x006008e4,0xffffffff,0,unsigned>;
+    }
+    namespace NonelcdWpsr{    ///<Write Protection Status Register
+        using Addr = Register::Address<0x006008e8,0xff0000fe,0,unsigned>;
+        ///Write Protect Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpvs{}; 
+        ///Write Protect Violation Source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpvsrc{}; 
+    }
+    namespace Nonelutentry0{    ///<Palette entry
+        using Addr = Register::Address<0x00600c00,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry1{    ///<Palette entry
+        using Addr = Register::Address<0x00600c04,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry2{    ///<Palette entry
+        using Addr = Register::Address<0x00600c08,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry3{    ///<Palette entry
+        using Addr = Register::Address<0x00600c0c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry4{    ///<Palette entry
+        using Addr = Register::Address<0x00600c10,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry5{    ///<Palette entry
+        using Addr = Register::Address<0x00600c14,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry6{    ///<Palette entry
+        using Addr = Register::Address<0x00600c18,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry7{    ///<Palette entry
+        using Addr = Register::Address<0x00600c1c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry8{    ///<Palette entry
+        using Addr = Register::Address<0x00600c20,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry9{    ///<Palette entry
+        using Addr = Register::Address<0x00600c24,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry10{    ///<Palette entry
+        using Addr = Register::Address<0x00600c28,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry11{    ///<Palette entry
+        using Addr = Register::Address<0x00600c2c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry12{    ///<Palette entry
+        using Addr = Register::Address<0x00600c30,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry13{    ///<Palette entry
+        using Addr = Register::Address<0x00600c34,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry14{    ///<Palette entry
+        using Addr = Register::Address<0x00600c38,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry15{    ///<Palette entry
+        using Addr = Register::Address<0x00600c3c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry16{    ///<Palette entry
+        using Addr = Register::Address<0x00600c40,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry17{    ///<Palette entry
+        using Addr = Register::Address<0x00600c44,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry18{    ///<Palette entry
+        using Addr = Register::Address<0x00600c48,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry19{    ///<Palette entry
+        using Addr = Register::Address<0x00600c4c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry20{    ///<Palette entry
+        using Addr = Register::Address<0x00600c50,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry21{    ///<Palette entry
+        using Addr = Register::Address<0x00600c54,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry22{    ///<Palette entry
+        using Addr = Register::Address<0x00600c58,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry23{    ///<Palette entry
+        using Addr = Register::Address<0x00600c5c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry24{    ///<Palette entry
+        using Addr = Register::Address<0x00600c60,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry25{    ///<Palette entry
+        using Addr = Register::Address<0x00600c64,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry26{    ///<Palette entry
+        using Addr = Register::Address<0x00600c68,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry27{    ///<Palette entry
+        using Addr = Register::Address<0x00600c6c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry28{    ///<Palette entry
+        using Addr = Register::Address<0x00600c70,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry29{    ///<Palette entry
+        using Addr = Register::Address<0x00600c74,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry30{    ///<Palette entry
+        using Addr = Register::Address<0x00600c78,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry31{    ///<Palette entry
+        using Addr = Register::Address<0x00600c7c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry32{    ///<Palette entry
+        using Addr = Register::Address<0x00600c80,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry33{    ///<Palette entry
+        using Addr = Register::Address<0x00600c84,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry34{    ///<Palette entry
+        using Addr = Register::Address<0x00600c88,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry35{    ///<Palette entry
+        using Addr = Register::Address<0x00600c8c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry36{    ///<Palette entry
+        using Addr = Register::Address<0x00600c90,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry37{    ///<Palette entry
+        using Addr = Register::Address<0x00600c94,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry38{    ///<Palette entry
+        using Addr = Register::Address<0x00600c98,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry39{    ///<Palette entry
+        using Addr = Register::Address<0x00600c9c,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry40{    ///<Palette entry
+        using Addr = Register::Address<0x00600ca0,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry41{    ///<Palette entry
+        using Addr = Register::Address<0x00600ca4,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry42{    ///<Palette entry
+        using Addr = Register::Address<0x00600ca8,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry43{    ///<Palette entry
+        using Addr = Register::Address<0x00600cac,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry44{    ///<Palette entry
+        using Addr = Register::Address<0x00600cb0,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry45{    ///<Palette entry
+        using Addr = Register::Address<0x00600cb4,0xffffffff,0,unsigned>;
+    }
+    namespace Nonelutentry46{    ///<Palette entry
+        using Addr = Register::Address<0x00600cb8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelcd_wpcr{
-        using Addr = Register::Address<0x006008e4,0xffffffff>;
+    namespace Nonelutentry47{    ///<Palette entry
+        using Addr = Register::Address<0x00600cbc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelcd_wpsr{
-        using Addr = Register::Address<0x006008e8,0xff0000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPVS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8)> WPVSRC; 
+    namespace Nonelutentry48{    ///<Palette entry
+        using Addr = Register::Address<0x00600cc0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry0{
-        using Addr = Register::Address<0x00600c00,0xffffffff>;
+    namespace Nonelutentry49{    ///<Palette entry
+        using Addr = Register::Address<0x00600cc4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry1{
-        using Addr = Register::Address<0x00600c04,0xffffffff>;
+    namespace Nonelutentry50{    ///<Palette entry
+        using Addr = Register::Address<0x00600cc8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry2{
-        using Addr = Register::Address<0x00600c08,0xffffffff>;
+    namespace Nonelutentry51{    ///<Palette entry
+        using Addr = Register::Address<0x00600ccc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry3{
-        using Addr = Register::Address<0x00600c0c,0xffffffff>;
+    namespace Nonelutentry52{    ///<Palette entry
+        using Addr = Register::Address<0x00600cd0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry4{
-        using Addr = Register::Address<0x00600c10,0xffffffff>;
+    namespace Nonelutentry53{    ///<Palette entry
+        using Addr = Register::Address<0x00600cd4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry5{
-        using Addr = Register::Address<0x00600c14,0xffffffff>;
+    namespace Nonelutentry54{    ///<Palette entry
+        using Addr = Register::Address<0x00600cd8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry6{
-        using Addr = Register::Address<0x00600c18,0xffffffff>;
+    namespace Nonelutentry55{    ///<Palette entry
+        using Addr = Register::Address<0x00600cdc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry7{
-        using Addr = Register::Address<0x00600c1c,0xffffffff>;
+    namespace Nonelutentry56{    ///<Palette entry
+        using Addr = Register::Address<0x00600ce0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry8{
-        using Addr = Register::Address<0x00600c20,0xffffffff>;
+    namespace Nonelutentry57{    ///<Palette entry
+        using Addr = Register::Address<0x00600ce4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry9{
-        using Addr = Register::Address<0x00600c24,0xffffffff>;
+    namespace Nonelutentry58{    ///<Palette entry
+        using Addr = Register::Address<0x00600ce8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry10{
-        using Addr = Register::Address<0x00600c28,0xffffffff>;
+    namespace Nonelutentry59{    ///<Palette entry
+        using Addr = Register::Address<0x00600cec,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry11{
-        using Addr = Register::Address<0x00600c2c,0xffffffff>;
+    namespace Nonelutentry60{    ///<Palette entry
+        using Addr = Register::Address<0x00600cf0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry12{
-        using Addr = Register::Address<0x00600c30,0xffffffff>;
+    namespace Nonelutentry61{    ///<Palette entry
+        using Addr = Register::Address<0x00600cf4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry13{
-        using Addr = Register::Address<0x00600c34,0xffffffff>;
+    namespace Nonelutentry62{    ///<Palette entry
+        using Addr = Register::Address<0x00600cf8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry14{
-        using Addr = Register::Address<0x00600c38,0xffffffff>;
+    namespace Nonelutentry63{    ///<Palette entry
+        using Addr = Register::Address<0x00600cfc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry15{
-        using Addr = Register::Address<0x00600c3c,0xffffffff>;
+    namespace Nonelutentry64{    ///<Palette entry
+        using Addr = Register::Address<0x00600d00,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry16{
-        using Addr = Register::Address<0x00600c40,0xffffffff>;
+    namespace Nonelutentry65{    ///<Palette entry
+        using Addr = Register::Address<0x00600d04,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry17{
-        using Addr = Register::Address<0x00600c44,0xffffffff>;
+    namespace Nonelutentry66{    ///<Palette entry
+        using Addr = Register::Address<0x00600d08,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry18{
-        using Addr = Register::Address<0x00600c48,0xffffffff>;
+    namespace Nonelutentry67{    ///<Palette entry
+        using Addr = Register::Address<0x00600d0c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry19{
-        using Addr = Register::Address<0x00600c4c,0xffffffff>;
+    namespace Nonelutentry68{    ///<Palette entry
+        using Addr = Register::Address<0x00600d10,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry20{
-        using Addr = Register::Address<0x00600c50,0xffffffff>;
+    namespace Nonelutentry69{    ///<Palette entry
+        using Addr = Register::Address<0x00600d14,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry21{
-        using Addr = Register::Address<0x00600c54,0xffffffff>;
+    namespace Nonelutentry70{    ///<Palette entry
+        using Addr = Register::Address<0x00600d18,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry22{
-        using Addr = Register::Address<0x00600c58,0xffffffff>;
+    namespace Nonelutentry71{    ///<Palette entry
+        using Addr = Register::Address<0x00600d1c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry23{
-        using Addr = Register::Address<0x00600c5c,0xffffffff>;
+    namespace Nonelutentry72{    ///<Palette entry
+        using Addr = Register::Address<0x00600d20,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry24{
-        using Addr = Register::Address<0x00600c60,0xffffffff>;
+    namespace Nonelutentry73{    ///<Palette entry
+        using Addr = Register::Address<0x00600d24,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry25{
-        using Addr = Register::Address<0x00600c64,0xffffffff>;
+    namespace Nonelutentry74{    ///<Palette entry
+        using Addr = Register::Address<0x00600d28,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry26{
-        using Addr = Register::Address<0x00600c68,0xffffffff>;
+    namespace Nonelutentry75{    ///<Palette entry
+        using Addr = Register::Address<0x00600d2c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry27{
-        using Addr = Register::Address<0x00600c6c,0xffffffff>;
+    namespace Nonelutentry76{    ///<Palette entry
+        using Addr = Register::Address<0x00600d30,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry28{
-        using Addr = Register::Address<0x00600c70,0xffffffff>;
+    namespace Nonelutentry77{    ///<Palette entry
+        using Addr = Register::Address<0x00600d34,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry29{
-        using Addr = Register::Address<0x00600c74,0xffffffff>;
+    namespace Nonelutentry78{    ///<Palette entry
+        using Addr = Register::Address<0x00600d38,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry30{
-        using Addr = Register::Address<0x00600c78,0xffffffff>;
+    namespace Nonelutentry79{    ///<Palette entry
+        using Addr = Register::Address<0x00600d3c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry31{
-        using Addr = Register::Address<0x00600c7c,0xffffffff>;
+    namespace Nonelutentry80{    ///<Palette entry
+        using Addr = Register::Address<0x00600d40,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry32{
-        using Addr = Register::Address<0x00600c80,0xffffffff>;
+    namespace Nonelutentry81{    ///<Palette entry
+        using Addr = Register::Address<0x00600d44,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry33{
-        using Addr = Register::Address<0x00600c84,0xffffffff>;
+    namespace Nonelutentry82{    ///<Palette entry
+        using Addr = Register::Address<0x00600d48,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry34{
-        using Addr = Register::Address<0x00600c88,0xffffffff>;
+    namespace Nonelutentry83{    ///<Palette entry
+        using Addr = Register::Address<0x00600d4c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry35{
-        using Addr = Register::Address<0x00600c8c,0xffffffff>;
+    namespace Nonelutentry84{    ///<Palette entry
+        using Addr = Register::Address<0x00600d50,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry36{
-        using Addr = Register::Address<0x00600c90,0xffffffff>;
+    namespace Nonelutentry85{    ///<Palette entry
+        using Addr = Register::Address<0x00600d54,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry37{
-        using Addr = Register::Address<0x00600c94,0xffffffff>;
+    namespace Nonelutentry86{    ///<Palette entry
+        using Addr = Register::Address<0x00600d58,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry38{
-        using Addr = Register::Address<0x00600c98,0xffffffff>;
+    namespace Nonelutentry87{    ///<Palette entry
+        using Addr = Register::Address<0x00600d5c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry39{
-        using Addr = Register::Address<0x00600c9c,0xffffffff>;
+    namespace Nonelutentry88{    ///<Palette entry
+        using Addr = Register::Address<0x00600d60,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry40{
-        using Addr = Register::Address<0x00600ca0,0xffffffff>;
+    namespace Nonelutentry89{    ///<Palette entry
+        using Addr = Register::Address<0x00600d64,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry41{
-        using Addr = Register::Address<0x00600ca4,0xffffffff>;
+    namespace Nonelutentry90{    ///<Palette entry
+        using Addr = Register::Address<0x00600d68,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry42{
-        using Addr = Register::Address<0x00600ca8,0xffffffff>;
+    namespace Nonelutentry91{    ///<Palette entry
+        using Addr = Register::Address<0x00600d6c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry43{
-        using Addr = Register::Address<0x00600cac,0xffffffff>;
+    namespace Nonelutentry92{    ///<Palette entry
+        using Addr = Register::Address<0x00600d70,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry44{
-        using Addr = Register::Address<0x00600cb0,0xffffffff>;
+    namespace Nonelutentry93{    ///<Palette entry
+        using Addr = Register::Address<0x00600d74,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry45{
-        using Addr = Register::Address<0x00600cb4,0xffffffff>;
+    namespace Nonelutentry94{    ///<Palette entry
+        using Addr = Register::Address<0x00600d78,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry46{
-        using Addr = Register::Address<0x00600cb8,0xffffffff>;
+    namespace Nonelutentry95{    ///<Palette entry
+        using Addr = Register::Address<0x00600d7c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry47{
-        using Addr = Register::Address<0x00600cbc,0xffffffff>;
+    namespace Nonelutentry96{    ///<Palette entry
+        using Addr = Register::Address<0x00600d80,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry48{
-        using Addr = Register::Address<0x00600cc0,0xffffffff>;
+    namespace Nonelutentry97{    ///<Palette entry
+        using Addr = Register::Address<0x00600d84,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry49{
-        using Addr = Register::Address<0x00600cc4,0xffffffff>;
+    namespace Nonelutentry98{    ///<Palette entry
+        using Addr = Register::Address<0x00600d88,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry50{
-        using Addr = Register::Address<0x00600cc8,0xffffffff>;
+    namespace Nonelutentry99{    ///<Palette entry
+        using Addr = Register::Address<0x00600d8c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry51{
-        using Addr = Register::Address<0x00600ccc,0xffffffff>;
+    namespace Nonelutentry100{    ///<Palette entry
+        using Addr = Register::Address<0x00600d90,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry52{
-        using Addr = Register::Address<0x00600cd0,0xffffffff>;
+    namespace Nonelutentry101{    ///<Palette entry
+        using Addr = Register::Address<0x00600d94,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry53{
-        using Addr = Register::Address<0x00600cd4,0xffffffff>;
+    namespace Nonelutentry102{    ///<Palette entry
+        using Addr = Register::Address<0x00600d98,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry54{
-        using Addr = Register::Address<0x00600cd8,0xffffffff>;
+    namespace Nonelutentry103{    ///<Palette entry
+        using Addr = Register::Address<0x00600d9c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry55{
-        using Addr = Register::Address<0x00600cdc,0xffffffff>;
+    namespace Nonelutentry104{    ///<Palette entry
+        using Addr = Register::Address<0x00600da0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry56{
-        using Addr = Register::Address<0x00600ce0,0xffffffff>;
+    namespace Nonelutentry105{    ///<Palette entry
+        using Addr = Register::Address<0x00600da4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry57{
-        using Addr = Register::Address<0x00600ce4,0xffffffff>;
+    namespace Nonelutentry106{    ///<Palette entry
+        using Addr = Register::Address<0x00600da8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry58{
-        using Addr = Register::Address<0x00600ce8,0xffffffff>;
+    namespace Nonelutentry107{    ///<Palette entry
+        using Addr = Register::Address<0x00600dac,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry59{
-        using Addr = Register::Address<0x00600cec,0xffffffff>;
+    namespace Nonelutentry108{    ///<Palette entry
+        using Addr = Register::Address<0x00600db0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry60{
-        using Addr = Register::Address<0x00600cf0,0xffffffff>;
+    namespace Nonelutentry109{    ///<Palette entry
+        using Addr = Register::Address<0x00600db4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry61{
-        using Addr = Register::Address<0x00600cf4,0xffffffff>;
+    namespace Nonelutentry110{    ///<Palette entry
+        using Addr = Register::Address<0x00600db8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry62{
-        using Addr = Register::Address<0x00600cf8,0xffffffff>;
+    namespace Nonelutentry111{    ///<Palette entry
+        using Addr = Register::Address<0x00600dbc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry63{
-        using Addr = Register::Address<0x00600cfc,0xffffffff>;
+    namespace Nonelutentry112{    ///<Palette entry
+        using Addr = Register::Address<0x00600dc0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry64{
-        using Addr = Register::Address<0x00600d00,0xffffffff>;
+    namespace Nonelutentry113{    ///<Palette entry
+        using Addr = Register::Address<0x00600dc4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry65{
-        using Addr = Register::Address<0x00600d04,0xffffffff>;
+    namespace Nonelutentry114{    ///<Palette entry
+        using Addr = Register::Address<0x00600dc8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry66{
-        using Addr = Register::Address<0x00600d08,0xffffffff>;
+    namespace Nonelutentry115{    ///<Palette entry
+        using Addr = Register::Address<0x00600dcc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry67{
-        using Addr = Register::Address<0x00600d0c,0xffffffff>;
+    namespace Nonelutentry116{    ///<Palette entry
+        using Addr = Register::Address<0x00600dd0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry68{
-        using Addr = Register::Address<0x00600d10,0xffffffff>;
+    namespace Nonelutentry117{    ///<Palette entry
+        using Addr = Register::Address<0x00600dd4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry69{
-        using Addr = Register::Address<0x00600d14,0xffffffff>;
+    namespace Nonelutentry118{    ///<Palette entry
+        using Addr = Register::Address<0x00600dd8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry70{
-        using Addr = Register::Address<0x00600d18,0xffffffff>;
+    namespace Nonelutentry119{    ///<Palette entry
+        using Addr = Register::Address<0x00600ddc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry71{
-        using Addr = Register::Address<0x00600d1c,0xffffffff>;
+    namespace Nonelutentry120{    ///<Palette entry
+        using Addr = Register::Address<0x00600de0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry72{
-        using Addr = Register::Address<0x00600d20,0xffffffff>;
+    namespace Nonelutentry121{    ///<Palette entry
+        using Addr = Register::Address<0x00600de4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry73{
-        using Addr = Register::Address<0x00600d24,0xffffffff>;
+    namespace Nonelutentry122{    ///<Palette entry
+        using Addr = Register::Address<0x00600de8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry74{
-        using Addr = Register::Address<0x00600d28,0xffffffff>;
+    namespace Nonelutentry123{    ///<Palette entry
+        using Addr = Register::Address<0x00600dec,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry75{
-        using Addr = Register::Address<0x00600d2c,0xffffffff>;
+    namespace Nonelutentry124{    ///<Palette entry
+        using Addr = Register::Address<0x00600df0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry76{
-        using Addr = Register::Address<0x00600d30,0xffffffff>;
+    namespace Nonelutentry125{    ///<Palette entry
+        using Addr = Register::Address<0x00600df4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry77{
-        using Addr = Register::Address<0x00600d34,0xffffffff>;
+    namespace Nonelutentry126{    ///<Palette entry
+        using Addr = Register::Address<0x00600df8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry78{
-        using Addr = Register::Address<0x00600d38,0xffffffff>;
+    namespace Nonelutentry127{    ///<Palette entry
+        using Addr = Register::Address<0x00600dfc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry79{
-        using Addr = Register::Address<0x00600d3c,0xffffffff>;
+    namespace Nonelutentry128{    ///<Palette entry
+        using Addr = Register::Address<0x00600e00,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry80{
-        using Addr = Register::Address<0x00600d40,0xffffffff>;
+    namespace Nonelutentry129{    ///<Palette entry
+        using Addr = Register::Address<0x00600e04,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry81{
-        using Addr = Register::Address<0x00600d44,0xffffffff>;
+    namespace Nonelutentry130{    ///<Palette entry
+        using Addr = Register::Address<0x00600e08,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry82{
-        using Addr = Register::Address<0x00600d48,0xffffffff>;
+    namespace Nonelutentry131{    ///<Palette entry
+        using Addr = Register::Address<0x00600e0c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry83{
-        using Addr = Register::Address<0x00600d4c,0xffffffff>;
+    namespace Nonelutentry132{    ///<Palette entry
+        using Addr = Register::Address<0x00600e10,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry84{
-        using Addr = Register::Address<0x00600d50,0xffffffff>;
+    namespace Nonelutentry133{    ///<Palette entry
+        using Addr = Register::Address<0x00600e14,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry85{
-        using Addr = Register::Address<0x00600d54,0xffffffff>;
+    namespace Nonelutentry134{    ///<Palette entry
+        using Addr = Register::Address<0x00600e18,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry86{
-        using Addr = Register::Address<0x00600d58,0xffffffff>;
+    namespace Nonelutentry135{    ///<Palette entry
+        using Addr = Register::Address<0x00600e1c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry87{
-        using Addr = Register::Address<0x00600d5c,0xffffffff>;
+    namespace Nonelutentry136{    ///<Palette entry
+        using Addr = Register::Address<0x00600e20,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry88{
-        using Addr = Register::Address<0x00600d60,0xffffffff>;
+    namespace Nonelutentry137{    ///<Palette entry
+        using Addr = Register::Address<0x00600e24,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry89{
-        using Addr = Register::Address<0x00600d64,0xffffffff>;
+    namespace Nonelutentry138{    ///<Palette entry
+        using Addr = Register::Address<0x00600e28,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry90{
-        using Addr = Register::Address<0x00600d68,0xffffffff>;
+    namespace Nonelutentry139{    ///<Palette entry
+        using Addr = Register::Address<0x00600e2c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry91{
-        using Addr = Register::Address<0x00600d6c,0xffffffff>;
+    namespace Nonelutentry140{    ///<Palette entry
+        using Addr = Register::Address<0x00600e30,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry92{
-        using Addr = Register::Address<0x00600d70,0xffffffff>;
+    namespace Nonelutentry141{    ///<Palette entry
+        using Addr = Register::Address<0x00600e34,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry93{
-        using Addr = Register::Address<0x00600d74,0xffffffff>;
+    namespace Nonelutentry142{    ///<Palette entry
+        using Addr = Register::Address<0x00600e38,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry94{
-        using Addr = Register::Address<0x00600d78,0xffffffff>;
+    namespace Nonelutentry143{    ///<Palette entry
+        using Addr = Register::Address<0x00600e3c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry95{
-        using Addr = Register::Address<0x00600d7c,0xffffffff>;
+    namespace Nonelutentry144{    ///<Palette entry
+        using Addr = Register::Address<0x00600e40,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry96{
-        using Addr = Register::Address<0x00600d80,0xffffffff>;
+    namespace Nonelutentry145{    ///<Palette entry
+        using Addr = Register::Address<0x00600e44,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry97{
-        using Addr = Register::Address<0x00600d84,0xffffffff>;
+    namespace Nonelutentry146{    ///<Palette entry
+        using Addr = Register::Address<0x00600e48,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry98{
-        using Addr = Register::Address<0x00600d88,0xffffffff>;
+    namespace Nonelutentry147{    ///<Palette entry
+        using Addr = Register::Address<0x00600e4c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry99{
-        using Addr = Register::Address<0x00600d8c,0xffffffff>;
+    namespace Nonelutentry148{    ///<Palette entry
+        using Addr = Register::Address<0x00600e50,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry100{
-        using Addr = Register::Address<0x00600d90,0xffffffff>;
+    namespace Nonelutentry149{    ///<Palette entry
+        using Addr = Register::Address<0x00600e54,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry101{
-        using Addr = Register::Address<0x00600d94,0xffffffff>;
+    namespace Nonelutentry150{    ///<Palette entry
+        using Addr = Register::Address<0x00600e58,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry102{
-        using Addr = Register::Address<0x00600d98,0xffffffff>;
+    namespace Nonelutentry151{    ///<Palette entry
+        using Addr = Register::Address<0x00600e5c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry103{
-        using Addr = Register::Address<0x00600d9c,0xffffffff>;
+    namespace Nonelutentry152{    ///<Palette entry
+        using Addr = Register::Address<0x00600e60,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry104{
-        using Addr = Register::Address<0x00600da0,0xffffffff>;
+    namespace Nonelutentry153{    ///<Palette entry
+        using Addr = Register::Address<0x00600e64,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry105{
-        using Addr = Register::Address<0x00600da4,0xffffffff>;
+    namespace Nonelutentry154{    ///<Palette entry
+        using Addr = Register::Address<0x00600e68,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry106{
-        using Addr = Register::Address<0x00600da8,0xffffffff>;
+    namespace Nonelutentry155{    ///<Palette entry
+        using Addr = Register::Address<0x00600e6c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry107{
-        using Addr = Register::Address<0x00600dac,0xffffffff>;
+    namespace Nonelutentry156{    ///<Palette entry
+        using Addr = Register::Address<0x00600e70,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry108{
-        using Addr = Register::Address<0x00600db0,0xffffffff>;
+    namespace Nonelutentry157{    ///<Palette entry
+        using Addr = Register::Address<0x00600e74,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry109{
-        using Addr = Register::Address<0x00600db4,0xffffffff>;
+    namespace Nonelutentry158{    ///<Palette entry
+        using Addr = Register::Address<0x00600e78,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry110{
-        using Addr = Register::Address<0x00600db8,0xffffffff>;
+    namespace Nonelutentry159{    ///<Palette entry
+        using Addr = Register::Address<0x00600e7c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry111{
-        using Addr = Register::Address<0x00600dbc,0xffffffff>;
+    namespace Nonelutentry160{    ///<Palette entry
+        using Addr = Register::Address<0x00600e80,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry112{
-        using Addr = Register::Address<0x00600dc0,0xffffffff>;
+    namespace Nonelutentry161{    ///<Palette entry
+        using Addr = Register::Address<0x00600e84,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry113{
-        using Addr = Register::Address<0x00600dc4,0xffffffff>;
+    namespace Nonelutentry162{    ///<Palette entry
+        using Addr = Register::Address<0x00600e88,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry114{
-        using Addr = Register::Address<0x00600dc8,0xffffffff>;
+    namespace Nonelutentry163{    ///<Palette entry
+        using Addr = Register::Address<0x00600e8c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry115{
-        using Addr = Register::Address<0x00600dcc,0xffffffff>;
+    namespace Nonelutentry164{    ///<Palette entry
+        using Addr = Register::Address<0x00600e90,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry116{
-        using Addr = Register::Address<0x00600dd0,0xffffffff>;
+    namespace Nonelutentry165{    ///<Palette entry
+        using Addr = Register::Address<0x00600e94,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry117{
-        using Addr = Register::Address<0x00600dd4,0xffffffff>;
+    namespace Nonelutentry166{    ///<Palette entry
+        using Addr = Register::Address<0x00600e98,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry118{
-        using Addr = Register::Address<0x00600dd8,0xffffffff>;
+    namespace Nonelutentry167{    ///<Palette entry
+        using Addr = Register::Address<0x00600e9c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry119{
-        using Addr = Register::Address<0x00600ddc,0xffffffff>;
+    namespace Nonelutentry168{    ///<Palette entry
+        using Addr = Register::Address<0x00600ea0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry120{
-        using Addr = Register::Address<0x00600de0,0xffffffff>;
+    namespace Nonelutentry169{    ///<Palette entry
+        using Addr = Register::Address<0x00600ea4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry121{
-        using Addr = Register::Address<0x00600de4,0xffffffff>;
+    namespace Nonelutentry170{    ///<Palette entry
+        using Addr = Register::Address<0x00600ea8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry122{
-        using Addr = Register::Address<0x00600de8,0xffffffff>;
+    namespace Nonelutentry171{    ///<Palette entry
+        using Addr = Register::Address<0x00600eac,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry123{
-        using Addr = Register::Address<0x00600dec,0xffffffff>;
+    namespace Nonelutentry172{    ///<Palette entry
+        using Addr = Register::Address<0x00600eb0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry124{
-        using Addr = Register::Address<0x00600df0,0xffffffff>;
+    namespace Nonelutentry173{    ///<Palette entry
+        using Addr = Register::Address<0x00600eb4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry125{
-        using Addr = Register::Address<0x00600df4,0xffffffff>;
+    namespace Nonelutentry174{    ///<Palette entry
+        using Addr = Register::Address<0x00600eb8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry126{
-        using Addr = Register::Address<0x00600df8,0xffffffff>;
+    namespace Nonelutentry175{    ///<Palette entry
+        using Addr = Register::Address<0x00600ebc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry127{
-        using Addr = Register::Address<0x00600dfc,0xffffffff>;
+    namespace Nonelutentry176{    ///<Palette entry
+        using Addr = Register::Address<0x00600ec0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry128{
-        using Addr = Register::Address<0x00600e00,0xffffffff>;
+    namespace Nonelutentry177{    ///<Palette entry
+        using Addr = Register::Address<0x00600ec4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry129{
-        using Addr = Register::Address<0x00600e04,0xffffffff>;
+    namespace Nonelutentry178{    ///<Palette entry
+        using Addr = Register::Address<0x00600ec8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry130{
-        using Addr = Register::Address<0x00600e08,0xffffffff>;
+    namespace Nonelutentry179{    ///<Palette entry
+        using Addr = Register::Address<0x00600ecc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry131{
-        using Addr = Register::Address<0x00600e0c,0xffffffff>;
+    namespace Nonelutentry180{    ///<Palette entry
+        using Addr = Register::Address<0x00600ed0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry132{
-        using Addr = Register::Address<0x00600e10,0xffffffff>;
+    namespace Nonelutentry181{    ///<Palette entry
+        using Addr = Register::Address<0x00600ed4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry133{
-        using Addr = Register::Address<0x00600e14,0xffffffff>;
+    namespace Nonelutentry182{    ///<Palette entry
+        using Addr = Register::Address<0x00600ed8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry134{
-        using Addr = Register::Address<0x00600e18,0xffffffff>;
+    namespace Nonelutentry183{    ///<Palette entry
+        using Addr = Register::Address<0x00600edc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry135{
-        using Addr = Register::Address<0x00600e1c,0xffffffff>;
+    namespace Nonelutentry184{    ///<Palette entry
+        using Addr = Register::Address<0x00600ee0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry136{
-        using Addr = Register::Address<0x00600e20,0xffffffff>;
+    namespace Nonelutentry185{    ///<Palette entry
+        using Addr = Register::Address<0x00600ee4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry137{
-        using Addr = Register::Address<0x00600e24,0xffffffff>;
+    namespace Nonelutentry186{    ///<Palette entry
+        using Addr = Register::Address<0x00600ee8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry138{
-        using Addr = Register::Address<0x00600e28,0xffffffff>;
+    namespace Nonelutentry187{    ///<Palette entry
+        using Addr = Register::Address<0x00600eec,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry139{
-        using Addr = Register::Address<0x00600e2c,0xffffffff>;
+    namespace Nonelutentry188{    ///<Palette entry
+        using Addr = Register::Address<0x00600ef0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry140{
-        using Addr = Register::Address<0x00600e30,0xffffffff>;
+    namespace Nonelutentry189{    ///<Palette entry
+        using Addr = Register::Address<0x00600ef4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry141{
-        using Addr = Register::Address<0x00600e34,0xffffffff>;
+    namespace Nonelutentry190{    ///<Palette entry
+        using Addr = Register::Address<0x00600ef8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry142{
-        using Addr = Register::Address<0x00600e38,0xffffffff>;
+    namespace Nonelutentry191{    ///<Palette entry
+        using Addr = Register::Address<0x00600efc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry143{
-        using Addr = Register::Address<0x00600e3c,0xffffffff>;
+    namespace Nonelutentry192{    ///<Palette entry
+        using Addr = Register::Address<0x00600f00,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry144{
-        using Addr = Register::Address<0x00600e40,0xffffffff>;
+    namespace Nonelutentry193{    ///<Palette entry
+        using Addr = Register::Address<0x00600f04,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry145{
-        using Addr = Register::Address<0x00600e44,0xffffffff>;
+    namespace Nonelutentry194{    ///<Palette entry
+        using Addr = Register::Address<0x00600f08,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry146{
-        using Addr = Register::Address<0x00600e48,0xffffffff>;
+    namespace Nonelutentry195{    ///<Palette entry
+        using Addr = Register::Address<0x00600f0c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry147{
-        using Addr = Register::Address<0x00600e4c,0xffffffff>;
+    namespace Nonelutentry196{    ///<Palette entry
+        using Addr = Register::Address<0x00600f10,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry148{
-        using Addr = Register::Address<0x00600e50,0xffffffff>;
+    namespace Nonelutentry197{    ///<Palette entry
+        using Addr = Register::Address<0x00600f14,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry149{
-        using Addr = Register::Address<0x00600e54,0xffffffff>;
+    namespace Nonelutentry198{    ///<Palette entry
+        using Addr = Register::Address<0x00600f18,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry150{
-        using Addr = Register::Address<0x00600e58,0xffffffff>;
+    namespace Nonelutentry199{    ///<Palette entry
+        using Addr = Register::Address<0x00600f1c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry151{
-        using Addr = Register::Address<0x00600e5c,0xffffffff>;
+    namespace Nonelutentry200{    ///<Palette entry
+        using Addr = Register::Address<0x00600f20,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry152{
-        using Addr = Register::Address<0x00600e60,0xffffffff>;
+    namespace Nonelutentry201{    ///<Palette entry
+        using Addr = Register::Address<0x00600f24,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry153{
-        using Addr = Register::Address<0x00600e64,0xffffffff>;
+    namespace Nonelutentry202{    ///<Palette entry
+        using Addr = Register::Address<0x00600f28,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry154{
-        using Addr = Register::Address<0x00600e68,0xffffffff>;
+    namespace Nonelutentry203{    ///<Palette entry
+        using Addr = Register::Address<0x00600f2c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry155{
-        using Addr = Register::Address<0x00600e6c,0xffffffff>;
+    namespace Nonelutentry204{    ///<Palette entry
+        using Addr = Register::Address<0x00600f30,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry156{
-        using Addr = Register::Address<0x00600e70,0xffffffff>;
+    namespace Nonelutentry205{    ///<Palette entry
+        using Addr = Register::Address<0x00600f34,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry157{
-        using Addr = Register::Address<0x00600e74,0xffffffff>;
+    namespace Nonelutentry206{    ///<Palette entry
+        using Addr = Register::Address<0x00600f38,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry158{
-        using Addr = Register::Address<0x00600e78,0xffffffff>;
+    namespace Nonelutentry207{    ///<Palette entry
+        using Addr = Register::Address<0x00600f3c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry159{
-        using Addr = Register::Address<0x00600e7c,0xffffffff>;
+    namespace Nonelutentry208{    ///<Palette entry
+        using Addr = Register::Address<0x00600f40,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry160{
-        using Addr = Register::Address<0x00600e80,0xffffffff>;
+    namespace Nonelutentry209{    ///<Palette entry
+        using Addr = Register::Address<0x00600f44,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry161{
-        using Addr = Register::Address<0x00600e84,0xffffffff>;
+    namespace Nonelutentry210{    ///<Palette entry
+        using Addr = Register::Address<0x00600f48,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry162{
-        using Addr = Register::Address<0x00600e88,0xffffffff>;
+    namespace Nonelutentry211{    ///<Palette entry
+        using Addr = Register::Address<0x00600f4c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry163{
-        using Addr = Register::Address<0x00600e8c,0xffffffff>;
+    namespace Nonelutentry212{    ///<Palette entry
+        using Addr = Register::Address<0x00600f50,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry164{
-        using Addr = Register::Address<0x00600e90,0xffffffff>;
+    namespace Nonelutentry213{    ///<Palette entry
+        using Addr = Register::Address<0x00600f54,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry165{
-        using Addr = Register::Address<0x00600e94,0xffffffff>;
+    namespace Nonelutentry214{    ///<Palette entry
+        using Addr = Register::Address<0x00600f58,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry166{
-        using Addr = Register::Address<0x00600e98,0xffffffff>;
+    namespace Nonelutentry215{    ///<Palette entry
+        using Addr = Register::Address<0x00600f5c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry167{
-        using Addr = Register::Address<0x00600e9c,0xffffffff>;
+    namespace Nonelutentry216{    ///<Palette entry
+        using Addr = Register::Address<0x00600f60,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry168{
-        using Addr = Register::Address<0x00600ea0,0xffffffff>;
+    namespace Nonelutentry217{    ///<Palette entry
+        using Addr = Register::Address<0x00600f64,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry169{
-        using Addr = Register::Address<0x00600ea4,0xffffffff>;
+    namespace Nonelutentry218{    ///<Palette entry
+        using Addr = Register::Address<0x00600f68,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry170{
-        using Addr = Register::Address<0x00600ea8,0xffffffff>;
+    namespace Nonelutentry219{    ///<Palette entry
+        using Addr = Register::Address<0x00600f6c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry171{
-        using Addr = Register::Address<0x00600eac,0xffffffff>;
+    namespace Nonelutentry220{    ///<Palette entry
+        using Addr = Register::Address<0x00600f70,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry172{
-        using Addr = Register::Address<0x00600eb0,0xffffffff>;
+    namespace Nonelutentry221{    ///<Palette entry
+        using Addr = Register::Address<0x00600f74,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry173{
-        using Addr = Register::Address<0x00600eb4,0xffffffff>;
+    namespace Nonelutentry222{    ///<Palette entry
+        using Addr = Register::Address<0x00600f78,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry174{
-        using Addr = Register::Address<0x00600eb8,0xffffffff>;
+    namespace Nonelutentry223{    ///<Palette entry
+        using Addr = Register::Address<0x00600f7c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry175{
-        using Addr = Register::Address<0x00600ebc,0xffffffff>;
+    namespace Nonelutentry224{    ///<Palette entry
+        using Addr = Register::Address<0x00600f80,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry176{
-        using Addr = Register::Address<0x00600ec0,0xffffffff>;
+    namespace Nonelutentry225{    ///<Palette entry
+        using Addr = Register::Address<0x00600f84,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry177{
-        using Addr = Register::Address<0x00600ec4,0xffffffff>;
+    namespace Nonelutentry226{    ///<Palette entry
+        using Addr = Register::Address<0x00600f88,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry178{
-        using Addr = Register::Address<0x00600ec8,0xffffffff>;
+    namespace Nonelutentry227{    ///<Palette entry
+        using Addr = Register::Address<0x00600f8c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry179{
-        using Addr = Register::Address<0x00600ecc,0xffffffff>;
+    namespace Nonelutentry228{    ///<Palette entry
+        using Addr = Register::Address<0x00600f90,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry180{
-        using Addr = Register::Address<0x00600ed0,0xffffffff>;
+    namespace Nonelutentry229{    ///<Palette entry
+        using Addr = Register::Address<0x00600f94,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry181{
-        using Addr = Register::Address<0x00600ed4,0xffffffff>;
+    namespace Nonelutentry230{    ///<Palette entry
+        using Addr = Register::Address<0x00600f98,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry182{
-        using Addr = Register::Address<0x00600ed8,0xffffffff>;
+    namespace Nonelutentry231{    ///<Palette entry
+        using Addr = Register::Address<0x00600f9c,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry183{
-        using Addr = Register::Address<0x00600edc,0xffffffff>;
+    namespace Nonelutentry232{    ///<Palette entry
+        using Addr = Register::Address<0x00600fa0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry184{
-        using Addr = Register::Address<0x00600ee0,0xffffffff>;
+    namespace Nonelutentry233{    ///<Palette entry
+        using Addr = Register::Address<0x00600fa4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry185{
-        using Addr = Register::Address<0x00600ee4,0xffffffff>;
+    namespace Nonelutentry234{    ///<Palette entry
+        using Addr = Register::Address<0x00600fa8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry186{
-        using Addr = Register::Address<0x00600ee8,0xffffffff>;
+    namespace Nonelutentry235{    ///<Palette entry
+        using Addr = Register::Address<0x00600fac,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry187{
-        using Addr = Register::Address<0x00600eec,0xffffffff>;
+    namespace Nonelutentry236{    ///<Palette entry
+        using Addr = Register::Address<0x00600fb0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry188{
-        using Addr = Register::Address<0x00600ef0,0xffffffff>;
+    namespace Nonelutentry237{    ///<Palette entry
+        using Addr = Register::Address<0x00600fb4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry189{
-        using Addr = Register::Address<0x00600ef4,0xffffffff>;
+    namespace Nonelutentry238{    ///<Palette entry
+        using Addr = Register::Address<0x00600fb8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry190{
-        using Addr = Register::Address<0x00600ef8,0xffffffff>;
+    namespace Nonelutentry239{    ///<Palette entry
+        using Addr = Register::Address<0x00600fbc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry191{
-        using Addr = Register::Address<0x00600efc,0xffffffff>;
+    namespace Nonelutentry240{    ///<Palette entry
+        using Addr = Register::Address<0x00600fc0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry192{
-        using Addr = Register::Address<0x00600f00,0xffffffff>;
+    namespace Nonelutentry241{    ///<Palette entry
+        using Addr = Register::Address<0x00600fc4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry193{
-        using Addr = Register::Address<0x00600f04,0xffffffff>;
+    namespace Nonelutentry242{    ///<Palette entry
+        using Addr = Register::Address<0x00600fc8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry194{
-        using Addr = Register::Address<0x00600f08,0xffffffff>;
+    namespace Nonelutentry243{    ///<Palette entry
+        using Addr = Register::Address<0x00600fcc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry195{
-        using Addr = Register::Address<0x00600f0c,0xffffffff>;
+    namespace Nonelutentry244{    ///<Palette entry
+        using Addr = Register::Address<0x00600fd0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry196{
-        using Addr = Register::Address<0x00600f10,0xffffffff>;
+    namespace Nonelutentry245{    ///<Palette entry
+        using Addr = Register::Address<0x00600fd4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry197{
-        using Addr = Register::Address<0x00600f14,0xffffffff>;
+    namespace Nonelutentry246{    ///<Palette entry
+        using Addr = Register::Address<0x00600fd8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry198{
-        using Addr = Register::Address<0x00600f18,0xffffffff>;
+    namespace Nonelutentry247{    ///<Palette entry
+        using Addr = Register::Address<0x00600fdc,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry199{
-        using Addr = Register::Address<0x00600f1c,0xffffffff>;
+    namespace Nonelutentry248{    ///<Palette entry
+        using Addr = Register::Address<0x00600fe0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry200{
-        using Addr = Register::Address<0x00600f20,0xffffffff>;
+    namespace Nonelutentry249{    ///<Palette entry
+        using Addr = Register::Address<0x00600fe4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry201{
-        using Addr = Register::Address<0x00600f24,0xffffffff>;
+    namespace Nonelutentry250{    ///<Palette entry
+        using Addr = Register::Address<0x00600fe8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry202{
-        using Addr = Register::Address<0x00600f28,0xffffffff>;
+    namespace Nonelutentry251{    ///<Palette entry
+        using Addr = Register::Address<0x00600fec,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry203{
-        using Addr = Register::Address<0x00600f2c,0xffffffff>;
+    namespace Nonelutentry252{    ///<Palette entry
+        using Addr = Register::Address<0x00600ff0,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry204{
-        using Addr = Register::Address<0x00600f30,0xffffffff>;
+    namespace Nonelutentry253{    ///<Palette entry
+        using Addr = Register::Address<0x00600ff4,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry205{
-        using Addr = Register::Address<0x00600f34,0xffffffff>;
+    namespace Nonelutentry254{    ///<Palette entry
+        using Addr = Register::Address<0x00600ff8,0xffffffff,0,unsigned>;
     }
-    namespace Nonelutentry206{
-        using Addr = Register::Address<0x00600f38,0xffffffff>;
-    }
-    namespace Nonelutentry207{
-        using Addr = Register::Address<0x00600f3c,0xffffffff>;
-    }
-    namespace Nonelutentry208{
-        using Addr = Register::Address<0x00600f40,0xffffffff>;
-    }
-    namespace Nonelutentry209{
-        using Addr = Register::Address<0x00600f44,0xffffffff>;
-    }
-    namespace Nonelutentry210{
-        using Addr = Register::Address<0x00600f48,0xffffffff>;
-    }
-    namespace Nonelutentry211{
-        using Addr = Register::Address<0x00600f4c,0xffffffff>;
-    }
-    namespace Nonelutentry212{
-        using Addr = Register::Address<0x00600f50,0xffffffff>;
-    }
-    namespace Nonelutentry213{
-        using Addr = Register::Address<0x00600f54,0xffffffff>;
-    }
-    namespace Nonelutentry214{
-        using Addr = Register::Address<0x00600f58,0xffffffff>;
-    }
-    namespace Nonelutentry215{
-        using Addr = Register::Address<0x00600f5c,0xffffffff>;
-    }
-    namespace Nonelutentry216{
-        using Addr = Register::Address<0x00600f60,0xffffffff>;
-    }
-    namespace Nonelutentry217{
-        using Addr = Register::Address<0x00600f64,0xffffffff>;
-    }
-    namespace Nonelutentry218{
-        using Addr = Register::Address<0x00600f68,0xffffffff>;
-    }
-    namespace Nonelutentry219{
-        using Addr = Register::Address<0x00600f6c,0xffffffff>;
-    }
-    namespace Nonelutentry220{
-        using Addr = Register::Address<0x00600f70,0xffffffff>;
-    }
-    namespace Nonelutentry221{
-        using Addr = Register::Address<0x00600f74,0xffffffff>;
-    }
-    namespace Nonelutentry222{
-        using Addr = Register::Address<0x00600f78,0xffffffff>;
-    }
-    namespace Nonelutentry223{
-        using Addr = Register::Address<0x00600f7c,0xffffffff>;
-    }
-    namespace Nonelutentry224{
-        using Addr = Register::Address<0x00600f80,0xffffffff>;
-    }
-    namespace Nonelutentry225{
-        using Addr = Register::Address<0x00600f84,0xffffffff>;
-    }
-    namespace Nonelutentry226{
-        using Addr = Register::Address<0x00600f88,0xffffffff>;
-    }
-    namespace Nonelutentry227{
-        using Addr = Register::Address<0x00600f8c,0xffffffff>;
-    }
-    namespace Nonelutentry228{
-        using Addr = Register::Address<0x00600f90,0xffffffff>;
-    }
-    namespace Nonelutentry229{
-        using Addr = Register::Address<0x00600f94,0xffffffff>;
-    }
-    namespace Nonelutentry230{
-        using Addr = Register::Address<0x00600f98,0xffffffff>;
-    }
-    namespace Nonelutentry231{
-        using Addr = Register::Address<0x00600f9c,0xffffffff>;
-    }
-    namespace Nonelutentry232{
-        using Addr = Register::Address<0x00600fa0,0xffffffff>;
-    }
-    namespace Nonelutentry233{
-        using Addr = Register::Address<0x00600fa4,0xffffffff>;
-    }
-    namespace Nonelutentry234{
-        using Addr = Register::Address<0x00600fa8,0xffffffff>;
-    }
-    namespace Nonelutentry235{
-        using Addr = Register::Address<0x00600fac,0xffffffff>;
-    }
-    namespace Nonelutentry236{
-        using Addr = Register::Address<0x00600fb0,0xffffffff>;
-    }
-    namespace Nonelutentry237{
-        using Addr = Register::Address<0x00600fb4,0xffffffff>;
-    }
-    namespace Nonelutentry238{
-        using Addr = Register::Address<0x00600fb8,0xffffffff>;
-    }
-    namespace Nonelutentry239{
-        using Addr = Register::Address<0x00600fbc,0xffffffff>;
-    }
-    namespace Nonelutentry240{
-        using Addr = Register::Address<0x00600fc0,0xffffffff>;
-    }
-    namespace Nonelutentry241{
-        using Addr = Register::Address<0x00600fc4,0xffffffff>;
-    }
-    namespace Nonelutentry242{
-        using Addr = Register::Address<0x00600fc8,0xffffffff>;
-    }
-    namespace Nonelutentry243{
-        using Addr = Register::Address<0x00600fcc,0xffffffff>;
-    }
-    namespace Nonelutentry244{
-        using Addr = Register::Address<0x00600fd0,0xffffffff>;
-    }
-    namespace Nonelutentry245{
-        using Addr = Register::Address<0x00600fd4,0xffffffff>;
-    }
-    namespace Nonelutentry246{
-        using Addr = Register::Address<0x00600fd8,0xffffffff>;
-    }
-    namespace Nonelutentry247{
-        using Addr = Register::Address<0x00600fdc,0xffffffff>;
-    }
-    namespace Nonelutentry248{
-        using Addr = Register::Address<0x00600fe0,0xffffffff>;
-    }
-    namespace Nonelutentry249{
-        using Addr = Register::Address<0x00600fe4,0xffffffff>;
-    }
-    namespace Nonelutentry250{
-        using Addr = Register::Address<0x00600fe8,0xffffffff>;
-    }
-    namespace Nonelutentry251{
-        using Addr = Register::Address<0x00600fec,0xffffffff>;
-    }
-    namespace Nonelutentry252{
-        using Addr = Register::Address<0x00600ff0,0xffffffff>;
-    }
-    namespace Nonelutentry253{
-        using Addr = Register::Address<0x00600ff4,0xffffffff>;
-    }
-    namespace Nonelutentry254{
-        using Addr = Register::Address<0x00600ff8,0xffffffff>;
-    }
-    namespace Nonelutentry255{
-        using Addr = Register::Address<0x00600ffc,0xffffffff>;
+    namespace Nonelutentry255{    ///<Palette entry
+        using Addr = Register::Address<0x00600ffc,0xffffffff,0,unsigned>;
     }
 }

@@ -1,81 +1,138 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonedata{
-        using Addr = Register::Address<0x400c0300,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PD0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PD1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PD2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PD3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PD4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PD5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PD6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PD7; 
+//General Purpose Input_Output Port (PD)
+    namespace Nonedata{    ///<PD Data Register
+        using Addr = Register::Address<0x400c0300,0xffffff00,0,unsigned>;
+        ///PD0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0{}; 
+        ///PD1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pd1{}; 
+        ///PD2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pd2{}; 
+        ///PD3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pd3{}; 
+        ///PD4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pd4{}; 
+        ///PD5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pd5{}; 
+        ///PD6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pd6{}; 
+        ///PD7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7{}; 
     }
-    namespace Nonecr{
-        using Addr = Register::Address<0x400c0304,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PD0C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PD1C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PD2C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PD3C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PD4C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PD5C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PD6C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PD7C; 
+    namespace Nonecr{    ///<PD Control Register
+        using Addr = Register::Address<0x400c0304,0xffffff00,0,unsigned>;
+        ///PD0C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0c{}; 
+        ///PD1C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pd1c{}; 
+        ///PD2C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pd2c{}; 
+        ///PD3C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pd3c{}; 
+        ///PD4C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pd4c{}; 
+        ///PD5C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pd5c{}; 
+        ///PD6C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pd6c{}; 
+        ///PD7C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7c{}; 
     }
-    namespace Nonefr1{
-        using Addr = Register::Address<0x400c0308,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PD0F1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PD1F1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PD2F1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PD3F1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PD4F1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PD5F1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PD6F1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PD7F1; 
+    namespace Nonefr1{    ///<PD Function Register 1
+        using Addr = Register::Address<0x400c0308,0xffffff00,0,unsigned>;
+        ///PD0F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0f1{}; 
+        ///PD1F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pd1f1{}; 
+        ///PD2F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pd2f1{}; 
+        ///PD3F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pd3f1{}; 
+        ///PD4F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pd4f1{}; 
+        ///PD5F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pd5f1{}; 
+        ///PD6F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pd6f1{}; 
+        ///PD7F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7f1{}; 
     }
-    namespace Noneod{
-        using Addr = Register::Address<0x400c0328,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PD0OD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PD1OD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PD2OD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PD3OD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PD4OD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PD5OD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PD6OD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PD7OD; 
+    namespace Noneod{    ///<PD Open Drain Control Register
+        using Addr = Register::Address<0x400c0328,0xffffff00,0,unsigned>;
+        ///PD0OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0od{}; 
+        ///PD1OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pd1od{}; 
+        ///PD2OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pd2od{}; 
+        ///PD3OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pd3od{}; 
+        ///PD4OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pd4od{}; 
+        ///PD5OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pd5od{}; 
+        ///PD6OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pd6od{}; 
+        ///PD7OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7od{}; 
     }
-    namespace Nonepup{
-        using Addr = Register::Address<0x400c032c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PD0UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PD1UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PD2UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PD3UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PD4UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PD5UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PD6UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PD7UP; 
+    namespace Nonepup{    ///<PD Pull-Up Control Register
+        using Addr = Register::Address<0x400c032c,0xffffff00,0,unsigned>;
+        ///PD0UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0up{}; 
+        ///PD1UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pd1up{}; 
+        ///PD2UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pd2up{}; 
+        ///PD3UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pd3up{}; 
+        ///PD4UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pd4up{}; 
+        ///PD5UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pd5up{}; 
+        ///PD6UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pd6up{}; 
+        ///PD7UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7up{}; 
     }
-    namespace Nonepdn{
-        using Addr = Register::Address<0x400c0330,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PD0DN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PD1DN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PD2DN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PD3DN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PD4DN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PD5DN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PD6DN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PD7DN; 
+    namespace Nonepdn{    ///<PD Pull-Down Control Register
+        using Addr = Register::Address<0x400c0330,0xffffff00,0,unsigned>;
+        ///PD0DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0dn{}; 
+        ///PD1DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pd1dn{}; 
+        ///PD2DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pd2dn{}; 
+        ///PD3DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pd3dn{}; 
+        ///PD4DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pd4dn{}; 
+        ///PD5DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pd5dn{}; 
+        ///PD6DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pd6dn{}; 
+        ///PD7DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7dn{}; 
     }
-    namespace Noneie{
-        using Addr = Register::Address<0x400c0338,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PD0IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PD1IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PD2IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PD3IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PD4IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PD5IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PD6IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PD7IE; 
+    namespace Noneie{    ///<PD Input Enable Control Register
+        using Addr = Register::Address<0x400c0338,0xffffff00,0,unsigned>;
+        ///PD0IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pd0ie{}; 
+        ///PD1IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pd1ie{}; 
+        ///PD2IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pd2ie{}; 
+        ///PD3IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pd3ie{}; 
+        ///PD4IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pd4ie{}; 
+        ///PD5IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pd5ie{}; 
+        ///PD6IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pd6ie{}; 
+        ///PD7IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pd7ie{}; 
     }
 }

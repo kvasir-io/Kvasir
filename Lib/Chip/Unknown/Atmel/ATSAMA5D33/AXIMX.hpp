@@ -1,93 +1,120 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace AXIMX_remap{
-        using Addr = Register::Address<0x00800000,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> REMAP0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> REMAP1; 
+//AXI Matrix
+    namespace AximxRemap{    ///<Remap Register
+        using Addr = Register::Address<0x00800000,0xfffffffc,0,unsigned>;
+        ///Remap State 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> remap0{}; 
+        ///Remap State 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> remap1{}; 
     }
-    namespace AXIMX_periph_id4{
-        using Addr = Register::Address<0x00801fd0,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxPeriphId4{    ///<Peripheral ID Register 4
+        using Addr = Register::Address<0x00801fd0,0xffffff00,0,unsigned>;
+        ///Peripheral ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_periph_id5{
-        using Addr = Register::Address<0x00801fd4,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxPeriphId5{    ///<Peripheral ID Register 5
+        using Addr = Register::Address<0x00801fd4,0xffffff00,0,unsigned>;
+        ///Peripheral ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_periph_id6{
-        using Addr = Register::Address<0x00801fd8,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxPeriphId6{    ///<Peripheral ID Register 6
+        using Addr = Register::Address<0x00801fd8,0xffffff00,0,unsigned>;
+        ///Peripheral ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_periph_id7{
-        using Addr = Register::Address<0x00801fdc,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxPeriphId7{    ///<Peripheral ID Register 7
+        using Addr = Register::Address<0x00801fdc,0xffffff00,0,unsigned>;
+        ///Peripheral ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_periph_id0{
-        using Addr = Register::Address<0x00801fe0,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxPeriphId0{    ///<Peripheral ID Register 0
+        using Addr = Register::Address<0x00801fe0,0xffffff00,0,unsigned>;
+        ///Peripheral ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_periph_id1{
-        using Addr = Register::Address<0x00801fe4,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxPeriphId1{    ///<Peripheral ID Register 1
+        using Addr = Register::Address<0x00801fe4,0xffffff00,0,unsigned>;
+        ///Peripheral ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_periph_id2{
-        using Addr = Register::Address<0x00801fe8,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxPeriphId2{    ///<Peripheral ID Register 2
+        using Addr = Register::Address<0x00801fe8,0xffffff00,0,unsigned>;
+        ///Peripheral ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_periph_id3{
-        using Addr = Register::Address<0x00801fec,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxPeriphId3{    ///<Peripheral ID Register 3
+        using Addr = Register::Address<0x00801fec,0xffffff00,0,unsigned>;
+        ///Peripheral ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_comp_id0{
-        using Addr = Register::Address<0x00801ff0,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxCompId0{    ///<Component ID Register
+        using Addr = Register::Address<0x00801ff0,0xffffff00,0,unsigned>;
+        ///Component ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_comp_id1{
-        using Addr = Register::Address<0x00801ff4,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxCompId1{    ///<Component ID Register
+        using Addr = Register::Address<0x00801ff4,0xffffff00,0,unsigned>;
+        ///Component ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_comp_id2{
-        using Addr = Register::Address<0x00801ff8,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxCompId2{    ///<Component ID Register
+        using Addr = Register::Address<0x00801ff8,0xffffff00,0,unsigned>;
+        ///Component ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_comp_id3{
-        using Addr = Register::Address<0x00801ffc,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ID; 
+    namespace AximxCompId3{    ///<Component ID Register
+        using Addr = Register::Address<0x00801ffc,0xffffff00,0,unsigned>;
+        ///Component ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace AXIMX_amib3_fn_mod_bm_iss{
-        using Addr = Register::Address<0x00805008,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RD_ISS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WR_ISS; 
+    namespace AximxAmib3FnModBmIss{    ///<AMIB3 Bus Matrix Functionality Modification Register
+        using Addr = Register::Address<0x00805008,0xfffffffc,0,unsigned>;
+        ///Read Issuing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdIss{}; 
+        ///Write Issuing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wrIss{}; 
     }
-    namespace AXIMX_amib3_fn_mod2{
-        using Addr = Register::Address<0x00805024,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BP_MRG; 
+    namespace AximxAmib3FnMod2{    ///<AMIB3 Bypass Merge
+        using Addr = Register::Address<0x00805024,0xfffffffe,0,unsigned>;
+        ///Bypass Merge
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bpMrg{}; 
     }
-    namespace AXIMX_asib0_read_qos{
-        using Addr = Register::Address<0x00842100,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> RD_QOS; 
+    namespace AximxAsib0ReadQos{    ///<ASIB0 Read Channel QoS Register
+        using Addr = Register::Address<0x00842100,0xfffffff0,0,unsigned>;
+        ///Read QoS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rdQos{}; 
     }
-    namespace AXIMX_asib0_write_qos{
-        using Addr = Register::Address<0x00842104,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> WR_QOS; 
+    namespace AximxAsib0WriteQos{    ///<ASIB0 Write Channel QoS Register
+        using Addr = Register::Address<0x00842104,0xfffffff0,0,unsigned>;
+        ///Write QoS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wrQos{}; 
     }
-    namespace AXIMX_asib1_fn_mod_ahb{
-        using Addr = Register::Address<0x00843028,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RD_INCR_OVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WR_INCR_OVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> LOCK_OVR; 
+    namespace AximxAsib1FnModAhb{    ///<ASIB1 AHB Functionality Modification Register
+        using Addr = Register::Address<0x00843028,0xfffffff8,0,unsigned>;
+        ///Read INCR Override
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdIncrOvr{}; 
+        ///Write INCR override
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wrIncrOvr{}; 
+        ///Lock Override
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lockOvr{}; 
     }
-    namespace AXIMX_asib1_read_qos{
-        using Addr = Register::Address<0x00843100,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> RD_QOS; 
+    namespace AximxAsib1ReadQos{    ///<ASIB1 Read Channel QoS Register
+        using Addr = Register::Address<0x00843100,0xfffffff0,0,unsigned>;
+        ///Read QoS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rdQos{}; 
     }
-    namespace AXIMX_asib1_write_qos{
-        using Addr = Register::Address<0x00843104,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> WR_QOS; 
+    namespace AximxAsib1WriteQos{    ///<ASIB1 Write Channel QoS Register
+        using Addr = Register::Address<0x00843104,0xfffffff0,0,unsigned>;
+        ///Write QoS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wrQos{}; 
     }
-    namespace AXIMX_asib1_fn_mod{
-        using Addr = Register::Address<0x00843108,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RD_ISS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WR_ISS; 
+    namespace AximxAsib1FnMod{    ///<ASIB1 Issuing Functionality Modification Register
+        using Addr = Register::Address<0x00843108,0xfffffffc,0,unsigned>;
+        ///Read Issuing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdIss{}; 
+        ///Write Issuing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wrIss{}; 
     }
 }

@@ -1,76 +1,110 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneen{
-        using Addr = Register::Address<0x400c4000,0xffffff3f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TBHALT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TBEN; 
+//16-bit Timer_Event Counter (TB)
+    namespace Noneen{    ///<TB Enable Register
+        using Addr = Register::Address<0x400c4000,0xffffff3f,0,unsigned>;
+        ///TBHALT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tbhalt{}; 
+        ///TBEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tben{}; 
     }
-    namespace Nonerun{
-        using Addr = Register::Address<0x400c4004,0xfffffffa>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TBRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TBPRUN; 
+    namespace Nonerun{    ///<TB RUN Register
+        using Addr = Register::Address<0x400c4004,0xfffffffa,0,unsigned>;
+        ///TBRUN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tbrun{}; 
+        ///TBPRUN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tbprun{}; 
     }
-    namespace Nonecr{
-        using Addr = Register::Address<0x400c4008,0xffffff50>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CSSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TRGSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TBINSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> I2TB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> TBSYNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TBWBF; 
+    namespace Nonecr{    ///<TB Control Register
+        using Addr = Register::Address<0x400c4008,0xffffff50,0,unsigned>;
+        ///CSSEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cssel{}; 
+        ///TRGSEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> trgsel{}; 
+        ///TBINSEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tbinsel{}; 
+        ///I2TB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> i2tb{}; 
+        ///TBSYNC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tbsync{}; 
+        ///TBWBF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tbwbf{}; 
     }
-    namespace Nonemod{
-        using Addr = Register::Address<0x400c400c,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TBCLK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TBCLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> TBCPM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TBCP; 
+    namespace Nonemod{    ///<TB Mode Register
+        using Addr = Register::Address<0x400c400c,0xffffff80,0,unsigned>;
+        ///TBCLK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> tbclk{}; 
+        ///TBCLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tbcle{}; 
+        ///TBCPM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tbcpm{}; 
+        ///TBCP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tbcp{}; 
     }
-    namespace Noneffcr{
-        using Addr = Register::Address<0x400c4010,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> TBFF0C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TBE0T1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TBE1T1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TBC0T1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> TBC1T1; 
+    namespace Noneffcr{    ///<TB Flip-Flop Control Register
+        using Addr = Register::Address<0x400c4010,0xffffffc0,0,unsigned>;
+        ///TBFF0C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> tbff0c{}; 
+        ///TBE0T1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tbe0t1{}; 
+        ///TBE1T1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tbe1t1{}; 
+        ///TBC0T1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tbc0t1{}; 
+        ///TBC1T1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tbc1t1{}; 
     }
-    namespace Nonest{
-        using Addr = Register::Address<0x400c4014,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> INTTB0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> INTTB1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> INTTBOF; 
+    namespace Nonest{    ///<TB Status Register
+        using Addr = Register::Address<0x400c4014,0xfffffff8,0,unsigned>;
+        ///INTTB0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inttb0{}; 
+        ///INTTB1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inttb1{}; 
+        ///INTTBOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> inttbof{}; 
     }
-    namespace Noneim{
-        using Addr = Register::Address<0x400c4018,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TBIM0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TBIM1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TBIMOF; 
+    namespace Noneim{    ///<TB Interrupt Mask Register
+        using Addr = Register::Address<0x400c4018,0xfffffff8,0,unsigned>;
+        ///TBIM0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tbim0{}; 
+        ///TBIM1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tbim1{}; 
+        ///TBIMOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tbimof{}; 
     }
-    namespace Noneuc{
-        using Addr = Register::Address<0x400c401c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TBUC; 
+    namespace Noneuc{    ///<TB Read Capture Register
+        using Addr = Register::Address<0x400c401c,0xffff0000,0,unsigned>;
+        ///TBUC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tbuc{}; 
     }
-    namespace Nonerg0{
-        using Addr = Register::Address<0x400c4020,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TBRG0; 
+    namespace Nonerg0{    ///<TB RG0 Timer Register
+        using Addr = Register::Address<0x400c4020,0xffff0000,0,unsigned>;
+        ///TBRG0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tbrg0{}; 
     }
-    namespace Nonerg1{
-        using Addr = Register::Address<0x400c4024,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TBRG1; 
+    namespace Nonerg1{    ///<TB RG1 Timer Register
+        using Addr = Register::Address<0x400c4024,0xffff0000,0,unsigned>;
+        ///TBRG1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tbrg1{}; 
     }
-    namespace Nonecp0{
-        using Addr = Register::Address<0x400c4028,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TBCP0; 
+    namespace Nonecp0{    ///<TB CP0 Capture Register
+        using Addr = Register::Address<0x400c4028,0xffff0000,0,unsigned>;
+        ///TBCP0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tbcp0{}; 
     }
-    namespace Nonecp1{
-        using Addr = Register::Address<0x400c402c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TBCP1; 
+    namespace Nonecp1{    ///<TB CP1 Capture Register
+        using Addr = Register::Address<0x400c402c,0xffff0000,0,unsigned>;
+        ///TBCP1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tbcp1{}; 
     }
-    namespace Nonedma{
-        using Addr = Register::Address<0x400c4030,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DMAEN0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DMAEN1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> DMAEN2; 
+    namespace Nonedma{    ///<TB DMA Enable Register
+        using Addr = Register::Address<0x400c4030,0xfffffff8,0,unsigned>;
+        ///DMAEN0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaen0{}; 
+        ///DMAEN1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmaen1{}; 
+        ///DMAEN2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dmaen2{}; 
     }
 }

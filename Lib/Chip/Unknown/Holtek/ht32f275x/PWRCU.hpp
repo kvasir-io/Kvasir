@@ -1,79 +1,110 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonepwrcu_baksr{
-        using Addr = Register::Address<0x4006a100,0xfffffefc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BAKPORF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PDF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> WUPF; 
+//PWRCU
+    namespace NonepwrcuBaksr{    ///<PWRCU_BAKSR
+        using Addr = Register::Address<0x4006a100,0xfffffefc,0,unsigned>;
+        ///BAKPORF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bakporf{}; 
+        ///PDF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pdf{}; 
+        ///WUPF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> wupf{}; 
     }
-    namespace Nonepwrcu_bakcr{
-        using Addr = Register::Address<0x4006a104,0xffff6c76>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BAKRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> LDOOFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DMOSON; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> WUPEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> WUPIEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> V18RDYSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> DMOSSTS; 
+    namespace NonepwrcuBakcr{    ///<PWRCU_BAKCR
+        using Addr = Register::Address<0x4006a104,0xffff6c76,0,unsigned>;
+        ///BAKRST
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bakrst{}; 
+        ///LDOOFF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ldooff{}; 
+        ///DMOSON
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dmoson{}; 
+        ///WUPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> wupen{}; 
+        ///WUPIEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> wupien{}; 
+        ///V18RDYSC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> v18rdysc{}; 
+        ///DMOSSTS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dmossts{}; 
     }
-    namespace Nonepwrcu_baktest{
-        using Addr = Register::Address<0x4006a108,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> BAKTEST; 
+    namespace NonepwrcuBaktest{    ///<PWRCU_BAKTEST
+        using Addr = Register::Address<0x4006a108,0xffffff00,0,unsigned>;
+        ///BAKTEST
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> baktest{}; 
     }
-    namespace Nonepwrcu_hsircr{
-        using Addr = Register::Address<0x4006a10c,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> HSIRCBL; 
+    namespace NonepwrcuHsircr{    ///<PWRCU_HSIRCR
+        using Addr = Register::Address<0x4006a10c,0xfffffffc,0,unsigned>;
+        ///HSIRCBL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> hsircbl{}; 
     }
-    namespace Nonepwrcu_lvdcsr{
-        using Addr = Register::Address<0x4006a110,0xffc0fff4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BODEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> BODRIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> BODF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> LVDEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,17)> LVDS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> LVDF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> LVDIWEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> LVDEWEN; 
+    namespace NonepwrcuLvdcsr{    ///<PWRCU_LVDCSR
+        using Addr = Register::Address<0x4006a110,0xffc0fff4,0,unsigned>;
+        ///BODEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> boden{}; 
+        ///BODRIS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> bodris{}; 
+        ///BODF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> bodf{}; 
+        ///LVDEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> lvden{}; 
+        ///LVDS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> lvds{}; 
+        ///LVDF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> lvdf{}; 
+        ///LVDIWEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> lvdiwen{}; 
+        ///LVDEWEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> lvdewen{}; 
     }
-    namespace Nonepwrcu_bakreg0{
-        using Addr = Register::Address<0x4006a200,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg0{    ///<PWRCU_BAKREG0
+        using Addr = Register::Address<0x4006a200,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg1{
-        using Addr = Register::Address<0x4006a204,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg1{    ///<PWRCU_BAKREG1
+        using Addr = Register::Address<0x4006a204,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg2{
-        using Addr = Register::Address<0x4006a208,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg2{    ///<PWRCU_BAKREG2
+        using Addr = Register::Address<0x4006a208,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg3{
-        using Addr = Register::Address<0x4006a20c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg3{    ///<PWRCU_BAKREG3
+        using Addr = Register::Address<0x4006a20c,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg4{
-        using Addr = Register::Address<0x4006a210,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg4{    ///<PWRCU_BAKREG4
+        using Addr = Register::Address<0x4006a210,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg5{
-        using Addr = Register::Address<0x4006a214,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg5{    ///<PWRCU_BAKREG5
+        using Addr = Register::Address<0x4006a214,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg6{
-        using Addr = Register::Address<0x4006a218,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg6{    ///<PWRCU_BAKREG6
+        using Addr = Register::Address<0x4006a218,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg7{
-        using Addr = Register::Address<0x4006a21c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg7{    ///<PWRCU_BAKREG7
+        using Addr = Register::Address<0x4006a21c,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg8{
-        using Addr = Register::Address<0x4006a220,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg8{    ///<PWRCU_BAKREG8
+        using Addr = Register::Address<0x4006a220,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
-    namespace Nonepwrcu_bakreg9{
-        using Addr = Register::Address<0x4006a224,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BAKREG; 
+    namespace NonepwrcuBakreg9{    ///<PWRCU_BAKREG9
+        using Addr = Register::Address<0x4006a224,0x00000000,0,unsigned>;
+        ///BAKREG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bakreg{}; 
     }
 }

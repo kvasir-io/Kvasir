@@ -1,30 +1,57 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecr{
-        using Addr = Register::Address<0x40007000,0xffff8000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LPDS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PDDS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CWUF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CSBF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PVDE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5)> PLS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DBP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> FPDS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> FWU; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,11)> VOS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> DS_EE_KOFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> LPRUN; 
+//Power control
+    namespace Nonecr{    ///<power control register
+        using Addr = Register::Address<0x40007000,0xffff8000,0,unsigned>;
+        ///Low-power deep sleep
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lpds{}; 
+        ///Power down deepsleep
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pdds{}; 
+        ///Clear wakeup flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cwuf{}; 
+        ///Clear standby flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> csbf{}; 
+        ///Power voltage detector
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pvde{}; 
+        ///PVD level selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> pls{}; 
+        ///Disable backup domain write
+              protection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dbp{}; 
+        ///Flash power down in Stop
+              mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> fpds{}; 
+        ///Fast wakeup
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> fwu{}; 
+        ///Voltage scaling range
+              selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,unsigned> vos{}; 
+        ///Deep sleep mode with Flash memory kept
+              off
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> dsEeKoff{}; 
+        ///Low power run mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> lprun{}; 
     }
-    namespace Nonecsr{
-        using Addr = Register::Address<0x40007004,0xfffffcc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> BRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EWUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> BRR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PVDO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SBF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WUF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> VOSF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> REGLPF; 
+    namespace Nonecsr{    ///<power control/status register
+        using Addr = Register::Address<0x40007004,0xfffffcc0,0,unsigned>;
+        ///Backup regulator enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bre{}; 
+        ///Enable WKUP pin
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ewup{}; 
+        ///Backup regulator ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> brr{}; 
+        ///PVD output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pvdo{}; 
+        ///Standby flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sbf{}; 
+        ///Wakeup flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wuf{}; 
+        ///Voltage Scaling select
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> vosf{}; 
+        ///Regulator LP flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> reglpf{}; 
     }
 }

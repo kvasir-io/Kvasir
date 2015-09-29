@@ -1,29 +1,37 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace TRNG_cr{
-        using Addr = Register::Address<0x400bc000,0x000000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ENABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8)> KEY; 
+//True Random Number Generator
+    namespace TrngCr{    ///<Control Register
+        using Addr = Register::Address<0x400bc000,0x000000fe,0,unsigned>;
+        ///Enables the TRNG to provide random values
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> enable{}; 
+        ///Security Key
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> key{}; 
     }
-    namespace TRNG_ier{
-        using Addr = Register::Address<0x400bc010,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DATRDY; 
+    namespace TrngIer{    ///<Interrupt Enable Register
+        using Addr = Register::Address<0x400bc010,0xfffffffe,0,unsigned>;
+        ///Data Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> datrdy{}; 
     }
-    namespace TRNG_idr{
-        using Addr = Register::Address<0x400bc014,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DATRDY; 
+    namespace TrngIdr{    ///<Interrupt Disable Register
+        using Addr = Register::Address<0x400bc014,0xfffffffe,0,unsigned>;
+        ///Data Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> datrdy{}; 
     }
-    namespace TRNG_imr{
-        using Addr = Register::Address<0x400bc018,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DATRDY; 
+    namespace TrngImr{    ///<Interrupt Mask Register
+        using Addr = Register::Address<0x400bc018,0xfffffffe,0,unsigned>;
+        ///Data Ready Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> datrdy{}; 
     }
-    namespace TRNG_isr{
-        using Addr = Register::Address<0x400bc01c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DATRDY; 
+    namespace TrngIsr{    ///<Interrupt Status Register
+        using Addr = Register::Address<0x400bc01c,0xfffffffe,0,unsigned>;
+        ///Data Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> datrdy{}; 
     }
-    namespace TRNG_odata{
-        using Addr = Register::Address<0x400bc050,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ODATA; 
+    namespace TrngOdata{    ///<Output Data Register
+        using Addr = Register::Address<0x400bc050,0x00000000,0,unsigned>;
+        ///Output Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> odata{}; 
     }
 }

@@ -1,38 +1,52 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonedata{
-        using Addr = Register::Address<0x400c0500,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PF0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PF1; 
+//General Purpose Input_Output Port (PF)
+    namespace Nonedata{    ///<PF Data Register
+        using Addr = Register::Address<0x400c0500,0xfffffffc,0,unsigned>;
+        ///PF0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pf0{}; 
+        ///PF1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pf1{}; 
     }
-    namespace Nonecr{
-        using Addr = Register::Address<0x400c0504,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PF0C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PF1C; 
+    namespace Nonecr{    ///<PF Control Register
+        using Addr = Register::Address<0x400c0504,0xfffffffc,0,unsigned>;
+        ///PF0C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pf0c{}; 
+        ///PF1C
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pf1c{}; 
     }
-    namespace Nonefr1{
-        using Addr = Register::Address<0x400c0508,0xfffffffd>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PF1F1; 
+    namespace Nonefr1{    ///<PF Function Register 1
+        using Addr = Register::Address<0x400c0508,0xfffffffd,0,unsigned>;
+        ///PF1F1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pf1f1{}; 
     }
-    namespace Noneod{
-        using Addr = Register::Address<0x400c0528,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PF0OD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PF1OD; 
+    namespace Noneod{    ///<PF Open Drain Control Register
+        using Addr = Register::Address<0x400c0528,0xfffffffc,0,unsigned>;
+        ///PF0OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pf0od{}; 
+        ///PF1OD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pf1od{}; 
     }
-    namespace Nonepup{
-        using Addr = Register::Address<0x400c052c,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PF0UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PF1UP; 
+    namespace Nonepup{    ///<PF Pull-Up Control Register
+        using Addr = Register::Address<0x400c052c,0xfffffffc,0,unsigned>;
+        ///PF0UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pf0up{}; 
+        ///PF1UP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pf1up{}; 
     }
-    namespace Nonepfn{
-        using Addr = Register::Address<0x400c0530,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PF0DN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PF1DN; 
+    namespace Nonepfn{    ///<PF Pull-Down Control Register
+        using Addr = Register::Address<0x400c0530,0xfffffffc,0,unsigned>;
+        ///PF0DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pf0dn{}; 
+        ///PF1DN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pf1dn{}; 
     }
-    namespace Noneie{
-        using Addr = Register::Address<0x400c0538,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PF0IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PF1IE; 
+    namespace Noneie{    ///<PF Input Enable Control Register
+        using Addr = Register::Address<0x400c0538,0xfffffffc,0,unsigned>;
+        ///PF0IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pf0ie{}; 
+        ///PF1IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pf1ie{}; 
     }
 }

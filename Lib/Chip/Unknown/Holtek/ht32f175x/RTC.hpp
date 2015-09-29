@@ -1,42 +1,66 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonertc_cnt{
-        using Addr = Register::Address<0x4006a000,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RTCCNT; 
+//RTC
+    namespace NonertcCnt{    ///<RTC_CNT
+        using Addr = Register::Address<0x4006a000,0x00000000,0,unsigned>;
+        ///RTCCNT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rtccnt{}; 
     }
-    namespace Nonertc_cmp{
-        using Addr = Register::Address<0x4006a004,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RTCCMP; 
+    namespace NonertcCmp{    ///<RTC_CMP
+        using Addr = Register::Address<0x4006a004,0x00000000,0,unsigned>;
+        ///RTCCMP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rtccmp{}; 
     }
-    namespace Nonertc_cr{
-        using Addr = Register::Address<0x4006a008,0xffe0f0c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RTCEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RTCSRC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> LSIEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> LSEEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CMPCLR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> LSESM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> RPRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> ROEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> ROES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ROWM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> ROAP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> ROLF; 
+    namespace NonertcCr{    ///<RTC_CR
+        using Addr = Register::Address<0x4006a008,0xffe0f0c0,0,unsigned>;
+        ///RTCEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rtcen{}; 
+        ///RTCSRC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rtcsrc{}; 
+        ///LSIEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lsien{}; 
+        ///LSEEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> lseen{}; 
+        ///CMPCLR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cmpclr{}; 
+        ///LSESM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lsesm{}; 
+        ///RPRE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> rpre{}; 
+        ///ROEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> roen{}; 
+        ///ROES
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> roes{}; 
+        ///ROWM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rowm{}; 
+        ///ROAP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> roap{}; 
+        ///ROLF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rolf{}; 
     }
-    namespace Nonertc_sr{
-        using Addr = Register::Address<0x4006a00c,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CSECFLAG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CMFLAG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> OVFLAG; 
+    namespace NonertcSr{    ///<RTC_SR
+        using Addr = Register::Address<0x4006a00c,0xfffffff8,0,unsigned>;
+        ///CSECFLAG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> csecflag{}; 
+        ///CMFLAG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cmflag{}; 
+        ///OVFLAG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ovflag{}; 
     }
-    namespace Nonertc_iwen{
-        using Addr = Register::Address<0x4006a010,0xfffff8f8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CSECIEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CMIEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> OVIEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> CSECWEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> CMWEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OVWEN; 
+    namespace NonertcIwen{    ///<RTC_IWEN
+        using Addr = Register::Address<0x4006a010,0xfffff8f8,0,unsigned>;
+        ///CSECIEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> csecien{}; 
+        ///CMIEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cmien{}; 
+        ///OVIEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ovien{}; 
+        ///CSECWEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> csecwen{}; 
+        ///CMWEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cmwen{}; 
+        ///OVWEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ovwen{}; 
     }
 }

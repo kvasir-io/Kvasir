@@ -1,17 +1,22 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonewfaszr{
-        using Addr = Register::Address<0x200e0000,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ASZ; 
+//WorkFlash Memory
+    namespace Nonewfaszr{    ///<WorkFlash Access Size Register
+        using Addr = Register::Address<0x200e0000,0xfffffffe,0,unsigned>;
+        ///WorkFlash Access Size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> asz{}; 
     }
-    namespace Nonewfrwtr{
-        using Addr = Register::Address<0x200e0004,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> RWT; 
+    namespace Nonewfrwtr{    ///<WorkFlash Read Wait Register
+        using Addr = Register::Address<0x200e0004,0xfffffff8,0,unsigned>;
+        ///Read Wait Cycle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> rwt{}; 
     }
-    namespace Nonewfstr{
-        using Addr = Register::Address<0x200e0008,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> HNG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RDY; 
+    namespace Nonewfstr{    ///<WorkFlash Status Register
+        using Addr = Register::Address<0x200e0008,0xfffffffc,0,unsigned>;
+        ///WorkFlash Hang
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hng{}; 
+        ///WorkFlash Rdy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdy{}; 
     }
 }

@@ -1,136 +1,228 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecr{
-        using Addr = Register::Address<0x4002b000,0xfffcc0f8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> CEIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> CTCIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> CAEIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TWIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TCIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TEIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ABORT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SUSP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> START; 
+//DMA2D controller
+    namespace Nonecr{    ///<control register
+        using Addr = Register::Address<0x4002b000,0xfffcc0f8,0,unsigned>;
+        ///DMA2D mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> mode{}; 
+        ///Configuration Error Interrupt
+              Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ceie{}; 
+        ///CLUT transfer complete interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ctcie{}; 
+        ///CLUT access error interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> caeie{}; 
+        ///Transfer watermark interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> twie{}; 
+        ///Transfer complete interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tcie{}; 
+        ///Transfer error interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> teie{}; 
+        ///Abort
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> abort{}; 
+        ///Suspend
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> susp{}; 
+        ///Start
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> start{}; 
     }
-    namespace Noneisr{
-        using Addr = Register::Address<0x4002b004,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CEIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CTCIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CAEIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TWIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TCIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TEIF; 
+    namespace Noneisr{    ///<Interrupt Status Register
+        using Addr = Register::Address<0x4002b004,0xffffffc0,0,unsigned>;
+        ///Configuration error interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ceif{}; 
+        ///CLUT transfer complete interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ctcif{}; 
+        ///CLUT access error interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> caeif{}; 
+        ///Transfer watermark interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> twif{}; 
+        ///Transfer complete interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tcif{}; 
+        ///Transfer error interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> teif{}; 
     }
-    namespace Noneifcr{
-        using Addr = Register::Address<0x4002b008,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CCEIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CCTCIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CAECIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CTWIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CTCIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CTEIF; 
+    namespace Noneifcr{    ///<interrupt flag clear register
+        using Addr = Register::Address<0x4002b008,0xffffffc0,0,unsigned>;
+        ///Clear configuration error interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cceif{}; 
+        ///Clear CLUT transfer complete interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cctcif{}; 
+        ///Clear CLUT access error interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> caecif{}; 
+        ///Clear transfer watermark interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ctwif{}; 
+        ///Clear transfer complete interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ctcif{}; 
+        ///Clear Transfer error interrupt
+              flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cteif{}; 
     }
-    namespace Nonefgmar{
-        using Addr = Register::Address<0x4002b00c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MA; 
+    namespace Nonefgmar{    ///<foreground memory address
+          register
+        using Addr = Register::Address<0x4002b00c,0x00000000,0,unsigned>;
+        ///Memory address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Nonefgor{
-        using Addr = Register::Address<0x4002b010,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> LO; 
+    namespace Nonefgor{    ///<foreground offset register
+        using Addr = Register::Address<0x4002b010,0xffffc000,0,unsigned>;
+        ///Line offset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> lo{}; 
     }
-    namespace Nonebgmar{
-        using Addr = Register::Address<0x4002b014,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MA; 
+    namespace Nonebgmar{    ///<background memory address
+          register
+        using Addr = Register::Address<0x4002b014,0x00000000,0,unsigned>;
+        ///Memory address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Nonebgor{
-        using Addr = Register::Address<0x4002b018,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> LO; 
+    namespace Nonebgor{    ///<background offset register
+        using Addr = Register::Address<0x4002b018,0xffffc000,0,unsigned>;
+        ///Line offset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> lo{}; 
     }
-    namespace Nonefgpfccr{
-        using Addr = Register::Address<0x4002b01c,0x00fc00c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> ALPHA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> AM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> CS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> START; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CCM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> CM; 
+    namespace Nonefgpfccr{    ///<foreground PFC control
+          register
+        using Addr = Register::Address<0x4002b01c,0x00fc00c0,0,unsigned>;
+        ///Alpha value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> alpha{}; 
+        ///Alpha mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> am{}; 
+        ///CLUT size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cs{}; 
+        ///Start
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> start{}; 
+        ///CLUT color mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ccm{}; 
+        ///Color mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cm{}; 
     }
-    namespace Nonefgcolr{
-        using Addr = Register::Address<0x4002b020,0xff000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> RED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> GREEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> BLUE; 
+    namespace Nonefgcolr{    ///<foreground color register
+        using Addr = Register::Address<0x4002b020,0xff000000,0,unsigned>;
+        ///Red Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> red{}; 
+        ///Green Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> green{}; 
+        ///Blue Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> blue{}; 
     }
-    namespace Nonebgpfccr{
-        using Addr = Register::Address<0x4002b024,0x00fc00c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> ALPHA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> AM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> CS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> START; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CCM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> CM; 
+    namespace Nonebgpfccr{    ///<background PFC control
+          register
+        using Addr = Register::Address<0x4002b024,0x00fc00c0,0,unsigned>;
+        ///Alpha value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> alpha{}; 
+        ///Alpha mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> am{}; 
+        ///CLUT size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cs{}; 
+        ///Start
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> start{}; 
+        ///CLUT Color mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ccm{}; 
+        ///Color mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cm{}; 
     }
-    namespace Nonebgcolr{
-        using Addr = Register::Address<0x4002b028,0xff000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> RED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> GREEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> BLUE; 
+    namespace Nonebgcolr{    ///<background color register
+        using Addr = Register::Address<0x4002b028,0xff000000,0,unsigned>;
+        ///Red Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> red{}; 
+        ///Green Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> green{}; 
+        ///Blue Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> blue{}; 
     }
-    namespace Nonefgcmar{
-        using Addr = Register::Address<0x4002b02c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MA; 
+    namespace Nonefgcmar{    ///<foreground CLUT memory address
+          register
+        using Addr = Register::Address<0x4002b02c,0x00000000,0,unsigned>;
+        ///Memory Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Nonebgcmar{
-        using Addr = Register::Address<0x4002b030,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MA; 
+    namespace Nonebgcmar{    ///<background CLUT memory address
+          register
+        using Addr = Register::Address<0x4002b030,0x00000000,0,unsigned>;
+        ///Memory address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Noneopfccr{
-        using Addr = Register::Address<0x4002b034,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> CM; 
+    namespace Noneopfccr{    ///<output PFC control register
+        using Addr = Register::Address<0x4002b034,0xfffffff8,0,unsigned>;
+        ///Color mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> cm{}; 
     }
-    namespace Noneocolr{
-        using Addr = Register::Address<0x4002b038,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> APLHA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> RED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> GREEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> BLUE; 
+    namespace Noneocolr{    ///<output color register
+        using Addr = Register::Address<0x4002b038,0x00000000,0,unsigned>;
+        ///Alpha Channel Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> aplha{}; 
+        ///Red Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> red{}; 
+        ///Green Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> green{}; 
+        ///Blue Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> blue{}; 
     }
-    namespace Noneomar{
-        using Addr = Register::Address<0x4002b03c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MA; 
+    namespace Noneomar{    ///<output memory address register
+        using Addr = Register::Address<0x4002b03c,0x00000000,0,unsigned>;
+        ///Memory Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ma{}; 
     }
-    namespace Noneoor{
-        using Addr = Register::Address<0x4002b040,0xffffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0)> LO; 
+    namespace Noneoor{    ///<output offset register
+        using Addr = Register::Address<0x4002b040,0xffffc000,0,unsigned>;
+        ///Line Offset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> lo{}; 
     }
-    namespace Nonenlr{
-        using Addr = Register::Address<0x4002b044,0xc0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,16)> PL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> NL; 
+    namespace Nonenlr{    ///<number of line register
+        using Addr = Register::Address<0x4002b044,0xc0000000,0,unsigned>;
+        ///Pixel per lines
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> pl{}; 
+        ///Number of lines
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> nl{}; 
     }
-    namespace Nonelwr{
-        using Addr = Register::Address<0x4002b048,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> LW; 
+    namespace Nonelwr{    ///<line watermark register
+        using Addr = Register::Address<0x4002b048,0xffff0000,0,unsigned>;
+        ///Line watermark
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lw{}; 
     }
-    namespace Noneamtcr{
-        using Addr = Register::Address<0x4002b04c,0xffff00fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> DT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EN; 
+    namespace Noneamtcr{    ///<AHB master timer configuration
+          register
+        using Addr = Register::Address<0x4002b04c,0xffff00fe,0,unsigned>;
+        ///Dead Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> dt{}; 
+        ///Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
     }
-    namespace Nonefgclut{
-        using Addr = Register::Address<0x4002b400,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> APLHA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> RED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> GREEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> BLUE; 
+    namespace Nonefgclut{    ///<FGCLUT
+        using Addr = Register::Address<0x4002b400,0x00000000,0,unsigned>;
+        ///APLHA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> aplha{}; 
+        ///RED
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> red{}; 
+        ///GREEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> green{}; 
+        ///BLUE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> blue{}; 
     }
-    namespace Nonebgclut{
-        using Addr = Register::Address<0x4002b800,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> APLHA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> RED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> GREEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> BLUE; 
+    namespace Nonebgclut{    ///<BGCLUT
+        using Addr = Register::Address<0x4002b800,0x00000000,0,unsigned>;
+        ///APLHA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> aplha{}; 
+        ///RED
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> red{}; 
+        ///GREEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> green{}; 
+        ///BLUE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> blue{}; 
     }
 }

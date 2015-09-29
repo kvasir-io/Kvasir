@@ -1,8 +1,10 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneferrad{
-        using Addr = Register::Address<0x40000300,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> ERRAD; 
+//ECC Capture Address
+    namespace Noneferrad{    ///<Flash ECC Error Address Capture Register
+        using Addr = Register::Address<0x40000300,0xff800000,0,unsigned>;
+        ///Flash ECC Error Address Capture
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> errad{}; 
     }
 }

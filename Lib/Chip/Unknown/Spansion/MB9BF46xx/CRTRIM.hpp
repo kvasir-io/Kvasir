@@ -1,20 +1,25 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonemcr_psr{
-        using Addr = Register::Address<0x4002e000,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> CSR; 
+// peripheral CRTRIM 
+    namespace NonemcrPsr{    ///< register MCR_PSR 
+        using Addr = Register::Address<0x4002e000,0xfffffff8,0,unsigned char>;
+        /// bitfield CSR 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> csr{}; 
     }
-    namespace Nonemcr_ftrm{
-        using Addr = Register::Address<0x4002e004,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> TRD; 
+    namespace NonemcrFtrm{    ///< register MCR_FTRM 
+        using Addr = Register::Address<0x4002e004,0xfffffc00,0,unsigned>;
+        /// bitfield TRD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> trd{}; 
     }
-    namespace Nonemcr_ttrm{
-        using Addr = Register::Address<0x4002e008,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> TRT; 
+    namespace NonemcrTtrm{    ///< register MCR_TTRM 
+        using Addr = Register::Address<0x4002e008,0xffffffe0,0,unsigned char>;
+        /// bitfield TRT 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trt{}; 
     }
-    namespace Nonemcr_rlr{
-        using Addr = Register::Address<0x4002e00c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TRMLCK; 
+    namespace NonemcrRlr{    ///< register MCR_RLR 
+        using Addr = Register::Address<0x4002e00c,0x00000000,0,unsigned>;
+        /// bitfield TRMLCK 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> trmlck{}; 
     }
 }

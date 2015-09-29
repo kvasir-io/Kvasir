@@ -1,23 +1,34 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace RSTC_cr{
-        using Addr = Register::Address<0xfffffd00,0x00fffff2>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PROCRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PERRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EXTRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> KEY; 
+//Reset Controller
+    namespace RstcCr{    ///<Control Register
+        using Addr = Register::Address<0xfffffd00,0x00fffff2,0,unsigned>;
+        ///Processor Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> procrst{}; 
+        ///Peripheral Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> perrst{}; 
+        ///External Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> extrst{}; 
+        ///Password
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
     }
-    namespace RSTC_sr{
-        using Addr = Register::Address<0xfffffd04,0xfffcf8fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> URSTS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> RSTTYP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> NRSTL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> SRCMP; 
+    namespace RstcSr{    ///<Status Register
+        using Addr = Register::Address<0xfffffd04,0xfffcf8fe,0,unsigned>;
+        ///User Reset Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ursts{}; 
+        ///Reset Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> rsttyp{}; 
+        ///NRST Pin Level
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> nrstl{}; 
+        ///Software Reset Command in Progress
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> srcmp{}; 
     }
-    namespace RSTC_mr{
-        using Addr = Register::Address<0xfffffd08,0x00fff0ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> ERSTL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> KEY; 
+    namespace RstcMr{    ///<Mode Register
+        using Addr = Register::Address<0xfffffd08,0x00fff0ff,0,unsigned>;
+        ///External Reset Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> erstl{}; 
+        ///Password
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
     }
 }

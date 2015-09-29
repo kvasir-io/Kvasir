@@ -1,46 +1,80 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecomp2_csr{
-        using Addr = Register::Address<0x40010024,0x3fe04102>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COMP2EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> COMP2MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> COMP2INSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> COMP2INPSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> COMP2INMSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,10)> COMP2_OUT_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> COMP2POL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> COMP2HYST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18)> COMP2_BLANKING; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> COMP2OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> COMP2LOCK; 
+//Comparator
+    namespace Nonecomp2Csr{    ///<control and status register
+        using Addr = Register::Address<0x40010024,0x3fe04102,0,unsigned>;
+        ///Comparator 2 enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp2en{}; 
+        ///Comparator 2 mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> comp2mode{}; 
+        ///Comparator 2 inverting input               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> comp2insel{}; 
+        ///Comparator 2 non inverted input               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> comp2inpsel{}; 
+        ///Comparator 1inverting input               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> comp2inmsel{}; 
+        ///Comparator 2 output               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,10),Register::ReadWriteAccess,unsigned> comp2OutSel{}; 
+        ///Comparator 2 output               polarity
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> comp2pol{}; 
+        ///Comparator 2 hysteresis
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> comp2hyst{}; 
+        ///Comparator 2 blanking               source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> comp2Blanking{}; 
+        ///Comparator 2 output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> comp2out{}; 
+        ///Comparator 2 lock
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> comp2lock{}; 
     }
-    namespace Nonecomp4_csr{
-        using Addr = Register::Address<0x4001002c,0x3fe04102>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COMP4EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> COMP4MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> COMP4INSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> COMP4INPSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> COM4WINMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,10)> COMP4_OUT_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> COMP4POL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> COMP4HYST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18)> COMP4_BLANKING; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> COMP4OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> COMP4LOCK; 
+    namespace Nonecomp4Csr{    ///<control and status register
+        using Addr = Register::Address<0x4001002c,0x3fe04102,0,unsigned>;
+        ///Comparator 4 enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp4en{}; 
+        ///Comparator 4 mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> comp4mode{}; 
+        ///Comparator 4 inverting input               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> comp4insel{}; 
+        ///Comparator 4 non inverted input               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> comp4inpsel{}; 
+        ///Comparator 4 window mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> com4winmode{}; 
+        ///Comparator 4 output               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,10),Register::ReadWriteAccess,unsigned> comp4OutSel{}; 
+        ///Comparator 4 output               polarity
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> comp4pol{}; 
+        ///Comparator 4 hysteresis
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> comp4hyst{}; 
+        ///Comparator 4 blanking               source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> comp4Blanking{}; 
+        ///Comparator 4 output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> comp4out{}; 
+        ///Comparator 4 lock
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> comp4lock{}; 
     }
-    namespace Nonecomp6_csr{
-        using Addr = Register::Address<0x40010034,0x3fe04102>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> COMP6EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> COMP6MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> COMP6INSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> COMP6INPSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> COM6WINMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,10)> COMP6_OUT_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> COMP6POL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> COMP6HYST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18)> COMP6_BLANKING; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> COMP6OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> COMP6LOCK; 
+    namespace Nonecomp6Csr{    ///<control and status register
+        using Addr = Register::Address<0x40010034,0x3fe04102,0,unsigned>;
+        ///Comparator 6 enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp6en{}; 
+        ///Comparator 6 mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> comp6mode{}; 
+        ///Comparator 6 inverting input               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> comp6insel{}; 
+        ///Comparator 6 non inverted input               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> comp6inpsel{}; 
+        ///Comparator 6 window mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> com6winmode{}; 
+        ///Comparator 6 output               selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,10),Register::ReadWriteAccess,unsigned> comp6OutSel{}; 
+        ///Comparator 6 output               polarity
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> comp6pol{}; 
+        ///Comparator 6 hysteresis
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> comp6hyst{}; 
+        ///Comparator 6 blanking               source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> comp6Blanking{}; 
+        ///Comparator 6 output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> comp6out{}; 
+        ///Comparator 6 lock
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> comp6lock{}; 
     }
 }

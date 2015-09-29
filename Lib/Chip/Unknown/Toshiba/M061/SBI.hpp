@@ -1,64 +1,95 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecr0{
-        using Addr = Register::Address<0x400e0000,0xffffff7f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> SBIEN; 
+//Serial Bus Interface (SBI)
+    namespace Nonecr0{    ///<SBI Control Register 0
+        using Addr = Register::Address<0x400e0000,0xffffff7f,0,unsigned>;
+        ///SBIEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> sbien{}; 
     }
-    namespace Nonecr1_a{
-        using Addr = Register::Address<0x400e0004,0xffffff08>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SWRMON; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> SCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ACK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5)> BC; 
+    namespace Nonecr1A{    ///<SBI Control Register 1 (I2C Mode)
+        using Addr = Register::Address<0x400e0004,0xffffff08,0,unsigned>;
+        ///SWRMON
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrmon{}; 
+        ///SCK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> sck{}; 
+        ///ACK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ack{}; 
+        ///BC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> bc{}; 
     }
-    namespace Nonecr1_b{
-        using Addr = Register::Address<0x400e0004,0xffffff08>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> SCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> SIOM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> SIOINH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> SIOS; 
+    namespace Nonecr1B{    ///<SBI Control Register 1 (SIO Mode)
+        using Addr = Register::Address<0x400e0004,0xffffff08,0,unsigned>;
+        ///SCK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> sck{}; 
+        ///SIOM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> siom{}; 
+        ///SIOINH
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> sioinh{}; 
+        ///SIOS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> sios{}; 
     }
-    namespace Nonedbr{
-        using Addr = Register::Address<0x400e0008,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> DB; 
+    namespace Nonedbr{    ///<SBI Data Buffer Register
+        using Addr = Register::Address<0x400e0008,0xffffff00,0,unsigned>;
+        ///DB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> db{}; 
     }
-    namespace Nonei2car{
-        using Addr = Register::Address<0x400e000c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ALS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1)> SA; 
+    namespace Nonei2car{    ///<SBI I2C Bus Address Register
+        using Addr = Register::Address<0x400e000c,0xffffff00,0,unsigned>;
+        ///ALS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> als{}; 
+        ///SA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> sa{}; 
     }
-    namespace Nonecr2_a{
-        using Addr = Register::Address<0x400e0010,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> SWRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> SBIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PIN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> BB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MST; 
+    namespace Nonecr2A{    ///<SBI Control Register 2 (I2C Mode)
+        using Addr = Register::Address<0x400e0010,0xffffff00,0,unsigned>;
+        ///SWRST
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        ///SBIM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> sbim{}; 
+        ///PIN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pin{}; 
+        ///BB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> bb{}; 
+        ///TRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> trx{}; 
+        ///MST
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mst{}; 
     }
-    namespace Nonecr2_b{
-        using Addr = Register::Address<0x400e0010,0xfffffff3>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> SBIM; 
+    namespace Nonecr2B{    ///<SBI Control Register 2 (SIO Mode)
+        using Addr = Register::Address<0x400e0010,0xfffffff3,0,unsigned>;
+        ///SBIM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> sbim{}; 
     }
-    namespace Nonesr_a{
-        using Addr = Register::Address<0x400e0010,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LRB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ADO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> AAS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> AL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PIN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> BB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MST; 
+    namespace NonesrA{    ///<SBI Status Register (I2C Mode)
+        using Addr = Register::Address<0x400e0010,0xffffff00,0,unsigned>;
+        ///LRB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lrb{}; 
+        ///ADO
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ado{}; 
+        ///AAS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> aas{}; 
+        ///AL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> al{}; 
+        ///PIN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pin{}; 
+        ///BB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> bb{}; 
+        ///TRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> trx{}; 
+        ///MST
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mst{}; 
     }
-    namespace Nonesr_b{
-        using Addr = Register::Address<0x400e0010,0xfffffff3>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SEF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> SIOF; 
+    namespace NonesrB{    ///<SBI Status Register (SIO Mode)
+        using Addr = Register::Address<0x400e0010,0xfffffff3,0,unsigned>;
+        ///SEF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sef{}; 
+        ///SIOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> siof{}; 
     }
-    namespace Nonebr0{
-        using Addr = Register::Address<0x400e0014,0xffffffbf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> I2SBI; 
+    namespace Nonebr0{    ///<SBI Baud Rate Register 0
+        using Addr = Register::Address<0x400e0014,0xffffffbf,0,unsigned>;
+        ///I2SBI
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> i2sbi{}; 
     }
 }

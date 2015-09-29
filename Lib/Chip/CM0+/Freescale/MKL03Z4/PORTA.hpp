@@ -1,370 +1,3320 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace PORTA_pcr0{
-        using Addr = Register::Address<0x40049000,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+//Pin Control and Interrupts
+    namespace PortaPcr0{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049000,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr1{
-        using Addr = Register::Address<0x40049004,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr1{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049004,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr2{
-        using Addr = Register::Address<0x40049008,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr2{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049008,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr3{
-        using Addr = Register::Address<0x4004900c,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr3{    ///<Pin Control Register n
+        using Addr = Register::Address<0x4004900c,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr4{
-        using Addr = Register::Address<0x40049010,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr4{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049010,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr5{
-        using Addr = Register::Address<0x40049014,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr5{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049014,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr6{
-        using Addr = Register::Address<0x40049018,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr6{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049018,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr7{
-        using Addr = Register::Address<0x4004901c,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr7{    ///<Pin Control Register n
+        using Addr = Register::Address<0x4004901c,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr8{
-        using Addr = Register::Address<0x40049020,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr8{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049020,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr9{
-        using Addr = Register::Address<0x40049024,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr9{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049024,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr10{
-        using Addr = Register::Address<0x40049028,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr10{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049028,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr11{
-        using Addr = Register::Address<0x4004902c,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr11{    ///<Pin Control Register n
+        using Addr = Register::Address<0x4004902c,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr12{
-        using Addr = Register::Address<0x40049030,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr12{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049030,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr13{
-        using Addr = Register::Address<0x40049034,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr13{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049034,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr14{
-        using Addr = Register::Address<0x40049038,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr14{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049038,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr15{
-        using Addr = Register::Address<0x4004903c,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr15{    ///<Pin Control Register n
+        using Addr = Register::Address<0x4004903c,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr16{
-        using Addr = Register::Address<0x40049040,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr16{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049040,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr17{
-        using Addr = Register::Address<0x40049044,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr17{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049044,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr18{
-        using Addr = Register::Address<0x40049048,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr18{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049048,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr19{
-        using Addr = Register::Address<0x4004904c,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr19{    ///<Pin Control Register n
+        using Addr = Register::Address<0x4004904c,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr20{
-        using Addr = Register::Address<0x40049050,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr20{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049050,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr21{
-        using Addr = Register::Address<0x40049054,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr21{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049054,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr22{
-        using Addr = Register::Address<0x40049058,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr22{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049058,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr23{
-        using Addr = Register::Address<0x4004905c,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr23{    ///<Pin Control Register n
+        using Addr = Register::Address<0x4004905c,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr24{
-        using Addr = Register::Address<0x40049060,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr24{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049060,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr25{
-        using Addr = Register::Address<0x40049064,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr25{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049064,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr26{
-        using Addr = Register::Address<0x40049068,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr26{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049068,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr27{
-        using Addr = Register::Address<0x4004906c,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr27{    ///<Pin Control Register n
+        using Addr = Register::Address<0x4004906c,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr28{
-        using Addr = Register::Address<0x40049070,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr28{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049070,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr29{
-        using Addr = Register::Address<0x40049074,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr29{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049074,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr30{
-        using Addr = Register::Address<0x40049078,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr30{    ///<Pin Control Register n
+        using Addr = Register::Address<0x40049078,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_pcr31{
-        using Addr = Register::Address<0x4004907c,0xfef0f8a8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8)> MUX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> IRQC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ISF; 
+    namespace PortaPcr31{    ///<Pin Control Register n
+        using Addr = Register::Address<0x4004907c,0xfef0f8a8,0,unsigned>;
+        ///Pull Select
+        enum class psVal {
+            v0=0x00000000,     ///<Internal pulldown resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+            v1=0x00000001,     ///<Internal pullup resistor is enabled on the corresponding pin, if the corresponding PE field is set.
+        };
+        namespace psValC{
+            constexpr MPL::Value<psVal,psVal::v0> v0{};
+            constexpr MPL::Value<psVal,psVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,psVal> ps{}; 
+        ///Pull Enable
+        enum class peVal {
+            v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
+            v1=0x00000001,     ///<Internal pullup or pulldown resistor is enabled on the corresponding pin, if the pin is configured as a digital input.
+        };
+        namespace peValC{
+            constexpr MPL::Value<peVal,peVal::v0> v0{};
+            constexpr MPL::Value<peVal,peVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,peVal> pe{}; 
+        ///Slew Rate Enable
+        enum class sreVal {
+            v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+            v1=0x00000001,     ///<Slow slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
+        };
+        namespace sreValC{
+            constexpr MPL::Value<sreVal,sreVal::v0> v0{};
+            constexpr MPL::Value<sreVal,sreVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sreVal> sre{}; 
+        ///Passive Filter Enable
+        enum class pfeVal {
+            v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
+            v1=0x00000001,     ///<Passive input filter is enabled on the corresponding pin, if the pin is configured as a digital input. Refer to the device data sheet for filter characteristics.
+        };
+        namespace pfeValC{
+            constexpr MPL::Value<pfeVal,pfeVal::v0> v0{};
+            constexpr MPL::Value<pfeVal,pfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pfeVal> pfe{}; 
+        ///Drive Strength Enable
+        enum class dseVal {
+            v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+            v1=0x00000001,     ///<High drive strength is configured on the corresponding pin, if pin is configured as a digital output.
+        };
+        namespace dseValC{
+            constexpr MPL::Value<dseVal,dseVal::v0> v0{};
+            constexpr MPL::Value<dseVal,dseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
+        ///Pin Mux Control
+        enum class muxVal {
+            v000=0x00000000,     ///<Pin disabled (analog).
+            v001=0x00000001,     ///<Alternative 1 (GPIO).
+            v010=0x00000002,     ///<Alternative 2 (chip-specific).
+            v011=0x00000003,     ///<Alternative 3 (chip-specific).
+            v100=0x00000004,     ///<Alternative 4 (chip-specific).
+            v101=0x00000005,     ///<Alternative 5 (chip-specific).
+            v110=0x00000006,     ///<Alternative 6 (chip-specific).
+            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+        };
+        namespace muxValC{
+            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
+            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
+            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
+            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
+            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
+            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
+            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
+            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
+        ///Interrupt Configuration
+        enum class irqcVal {
+            v0000=0x00000000,     ///<Interrupt request disabled.
+            v1000=0x00000008,     ///<Interrupt when logic 0.
+            v1001=0x00000009,     ///<Interrupt on rising-edge.
+            v1010=0x0000000a,     ///<Interrupt on falling-edge.
+            v1011=0x0000000b,     ///<Interrupt on either edge.
+            v1100=0x0000000c,     ///<Interrupt when logic 1.
+        };
+        namespace irqcValC{
+            constexpr MPL::Value<irqcVal,irqcVal::v0000> v0000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1000> v1000{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1001> v1001{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1010> v1010{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1011> v1011{};
+            constexpr MPL::Value<irqcVal,irqcVal::v1100> v1100{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,irqcVal> irqc{}; 
+        ///Interrupt Status Flag
+        enum class isfVal {
+            v0=0x00000000,     ///<Configured interrupt is not detected.
+            v1=0x00000001,     ///<Configured interrupt is detected. The flag remains set until a logic 1 is written to the flag. If the pin is configured for a level sensitive interrupt and the pin remains asserted, then the flag is set again immediately after it is cleared.
+        };
+        namespace isfValC{
+            constexpr MPL::Value<isfVal,isfVal::v0> v0{};
+            constexpr MPL::Value<isfVal,isfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,isfVal> isf{}; 
     }
-    namespace PORTA_gpclr{
-        using Addr = Register::Address<0x40049080,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> GPWD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> GPWE; 
+    namespace PortaGpclr{    ///<Global Pin Control Low Register
+        using Addr = Register::Address<0x40049080,0x00000000,0,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> gpwe{}; 
     }
-    namespace PORTA_gpchr{
-        using Addr = Register::Address<0x40049084,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> GPWD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> GPWE; 
+    namespace PortaGpchr{    ///<Global Pin Control High Register
+        using Addr = Register::Address<0x40049084,0x00000000,0,unsigned>;
+        ///Global Pin Write Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpwd{}; 
+        ///Global Pin Write Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> gpwe{}; 
     }
-    namespace PORTA_isfr{
-        using Addr = Register::Address<0x400490a0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ISF; 
+    namespace PortaIsfr{    ///<Interrupt Status Flag Register
+        using Addr = Register::Address<0x400490a0,0x00000000,0,unsigned>;
+        ///Interrupt Status Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> isf{}; 
     }
 }

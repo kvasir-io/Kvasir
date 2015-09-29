@@ -1,179 +1,345 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace DMAC_active{
-        using Addr = Register::Address<0x41004830,0x000060f0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LVLEX0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LVLEX1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> LVLEX2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> LVLEX3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8)> ID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> ABUSY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BTCNT; 
+//Direct Memory Access Controller
+    namespace DmacActive{    ///<Active Channel and Levels
+        using Addr = Register::Address<0x41004830,0x000060f0,0,unsigned>;
+        ///Level 0 Channel Trigger Request Executing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lvlex0{}; 
+        ///Level 1 Channel Trigger Request Executing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lvlex1{}; 
+        ///Level 2 Channel Trigger Request Executing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lvlex2{}; 
+        ///Level 3 Channel Trigger Request Executing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> lvlex3{}; 
+        ///Active Channel ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> id{}; 
+        ///Active Channel Busy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> abusy{}; 
+        ///Active Channel Block Transfer Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> btcnt{}; 
     }
-    namespace DMAC_baseaddr{
-        using Addr = Register::Address<0x41004834,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BASEADDR; 
+    namespace DmacBaseaddr{    ///<Descriptor Memory Section Base Address
+        using Addr = Register::Address<0x41004834,0x00000000,0,unsigned>;
+        ///Descriptor Memory Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> baseaddr{}; 
     }
-    namespace DMAC_busych{
-        using Addr = Register::Address<0x41004828,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BUSYCH0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> BUSYCH1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> BUSYCH2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> BUSYCH3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BUSYCH4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> BUSYCH5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> BUSYCH6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BUSYCH7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> BUSYCH8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> BUSYCH9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> BUSYCH10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> BUSYCH11; 
+    namespace DmacBusych{    ///<Busy Channels
+        using Addr = Register::Address<0x41004828,0xfffff000,0,unsigned>;
+        ///Busy Channel 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> busych0{}; 
+        ///Busy Channel 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> busych1{}; 
+        ///Busy Channel 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> busych2{}; 
+        ///Busy Channel 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> busych3{}; 
+        ///Busy Channel 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> busych4{}; 
+        ///Busy Channel 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> busych5{}; 
+        ///Busy Channel 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> busych6{}; 
+        ///Busy Channel 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> busych7{}; 
+        ///Busy Channel 8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> busych8{}; 
+        ///Busy Channel 9
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> busych9{}; 
+        ///Busy Channel 10
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> busych10{}; 
+        ///Busy Channel 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> busych11{}; 
     }
-    namespace DMAC_chctrla{
-        using Addr = Register::Address<0x41004840,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SWRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ENABLE; 
+    namespace DmacChctrla{    ///<Channel Control A
+        using Addr = Register::Address<0x41004840,0xfffffffc,0,unsigned char>;
+        ///Channel Software Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        ///Channel Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
     }
-    namespace DMAC_chctrlb{
-        using Addr = Register::Address<0x41004844,0xfc3fc080>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EVACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> EVOE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,5)> LVL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8)> TRIGSRC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22)> TRIGACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24)> CMD; 
+    namespace DmacChctrlb{    ///<Channel Control B
+        using Addr = Register::Address<0x41004844,0xfc3fc080,0,unsigned>;
+        ///Event Input Action
+        enum class evactVal {
+            noact=0x00000000,     ///<No action
+            trig=0x00000001,     ///<Transfer and periodic transfer trigger
+            ctrig=0x00000002,     ///<Conditional transfer trigger
+            cblock=0x00000003,     ///<Conditional block transfer
+            suspend=0x00000004,     ///<Channel suspend operation
+            resume=0x00000005,     ///<Channel resume operation
+            sskip=0x00000006,     ///<Skip next block suspend action
+        };
+        namespace evactValC{
+            constexpr MPL::Value<evactVal,evactVal::noact> noact{};
+            constexpr MPL::Value<evactVal,evactVal::trig> trig{};
+            constexpr MPL::Value<evactVal,evactVal::ctrig> ctrig{};
+            constexpr MPL::Value<evactVal,evactVal::cblock> cblock{};
+            constexpr MPL::Value<evactVal,evactVal::suspend> suspend{};
+            constexpr MPL::Value<evactVal,evactVal::resume> resume{};
+            constexpr MPL::Value<evactVal,evactVal::sskip> sskip{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,evactVal> evact{}; 
+        ///Channel Event Input Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> evie{}; 
+        ///Channel Event Output Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> evoe{}; 
+        ///Channel Arbitration Level
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> lvl{}; 
+        ///Peripheral Trigger Source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> trigsrc{}; 
+        ///Trigger Action
+        enum class trigactVal {
+            block=0x00000000,     ///<One trigger required for each block transfer
+            beat=0x00000002,     ///<One trigger required for each beat transfer
+            transaction=0x00000003,     ///<One trigger required for each transaction
+        };
+        namespace trigactValC{
+            constexpr MPL::Value<trigactVal,trigactVal::block> block{};
+            constexpr MPL::Value<trigactVal,trigactVal::beat> beat{};
+            constexpr MPL::Value<trigactVal,trigactVal::transaction> transaction{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,trigactVal> trigact{}; 
+        ///Software Command
+        enum class cmdVal {
+            noact=0x00000000,     ///<No action
+            suspend=0x00000001,     ///<Channel suspend operation
+            resume=0x00000002,     ///<Channel resume operation
+        };
+        namespace cmdValC{
+            constexpr MPL::Value<cmdVal,cmdVal::noact> noact{};
+            constexpr MPL::Value<cmdVal,cmdVal::suspend> suspend{};
+            constexpr MPL::Value<cmdVal,cmdVal::resume> resume{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,cmdVal> cmd{}; 
     }
-    namespace DMAC_chid{
-        using Addr = Register::Address<0x4100483f,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> ID; 
+    namespace DmacChid{    ///<Channel ID
+        using Addr = Register::Address<0x4100483f,0xfffffff0,0,unsigned char>;
+        ///Channel ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> id{}; 
     }
-    namespace DMAC_chintenclr{
-        using Addr = Register::Address<0x4100484c,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TCMPL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SUSP; 
+    namespace DmacChintenclr{    ///<Channel Interrupt Enable Clear
+        using Addr = Register::Address<0x4100484c,0xfffffff8,0,unsigned char>;
+        ///Transfer Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> terr{}; 
+        ///Transfer Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tcmpl{}; 
+        ///Channel Suspend Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> susp{}; 
     }
-    namespace DMAC_chintenset{
-        using Addr = Register::Address<0x4100484d,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TCMPL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SUSP; 
+    namespace DmacChintenset{    ///<Channel Interrupt Enable Set
+        using Addr = Register::Address<0x4100484d,0xfffffff8,0,unsigned char>;
+        ///Transfer Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> terr{}; 
+        ///Transfer Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tcmpl{}; 
+        ///Channel Suspend Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> susp{}; 
     }
-    namespace DMAC_chintflag{
-        using Addr = Register::Address<0x4100484e,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TCMPL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SUSP; 
+    namespace DmacChintflag{    ///<Channel Interrupt Flag Status and Clear
+        using Addr = Register::Address<0x4100484e,0xfffffff8,0,unsigned char>;
+        ///Transfer Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> terr{}; 
+        ///Transfer Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tcmpl{}; 
+        ///Channel Suspend
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> susp{}; 
     }
-    namespace DMAC_chstatus{
-        using Addr = Register::Address<0x4100484f,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PEND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> BUSY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> FERR; 
+    namespace DmacChstatus{    ///<Channel Status
+        using Addr = Register::Address<0x4100484f,0xfffffff8,0,unsigned char>;
+        ///Channel Pending
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pend{}; 
+        ///Channel Busy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> busy{}; 
+        ///Fetch Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ferr{}; 
     }
-    namespace DMAC_crcchksum{
-        using Addr = Register::Address<0x41004808,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CRCCHKSUM; 
+    namespace DmacCrcchksum{    ///<CRC Checksum
+        using Addr = Register::Address<0x41004808,0x00000000,0,unsigned>;
+        ///CRC Checksum
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crcchksum{}; 
     }
-    namespace DMAC_crcctrl{
-        using Addr = Register::Address<0x41004802,0xffffc0f0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> CRCBEATSIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> CRCPOLY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8)> CRCSRC; 
+    namespace DmacCrcctrl{    ///<CRC Control
+        using Addr = Register::Address<0x41004802,0xffffc0f0,0,unsigned>;
+        ///CRC Beat Size
+        enum class crcbeatsizeVal {
+            byte=0x00000000,     ///<Byte bus access
+            hword=0x00000001,     ///<Half-word bus access
+            word=0x00000002,     ///<Word bus access
+        };
+        namespace crcbeatsizeValC{
+            constexpr MPL::Value<crcbeatsizeVal,crcbeatsizeVal::byte> byte{};
+            constexpr MPL::Value<crcbeatsizeVal,crcbeatsizeVal::hword> hword{};
+            constexpr MPL::Value<crcbeatsizeVal,crcbeatsizeVal::word> word{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,crcbeatsizeVal> crcbeatsize{}; 
+        ///CRC Polynomial Type
+        enum class crcpolyVal {
+            crc16=0x00000000,     ///<CRC-16 (CRC-CCITT)
+            crc32=0x00000001,     ///<CRC32 (IEEE 802.3)
+        };
+        namespace crcpolyValC{
+            constexpr MPL::Value<crcpolyVal,crcpolyVal::crc16> crc16{};
+            constexpr MPL::Value<crcpolyVal,crcpolyVal::crc32> crc32{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,crcpolyVal> crcpoly{}; 
+        ///CRC Input Source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> crcsrc{}; 
     }
-    namespace DMAC_crcdatain{
-        using Addr = Register::Address<0x41004804,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CRCDATAIN; 
+    namespace DmacCrcdatain{    ///<CRC Data Input
+        using Addr = Register::Address<0x41004804,0x00000000,0,unsigned>;
+        ///CRC Data Input
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crcdatain{}; 
     }
-    namespace DMAC_crcstatus{
-        using Addr = Register::Address<0x4100480c,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CRCBUSY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CRCZERO; 
+    namespace DmacCrcstatus{    ///<CRC Status
+        using Addr = Register::Address<0x4100480c,0xfffffffc,0,unsigned char>;
+        ///CRC Module Busy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> crcbusy{}; 
+        ///CRC Zero
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> crczero{}; 
     }
-    namespace DMAC_ctrl{
-        using Addr = Register::Address<0x41004800,0xfffff0f8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SWRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DMAENABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CRCENABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> LVLEN0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> LVLEN1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> LVLEN2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> LVLEN3; 
+    namespace DmacCtrl{    ///<Control
+        using Addr = Register::Address<0x41004800,0xfffff0f8,0,unsigned>;
+        ///Software Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        ///DMA Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmaenable{}; 
+        ///CRC Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> crcenable{}; 
+        ///Priority Level 0 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> lvlen0{}; 
+        ///Priority Level 1 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> lvlen1{}; 
+        ///Priority Level 2 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> lvlen2{}; 
+        ///Priority Level 3 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> lvlen3{}; 
     }
-    namespace DMAC_dbgctrl{
-        using Addr = Register::Address<0x4100480d,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DBGRUN; 
+    namespace DmacDbgctrl{    ///<Debug Control
+        using Addr = Register::Address<0x4100480d,0xfffffffe,0,unsigned char>;
+        ///Debug Run
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dbgrun{}; 
     }
-    namespace DMAC_intpend{
-        using Addr = Register::Address<0x41004820,0xffff18f0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> ID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TCMPL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> SUSP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> FERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BUSY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> PEND; 
+    namespace DmacIntpend{    ///<Interrupt Pending
+        using Addr = Register::Address<0x41004820,0xffff18f0,0,unsigned>;
+        ///Channel ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> id{}; 
+        ///Transfer Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> terr{}; 
+        ///Transfer Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tcmpl{}; 
+        ///Channel Suspend
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> susp{}; 
+        ///Fetch Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ferr{}; 
+        ///Busy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> busy{}; 
+        ///Pending
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pend{}; 
     }
-    namespace DMAC_intstatus{
-        using Addr = Register::Address<0x41004824,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHINT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CHINT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CHINT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CHINT4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CHINT5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CHINT6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CHINT7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> CHINT8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> CHINT9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> CHINT10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> CHINT11; 
+    namespace DmacIntstatus{    ///<Interrupt Status
+        using Addr = Register::Address<0x41004824,0xfffff000,0,unsigned>;
+        ///Channel 0 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chint0{}; 
+        ///Channel 1 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chint1{}; 
+        ///Channel 2 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chint2{}; 
+        ///Channel 3 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chint3{}; 
+        ///Channel 4 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> chint4{}; 
+        ///Channel 5 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> chint5{}; 
+        ///Channel 6 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> chint6{}; 
+        ///Channel 7 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> chint7{}; 
+        ///Channel 8 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> chint8{}; 
+        ///Channel 9 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> chint9{}; 
+        ///Channel 10 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> chint10{}; 
+        ///Channel 11 Pending Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> chint11{}; 
     }
-    namespace DMAC_pendch{
-        using Addr = Register::Address<0x4100482c,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PENDCH0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PENDCH1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PENDCH2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PENDCH3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PENDCH4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PENDCH5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PENDCH6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PENDCH7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> PENDCH8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> PENDCH9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> PENDCH10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> PENDCH11; 
+    namespace DmacPendch{    ///<Pending Channels
+        using Addr = Register::Address<0x4100482c,0xfffff000,0,unsigned>;
+        ///Pending Channel 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pendch0{}; 
+        ///Pending Channel 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pendch1{}; 
+        ///Pending Channel 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pendch2{}; 
+        ///Pending Channel 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pendch3{}; 
+        ///Pending Channel 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pendch4{}; 
+        ///Pending Channel 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pendch5{}; 
+        ///Pending Channel 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pendch6{}; 
+        ///Pending Channel 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pendch7{}; 
+        ///Pending Channel 8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> pendch8{}; 
+        ///Pending Channel 9
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> pendch9{}; 
+        ///Pending Channel 10
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pendch10{}; 
+        ///Pending Channel 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pendch11{}; 
     }
-    namespace DMAC_prictrl0{
-        using Addr = Register::Address<0x41004814,0x70707070>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> LVLPRI0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> RRLVLEN0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> LVLPRI1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> RRLVLEN1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16)> LVLPRI2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> RRLVLEN2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> LVLPRI3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> RRLVLEN3; 
+    namespace DmacPrictrl0{    ///<Priority Control 0
+        using Addr = Register::Address<0x41004814,0x70707070,0,unsigned>;
+        ///Level 0 Channel Priority Number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> lvlpri0{}; 
+        ///Level 0 Round-Robin Scheduling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rrlvlen0{}; 
+        ///Level 1 Channel Priority Number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> lvlpri1{}; 
+        ///Level 1 Round-Robin Scheduling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rrlvlen1{}; 
+        ///Level 2 Channel Priority Number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> lvlpri2{}; 
+        ///Level 2 Round-Robin Scheduling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> rrlvlen2{}; 
+        ///Level 3 Channel Priority Number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> lvlpri3{}; 
+        ///Level 3 Round-Robin Scheduling Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> rrlvlen3{}; 
     }
-    namespace DMAC_swtrigctrl{
-        using Addr = Register::Address<0x41004810,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SWTRIG0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SWTRIG1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SWTRIG2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> SWTRIG3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> SWTRIG4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SWTRIG5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> SWTRIG6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> SWTRIG7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> SWTRIG8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SWTRIG9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> SWTRIG10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SWTRIG11; 
+    namespace DmacSwtrigctrl{    ///<Software Trigger Control
+        using Addr = Register::Address<0x41004810,0xfffff000,0,unsigned>;
+        ///Channel 0 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swtrig0{}; 
+        ///Channel 1 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> swtrig1{}; 
+        ///Channel 2 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> swtrig2{}; 
+        ///Channel 3 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> swtrig3{}; 
+        ///Channel 4 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> swtrig4{}; 
+        ///Channel 5 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> swtrig5{}; 
+        ///Channel 6 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> swtrig6{}; 
+        ///Channel 7 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> swtrig7{}; 
+        ///Channel 8 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> swtrig8{}; 
+        ///Channel 9 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> swtrig9{}; 
+        ///Channel 10 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> swtrig10{}; 
+        ///Channel 11 Software Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> swtrig11{}; 
     }
-    namespace DMAC_wrbaddr{
-        using Addr = Register::Address<0x41004838,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> WRBADDR; 
+    namespace DmacWrbaddr{    ///<Write-Back Memory Section Base Address
+        using Addr = Register::Address<0x41004838,0x00000000,0,unsigned>;
+        ///Write-Back Memory Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> wrbaddr{}; 
     }
 }

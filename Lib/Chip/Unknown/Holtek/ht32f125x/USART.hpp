@@ -1,105 +1,159 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneusart_rbr{
-        using Addr = Register::Address<0x40000000,0xfffffe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> RD; 
+//USART
+    namespace NoneusartRbr{    ///<USART_RBR
+        using Addr = Register::Address<0x40000000,0xfffffe00,0,unsigned>;
+        ///RD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rd{}; 
     }
-    namespace Noneusart_tbr{
-        using Addr = Register::Address<0x40000000,0xfffffe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> TD; 
+    namespace NoneusartTbr{    ///<USART_TBR
+        using Addr = Register::Address<0x40000000,0xfffffe00,0,unsigned>;
+        ///TD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> td{}; 
     }
-    namespace Noneusart_ier{
-        using Addr = Register::Address<0x40000004,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RFTLI_RTOIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TFTLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RLSIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MODSIE; 
+    namespace NoneusartIer{    ///<USART_IER
+        using Addr = Register::Address<0x40000004,0xfffffff0,0,unsigned>;
+        ///RFTLI_RTOIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rftliRtoie{}; 
+        ///TFTLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tftlie{}; 
+        ///RLSIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rlsie{}; 
+        ///MODSIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> modsie{}; 
     }
-    namespace Noneusart_iir{
-        using Addr = Register::Address<0x40000008,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> NIP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1)> IID; 
+    namespace NoneusartIir{    ///<USART_IIR
+        using Addr = Register::Address<0x40000008,0xfffffff0,0,unsigned>;
+        ///NIP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nip{}; 
+        ///IID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> iid{}; 
     }
-    namespace Noneusart_fcr{
-        using Addr = Register::Address<0x4000000c,0xffffff08>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> FME; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RFR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TFR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> TFTL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> RFTL; 
+    namespace NoneusartFcr{    ///<USART_FCR
+        using Addr = Register::Address<0x4000000c,0xffffff08,0,unsigned>;
+        ///FME
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fme{}; 
+        ///RFR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rfr{}; 
+        ///TFR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tfr{}; 
+        ///TFTL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tftl{}; 
+        ///RFTL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> rftl{}; 
     }
-    namespace Noneusart_lcr{
-        using Addr = Register::Address<0x40000010,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> WLS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> NSB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PBE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> EPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> BCB; 
+    namespace NoneusartLcr{    ///<USART_LCR
+        using Addr = Register::Address<0x40000010,0xffffff80,0,unsigned>;
+        ///WLS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wls{}; 
+        ///NSB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> nsb{}; 
+        ///PBE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pbe{}; 
+        ///EPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> epe{}; 
+        ///SPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> spe{}; 
+        ///BCB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> bcb{}; 
     }
-    namespace Noneusart_modcr{
-        using Addr = Register::Address<0x40000014,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RTS; 
+    namespace NoneusartModcr{    ///<USART_MODCR
+        using Addr = Register::Address<0x40000014,0xfffffffc,0,unsigned>;
+        ///DTR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtr{}; 
+        ///RTS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rts{}; 
     }
-    namespace Noneusart_lsr{
-        using Addr = Register::Address<0x40000018,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RFDR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> OEI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PEI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> FEI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BII; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> TXFEMPT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TXEMPT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ERRRX; 
+    namespace NoneusartLsr{    ///<USART_LSR
+        using Addr = Register::Address<0x40000018,0xffffff00,0,unsigned>;
+        ///RFDR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rfdr{}; 
+        ///OEI
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> oei{}; 
+        ///PEI
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pei{}; 
+        ///FEI
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> fei{}; 
+        ///BII
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> bii{}; 
+        ///TXFEMPT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txfempt{}; 
+        ///TXEMPT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txempt{}; 
+        ///ERRRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> errrx{}; 
     }
-    namespace Noneusart_modsr{
-        using Addr = Register::Address<0x4000001c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DCTS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DDSR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> DRI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DDCD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CTSS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> DSRS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> RIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DCDS; 
+    namespace NoneusartModsr{    ///<USART_MODSR
+        using Addr = Register::Address<0x4000001c,0xffffff00,0,unsigned>;
+        ///DCTS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dcts{}; 
+        ///DDSR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ddsr{}; 
+        ///DRI
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dri{}; 
+        ///DDCD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ddcd{}; 
+        ///CTSS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ctss{}; 
+        ///DSRS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dsrs{}; 
+        ///RIS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ris{}; 
+        ///DCDS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dcds{}; 
     }
-    namespace Noneusart_tpr{
-        using Addr = Register::Address<0x40000020,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> RTOIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> RTOIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> TG; 
+    namespace NoneusartTpr{    ///<USART_TPR
+        using Addr = Register::Address<0x40000020,0xffff0000,0,unsigned>;
+        ///RTOIC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rtoic{}; 
+        ///RTOIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rtoie{}; 
+        ///TG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> tg{}; 
     }
-    namespace Noneusart_mdr{
-        using Addr = Register::Address<0x40000024,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TRSM; 
+    namespace NoneusartMdr{    ///<USART_MDR
+        using Addr = Register::Address<0x40000024,0xfffffff8,0,unsigned>;
+        ///MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> mode{}; 
+        ///TRSM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> trsm{}; 
     }
-    namespace Noneusart_irdacr{
-        using Addr = Register::Address<0x40000028,0xffff00f0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IrDAEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> IrDALP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TXSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> LB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> IrDAPSC; 
+    namespace NoneusartIrdacr{    ///<USART_IrDACR
+        using Addr = Register::Address<0x40000028,0xffff00f0,0,unsigned>;
+        ///IrDAEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> irdaen{}; 
+        ///IrDALP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> irdalp{}; 
+        ///TXSEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txsel{}; 
+        ///LB
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> lb{}; 
+        ///IrDAPSC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> irdapsc{}; 
     }
-    namespace Noneusart_rs485cr{
-        using Addr = Register::Address<0x4000002c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXENP; 
+    namespace NoneusartRs485cr{    ///<USART_RS485CR
+        using Addr = Register::Address<0x4000002c,0xfffffffe,0,unsigned>;
+        ///TXENP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txenp{}; 
     }
-    namespace Noneusart_syncr{
-        using Addr = Register::Address<0x40000030,0xfffffff2>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CLKEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CPS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CPO; 
+    namespace NoneusartSyncr{    ///<USART_SYNCR
+        using Addr = Register::Address<0x40000030,0xfffffff2,0,unsigned>;
+        ///CLKEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clken{}; 
+        ///CPS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cps{}; 
+        ///CPO
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cpo{}; 
     }
-    namespace Noneusart_degtstr{
-        using Addr = Register::Address<0x40000034,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> LBM; 
+    namespace NoneusartDegtstr{    ///<USART_DEGTSTR
+        using Addr = Register::Address<0x40000034,0xfffffffc,0,unsigned>;
+        ///LBM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> lbm{}; 
     }
-    namespace Noneusart_dlr{
-        using Addr = Register::Address<0x40000038,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> BRD; 
+    namespace NoneusartDlr{    ///<USART_DLR
+        using Addr = Register::Address<0x40000038,0xffff0000,0,unsigned>;
+        ///BRD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> brd{}; 
     }
 }

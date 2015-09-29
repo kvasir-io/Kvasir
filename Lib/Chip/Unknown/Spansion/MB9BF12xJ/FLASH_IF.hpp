@@ -1,37 +1,53 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonefrwtr{
-        using Addr = Register::Address<0x40000004,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> RWT; 
+// peripheral FLASH_IF 
+    namespace Nonefrwtr{    ///< register FRWTR 
+        using Addr = Register::Address<0x40000004,0xfffffffc,0,unsigned>;
+        /// bitfield RWT 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> rwt{}; 
     }
-    namespace Nonefstr{
-        using Addr = Register::Address<0x40000008,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PGMS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> SERS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ESPS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CERS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> HNG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RDY; 
+    namespace Nonefstr{    ///< register FSTR 
+        using Addr = Register::Address<0x40000008,0xffffffc0,0,unsigned>;
+        /// bitfield PGMS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pgms{}; 
+        /// bitfield SERS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> sers{}; 
+        /// bitfield ESPS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> esps{}; 
+        /// bitfield CERS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cers{}; 
+        /// bitfield HNG 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hng{}; 
+        /// bitfield RDY 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdy{}; 
     }
-    namespace Noneficr{
-        using Addr = Register::Address<0x40000020,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> HANGIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RDYIE; 
+    namespace Noneficr{    ///< register FICR 
+        using Addr = Register::Address<0x40000020,0xfffffffc,0,unsigned>;
+        /// bitfield HANGIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hangie{}; 
+        /// bitfield RDYIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdyie{}; 
     }
-    namespace Nonefisr{
-        using Addr = Register::Address<0x40000024,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> HANGIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RDYIF; 
+    namespace Nonefisr{    ///< register FISR 
+        using Addr = Register::Address<0x40000024,0xfffffffc,0,unsigned>;
+        /// bitfield HANGIF 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hangif{}; 
+        /// bitfield RDYIF 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdyif{}; 
     }
-    namespace Noneficlr{
-        using Addr = Register::Address<0x40000028,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> HANGC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RDYC; 
+    namespace Noneficlr{    ///< register FICLR 
+        using Addr = Register::Address<0x40000028,0xfffffffc,0,unsigned>;
+        /// bitfield HANGC 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hangc{}; 
+        /// bitfield RDYC 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdyc{}; 
     }
-    namespace Nonecrtrmm{
-        using Addr = Register::Address<0x40000100,0xffe0fc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16)> TTRMM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> TRMM; 
+    namespace Nonecrtrmm{    ///< register CRTRMM 
+        using Addr = Register::Address<0x40000100,0xffe0fc00,0,unsigned>;
+        /// bitfield TTRMM 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> ttrmm{}; 
+        /// bitfield TRMM 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> trmm{}; 
     }
 }

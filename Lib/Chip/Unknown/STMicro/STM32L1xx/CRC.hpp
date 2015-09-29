@@ -1,16 +1,20 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonedr{
-        using Addr = Register::Address<0x40023000,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> Data_register; 
+//CRC calculation unit
+    namespace Nonedr{    ///<Data register
+        using Addr = Register::Address<0x40023000,0x00000000,0,unsigned>;
+        ///Data Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dataRegister{}; 
     }
-    namespace Noneidr{
-        using Addr = Register::Address<0x40023004,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> Independent_data_register; 
+    namespace Noneidr{    ///<Independent data register
+        using Addr = Register::Address<0x40023004,0xffffff80,0,unsigned>;
+        ///Independent data register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> independentDataRegister{}; 
     }
-    namespace Nonecr{
-        using Addr = Register::Address<0x40023008,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RESET; 
+    namespace Nonecr{    ///<Control register
+        using Addr = Register::Address<0x40023008,0xfffffffe,0,unsigned>;
+        ///RESET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> reset{}; 
     }
 }

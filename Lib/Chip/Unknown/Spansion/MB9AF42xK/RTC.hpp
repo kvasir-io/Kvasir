@@ -1,181 +1,287 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonewtcr1{
-        using Addr = Register::Address<0x4003b000,0x0000e082>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> INTCRIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> INTERIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> INTALIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> INTTMIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> INTHIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> INTMIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> INTSIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> INTSSIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> INTCRI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> INTERI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> INTALI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> INTTMI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> INTHI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> INTMI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> INTSI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> INTSSI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> YEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> MOEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> DEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> HEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> MIEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> BUSY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SCRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> SCST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> SRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ST; 
+// peripheral RTC 
+    namespace Nonewtcr1{    ///< register WTCR1 
+        using Addr = Register::Address<0x4003b000,0x0000e082,0,unsigned>;
+        /// bitfield INTCRIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> intcrie{}; 
+        /// bitfield INTERIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> interie{}; 
+        /// bitfield INTALIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> intalie{}; 
+        /// bitfield INTTMIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> inttmie{}; 
+        /// bitfield INTHIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> inthie{}; 
+        /// bitfield INTMIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> intmie{}; 
+        /// bitfield INTSIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> intsie{}; 
+        /// bitfield INTSSIE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> intssie{}; 
+        /// bitfield INTCRI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> intcri{}; 
+        /// bitfield INTERI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> interi{}; 
+        /// bitfield INTALI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> intali{}; 
+        /// bitfield INTTMI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> inttmi{}; 
+        /// bitfield INTHI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> inthi{}; 
+        /// bitfield INTMI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> intmi{}; 
+        /// bitfield INTSI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> intsi{}; 
+        /// bitfield INTSSI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> intssi{}; 
+        /// bitfield YEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> yen{}; 
+        /// bitfield MOEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> moen{}; 
+        /// bitfield DEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> den{}; 
+        /// bitfield HEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> hen{}; 
+        /// bitfield MIEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mien{}; 
+        /// bitfield BUSY 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> busy{}; 
+        /// bitfield SCRST 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> scrst{}; 
+        /// bitfield SCST 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> scst{}; 
+        /// bitfield SRST 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> srst{}; 
+        /// bitfield RUN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> run{}; 
+        /// bitfield ST 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> st{}; 
     }
-    namespace Nonewtcr2{
-        using Addr = Register::Address<0x4003b004,0xfffff8fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TMRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TMEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TMST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CREAD; 
+    namespace Nonewtcr2{    ///< register WTCR2 
+        using Addr = Register::Address<0x4003b004,0xfffff8fe,0,unsigned>;
+        /// bitfield TMRUN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> tmrun{}; 
+        /// bitfield TMEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tmen{}; 
+        /// bitfield TMST 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> tmst{}; 
+        /// bitfield CREAD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cread{}; 
     }
-    namespace Nonewtbr{
-        using Addr = Register::Address<0x4003b008,0xff000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> BR23; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> BR22; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> BR21; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> BR20; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> BR19; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BR18; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> BR17; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> BR16; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> BR15; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BR14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> BR13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> BR12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> BR11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> BR10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> BR9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> BR8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BR7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> BR6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> BR5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BR4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> BR3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> BR2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> BR1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BR0; 
+    namespace Nonewtbr{    ///< register WTBR 
+        using Addr = Register::Address<0x4003b008,0xff000000,0,unsigned>;
+        /// bitfield BR23 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> br23{}; 
+        /// bitfield BR22 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> br22{}; 
+        /// bitfield BR21 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> br21{}; 
+        /// bitfield BR20 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> br20{}; 
+        /// bitfield BR19 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> br19{}; 
+        /// bitfield BR18 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> br18{}; 
+        /// bitfield BR17 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> br17{}; 
+        /// bitfield BR16 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> br16{}; 
+        /// bitfield BR15 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> br15{}; 
+        /// bitfield BR14 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> br14{}; 
+        /// bitfield BR13 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> br13{}; 
+        /// bitfield BR12 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> br12{}; 
+        /// bitfield BR11 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> br11{}; 
+        /// bitfield BR10 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> br10{}; 
+        /// bitfield BR9 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> br9{}; 
+        /// bitfield BR8 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> br8{}; 
+        /// bitfield BR7 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> br7{}; 
+        /// bitfield BR6 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> br6{}; 
+        /// bitfield BR5 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> br5{}; 
+        /// bitfield BR4 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> br4{}; 
+        /// bitfield BR3 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> br3{}; 
+        /// bitfield BR2 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> br2{}; 
+        /// bitfield BR1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> br1{}; 
+        /// bitfield BR0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> br0{}; 
     }
-    namespace Nonewtdr{
-        using Addr = Register::Address<0x4003b00f,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> TD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> D; 
+    namespace Nonewtdr{    ///< register WTDR 
+        using Addr = Register::Address<0x4003b00f,0xffffffc0,0,unsigned char>;
+        /// bitfield TD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> td{}; 
+        /// bitfield D 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> d{}; 
     }
-    namespace Nonewthr{
-        using Addr = Register::Address<0x4003b00e,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> TH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> H; 
+    namespace Nonewthr{    ///< register WTHR 
+        using Addr = Register::Address<0x4003b00e,0xffffffc0,0,unsigned char>;
+        /// bitfield TH 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> th{}; 
+        /// bitfield H 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> h{}; 
     }
-    namespace Nonewtmir{
-        using Addr = Register::Address<0x4003b00d,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> TMI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> MI; 
+    namespace Nonewtmir{    ///< register WTMIR 
+        using Addr = Register::Address<0x4003b00d,0xffffff80,0,unsigned char>;
+        /// bitfield TMI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tmi{}; 
+        /// bitfield MI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mi{}; 
     }
-    namespace Nonewtsr{
-        using Addr = Register::Address<0x4003b00c,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> TS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> S; 
+    namespace Nonewtsr{    ///< register WTSR 
+        using Addr = Register::Address<0x4003b00c,0xffffff80,0,unsigned char>;
+        /// bitfield TS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> ts{}; 
+        /// bitfield S 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> s{}; 
     }
-    namespace Nonewtyr{
-        using Addr = Register::Address<0x4003b012,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> TY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> Y; 
+    namespace Nonewtyr{    ///< register WTYR 
+        using Addr = Register::Address<0x4003b012,0xffffff00,0,unsigned char>;
+        /// bitfield TY 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> ty{}; 
+        /// bitfield Y 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> y{}; 
     }
-    namespace Nonewtmor{
-        using Addr = Register::Address<0x4003b011,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TMO0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> MO; 
+    namespace Nonewtmor{    ///< register WTMOR 
+        using Addr = Register::Address<0x4003b011,0xffffffe0,0,unsigned char>;
+        /// bitfield TMO0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tmo0{}; 
+        /// bitfield MO 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mo{}; 
     }
-    namespace Nonewtdw{
-        using Addr = Register::Address<0x4003b010,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> DW; 
+    namespace Nonewtdw{    ///< register WTDW 
+        using Addr = Register::Address<0x4003b010,0xfffffff8,0,unsigned char>;
+        /// bitfield DW 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dw{}; 
     }
-    namespace Nonealdr{
-        using Addr = Register::Address<0x4003b017,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> TAD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> AD; 
+    namespace Nonealdr{    ///< register ALDR 
+        using Addr = Register::Address<0x4003b017,0xffffffc0,0,unsigned char>;
+        /// bitfield TAD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tad{}; 
+        /// bitfield AD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ad{}; 
     }
-    namespace Nonealhr{
-        using Addr = Register::Address<0x4003b016,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> TAH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> AH; 
+    namespace Nonealhr{    ///< register ALHR 
+        using Addr = Register::Address<0x4003b016,0xffffffc0,0,unsigned char>;
+        /// bitfield TAH 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tah{}; 
+        /// bitfield AH 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ah{}; 
     }
-    namespace Nonealmir{
-        using Addr = Register::Address<0x4003b015,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> TAMI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> AMI; 
+    namespace Nonealmir{    ///< register ALMIR 
+        using Addr = Register::Address<0x4003b015,0xffffff80,0,unsigned char>;
+        /// bitfield TAMI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tami{}; 
+        /// bitfield AMI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ami{}; 
     }
-    namespace Nonealyr{
-        using Addr = Register::Address<0x4003b01a,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> TAY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> AY; 
+    namespace Nonealyr{    ///< register ALYR 
+        using Addr = Register::Address<0x4003b01a,0xffffff00,0,unsigned char>;
+        /// bitfield TAY 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> tay{}; 
+        /// bitfield AY 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ay{}; 
     }
-    namespace Nonealmor{
-        using Addr = Register::Address<0x4003b019,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TAMO0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> AMO; 
+    namespace Nonealmor{    ///< register ALMOR 
+        using Addr = Register::Address<0x4003b019,0xffffffe0,0,unsigned char>;
+        /// bitfield TAMO0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tamo0{}; 
+        /// bitfield AMO 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> amo{}; 
     }
-    namespace Nonewttr{
-        using Addr = Register::Address<0x4003b01c,0xfffc0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> TM17; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> TM16; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TM15; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> TM14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> TM13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> TM12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TM11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TM10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TM9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TM8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TM7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TM6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> TM5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TM4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TM3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TM2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TM1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TM0; 
+    namespace Nonewttr{    ///< register WTTR 
+        using Addr = Register::Address<0x4003b01c,0xfffc0000,0,unsigned>;
+        /// bitfield TM17 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tm17{}; 
+        /// bitfield TM16 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> tm16{}; 
+        /// bitfield TM15 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tm15{}; 
+        /// bitfield TM14 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> tm14{}; 
+        /// bitfield TM13 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> tm13{}; 
+        /// bitfield TM12 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> tm12{}; 
+        /// bitfield TM11 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> tm11{}; 
+        /// bitfield TM10 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> tm10{}; 
+        /// bitfield TM9 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tm9{}; 
+        /// bitfield TM8 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> tm8{}; 
+        /// bitfield TM7 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tm7{}; 
+        /// bitfield TM6 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tm6{}; 
+        /// bitfield TM5 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tm5{}; 
+        /// bitfield TM4 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tm4{}; 
+        /// bitfield TM3 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tm3{}; 
+        /// bitfield TM2 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tm2{}; 
+        /// bitfield TM1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tm1{}; 
+        /// bitfield TM0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tm0{}; 
     }
-    namespace Nonewtclks{
-        using Addr = Register::Address<0x4003b020,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WTCLKS; 
+    namespace Nonewtclks{    ///< register WTCLKS 
+        using Addr = Register::Address<0x4003b020,0xfffffffe,0,unsigned char>;
+        /// bitfield WTCLKS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtclks{}; 
     }
-    namespace Nonewtclkm{
-        using Addr = Register::Address<0x4003b021,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> WTCLKM; 
+    namespace Nonewtclkm{    ///< register WTCLKM 
+        using Addr = Register::Address<0x4003b021,0xfffffffc,0,unsigned char>;
+        /// bitfield WTCLKM 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wtclkm{}; 
     }
-    namespace Nonewtcal{
-        using Addr = Register::Address<0x4003b024,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> WTCAL; 
+    namespace Nonewtcal{    ///< register WTCAL 
+        using Addr = Register::Address<0x4003b024,0xfffffc00,0,unsigned>;
+        /// bitfield WTCAL 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> wtcal{}; 
     }
-    namespace Nonewtcalen{
-        using Addr = Register::Address<0x4003b026,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WTCALEN; 
+    namespace Nonewtcalen{    ///< register WTCALEN 
+        using Addr = Register::Address<0x4003b026,0xfffffffe,0,unsigned char>;
+        /// bitfield WTCALEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtcalen{}; 
     }
-    namespace Nonewtdiv{
-        using Addr = Register::Address<0x4003b028,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> WTDIV; 
+    namespace Nonewtdiv{    ///< register WTDIV 
+        using Addr = Register::Address<0x4003b028,0xfffffff0,0,unsigned char>;
+        /// bitfield WTDIV 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wtdiv{}; 
     }
-    namespace Nonewtdiven{
-        using Addr = Register::Address<0x4003b029,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WTDIVRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WTDIVEN; 
+    namespace Nonewtdiven{    ///< register WTDIVEN 
+        using Addr = Register::Address<0x4003b029,0xfffffffc,0,unsigned char>;
+        /// bitfield WTDIVRDY 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wtdivrdy{}; 
+        /// bitfield WTDIVEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtdiven{}; 
     }
-    namespace Nonewtcalprd{
-        using Addr = Register::Address<0x4003b02c,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> WTCALPRD; 
+    namespace Nonewtcalprd{    ///< register WTCALPRD 
+        using Addr = Register::Address<0x4003b02c,0xffffffc0,0,unsigned char>;
+        /// bitfield WTCALPRD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> wtcalprd{}; 
     }
-    namespace Nonewtcosel{
-        using Addr = Register::Address<0x4003b030,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WTCOSEL; 
+    namespace Nonewtcosel{    ///< register WTCOSEL 
+        using Addr = Register::Address<0x4003b030,0xfffffffe,0,unsigned char>;
+        /// bitfield WTCOSEL 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtcosel{}; 
     }
 }

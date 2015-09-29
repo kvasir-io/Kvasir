@@ -1,83 +1,118 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace DACC_cr{
-        using Addr = Register::Address<0x4003c000,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SWRST; 
+//Digital-to-Analog Converter Controller
+    namespace DaccCr{    ///<Control Register
+        using Addr = Register::Address<0x4003c000,0xfffffffe,0,unsigned>;
+        ///Software Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
     }
-    namespace DACC_mr{
-        using Addr = Register::Address<0x4003c004,0x000000c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TRGEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1)> TRGSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> DACEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> WORD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> STARTUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> CLKDIV; 
+    namespace DaccMr{    ///<Mode Register
+        using Addr = Register::Address<0x4003c004,0x000000c0,0,unsigned>;
+        ///Trigger Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trgen{}; 
+        ///Trigger Selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trgsel{}; 
+        ///DAC enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dacen{}; 
+        ///Word Transfer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> word{}; 
+        ///Startup Time Selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> startup{}; 
+        ///DAC Clock Divider for Internal Trigger
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> clkdiv{}; 
     }
-    namespace DACC_cdr{
-        using Addr = Register::Address<0x4003c008,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> DATA; 
+    namespace DaccCdr{    ///<Conversion Data Register
+        using Addr = Register::Address<0x4003c008,0x00000000,0,unsigned>;
+        ///Data to Convert
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace DACC_ier{
-        using Addr = Register::Address<0x4003c00c,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ENDTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TXBUFE; 
+    namespace DaccIer{    ///<Interrupt Enable Register
+        using Addr = Register::Address<0x4003c00c,0xfffffff8,0,unsigned>;
+        ///Transmission Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///End of PDC Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> endtx{}; 
+        ///Buffer Empty Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txbufe{}; 
     }
-    namespace DACC_idr{
-        using Addr = Register::Address<0x4003c010,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ENDTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TXBUFE; 
+    namespace DaccIdr{    ///<Interrupt Disable Register
+        using Addr = Register::Address<0x4003c010,0xfffffff8,0,unsigned>;
+        ///Transmission Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///End of PDC Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> endtx{}; 
+        ///Buffer Empty Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txbufe{}; 
     }
-    namespace DACC_imr{
-        using Addr = Register::Address<0x4003c014,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ENDTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TXBUFE; 
+    namespace DaccImr{    ///<Interrupt Mask Register
+        using Addr = Register::Address<0x4003c014,0xfffffff8,0,unsigned>;
+        ///Transmission Ready Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///End of PDC Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> endtx{}; 
+        ///Buffer Empty Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txbufe{}; 
     }
-    namespace DACC_isr{
-        using Addr = Register::Address<0x4003c018,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ENDTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TXBUFE; 
+    namespace DaccIsr{    ///<Interrupt Status Register
+        using Addr = Register::Address<0x4003c018,0xfffffff8,0,unsigned>;
+        ///Transmission Ready Interrupt Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///End of PDC Interrupt Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> endtx{}; 
+        ///Buffer Empty Interrupt Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txbufe{}; 
     }
-    namespace DACC_wpmr{
-        using Addr = Register::Address<0x4003c0e4,0x000000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8)> WPKEY; 
+    namespace DaccWpmr{    ///<Write Protect Mode Register
+        using Addr = Register::Address<0x4003c0e4,0x000000fe,0,unsigned>;
+        ///Write Protect Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
+        ///Write Protect KEY
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
     }
-    namespace DACC_wpsr{
-        using Addr = Register::Address<0x4003c0e8,0xffff00fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WPROTERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> WPROTADDR; 
+    namespace DaccWpsr{    ///<Write Protect Status Register
+        using Addr = Register::Address<0x4003c0e8,0xffff00fe,0,unsigned>;
+        ///Write protection error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wproterr{}; 
+        ///Write protection error address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wprotaddr{}; 
     }
-    namespace DACC_tpr{
-        using Addr = Register::Address<0x4003c108,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TXPTR; 
+    namespace DaccTpr{    ///<Transmit Pointer Register
+        using Addr = Register::Address<0x4003c108,0x00000000,0,unsigned>;
+        ///Transmit Counter Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txptr{}; 
     }
-    namespace DACC_tcr{
-        using Addr = Register::Address<0x4003c10c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXCTR; 
+    namespace DaccTcr{    ///<Transmit Counter Register
+        using Addr = Register::Address<0x4003c10c,0xffff0000,0,unsigned>;
+        ///Transmit Counter Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txctr{}; 
     }
-    namespace DACC_tnpr{
-        using Addr = Register::Address<0x4003c118,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TXNPTR; 
+    namespace DaccTnpr{    ///<Transmit Next Pointer Register
+        using Addr = Register::Address<0x4003c118,0x00000000,0,unsigned>;
+        ///Transmit Next Pointer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txnptr{}; 
     }
-    namespace DACC_tncr{
-        using Addr = Register::Address<0x4003c11c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXNCTR; 
+    namespace DaccTncr{    ///<Transmit Next Counter Register
+        using Addr = Register::Address<0x4003c11c,0xffff0000,0,unsigned>;
+        ///Transmit Counter Next
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txnctr{}; 
     }
-    namespace DACC_ptcr{
-        using Addr = Register::Address<0x4003c120,0xfffffcfc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RXTDIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TXTDIS; 
+    namespace DaccPtcr{    ///<Transfer Control Register
+        using Addr = Register::Address<0x4003c120,0xfffffcfc,0,unsigned>;
+        ///Receiver Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        ///Receiver Transfer Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
+        ///Transmitter Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        ///Transmitter Transfer Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
     }
-    namespace DACC_ptsr{
-        using Addr = Register::Address<0x4003c124,0xfffffefe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TXTEN; 
+    namespace DaccPtsr{    ///<Transfer Status Register
+        using Addr = Register::Address<0x4003c124,0xfffffefe,0,unsigned>;
+        ///Receiver Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        ///Transmitter Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
     }
 }

@@ -1,36 +1,45 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonedowncounter{
-        using Addr = Register::Address<0x40040000,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CVAL; 
+//Product name title=UM10430 Chapter title=LPC18xx Alarm timer Modification date=1/7/2011 Major revision=0 Minor revision=6 
+    namespace Nonedowncounter{    ///<Downcounter register
+        using Addr = Register::Address<0x40040000,0xffff0000,0,unsigned>;
+        ///When equal to zero an interrupt is raised. When equal to zero PRESET is loaded and counting continues.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cval{}; 
     }
-    namespace Nonepreset{
-        using Addr = Register::Address<0x40040004,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> PRESETVAL; 
+    namespace Nonepreset{    ///<Preset value register
+        using Addr = Register::Address<0x40040004,0xffff0000,0,unsigned>;
+        ///Value loaded in DOWNCOUNTER when DOWNCOUNTER equals zero
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> presetval{}; 
     }
-    namespace Noneclr_en{
-        using Addr = Register::Address<0x40040fd8,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CLR_EN; 
+    namespace NoneclrEn{    ///<Interrupt clear enable register
+        using Addr = Register::Address<0x40040fd8,0xfffffffe,0,unsigned>;
+        ///Writing a 1 to this bit clears the interrupt enable bit in the ENABLE register.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> clrEn{}; 
     }
-    namespace Noneset_en{
-        using Addr = Register::Address<0x40040fdc,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SET_EN; 
+    namespace NonesetEn{    ///<Interrupt set enable register
+        using Addr = Register::Address<0x40040fdc,0xfffffffe,0,unsigned>;
+        ///Writing a 1 to this bit sets the interrupt enable bit in the ENABLE register.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> setEn{}; 
     }
-    namespace Nonestatus{
-        using Addr = Register::Address<0x40040fe0,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> STAT; 
+    namespace Nonestatus{    ///<Status register
+        using Addr = Register::Address<0x40040fe0,0xfffffffe,0,unsigned>;
+        ///A 1 in this bit shows that the STATUS interrupt has been raised.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> stat{}; 
     }
-    namespace Noneenable{
-        using Addr = Register::Address<0x40040fe4,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EN; 
+    namespace Noneenable{    ///<Enable register
+        using Addr = Register::Address<0x40040fe4,0xfffffffe,0,unsigned>;
+        ///A 1 in this bit shows that the STATUS interrupt has been enabled and that the STATUS interrupt request signal is asserted when STAT = 1 in the STATUS register.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en{}; 
     }
-    namespace Noneclr_stat{
-        using Addr = Register::Address<0x40040fe8,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CSTAT; 
+    namespace NoneclrStat{    ///<Clear register
+        using Addr = Register::Address<0x40040fe8,0xfffffffe,0,unsigned>;
+        ///Writing a 1 to this bit clears the STATUS interrupt bit in the STATUS register.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cstat{}; 
     }
-    namespace Noneset_stat{
-        using Addr = Register::Address<0x40040fec,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SSTAT; 
+    namespace NonesetStat{    ///<Set register
+        using Addr = Register::Address<0x40040fec,0xfffffffe,0,unsigned>;
+        ///Writing a 1 to this bit sets the STATUS interrupt bit in the STATUS register.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sstat{}; 
     }
 }

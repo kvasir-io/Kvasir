@@ -1,208 +1,341 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace ADC_cr{
-        using Addr = Register::Address<0x400ac000,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SWRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> START; 
+//Analog-to-Digital Converter
+    namespace AdcCr{    ///<Control Register
+        using Addr = Register::Address<0x400ac000,0xfffffffc,0,unsigned>;
+        ///Software Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        ///Start Conversion
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> start{}; 
     }
-    namespace ADC_mr{
-        using Addr = Register::Address<0x400ac004,0xf08000c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TRGEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1)> TRGSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> LOWRES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SLEEP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> PRESCAL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16)> STARTUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> SHTIM; 
+    namespace AdcMr{    ///<Mode Register
+        using Addr = Register::Address<0x400ac004,0xf08000c0,0,unsigned>;
+        ///Trigger Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trgen{}; 
+        ///Trigger Selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trgsel{}; 
+        ///Resolution
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> lowres{}; 
+        ///Sleep Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sleep{}; 
+        ///Prescaler Rate Selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> prescal{}; 
+        ///Start Up Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> startup{}; 
+        ///Sample & Hold Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> shtim{}; 
     }
-    namespace ADC_cher{
-        using Addr = Register::Address<0x400ac010,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CH0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CH1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CH2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CH3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CH4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CH5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CH6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CH7; 
+    namespace AdcCher{    ///<Channel Enable Register
+        using Addr = Register::Address<0x400ac010,0xffffff00,0,unsigned>;
+        ///Channel 0 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        ///Channel 1 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        ///Channel 2 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ch2{}; 
+        ///Channel 3 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ch3{}; 
+        ///Channel 4 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ch4{}; 
+        ///Channel 5 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ch5{}; 
+        ///Channel 6 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ch6{}; 
+        ///Channel 7 Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ch7{}; 
     }
-    namespace ADC_chdr{
-        using Addr = Register::Address<0x400ac014,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CH0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CH1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CH2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CH3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CH4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CH5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CH6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CH7; 
+    namespace AdcChdr{    ///<Channel Disable Register
+        using Addr = Register::Address<0x400ac014,0xffffff00,0,unsigned>;
+        ///Channel 0 Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        ///Channel 1 Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        ///Channel 2 Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ch2{}; 
+        ///Channel 3 Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ch3{}; 
+        ///Channel 4 Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ch4{}; 
+        ///Channel 5 Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ch5{}; 
+        ///Channel 6 Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ch6{}; 
+        ///Channel 7 Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ch7{}; 
     }
-    namespace ADC_chsr{
-        using Addr = Register::Address<0x400ac018,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CH0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CH1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CH2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CH3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CH4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CH5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CH6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CH7; 
+    namespace AdcChsr{    ///<Channel Status Register
+        using Addr = Register::Address<0x400ac018,0xffffff00,0,unsigned>;
+        ///Channel 0 Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        ///Channel 1 Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        ///Channel 2 Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ch2{}; 
+        ///Channel 3 Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ch3{}; 
+        ///Channel 4 Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ch4{}; 
+        ///Channel 5 Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ch5{}; 
+        ///Channel 6 Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ch6{}; 
+        ///Channel 7 Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ch7{}; 
     }
-    namespace ADC_sr{
-        using Addr = Register::Address<0x400ac01c,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EOC0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EOC1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOC2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EOC3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> EOC4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> EOC5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> EOC6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> EOC7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> OVRE0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> OVRE1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OVRE2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> OVRE3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> OVRE4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> OVRE5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> OVRE6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> OVRE7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> DRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> GOVRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ENDRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> RXBUFF; 
+    namespace AdcSr{    ///<Status Register
+        using Addr = Register::Address<0x400ac01c,0xfff00000,0,unsigned>;
+        ///End of Conversion 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eoc0{}; 
+        ///End of Conversion 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc1{}; 
+        ///End of Conversion 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eoc2{}; 
+        ///End of Conversion 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eoc3{}; 
+        ///End of Conversion 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> eoc4{}; 
+        ///End of Conversion 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> eoc5{}; 
+        ///End of Conversion 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> eoc6{}; 
+        ///End of Conversion 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> eoc7{}; 
+        ///Overrun Error 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ovre0{}; 
+        ///Overrun Error 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ovre1{}; 
+        ///Overrun Error 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ovre2{}; 
+        ///Overrun Error 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ovre3{}; 
+        ///Overrun Error 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ovre4{}; 
+        ///Overrun Error 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ovre5{}; 
+        ///Overrun Error 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ovre6{}; 
+        ///Overrun Error 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ovre7{}; 
+        ///Data Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> drdy{}; 
+        ///General Overrun Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> govre{}; 
+        ///End of RX Buffer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> endrx{}; 
+        ///RX Buffer Full
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rxbuff{}; 
     }
-    namespace ADC_lcdr{
-        using Addr = Register::Address<0x400ac020,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> LDATA; 
+    namespace AdcLcdr{    ///<Last Converted Data Register
+        using Addr = Register::Address<0x400ac020,0xfffffc00,0,unsigned>;
+        ///Last Data Converted
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> ldata{}; 
     }
-    namespace ADC_ier{
-        using Addr = Register::Address<0x400ac024,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EOC0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EOC1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOC2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EOC3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> EOC4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> EOC5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> EOC6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> EOC7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> OVRE0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> OVRE1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OVRE2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> OVRE3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> OVRE4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> OVRE5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> OVRE6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> OVRE7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> DRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> GOVRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ENDRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> RXBUFF; 
+    namespace AdcIer{    ///<Interrupt Enable Register
+        using Addr = Register::Address<0x400ac024,0xfff00000,0,unsigned>;
+        ///End of Conversion Interrupt Enable 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eoc0{}; 
+        ///End of Conversion Interrupt Enable 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc1{}; 
+        ///End of Conversion Interrupt Enable 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eoc2{}; 
+        ///End of Conversion Interrupt Enable 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eoc3{}; 
+        ///End of Conversion Interrupt Enable 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> eoc4{}; 
+        ///End of Conversion Interrupt Enable 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> eoc5{}; 
+        ///End of Conversion Interrupt Enable 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> eoc6{}; 
+        ///End of Conversion Interrupt Enable 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> eoc7{}; 
+        ///Overrun Error Interrupt Enable 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ovre0{}; 
+        ///Overrun Error Interrupt Enable 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ovre1{}; 
+        ///Overrun Error Interrupt Enable 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ovre2{}; 
+        ///Overrun Error Interrupt Enable 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ovre3{}; 
+        ///Overrun Error Interrupt Enable 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ovre4{}; 
+        ///Overrun Error Interrupt Enable 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ovre5{}; 
+        ///Overrun Error Interrupt Enable 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ovre6{}; 
+        ///Overrun Error Interrupt Enable 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ovre7{}; 
+        ///Data Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> drdy{}; 
+        ///General Overrun Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> govre{}; 
+        ///End of Receive Buffer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> endrx{}; 
+        ///Receive Buffer Full Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rxbuff{}; 
     }
-    namespace ADC_idr{
-        using Addr = Register::Address<0x400ac028,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EOC0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EOC1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOC2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EOC3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> EOC4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> EOC5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> EOC6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> EOC7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> OVRE0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> OVRE1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OVRE2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> OVRE3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> OVRE4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> OVRE5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> OVRE6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> OVRE7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> DRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> GOVRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ENDRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> RXBUFF; 
+    namespace AdcIdr{    ///<Interrupt Disable Register
+        using Addr = Register::Address<0x400ac028,0xfff00000,0,unsigned>;
+        ///End of Conversion Interrupt Disable 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eoc0{}; 
+        ///End of Conversion Interrupt Disable 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc1{}; 
+        ///End of Conversion Interrupt Disable 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eoc2{}; 
+        ///End of Conversion Interrupt Disable 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eoc3{}; 
+        ///End of Conversion Interrupt Disable 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> eoc4{}; 
+        ///End of Conversion Interrupt Disable 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> eoc5{}; 
+        ///End of Conversion Interrupt Disable 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> eoc6{}; 
+        ///End of Conversion Interrupt Disable 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> eoc7{}; 
+        ///Overrun Error Interrupt Disable 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ovre0{}; 
+        ///Overrun Error Interrupt Disable 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ovre1{}; 
+        ///Overrun Error Interrupt Disable 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ovre2{}; 
+        ///Overrun Error Interrupt Disable 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ovre3{}; 
+        ///Overrun Error Interrupt Disable 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ovre4{}; 
+        ///Overrun Error Interrupt Disable 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ovre5{}; 
+        ///Overrun Error Interrupt Disable 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ovre6{}; 
+        ///Overrun Error Interrupt Disable 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ovre7{}; 
+        ///Data Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> drdy{}; 
+        ///General Overrun Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> govre{}; 
+        ///End of Receive Buffer Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> endrx{}; 
+        ///Receive Buffer Full Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rxbuff{}; 
     }
-    namespace ADC_imr{
-        using Addr = Register::Address<0x400ac02c,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EOC0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EOC1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOC2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EOC3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> EOC4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> EOC5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> EOC6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> EOC7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> OVRE0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> OVRE1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OVRE2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> OVRE3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> OVRE4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> OVRE5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> OVRE6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> OVRE7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> DRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> GOVRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ENDRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> RXBUFF; 
+    namespace AdcImr{    ///<Interrupt Mask Register
+        using Addr = Register::Address<0x400ac02c,0xfff00000,0,unsigned>;
+        ///End of Conversion Interrupt Mask 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eoc0{}; 
+        ///End of Conversion Interrupt Mask 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc1{}; 
+        ///End of Conversion Interrupt Mask 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eoc2{}; 
+        ///End of Conversion Interrupt Mask 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eoc3{}; 
+        ///End of Conversion Interrupt Mask 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> eoc4{}; 
+        ///End of Conversion Interrupt Mask 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> eoc5{}; 
+        ///End of Conversion Interrupt Mask 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> eoc6{}; 
+        ///End of Conversion Interrupt Mask 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> eoc7{}; 
+        ///Overrun Error Interrupt Mask 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ovre0{}; 
+        ///Overrun Error Interrupt Mask 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ovre1{}; 
+        ///Overrun Error Interrupt Mask 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ovre2{}; 
+        ///Overrun Error Interrupt Mask 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ovre3{}; 
+        ///Overrun Error Interrupt Mask 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ovre4{}; 
+        ///Overrun Error Interrupt Mask 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ovre5{}; 
+        ///Overrun Error Interrupt Mask 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ovre6{}; 
+        ///Overrun Error Interrupt Mask 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ovre7{}; 
+        ///Data Ready Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> drdy{}; 
+        ///General Overrun Error Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> govre{}; 
+        ///End of Receive Buffer Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> endrx{}; 
+        ///Receive Buffer Full Interrupt Mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rxbuff{}; 
     }
-    namespace ADC_cdr0{
-        using Addr = Register::Address<0x400ac030,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> DATA; 
+    namespace AdcCdr0{    ///<Channel Data Register
+        using Addr = Register::Address<0x400ac030,0xfffffc00,0,unsigned>;
+        ///Converted Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace ADC_cdr1{
-        using Addr = Register::Address<0x400ac034,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> DATA; 
+    namespace AdcCdr1{    ///<Channel Data Register
+        using Addr = Register::Address<0x400ac034,0xfffffc00,0,unsigned>;
+        ///Converted Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace ADC_cdr2{
-        using Addr = Register::Address<0x400ac038,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> DATA; 
+    namespace AdcCdr2{    ///<Channel Data Register
+        using Addr = Register::Address<0x400ac038,0xfffffc00,0,unsigned>;
+        ///Converted Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace ADC_cdr3{
-        using Addr = Register::Address<0x400ac03c,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> DATA; 
+    namespace AdcCdr3{    ///<Channel Data Register
+        using Addr = Register::Address<0x400ac03c,0xfffffc00,0,unsigned>;
+        ///Converted Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace ADC_cdr4{
-        using Addr = Register::Address<0x400ac040,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> DATA; 
+    namespace AdcCdr4{    ///<Channel Data Register
+        using Addr = Register::Address<0x400ac040,0xfffffc00,0,unsigned>;
+        ///Converted Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace ADC_cdr5{
-        using Addr = Register::Address<0x400ac044,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> DATA; 
+    namespace AdcCdr5{    ///<Channel Data Register
+        using Addr = Register::Address<0x400ac044,0xfffffc00,0,unsigned>;
+        ///Converted Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace ADC_cdr6{
-        using Addr = Register::Address<0x400ac048,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> DATA; 
+    namespace AdcCdr6{    ///<Channel Data Register
+        using Addr = Register::Address<0x400ac048,0xfffffc00,0,unsigned>;
+        ///Converted Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace ADC_cdr7{
-        using Addr = Register::Address<0x400ac04c,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> DATA; 
+    namespace AdcCdr7{    ///<Channel Data Register
+        using Addr = Register::Address<0x400ac04c,0xfffffc00,0,unsigned>;
+        ///Converted Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace ADC_rpr{
-        using Addr = Register::Address<0x400ac100,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXPTR; 
+    namespace AdcRpr{    ///<Receive Pointer Register
+        using Addr = Register::Address<0x400ac100,0x00000000,0,unsigned>;
+        ///Receive Pointer Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxptr{}; 
     }
-    namespace ADC_rcr{
-        using Addr = Register::Address<0x400ac104,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> RXCTR; 
+    namespace AdcRcr{    ///<Receive Counter Register
+        using Addr = Register::Address<0x400ac104,0xffff0000,0,unsigned>;
+        ///Receive Counter Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxctr{}; 
     }
-    namespace ADC_rnpr{
-        using Addr = Register::Address<0x400ac110,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXNPTR; 
+    namespace AdcRnpr{    ///<Receive Next Pointer Register
+        using Addr = Register::Address<0x400ac110,0x00000000,0,unsigned>;
+        ///Receive Next Pointer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxnptr{}; 
     }
-    namespace ADC_rncr{
-        using Addr = Register::Address<0x400ac114,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> RXNCTR; 
+    namespace AdcRncr{    ///<Receive Next Counter Register
+        using Addr = Register::Address<0x400ac114,0xffff0000,0,unsigned>;
+        ///Receive Next Counter
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxnctr{}; 
     }
-    namespace ADC_ptcr{
-        using Addr = Register::Address<0x400ac120,0xfffffcfc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RXTDIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TXTDIS; 
+    namespace AdcPtcr{    ///<Transfer Control Register
+        using Addr = Register::Address<0x400ac120,0xfffffcfc,0,unsigned>;
+        ///Receiver Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        ///Receiver Transfer Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
+        ///Transmitter Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        ///Transmitter Transfer Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
     }
-    namespace ADC_ptsr{
-        using Addr = Register::Address<0x400ac124,0xfffffefe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TXTEN; 
+    namespace AdcPtsr{    ///<Transfer Status Register
+        using Addr = Register::Address<0x400ac124,0xfffffefe,0,unsigned>;
+        ///Receiver Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        ///Transmitter Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
     }
 }

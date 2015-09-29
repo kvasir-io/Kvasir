@@ -1,492 +1,3831 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonepio0_0{
-        using Addr = Register::Address<0x4001c000,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+//I/O pin configuration 
+    namespace Nonepio00{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c000,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_1{
-        using Addr = Register::Address<0x4001c004,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio01{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c004,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_2{
-        using Addr = Register::Address<0x4001c008,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio02{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c008,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_3{
-        using Addr = Register::Address<0x4001c00c,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio03{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c00c,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_4{
-        using Addr = Register::Address<0x4001c010,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio04{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c010,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_5{
-        using Addr = Register::Address<0x4001c014,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio05{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c014,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_6{
-        using Addr = Register::Address<0x4001c018,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio06{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c018,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_7{
-        using Addr = Register::Address<0x4001c01c,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio07{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c01c,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_8{
-        using Addr = Register::Address<0x4001c020,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio08{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c020,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_9{
-        using Addr = Register::Address<0x4001c024,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio09{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c024,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_10{
-        using Addr = Register::Address<0x4001c028,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio010{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c028,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_11{
-        using Addr = Register::Address<0x4001c02c,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio011{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c02c,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_12{
-        using Addr = Register::Address<0x4001c030,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio012{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c030,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_13{
-        using Addr = Register::Address<0x4001c034,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio013{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c034,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_14{
-        using Addr = Register::Address<0x4001c038,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio014{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c038,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_15{
-        using Addr = Register::Address<0x4001c03c,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio015{    ///<Digital I/O control for port 0 pins PIO0_0 to
+						PIO0_15.
+        using Addr = Register::Address<0x4001c03c,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_16{
-        using Addr = Register::Address<0x4001c040,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio016{    ///<Digital I/O control for port 0 pins PIO0_16 to
+						PIO0_17.
+        using Addr = Register::Address<0x4001c040,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_17{
-        using Addr = Register::Address<0x4001c044,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio017{    ///<Digital I/O control for port 0 pins PIO0_16 to
+						PIO0_17.
+        using Addr = Register::Address<0x4001c044,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_18{
-        using Addr = Register::Address<0x4001c048,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio018{    ///<Digital I/O control for port 0 pins PIO0_18 to
+						PIO0_22.
+        using Addr = Register::Address<0x4001c048,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_19{
-        using Addr = Register::Address<0x4001c04c,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio019{    ///<Digital I/O control for port 0 pins PIO0_18 to
+						PIO0_22.
+        using Addr = Register::Address<0x4001c04c,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_20{
-        using Addr = Register::Address<0x4001c050,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio020{    ///<Digital I/O control for port 0 pins PIO0_18 to
+						PIO0_22.
+        using Addr = Register::Address<0x4001c050,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_21{
-        using Addr = Register::Address<0x4001c054,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio021{    ///<Digital I/O control for port 0 pins PIO0_18 to
+						PIO0_22.
+        using Addr = Register::Address<0x4001c054,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_22{
-        using Addr = Register::Address<0x4001c058,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio022{    ///<Digital I/O control for port 0 pins PIO0_18 to
+						PIO0_22.
+        using Addr = Register::Address<0x4001c058,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_23{
-        using Addr = Register::Address<0x4001c05c,0xfffff818>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I2CSLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> I2CDRIVE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> I2CFILTER; 
+    namespace Nonepio023{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
+						support I2C with true open-drain, drive and filtering for modes up to
+						Fast-mode Plus.
+        using Addr = Register::Address<0x4001c05c,0xfffff818,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Controls slew rate of I2C pad.
+        enum class i2cslewVal {
+            i2cMode=0x00000000,     ///<I2C mode.
+            gpioMode=0x00000001,     ///<GPIO mode.
+        };
+        namespace i2cslewValC{
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::i2cMode> i2cMode{};
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::gpioMode> gpioMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,i2cslewVal> i2cslew{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls the current sink capability of the
+								pin.
+        enum class i2cdriveVal {
+            lowDrive=0x00000000,     ///<Low drive. Output drive sink is 4 mA. This is
+										sufficient for standard and fast mode I2C.
+            highDrive=0x00000001,     ///<High drive. Output drive sink is 20 mA. This is
+										needed for Fast Mode Plus I 2C. Refer to the appropriate
+										specific device data sheet for details.
+        };
+        namespace i2cdriveValC{
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::lowDrive> lowDrive{};
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::highDrive> highDrive{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,i2cdriveVal> i2cdrive{}; 
+        ///Configures I2C features for standard mode, fast mode, and
+								Fast Mode Plus operation.
+        enum class i2cfilterVal {
+            enabled=0x00000000,     ///<Enabled. I2C 50 ns glitch filter
+										enabled.
+            disabled=0x00000001,     ///<Disabled. I2C 50 ns glitch filter
+										disabled.
+        };
+        namespace i2cfilterValC{
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::enabled> enabled{};
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::disabled> disabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,i2cfilterVal> i2cfilter{}; 
     }
-    namespace Nonepio0_24{
-        using Addr = Register::Address<0x4001c060,0xfffff818>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I2CSLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> I2CDRIVE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> I2CFILTER; 
+    namespace Nonepio024{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
+						support I2C with true open-drain, drive and filtering for modes up to
+						Fast-mode Plus.
+        using Addr = Register::Address<0x4001c060,0xfffff818,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Controls slew rate of I2C pad.
+        enum class i2cslewVal {
+            i2cMode=0x00000000,     ///<I2C mode.
+            gpioMode=0x00000001,     ///<GPIO mode.
+        };
+        namespace i2cslewValC{
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::i2cMode> i2cMode{};
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::gpioMode> gpioMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,i2cslewVal> i2cslew{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls the current sink capability of the
+								pin.
+        enum class i2cdriveVal {
+            lowDrive=0x00000000,     ///<Low drive. Output drive sink is 4 mA. This is
+										sufficient for standard and fast mode I2C.
+            highDrive=0x00000001,     ///<High drive. Output drive sink is 20 mA. This is
+										needed for Fast Mode Plus I 2C. Refer to the appropriate
+										specific device data sheet for details.
+        };
+        namespace i2cdriveValC{
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::lowDrive> lowDrive{};
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::highDrive> highDrive{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,i2cdriveVal> i2cdrive{}; 
+        ///Configures I2C features for standard mode, fast mode, and
+								Fast Mode Plus operation.
+        enum class i2cfilterVal {
+            enabled=0x00000000,     ///<Enabled. I2C 50 ns glitch filter
+										enabled.
+            disabled=0x00000001,     ///<Disabled. I2C 50 ns glitch filter
+										disabled.
+        };
+        namespace i2cfilterValC{
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::enabled> enabled{};
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::disabled> disabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,i2cfilterVal> i2cfilter{}; 
     }
-    namespace Nonepio0_25{
-        using Addr = Register::Address<0x4001c064,0xfffff818>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I2CSLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> I2CDRIVE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> I2CFILTER; 
+    namespace Nonepio025{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
+						support I2C with true open-drain, drive and filtering for modes up to
+						Fast-mode Plus.
+        using Addr = Register::Address<0x4001c064,0xfffff818,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Controls slew rate of I2C pad.
+        enum class i2cslewVal {
+            i2cMode=0x00000000,     ///<I2C mode.
+            gpioMode=0x00000001,     ///<GPIO mode.
+        };
+        namespace i2cslewValC{
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::i2cMode> i2cMode{};
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::gpioMode> gpioMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,i2cslewVal> i2cslew{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls the current sink capability of the
+								pin.
+        enum class i2cdriveVal {
+            lowDrive=0x00000000,     ///<Low drive. Output drive sink is 4 mA. This is
+										sufficient for standard and fast mode I2C.
+            highDrive=0x00000001,     ///<High drive. Output drive sink is 20 mA. This is
+										needed for Fast Mode Plus I 2C. Refer to the appropriate
+										specific device data sheet for details.
+        };
+        namespace i2cdriveValC{
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::lowDrive> lowDrive{};
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::highDrive> highDrive{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,i2cdriveVal> i2cdrive{}; 
+        ///Configures I2C features for standard mode, fast mode, and
+								Fast Mode Plus operation.
+        enum class i2cfilterVal {
+            enabled=0x00000000,     ///<Enabled. I2C 50 ns glitch filter
+										enabled.
+            disabled=0x00000001,     ///<Disabled. I2C 50 ns glitch filter
+										disabled.
+        };
+        namespace i2cfilterValC{
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::enabled> enabled{};
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::disabled> disabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,i2cfilterVal> i2cfilter{}; 
     }
-    namespace Nonepio0_26{
-        using Addr = Register::Address<0x4001c068,0xfffff818>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I2CSLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> I2CDRIVE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> I2CFILTER; 
+    namespace Nonepio026{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
+						support I2C with true open-drain, drive and filtering for modes up to
+						Fast-mode Plus.
+        using Addr = Register::Address<0x4001c068,0xfffff818,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Controls slew rate of I2C pad.
+        enum class i2cslewVal {
+            i2cMode=0x00000000,     ///<I2C mode.
+            gpioMode=0x00000001,     ///<GPIO mode.
+        };
+        namespace i2cslewValC{
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::i2cMode> i2cMode{};
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::gpioMode> gpioMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,i2cslewVal> i2cslew{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls the current sink capability of the
+								pin.
+        enum class i2cdriveVal {
+            lowDrive=0x00000000,     ///<Low drive. Output drive sink is 4 mA. This is
+										sufficient for standard and fast mode I2C.
+            highDrive=0x00000001,     ///<High drive. Output drive sink is 20 mA. This is
+										needed for Fast Mode Plus I 2C. Refer to the appropriate
+										specific device data sheet for details.
+        };
+        namespace i2cdriveValC{
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::lowDrive> lowDrive{};
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::highDrive> highDrive{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,i2cdriveVal> i2cdrive{}; 
+        ///Configures I2C features for standard mode, fast mode, and
+								Fast Mode Plus operation.
+        enum class i2cfilterVal {
+            enabled=0x00000000,     ///<Enabled. I2C 50 ns glitch filter
+										enabled.
+            disabled=0x00000001,     ///<Disabled. I2C 50 ns glitch filter
+										disabled.
+        };
+        namespace i2cfilterValC{
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::enabled> enabled{};
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::disabled> disabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,i2cfilterVal> i2cfilter{}; 
     }
-    namespace Nonepio0_27{
-        using Addr = Register::Address<0x4001c06c,0xfffff818>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I2CSLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> I2CDRIVE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> I2CFILTER; 
+    namespace Nonepio027{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
+						support I2C with true open-drain, drive and filtering for modes up to
+						Fast-mode Plus.
+        using Addr = Register::Address<0x4001c06c,0xfffff818,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Controls slew rate of I2C pad.
+        enum class i2cslewVal {
+            i2cMode=0x00000000,     ///<I2C mode.
+            gpioMode=0x00000001,     ///<GPIO mode.
+        };
+        namespace i2cslewValC{
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::i2cMode> i2cMode{};
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::gpioMode> gpioMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,i2cslewVal> i2cslew{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls the current sink capability of the
+								pin.
+        enum class i2cdriveVal {
+            lowDrive=0x00000000,     ///<Low drive. Output drive sink is 4 mA. This is
+										sufficient for standard and fast mode I2C.
+            highDrive=0x00000001,     ///<High drive. Output drive sink is 20 mA. This is
+										needed for Fast Mode Plus I 2C. Refer to the appropriate
+										specific device data sheet for details.
+        };
+        namespace i2cdriveValC{
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::lowDrive> lowDrive{};
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::highDrive> highDrive{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,i2cdriveVal> i2cdrive{}; 
+        ///Configures I2C features for standard mode, fast mode, and
+								Fast Mode Plus operation.
+        enum class i2cfilterVal {
+            enabled=0x00000000,     ///<Enabled. I2C 50 ns glitch filter
+										enabled.
+            disabled=0x00000001,     ///<Disabled. I2C 50 ns glitch filter
+										disabled.
+        };
+        namespace i2cfilterValC{
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::enabled> enabled{};
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::disabled> disabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,i2cfilterVal> i2cfilter{}; 
     }
-    namespace Nonepio0_28{
-        using Addr = Register::Address<0x4001c070,0xfffff818>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I2CSLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> I2CDRIVE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> I2CFILTER; 
+    namespace Nonepio028{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
+						support I2C with true open-drain, drive and filtering for modes up to
+						Fast-mode Plus.
+        using Addr = Register::Address<0x4001c070,0xfffff818,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Controls slew rate of I2C pad.
+        enum class i2cslewVal {
+            i2cMode=0x00000000,     ///<I2C mode.
+            gpioMode=0x00000001,     ///<GPIO mode.
+        };
+        namespace i2cslewValC{
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::i2cMode> i2cMode{};
+            constexpr MPL::Value<i2cslewVal,i2cslewVal::gpioMode> gpioMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,i2cslewVal> i2cslew{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls the current sink capability of the
+								pin.
+        enum class i2cdriveVal {
+            lowDrive=0x00000000,     ///<Low drive. Output drive sink is 4 mA. This is
+										sufficient for standard and fast mode I2C.
+            highDrive=0x00000001,     ///<High drive. Output drive sink is 20 mA. This is
+										needed for Fast Mode Plus I 2C. Refer to the appropriate
+										specific device data sheet for details.
+        };
+        namespace i2cdriveValC{
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::lowDrive> lowDrive{};
+            constexpr MPL::Value<i2cdriveVal,i2cdriveVal::highDrive> highDrive{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,i2cdriveVal> i2cdrive{}; 
+        ///Configures I2C features for standard mode, fast mode, and
+								Fast Mode Plus operation.
+        enum class i2cfilterVal {
+            enabled=0x00000000,     ///<Enabled. I2C 50 ns glitch filter
+										enabled.
+            disabled=0x00000001,     ///<Disabled. I2C 50 ns glitch filter
+										disabled.
+        };
+        namespace i2cfilterValC{
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::enabled> enabled{};
+            constexpr MPL::Value<i2cfilterVal,i2cfilterVal::disabled> disabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,i2cfilterVal> i2cfilter{}; 
     }
-    namespace Nonepio0_29{
-        using Addr = Register::Address<0x4001c074,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio029{    ///<Digital I/O control for port 0 pins PIO0_29 to PIO0_31. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c074,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_30{
-        using Addr = Register::Address<0x4001c078,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio030{    ///<Digital I/O control for port 0 pins PIO0_29 to PIO0_31. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c078,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio0_31{
-        using Addr = Register::Address<0x4001c07c,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio031{    ///<Digital I/O control for port 0 pins PIO0_29 to PIO0_31. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c07c,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_0{
-        using Addr = Register::Address<0x4001c080,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio10{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c080,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_1{
-        using Addr = Register::Address<0x4001c084,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio11{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c084,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_2{
-        using Addr = Register::Address<0x4001c088,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio12{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c088,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_3{
-        using Addr = Register::Address<0x4001c08c,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio13{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c08c,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_4{
-        using Addr = Register::Address<0x4001c090,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio14{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c090,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_5{
-        using Addr = Register::Address<0x4001c094,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio15{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c094,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_6{
-        using Addr = Register::Address<0x4001c098,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio16{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c098,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_7{
-        using Addr = Register::Address<0x4001c09c,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio17{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c09c,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_8{
-        using Addr = Register::Address<0x4001c0a0,0xfffffa20>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio18{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
+						include an ADC input.
+        using Addr = Register::Address<0x4001c0a0,0xfffffa20,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_9{
-        using Addr = Register::Address<0x4001c0a4,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio19{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0a4,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_10{
-        using Addr = Register::Address<0x4001c0a8,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio110{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0a8,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_11{
-        using Addr = Register::Address<0x4001c0ac,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio111{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0ac,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_12{
-        using Addr = Register::Address<0x4001c0b0,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio112{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0b0,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_13{
-        using Addr = Register::Address<0x4001c0b4,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio113{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0b4,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_14{
-        using Addr = Register::Address<0x4001c0b8,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio114{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0b8,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_15{
-        using Addr = Register::Address<0x4001c0bc,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio115{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0bc,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_16{
-        using Addr = Register::Address<0x4001c0c0,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio116{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0c0,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
-    namespace Nonepio1_17{
-        using Addr = Register::Address<0x4001c0c4,0xfffff820>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> FUNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INVERT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIGIMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FILTEROFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SLEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> OD; 
+    namespace Nonepio117{    ///<Digital I/O control for port 1 pins PIO1_9 to
+						PIO1_17.
+        using Addr = Register::Address<0x4001c0c4,0xfffff820,0,unsigned>;
+        ///Selects pin function.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
+        ///Selects function mode (on-chip pull-up/pull-down resistor
+								control).
+        enum class modeVal {
+            inactive=0x00000000,     ///<Inactive. Inactive (no pull-down/pull-up resistor
+										enabled).
+            pullDown=0x00000001,     ///<Pull-down. Pull-down resistor
+										enabled.
+            pullUp=0x00000002,     ///<Pull-up. Pull-up resistor enabled.
+            repeater=0x00000003,     ///<Repeater. Repeater mode.
+        };
+        namespace modeValC{
+            constexpr MPL::Value<modeVal,modeVal::inactive> inactive{};
+            constexpr MPL::Value<modeVal,modeVal::pullDown> pullDown{};
+            constexpr MPL::Value<modeVal,modeVal::pullUp> pullUp{};
+            constexpr MPL::Value<modeVal,modeVal::repeater> repeater{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,modeVal> mode{}; 
+        ///Input polarity.
+        enum class invertVal {
+            disabled=0x00000000,     ///<Disabled. Input function is not
+										inverted.
+            enabled=0x00000001,     ///<Enabled. Input is function inverted.
+        };
+        namespace invertValC{
+            constexpr MPL::Value<invertVal,invertVal::disabled> disabled{};
+            constexpr MPL::Value<invertVal,invertVal::enabled> enabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,invertVal> invert{}; 
+        ///Select Analog/Digital mode.
+        enum class digimodeVal {
+            analogMode=0x00000000,     ///<Analog mode.
+            digitalMode=0x00000001,     ///<Digital mode.
+        };
+        namespace digimodeValC{
+            constexpr MPL::Value<digimodeVal,digimodeVal::analogMode> analogMode{};
+            constexpr MPL::Value<digimodeVal,digimodeVal::digitalMode> digitalMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,digimodeVal> digimode{}; 
+        ///Controls input glitch filter.
+        enum class filteroffVal {
+            filterEnabled=0x00000000,     ///<Filter enabled. Noise pulses below approximately 10
+										ns are filtered out
+            filterDisabled=0x00000001,     ///<Filter disabled. No input filtering is
+										done
+        };
+        namespace filteroffValC{
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterEnabled> filterEnabled{};
+            constexpr MPL::Value<filteroffVal,filteroffVal::filterDisabled> filterDisabled{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,filteroffVal> filteroff{}; 
+        ///Driver slew rate.
+        enum class slewVal {
+            standardMode=0x00000000,     ///<Standard mode, output slew rate control is enabled.
+										More outputs can be switched simultaneously.
+            fastMode=0x00000001,     ///<Fast mode, slew rate control is disabled. Refer to
+										the appropriate specific device data sheet for
+										details.
+        };
+        namespace slewValC{
+            constexpr MPL::Value<slewVal,slewVal::standardMode> standardMode{};
+            constexpr MPL::Value<slewVal,slewVal::fastMode> fastMode{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,slewVal> slew{}; 
+        ///Controls open-drain mode.
+        enum class odVal {
+            normal=0x00000000,     ///<Normal. Normal push-pull output
+            openDrain=0x00000001,     ///<Open-drain. Simulated open-drain output (high drive
+										disabled)
+        };
+        namespace odValC{
+            constexpr MPL::Value<odVal,odVal::normal> normal{};
+            constexpr MPL::Value<odVal,odVal::openDrain> openDrain{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,odVal> od{}; 
     }
 }

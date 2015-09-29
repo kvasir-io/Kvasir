@@ -1,3110 +1,7066 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace UDPHS_ctrl{
-        using Addr = Register::Address<0xf8030000,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> DEV_ADDR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> FADDR_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EN_UDPHS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> DETACH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> REWAKEUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> PULLD_DIS; 
-    }
-    namespace UDPHS_fnum{
-        using Addr = Register::Address<0xf8030004,0x7fffc000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> MICRO_FRAME_NUM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,3)> FRAME_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> FNUM_ERR; 
-    }
-    namespace UDPHS_ien{
-        using Addr = Register::Address<0xf8030010,0x01000001>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DET_SUSPD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MICRO_SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INT_SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ENDRESET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> WAKE_UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> ENDOFRSM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UPSTR_RES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EPT_0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> EPT_1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> EPT_2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EPT_3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> EPT_4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> EPT_5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> EPT_6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> EPT_7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> EPT_8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> EPT_9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> EPT_10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> EPT_11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> EPT_12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> EPT_13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> EPT_14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> EPT_15; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> DMA_1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> DMA_2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> DMA_3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> DMA_4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> DMA_5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> DMA_6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> DMA_7; 
-    }
-    namespace UDPHS_intsta{
-        using Addr = Register::Address<0xf8030014,0x01000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SPEED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DET_SUSPD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MICRO_SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INT_SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ENDRESET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> WAKE_UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> ENDOFRSM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UPSTR_RES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EPT_0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> EPT_1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> EPT_2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EPT_3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> EPT_4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> EPT_5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> EPT_6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> EPT_7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> EPT_8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> EPT_9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> EPT_10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> EPT_11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> EPT_12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> EPT_13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> EPT_14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> EPT_15; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> DMA_1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> DMA_2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> DMA_3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> DMA_4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> DMA_5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> DMA_6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> DMA_7; 
-    }
-    namespace UDPHS_clrint{
-        using Addr = Register::Address<0xf8030018,0xffffff01>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DET_SUSPD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MICRO_SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INT_SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ENDRESET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> WAKE_UP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> ENDOFRSM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UPSTR_RES; 
-    }
-    namespace UDPHS_eptrst{
-        using Addr = Register::Address<0xf803001c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EPT_1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EPT_2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> EPT_4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> EPT_5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> EPT_6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> EPT_7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EPT_8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> EPT_9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> EPT_10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EPT_11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> EPT_12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> EPT_13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> EPT_14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> EPT_15; 
-    }
-    namespace UDPHS_tst{
-        using Addr = Register::Address<0xf80300e0,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> SPEED_CFG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> TST_J; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TST_K; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TST_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OPMODE2; 
-    }
-    namespace UDPHS_eptcfg0{
-        using Addr = Register::Address<0xf8030100,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb0{
-        using Addr = Register::Address<0xf8030104,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb0_isoendpt{
-        using Addr = Register::Address<0xf8030104,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis0{
-        using Addr = Register::Address<0xf8030108,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis0_isoendpt{
-        using Addr = Register::Address<0xf8030108,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl0{
-        using Addr = Register::Address<0xf803010c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl0_isoendpt{
-        using Addr = Register::Address<0xf803010c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta0{
-        using Addr = Register::Address<0xf8030114,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta0_isoendpt{
-        using Addr = Register::Address<0xf8030114,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta0{
-        using Addr = Register::Address<0xf8030118,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta0_isoendpt{
-        using Addr = Register::Address<0xf8030118,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta0{
-        using Addr = Register::Address<0xf803011c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta0_isoendpt{
-        using Addr = Register::Address<0xf803011c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg1{
-        using Addr = Register::Address<0xf8030120,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb1{
-        using Addr = Register::Address<0xf8030124,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb1_isoendpt{
-        using Addr = Register::Address<0xf8030124,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis1{
-        using Addr = Register::Address<0xf8030128,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis1_isoendpt{
-        using Addr = Register::Address<0xf8030128,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl1{
-        using Addr = Register::Address<0xf803012c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl1_isoendpt{
-        using Addr = Register::Address<0xf803012c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta1{
-        using Addr = Register::Address<0xf8030134,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta1_isoendpt{
-        using Addr = Register::Address<0xf8030134,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta1{
-        using Addr = Register::Address<0xf8030138,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta1_isoendpt{
-        using Addr = Register::Address<0xf8030138,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta1{
-        using Addr = Register::Address<0xf803013c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta1_isoendpt{
-        using Addr = Register::Address<0xf803013c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg2{
-        using Addr = Register::Address<0xf8030140,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb2{
-        using Addr = Register::Address<0xf8030144,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb2_isoendpt{
-        using Addr = Register::Address<0xf8030144,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis2{
-        using Addr = Register::Address<0xf8030148,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis2_isoendpt{
-        using Addr = Register::Address<0xf8030148,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl2{
-        using Addr = Register::Address<0xf803014c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl2_isoendpt{
-        using Addr = Register::Address<0xf803014c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta2{
-        using Addr = Register::Address<0xf8030154,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta2_isoendpt{
-        using Addr = Register::Address<0xf8030154,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta2{
-        using Addr = Register::Address<0xf8030158,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta2_isoendpt{
-        using Addr = Register::Address<0xf8030158,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta2{
-        using Addr = Register::Address<0xf803015c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta2_isoendpt{
-        using Addr = Register::Address<0xf803015c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg3{
-        using Addr = Register::Address<0xf8030160,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb3{
-        using Addr = Register::Address<0xf8030164,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb3_isoendpt{
-        using Addr = Register::Address<0xf8030164,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis3{
-        using Addr = Register::Address<0xf8030168,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis3_isoendpt{
-        using Addr = Register::Address<0xf8030168,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl3{
-        using Addr = Register::Address<0xf803016c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl3_isoendpt{
-        using Addr = Register::Address<0xf803016c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta3{
-        using Addr = Register::Address<0xf8030174,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta3_isoendpt{
-        using Addr = Register::Address<0xf8030174,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta3{
-        using Addr = Register::Address<0xf8030178,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta3_isoendpt{
-        using Addr = Register::Address<0xf8030178,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta3{
-        using Addr = Register::Address<0xf803017c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta3_isoendpt{
-        using Addr = Register::Address<0xf803017c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg4{
-        using Addr = Register::Address<0xf8030180,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb4{
-        using Addr = Register::Address<0xf8030184,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb4_isoendpt{
-        using Addr = Register::Address<0xf8030184,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis4{
-        using Addr = Register::Address<0xf8030188,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis4_isoendpt{
-        using Addr = Register::Address<0xf8030188,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl4{
-        using Addr = Register::Address<0xf803018c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl4_isoendpt{
-        using Addr = Register::Address<0xf803018c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta4{
-        using Addr = Register::Address<0xf8030194,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta4_isoendpt{
-        using Addr = Register::Address<0xf8030194,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta4{
-        using Addr = Register::Address<0xf8030198,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta4_isoendpt{
-        using Addr = Register::Address<0xf8030198,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta4{
-        using Addr = Register::Address<0xf803019c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta4_isoendpt{
-        using Addr = Register::Address<0xf803019c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg5{
-        using Addr = Register::Address<0xf80301a0,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb5{
-        using Addr = Register::Address<0xf80301a4,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb5_isoendpt{
-        using Addr = Register::Address<0xf80301a4,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis5{
-        using Addr = Register::Address<0xf80301a8,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis5_isoendpt{
-        using Addr = Register::Address<0xf80301a8,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl5{
-        using Addr = Register::Address<0xf80301ac,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl5_isoendpt{
-        using Addr = Register::Address<0xf80301ac,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta5{
-        using Addr = Register::Address<0xf80301b4,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta5_isoendpt{
-        using Addr = Register::Address<0xf80301b4,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta5{
-        using Addr = Register::Address<0xf80301b8,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta5_isoendpt{
-        using Addr = Register::Address<0xf80301b8,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta5{
-        using Addr = Register::Address<0xf80301bc,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta5_isoendpt{
-        using Addr = Register::Address<0xf80301bc,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg6{
-        using Addr = Register::Address<0xf80301c0,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb6{
-        using Addr = Register::Address<0xf80301c4,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb6_isoendpt{
-        using Addr = Register::Address<0xf80301c4,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis6{
-        using Addr = Register::Address<0xf80301c8,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis6_isoendpt{
-        using Addr = Register::Address<0xf80301c8,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl6{
-        using Addr = Register::Address<0xf80301cc,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl6_isoendpt{
-        using Addr = Register::Address<0xf80301cc,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta6{
-        using Addr = Register::Address<0xf80301d4,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta6_isoendpt{
-        using Addr = Register::Address<0xf80301d4,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta6{
-        using Addr = Register::Address<0xf80301d8,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta6_isoendpt{
-        using Addr = Register::Address<0xf80301d8,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta6{
-        using Addr = Register::Address<0xf80301dc,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta6_isoendpt{
-        using Addr = Register::Address<0xf80301dc,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg7{
-        using Addr = Register::Address<0xf80301e0,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb7{
-        using Addr = Register::Address<0xf80301e4,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb7_isoendpt{
-        using Addr = Register::Address<0xf80301e4,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis7{
-        using Addr = Register::Address<0xf80301e8,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis7_isoendpt{
-        using Addr = Register::Address<0xf80301e8,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl7{
-        using Addr = Register::Address<0xf80301ec,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl7_isoendpt{
-        using Addr = Register::Address<0xf80301ec,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta7{
-        using Addr = Register::Address<0xf80301f4,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta7_isoendpt{
-        using Addr = Register::Address<0xf80301f4,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta7{
-        using Addr = Register::Address<0xf80301f8,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta7_isoendpt{
-        using Addr = Register::Address<0xf80301f8,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta7{
-        using Addr = Register::Address<0xf80301fc,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta7_isoendpt{
-        using Addr = Register::Address<0xf80301fc,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg8{
-        using Addr = Register::Address<0xf8030200,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb8{
-        using Addr = Register::Address<0xf8030204,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb8_isoendpt{
-        using Addr = Register::Address<0xf8030204,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis8{
-        using Addr = Register::Address<0xf8030208,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis8_isoendpt{
-        using Addr = Register::Address<0xf8030208,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl8{
-        using Addr = Register::Address<0xf803020c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl8_isoendpt{
-        using Addr = Register::Address<0xf803020c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta8{
-        using Addr = Register::Address<0xf8030214,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta8_isoendpt{
-        using Addr = Register::Address<0xf8030214,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta8{
-        using Addr = Register::Address<0xf8030218,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta8_isoendpt{
-        using Addr = Register::Address<0xf8030218,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta8{
-        using Addr = Register::Address<0xf803021c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta8_isoendpt{
-        using Addr = Register::Address<0xf803021c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg9{
-        using Addr = Register::Address<0xf8030220,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb9{
-        using Addr = Register::Address<0xf8030224,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb9_isoendpt{
-        using Addr = Register::Address<0xf8030224,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis9{
-        using Addr = Register::Address<0xf8030228,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis9_isoendpt{
-        using Addr = Register::Address<0xf8030228,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl9{
-        using Addr = Register::Address<0xf803022c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl9_isoendpt{
-        using Addr = Register::Address<0xf803022c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta9{
-        using Addr = Register::Address<0xf8030234,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta9_isoendpt{
-        using Addr = Register::Address<0xf8030234,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta9{
-        using Addr = Register::Address<0xf8030238,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta9_isoendpt{
-        using Addr = Register::Address<0xf8030238,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta9{
-        using Addr = Register::Address<0xf803023c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta9_isoendpt{
-        using Addr = Register::Address<0xf803023c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg10{
-        using Addr = Register::Address<0xf8030240,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb10{
-        using Addr = Register::Address<0xf8030244,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb10_isoendpt{
-        using Addr = Register::Address<0xf8030244,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis10{
-        using Addr = Register::Address<0xf8030248,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis10_isoendpt{
-        using Addr = Register::Address<0xf8030248,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl10{
-        using Addr = Register::Address<0xf803024c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl10_isoendpt{
-        using Addr = Register::Address<0xf803024c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta10{
-        using Addr = Register::Address<0xf8030254,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta10_isoendpt{
-        using Addr = Register::Address<0xf8030254,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta10{
-        using Addr = Register::Address<0xf8030258,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta10_isoendpt{
-        using Addr = Register::Address<0xf8030258,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta10{
-        using Addr = Register::Address<0xf803025c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta10_isoendpt{
-        using Addr = Register::Address<0xf803025c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg11{
-        using Addr = Register::Address<0xf8030260,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb11{
-        using Addr = Register::Address<0xf8030264,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb11_isoendpt{
-        using Addr = Register::Address<0xf8030264,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis11{
-        using Addr = Register::Address<0xf8030268,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis11_isoendpt{
-        using Addr = Register::Address<0xf8030268,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl11{
-        using Addr = Register::Address<0xf803026c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl11_isoendpt{
-        using Addr = Register::Address<0xf803026c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta11{
-        using Addr = Register::Address<0xf8030274,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta11_isoendpt{
-        using Addr = Register::Address<0xf8030274,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta11{
-        using Addr = Register::Address<0xf8030278,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta11_isoendpt{
-        using Addr = Register::Address<0xf8030278,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta11{
-        using Addr = Register::Address<0xf803027c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta11_isoendpt{
-        using Addr = Register::Address<0xf803027c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg12{
-        using Addr = Register::Address<0xf8030280,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb12{
-        using Addr = Register::Address<0xf8030284,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb12_isoendpt{
-        using Addr = Register::Address<0xf8030284,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis12{
-        using Addr = Register::Address<0xf8030288,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis12_isoendpt{
-        using Addr = Register::Address<0xf8030288,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl12{
-        using Addr = Register::Address<0xf803028c,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl12_isoendpt{
-        using Addr = Register::Address<0xf803028c,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta12{
-        using Addr = Register::Address<0xf8030294,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta12_isoendpt{
-        using Addr = Register::Address<0xf8030294,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta12{
-        using Addr = Register::Address<0xf8030298,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta12_isoendpt{
-        using Addr = Register::Address<0xf8030298,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta12{
-        using Addr = Register::Address<0xf803029c,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta12_isoendpt{
-        using Addr = Register::Address<0xf803029c,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg13{
-        using Addr = Register::Address<0xf80302a0,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb13{
-        using Addr = Register::Address<0xf80302a4,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb13_isoendpt{
-        using Addr = Register::Address<0xf80302a4,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis13{
-        using Addr = Register::Address<0xf80302a8,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis13_isoendpt{
-        using Addr = Register::Address<0xf80302a8,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl13{
-        using Addr = Register::Address<0xf80302ac,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl13_isoendpt{
-        using Addr = Register::Address<0xf80302ac,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta13{
-        using Addr = Register::Address<0xf80302b4,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta13_isoendpt{
-        using Addr = Register::Address<0xf80302b4,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta13{
-        using Addr = Register::Address<0xf80302b8,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta13_isoendpt{
-        using Addr = Register::Address<0xf80302b8,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta13{
-        using Addr = Register::Address<0xf80302bc,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta13_isoendpt{
-        using Addr = Register::Address<0xf80302bc,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg14{
-        using Addr = Register::Address<0xf80302c0,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb14{
-        using Addr = Register::Address<0xf80302c4,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb14_isoendpt{
-        using Addr = Register::Address<0xf80302c4,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis14{
-        using Addr = Register::Address<0xf80302c8,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis14_isoendpt{
-        using Addr = Register::Address<0xf80302c8,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl14{
-        using Addr = Register::Address<0xf80302cc,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl14_isoendpt{
-        using Addr = Register::Address<0xf80302cc,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta14{
-        using Addr = Register::Address<0xf80302d4,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta14_isoendpt{
-        using Addr = Register::Address<0xf80302d4,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta14{
-        using Addr = Register::Address<0xf80302d8,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta14_isoendpt{
-        using Addr = Register::Address<0xf80302d8,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta14{
-        using Addr = Register::Address<0xf80302dc,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta14_isoendpt{
-        using Addr = Register::Address<0xf80302dc,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptcfg15{
-        using Addr = Register::Address<0xf80302e0,0x7ffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> EPT_SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EPT_DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> EPT_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> BK_NUMBER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> NB_TRANS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPT_MAPD; 
-    }
-    namespace UDPHS_eptctlenb15{
-        using Addr = Register::Address<0xf80302e4,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctlenb15_isoendpt{
-        using Addr = Register::Address<0xf80302e4,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis15{
-        using Addr = Register::Address<0xf80302e8,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctldis15_isoendpt{
-        using Addr = Register::Address<0xf80302e8,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_DISABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl15{
-        using Addr = Register::Address<0xf80302ec,0x7ffb00e4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NYET_DIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptctl15_isoendpt{
-        using Addr = Register::Address<0xf80302ec,0x7ffb8034>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EPT_ENABL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> AUTO_VALID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> INTDIS_DMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DATAX_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> MDATA_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> BUSY_BANK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsetsta15{
-        using Addr = Register::Address<0xf80302f4,0xfffff5df>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-    }
-    namespace UDPHS_eptsetsta15_isoendpt{
-        using Addr = Register::Address<0xf80302f4,0xfffff5ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-    }
-    namespace UDPHS_eptclrsta15{
-        using Addr = Register::Address<0xf80302f8,0xffff099f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-    }
-    namespace UDPHS_eptclrsta15_isoendpt{
-        using Addr = Register::Address<0xf80302f8,0xffff89bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TOGGLESQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-    }
-    namespace UDPHS_eptsta15{
-        using Addr = Register::Address<0xf80302fc,0x0000001f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRCESTALL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RX_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> STALL_SNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> NAK_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> NAK_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK_CTLDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_eptsta15_isoendpt{
-        using Addr = Register::Address<0xf80302fc,0x0000803f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> TOGGLESQ_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ERR_OVFLW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> RXRDY_TXKL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TX_COMPLT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXRDY_TRER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> ERR_FL_ISO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR_CRC_NTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ERR_FLUSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CURBK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> BUSY_BANK_STA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20)> BYTE_COUNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> SHRT_PCKT; 
-    }
-    namespace UDPHS_dmanxtdsc0{
-        using Addr = Register::Address<0xf8030300,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> NXT_DSC_ADD; 
-    }
-    namespace UDPHS_dmaaddress0{
-        using Addr = Register::Address<0xf8030304,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BUFF_ADD; 
-    }
-    namespace UDPHS_dmacontrol0{
-        using Addr = Register::Address<0xf8030308,0x0000ff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LDNXT_DSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> END_TR_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> END_B_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BUFFIT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LD_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BURST_LCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_LENGTH; 
-    }
-    namespace UDPHS_dmastatus0{
-        using Addr = Register::Address<0xf803030c,0x0000ff8c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHANN_ACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BF_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LDST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_COUNT; 
-    }
-    namespace UDPHS_dmanxtdsc1{
-        using Addr = Register::Address<0xf8030310,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> NXT_DSC_ADD; 
-    }
-    namespace UDPHS_dmaaddress1{
-        using Addr = Register::Address<0xf8030314,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BUFF_ADD; 
-    }
-    namespace UDPHS_dmacontrol1{
-        using Addr = Register::Address<0xf8030318,0x0000ff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LDNXT_DSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> END_TR_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> END_B_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BUFFIT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LD_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BURST_LCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_LENGTH; 
-    }
-    namespace UDPHS_dmastatus1{
-        using Addr = Register::Address<0xf803031c,0x0000ff8c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHANN_ACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BF_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LDST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_COUNT; 
-    }
-    namespace UDPHS_dmanxtdsc2{
-        using Addr = Register::Address<0xf8030320,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> NXT_DSC_ADD; 
-    }
-    namespace UDPHS_dmaaddress2{
-        using Addr = Register::Address<0xf8030324,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BUFF_ADD; 
-    }
-    namespace UDPHS_dmacontrol2{
-        using Addr = Register::Address<0xf8030328,0x0000ff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LDNXT_DSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> END_TR_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> END_B_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BUFFIT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LD_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BURST_LCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_LENGTH; 
-    }
-    namespace UDPHS_dmastatus2{
-        using Addr = Register::Address<0xf803032c,0x0000ff8c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHANN_ACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BF_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LDST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_COUNT; 
-    }
-    namespace UDPHS_dmanxtdsc3{
-        using Addr = Register::Address<0xf8030330,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> NXT_DSC_ADD; 
-    }
-    namespace UDPHS_dmaaddress3{
-        using Addr = Register::Address<0xf8030334,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BUFF_ADD; 
-    }
-    namespace UDPHS_dmacontrol3{
-        using Addr = Register::Address<0xf8030338,0x0000ff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LDNXT_DSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> END_TR_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> END_B_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BUFFIT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LD_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BURST_LCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_LENGTH; 
-    }
-    namespace UDPHS_dmastatus3{
-        using Addr = Register::Address<0xf803033c,0x0000ff8c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHANN_ACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BF_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LDST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_COUNT; 
-    }
-    namespace UDPHS_dmanxtdsc4{
-        using Addr = Register::Address<0xf8030340,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> NXT_DSC_ADD; 
-    }
-    namespace UDPHS_dmaaddress4{
-        using Addr = Register::Address<0xf8030344,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BUFF_ADD; 
-    }
-    namespace UDPHS_dmacontrol4{
-        using Addr = Register::Address<0xf8030348,0x0000ff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LDNXT_DSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> END_TR_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> END_B_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BUFFIT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LD_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BURST_LCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_LENGTH; 
-    }
-    namespace UDPHS_dmastatus4{
-        using Addr = Register::Address<0xf803034c,0x0000ff8c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHANN_ACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BF_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LDST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_COUNT; 
-    }
-    namespace UDPHS_dmanxtdsc5{
-        using Addr = Register::Address<0xf8030350,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> NXT_DSC_ADD; 
-    }
-    namespace UDPHS_dmaaddress5{
-        using Addr = Register::Address<0xf8030354,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BUFF_ADD; 
-    }
-    namespace UDPHS_dmacontrol5{
-        using Addr = Register::Address<0xf8030358,0x0000ff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LDNXT_DSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> END_TR_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> END_B_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BUFFIT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LD_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BURST_LCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_LENGTH; 
-    }
-    namespace UDPHS_dmastatus5{
-        using Addr = Register::Address<0xf803035c,0x0000ff8c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHANN_ACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BF_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LDST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_COUNT; 
-    }
-    namespace UDPHS_dmanxtdsc6{
-        using Addr = Register::Address<0xf8030360,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> NXT_DSC_ADD; 
-    }
-    namespace UDPHS_dmaaddress6{
-        using Addr = Register::Address<0xf8030364,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> BUFF_ADD; 
-    }
-    namespace UDPHS_dmacontrol6{
-        using Addr = Register::Address<0xf8030368,0x0000ff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LDNXT_DSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> END_TR_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> END_B_EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BUFFIT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LD_IT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BURST_LCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_LENGTH; 
-    }
-    namespace UDPHS_dmastatus6{
-        using Addr = Register::Address<0xf803036c,0x0000ff8c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHANN_ENB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHANN_ACT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> END_TR_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> END_BF_ST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DESC_LDST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> BUFF_COUNT; 
+//USB High Speed Device Port
+    namespace UdphsCtrl{    ///<UDPHS Control Register
+        using Addr = Register::Address<0xf8030000,0xfffff000,0,unsigned>;
+        ///UDPHS Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> devAddr{}; 
+        ///Function Address Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> faddrEn{}; 
+        ///UDPHS Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> enUdphs{}; 
+        ///Detach Command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> detach{}; 
+        ///Send Remote Wake Up
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rewakeup{}; 
+        ///Pull-Down Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pulldDis{}; 
+    }
+    namespace UdphsFnum{    ///<UDPHS Frame Number Register
+        using Addr = Register::Address<0xf8030004,0x7fffc000,0,unsigned>;
+        ///Microframe Number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> microFrameNum{}; 
+        ///Frame Number as defined in the Packet Field Formats
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,3),Register::ReadWriteAccess,unsigned> frameNumber{}; 
+        ///Frame Number CRC Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> fnumErr{}; 
+    }
+    namespace UdphsIen{    ///<UDPHS Interrupt Enable Register
+        using Addr = Register::Address<0xf8030010,0x01000001,0,unsigned>;
+        ///Suspend Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> detSuspd{}; 
+        ///Micro-SOF Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> microSof{}; 
+        ///SOF Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intSof{}; 
+        ///End Of Reset Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endreset{}; 
+        ///Wake Up CPU Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> wakeUp{}; 
+        ///End Of Resume Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> endofrsm{}; 
+        ///Upstream Resume Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> upstrRes{}; 
+        ///Endpoint 0 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ept0{}; 
+        ///Endpoint 1 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ept1{}; 
+        ///Endpoint 2 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ept2{}; 
+        ///Endpoint 3 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ept3{}; 
+        ///Endpoint 4 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ept4{}; 
+        ///Endpoint 5 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ept5{}; 
+        ///Endpoint 6 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ept6{}; 
+        ///Endpoint 7 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ept7{}; 
+        ///Endpoint 8 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ept8{}; 
+        ///Endpoint 9 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> ept9{}; 
+        ///Endpoint 10 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ept10{}; 
+        ///Endpoint 11 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ept11{}; 
+        ///Endpoint 12 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> ept12{}; 
+        ///Endpoint 13 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ept13{}; 
+        ///Endpoint 14 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ept14{}; 
+        ///Endpoint 15 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ept15{}; 
+        ///DMA Channel 1 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> dma1{}; 
+        ///DMA Channel 2 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dma2{}; 
+        ///DMA Channel 3 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> dma3{}; 
+        ///DMA Channel 4 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> dma4{}; 
+        ///DMA Channel 5 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> dma5{}; 
+        ///DMA Channel 6 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> dma6{}; 
+        ///DMA Channel 7 Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dma7{}; 
+    }
+    namespace UdphsIntsta{    ///<UDPHS Interrupt Status Register
+        using Addr = Register::Address<0xf8030014,0x01000000,0,unsigned>;
+        ///Speed Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> speed{}; 
+        ///Suspend Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> detSuspd{}; 
+        ///Micro Start Of Frame Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> microSof{}; 
+        ///Start Of Frame Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intSof{}; 
+        ///End Of Reset Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endreset{}; 
+        ///Wake Up CPU Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> wakeUp{}; 
+        ///End Of Resume Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> endofrsm{}; 
+        ///Upstream Resume Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> upstrRes{}; 
+        ///Endpoint 0 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ept0{}; 
+        ///Endpoint 1 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ept1{}; 
+        ///Endpoint 2 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ept2{}; 
+        ///Endpoint 3 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ept3{}; 
+        ///Endpoint 4 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ept4{}; 
+        ///Endpoint 5 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ept5{}; 
+        ///Endpoint 6 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ept6{}; 
+        ///Endpoint 7 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ept7{}; 
+        ///Endpoint 8 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ept8{}; 
+        ///Endpoint 9 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> ept9{}; 
+        ///Endpoint 10 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ept10{}; 
+        ///Endpoint 11 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ept11{}; 
+        ///Endpoint 12 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> ept12{}; 
+        ///Endpoint 13 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ept13{}; 
+        ///Endpoint 14 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ept14{}; 
+        ///Endpoint 15 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> ept15{}; 
+        ///DMA Channel 1 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> dma1{}; 
+        ///DMA Channel 2 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dma2{}; 
+        ///DMA Channel 3 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> dma3{}; 
+        ///DMA Channel 4 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> dma4{}; 
+        ///DMA Channel 5 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> dma5{}; 
+        ///DMA Channel 6 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> dma6{}; 
+        ///DMA Channel 7 Interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dma7{}; 
+    }
+    namespace UdphsClrint{    ///<UDPHS Clear Interrupt Register
+        using Addr = Register::Address<0xf8030018,0xffffff01,0,unsigned>;
+        ///Suspend Interrupt Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> detSuspd{}; 
+        ///Micro Start Of Frame Interrupt Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> microSof{}; 
+        ///Start Of Frame Interrupt Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intSof{}; 
+        ///End Of Reset Interrupt Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endreset{}; 
+        ///Wake Up CPU Interrupt Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> wakeUp{}; 
+        ///End Of Resume Interrupt Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> endofrsm{}; 
+        ///Upstream Resume Interrupt Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> upstrRes{}; 
+    }
+    namespace UdphsEptrst{    ///<UDPHS Endpoints Reset Register
+        using Addr = Register::Address<0xf803001c,0xffff0000,0,unsigned>;
+        ///Endpoint 0 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ept0{}; 
+        ///Endpoint 1 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ept1{}; 
+        ///Endpoint 2 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ept2{}; 
+        ///Endpoint 3 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ept3{}; 
+        ///Endpoint 4 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ept4{}; 
+        ///Endpoint 5 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ept5{}; 
+        ///Endpoint 6 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ept6{}; 
+        ///Endpoint 7 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ept7{}; 
+        ///Endpoint 8 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ept8{}; 
+        ///Endpoint 9 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ept9{}; 
+        ///Endpoint 10 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ept10{}; 
+        ///Endpoint 11 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ept11{}; 
+        ///Endpoint 12 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ept12{}; 
+        ///Endpoint 13 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ept13{}; 
+        ///Endpoint 14 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ept14{}; 
+        ///Endpoint 15 Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ept15{}; 
+    }
+    namespace UdphsTst{    ///<UDPHS Test Register
+        using Addr = Register::Address<0xf80300e0,0xffffffc0,0,unsigned>;
+        ///Speed Configuration
+        enum class speedCfgVal {
+            normal=0x00000000,     ///<Normal Mode: The macro is in Full Speed mode, ready to make a High Speed identification, if the host supports it and then to automatically switch to High Speed mode
+            highSpeed=0x00000002,     ///<Force High Speed: Set this value to force the hardware to work in High Speed mode. Only for debug or test purpose.
+            fullSpeed=0x00000003,     ///<Force Full Speed: Set this value to force the hardware to work only in Full Speed mode. In this configuration, the macro will not respond to a High Speed reset handshake.
+        };
+        namespace speedCfgValC{
+            constexpr MPL::Value<speedCfgVal,speedCfgVal::normal> normal{};
+            constexpr MPL::Value<speedCfgVal,speedCfgVal::highSpeed> highSpeed{};
+            constexpr MPL::Value<speedCfgVal,speedCfgVal::fullSpeed> fullSpeed{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,speedCfgVal> speedCfg{}; 
+        ///Test J Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tstJ{}; 
+        ///Test K Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tstK{}; 
+        ///Test Packet Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tstPkt{}; 
+        ///OpMode2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> opmode2{}; 
+    }
+    namespace UdphsEptcfg0{    ///<UDPHS Endpoint Configuration Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030100,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb0{    ///<UDPHS Endpoint Control Enable Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030104,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb0Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030104,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis0{    ///<UDPHS Endpoint Control Disable Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030108,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis0Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030108,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl0{    ///<UDPHS Endpoint Control Register (endpoint = 0)
+        using Addr = Register::Address<0xf803010c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl0Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 0)
+        using Addr = Register::Address<0xf803010c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta0{    ///<UDPHS Endpoint Set Status Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030114,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta0Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030114,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta0{    ///<UDPHS Endpoint Clear Status Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030118,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta0Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 0)
+        using Addr = Register::Address<0xf8030118,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta0{    ///<UDPHS Endpoint Status Register (endpoint = 0)
+        using Addr = Register::Address<0xf803011c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta0Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 0)
+        using Addr = Register::Address<0xf803011c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg1{    ///<UDPHS Endpoint Configuration Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030120,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb1{    ///<UDPHS Endpoint Control Enable Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030124,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb1Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030124,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis1{    ///<UDPHS Endpoint Control Disable Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030128,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis1Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030128,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl1{    ///<UDPHS Endpoint Control Register (endpoint = 1)
+        using Addr = Register::Address<0xf803012c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl1Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 1)
+        using Addr = Register::Address<0xf803012c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta1{    ///<UDPHS Endpoint Set Status Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030134,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta1Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030134,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta1{    ///<UDPHS Endpoint Clear Status Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030138,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta1Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 1)
+        using Addr = Register::Address<0xf8030138,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta1{    ///<UDPHS Endpoint Status Register (endpoint = 1)
+        using Addr = Register::Address<0xf803013c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta1Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 1)
+        using Addr = Register::Address<0xf803013c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg2{    ///<UDPHS Endpoint Configuration Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030140,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb2{    ///<UDPHS Endpoint Control Enable Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030144,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb2Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030144,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis2{    ///<UDPHS Endpoint Control Disable Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030148,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis2Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030148,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl2{    ///<UDPHS Endpoint Control Register (endpoint = 2)
+        using Addr = Register::Address<0xf803014c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl2Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 2)
+        using Addr = Register::Address<0xf803014c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta2{    ///<UDPHS Endpoint Set Status Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030154,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta2Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030154,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta2{    ///<UDPHS Endpoint Clear Status Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030158,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta2Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 2)
+        using Addr = Register::Address<0xf8030158,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta2{    ///<UDPHS Endpoint Status Register (endpoint = 2)
+        using Addr = Register::Address<0xf803015c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta2Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 2)
+        using Addr = Register::Address<0xf803015c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg3{    ///<UDPHS Endpoint Configuration Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030160,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb3{    ///<UDPHS Endpoint Control Enable Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030164,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb3Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030164,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis3{    ///<UDPHS Endpoint Control Disable Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030168,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis3Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030168,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl3{    ///<UDPHS Endpoint Control Register (endpoint = 3)
+        using Addr = Register::Address<0xf803016c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl3Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 3)
+        using Addr = Register::Address<0xf803016c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta3{    ///<UDPHS Endpoint Set Status Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030174,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta3Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030174,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta3{    ///<UDPHS Endpoint Clear Status Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030178,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta3Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 3)
+        using Addr = Register::Address<0xf8030178,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta3{    ///<UDPHS Endpoint Status Register (endpoint = 3)
+        using Addr = Register::Address<0xf803017c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta3Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 3)
+        using Addr = Register::Address<0xf803017c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg4{    ///<UDPHS Endpoint Configuration Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030180,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb4{    ///<UDPHS Endpoint Control Enable Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030184,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb4Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030184,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis4{    ///<UDPHS Endpoint Control Disable Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030188,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis4Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030188,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl4{    ///<UDPHS Endpoint Control Register (endpoint = 4)
+        using Addr = Register::Address<0xf803018c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl4Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 4)
+        using Addr = Register::Address<0xf803018c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta4{    ///<UDPHS Endpoint Set Status Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030194,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta4Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030194,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta4{    ///<UDPHS Endpoint Clear Status Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030198,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta4Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 4)
+        using Addr = Register::Address<0xf8030198,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta4{    ///<UDPHS Endpoint Status Register (endpoint = 4)
+        using Addr = Register::Address<0xf803019c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta4Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 4)
+        using Addr = Register::Address<0xf803019c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg5{    ///<UDPHS Endpoint Configuration Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301a0,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb5{    ///<UDPHS Endpoint Control Enable Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301a4,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb5Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301a4,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis5{    ///<UDPHS Endpoint Control Disable Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301a8,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis5Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301a8,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl5{    ///<UDPHS Endpoint Control Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301ac,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl5Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301ac,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta5{    ///<UDPHS Endpoint Set Status Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301b4,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta5Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301b4,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta5{    ///<UDPHS Endpoint Clear Status Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301b8,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta5Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301b8,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta5{    ///<UDPHS Endpoint Status Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301bc,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta5Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 5)
+        using Addr = Register::Address<0xf80301bc,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg6{    ///<UDPHS Endpoint Configuration Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301c0,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb6{    ///<UDPHS Endpoint Control Enable Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301c4,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb6Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301c4,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis6{    ///<UDPHS Endpoint Control Disable Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301c8,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis6Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301c8,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl6{    ///<UDPHS Endpoint Control Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301cc,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl6Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301cc,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta6{    ///<UDPHS Endpoint Set Status Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301d4,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta6Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301d4,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta6{    ///<UDPHS Endpoint Clear Status Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301d8,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta6Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301d8,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta6{    ///<UDPHS Endpoint Status Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301dc,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta6Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 6)
+        using Addr = Register::Address<0xf80301dc,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg7{    ///<UDPHS Endpoint Configuration Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301e0,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb7{    ///<UDPHS Endpoint Control Enable Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301e4,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb7Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301e4,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis7{    ///<UDPHS Endpoint Control Disable Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301e8,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis7Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301e8,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl7{    ///<UDPHS Endpoint Control Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301ec,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl7Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301ec,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta7{    ///<UDPHS Endpoint Set Status Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301f4,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta7Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301f4,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta7{    ///<UDPHS Endpoint Clear Status Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301f8,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta7Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301f8,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta7{    ///<UDPHS Endpoint Status Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301fc,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta7Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 7)
+        using Addr = Register::Address<0xf80301fc,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg8{    ///<UDPHS Endpoint Configuration Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030200,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb8{    ///<UDPHS Endpoint Control Enable Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030204,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb8Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030204,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis8{    ///<UDPHS Endpoint Control Disable Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030208,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis8Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030208,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl8{    ///<UDPHS Endpoint Control Register (endpoint = 8)
+        using Addr = Register::Address<0xf803020c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl8Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 8)
+        using Addr = Register::Address<0xf803020c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta8{    ///<UDPHS Endpoint Set Status Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030214,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta8Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030214,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta8{    ///<UDPHS Endpoint Clear Status Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030218,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta8Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 8)
+        using Addr = Register::Address<0xf8030218,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta8{    ///<UDPHS Endpoint Status Register (endpoint = 8)
+        using Addr = Register::Address<0xf803021c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta8Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 8)
+        using Addr = Register::Address<0xf803021c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg9{    ///<UDPHS Endpoint Configuration Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030220,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb9{    ///<UDPHS Endpoint Control Enable Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030224,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb9Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030224,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis9{    ///<UDPHS Endpoint Control Disable Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030228,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis9Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030228,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl9{    ///<UDPHS Endpoint Control Register (endpoint = 9)
+        using Addr = Register::Address<0xf803022c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl9Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 9)
+        using Addr = Register::Address<0xf803022c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta9{    ///<UDPHS Endpoint Set Status Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030234,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta9Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030234,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta9{    ///<UDPHS Endpoint Clear Status Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030238,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta9Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 9)
+        using Addr = Register::Address<0xf8030238,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta9{    ///<UDPHS Endpoint Status Register (endpoint = 9)
+        using Addr = Register::Address<0xf803023c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta9Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 9)
+        using Addr = Register::Address<0xf803023c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg10{    ///<UDPHS Endpoint Configuration Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030240,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb10{    ///<UDPHS Endpoint Control Enable Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030244,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb10Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030244,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis10{    ///<UDPHS Endpoint Control Disable Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030248,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis10Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030248,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl10{    ///<UDPHS Endpoint Control Register (endpoint = 10)
+        using Addr = Register::Address<0xf803024c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl10Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 10)
+        using Addr = Register::Address<0xf803024c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta10{    ///<UDPHS Endpoint Set Status Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030254,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta10Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030254,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta10{    ///<UDPHS Endpoint Clear Status Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030258,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta10Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 10)
+        using Addr = Register::Address<0xf8030258,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta10{    ///<UDPHS Endpoint Status Register (endpoint = 10)
+        using Addr = Register::Address<0xf803025c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta10Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 10)
+        using Addr = Register::Address<0xf803025c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg11{    ///<UDPHS Endpoint Configuration Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030260,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb11{    ///<UDPHS Endpoint Control Enable Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030264,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb11Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030264,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis11{    ///<UDPHS Endpoint Control Disable Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030268,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis11Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030268,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl11{    ///<UDPHS Endpoint Control Register (endpoint = 11)
+        using Addr = Register::Address<0xf803026c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl11Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 11)
+        using Addr = Register::Address<0xf803026c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta11{    ///<UDPHS Endpoint Set Status Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030274,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta11Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030274,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta11{    ///<UDPHS Endpoint Clear Status Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030278,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta11Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 11)
+        using Addr = Register::Address<0xf8030278,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta11{    ///<UDPHS Endpoint Status Register (endpoint = 11)
+        using Addr = Register::Address<0xf803027c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta11Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 11)
+        using Addr = Register::Address<0xf803027c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg12{    ///<UDPHS Endpoint Configuration Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030280,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb12{    ///<UDPHS Endpoint Control Enable Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030284,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb12Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030284,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis12{    ///<UDPHS Endpoint Control Disable Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030288,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis12Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030288,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl12{    ///<UDPHS Endpoint Control Register (endpoint = 12)
+        using Addr = Register::Address<0xf803028c,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl12Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 12)
+        using Addr = Register::Address<0xf803028c,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta12{    ///<UDPHS Endpoint Set Status Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030294,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta12Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030294,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta12{    ///<UDPHS Endpoint Clear Status Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030298,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta12Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 12)
+        using Addr = Register::Address<0xf8030298,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta12{    ///<UDPHS Endpoint Status Register (endpoint = 12)
+        using Addr = Register::Address<0xf803029c,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta12Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 12)
+        using Addr = Register::Address<0xf803029c,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg13{    ///<UDPHS Endpoint Configuration Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302a0,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb13{    ///<UDPHS Endpoint Control Enable Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302a4,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb13Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302a4,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis13{    ///<UDPHS Endpoint Control Disable Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302a8,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis13Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302a8,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl13{    ///<UDPHS Endpoint Control Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302ac,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl13Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302ac,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta13{    ///<UDPHS Endpoint Set Status Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302b4,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta13Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302b4,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta13{    ///<UDPHS Endpoint Clear Status Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302b8,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta13Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302b8,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta13{    ///<UDPHS Endpoint Status Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302bc,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta13Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 13)
+        using Addr = Register::Address<0xf80302bc,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg14{    ///<UDPHS Endpoint Configuration Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302c0,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb14{    ///<UDPHS Endpoint Control Enable Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302c4,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb14Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302c4,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis14{    ///<UDPHS Endpoint Control Disable Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302c8,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis14Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302c8,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl14{    ///<UDPHS Endpoint Control Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302cc,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl14Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302cc,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta14{    ///<UDPHS Endpoint Set Status Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302d4,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta14Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302d4,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta14{    ///<UDPHS Endpoint Clear Status Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302d8,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta14Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302d8,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta14{    ///<UDPHS Endpoint Status Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302dc,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta14Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 14)
+        using Addr = Register::Address<0xf80302dc,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptcfg15{    ///<UDPHS Endpoint Configuration Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302e0,0x7ffffc00,0,unsigned>;
+        ///Endpoint Size
+        enum class eptSizeVal {
+            v8=0x00000000,     ///<8 bytes
+            v16=0x00000001,     ///<16 bytes
+            v32=0x00000002,     ///<32 bytes
+            v64=0x00000003,     ///<64 bytes
+            v128=0x00000004,     ///<128 bytes
+            v256=0x00000005,     ///<256 bytes
+            v512=0x00000006,     ///<512 bytes
+            v1024=0x00000007,     ///<1024 bytes
+        };
+        namespace eptSizeValC{
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v8> v8{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v16> v16{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v32> v32{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v64> v64{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v128> v128{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v256> v256{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v512> v512{};
+            constexpr MPL::Value<eptSizeVal,eptSizeVal::v1024> v1024{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,eptSizeVal> eptSize{}; 
+        ///Endpoint Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
+        ///Endpoint Type
+        enum class eptTypeVal {
+            ctrl8=0x00000000,     ///<Control endpoint
+            iso=0x00000001,     ///<Isochronous endpoint
+            bulk=0x00000002,     ///<Bulk endpoint
+            int_=0x00000003,     ///<Interrupt endpoint
+        };
+        namespace eptTypeValC{
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::ctrl8> ctrl8{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::iso> iso{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::bulk> bulk{};
+            constexpr MPL::Value<eptTypeVal,eptTypeVal::int_> int_{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,eptTypeVal> eptType{}; 
+        ///Number of Banks
+        enum class bkNumberVal {
+            v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
+            v1=0x00000001,     ///<One bank (bank 0)
+            v2=0x00000002,     ///<Double bank (Ping-Pong: bank0/bank1)
+            v3=0x00000003,     ///<Triple bank (bank0/bank1/bank2)
+        };
+        namespace bkNumberValC{
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v0> v0{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v1> v1{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v2> v2{};
+            constexpr MPL::Value<bkNumberVal,bkNumberVal::v3> v3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,bkNumberVal> bkNumber{}; 
+        ///Number Of Transaction per Microframe
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
+        ///Endpoint Mapped
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> eptMapd{}; 
+    }
+    namespace UdphsEptctlenb15{    ///<UDPHS Endpoint Control Enable Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302e4,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctlenb15Isoendpt{    ///<UDPHS Endpoint Control Enable Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302e4,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enable (Only for high bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Send/Short Packet Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis15{    ///<UDPHS Endpoint Control Disable Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302e8,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Enable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctldis15Isoendpt{    ///<UDPHS Endpoint Control Disable Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302e8,0x7ffb8034,0,unsigned>;
+        ///Endpoint Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptDisabl{}; 
+        ///Packet Auto-Valid Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupts Disable DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Disable (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///bank flush error Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl15{    ///<UDPHS Endpoint Control Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302ec,0x7ffb00e4,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled (Not for CONTROL Endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///NYET Disable (Only for High Speed Bulk OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nyetDis{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptctl15Isoendpt{    ///<UDPHS Endpoint Control Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302ec,0x7ffb8034,0,unsigned>;
+        ///Endpoint Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eptEnabl{}; 
+        ///Packet Auto-Valid Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autoValid{}; 
+        ///Interrupt Disables DMA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intdisDma{}; 
+        ///DATAx Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dataxRx{}; 
+        ///MDATA Interrupt Enabled (Only for High Bandwidth Isochronous OUT endpoints)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mdataRx{}; 
+        ///Overflow Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///ISO CRC Error/Number of Transaction Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Busy Bank Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> busyBank{}; 
+        ///Short Packet Interrupt Enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsetsta15{    ///<UDPHS Endpoint Set Status Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302f4,0xfffff5df,0,unsigned>;
+        ///Stall Handshake Request Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+    }
+    namespace UdphsEptsetsta15Isoendpt{    ///<UDPHS Endpoint Set Status Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302f4,0xfffff5ff,0,unsigned>;
+        ///KILL Bank Set (for IN Endpoint)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///TX Packet Ready Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+    }
+    namespace UdphsEptclrsta15{    ///<UDPHS Endpoint Clear Status Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302f8,0xffff099f,0,unsigned>;
+        ///Stall Handshake Request Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Received SETUP Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAKIN Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAKOUT Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+    }
+    namespace UdphsEptclrsta15Isoendpt{    ///<UDPHS Endpoint Clear Status Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302f8,0xffff89bf,0,unsigned>;
+        ///Data Toggle Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> togglesq{}; 
+        ///Received OUT Data Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///Error Flow Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///Number of Transaction Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error Clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+    }
+    namespace UdphsEptsta15{    ///<UDPHS Endpoint Status Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302fc,0x0000001f,0,unsigned>;
+        ///Stall Handshake Request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frcestall{}; 
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Reserved for High Bandwidth Isochronous Endpoint
+            mdata=0x00000003,     ///<Reserved for High Bandwidth Isochronous Endpoint
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Received SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxSetup{}; 
+        ///Stall Sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> stallSnt{}; 
+        ///NAK IN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> nakIn{}; 
+        ///NAK OUT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> nakOut{}; 
+        ///Current Bank/Control Direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> curbkCtldir{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsEptsta15Isoendpt{    ///<UDPHS Endpoint Status Register (endpoint = 15)
+        using Addr = Register::Address<0xf80302fc,0x0000803f,0,unsigned>;
+        ///Toggle Sequencing
+        enum class togglesqStaVal {
+            data0=0x00000000,     ///<DATA0
+            data1=0x00000001,     ///<DATA1
+            data2=0x00000002,     ///<Data2 (only for High Bandwidth Isochronous Endpoint)
+            mdata=0x00000003,     ///<MData (only for High Bandwidth Isochronous Endpoint)
+        };
+        namespace togglesqStaValC{
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data0> data0{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data1> data1{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::data2> data2{};
+            constexpr MPL::Value<togglesqStaVal,togglesqStaVal::mdata> mdata{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,togglesqStaVal> togglesqSta{}; 
+        ///Overflow Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
+        ///Received OUT Data/KILL Bank
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rxrdyTxkl{}; 
+        ///Transmitted IN Data Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txComplt{}; 
+        ///TX Packet Ready/Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txrdyTrer{}; 
+        ///Error Flow
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> errFlIso{}; 
+        ///CRC ISO Error/Number of Transaction Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errCrcNtr{}; 
+        ///Bank Flush Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> errFlush{}; 
+        ///Current Bank
+        enum class curbkVal {
+            bank0=0x00000000,     ///<Bank 0 (or single bank)
+            bank1=0x00000001,     ///<Bank 1
+            bank2=0x00000002,     ///<Bank 2
+        };
+        namespace curbkValC{
+            constexpr MPL::Value<curbkVal,curbkVal::bank0> bank0{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank1> bank1{};
+            constexpr MPL::Value<curbkVal,curbkVal::bank2> bank2{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,curbkVal> curbk{}; 
+        ///Busy Bank Number
+        enum class busyBankStaVal {
+            v1busybank=0x00000000,     ///<1 busy bank
+            v2busybanks=0x00000001,     ///<2 busy banks
+            v3busybanks=0x00000002,     ///<3 busy banks
+        };
+        namespace busyBankStaValC{
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v1busybank> v1busybank{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v2busybanks> v2busybanks{};
+            constexpr MPL::Value<busyBankStaVal,busyBankStaVal::v3busybanks> v3busybanks{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,busyBankStaVal> busyBankSta{}; 
+        ///UDPHS Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
+        ///Short Packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> shrtPckt{}; 
+    }
+    namespace UdphsDmanxtdsc0{    ///<UDPHS DMA Next Descriptor Address Register (channel = 0)
+        using Addr = Register::Address<0xf8030300,0x00000000,0,unsigned>;
+        ///Next Descriptor Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nxtDscAdd{}; 
+    }
+    namespace UdphsDmaaddress0{    ///<UDPHS DMA Channel Address Register (channel = 0)
+        using Addr = Register::Address<0xf8030304,0x00000000,0,unsigned>;
+        ///Buffer Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> buffAdd{}; 
+    }
+    namespace UdphsDmacontrol0{    ///<UDPHS DMA Channel Control Register (channel = 0)
+        using Addr = Register::Address<0xf8030308,0x0000ff00,0,unsigned>;
+        ///(Channel Enable Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Load Next Channel Transfer Descriptor Enable (Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ldnxtDsc{}; 
+        ///End of Transfer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endTrEn{}; 
+        ///End of Buffer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endBEn{}; 
+        ///End of Transfer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrIt{}; 
+        ///End of Buffer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBuffit{}; 
+        ///Descriptor Loaded Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdIt{}; 
+        ///Burst Lock Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> burstLck{}; 
+        ///Buffer Byte Length (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffLength{}; 
+    }
+    namespace UdphsDmastatus0{    ///<UDPHS DMA Channel Status Register (channel = 0)
+        using Addr = Register::Address<0xf803030c,0x0000ff8c,0,unsigned>;
+        ///Channel Enable Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Channel Active Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> channAct{}; 
+        ///End of Channel Transfer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrSt{}; 
+        ///End of Channel Buffer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBfSt{}; 
+        ///Descriptor Loaded Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdst{}; 
+        ///Buffer Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffCount{}; 
+    }
+    namespace UdphsDmanxtdsc1{    ///<UDPHS DMA Next Descriptor Address Register (channel = 1)
+        using Addr = Register::Address<0xf8030310,0x00000000,0,unsigned>;
+        ///Next Descriptor Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nxtDscAdd{}; 
+    }
+    namespace UdphsDmaaddress1{    ///<UDPHS DMA Channel Address Register (channel = 1)
+        using Addr = Register::Address<0xf8030314,0x00000000,0,unsigned>;
+        ///Buffer Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> buffAdd{}; 
+    }
+    namespace UdphsDmacontrol1{    ///<UDPHS DMA Channel Control Register (channel = 1)
+        using Addr = Register::Address<0xf8030318,0x0000ff00,0,unsigned>;
+        ///(Channel Enable Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Load Next Channel Transfer Descriptor Enable (Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ldnxtDsc{}; 
+        ///End of Transfer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endTrEn{}; 
+        ///End of Buffer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endBEn{}; 
+        ///End of Transfer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrIt{}; 
+        ///End of Buffer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBuffit{}; 
+        ///Descriptor Loaded Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdIt{}; 
+        ///Burst Lock Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> burstLck{}; 
+        ///Buffer Byte Length (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffLength{}; 
+    }
+    namespace UdphsDmastatus1{    ///<UDPHS DMA Channel Status Register (channel = 1)
+        using Addr = Register::Address<0xf803031c,0x0000ff8c,0,unsigned>;
+        ///Channel Enable Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Channel Active Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> channAct{}; 
+        ///End of Channel Transfer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrSt{}; 
+        ///End of Channel Buffer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBfSt{}; 
+        ///Descriptor Loaded Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdst{}; 
+        ///Buffer Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffCount{}; 
+    }
+    namespace UdphsDmanxtdsc2{    ///<UDPHS DMA Next Descriptor Address Register (channel = 2)
+        using Addr = Register::Address<0xf8030320,0x00000000,0,unsigned>;
+        ///Next Descriptor Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nxtDscAdd{}; 
+    }
+    namespace UdphsDmaaddress2{    ///<UDPHS DMA Channel Address Register (channel = 2)
+        using Addr = Register::Address<0xf8030324,0x00000000,0,unsigned>;
+        ///Buffer Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> buffAdd{}; 
+    }
+    namespace UdphsDmacontrol2{    ///<UDPHS DMA Channel Control Register (channel = 2)
+        using Addr = Register::Address<0xf8030328,0x0000ff00,0,unsigned>;
+        ///(Channel Enable Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Load Next Channel Transfer Descriptor Enable (Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ldnxtDsc{}; 
+        ///End of Transfer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endTrEn{}; 
+        ///End of Buffer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endBEn{}; 
+        ///End of Transfer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrIt{}; 
+        ///End of Buffer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBuffit{}; 
+        ///Descriptor Loaded Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdIt{}; 
+        ///Burst Lock Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> burstLck{}; 
+        ///Buffer Byte Length (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffLength{}; 
+    }
+    namespace UdphsDmastatus2{    ///<UDPHS DMA Channel Status Register (channel = 2)
+        using Addr = Register::Address<0xf803032c,0x0000ff8c,0,unsigned>;
+        ///Channel Enable Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Channel Active Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> channAct{}; 
+        ///End of Channel Transfer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrSt{}; 
+        ///End of Channel Buffer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBfSt{}; 
+        ///Descriptor Loaded Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdst{}; 
+        ///Buffer Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffCount{}; 
+    }
+    namespace UdphsDmanxtdsc3{    ///<UDPHS DMA Next Descriptor Address Register (channel = 3)
+        using Addr = Register::Address<0xf8030330,0x00000000,0,unsigned>;
+        ///Next Descriptor Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nxtDscAdd{}; 
+    }
+    namespace UdphsDmaaddress3{    ///<UDPHS DMA Channel Address Register (channel = 3)
+        using Addr = Register::Address<0xf8030334,0x00000000,0,unsigned>;
+        ///Buffer Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> buffAdd{}; 
+    }
+    namespace UdphsDmacontrol3{    ///<UDPHS DMA Channel Control Register (channel = 3)
+        using Addr = Register::Address<0xf8030338,0x0000ff00,0,unsigned>;
+        ///(Channel Enable Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Load Next Channel Transfer Descriptor Enable (Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ldnxtDsc{}; 
+        ///End of Transfer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endTrEn{}; 
+        ///End of Buffer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endBEn{}; 
+        ///End of Transfer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrIt{}; 
+        ///End of Buffer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBuffit{}; 
+        ///Descriptor Loaded Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdIt{}; 
+        ///Burst Lock Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> burstLck{}; 
+        ///Buffer Byte Length (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffLength{}; 
+    }
+    namespace UdphsDmastatus3{    ///<UDPHS DMA Channel Status Register (channel = 3)
+        using Addr = Register::Address<0xf803033c,0x0000ff8c,0,unsigned>;
+        ///Channel Enable Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Channel Active Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> channAct{}; 
+        ///End of Channel Transfer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrSt{}; 
+        ///End of Channel Buffer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBfSt{}; 
+        ///Descriptor Loaded Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdst{}; 
+        ///Buffer Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffCount{}; 
+    }
+    namespace UdphsDmanxtdsc4{    ///<UDPHS DMA Next Descriptor Address Register (channel = 4)
+        using Addr = Register::Address<0xf8030340,0x00000000,0,unsigned>;
+        ///Next Descriptor Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nxtDscAdd{}; 
+    }
+    namespace UdphsDmaaddress4{    ///<UDPHS DMA Channel Address Register (channel = 4)
+        using Addr = Register::Address<0xf8030344,0x00000000,0,unsigned>;
+        ///Buffer Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> buffAdd{}; 
+    }
+    namespace UdphsDmacontrol4{    ///<UDPHS DMA Channel Control Register (channel = 4)
+        using Addr = Register::Address<0xf8030348,0x0000ff00,0,unsigned>;
+        ///(Channel Enable Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Load Next Channel Transfer Descriptor Enable (Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ldnxtDsc{}; 
+        ///End of Transfer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endTrEn{}; 
+        ///End of Buffer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endBEn{}; 
+        ///End of Transfer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrIt{}; 
+        ///End of Buffer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBuffit{}; 
+        ///Descriptor Loaded Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdIt{}; 
+        ///Burst Lock Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> burstLck{}; 
+        ///Buffer Byte Length (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffLength{}; 
+    }
+    namespace UdphsDmastatus4{    ///<UDPHS DMA Channel Status Register (channel = 4)
+        using Addr = Register::Address<0xf803034c,0x0000ff8c,0,unsigned>;
+        ///Channel Enable Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Channel Active Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> channAct{}; 
+        ///End of Channel Transfer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrSt{}; 
+        ///End of Channel Buffer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBfSt{}; 
+        ///Descriptor Loaded Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdst{}; 
+        ///Buffer Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffCount{}; 
+    }
+    namespace UdphsDmanxtdsc5{    ///<UDPHS DMA Next Descriptor Address Register (channel = 5)
+        using Addr = Register::Address<0xf8030350,0x00000000,0,unsigned>;
+        ///Next Descriptor Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nxtDscAdd{}; 
+    }
+    namespace UdphsDmaaddress5{    ///<UDPHS DMA Channel Address Register (channel = 5)
+        using Addr = Register::Address<0xf8030354,0x00000000,0,unsigned>;
+        ///Buffer Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> buffAdd{}; 
+    }
+    namespace UdphsDmacontrol5{    ///<UDPHS DMA Channel Control Register (channel = 5)
+        using Addr = Register::Address<0xf8030358,0x0000ff00,0,unsigned>;
+        ///(Channel Enable Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Load Next Channel Transfer Descriptor Enable (Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ldnxtDsc{}; 
+        ///End of Transfer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endTrEn{}; 
+        ///End of Buffer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endBEn{}; 
+        ///End of Transfer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrIt{}; 
+        ///End of Buffer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBuffit{}; 
+        ///Descriptor Loaded Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdIt{}; 
+        ///Burst Lock Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> burstLck{}; 
+        ///Buffer Byte Length (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffLength{}; 
+    }
+    namespace UdphsDmastatus5{    ///<UDPHS DMA Channel Status Register (channel = 5)
+        using Addr = Register::Address<0xf803035c,0x0000ff8c,0,unsigned>;
+        ///Channel Enable Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Channel Active Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> channAct{}; 
+        ///End of Channel Transfer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrSt{}; 
+        ///End of Channel Buffer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBfSt{}; 
+        ///Descriptor Loaded Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdst{}; 
+        ///Buffer Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffCount{}; 
+    }
+    namespace UdphsDmanxtdsc6{    ///<UDPHS DMA Next Descriptor Address Register (channel = 6)
+        using Addr = Register::Address<0xf8030360,0x00000000,0,unsigned>;
+        ///Next Descriptor Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nxtDscAdd{}; 
+    }
+    namespace UdphsDmaaddress6{    ///<UDPHS DMA Channel Address Register (channel = 6)
+        using Addr = Register::Address<0xf8030364,0x00000000,0,unsigned>;
+        ///Buffer Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> buffAdd{}; 
+    }
+    namespace UdphsDmacontrol6{    ///<UDPHS DMA Channel Control Register (channel = 6)
+        using Addr = Register::Address<0xf8030368,0x0000ff00,0,unsigned>;
+        ///(Channel Enable Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Load Next Channel Transfer Descriptor Enable (Command)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ldnxtDsc{}; 
+        ///End of Transfer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endTrEn{}; 
+        ///End of Buffer Enable (Control)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endBEn{}; 
+        ///End of Transfer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrIt{}; 
+        ///End of Buffer Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBuffit{}; 
+        ///Descriptor Loaded Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdIt{}; 
+        ///Burst Lock Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> burstLck{}; 
+        ///Buffer Byte Length (Write-only)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffLength{}; 
+    }
+    namespace UdphsDmastatus6{    ///<UDPHS DMA Channel Status Register (channel = 6)
+        using Addr = Register::Address<0xf803036c,0x0000ff8c,0,unsigned>;
+        ///Channel Enable Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> channEnb{}; 
+        ///Channel Active Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> channAct{}; 
+        ///End of Channel Transfer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endTrSt{}; 
+        ///End of Channel Buffer Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> endBfSt{}; 
+        ///Descriptor Loaded Status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> descLdst{}; 
+        ///Buffer Byte Count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffCount{}; 
     }
 }

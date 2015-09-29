@@ -1,293 +1,436 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace VDEC_idr{
-        using Addr = Register::Address<0x00900000,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> BUILD_VER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,4)> MINOR_VER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> MAJOR_VER; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> PROD_ID; 
+//Video Decoder
+    namespace VdecIdr{    ///<ID Register
+        using Addr = Register::Address<0x00900000,0x00000000,0,unsigned>;
+        ///Build Version
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> buildVer{}; 
+        ///Minor Version
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,4),Register::ReadWriteAccess,unsigned> minorVer{}; 
+        ///Major Version
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> majorVer{}; 
+        ///Product ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> prodId{}; 
     }
-    namespace VDEC_dir{
-        using Addr = Register::Address<0x00900004,0xfff80eee>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ISET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> BE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> SBE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> ASOD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> ISE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> JPEGSD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> TO; 
+    namespace VdecDir{    ///<Decoder Interrupt Register
+        using Addr = Register::Address<0x00900004,0xfff80eee,0,unsigned>;
+        ///Decoder Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> de{}; 
+        ///Interrupt Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> id{}; 
+        ///Decoder Interrupt Set
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> iset{}; 
+        ///Decoder Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dr{}; 
+        ///Bus Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> be{}; 
+        ///Stream Buffer Empty
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> sbe{}; 
+        ///ASO Detected
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> asod{}; 
+        ///Input Stream Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ise{}; 
+        ///JPEG Slice Decoded
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> jpegsd{}; 
+        ///Timeout
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> to{}; 
     }
-    namespace VDEC_ddcr{
-        using Addr = Register::Address<0x00900008,0xff580000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> MAX_BURST_LEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5)> PRIOR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DO_LE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> INTCE_LE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> DDCGE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,11)> LAT_COMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> DOPF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> AHB_BURST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> DI_LE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> HTI; 
+    namespace VdecDdcr{    ///<Decoder Device Configuration Register
+        using Addr = Register::Address<0x00900008,0xff580000,0,unsigned>;
+        ///Maximum Burst Length for Decoder Bus Transactions
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> maxBurstLen{}; 
+        ///Decoder Core Internal Bus Service Priority
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> prior{}; 
+        ///Decoder Output Endian Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> doLe{}; 
+        ///Interface Endian Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> intceLe{}; 
+        ///Decoder Dynamic Clock Gating Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ddcge{}; 
+        ///Decoder Latency Compensation
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,11),Register::ReadWriteAccess,unsigned> latComp{}; 
+        ///Decoder Output Picture Format
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dopf{}; 
+        ///AHB Precise Burst and Data Discard Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ahbBurst{}; 
+        ///Decoder Input Endian Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> diLe{}; 
+        ///Hardware Timeout Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> hti{}; 
     }
-    namespace VDEC_ctlr0{
-        using Addr = Register::Address<0x0090000c,0x070206ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> HLOCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> REFFIRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> MV; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> QUANT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> FILTDIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> OUTDIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> REFFIELD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> FORWMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> PICFIELD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> PICTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> PICBEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> PICSTRUCT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> PICMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> RLCEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28)> DEC_MODE; 
+    namespace VdecCtlr0{    ///<Decoder Control Register 0
+        using Addr = Register::Address<0x0090000c,0x070206ff,0,unsigned>;
+        ///HLOCK Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> hlock{}; 
+        ///Reference Field First
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> reffirst{}; 
+        ///MPEG-2 Motion Vector Write Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> mv{}; 
+        ///Quantization
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> quant{}; 
+        ///De-block Filtering Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> filtdis{}; 
+        ///Disable Decoder Output Picture Writing
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> outdis{}; 
+        ///Indicates Which Field Should Be Used As Reference
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> reffield{}; 
+        ///Coding Mode of Forward Reference Picture
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> forwmode{}; 
+        ///Picture Field
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> picfield{}; 
+        ///Picture Type
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> pictype{}; 
+        ///B Picture Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> picben{}; 
+        ///Structure of the Current Picture
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> picstruct{}; 
+        ///Coding mode of Current Picture
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> picmode{}; 
+        ///RLC Mode Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> rlcen{}; 
+        ///Decoding Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> decMode{}; 
     }
-    namespace VDEC_ctlr1{
-        using Addr = Register::Address<0x00900010,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> REF_FRAMES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> TOPF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> AVSM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,7)> HEIGHT_OFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,11)> PIC_HEIGHT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,19)> WIDTH_OFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,23)> PIC_WIDTH; 
+    namespace VdecCtlr1{    ///<Decoder Control Register 1
+        using Addr = Register::Address<0x00900010,0x00000000,0,unsigned>;
+        ///Number of Reference Frames/Semantics
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> refFrames{}; 
+        ///Top Field
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> topf{}; 
+        ///Alternative Vertical Scan Method
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> avsm{}; 
+        ///Height Offset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,7),Register::ReadWriteAccess,unsigned> heightOff{}; 
+        ///Picture Height
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,11),Register::ReadWriteAccess,unsigned> picHeight{}; 
+        ///Width Offset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,19),Register::ReadWriteAccess,unsigned> widthOff{}; 
+        ///Picture Width
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,23),Register::ReadWriteAccess,unsigned> picWidth{}; 
     }
-    namespace VDEC_ctlr2{
-        using Addr = Register::Address<0x00900014,0x03003ffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> FIELDPIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,14)> QP_FILT_CR_OFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,19)> QP_FILT_CB_OFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,26)> STREAM_START_BIT; 
+    namespace VdecCtlr2{    ///<Decoder Control Register 2
+        using Addr = Register::Address<0x00900014,0x03003ffe,0,unsigned>;
+        ///Flag for Stream
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fieldpic{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,14),Register::ReadWriteAccess,unsigned> qpFiltCrOff{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,19),Register::ReadWriteAccess,unsigned> qpFiltCbOff{}; 
+        ///Stream Start Bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> streamStartBit{}; 
     }
-    namespace VDEC_ctlr3{
-        using Addr = Register::Address<0x00900018,0x01000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0)> STREAM_LEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,25)> INIT_QP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> ST_COD_EN; 
+    namespace VdecCtlr3{    ///<Decoder Control Register 3
+        using Addr = Register::Address<0x00900018,0x01000000,0,unsigned>;
+        ///Stream Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> streamLen{}; 
+        ///Quantization Initialization
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,25),Register::ReadWriteAccess,unsigned> initQp{}; 
+        ///Stream Start Code
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> stCodEn{}; 
     }
-    namespace VDEC_ctlr4{
-        using Addr = Register::Address<0x0090001c,0x03e00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> FRAME_NUM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16)> FRAME_NUM_LEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26)> W_BIPR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> W_PRED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> DIRMV_PRED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> BW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> CABAC; 
+    namespace VdecCtlr4{    ///<Decoder Control Register 4
+        using Addr = Register::Address<0x0090001c,0x03e00000,0,unsigned>;
+        ///Frame Number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> frameNum{}; 
+        ///Frame Number length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> frameNumLen{}; 
+        ///Weight Prediction for B Slices
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> wBipr{}; 
+        ///Weight Prediction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> wPred{}; 
+        ///Derive Luma Method
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> dirmvPred{}; 
+        ///Black and White Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> bw{}; 
+        ///H.264 CABAC Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> cabac{}; 
     }
-    namespace VDEC_ctlr5{
-        using Addr = Register::Address<0x00900020,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> IDR_PIC_ID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> IDREN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,17)> REF_PIC_LEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EIGHT58; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> RD_PIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> FILT_CTRL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> CONS_INTRA; 
+    namespace VdecCtlr5{    ///<Decoder Control Register 5
+        using Addr = Register::Address<0x00900020,0x00000000,0,unsigned>;
+        ///IDR Picture
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> idrPicId{}; 
+        ///IDR Picture Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> idren{}; 
+        ///Reference Picture Length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,17),Register::ReadWriteAccess,unsigned> refPicLen{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> eight58{}; 
+        ///Redundant Picture Present
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> rdPic{}; 
+        ///Extra Variables Controlling Characteristics of The Deblocking Filter
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> filtCtrl{}; 
+        ///Intra in Prediction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> consIntra{}; 
     }
-    namespace VDEC_ctlr6{
-        using Addr = Register::Address<0x00900024,0x00003f00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> POC_LEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,14)> REF_IDX0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,19)> REF_IDX1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> PPS_ID; 
+    namespace VdecCtlr6{    ///<Decoder Control Register 6
+        using Addr = Register::Address<0x00900024,0x00003f00,0,unsigned>;
+        ///Picture Order length
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pocLen{}; 
+        ///Maximum Reference Index 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,14),Register::ReadWriteAccess,unsigned> refIdx0{}; 
+        ///Maximum Reference Index 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,19),Register::ReadWriteAccess,unsigned> refIdx1{}; 
+        ///Picture Parameter
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ppsId{}; 
     }
-    namespace VDEC_dmvba{
-        using Addr = Register::Address<0x00900028,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> MV_CONTROL_BASE; 
+    namespace VdecDmvba{    ///<Base Address for Differential Motion Vector
+        using Addr = Register::Address<0x00900028,0x00000003,0,unsigned>;
+        ///Differential Motion Vector Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> mvControlBase{}; 
     }
-    namespace VDEC_ctlr7{
-        using Addr = Register::Address<0x0090002c,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecCtlr7{    ///<Decoder Control Register 7
+        using Addr = Register::Address<0x0090002c,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_rlcvlcba{
-        using Addr = Register::Address<0x00900030,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecRlcvlcba{    ///<RLC/VLC Data Base Address
+        using Addr = Register::Address<0x00900030,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pictba{
-        using Addr = Register::Address<0x00900034,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPictba{    ///<Decoded Picture Base Address
+        using Addr = Register::Address<0x00900034,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba0{
-        using Addr = Register::Address<0x00900038,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba0{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900038,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba1{
-        using Addr = Register::Address<0x0090003c,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba1{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x0090003c,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba2{
-        using Addr = Register::Address<0x00900040,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba2{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900040,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba3{
-        using Addr = Register::Address<0x00900044,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba3{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900044,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba4{
-        using Addr = Register::Address<0x00900048,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba4{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900048,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba5{
-        using Addr = Register::Address<0x0090004c,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba5{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x0090004c,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba6{
-        using Addr = Register::Address<0x00900050,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba6{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900050,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba7{
-        using Addr = Register::Address<0x00900054,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba7{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900054,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba8{
-        using Addr = Register::Address<0x00900058,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba8{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900058,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba9{
-        using Addr = Register::Address<0x0090005c,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba9{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x0090005c,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba10{
-        using Addr = Register::Address<0x00900060,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba10{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900060,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba11{
-        using Addr = Register::Address<0x00900064,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba11{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900064,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba12{
-        using Addr = Register::Address<0x00900068,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba12{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900068,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba13{
-        using Addr = Register::Address<0x0090006c,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba13{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x0090006c,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba14{
-        using Addr = Register::Address<0x00900070,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba14{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900070,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pidxba15{
-        using Addr = Register::Address<0x00900074,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecPidxba15{    ///<Reference Picture Index 0 Base Address
+        using Addr = Register::Address<0x00900074,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_pnr0{
-        using Addr = Register::Address<0x00900078,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> REFER0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> REFER1; 
+    namespace VdecPnr0{    ///<Reference Picture Numbers Register 0
+        using Addr = Register::Address<0x00900078,0x00000000,0,unsigned>;
+        ///Reference Picture Number for Index 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> refer0{}; 
+        ///Reference Picture Number for Index 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> refer1{}; 
     }
-    namespace VDEC_pnr1{
-        using Addr = Register::Address<0x0090007c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> REFER2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> REFER3; 
+    namespace VdecPnr1{    ///<Reference Picture Numbers Register 1
+        using Addr = Register::Address<0x0090007c,0x00000000,0,unsigned>;
+        ///Reference Picture Number for Index 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> refer2{}; 
+        ///Reference Picture Number for Index 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> refer3{}; 
     }
-    namespace VDEC_pnr2{
-        using Addr = Register::Address<0x00900080,0xffffffff>;
+    namespace VdecPnr2{    ///<Reference Picture Numbers Register 2
+        using Addr = Register::Address<0x00900080,0xffffffff,0,unsigned>;
     }
-    namespace VDEC_pnr3{
-        using Addr = Register::Address<0x00900084,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> REFER4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> REFER5; 
+    namespace VdecPnr3{    ///<Reference Picture Numbers Register 3
+        using Addr = Register::Address<0x00900084,0x00000000,0,unsigned>;
+        ///Reference Picture Number for Index 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> refer4{}; 
+        ///Reference Picture Number for Index 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> refer5{}; 
     }
-    namespace VDEC_pnr4{
-        using Addr = Register::Address<0x00900088,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> REFER8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> REFER9; 
+    namespace VdecPnr4{    ///<Reference Picture Numbers Register 4
+        using Addr = Register::Address<0x00900088,0x00000000,0,unsigned>;
+        ///Reference Picture Number for Index 8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> refer8{}; 
+        ///Reference Picture Number for Index 9
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> refer9{}; 
     }
-    namespace VDEC_pnr5{
-        using Addr = Register::Address<0x0090008c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> REFER10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> REFER11; 
+    namespace VdecPnr5{    ///<Reference Picture Numbers Register 5
+        using Addr = Register::Address<0x0090008c,0x00000000,0,unsigned>;
+        ///Reference Picture Number for Index 10
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> refer10{}; 
+        ///Reference Picture Number for Index 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> refer11{}; 
     }
-    namespace VDEC_pnr6{
-        using Addr = Register::Address<0x00900090,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> REFER12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> REFER13; 
+    namespace VdecPnr6{    ///<Reference Picture Numbers Register 6
+        using Addr = Register::Address<0x00900090,0x00000000,0,unsigned>;
+        ///Reference Picture Number for Index 12
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> refer12{}; 
+        ///Reference Picture Number for Index 13
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> refer13{}; 
     }
-    namespace VDEC_pnr7{
-        using Addr = Register::Address<0x00900094,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> REFER14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> REFER15; 
+    namespace VdecPnr7{    ///<Reference Picture Numbers Register 7
+        using Addr = Register::Address<0x00900094,0x00000000,0,unsigned>;
+        ///Reference Picture Number for Index 14
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> refer14{}; 
+        ///Reference Picture Number for Index 15
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> refer15{}; 
     }
-    namespace VDEC_pltfr{
-        using Addr = Register::Address<0x00900098,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> LTF; 
+    namespace VdecPltfr{    ///<Reference Picture Long Term Flag Register
+        using Addr = Register::Address<0x00900098,0x00000000,0,unsigned>;
+        ///Long Term Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ltf{}; 
     }
-    namespace VDEC_pvfr{
-        using Addr = Register::Address<0x0090009c,0xffffffff>;
+    namespace VdecPvfr{    ///<Reference Picture Valid Flag Register
+        using Addr = Register::Address<0x0090009c,0xffffffff,0,unsigned>;
     }
-    namespace VDEC_sdtba{
-        using Addr = Register::Address<0x009000a0,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecSdtba{    ///<Standard Dependent Tables Base Address
+        using Addr = Register::Address<0x009000a0,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_dmmvba{
-        using Addr = Register::Address<0x009000a4,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> BA; 
+    namespace VdecDmmvba{    ///<Direct Mode Motion Vector Base Address
+        using Addr = Register::Address<0x009000a4,0x00000003,0,unsigned>;
+        ///Base Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ba{}; 
     }
-    namespace VDEC_irplr0{
-        using Addr = Register::Address<0x009000a8,0xc0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> IREFL_FW0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5)> IREFL_BW0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10)> IREFL_FW1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15)> IREFL_BW1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20)> IREFL_FW2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25)> IREFL_BW2; 
+    namespace VdecIrplr0{    ///<H264 Initial Reference Picture List Register 0
+        using Addr = Register::Address<0x009000a8,0xc0000000,0,unsigned>;
+        ///Initial Reference Picture List for Forward Picid 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ireflFw0{}; 
+        ///Initial Reference Picture List for Backward Picid 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5),Register::ReadWriteAccess,unsigned> ireflBw0{}; 
+        ///Initial Reference Picture List for Forward Picid 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10),Register::ReadWriteAccess,unsigned> ireflFw1{}; 
+        ///Initial Reference Picture List for Backward Picid 1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> ireflBw1{}; 
+        ///Initial Reference Picture List for Forward Picid 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20),Register::ReadWriteAccess,unsigned> ireflFw2{}; 
+        ///Initial Reference Picture List for Backward Picid 2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25),Register::ReadWriteAccess,unsigned> ireflBw2{}; 
     }
-    namespace VDEC_irplr1{
-        using Addr = Register::Address<0x009000ac,0xc0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> IREFL_FW3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5)> IREFL_BW3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10)> IREFL_FW4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15)> IREFL_BW4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20)> IREFL_FW5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25)> IREFL_BW5; 
+    namespace VdecIrplr1{    ///<H264 Initial Reference Picture List Register 1
+        using Addr = Register::Address<0x009000ac,0xc0000000,0,unsigned>;
+        ///Initial Reference Picture List for Forward Picid 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ireflFw3{}; 
+        ///Initial Reference Picture List for Backward Picid 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5),Register::ReadWriteAccess,unsigned> ireflBw3{}; 
+        ///Initial Reference Picture List for Forward Picid 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10),Register::ReadWriteAccess,unsigned> ireflFw4{}; 
+        ///Initial Reference Picture List for Backward Picid 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> ireflBw4{}; 
+        ///Initial Reference Picture List for Forward Picid 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20),Register::ReadWriteAccess,unsigned> ireflFw5{}; 
+        ///Initial Reference Picture List for Backward Picid 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25),Register::ReadWriteAccess,unsigned> ireflBw5{}; 
     }
-    namespace VDEC_irplr2{
-        using Addr = Register::Address<0x009000b0,0xc0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> IREFL_FW6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5)> IREFL_BW6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10)> IREFL_FW7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15)> IREFL_BW7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20)> IREFL_FW8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25)> IREFL_BW8; 
+    namespace VdecIrplr2{    ///<H264 Initial Reference Picture List Register 2
+        using Addr = Register::Address<0x009000b0,0xc0000000,0,unsigned>;
+        ///Initial Reference Picture List for Forward Picid 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ireflFw6{}; 
+        ///Initial Reference Picture List for Backward Picid 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5),Register::ReadWriteAccess,unsigned> ireflBw6{}; 
+        ///Initial Reference Picture List for Forward Picid 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10),Register::ReadWriteAccess,unsigned> ireflFw7{}; 
+        ///Initial Reference Picture List for Backward Picid 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> ireflBw7{}; 
+        ///Initial Reference Picture List for Forward Picid 8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20),Register::ReadWriteAccess,unsigned> ireflFw8{}; 
+        ///Initial Reference Picture List for Backward Picid 8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25),Register::ReadWriteAccess,unsigned> ireflBw8{}; 
     }
-    namespace VDEC_irplr3{
-        using Addr = Register::Address<0x009000b4,0xc0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> IREFL_FW9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5)> IREFL_BW9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10)> IREFL_FW10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15)> IREFL_BW10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20)> IREFL_FW11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25)> IREFL_BW11; 
+    namespace VdecIrplr3{    ///<H264 Initial Reference Picture List Register 3
+        using Addr = Register::Address<0x009000b4,0xc0000000,0,unsigned>;
+        ///Initial Reference Picture List for Forward Picid 9
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ireflFw9{}; 
+        ///Initial Reference Picture List for Backward Picid 9
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5),Register::ReadWriteAccess,unsigned> ireflBw9{}; 
+        ///Initial Reference Picture List for Forward Picid 10
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10),Register::ReadWriteAccess,unsigned> ireflFw10{}; 
+        ///Initial Reference Picture List for Backward Picid 10
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> ireflBw10{}; 
+        ///Initial Reference Picture List for Forward Picid 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20),Register::ReadWriteAccess,unsigned> ireflFw11{}; 
+        ///Initial Reference Picture List for Backward Picid 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25),Register::ReadWriteAccess,unsigned> ireflBw11{}; 
     }
-    namespace VDEC_irplr4{
-        using Addr = Register::Address<0x009000b8,0xc0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> IREFL_FW12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5)> IREFL_BW12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10)> IREFL_FW13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15)> IREFL_BW13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20)> IREFL_FW14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25)> IREFL_BW14; 
+    namespace VdecIrplr4{    ///<H264 Initial Reference Picture List Register 4
+        using Addr = Register::Address<0x009000b8,0xc0000000,0,unsigned>;
+        ///Initial Reference Picture List for Forward Picid 12
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ireflFw12{}; 
+        ///Initial Reference Picture List for Backward Picid 12
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5),Register::ReadWriteAccess,unsigned> ireflBw12{}; 
+        ///Initial Reference Picture List for Forward Picid 13
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,10),Register::ReadWriteAccess,unsigned> ireflFw13{}; 
+        ///Initial Reference Picture List for Backward Picid 13
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> ireflBw13{}; 
+        ///Initial Reference Picture List for Forward Picid 14
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,20),Register::ReadWriteAccess,unsigned> ireflFw14{}; 
+        ///Initial Reference Picture List for Backward Picid 14
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,25),Register::ReadWriteAccess,unsigned> ireflBw14{}; 
     }
-    namespace VDEC_irplr5{
-        using Addr = Register::Address<0x009000bc,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> IREFL_FW15; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5)> IREFL_BW15; 
+    namespace VdecIrplr5{    ///<H264 Initial Reference Picture List Register 5
+        using Addr = Register::Address<0x009000bc,0xfffffc00,0,unsigned>;
+        ///Initial Reference Picture List for Forward Picid 15
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ireflFw15{}; 
+        ///Initial Reference Picture List for Backward Picid 15
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,5),Register::ReadWriteAccess,unsigned> ireflBw15{}; 
     }
-    namespace VDEC_ecr{
-        using Addr = Register::Address<0x009000c0,0x00007fff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,15)> STARTMB_Y; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,23)> STARTMB_X; 
+    namespace VdecEcr{    ///<Error Concealment Register
+        using Addr = Register::Address<0x009000c0,0x00007fff,0,unsigned>;
+        ///Start MB from SW for Y Dimension
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,15),Register::ReadWriteAccess,unsigned> startmbY{}; 
+        ///Start MB from SW for X Dimension
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,23),Register::ReadWriteAccess,unsigned> startmbX{}; 
     }
 }

@@ -1,45 +1,140 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace PIT_mcr{
-        using Addr = Register::Address<0x40037000,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> FRZ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MDIS; 
+//Periodic Interrupt Timer
+    namespace PitMcr{    ///<PIT Module Control Register
+        using Addr = Register::Address<0x40037000,0xfffffffc,0,unsigned>;
+        ///Freeze
+        enum class frzVal {
+            v0=0x00000000,     ///<Timers continue to run in Debug mode.
+            v1=0x00000001,     ///<Timers are stopped in Debug mode.
+        };
+        namespace frzValC{
+            constexpr MPL::Value<frzVal,frzVal::v0> v0{};
+            constexpr MPL::Value<frzVal,frzVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,frzVal> frz{}; 
+        ///Module Disable - (PIT section)
+        enum class mdisVal {
+            v0=0x00000000,     ///<Clock for standard PIT timers is enabled.
+            v1=0x00000001,     ///<Clock for standard PIT timers is disabled.
+        };
+        namespace mdisValC{
+            constexpr MPL::Value<mdisVal,mdisVal::v0> v0{};
+            constexpr MPL::Value<mdisVal,mdisVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,mdisVal> mdis{}; 
     }
-    namespace PIT_ldval0{
-        using Addr = Register::Address<0x40037100,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TSV; 
+    namespace PitLdval0{    ///<Timer Load Value Register
+        using Addr = Register::Address<0x40037100,0x00000000,0,unsigned>;
+        ///Timer Start Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
     }
-    namespace PIT_ldval1{
-        using Addr = Register::Address<0x40037110,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TSV; 
+    namespace PitLdval1{    ///<Timer Load Value Register
+        using Addr = Register::Address<0x40037110,0x00000000,0,unsigned>;
+        ///Timer Start Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
     }
-    namespace PIT_cval0{
-        using Addr = Register::Address<0x40037104,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TVL; 
+    namespace PitCval0{    ///<Current Timer Value Register
+        using Addr = Register::Address<0x40037104,0x00000000,0,unsigned>;
+        ///Current Timer Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
     }
-    namespace PIT_cval1{
-        using Addr = Register::Address<0x40037114,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TVL; 
+    namespace PitCval1{    ///<Current Timer Value Register
+        using Addr = Register::Address<0x40037114,0x00000000,0,unsigned>;
+        ///Current Timer Value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
     }
-    namespace PIT_tctrl0{
-        using Addr = Register::Address<0x40037108,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CHN; 
+    namespace PitTctrl0{    ///<Timer Control Register
+        using Addr = Register::Address<0x40037108,0xfffffff8,0,unsigned>;
+        ///Timer Enable
+        enum class tenVal {
+            v0=0x00000000,     ///<Timer n is disabled.
+            v1=0x00000001,     ///<Timer n is enabled.
+        };
+        namespace tenValC{
+            constexpr MPL::Value<tenVal,tenVal::v0> v0{};
+            constexpr MPL::Value<tenVal,tenVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tenVal> ten{}; 
+        ///Timer Interrupt Enable
+        enum class tieVal {
+            v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
+            v1=0x00000001,     ///<Interrupt will be requested whenever TIF is set.
+        };
+        namespace tieValC{
+            constexpr MPL::Value<tieVal,tieVal::v0> v0{};
+            constexpr MPL::Value<tieVal,tieVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tieVal> tie{}; 
+        ///Chain Mode
+        enum class chnVal {
+            v0=0x00000000,     ///<Timer is not chained.
+            v1=0x00000001,     ///<Timer is chained to previous timer. For example, for Channel 2, if this field is set, Timer 2 is chained to Timer 1.
+        };
+        namespace chnValC{
+            constexpr MPL::Value<chnVal,chnVal::v0> v0{};
+            constexpr MPL::Value<chnVal,chnVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,chnVal> chn{}; 
     }
-    namespace PIT_tctrl1{
-        using Addr = Register::Address<0x40037118,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CHN; 
+    namespace PitTctrl1{    ///<Timer Control Register
+        using Addr = Register::Address<0x40037118,0xfffffff8,0,unsigned>;
+        ///Timer Enable
+        enum class tenVal {
+            v0=0x00000000,     ///<Timer n is disabled.
+            v1=0x00000001,     ///<Timer n is enabled.
+        };
+        namespace tenValC{
+            constexpr MPL::Value<tenVal,tenVal::v0> v0{};
+            constexpr MPL::Value<tenVal,tenVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tenVal> ten{}; 
+        ///Timer Interrupt Enable
+        enum class tieVal {
+            v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
+            v1=0x00000001,     ///<Interrupt will be requested whenever TIF is set.
+        };
+        namespace tieValC{
+            constexpr MPL::Value<tieVal,tieVal::v0> v0{};
+            constexpr MPL::Value<tieVal,tieVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tieVal> tie{}; 
+        ///Chain Mode
+        enum class chnVal {
+            v0=0x00000000,     ///<Timer is not chained.
+            v1=0x00000001,     ///<Timer is chained to previous timer. For example, for Channel 2, if this field is set, Timer 2 is chained to Timer 1.
+        };
+        namespace chnValC{
+            constexpr MPL::Value<chnVal,chnVal::v0> v0{};
+            constexpr MPL::Value<chnVal,chnVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,chnVal> chn{}; 
     }
-    namespace PIT_tflg0{
-        using Addr = Register::Address<0x4003710c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TIF; 
+    namespace PitTflg0{    ///<Timer Flag Register
+        using Addr = Register::Address<0x4003710c,0xfffffffe,0,unsigned>;
+        ///Timer Interrupt Flag
+        enum class tifVal {
+            v0=0x00000000,     ///<Timeout has not yet occurred.
+            v1=0x00000001,     ///<Timeout has occurred.
+        };
+        namespace tifValC{
+            constexpr MPL::Value<tifVal,tifVal::v0> v0{};
+            constexpr MPL::Value<tifVal,tifVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tifVal> tif{}; 
     }
-    namespace PIT_tflg1{
-        using Addr = Register::Address<0x4003711c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TIF; 
+    namespace PitTflg1{    ///<Timer Flag Register
+        using Addr = Register::Address<0x4003711c,0xfffffffe,0,unsigned>;
+        ///Timer Interrupt Flag
+        enum class tifVal {
+            v0=0x00000000,     ///<Timeout has not yet occurred.
+            v1=0x00000001,     ///<Timeout has occurred.
+        };
+        namespace tifValC{
+            constexpr MPL::Value<tifVal,tifVal::v0> v0{};
+            constexpr MPL::Value<tifVal,tifVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tifVal> tif{}; 
     }
 }

@@ -1,28 +1,35 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneimr{
-        using Addr = Register::Address<0x40010400,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> MR; 
+//External interrupt/event       controller
+    namespace Noneimr{    ///<IMR
+        using Addr = Register::Address<0x40010400,0xff800000,0,unsigned>;
+        ///Interrupt mask on line x
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> mr{}; 
     }
-    namespace Noneemr{
-        using Addr = Register::Address<0x40010404,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> MR; 
+    namespace Noneemr{    ///<EMR
+        using Addr = Register::Address<0x40010404,0xff800000,0,unsigned>;
+        ///Event mask on line x
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> mr{}; 
     }
-    namespace Nonertsr{
-        using Addr = Register::Address<0x40010408,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> TR; 
+    namespace Nonertsr{    ///<RTSR
+        using Addr = Register::Address<0x40010408,0xff800000,0,unsigned>;
+        ///Rising edge trigger event configuration               bit of line x
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> tr{}; 
     }
-    namespace Noneftsr{
-        using Addr = Register::Address<0x4001040c,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> TR; 
+    namespace Noneftsr{    ///<FTSR
+        using Addr = Register::Address<0x4001040c,0xff800000,0,unsigned>;
+        ///Falling edge trigger event configuration               bit of line x
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> tr{}; 
     }
-    namespace Noneswier{
-        using Addr = Register::Address<0x40010410,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> SWIER; 
+    namespace Noneswier{    ///<SWIER
+        using Addr = Register::Address<0x40010410,0xff800000,0,unsigned>;
+        ///Software interrupt on line               x
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> swier{}; 
     }
-    namespace Nonepr{
-        using Addr = Register::Address<0x40010414,0xff800000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0)> PR; 
+    namespace Nonepr{    ///<PR
+        using Addr = Register::Address<0x40010414,0xff800000,0,unsigned>;
+        ///Pending bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> pr{}; 
     }
 }

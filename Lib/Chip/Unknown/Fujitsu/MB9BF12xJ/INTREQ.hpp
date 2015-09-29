@@ -1,291 +1,417 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonedrqsel{
-        using Addr = Register::Address<0x40031000,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EXINT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> EXINT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> EXINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EXINT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> MFS7TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> MFS7RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> MFS6TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> MFS6RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> MFS5TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> MFS5RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> MFS4TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> MFS4RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> MFS3TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> MFS3RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> MFS2TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> MFS2RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> MFS1TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> MFS1RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> MFS0TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> MFS0RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> IRQ0BT6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> IRQ0BT4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> IRQ0BT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> IRQ0BT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> ADCSCAN2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> ADCSCAN1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> ADCSCAN0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> USBEP5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> USBEP4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> USBEP3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> USBEP2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> USBEP1; 
+//Interrupts
+    namespace Nonedrqsel{    ///<DMA Request Selection Register
+        using Addr = Register::Address<0x40031000,0x00000000,0,unsigned>;
+        ///The interrupt signal of the external interrupt ch.3 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> exint3{}; 
+        ///The interrupt signal of the external interrupt ch.2 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> exint2{}; 
+        ///The interrupt signal of the external interrupt ch.1 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> exint1{}; 
+        ///The interrupt signal of the external interrupt ch.0 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> exint0{}; 
+        ///The transmission interrupt signal of the MFS ch.7 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> mfs7tx{}; 
+        ///The reception interrupt signal of the MFS ch.7 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> mfs7rx{}; 
+        ///The transmission interrupt signal of the MFS ch.6 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> mfs6tx{}; 
+        ///The reception interrupt signal of the MFS ch.6 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> mfs6rx{}; 
+        ///The transmission interrupt signal of the MFS ch.5 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> mfs5tx{}; 
+        ///The reception interrupt signal of the MFS ch.5 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> mfs5rx{}; 
+        ///The transmission interrupt signal of the MFS ch.4 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> mfs4tx{}; 
+        ///The reception interrupt signal of the MFS ch.4 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> mfs4rx{}; 
+        ///The transmission interrupt signal of the MFS ch.3 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> mfs3tx{}; 
+        ///The reception interrupt signal of the MFS ch.3 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> mfs3rx{}; 
+        ///The transmission interrupt signal of the MFS ch.2 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> mfs2tx{}; 
+        ///The reception interrupt signal of the MFS ch.2 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> mfs2rx{}; 
+        ///The transmission interrupt signal of the MFS ch.1 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> mfs1tx{}; 
+        ///The reception interrupt signal of the MFS ch.1 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mfs1rx{}; 
+        ///The transmission interrupt signal of the MFS ch.0 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> mfs0tx{}; 
+        ///The reception interrupt signal of the MFS ch.0 is output as a transfer request to the DMAC (including extension).
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> mfs0rx{}; 
+        ///The IRQ0 interrupt signal of the base timer ch.6 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> irq0bt6{}; 
+        ///The IRQ0 interrupt signal of the base timer ch.4 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> irq0bt4{}; 
+        ///The IRQ0 interrupt signal of the base timer ch.3 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> irq0bt2{}; 
+        ///The IRQ0 interrupt signal of the base timer ch.0 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> irq0bt0{}; 
+        ///The scan conversion interrupt signal of the A/D converter unit 2 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> adcscan2{}; 
+        ///The scan conversion interrupt signal of the A/D converter unit 1 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> adcscan1{}; 
+        ///The scan conversion interrupt signal of the A/D converter unit 0 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> adcscan0{}; 
+        ///The EP5 DRQ interrupt signal of the USB ch.0 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> usbep5{}; 
+        ///The EP4 DRQ interrupt signal of the USB ch.0 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> usbep4{}; 
+        ///The EP3 DRQ interrupt signal of the USB ch.0 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> usbep3{}; 
+        ///The EP2 DRQ interrupt signal of the USB ch.0 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> usbep2{}; 
+        ///The EP1 DRQ interrupt signal of the USB ch.0 is output as a transfer request to the DMAC.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbep1{}; 
     }
-    namespace Noneoddpks{
-        using Addr = Register::Address<0x4003100b,0xffffffff>;
+    namespace Noneoddpks{    ///<USB ch.0 Odd Packet Size DMA Enable Register
+        using Addr = Register::Address<0x4003100b,0xffffffff,0,unsigned char>;
     }
-    namespace Noneirqcmode{
-        using Addr = Register::Address<0x4003100c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IRQCMODE; 
+    namespace Noneirqcmode{    ///<Interrupt Factor Vector Relocate Setting Register 
+        using Addr = Register::Address<0x4003100c,0xfffffffe,0,unsigned>;
+        ///Interrupt Factor Vector Relocate Setting
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> irqcmode{}; 
     }
-    namespace Noneexc02mon{
-        using Addr = Register::Address<0x40031010,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> HWINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> NMI; 
+    namespace Noneexc02mon{    ///<EXC02 batch read register
+        using Addr = Register::Address<0x40031010,0xfffffffc,0,unsigned>;
+        ///Hardware watchdog timer interrupt request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hwint{}; 
+        ///External NMIX pin interrupt request 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nmi{}; 
     }
-    namespace Noneirq00mon{
-        using Addr = Register::Address<0x40031014,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> FCSINT; 
+    namespace Noneirq00mon{    ///<IRQ00 Batch Read Register
+        using Addr = Register::Address<0x40031014,0xfffffffe,0,unsigned>;
+        ///Anomalous frequency detection by CSV interrupt request 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fcsint{}; 
     }
-    namespace Noneirq01mon{
-        using Addr = Register::Address<0x40031018,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SWWDTINT; 
+    namespace Noneirq01mon{    ///<IRQ01 Batch Read Register
+        using Addr = Register::Address<0x40031018,0xfffffffe,0,unsigned>;
+        ///Software watchdog timer interrupt request 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swwdtint{}; 
     }
-    namespace Noneirq02mon{
-        using Addr = Register::Address<0x4003101c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LVDINT; 
+    namespace Noneirq02mon{    ///<IRQ02 Batch Read Register
+        using Addr = Register::Address<0x4003101c,0xfffffffe,0,unsigned>;
+        ///Low voltage detection (LVD) interrupt request 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lvdint{}; 
     }
-    namespace Noneirq03mon{
-        using Addr = Register::Address<0x40031020,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> WAVE0INT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> WAVE0INT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WAVE0INT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WAVE0INT0; 
+    namespace Noneirq03mon{    ///<IRQ03 Batch Read Register
+        using Addr = Register::Address<0x40031020,0xfffffff0,0,unsigned>;
+        ///WFG timer 54 interrupt request in MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> wave0int3{}; 
+        ///WFG timer 32 interrupt request in MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wave0int2{}; 
+        ///WFG timer 10 interrupt request in MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wave0int1{}; 
+        ///DTIF (motor emergency stop) interrupt request in MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wave0int0{}; 
     }
-    namespace Noneirq04mon{
-        using Addr = Register::Address<0x40031024,0xffffff33>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> EXTINT7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> EXTINT6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EXTINT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EXTINT2; 
+    namespace Noneirq04mon{    ///<IRQ04 Batch Read Register
+        using Addr = Register::Address<0x40031024,0xffffff33,0,unsigned>;
+        ///Interrupt request on external interrupt ch.7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> extint7{}; 
+        ///Interrupt request on external interrupt ch.6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> extint6{}; 
+        ///Interrupt request on external interrupt ch.3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> extint3{}; 
+        ///Interrupt request on external interrupt ch.2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> extint2{}; 
     }
-    namespace Noneirq05mon{
-        using Addr = Register::Address<0x40031028,0xfffff3bf>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EXTINT11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> EXTINT10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> EXTINT6; 
+    namespace Noneirq05mon{    ///<IRQ05 Batch Read Register
+        using Addr = Register::Address<0x40031028,0xfffff3bf,0,unsigned>;
+        ///Interrupt request on external interrupt ch.19
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> extint11{}; 
+        ///Interrupt request on external interrupt ch.18
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> extint10{}; 
+        ///Interrupt request on external interrupt ch.14
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> extint6{}; 
     }
-    namespace Noneirq06mon{
-        using Addr = Register::Address<0x4003102c,0xffffc0fc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> QUD1INT5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> QUD1INT4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> QUD1INT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> QUD1INT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> QUD1INT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> QUD1INT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TIMINT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TIMINT1; 
+    namespace Noneirq06mon{    ///<IRQ06 Batch Read Register
+        using Addr = Register::Address<0x4003102c,0xffffc0fc,0,unsigned>;
+        ///PC match and RC match interrupt request on QPRC ch.1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> qud1int5{}; 
+        ///Interrupt request detected RC out of range on QPRC ch.1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> qud1int4{}; 
+        ///PC count invert interrupt request on QPRC ch.1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> qud1int3{}; 
+        ///Overflow/underflow/zero index interrupt request on QPRC ch.1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> qud1int2{}; 
+        ///PC and RC match interrupt request on QPRC ch.1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> qud1int1{}; 
+        ///PC match interrupt request on QPRC ch.1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> qud1int0{}; 
+        ///Dual timer 2 interrupt request 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> timint2{}; 
+        ///Dual timer 1 interrupt request 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> timint1{}; 
     }
-    namespace Noneirq07mon{
-        using Addr = Register::Address<0x40031030,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFSINT0; 
+    namespace Noneirq07mon{    ///<IRQ07 Batch Read Register
+        using Addr = Register::Address<0x40031030,0xfffffffe,0,unsigned>;
+        ///Reception interrupt request on MFS ch.0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsint0{}; 
     }
-    namespace Noneirq08mon{
-        using Addr = Register::Address<0x40031034,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MFSINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFSINT0; 
+    namespace Noneirq08mon{    ///<IRQ08 Batch Read Register
+        using Addr = Register::Address<0x40031034,0xfffffffc,0,unsigned>;
+        ///Status interrupt request on MFS ch.0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mfsint1{}; 
+        ///Transmission interrupt request on MFS ch.0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsint0{}; 
     }
-    namespace Noneirq09mon{
-        using Addr = Register::Address<0x40031038,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFSINT0; 
+    namespace Noneirq09mon{    ///<IRQ09 Batch Read Register
+        using Addr = Register::Address<0x40031038,0xfffffffe,0,unsigned>;
+        ///Reception interrupt request on MFS ch.1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsint0{}; 
     }
-    namespace Noneirq10mon{
-        using Addr = Register::Address<0x4003103c,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MFSINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFSINT0; 
+    namespace Noneirq10mon{    ///<IRQ10 Batch Read Register
+        using Addr = Register::Address<0x4003103c,0xfffffffc,0,unsigned>;
+        ///Status interrupt request on MFS ch.1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mfsint1{}; 
+        ///Transmission interrupt request on MFS ch.1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsint0{}; 
     }
-    namespace Noneirq11mon{
-        using Addr = Register::Address<0x40031040,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFSINT0; 
+    namespace Noneirq11mon{    ///<IRQ11 Batch Read Register
+        using Addr = Register::Address<0x40031040,0xfffffffe,0,unsigned>;
+        ///Reception interrupt request on MFS ch.2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsint0{}; 
     }
-    namespace Noneirq12mon{
-        using Addr = Register::Address<0x40031044,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MFSINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFSINT0; 
+    namespace Noneirq12mon{    ///<IRQ12 Batch Read Register
+        using Addr = Register::Address<0x40031044,0xfffffffc,0,unsigned>;
+        ///Status interrupt request on MFS ch.2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mfsint1{}; 
+        ///Transmission interrupt request on MFS ch.2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsint0{}; 
     }
-    namespace Noneirq13mon{
-        using Addr = Register::Address<0x40031048,0xffffffff>;
+    namespace Noneirq13mon{    ///<IRQ13 Batch Read Register
+        using Addr = Register::Address<0x40031048,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq14mon{
-        using Addr = Register::Address<0x4003104c,0xffffffff>;
+    namespace Noneirq14mon{    ///<IRQ14 Batch Read Register
+        using Addr = Register::Address<0x4003104c,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq15mon{
-        using Addr = Register::Address<0x40031050,0xffffffff>;
+    namespace Noneirq15mon{    ///<IRQ15 Batch Read Register
+        using Addr = Register::Address<0x40031050,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq16mon{
-        using Addr = Register::Address<0x40031054,0xffffffff>;
+    namespace Noneirq16mon{    ///<IRQ16 Batch Read Register
+        using Addr = Register::Address<0x40031054,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq17mon{
-        using Addr = Register::Address<0x40031058,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFSINT0; 
+    namespace Noneirq17mon{    ///<IRQ17 Batch Read Register
+        using Addr = Register::Address<0x40031058,0xfffffffe,0,unsigned>;
+        ///Reception interrupt request on MFS ch.5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsint0{}; 
     }
-    namespace Noneirq18mon{
-        using Addr = Register::Address<0x4003105c,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MFSINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFSINT0; 
+    namespace Noneirq18mon{    ///<IRQ18 Batch Read Register
+        using Addr = Register::Address<0x4003105c,0xfffffffc,0,unsigned>;
+        ///Status interrupt request on MFS ch.5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mfsint1{}; 
+        ///Transmission interrupt request on MFS ch.5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfsint0{}; 
     }
-    namespace Noneirq19mon{
-        using Addr = Register::Address<0x40031060,0xffffffff>;
+    namespace Noneirq19mon{    ///<IRQ19 Batch Read Register
+        using Addr = Register::Address<0x40031060,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq20mon{
-        using Addr = Register::Address<0x40031064,0xffffffff>;
+    namespace Noneirq20mon{    ///<IRQ20 Batch Read Register
+        using Addr = Register::Address<0x40031064,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq21mon{
-        using Addr = Register::Address<0x40031068,0xffffffff>;
+    namespace Noneirq21mon{    ///<IRQ21 Batch Read Register
+        using Addr = Register::Address<0x40031068,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq22mon{
-        using Addr = Register::Address<0x4003106c,0xffffffff>;
+    namespace Noneirq22mon{    ///<IRQ22 Batch Read Register
+        using Addr = Register::Address<0x4003106c,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq23mon{
-        using Addr = Register::Address<0x40031070,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PPGINT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PPGINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PPGINT0; 
+    namespace Noneirq23mon{    ///<IRQ23 Batch Read Register
+        using Addr = Register::Address<0x40031070,0xfffffff8,0,unsigned>;
+        ///Interrupt request on PPG ch.4 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ppgint2{}; 
+        ///Interrupt request on PPG ch.2 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ppgint1{}; 
+        ///Interrupt request on PPG ch.0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ppgint0{}; 
     }
-    namespace Noneirq24mon{
-        using Addr = Register::Address<0x40031074,0xffffffd8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> RTCINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MPLLINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SOSCINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MOSCINT; 
+    namespace Noneirq24mon{    ///<IRQ24 Batch Read Register
+        using Addr = Register::Address<0x40031074,0xffffffd8,0,unsigned>;
+        ///RTC interrupt request 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rtcint{}; 
+        ///Stabilization wait completion interrupt request for main PLL oscillation 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mpllint{}; 
+        ///Stabilization wait completion interrupt request for sub-clock oscillation
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> soscint{}; 
+        ///Stabilization wait completion interrupt request for main clock oscillation 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> moscint{}; 
     }
-    namespace Noneirq25mon{
-        using Addr = Register::Address<0x40031078,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ADCINT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ADCINT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ADCINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ADCINT0; 
+    namespace Noneirq25mon{    ///<IRQ25 Batch Read Register
+        using Addr = Register::Address<0x40031078,0xfffffff0,0,unsigned>;
+        ///Conversion result comparison interrupt request in the corresponding A/D unit 0. 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> adcint3{}; 
+        ///FIFO overrun interrupt request in the corresponding A/D unit 0. 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> adcint2{}; 
+        ///Scan conversion interrupt request in the corresponding A/D unit 0. 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> adcint1{}; 
+        ///Priority conversion interrupt request in the corresponding A/D unit 0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adcint0{}; 
     }
-    namespace Noneirq26mon{
-        using Addr = Register::Address<0x4003107c,0xffffffff>;
+    namespace Noneirq26mon{    ///<IRQ26 Batch Read Register
+        using Addr = Register::Address<0x4003107c,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq27mon{
-        using Addr = Register::Address<0x40031080,0xffffffff>;
+    namespace Noneirq27mon{    ///<IRQ27 Batch Read Register
+        using Addr = Register::Address<0x40031080,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq28mon{
-        using Addr = Register::Address<0x40031084,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FRT0INT5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> FRT0INT4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> FRT0INT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> FRT0INT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> FRT0INT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> FRT0INT0; 
+    namespace Noneirq28mon{    ///<IRQ28 Batch Read Register
+        using Addr = Register::Address<0x40031084,0xffffffc0,0,unsigned>;
+        ///Zero detection interrupt request on the free run timer ch.2 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> frt0int5{}; 
+        ///Zero detection interrupt request on the free run timer ch.1 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> frt0int4{}; 
+        ///Zero detection interrupt request on the free run timer ch.0 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> frt0int3{}; 
+        ///Peak value detection interrupt request on the free run timer ch.2 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> frt0int2{}; 
+        ///Peak value detection interrupt request on the free run timer ch.1 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> frt0int1{}; 
+        ///Peak value detection interrupt request on the free run timer ch.0 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frt0int0{}; 
     }
-    namespace Noneirq29mon{
-        using Addr = Register::Address<0x40031088,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ICU0INT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ICU0INT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ICU0INT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ICU0INT0; 
+    namespace Noneirq29mon{    ///<IRQ29 Batch Read Register
+        using Addr = Register::Address<0x40031088,0xfffffff0,0,unsigned>;
+        ///Interrupt request on the input capture ch.3 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> icu0int3{}; 
+        ///Interrupt request on the input capture ch.2 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> icu0int2{}; 
+        ///Interrupt request on the input capture ch.1 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> icu0int1{}; 
+        ///Interrupt request on the input capture ch.0 in the MFT unit 0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> icu0int0{}; 
     }
-    namespace Noneirq30mon{
-        using Addr = Register::Address<0x4003108c,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OCU0INT5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> OCU0INT4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> OCU0INT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> OCU0INT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> OCU0INT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OCU0INT0; 
+    namespace Noneirq30mon{    ///<IRQ30 Batch Read Register
+        using Addr = Register::Address<0x4003108c,0xffffffc0,0,unsigned>;
+        ///Interrupt request on the output compare ch.5 in the MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ocu0int5{}; 
+        ///Interrupt request on the output compare ch.4 in the MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ocu0int4{}; 
+        ///Interrupt request on the output compare ch.3 in the MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ocu0int3{}; 
+        ///Interrupt request on the output compare ch.2 in the MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ocu0int2{}; 
+        ///Interrupt request on the output compare ch.1 in the MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ocu0int1{}; 
+        ///Interrupt request on the output compare ch.0 in the MFT unit 0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ocu0int0{}; 
     }
-    namespace Noneirq31mon{
-        using Addr = Register::Address<0x40031090,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> BTINT15; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BTINT14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> BTINT13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> BTINT12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> BTINT11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> BTINT10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> BTINT9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> BTINT8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> BTINT7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> BTINT6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> BTINT5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BTINT4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> BTINT3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> BTINT2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> BTINT1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BTINT0; 
+    namespace Noneirq31mon{    ///<IRQ31 Batch Read Register
+        using Addr = Register::Address<0x40031090,0xffff0000,0,unsigned>;
+        ///IRQ1 interrupt request on the base timer ch.7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> btint15{}; 
+        ///IRQ0 interrupt request on the base timer ch.7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> btint14{}; 
+        ///IRQ1 interrupt request on the base timer ch.6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> btint13{}; 
+        ///IRQ0 interrupt request on the base timer ch.6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> btint12{}; 
+        ///IRQ1 interrupt request on the base timer ch.5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> btint11{}; 
+        ///IRQ0 interrupt request on the base timer ch.5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> btint10{}; 
+        ///IRQ1 interrupt request on the base timer ch.4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> btint9{}; 
+        ///IRQ0 interrupt request on the base timer ch.4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> btint8{}; 
+        ///IRQ1 interrupt request on the base timer ch.3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> btint7{}; 
+        ///IRQ0 interrupt request on the base timer ch.3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> btint6{}; 
+        ///IRQ1 interrupt request on the base timer ch.2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> btint5{}; 
+        ///IRQ0 interrupt request on the base timer ch.2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> btint4{}; 
+        ///IRQ1 interrupt request on the base timer ch.1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> btint3{}; 
+        ///IRQ0 interrupt request on the base timer ch.1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> btint2{}; 
+        ///IRQ1 interrupt request on the base timer ch.0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> btint1{}; 
+        ///IRQ0 interrupt request on the base timer ch.0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> btint0{}; 
     }
-    namespace Noneirq32mon{
-        using Addr = Register::Address<0x40031094,0xffffffff>;
+    namespace Noneirq32mon{    ///<IRQ32 Batch Read Register
+        using Addr = Register::Address<0x40031094,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq33mon{
-        using Addr = Register::Address<0x40031098,0xffffffff>;
+    namespace Noneirq33mon{    ///<IRQ33 Batch Read Register
+        using Addr = Register::Address<0x40031098,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq34mon{
-        using Addr = Register::Address<0x4003109c,0xffffffff>;
+    namespace Noneirq34mon{    ///<IRQ34 Batch Read Register
+        using Addr = Register::Address<0x4003109c,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq35mon{
-        using Addr = Register::Address<0x400310a0,0xffffffff>;
+    namespace Noneirq35mon{    ///<IRQ35 Batch Read Register
+        using Addr = Register::Address<0x400310a0,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq36mon{
-        using Addr = Register::Address<0x400310a4,0xffffffff>;
+    namespace Noneirq36mon{    ///<IRQ36 Batch Read Register
+        using Addr = Register::Address<0x400310a4,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq37mon{
-        using Addr = Register::Address<0x400310a8,0xffffffff>;
+    namespace Noneirq37mon{    ///<IRQ37 Batch Read Register
+        using Addr = Register::Address<0x400310a8,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq38mon{
-        using Addr = Register::Address<0x400310ac,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DMAINT; 
+    namespace Noneirq38mon{    ///<IRQ38 Batch Read Register
+        using Addr = Register::Address<0x400310ac,0xfffffffe,0,unsigned>;
+        ///Interrupt request on DMA ch.0.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaint{}; 
     }
-    namespace Noneirq39mon{
-        using Addr = Register::Address<0x400310b0,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DMAINT; 
+    namespace Noneirq39mon{    ///<IRQ39 Batch Read Register
+        using Addr = Register::Address<0x400310b0,0xfffffffe,0,unsigned>;
+        ///Interrupt request on DMA ch.1.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaint{}; 
     }
-    namespace Noneirq40mon{
-        using Addr = Register::Address<0x400310b4,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DMAINT; 
+    namespace Noneirq40mon{    ///<IRQ40 Batch Read Register
+        using Addr = Register::Address<0x400310b4,0xfffffffe,0,unsigned>;
+        ///Interrupt request on DMA ch.2.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaint{}; 
     }
-    namespace Noneirq41mon{
-        using Addr = Register::Address<0x400310b8,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DMAINT; 
+    namespace Noneirq41mon{    ///<IRQ41 Batch Read Register
+        using Addr = Register::Address<0x400310b8,0xfffffffe,0,unsigned>;
+        ///Interrupt request on DMA ch.3.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaint{}; 
     }
-    namespace Noneirq42mon{
-        using Addr = Register::Address<0x400310bc,0xffffffff>;
+    namespace Noneirq42mon{    ///<IRQ42 Batch Read Register
+        using Addr = Register::Address<0x400310bc,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq43mon{
-        using Addr = Register::Address<0x400310c0,0xffffffff>;
+    namespace Noneirq43mon{    ///<IRQ43 Batch Read Register
+        using Addr = Register::Address<0x400310c0,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq44mon{
-        using Addr = Register::Address<0x400310c4,0xffffffff>;
+    namespace Noneirq44mon{    ///<IRQ44 Batch Read Register
+        using Addr = Register::Address<0x400310c4,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq45mon{
-        using Addr = Register::Address<0x400310c8,0xffffffff>;
+    namespace Noneirq45mon{    ///<IRQ45 Batch Read Register
+        using Addr = Register::Address<0x400310c8,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq46mon{
-        using Addr = Register::Address<0x400310cc,0xffffffff>;
+    namespace Noneirq46mon{    ///<IRQ46 Batch Read Register
+        using Addr = Register::Address<0x400310cc,0xffffffff,0,unsigned>;
     }
-    namespace Noneirq47mon{
-        using Addr = Register::Address<0x400310d0,0xfffff7ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> FLASHINT; 
+    namespace Noneirq47mon{    ///<IRQ47 Batch Read Register
+        using Addr = Register::Address<0x400310d0,0xfffff7ff,0,unsigned>;
+        ///"RDY, HANG interrupt request for flash "
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> flashint{}; 
     }
-    namespace Nonercintsel0{
-        using Addr = Register::Address<0x40031210,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> INTSEL3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> INTSEL2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> INTSEL1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> INTSEL0; 
+    namespace Nonercintsel0{    ///<Interrupt Factor Selection Register 0
+        using Addr = Register::Address<0x40031210,0x00000000,0,unsigned>;
+        ///select the interrupt factor of the interrupt vector No.22.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> intsel3{}; 
+        ///select the interrupt factor of the interrupt vector No.21.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> intsel2{}; 
+        ///select the interrupt factor of the interrupt vector No.20.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> intsel1{}; 
+        ///select the interrupt factor of the interrupt vector No.19.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> intsel0{}; 
     }
-    namespace Nonercintsel1{
-        using Addr = Register::Address<0x40031214,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24)> INTSEL7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> INTSEL6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> INTSEL5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> INTSEL4; 
+    namespace Nonercintsel1{    ///<Interrupt Factor Selection Register 1
+        using Addr = Register::Address<0x40031214,0x00000000,0,unsigned>;
+        ///select the interrupt factor of the interrupt vector No.26.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> intsel7{}; 
+        ///select the interrupt factor of the interrupt vector No.25.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> intsel6{}; 
+        ///select the interrupt factor of the interrupt vector No.24.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> intsel5{}; 
+        ///select the interrupt factor of the interrupt vector No.23.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> intsel4{}; 
     }
 }

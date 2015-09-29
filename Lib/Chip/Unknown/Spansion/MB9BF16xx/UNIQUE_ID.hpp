@@ -1,12 +1,15 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneuidr0{
-        using Addr = Register::Address<0x40000200,0x0000000f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,4)> UID; 
+// peripheral UNIQUE_ID 
+    namespace Noneuidr0{    ///< register UIDR0 
+        using Addr = Register::Address<0x40000200,0x0000000f,0,unsigned>;
+        /// bitfield UID 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,4),Register::ReadWriteAccess,unsigned> uid{}; 
     }
-    namespace Noneuidr1{
-        using Addr = Register::Address<0x40000204,0xffffe000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,0)> UID; 
+    namespace Noneuidr1{    ///< register UIDR1 
+        using Addr = Register::Address<0x40000204,0xffffe000,0,unsigned>;
+        /// bitfield UID 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> uid{}; 
     }
 }

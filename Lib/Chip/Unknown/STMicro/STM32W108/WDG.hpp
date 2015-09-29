@@ -1,17 +1,22 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonewdg_cr{
-        using Addr = Register::Address<0x40006000,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WDGDIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WDGEN; 
+//Watchdog timer
+    namespace NonewdgCr{    ///<WDG configuration register
+        using Addr = Register::Address<0x40006000,0xfffffffc,0,unsigned>;
+        ///WDGDIS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wdgdis{}; 
+        ///WDGEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdgen{}; 
     }
-    namespace Nonewdg_kr{
-        using Addr = Register::Address<0x40006004,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> KEY; 
+    namespace NonewdgKr{    ///<WDG key register
+        using Addr = Register::Address<0x40006004,0xffff0000,0,unsigned>;
+        ///KEY
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> key{}; 
     }
-    namespace Nonewdg_kicksr{
-        using Addr = Register::Address<0x40006008,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> KS; 
+    namespace NonewdgKicksr{    ///<WDG kick-start register
+        using Addr = Register::Address<0x40006008,0xffff0000,0,unsigned>;
+        ///KS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ks{}; 
     }
 }

@@ -1,106 +1,194 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneisr{
-        using Addr = Register::Address<0x40012400,0xfffff760>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ADRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EOSMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EOS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> OVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> AWD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EOCAL; 
+//Analog-to-digital converter
+    namespace Noneisr{    ///<interrupt and status register
+        using Addr = Register::Address<0x40012400,0xfffff760,0,unsigned>;
+        ///ADC ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adrdy{}; 
+        ///End of sampling flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eosmp{}; 
+        ///End of conversion flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eoc{}; 
+        ///End of sequence flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eos{}; 
+        ///ADC overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ovr{}; 
+        ///Analog watchdog flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> awd{}; 
+        ///End Of Calibration flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> eocal{}; 
     }
-    namespace Noneier{
-        using Addr = Register::Address<0x40012404,0xfffff760>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ADRDYIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EOSMPIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EOCIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> EOSIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> OVRIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> AWDIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EOCALIE; 
+    namespace Noneier{    ///<interrupt enable register
+        using Addr = Register::Address<0x40012404,0xfffff760,0,unsigned>;
+        ///ADC ready interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adrdyie{}; 
+        ///End of sampling flag interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eosmpie{}; 
+        ///End of conversion interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eocie{}; 
+        ///End of conversion sequence interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eosie{}; 
+        ///Overrun interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ovrie{}; 
+        ///Analog watchdog interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> awdie{}; 
+        ///End of calibration interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> eocalie{}; 
     }
-    namespace Nonecr{
-        using Addr = Register::Address<0x40012408,0x6fffffe8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ADEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ADDIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ADSTART; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ADSTP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> ADVREGEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> ADCAL; 
+    namespace Nonecr{    ///<control register
+        using Addr = Register::Address<0x40012408,0x6fffffe8,0,unsigned>;
+        ///ADC enable command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> aden{}; 
+        ///ADC disable command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> addis{}; 
+        ///ADC start conversion
+              command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> adstart{}; 
+        ///ADC stop conversion
+              command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> adstp{}; 
+        ///ADC Voltage Regulator
+              Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> advregen{}; 
+        ///ADC calibration
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> adcal{}; 
     }
-    namespace Nonecfgr1{
-        using Addr = Register::Address<0x4001240c,0x833e0200>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,26)> AWDCH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> AWDEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> AWDSGL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> DISCEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> AUTOFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> AUTDLY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> CONT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> OVRMOD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> EXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,6)> EXTSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> ALIGN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> RES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SCANDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DMACFG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DMAEN; 
+    namespace Nonecfgr1{    ///<configuration register 1
+        using Addr = Register::Address<0x4001240c,0x833e0200,0,unsigned>;
+        ///Analog watchdog channel
+              selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,26),Register::ReadWriteAccess,unsigned> awdch{}; 
+        ///Analog watchdog enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> awden{}; 
+        ///Enable the watchdog on a single channel
+              or on all channels
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> awdsgl{}; 
+        ///Discontinuous mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> discen{}; 
+        ///Auto-off mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> autoff{}; 
+        ///Auto-delayed conversion
+              mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> autdly{}; 
+        ///Single / continuous conversion
+              mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> cont{}; 
+        ///Overrun management mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ovrmod{}; 
+        ///External trigger enable and polarity
+              selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> exten{}; 
+        ///External trigger selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,6),Register::ReadWriteAccess,unsigned> extsel{}; 
+        ///Data alignment
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> align{}; 
+        ///Data resolution
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,unsigned> res{}; 
+        ///Scan sequence direction
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> scandir{}; 
+        ///Direct memery access
+              configuration
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmacfg{}; 
+        ///Direct memory access
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaen{}; 
     }
-    namespace Nonecfgr2{
-        using Addr = Register::Address<0x40012410,0x3ffffc02>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OVSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,2)> OVSR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,5)> OVSS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TOVS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30)> CKMODE; 
+    namespace Nonecfgr2{    ///<configuration register 2
+        using Addr = Register::Address<0x40012410,0x3ffffc02,0,unsigned>;
+        ///Oversampler Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ovse{}; 
+        ///Oversampling ratio
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> ovsr{}; 
+        ///Oversampling shift
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,5),Register::ReadWriteAccess,unsigned> ovss{}; 
+        ///Triggered Oversampling
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tovs{}; 
+        ///ADC clock mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> ckmode{}; 
     }
-    namespace Nonesmpr{
-        using Addr = Register::Address<0x40012414,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> SMPR; 
+    namespace Nonesmpr{    ///<sampling time register
+        using Addr = Register::Address<0x40012414,0xfffffff8,0,unsigned>;
+        ///Sampling time selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> smpr{}; 
     }
-    namespace Nonetr{
-        using Addr = Register::Address<0x40012420,0xf000f000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,16)> HT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,0)> LT; 
+    namespace Nonetr{    ///<watchdog threshold register
+        using Addr = Register::Address<0x40012420,0xf000f000,0,unsigned>;
+        ///Analog watchdog higher
+              threshold
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> ht{}; 
+        ///Analog watchdog lower
+              threshold
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> lt{}; 
     }
-    namespace Nonechselr{
-        using Addr = Register::Address<0x40012428,0xfff80000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> CHSEL18; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> CHSEL17; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> CHSEL16; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CHSEL15; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> CHSEL14; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> CHSEL13; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> CHSEL12; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> CHSEL11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> CHSEL10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> CHSEL9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> CHSEL8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CHSEL7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CHSEL6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CHSEL5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CHSEL4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CHSEL3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CHSEL2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CHSEL1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CHSEL0; 
+    namespace Nonechselr{    ///<channel selection register
+        using Addr = Register::Address<0x40012428,0xfff80000,0,unsigned>;
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> chsel18{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> chsel17{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> chsel16{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> chsel15{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> chsel14{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> chsel13{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> chsel12{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> chsel11{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> chsel10{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> chsel9{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> chsel8{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> chsel7{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> chsel6{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> chsel5{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> chsel4{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chsel3{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chsel2{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chsel1{}; 
+        ///Channel-x selection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chsel0{}; 
     }
-    namespace Nonedr{
-        using Addr = Register::Address<0x40012440,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Nonedr{    ///<data register
+        using Addr = Register::Address<0x40012440,0xffff0000,0,unsigned>;
+        ///Converted data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Nonecalfact{
-        using Addr = Register::Address<0x400124b4,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> CALFACT; 
+    namespace Nonecalfact{    ///<ADC Calibration factor
+        using Addr = Register::Address<0x400124b4,0xffffff80,0,unsigned>;
+        ///Calibration factor
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> calfact{}; 
     }
-    namespace Noneccr{
-        using Addr = Register::Address<0x40012708,0xfc03ffff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18)> PRESC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> VREFEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> TSEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> VLCDEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> LFMEN; 
+    namespace Noneccr{    ///<ADC common configuration
+          register
+        using Addr = Register::Address<0x40012708,0xfc03ffff,0,unsigned>;
+        ///ADC prescaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,18),Register::ReadWriteAccess,unsigned> presc{}; 
+        ///VREFINT enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> vrefen{}; 
+        ///Temperature sensor enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> tsen{}; 
+        ///VLCD enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> vlcden{}; 
+        ///Low Frequency Mode enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> lfmen{}; 
     }
 }

@@ -1,24 +1,33 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonemode{
-        using Addr = Register::Address<0x50000000,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> CRC_POLY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> BIT_RVS_WR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CMPL_WR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BIT_RVS_SUM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CMPL_SUM; 
+//Cyclic Redundancy Check (CRC) engine
+    namespace Nonemode{    ///<CRC mode register
+        using Addr = Register::Address<0x50000000,0xffffffc0,0,unsigned>;
+        ///CRC polynom: 1X= CRC-32 polynomial 01= CRC-16 polynomial 00= CRC-CCITT polynomial
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> crcPoly{}; 
+        ///Data bit order: 1= Bit order reverse for CRC_WR_DATA (per byte) 0= No bit order reverse for CRC_WR_DATA (per byte)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> bitRvsWr{}; 
+        ///Data complement: 1= 1's complement for CRC_WR_DATA 0= No 1's complement for CRC_WR_DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cmplWr{}; 
+        ///CRC sum bit order: 1= Bit order reverse for CRC_SUM 0= No bit order reverse for CRC_SUM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> bitRvsSum{}; 
+        ///CRC sum complement: 1= 1's complement for CRC_SUM 0=No 1's complement for CRC_SUM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cmplSum{}; 
     }
-    namespace Noneseed{
-        using Addr = Register::Address<0x50000004,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CRC_SEED; 
+    namespace Noneseed{    ///<CRC seed register
+        using Addr = Register::Address<0x50000004,0x00000000,0,unsigned>;
+        ///A write access to this register will load CRC seed value to CRC_SUM register with selected bit order and 1's complement pre-processes. A write access to this register will overrule the CRC calculation in progresses.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crcSeed{}; 
     }
-    namespace Nonesum{
-        using Addr = Register::Address<0x50000008,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CRC_SUM; 
+    namespace Nonesum{    ///<CRC checksum register
+        using Addr = Register::Address<0x50000008,0x00000000,0,unsigned>;
+        ///The most recent CRC sum can be read through this register with selected bit order and 1's complement post-processes.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crcSum{}; 
     }
-    namespace Nonewr_data{
-        using Addr = Register::Address<0x50000008,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> CRC_WR_DATA; 
+    namespace NonewrData{    ///<CRC data register
+        using Addr = Register::Address<0x50000008,0x00000000,0,unsigned>;
+        ///Data written to this register will be taken to perform CRC calculation with selected bit order and 1's complement pre-process. Any write size 8, 16 or 32-bit are allowed and accept back-to-back transactions.
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crcWrData{}; 
     }
 }

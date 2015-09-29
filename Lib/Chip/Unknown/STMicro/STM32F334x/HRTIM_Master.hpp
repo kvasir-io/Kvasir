@@ -1,91 +1,176 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonemcr{
-        using Addr = Register::Address<0x40017400,0x11c000c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30)> BRSTDMA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> MREPU; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> PREEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,25)> DACSYNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> TECEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> TDCEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> TCCEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> TBCEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> TACEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> MCEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14)> SYNC_SRC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> SYNC_OUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SYNCSTRTM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> SYNCRSTM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> SYNC_IN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> HALF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RETRIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CONT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> CK_PSC; 
+//High Resolution Timer: Master
+      Timers
+    namespace Nonemcr{    ///<Master Timer Control Register
+        using Addr = Register::Address<0x40017400,0x11c000c0,0,unsigned>;
+        ///Burst DMA Update
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> brstdma{}; 
+        ///Master Timer Repetition
+              update
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> mrepu{}; 
+        ///Preload enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> preen{}; 
+        ///AC Synchronization
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,25),Register::ReadWriteAccess,unsigned> dacsync{}; 
+        ///Timer E counter enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> tecen{}; 
+        ///Timer D counter enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> tdcen{}; 
+        ///Timer C counter enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> tccen{}; 
+        ///Timer B counter enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> tbcen{}; 
+        ///Timer A counter enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> tacen{}; 
+        ///Master Counter enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> mcen{}; 
+        ///Synchronization source
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> syncSrc{}; 
+        ///Synchronization output
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> syncOut{}; 
+        ///Synchronization Starts
+              Master
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> syncstrtm{}; 
+        ///Synchronization Resets
+              Master
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> syncrstm{}; 
+        ///ynchronization input
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> syncIn{}; 
+        ///Half mode enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> half{}; 
+        ///Master Re-triggerable mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> retrig{}; 
+        ///Master Continuous mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cont{}; 
+        ///HRTIM Master Clock
+              prescaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ckPsc{}; 
     }
-    namespace Nonemisr{
-        using Addr = Register::Address<0x40017404,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MUPD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SYNC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> MREP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MCMP4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MCMP3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MCMP2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MCMP1; 
+    namespace Nonemisr{    ///<Master Timer Interrupt Status
+          Register
+        using Addr = Register::Address<0x40017404,0xffffff80,0,unsigned>;
+        ///Master Update Interrupt
+              Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mupd{}; 
+        ///Sync Input Interrupt Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sync{}; 
+        ///Master Repetition Interrupt
+              Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mrep{}; 
+        ///Master Compare 4 Interrupt
+              Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mcmp4{}; 
+        ///Master Compare 3 Interrupt
+              Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mcmp3{}; 
+        ///Master Compare 2 Interrupt
+              Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mcmp2{}; 
+        ///Master Compare 1 Interrupt
+              Flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcmp1{}; 
     }
-    namespace Nonemicr{
-        using Addr = Register::Address<0x40017408,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MUPDC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SYNCC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> MREPC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MCMP4C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MCMP3C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MCMP2C; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MCMP1C; 
+    namespace Nonemicr{    ///<Master Timer Interrupt Clear
+          Register
+        using Addr = Register::Address<0x40017408,0xffffff80,0,unsigned>;
+        ///Master update Interrupt flag
+              clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mupdc{}; 
+        ///Sync Input Interrupt flag
+              clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> syncc{}; 
+        ///Repetition Interrupt flag
+              clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mrepc{}; 
+        ///Master Compare 4 Interrupt flag
+              clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mcmp4c{}; 
+        ///Master Compare 3 Interrupt flag
+              clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mcmp3c{}; 
+        ///Master Compare 2 Interrupt flag
+              clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mcmp2c{}; 
+        ///Master Compare 1 Interrupt flag
+              clear
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcmp1c{}; 
     }
-    namespace Nonemdier4{
-        using Addr = Register::Address<0x4001740c,0xff80ff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> MUPDDE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> SYNCDE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> MREPDE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> MCMP4DE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> MCMP3DE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> MCMP2DE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> MCMP1DE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MUPDIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SYNCIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> MREPIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> MCMP4IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> MCMP3IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MCMP2IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MCMP1IE; 
+    namespace Nonemdier4{    ///<MDIER4
+        using Addr = Register::Address<0x4001740c,0xff80ff80,0,unsigned>;
+        ///MUPDDE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> mupdde{}; 
+        ///SYNCDE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> syncde{}; 
+        ///MREPDE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> mrepde{}; 
+        ///MCMP4DE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> mcmp4de{}; 
+        ///MCMP3DE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> mcmp3de{}; 
+        ///MCMP2DE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> mcmp2de{}; 
+        ///MCMP1DE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> mcmp1de{}; 
+        ///MUPDIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mupdie{}; 
+        ///SYNCIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> syncie{}; 
+        ///MREPIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mrepie{}; 
+        ///MCMP4IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mcmp4ie{}; 
+        ///MCMP3IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mcmp3ie{}; 
+        ///MCMP2IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mcmp2ie{}; 
+        ///MCMP1IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcmp1ie{}; 
     }
-    namespace Nonemcntr{
-        using Addr = Register::Address<0x40017410,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MCNT; 
+    namespace Nonemcntr{    ///<Master Timer Counter Register
+        using Addr = Register::Address<0x40017410,0xffff0000,0,unsigned>;
+        ///Counter value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcnt{}; 
     }
-    namespace Nonemper{
-        using Addr = Register::Address<0x40017414,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MPER; 
+    namespace Nonemper{    ///<Master Timer Period Register
+        using Addr = Register::Address<0x40017414,0xffff0000,0,unsigned>;
+        ///Master Timer Period value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mper{}; 
     }
-    namespace Nonemrep{
-        using Addr = Register::Address<0x40017418,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> MREP; 
+    namespace Nonemrep{    ///<Master Timer Repetition
+          Register
+        using Addr = Register::Address<0x40017418,0xffffff00,0,unsigned>;
+        ///Master Timer Repetition counter
+              value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> mrep{}; 
     }
-    namespace Nonemcmp1r{
-        using Addr = Register::Address<0x4001741c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MCMP1; 
+    namespace Nonemcmp1r{    ///<Master Timer Compare 1
+          Register
+        using Addr = Register::Address<0x4001741c,0xffff0000,0,unsigned>;
+        ///Master Timer Compare 1
+              value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcmp1{}; 
     }
-    namespace Nonemcmp2r{
-        using Addr = Register::Address<0x40017424,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MCMP2; 
+    namespace Nonemcmp2r{    ///<Master Timer Compare 2
+          Register
+        using Addr = Register::Address<0x40017424,0xffff0000,0,unsigned>;
+        ///Master Timer Compare 2
+              value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcmp2{}; 
     }
-    namespace Nonemcmp3r{
-        using Addr = Register::Address<0x40017428,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MCMP3; 
+    namespace Nonemcmp3r{    ///<Master Timer Compare 3
+          Register
+        using Addr = Register::Address<0x40017428,0xffff0000,0,unsigned>;
+        ///Master Timer Compare 3
+              value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcmp3{}; 
     }
-    namespace Nonemcmp4r{
-        using Addr = Register::Address<0x4001742c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MCMP4; 
+    namespace Nonemcmp4r{    ///<Master Timer Compare 4
+          Register
+        using Addr = Register::Address<0x4001742c,0xffff0000,0,unsigned>;
+        ///Master Timer Compare 4
+              value
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcmp4{}; 
     }
 }

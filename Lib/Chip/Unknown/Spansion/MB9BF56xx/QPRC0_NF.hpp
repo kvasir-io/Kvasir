@@ -1,22 +1,32 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonenfctla{
-        using Addr = Register::Address<0x40026100,0xffffffc8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> AINMD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> AINLV; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> AINNWS; 
+// peripheral QPRC0_NF 
+    namespace Nonenfctla{    ///< register NFCTLA 
+        using Addr = Register::Address<0x40026100,0xffffffc8,0,unsigned char>;
+        /// bitfield AINMD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ainmd{}; 
+        /// bitfield AINLV 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ainlv{}; 
+        /// bitfield AINNWS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ainnws{}; 
     }
-    namespace Nonenfctlb{
-        using Addr = Register::Address<0x40026104,0xffffffc8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> BINMD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BINLV; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> BINNWS; 
+    namespace Nonenfctlb{    ///< register NFCTLB 
+        using Addr = Register::Address<0x40026104,0xffffffc8,0,unsigned char>;
+        /// bitfield BINMD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> binmd{}; 
+        /// bitfield BINLV 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> binlv{}; 
+        /// bitfield BINNWS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> binnws{}; 
     }
-    namespace Nonenfctlz{
-        using Addr = Register::Address<0x40026108,0xffffffc8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> ZINMD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> ZINLV; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> ZINNWS; 
+    namespace Nonenfctlz{    ///< register NFCTLZ 
+        using Addr = Register::Address<0x40026108,0xffffffc8,0,unsigned char>;
+        /// bitfield ZINMD 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> zinmd{}; 
+        /// bitfield ZINLV 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> zinlv{}; 
+        /// bitfield ZINNWS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> zinnws{}; 
     }
 }

@@ -1,210 +1,330 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace AC97C_mr{
-        using Addr = Register::Address<0xfffac008,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ENA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> VRA; 
+//AC97 Controller
+    namespace Ac97cMr{    ///<Mode Register
+        using Addr = Register::Address<0xfffac008,0xfffffff8,0,unsigned>;
+        ///AC97 Controller Global Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ena{}; 
+        ///Warm Reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wrst{}; 
+        ///Variable Rate (for Data Slots 3-12)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vra{}; 
     }
-    namespace AC97C_ica{
-        using Addr = Register::Address<0xfffac010,0xc0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> CHID3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,3)> CHID4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,6)> CHID5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> CHID6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12)> CHID7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,15)> CHID8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18)> CHID9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,21)> CHID10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,24)> CHID11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,27)> CHID12; 
+    namespace Ac97cIca{    ///<Input Channel Assignment Register
+        using Addr = Register::Address<0xfffac010,0xc0000000,0,unsigned>;
+        ///Channel ID for the input slot 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> chid3{}; 
+        ///Channel ID for the input slot 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> chid4{}; 
+        ///Channel ID for the input slot 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,6),Register::ReadWriteAccess,unsigned> chid5{}; 
+        ///Channel ID for the input slot 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> chid6{}; 
+        ///Channel ID for the input slot 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> chid7{}; 
+        ///Channel ID for the input slot 8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,15),Register::ReadWriteAccess,unsigned> chid8{}; 
+        ///Channel ID for the input slot 9
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> chid9{}; 
+        ///Channel ID for the input slot 10
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,unsigned> chid10{}; 
+        ///Channel ID for the input slot 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> chid11{}; 
+        ///Channel ID for the input slot 12
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,27),Register::ReadWriteAccess,unsigned> chid12{}; 
     }
-    namespace AC97C_oca{
-        using Addr = Register::Address<0xfffac014,0xc0000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> CHID3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,3)> CHID4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,6)> CHID5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> CHID6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12)> CHID7; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,15)> CHID8; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18)> CHID9; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,21)> CHID10; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,24)> CHID11; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,27)> CHID12; 
+    namespace Ac97cOca{    ///<Output Channel Assignment Register
+        using Addr = Register::Address<0xfffac014,0xc0000000,0,unsigned>;
+        ///Channel ID for the output slot 3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> chid3{}; 
+        ///Channel ID for the output slot 4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> chid4{}; 
+        ///Channel ID for the output slot 5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,6),Register::ReadWriteAccess,unsigned> chid5{}; 
+        ///Channel ID for the output slot 6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> chid6{}; 
+        ///Channel ID for the output slot 7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> chid7{}; 
+        ///Channel ID for the output slot 8
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,15),Register::ReadWriteAccess,unsigned> chid8{}; 
+        ///Channel ID for the output slot 9
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> chid9{}; 
+        ///Channel ID for the output slot 10
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,unsigned> chid10{}; 
+        ///Channel ID for the output slot 11
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> chid11{}; 
+        ///Channel ID for the output slot 12
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,27),Register::ReadWriteAccess,unsigned> chid12{}; 
     }
-    namespace AC97C_carhr{
-        using Addr = Register::Address<0xfffac020,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0)> RDATA; 
+    namespace Ac97cCarhr{    ///<Channel A Receive Holding Register
+        using Addr = Register::Address<0xfffac020,0xfff00000,0,unsigned>;
+        ///Receive Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> rdata{}; 
     }
-    namespace AC97C_cathr{
-        using Addr = Register::Address<0xfffac024,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0)> TDATA; 
+    namespace Ac97cCathr{    ///<Channel A Transmit Holding Register
+        using Addr = Register::Address<0xfffac024,0xfff00000,0,unsigned>;
+        ///Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> tdata{}; 
     }
-    namespace AC97C_casr{
-        using Addr = Register::Address<0xfffac028,0xffff33c8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TXEMPTY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> UNRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OVRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ENDTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXBUFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ENDRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> RXBUFF; 
+    namespace Ac97cCasr{    ///<Channel A Status Register
+        using Addr = Register::Address<0xfffac028,0xffff33c8,0,unsigned>;
+        ///Channel Transmit Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Channel Transmit Empty
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
+        ///Transmit Underrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> unrun{}; 
+        ///Channel Receive Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
+        ///End of Transmission for Channel A
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> endtx{}; 
+        ///Transmit Buffer Empty for Channel A
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        ///End of Reception for Channel A
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> endrx{}; 
+        ///Receive Buffer Full for Channel A
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxbuff{}; 
     }
-    namespace AC97C_camr{
-        using Addr = Register::Address<0xfffac02c,0xff9833c8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TXEMPTY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> UNRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OVRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ENDTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXBUFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ENDRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> RXBUFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> CEM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> CEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> PDCEN; 
+    namespace Ac97cCamr{    ///<Channel A Mode Register
+        using Addr = Register::Address<0xfffac02c,0xff9833c8,0,unsigned>;
+        ///Channel Transmit Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Channel Transmit Empty Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
+        ///Transmit Underrun Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> unrun{}; 
+        ///Channel Receive Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        ///Receive Overrun Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
+        ///End of Transmission for Channel A Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> endtx{}; 
+        ///Transmit Buffer Empty for Channel A Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        ///End of Reception for Channel A Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> endrx{}; 
+        ///Receive Buffer Full for Channel A Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        ///Channel A Data Size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> size{}; 
+        ///Channel A Endian Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> cem{}; 
+        ///Channel A Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> cen{}; 
+        ///Peripheral Data Controller Channel Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> pdcen{}; 
     }
-    namespace AC97C_cbrhr{
-        using Addr = Register::Address<0xfffac030,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0)> RDATA; 
+    namespace Ac97cCbrhr{    ///<Channel B Receive Holding Register
+        using Addr = Register::Address<0xfffac030,0xfff00000,0,unsigned>;
+        ///Receive Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> rdata{}; 
     }
-    namespace AC97C_cbthr{
-        using Addr = Register::Address<0xfffac034,0xfff00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0)> TDATA; 
+    namespace Ac97cCbthr{    ///<Channel B Transmit Holding Register
+        using Addr = Register::Address<0xfffac034,0xfff00000,0,unsigned>;
+        ///Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> tdata{}; 
     }
-    namespace AC97C_cbsr{
-        using Addr = Register::Address<0xfffac038,0xffff39c8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TXEMPTY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> UNRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OVRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> ENDTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> TXBUFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ENDRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> RXBUFF; 
+    namespace Ac97cCbsr{    ///<Channel B Status Register
+        using Addr = Register::Address<0xfffac038,0xffff39c8,0,unsigned>;
+        ///Channel Transmit Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Channel Transmit Empty
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
+        ///Transmit Underrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> unrun{}; 
+        ///Channel Receive Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
+        ///End of Transmission for Channel B
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> endtx{}; 
+        ///Transmit Buffer Empty for Channel B
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        ///End of Reception for Channel B
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> endrx{}; 
+        ///Receive Buffer Full for Channel B
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxbuff{}; 
     }
-    namespace AC97C_cbmr{
-        using Addr = Register::Address<0xfffac03c,0xff9833c8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TXEMPTY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> UNRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OVRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ENDTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> TXBUFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ENDRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> RXBUFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> SIZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> CEM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> CEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22)> PDCEN; 
+    namespace Ac97cCbmr{    ///<Channel B Mode Register
+        using Addr = Register::Address<0xfffac03c,0xff9833c8,0,unsigned>;
+        ///Channel Transmit Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Channel Transmit Empty Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
+        ///Transmit Underrun Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> unrun{}; 
+        ///Channel Receive Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        ///Receive Overrun Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
+        ///End of Transmission for Channel B Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> endtx{}; 
+        ///Transmit Buffer Empty for Channel B Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        ///End of Reception for Channel B Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> endrx{}; 
+        ///Receive Buffer Full for Channel B Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        ///Channel B Data Size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> size{}; 
+        ///Channel B Endian Mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> cem{}; 
+        ///Channel B Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> cen{}; 
+        ///Peripheral Data Controller Channel Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> pdcen{}; 
     }
-    namespace AC97C_corhr{
-        using Addr = Register::Address<0xfffac040,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> SDATA; 
+    namespace Ac97cCorhr{    ///<Codec Channel Receive Holding Register
+        using Addr = Register::Address<0xfffac040,0xffff0000,0,unsigned>;
+        ///Status Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> sdata{}; 
     }
-    namespace AC97C_cothr{
-        using Addr = Register::Address<0xfffac044,0xff000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CDATA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16)> CADDR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> READ; 
+    namespace Ac97cCothr{    ///<Codec Channel Transmit Holding Register
+        using Addr = Register::Address<0xfffac044,0xff000000,0,unsigned>;
+        ///Command Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cdata{}; 
+        ///CODEC control register index
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> caddr{}; 
+        ///Read-write command
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> read{}; 
     }
-    namespace AC97C_cosr{
-        using Addr = Register::Address<0xfffac048,0xffffffc8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TXEMPTY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> UNRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OVRUN; 
+    namespace Ac97cCosr{    ///<Codec Status Register
+        using Addr = Register::Address<0xfffac048,0xffffffc8,0,unsigned>;
+        ///Channel Transmit Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Channel Transmit Empty
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
+        ///Transmit Underrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> unrun{}; 
+        ///Channel Receive Ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
     }
-    namespace AC97C_comr{
-        using Addr = Register::Address<0xfffac04c,0xffffffc8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TXEMPTY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> UNRUN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> OVRUN; 
+    namespace Ac97cComr{    ///<Codec Mode Register
+        using Addr = Register::Address<0xfffac04c,0xffffffc8,0,unsigned>;
+        ///Channel Transmit Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        ///Channel Transmit Empty Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
+        ///Transmit Underrun Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> unrun{}; 
+        ///Channel Receive Ready Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        ///Receive Overrun Interrupt Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
     }
-    namespace AC97C_sr{
-        using Addr = Register::Address<0xfffac050,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WKUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> COEVT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CAEVT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CBEVT; 
+    namespace Ac97cSr{    ///<Status Register
+        using Addr = Register::Address<0xfffac050,0xffffffe0,0,unsigned>;
+        ///Start Of Frame
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sof{}; 
+        ///Wake Up detection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wkup{}; 
+        ///CODEC Channel Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> coevt{}; 
+        ///Channel A Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> caevt{}; 
+        ///Channel B Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cbevt{}; 
     }
-    namespace AC97C_ier{
-        using Addr = Register::Address<0xfffac054,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WKUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> COEVT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CAEVT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CBEVT; 
+    namespace Ac97cIer{    ///<Interrupt Enable Register
+        using Addr = Register::Address<0xfffac054,0xffffffe0,0,unsigned>;
+        ///Start Of Frame
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sof{}; 
+        ///Wake Up
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wkup{}; 
+        ///Codec Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> coevt{}; 
+        ///Channel A Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> caevt{}; 
+        ///Channel B Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cbevt{}; 
     }
-    namespace AC97C_idr{
-        using Addr = Register::Address<0xfffac058,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WKUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> COEVT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CAEVT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CBEVT; 
+    namespace Ac97cIdr{    ///<Interrupt Disable Register
+        using Addr = Register::Address<0xfffac058,0xffffffe0,0,unsigned>;
+        ///Start Of Frame
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sof{}; 
+        ///Wake Up
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wkup{}; 
+        ///Codec Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> coevt{}; 
+        ///Channel A Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> caevt{}; 
+        ///Channel B Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cbevt{}; 
     }
-    namespace AC97C_imr{
-        using Addr = Register::Address<0xfffac05c,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> WKUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> COEVT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> CAEVT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CBEVT; 
+    namespace Ac97cImr{    ///<Interrupt Mask Register
+        using Addr = Register::Address<0xfffac05c,0xffffffe0,0,unsigned>;
+        ///Start Of Frame
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sof{}; 
+        ///Wake Up
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wkup{}; 
+        ///Codec Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> coevt{}; 
+        ///Channel A Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> caevt{}; 
+        ///Channel B Event
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cbevt{}; 
     }
-    namespace AC97C_rpr{
-        using Addr = Register::Address<0xfffac100,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXPTR; 
+    namespace Ac97cRpr{    ///<Receive Pointer Register
+        using Addr = Register::Address<0xfffac100,0x00000000,0,unsigned>;
+        ///Receive Pointer Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxptr{}; 
     }
-    namespace AC97C_rcr{
-        using Addr = Register::Address<0xfffac104,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> RXCTR; 
+    namespace Ac97cRcr{    ///<Receive Counter Register
+        using Addr = Register::Address<0xfffac104,0xffff0000,0,unsigned>;
+        ///Receive Counter Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxctr{}; 
     }
-    namespace AC97C_tpr{
-        using Addr = Register::Address<0xfffac108,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TXPTR; 
+    namespace Ac97cTpr{    ///<Transmit Pointer Register
+        using Addr = Register::Address<0xfffac108,0x00000000,0,unsigned>;
+        ///Transmit Counter Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txptr{}; 
     }
-    namespace AC97C_tcr{
-        using Addr = Register::Address<0xfffac10c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXCTR; 
+    namespace Ac97cTcr{    ///<Transmit Counter Register
+        using Addr = Register::Address<0xfffac10c,0xffff0000,0,unsigned>;
+        ///Transmit Counter Register
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txctr{}; 
     }
-    namespace AC97C_rnpr{
-        using Addr = Register::Address<0xfffac110,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXNPTR; 
+    namespace Ac97cRnpr{    ///<Receive Next Pointer Register
+        using Addr = Register::Address<0xfffac110,0x00000000,0,unsigned>;
+        ///Receive Next Pointer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxnptr{}; 
     }
-    namespace AC97C_rncr{
-        using Addr = Register::Address<0xfffac114,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> RXNCTR; 
+    namespace Ac97cRncr{    ///<Receive Next Counter Register
+        using Addr = Register::Address<0xfffac114,0xffff0000,0,unsigned>;
+        ///Receive Next Counter
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxnctr{}; 
     }
-    namespace AC97C_tnpr{
-        using Addr = Register::Address<0xfffac118,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> TXNPTR; 
+    namespace Ac97cTnpr{    ///<Transmit Next Pointer Register
+        using Addr = Register::Address<0xfffac118,0x00000000,0,unsigned>;
+        ///Transmit Next Pointer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txnptr{}; 
     }
-    namespace AC97C_tncr{
-        using Addr = Register::Address<0xfffac11c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXNCTR; 
+    namespace Ac97cTncr{    ///<Transmit Next Counter Register
+        using Addr = Register::Address<0xfffac11c,0xffff0000,0,unsigned>;
+        ///Transmit Counter Next
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txnctr{}; 
     }
-    namespace AC97C_ptcr{
-        using Addr = Register::Address<0xfffac120,0xfffffcfc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RXTDIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TXTDIS; 
+    namespace Ac97cPtcr{    ///<Transfer Control Register
+        using Addr = Register::Address<0xfffac120,0xfffffcfc,0,unsigned>;
+        ///Receiver Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        ///Receiver Transfer Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
+        ///Transmitter Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        ///Transmitter Transfer Disable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
     }
-    namespace AC97C_ptsr{
-        using Addr = Register::Address<0xfffac124,0xfffffefe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RXTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> TXTEN; 
+    namespace Ac97cPtsr{    ///<Transfer Status Register
+        using Addr = Register::Address<0xfffac124,0xfffffefe,0,unsigned>;
+        ///Receiver Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        ///Transmitter Transfer Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
     }
 }

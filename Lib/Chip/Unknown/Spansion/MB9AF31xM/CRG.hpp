@@ -1,130 +1,188 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonescm_ctl{
-        using Addr = Register::Address<0x40010000,0xffffff05>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5)> RCS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PLLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> SOSCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MOSCE; 
+//Clock Unit Registers
+    namespace NonescmCtl{    ///<System Clock Mode Control Register
+        using Addr = Register::Address<0x40010000,0xffffff05,0,unsigned char>;
+        ///Master clock switch control bits 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> rcs{}; 
+        ///PLL oscillation enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> plle{}; 
+        ///Sub clock oscillation enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sosce{}; 
+        ///Main clock oscillation enable bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mosce{}; 
     }
-    namespace Nonescm_str{
-        using Addr = Register::Address<0x40010004,0xffffff05>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5)> RCM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PLRDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> SORDY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MORDY; 
+    namespace NonescmStr{    ///<System Clock Mode Status Register
+        using Addr = Register::Address<0x40010004,0xffffff05,0,unsigned char>;
+        ///Master clock selection bits 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> rcm{}; 
+        ///PLL oscillation stable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> plrdy{}; 
+        ///Sub clock oscillation stable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sordy{}; 
+        ///Main clock oscillation stable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mordy{}; 
     }
-    namespace Nonebsc_psr{
-        using Addr = Register::Address<0x40010010,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> BSR; 
+    namespace NonebscPsr{    ///<Base Clock Prescaler Register
+        using Addr = Register::Address<0x40010010,0xfffffff8,0,unsigned char>;
+        ///Base clock frequency division ratio setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> bsr{}; 
     }
-    namespace Noneapbc0_psr{
-        using Addr = Register::Address<0x40010014,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> APBC0; 
+    namespace Noneapbc0Psr{    ///<APB0 Prescaler Register
+        using Addr = Register::Address<0x40010014,0xfffffffc,0,unsigned char>;
+        ///APB0 bus clock frequency division ratio setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> apbc0{}; 
     }
-    namespace Noneapbc1_psr{
-        using Addr = Register::Address<0x40010018,0xffffff6c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> APBC1EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> APBC1RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> APBC1; 
+    namespace Noneapbc1Psr{    ///<APB1 Prescaler Register
+        using Addr = Register::Address<0x40010018,0xffffff6c,0,unsigned char>;
+        ///APB1 clock enable bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> apbc1en{}; 
+        ///APB1 bus reset control bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> apbc1rst{}; 
+        ///APB1 bus clock frequency division ratio setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> apbc1{}; 
     }
-    namespace Noneapbc2_psr{
-        using Addr = Register::Address<0x4001001c,0xffffff6c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> APBC2EN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> APBC2RST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> APBC2; 
+    namespace Noneapbc2Psr{    ///<APB2 Prescaler Register
+        using Addr = Register::Address<0x4001001c,0xffffff6c,0,unsigned char>;
+        ///APB2 clock enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> apbc2en{}; 
+        ///APB2 bus reset control bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> apbc2rst{}; 
+        ///APB2 bus clock frequency division ratio setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> apbc2{}; 
     }
-    namespace Noneswc_psr{
-        using Addr = Register::Address<0x40010020,0xffffff7c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TESTB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> SWDS; 
+    namespace NoneswcPsr{    ///<Software Watchdog Clock Prescaler Register
+        using Addr = Register::Address<0x40010020,0xffffff7c,0,unsigned char>;
+        ///TEST bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> testb{}; 
+        ///Software watchdog clock frequency division ratio setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> swds{}; 
     }
-    namespace Nonettc_psr{
-        using Addr = Register::Address<0x40010028,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> TTC; 
+    namespace NonettcPsr{    ///<Trace Clock Prescaler Register
+        using Addr = Register::Address<0x40010028,0xfffffffe,0,unsigned char>;
+        ///Trace clock frequency division ratio setting bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ttc{}; 
     }
-    namespace Nonecsw_tmr{
-        using Addr = Register::Address<0x40010030,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4)> SOWT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> MOWT; 
+    namespace NonecswTmr{    ///<Clock Stabilization Wait Time Register
+        using Addr = Register::Address<0x40010030,0xffffff80,0,unsigned char>;
+        ///Sub clock stabilization wait time setup bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> sowt{}; 
+        ///Main clock stabilization wait time setup bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mowt{}; 
     }
-    namespace Nonepsw_tmr{
-        using Addr = Register::Address<0x40010034,0xffffffe8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> PINC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> POWT; 
+    namespace NonepswTmr{    ///<PLL Clock Stabilization Wait Time Setup Register
+        using Addr = Register::Address<0x40010034,0xffffffe8,0,unsigned char>;
+        ///PLL input clock select bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pinc{}; 
+        ///PLL clock stabilization wait time setup bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> powt{}; 
     }
-    namespace Nonepll_ctl1{
-        using Addr = Register::Address<0x40010038,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> PLLK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> PLLM; 
+    namespace NonepllCtl1{    ///<PLL Control Register 1
+        using Addr = Register::Address<0x40010038,0xffffff00,0,unsigned char>;
+        ///PLL input clock frequency division ratio setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> pllk{}; 
+        ///PLL VCO clock frequency division ratio setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> pllm{}; 
     }
-    namespace Nonepll_ctl2{
-        using Addr = Register::Address<0x4001003c,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> PLLN; 
+    namespace NonepllCtl2{    ///<PLL Control Register 2
+        using Addr = Register::Address<0x4001003c,0xffffffc0,0,unsigned char>;
+        ///PLL feedback frequency division ratio setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> plln{}; 
     }
-    namespace Nonedbwdt_ctl{
-        using Addr = Register::Address<0x40010054,0xffffff5f>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DPHWBE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> DPSWBE; 
+    namespace NonedbwdtCtl{    ///<Debug Break Watchdog Timer Control Register
+        using Addr = Register::Address<0x40010054,0xffffff5f,0,unsigned char>;
+        ///HW-WDG debug mode break bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dphwbe{}; 
+        ///SW-WDG debug mode break bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dpswbe{}; 
     }
-    namespace Noneint_enr{
-        using Addr = Register::Address<0x40010060,0xffffffd8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FCSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PCSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SCSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MCSE; 
+    namespace NoneintEnr{    ///< Interrupt Enable Register
+        using Addr = Register::Address<0x40010060,0xffffffd8,0,unsigned char>;
+        ///Anomalous frequency detection interrupt enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> fcse{}; 
+        ///PLL oscillation stabilization completion interrupt enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pcse{}; 
+        ///Sub oscillation stabilization completion interrupt enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scse{}; 
+        ///Main oscillation stabilization completion interrupt enable bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcse{}; 
     }
-    namespace Noneint_str{
-        using Addr = Register::Address<0x40010064,0xffffffd8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FCSI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PCSI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SCSI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MCSI; 
+    namespace NoneintStr{    ///<Interrupt Status Register
+        using Addr = Register::Address<0x40010064,0xffffffd8,0,unsigned char>;
+        ///Anomalous frequency detection interrupt status bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> fcsi{}; 
+        ///PLL oscillation stabilization completion interrupt status bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pcsi{}; 
+        ///Sub oscillation stabilization completion interrupt status bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scsi{}; 
+        ///Main oscillation stabilization completion interrupt status bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcsi{}; 
     }
-    namespace Noneint_clr{
-        using Addr = Register::Address<0x40010068,0xffffffd8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> FCSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PCSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SCSC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MCSC; 
+    namespace NoneintClr{    ///<Interrupt Clear Register
+        using Addr = Register::Address<0x40010068,0xffffffd8,0,unsigned char>;
+        ///Anomalous frequency detection interrupt cause clear bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> fcsc{}; 
+        ///PLL oscillation stabilization completion interrupt cause clear bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pcsc{}; 
+        ///Sub oscillation stabilization completion interrupt cause clear bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scsc{}; 
+        ///Main oscillation stabilization completion interrupt cause clear bit  
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcsc{}; 
     }
-    namespace Nonerst_str{
-        using Addr = Register::Address<0x4001000c,0xfffffe0c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> SRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> FCSR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> CSVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> HWDG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> SWDG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> INITX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PONR; 
+    namespace NonerstStr{    ///<Reset Cause Register
+        using Addr = Register::Address<0x4001000c,0xfffffe0c,0,unsigned>;
+        ///Software reset flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> srst{}; 
+        ///Flag for anomalous frequency detection reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> fcsr{}; 
+        ///Clock failure detection reset flag 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> csvr{}; 
+        ///Hardware watchdog reset flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> hwdg{}; 
+        ///Software watchdog reset flag 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> swdg{}; 
+        ///INITX pin input reset flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> initx{}; 
+        ///Power-on reset/low-voltage detection reset flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ponr{}; 
     }
-    namespace Nonestb_ctl{
-        using Addr = Register::Address<0x40010008,0x0000ffec>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> KEY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> SPL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> STM; 
+    namespace NonestbCtl{    ///<Standby Mode Control Register
+        using Addr = Register::Address<0x40010008,0x0000ffec,0,unsigned>;
+        ///Standby mode control write control bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> key{}; 
+        ///Standby pin level setting bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> spl{}; 
+        ///Standby mode selection bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> stm{}; 
     }
-    namespace Nonecsv_ctl{
-        using Addr = Register::Address<0x40010040,0xffff8cfc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12)> FCD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> FCSRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> FCSDE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SCSVE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MCSVE; 
+    namespace NonecsvCtl{    ///<CSV control register
+        using Addr = Register::Address<0x40010040,0xffff8cfc,0,unsigned>;
+        ///FCS count cycle setting bits
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> fcd{}; 
+        ///FCS reset output enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> fcsre{}; 
+        ///FCS function enable bit 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> fcsde{}; 
+        ///Sub CSV function enable bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scsve{}; 
+        ///Main CSV function enable bit
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcsve{}; 
     }
-    namespace Nonecsv_str{
-        using Addr = Register::Address<0x40010044,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SCMF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MCMF; 
+    namespace NonecsvStr{    ///<CSV status register
+        using Addr = Register::Address<0x40010044,0xfffffffc,0,unsigned char>;
+        ///Sub clock failure detection flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scmf{}; 
+        ///Main clock failure detection flag 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcmf{}; 
     }
-    namespace Nonefcswh_ctl{
-        using Addr = Register::Address<0x40010048,0xffffffff>;
+    namespace NonefcswhCtl{    ///<Frequency detection window setting register
+        using Addr = Register::Address<0x40010048,0xffffffff,0,unsigned>;
     }
-    namespace Nonefcswl_ctl{
-        using Addr = Register::Address<0x4001004c,0xffffffff>;
+    namespace NonefcswlCtl{    ///<Frequency detection window setting register
+        using Addr = Register::Address<0x4001004c,0xffffffff,0,unsigned>;
     }
-    namespace Nonefcswd_ctl{
-        using Addr = Register::Address<0x40010050,0xffffffff>;
+    namespace NonefcswdCtl{    ///<Frequency detection counter register
+        using Addr = Register::Address<0x40010050,0xffffffff,0,unsigned>;
     }
 }

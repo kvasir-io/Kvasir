@@ -1,25 +1,35 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonectrl{
-        using Addr = Register::Address<0xe000e010,0xfffefff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> ENABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> TICKINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> CLKSOURCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> COUNTFLAG; 
+//SysTick
+    namespace Nonectrl{    ///<CTRL
+        using Addr = Register::Address<0xe000e010,0xfffefff8,0,unsigned>;
+        ///ENABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> enable{}; 
+        ///TICKINT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tickint{}; 
+        ///CLKSOURCE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> clksource{}; 
+        ///COUNTFLAG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> countflag{}; 
     }
-    namespace Noneload{
-        using Addr = Register::Address<0xe000e014,0xff000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0)> RELOAD; 
+    namespace Noneload{    ///<LOAD
+        using Addr = Register::Address<0xe000e014,0xff000000,0,unsigned>;
+        ///RELOAD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> reload{}; 
     }
-    namespace Noneval{
-        using Addr = Register::Address<0xe000e018,0xff000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0)> CURRENT; 
+    namespace Noneval{    ///<VAL
+        using Addr = Register::Address<0xe000e018,0xff000000,0,unsigned>;
+        ///CURRENT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> current{}; 
     }
-    namespace Nonecalib{
-        using Addr = Register::Address<0xe000e01c,0x3f000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0)> TENMS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> SKEW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> NOREF; 
+    namespace Nonecalib{    ///<CALIB
+        using Addr = Register::Address<0xe000e01c,0x3f000000,0,unsigned>;
+        ///TENMS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> tenms{}; 
+        ///SKEW
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> skew{}; 
+        ///NOREF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> noref{}; 
     }
 }

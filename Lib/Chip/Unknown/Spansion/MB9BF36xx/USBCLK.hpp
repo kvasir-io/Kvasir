@@ -1,55 +1,71 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneuccr{
-        using Addr = Register::Address<0x40036000,0xfffffff4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> UCEN1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> UCSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UCEN0; 
+// peripheral USBCLK 
+    namespace Noneuccr{    ///< register UCCR 
+        using Addr = Register::Address<0x40036000,0xfffffff4,0,unsigned char>;
+        /// bitfield UCEN1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ucen1{}; 
+        /// bitfield UCSEL 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ucsel{}; 
+        /// bitfield UCEN0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ucen0{}; 
     }
-    namespace Noneupcr1{
-        using Addr = Register::Address<0x40036004,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> UPINC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UPLLEN; 
+    namespace Noneupcr1{    ///< register UPCR1 
+        using Addr = Register::Address<0x40036004,0xfffffffc,0,unsigned char>;
+        /// bitfield UPINC 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> upinc{}; 
+        /// bitfield UPLLEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> upllen{}; 
     }
-    namespace Noneupcr2{
-        using Addr = Register::Address<0x40036008,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> UPOWT; 
+    namespace Noneupcr2{    ///< register UPCR2 
+        using Addr = Register::Address<0x40036008,0xfffffff8,0,unsigned char>;
+        /// bitfield UPOWT 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> upowt{}; 
     }
-    namespace Noneupcr3{
-        using Addr = Register::Address<0x4003600c,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> UPLLK; 
+    namespace Noneupcr3{    ///< register UPCR3 
+        using Addr = Register::Address<0x4003600c,0xffffffe0,0,unsigned char>;
+        /// bitfield UPLLK 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> upllk{}; 
     }
-    namespace Noneupcr4{
-        using Addr = Register::Address<0x40036010,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> UPLLN; 
+    namespace Noneupcr4{    ///< register UPCR4 
+        using Addr = Register::Address<0x40036010,0xffffff80,0,unsigned char>;
+        /// bitfield UPLLN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> uplln{}; 
     }
-    namespace Noneupcr5{
-        using Addr = Register::Address<0x40036024,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> UPLLM; 
+    namespace Noneupcr5{    ///< register UPCR5 
+        using Addr = Register::Address<0x40036024,0xfffffff0,0,unsigned char>;
+        /// bitfield UPLLM 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> upllm{}; 
     }
-    namespace Noneup_str{
-        using Addr = Register::Address<0x40036014,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UPRDY; 
+    namespace NoneupStr{    ///< register UP_STR 
+        using Addr = Register::Address<0x40036014,0xfffffffe,0,unsigned char>;
+        /// bitfield UPRDY 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> uprdy{}; 
     }
-    namespace Noneupint_enr{
-        using Addr = Register::Address<0x40036018,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UPCSE; 
+    namespace NoneupintEnr{    ///< register UPINT_ENR 
+        using Addr = Register::Address<0x40036018,0xfffffffe,0,unsigned char>;
+        /// bitfield UPCSE 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> upcse{}; 
     }
-    namespace Noneupint_str{
-        using Addr = Register::Address<0x40036020,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UPCSI; 
+    namespace NoneupintStr{    ///< register UPINT_STR 
+        using Addr = Register::Address<0x40036020,0xfffffffe,0,unsigned char>;
+        /// bitfield UPCSI 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> upcsi{}; 
     }
-    namespace Noneupint_clr{
-        using Addr = Register::Address<0x4003601c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UPCSC; 
+    namespace NoneupintClr{    ///< register UPINT_CLR 
+        using Addr = Register::Address<0x4003601c,0xfffffffe,0,unsigned char>;
+        /// bitfield UPCSC 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> upcsc{}; 
     }
-    namespace Noneusben0{
-        using Addr = Register::Address<0x40036030,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> USBEN0; 
+    namespace Noneusben0{    ///< register USBEN0 
+        using Addr = Register::Address<0x40036030,0xfffffffe,0,unsigned char>;
+        /// bitfield USBEN0 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usben0{}; 
     }
-    namespace Noneusben1{
-        using Addr = Register::Address<0x40036034,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> USBEN1; 
+    namespace Noneusben1{    ///< register USBEN1 
+        using Addr = Register::Address<0x40036034,0xfffffffe,0,unsigned char>;
+        /// bitfield USBEN1 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usben1{}; 
     }
 }

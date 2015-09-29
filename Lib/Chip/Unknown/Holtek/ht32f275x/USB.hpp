@@ -1,432 +1,726 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneusb_csr{
-        using Addr = Register::Address<0x4004e000,0xfffffe11>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> FRES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PDWN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> LPMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> GENRSM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> RXDP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> RXDM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ADRSET; 
+//USB
+    namespace NoneusbCsr{    ///<USB_CSR
+        using Addr = Register::Address<0x4004e000,0xfffffe11,0,unsigned>;
+        ///FRES
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fres{}; 
+        ///PDWN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pdwn{}; 
+        ///LPMODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> lpmode{}; 
+        ///GENRSM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> genrsm{}; 
+        ///RXDP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rxdp{}; 
+        ///RXDM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rxdm{}; 
+        ///ADRSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> adrset{}; 
     }
-    namespace Noneusb_ier{
-        using Addr = Register::Address<0x4004e004,0xffff00c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UGIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SOFIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> URSTIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> RSMIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> SUSPIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> ESOFIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP0IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> EP1IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> EP2IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EP3IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> EP4IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> EP5IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> EP6IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> EP7IE; 
+    namespace NoneusbIer{    ///<USB_IER
+        using Addr = Register::Address<0x4004e004,0xffff00c0,0,unsigned>;
+        ///UGIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ugie{}; 
+        ///SOFIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sofie{}; 
+        ///URSTIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> urstie{}; 
+        ///RSMIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsmie{}; 
+        ///SUSPIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> suspie{}; 
+        ///ESOFIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> esofie{}; 
+        ///EP0IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ep0ie{}; 
+        ///EP1IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ep1ie{}; 
+        ///EP2IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ep2ie{}; 
+        ///EP3IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ep3ie{}; 
+        ///EP4IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ep4ie{}; 
+        ///EP5IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ep5ie{}; 
+        ///EP6IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ep6ie{}; 
+        ///EP7IE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ep7ie{}; 
     }
-    namespace Noneusb_isr{
-        using Addr = Register::Address<0x4004e008,0xffff00c1>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SOFIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> URSTIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> RSMIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> SUSPIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> ESOFIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP0IF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> EP1IF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> EP2IF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> EP3IF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> EP4IF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> EP5IF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> EP6IF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> EP7IF; 
+    namespace NoneusbIsr{    ///<USB_ISR
+        using Addr = Register::Address<0x4004e008,0xffff00c1,0,unsigned>;
+        ///SOFIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sofif{}; 
+        ///URSTIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> urstif{}; 
+        ///RSMIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsmif{}; 
+        ///SUSPIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> suspif{}; 
+        ///ESOFIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> esofif{}; 
+        ///EP0IF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ep0if{}; 
+        ///EP1IF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ep1if{}; 
+        ///EP2IF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ep2if{}; 
+        ///EP3IF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ep3if{}; 
+        ///EP4IF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ep4if{}; 
+        ///EP5IF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ep5if{}; 
+        ///EP6IF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ep6if{}; 
+        ///EP7IF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ep7if{}; 
     }
-    namespace Noneusb_fcr{
-        using Addr = Register::Address<0x4004e00c,0xfff8f800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> FRNUM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> SOFLCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,17)> LSOF; 
+    namespace NoneusbFcr{    ///<USB_FCR
+        using Addr = Register::Address<0x4004e00c,0xfff8f800,0,unsigned>;
+        ///FRNUM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> frnum{}; 
+        ///SOFLCK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> soflck{}; 
+        ///LSOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> lsof{}; 
     }
-    namespace Noneusb_devar{
-        using Addr = Register::Address<0x4004e010,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> DEVA; 
+    namespace NoneusbDevar{    ///<USB_DEVAR
+        using Addr = Register::Address<0x4004e010,0xffffff80,0,unsigned>;
+        ///DEVA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> deva{}; 
     }
-    namespace Noneusb_ep0csr{
-        using Addr = Register::Address<0x4004e014,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTGTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> NAKTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> STLTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DTGRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NAKRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> STLRX; 
+    namespace NoneusbEp0csr{    ///<USB_EP0CSR
+        using Addr = Register::Address<0x4004e014,0xffffffc0,0,unsigned>;
+        ///DTGTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtgtx{}; 
+        ///NAKTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> naktx{}; 
+        ///STLTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stltx{}; 
+        ///DTGRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtgrx{}; 
+        ///NAKRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nakrx{}; 
+        ///STLRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stlrx{}; 
     }
-    namespace Noneusb_ep0ier{
-        using Addr = Register::Address<0x4004e018,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> STRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SDRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> SDERIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> ZLRXIE; 
+    namespace NoneusbEp0ier{    ///<USB_EP0IER
+        using Addr = Register::Address<0x4004e018,0xfffff000,0,unsigned>;
+        ///OTRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxie{}; 
+        ///ODRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxie{}; 
+        ///ODOVIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovie{}; 
+        ///ITRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxie{}; 
+        ///IDTXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxie{}; 
+        ///NAKIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakie{}; 
+        ///STLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlie{}; 
+        ///UERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerie{}; 
+        ///STRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> strxie{}; 
+        ///SDRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> sdrxie{}; 
+        ///SDERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> sderie{}; 
+        ///ZLRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> zlrxie{}; 
     }
-    namespace Noneusb_ep0isr{
-        using Addr = Register::Address<0x4004e01c,0xfffff000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> STRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SDRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> SDERIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> ZLRXIF; 
+    namespace NoneusbEp0isr{    ///<USB_EP0ISR
+        using Addr = Register::Address<0x4004e01c,0xfffff000,0,unsigned>;
+        ///OTRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxif{}; 
+        ///ODRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxif{}; 
+        ///ODOVIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovif{}; 
+        ///ITRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxif{}; 
+        ///IDTXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxif{}; 
+        ///NAKIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakif{}; 
+        ///STLIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlif{}; 
+        ///UERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerif{}; 
+        ///STRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> strxif{}; 
+        ///SDRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> sdrxif{}; 
+        ///SDERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> sderif{}; 
+        ///ZLRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> zlrxif{}; 
     }
-    namespace Noneusb_ep0tcr{
-        using Addr = Register::Address<0x4004e020,0xff80ff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> TXCNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16)> RXCNT; 
+    namespace NoneusbEp0tcr{    ///<USB_EP0TCR
+        using Addr = Register::Address<0x4004e020,0xff80ff80,0,unsigned>;
+        ///TXCNT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> txcnt{}; 
+        ///RXCNT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> rxcnt{}; 
     }
-    namespace Noneusb_ep0cfgr{
-        using Addr = Register::Address<0x4004e024,0x70fe0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> EPBUFA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,10)> EPLEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> EPADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPEN; 
+    namespace NoneusbEp0cfgr{    ///<USB_EP0CFGR
+        using Addr = Register::Address<0x4004e024,0x70fe0000,0,unsigned>;
+        ///EPBUFA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> epbufa{}; 
+        ///EPLEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,10),Register::ReadWriteAccess,unsigned> eplen{}; 
+        ///EPADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> epadr{}; 
+        ///EPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen{}; 
     }
-    namespace Noneusb_ep1csr{
-        using Addr = Register::Address<0x4004e028,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTGTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> NAKTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> STLTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DTGRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NAKRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> STLRX; 
+    namespace NoneusbEp1csr{    ///<USB_EP1CSR
+        using Addr = Register::Address<0x4004e028,0xffffffc0,0,unsigned>;
+        ///DTGTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtgtx{}; 
+        ///NAKTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> naktx{}; 
+        ///STLTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stltx{}; 
+        ///DTGRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtgrx{}; 
+        ///NAKRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nakrx{}; 
+        ///STLRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stlrx{}; 
     }
-    namespace Noneusb_ep1ier{
-        using Addr = Register::Address<0x4004e02c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIE; 
+    namespace NoneusbEp1ier{    ///<USB_EP1IER
+        using Addr = Register::Address<0x4004e02c,0xffffff00,0,unsigned>;
+        ///OTRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxie{}; 
+        ///ODRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxie{}; 
+        ///ODOVIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovie{}; 
+        ///ITRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxie{}; 
+        ///IDTXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxie{}; 
+        ///NAKIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakie{}; 
+        ///STLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlie{}; 
+        ///UERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerie{}; 
     }
-    namespace Noneusb_ep1isr{
-        using Addr = Register::Address<0x4004e030,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIF; 
+    namespace NoneusbEp1isr{    ///<USB_EP1ISR
+        using Addr = Register::Address<0x4004e030,0xffffff00,0,unsigned>;
+        ///OTRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxif{}; 
+        ///ODRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxif{}; 
+        ///ODOVIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovif{}; 
+        ///ITRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxif{}; 
+        ///IDTXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxif{}; 
+        ///NAKIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakif{}; 
+        ///STLIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlif{}; 
+        ///UERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerif{}; 
     }
-    namespace Noneusb_ep1tcr{
-        using Addr = Register::Address<0x4004e034,0xfffffe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> TCNT; 
+    namespace NoneusbEp1tcr{    ///<USB_EP1TCR
+        using Addr = Register::Address<0x4004e034,0xfffffe00,0,unsigned>;
+        ///TCNT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> tcnt{}; 
     }
-    namespace Noneusb_ep1cfgr{
-        using Addr = Register::Address<0x4004e038,0x40fe0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> EPBUFA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,10)> EPLEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> EPADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EPDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPEN; 
+    namespace NoneusbEp1cfgr{    ///<USB_EP1CFGR
+        using Addr = Register::Address<0x4004e038,0x40fe0000,0,unsigned>;
+        ///EPBUFA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> epbufa{}; 
+        ///EPLEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,10),Register::ReadWriteAccess,unsigned> eplen{}; 
+        ///EPADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> epadr{}; 
+        ///EPDIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> epdir{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen{}; 
     }
-    namespace Noneusb_ep2csr{
-        using Addr = Register::Address<0x4004e03c,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTGTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> NAKTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> STLTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DTGRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NAKRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> STLRX; 
+    namespace NoneusbEp2csr{    ///<USB_EP2CSR
+        using Addr = Register::Address<0x4004e03c,0xffffffc0,0,unsigned>;
+        ///DTGTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtgtx{}; 
+        ///NAKTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> naktx{}; 
+        ///STLTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stltx{}; 
+        ///DTGRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtgrx{}; 
+        ///NAKRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nakrx{}; 
+        ///STLRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stlrx{}; 
     }
-    namespace Noneusb_ep2ier{
-        using Addr = Register::Address<0x4004e040,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIE; 
+    namespace NoneusbEp2ier{    ///<USB_EP2IER
+        using Addr = Register::Address<0x4004e040,0xffffff00,0,unsigned>;
+        ///OTRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxie{}; 
+        ///ODRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxie{}; 
+        ///ODOVIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovie{}; 
+        ///ITRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxie{}; 
+        ///IDTXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxie{}; 
+        ///NAKIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakie{}; 
+        ///STLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlie{}; 
+        ///UERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerie{}; 
     }
-    namespace Noneusb_ep2isr{
-        using Addr = Register::Address<0x4004e044,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIF; 
+    namespace NoneusbEp2isr{    ///<USB_EP2ISR
+        using Addr = Register::Address<0x4004e044,0xffffff00,0,unsigned>;
+        ///OTRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxif{}; 
+        ///ODRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxif{}; 
+        ///ODOVIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovif{}; 
+        ///ITRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxif{}; 
+        ///IDTXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxif{}; 
+        ///NAKIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakif{}; 
+        ///STLIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlif{}; 
+        ///UERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerif{}; 
     }
-    namespace Noneusb_ep2tcr{
-        using Addr = Register::Address<0x4004e048,0xfffffe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> TCNT; 
+    namespace NoneusbEp2tcr{    ///<USB_EP2TCR
+        using Addr = Register::Address<0x4004e048,0xfffffe00,0,unsigned>;
+        ///TCNT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> tcnt{}; 
     }
-    namespace Noneusb_ep2cfgr{
-        using Addr = Register::Address<0x4004e04c,0x40fe0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> EPBUFA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,10)> EPLEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> EPADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EPDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPEN; 
+    namespace NoneusbEp2cfgr{    ///<USB_EP2CFGR
+        using Addr = Register::Address<0x4004e04c,0x40fe0000,0,unsigned>;
+        ///EPBUFA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> epbufa{}; 
+        ///EPLEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,10),Register::ReadWriteAccess,unsigned> eplen{}; 
+        ///EPADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> epadr{}; 
+        ///EPDIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> epdir{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen{}; 
     }
-    namespace Noneusb_ep3csr{
-        using Addr = Register::Address<0x4004e050,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTGTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> NAKTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> STLTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DTGRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NAKRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> STLRX; 
+    namespace NoneusbEp3csr{    ///<USB_EP3CSR
+        using Addr = Register::Address<0x4004e050,0xffffffc0,0,unsigned>;
+        ///DTGTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtgtx{}; 
+        ///NAKTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> naktx{}; 
+        ///STLTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stltx{}; 
+        ///DTGRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtgrx{}; 
+        ///NAKRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nakrx{}; 
+        ///STLRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stlrx{}; 
     }
-    namespace Noneusb_ep3ier{
-        using Addr = Register::Address<0x4004e054,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIE; 
+    namespace NoneusbEp3ier{    ///<USB_EP3IER
+        using Addr = Register::Address<0x4004e054,0xffffff00,0,unsigned>;
+        ///OTRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxie{}; 
+        ///ODRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxie{}; 
+        ///ODOVIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovie{}; 
+        ///ITRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxie{}; 
+        ///IDTXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxie{}; 
+        ///NAKIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakie{}; 
+        ///STLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlie{}; 
+        ///UERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerie{}; 
     }
-    namespace Noneusb_ep3isr{
-        using Addr = Register::Address<0x4004e058,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIF; 
+    namespace NoneusbEp3isr{    ///<USB_EP3ISR
+        using Addr = Register::Address<0x4004e058,0xffffff00,0,unsigned>;
+        ///OTRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxif{}; 
+        ///ODRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxif{}; 
+        ///ODOVIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovif{}; 
+        ///ITRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxif{}; 
+        ///IDTXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxif{}; 
+        ///NAKIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakif{}; 
+        ///STLIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlif{}; 
+        ///UERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerif{}; 
     }
-    namespace Noneusb_ep3tcr{
-        using Addr = Register::Address<0x4004e05c,0xfffffe00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0)> TCNT; 
+    namespace NoneusbEp3tcr{    ///<USB_EP3TCR
+        using Addr = Register::Address<0x4004e05c,0xfffffe00,0,unsigned>;
+        ///TCNT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> tcnt{}; 
     }
-    namespace Noneusb_ep3cfgr{
-        using Addr = Register::Address<0x4004e060,0x40fe0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> EPBUFA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,10)> EPLEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> EPADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EPDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPEN; 
+    namespace NoneusbEp3cfgr{    ///<USB_EP3CFGR
+        using Addr = Register::Address<0x4004e060,0x40fe0000,0,unsigned>;
+        ///EPBUFA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> epbufa{}; 
+        ///EPLEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,10),Register::ReadWriteAccess,unsigned> eplen{}; 
+        ///EPADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> epadr{}; 
+        ///EPDIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> epdir{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen{}; 
     }
-    namespace Noneusb_ep4csr{
-        using Addr = Register::Address<0x4004e064,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTGTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> NAKTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> STLTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DTGRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NAKRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> STLRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MDBTG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UDBTG; 
+    namespace NoneusbEp4csr{    ///<USB_EP4CSR
+        using Addr = Register::Address<0x4004e064,0xffffff00,0,unsigned>;
+        ///DTGTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtgtx{}; 
+        ///NAKTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> naktx{}; 
+        ///STLTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stltx{}; 
+        ///DTGRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtgrx{}; 
+        ///NAKRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nakrx{}; 
+        ///STLRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stlrx{}; 
+        ///MDBTG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mdbtg{}; 
+        ///UDBTG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> udbtg{}; 
     }
-    namespace Noneusb_ep4ier{
-        using Addr = Register::Address<0x4004e068,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIE; 
+    namespace NoneusbEp4ier{    ///<USB_EP4IER
+        using Addr = Register::Address<0x4004e068,0xffffff00,0,unsigned>;
+        ///OTRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxie{}; 
+        ///ODRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxie{}; 
+        ///ODOVIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovie{}; 
+        ///ITRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxie{}; 
+        ///IDTXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxie{}; 
+        ///NAKIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakie{}; 
+        ///STLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlie{}; 
+        ///UERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerie{}; 
     }
-    namespace Noneusb_ep4isr{
-        using Addr = Register::Address<0x4004e06c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIF; 
+    namespace NoneusbEp4isr{    ///<USB_EP4ISR
+        using Addr = Register::Address<0x4004e06c,0xffffff00,0,unsigned>;
+        ///OTRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxif{}; 
+        ///ODRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxif{}; 
+        ///ODOVIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovif{}; 
+        ///ITRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxif{}; 
+        ///IDTXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxif{}; 
+        ///NAKIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakif{}; 
+        ///STLIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlif{}; 
+        ///UERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerif{}; 
     }
-    namespace Noneusb_ep4tcr{
-        using Addr = Register::Address<0x4004e070,0xfc00fc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> TCNT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16)> TCNT1; 
+    namespace NoneusbEp4tcr{    ///<USB_EP4TCR
+        using Addr = Register::Address<0x4004e070,0xfc00fc00,0,unsigned>;
+        ///TCNT0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> tcnt0{}; 
+        ///TCNT1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> tcnt1{}; 
     }
-    namespace Noneusb_ep4cfgr{
-        using Addr = Register::Address<0x4004e074,0x40700000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> EPBUFA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,10)> EPLEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> SDBS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> EPADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EPDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPEN; 
+    namespace NoneusbEp4cfgr{    ///<USB_EP4CFGR
+        using Addr = Register::Address<0x4004e074,0x40700000,0,unsigned>;
+        ///EPBUFA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> epbufa{}; 
+        ///EPLEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,10),Register::ReadWriteAccess,unsigned> eplen{}; 
+        ///SDBS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> sdbs{}; 
+        ///EPADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> epadr{}; 
+        ///EPDIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> epdir{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen{}; 
     }
-    namespace Noneusb_ep5csr{
-        using Addr = Register::Address<0x4004e078,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTGTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> NAKTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> STLTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DTGRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NAKRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> STLRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MDBTG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UDBTG; 
+    namespace NoneusbEp5csr{    ///<USB_EP5CSR
+        using Addr = Register::Address<0x4004e078,0xffffff00,0,unsigned>;
+        ///DTGTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtgtx{}; 
+        ///NAKTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> naktx{}; 
+        ///STLTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stltx{}; 
+        ///DTGRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtgrx{}; 
+        ///NAKRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nakrx{}; 
+        ///STLRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stlrx{}; 
+        ///MDBTG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mdbtg{}; 
+        ///UDBTG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> udbtg{}; 
     }
-    namespace Noneusb_ep5ier{
-        using Addr = Register::Address<0x4004e07c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIE; 
+    namespace NoneusbEp5ier{    ///<USB_EP5IER
+        using Addr = Register::Address<0x4004e07c,0xffffff00,0,unsigned>;
+        ///OTRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxie{}; 
+        ///ODRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxie{}; 
+        ///ODOVIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovie{}; 
+        ///ITRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxie{}; 
+        ///IDTXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxie{}; 
+        ///NAKIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakie{}; 
+        ///STLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlie{}; 
+        ///UERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerie{}; 
     }
-    namespace Noneusb_ep5isr{
-        using Addr = Register::Address<0x4004e080,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIF; 
+    namespace NoneusbEp5isr{    ///<USB_EP5ISR
+        using Addr = Register::Address<0x4004e080,0xffffff00,0,unsigned>;
+        ///OTRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxif{}; 
+        ///ODRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxif{}; 
+        ///ODOVIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovif{}; 
+        ///ITRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxif{}; 
+        ///IDTXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxif{}; 
+        ///NAKIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakif{}; 
+        ///STLIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlif{}; 
+        ///UERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerif{}; 
     }
-    namespace Noneusb_ep5tcr{
-        using Addr = Register::Address<0x4004e084,0xfc00fc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> TCNT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16)> TCNT1; 
+    namespace NoneusbEp5tcr{    ///<USB_EP5TCR
+        using Addr = Register::Address<0x4004e084,0xfc00fc00,0,unsigned>;
+        ///TCNT0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> tcnt0{}; 
+        ///TCNT1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> tcnt1{}; 
     }
-    namespace Noneusb_ep5cfgr{
-        using Addr = Register::Address<0x4004e088,0x40700000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> EPBUFA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,10)> EPLEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> SDBS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> EPADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EPDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPEN; 
+    namespace NoneusbEp5cfgr{    ///<USB_EP5CFGR
+        using Addr = Register::Address<0x4004e088,0x40700000,0,unsigned>;
+        ///EPBUFA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> epbufa{}; 
+        ///EPLEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,10),Register::ReadWriteAccess,unsigned> eplen{}; 
+        ///SDBS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> sdbs{}; 
+        ///EPADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> epadr{}; 
+        ///EPDIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> epdir{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen{}; 
     }
-    namespace Noneusb_ep6csr{
-        using Addr = Register::Address<0x4004e08c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTGTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> NAKTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> STLTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DTGRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NAKRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> STLRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MDBTG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UDBTG; 
+    namespace NoneusbEp6csr{    ///<USB_EP6CSR
+        using Addr = Register::Address<0x4004e08c,0xffffff00,0,unsigned>;
+        ///DTGTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtgtx{}; 
+        ///NAKTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> naktx{}; 
+        ///STLTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stltx{}; 
+        ///DTGRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtgrx{}; 
+        ///NAKRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nakrx{}; 
+        ///STLRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stlrx{}; 
+        ///MDBTG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mdbtg{}; 
+        ///UDBTG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> udbtg{}; 
     }
-    namespace Noneusb_ep6ier{
-        using Addr = Register::Address<0x4004e090,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIE; 
+    namespace NoneusbEp6ier{    ///<USB_EP6IER
+        using Addr = Register::Address<0x4004e090,0xffffff00,0,unsigned>;
+        ///OTRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxie{}; 
+        ///ODRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxie{}; 
+        ///ODOVIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovie{}; 
+        ///ITRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxie{}; 
+        ///IDTXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxie{}; 
+        ///NAKIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakie{}; 
+        ///STLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlie{}; 
+        ///UERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerie{}; 
     }
-    namespace Noneusb_ep6isr{
-        using Addr = Register::Address<0x4004e094,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIF; 
+    namespace NoneusbEp6isr{    ///<USB_EP6ISR
+        using Addr = Register::Address<0x4004e094,0xffffff00,0,unsigned>;
+        ///OTRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxif{}; 
+        ///ODRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxif{}; 
+        ///ODOVIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovif{}; 
+        ///ITRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxif{}; 
+        ///IDTXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxif{}; 
+        ///NAKIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakif{}; 
+        ///STLIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlif{}; 
+        ///UERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerif{}; 
     }
-    namespace Noneusb_ep6tcr{
-        using Addr = Register::Address<0x4004e098,0xfc00fc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> TCNT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16)> TCNT1; 
+    namespace NoneusbEp6tcr{    ///<USB_EP6TCR
+        using Addr = Register::Address<0x4004e098,0xfc00fc00,0,unsigned>;
+        ///TCNT0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> tcnt0{}; 
+        ///TCNT1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> tcnt1{}; 
     }
-    namespace Noneusb_ep6cfgr{
-        using Addr = Register::Address<0x4004e09c,0x40700000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> EPBUFA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,10)> EPLEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> SDBS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> EPADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EPDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPEN; 
+    namespace NoneusbEp6cfgr{    ///<USB_EP6CFGR
+        using Addr = Register::Address<0x4004e09c,0x40700000,0,unsigned>;
+        ///EPBUFA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> epbufa{}; 
+        ///EPLEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,10),Register::ReadWriteAccess,unsigned> eplen{}; 
+        ///SDBS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> sdbs{}; 
+        ///EPADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> epadr{}; 
+        ///EPDIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> epdir{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen{}; 
     }
-    namespace Noneusb_ep7csr{
-        using Addr = Register::Address<0x4004e0a0,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DTGTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> NAKTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> STLTX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> DTGRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> NAKRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> STLRX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MDBTG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UDBTG; 
+    namespace NoneusbEp7csr{    ///<USB_EP7CSR
+        using Addr = Register::Address<0x4004e0a0,0xffffff00,0,unsigned>;
+        ///DTGTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dtgtx{}; 
+        ///NAKTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> naktx{}; 
+        ///STLTX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> stltx{}; 
+        ///DTGRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dtgrx{}; 
+        ///NAKRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nakrx{}; 
+        ///STLRX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> stlrx{}; 
+        ///MDBTG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mdbtg{}; 
+        ///UDBTG
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> udbtg{}; 
     }
-    namespace Noneusb_ep7ier{
-        using Addr = Register::Address<0x4004e0a4,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIE; 
+    namespace NoneusbEp7ier{    ///<USB_EP7IER
+        using Addr = Register::Address<0x4004e0a4,0xffffff00,0,unsigned>;
+        ///OTRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxie{}; 
+        ///ODRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxie{}; 
+        ///ODOVIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovie{}; 
+        ///ITRXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxie{}; 
+        ///IDTXIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxie{}; 
+        ///NAKIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakie{}; 
+        ///STLIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlie{}; 
+        ///UERIE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerie{}; 
     }
-    namespace Noneusb_ep7isr{
-        using Addr = Register::Address<0x4004e0a8,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> OTRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> ODRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> ODOVIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> ITRXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> IDTXIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NAKIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> STLIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UERIF; 
+    namespace NoneusbEp7isr{    ///<USB_EP7ISR
+        using Addr = Register::Address<0x4004e0a8,0xffffff00,0,unsigned>;
+        ///OTRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> otrxif{}; 
+        ///ODRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> odrxif{}; 
+        ///ODOVIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> odovif{}; 
+        ///ITRXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> itrxif{}; 
+        ///IDTXIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> idtxif{}; 
+        ///NAKIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nakif{}; 
+        ///STLIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stlif{}; 
+        ///UERIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uerif{}; 
     }
-    namespace Noneusb_ep7tcr{
-        using Addr = Register::Address<0x4004e0ac,0xfc00fc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> TCNT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16)> TCNT1; 
+    namespace NoneusbEp7tcr{    ///<USB_EP7TCR
+        using Addr = Register::Address<0x4004e0ac,0xfc00fc00,0,unsigned>;
+        ///TCNT0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> tcnt0{}; 
+        ///TCNT1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> tcnt1{}; 
     }
-    namespace Noneusb_ep7cfgr{
-        using Addr = Register::Address<0x4004e0b0,0x40700000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> EPBUFA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,10)> EPLEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23)> SDBS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24)> EPADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EPDIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> EPEN; 
+    namespace NoneusbEp7cfgr{    ///<USB_EP7CFGR
+        using Addr = Register::Address<0x4004e0b0,0x40700000,0,unsigned>;
+        ///EPBUFA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> epbufa{}; 
+        ///EPLEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,10),Register::ReadWriteAccess,unsigned> eplen{}; 
+        ///SDBS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> sdbs{}; 
+        ///EPADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> epadr{}; 
+        ///EPDIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> epdir{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EPEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> epen{}; 
     }
 }

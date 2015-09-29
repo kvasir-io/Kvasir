@@ -1,94 +1,131 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonemden{
-        using Addr = Register::Address<0x400f6000,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PWMEN; 
+//16-bit Multi-Purpose Timer (MPT-PMD)
+    namespace Nonemden{    ///<PMD Enable Register
+        using Addr = Register::Address<0x400f6000,0xfffffffe,0,unsigned>;
+        ///PWMEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pwmen{}; 
     }
-    namespace Noneportmd{
-        using Addr = Register::Address<0x400f6004,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PORTMD; 
+    namespace Noneportmd{    ///<Port Output Mode Register
+        using Addr = Register::Address<0x400f6004,0xfffffffe,0,unsigned>;
+        ///PORTMD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> portmd{}; 
     }
-    namespace Nonemdcr{
-        using Addr = Register::Address<0x400f6008,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PWMMD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,1)> INTPRD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> PINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> DTYMD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> SYNTMD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PWMCK; 
+    namespace Nonemdcr{    ///<PMD Control Register
+        using Addr = Register::Address<0x400f6008,0xffffff80,0,unsigned>;
+        ///PWMMD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pwmmd{}; 
+        ///INTPRD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,unsigned> intprd{}; 
+        ///PINT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pint{}; 
+        ///DTYMD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dtymd{}; 
+        ///SYNTMD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> syntmd{}; 
+        ///PWMCK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pwmck{}; 
     }
-    namespace Nonecntsta{
-        using Addr = Register::Address<0x400f600c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UPDWN; 
+    namespace Nonecntsta{    ///<PWM Counter Status Register
+        using Addr = Register::Address<0x400f600c,0xfffffffe,0,unsigned>;
+        ///UPDWN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> updwn{}; 
     }
-    namespace Nonemdcnt{
-        using Addr = Register::Address<0x400f6010,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MDCNT; 
+    namespace Nonemdcnt{    ///<PWM Counter Register
+        using Addr = Register::Address<0x400f6010,0xffff0000,0,unsigned>;
+        ///MDCNT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mdcnt{}; 
     }
-    namespace Nonemdprd{
-        using Addr = Register::Address<0x400f6014,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MDPRD; 
+    namespace Nonemdprd{    ///<PWM Period Register
+        using Addr = Register::Address<0x400f6014,0xffff0000,0,unsigned>;
+        ///MDPRD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mdprd{}; 
     }
-    namespace Nonecmpu{
-        using Addr = Register::Address<0x400f6018,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CMPU; 
+    namespace Nonecmpu{    ///<PWM Compare Register
+        using Addr = Register::Address<0x400f6018,0xffff0000,0,unsigned>;
+        ///CMPU
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpu{}; 
     }
-    namespace Nonecmpv{
-        using Addr = Register::Address<0x400f601c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CMPV; 
+    namespace Nonecmpv{    ///<PWM Compare Register
+        using Addr = Register::Address<0x400f601c,0xffff0000,0,unsigned>;
+        ///CMPV
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpv{}; 
     }
-    namespace Nonecmpw{
-        using Addr = Register::Address<0x400f6020,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> CMPW; 
+    namespace Nonecmpw{    ///<PWM Compare Register
+        using Addr = Register::Address<0x400f6020,0xffff0000,0,unsigned>;
+        ///CMPW
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmpw{}; 
     }
-    namespace Nonemdout{
-        using Addr = Register::Address<0x400f6028,0xfffff8c0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> UOC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> VOC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> WOC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> UPWM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> VPWM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> WPWM; 
+    namespace Nonemdout{    ///<PMD Output Control Register
+        using Addr = Register::Address<0x400f6028,0xfffff8c0,0,unsigned>;
+        ///UOC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> uoc{}; 
+        ///VOC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> voc{}; 
+        ///WOC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> woc{}; 
+        ///UPWM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> upwm{}; 
+        ///VPWM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> vpwm{}; 
+        ///WPWM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> wpwm{}; 
     }
-    namespace Nonemdpot{
-        using Addr = Register::Address<0x400f602c,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> PSYNCS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> POLL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> POLH; 
+    namespace Nonemdpot{    ///<PMD Output Setting Register
+        using Addr = Register::Address<0x400f602c,0xfffffff0,0,unsigned>;
+        ///PSYNCS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> psyncs{}; 
+        ///POLL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> poll{}; 
+        ///POLH
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> polh{}; 
     }
-    namespace Noneemgrel{
-        using Addr = Register::Address<0x400f6030,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> EMGREL; 
+    namespace Noneemgrel{    ///<EMG Release Register
+        using Addr = Register::Address<0x400f6030,0xffffff00,0,unsigned>;
+        ///EMGREL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> emgrel{}; 
     }
-    namespace Noneemgcr{
-        using Addr = Register::Address<0x400f6034,0xfffff0c4>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EMGEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EMGRS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3)> EMGMD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> INHEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> EMGCNT; 
+    namespace Noneemgcr{    ///<EMG Control Register
+        using Addr = Register::Address<0x400f6034,0xfffff0c4,0,unsigned>;
+        ///EMGEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> emgen{}; 
+        ///EMGRS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> emgrs{}; 
+        ///EMGMD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,unsigned> emgmd{}; 
+        ///INHEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> inhen{}; 
+        ///EMGCNT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> emgcnt{}; 
     }
-    namespace Noneemgsta{
-        using Addr = Register::Address<0x400f6038,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EMGST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> EMGI; 
+    namespace Noneemgsta{    ///<EMG Status Register
+        using Addr = Register::Address<0x400f6038,0xfffffffc,0,unsigned>;
+        ///EMGST
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> emgst{}; 
+        ///EMGI
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> emgi{}; 
     }
-    namespace Nonedtr{
-        using Addr = Register::Address<0x400f6044,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> DTR; 
+    namespace Nonedtr{    ///<Dead Time Register
+        using Addr = Register::Address<0x400f6044,0xffffff00,0,unsigned>;
+        ///DTR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dtr{}; 
     }
-    namespace Nonetrgcmp0{
-        using Addr = Register::Address<0x400f6048,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TRGCMP0; 
+    namespace Nonetrgcmp0{    ///<Trigger Compare Register0
+        using Addr = Register::Address<0x400f6048,0xffff0000,0,unsigned>;
+        ///TRGCMP0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> trgcmp0{}; 
     }
-    namespace Nonetrgcr{
-        using Addr = Register::Address<0x400f6058,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TRG0MD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TRG0BE; 
+    namespace Nonetrgcr{    ///<Trigger Register
+        using Addr = Register::Address<0x400f6058,0xfffffff0,0,unsigned>;
+        ///TRG0MD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> trg0md{}; 
+        ///TRG0BE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> trg0be{}; 
     }
-    namespace Nonetrgmd{
-        using Addr = Register::Address<0x400f605c,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> EMGTGE; 
+    namespace Nonetrgmd{    ///<Trigger mode Register
+        using Addr = Register::Address<0x400f605c,0xfffffffe,0,unsigned>;
+        ///EMGTGE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> emgtge{}; 
     }
 }

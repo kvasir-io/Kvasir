@@ -1,28 +1,38 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonepintcr{
-        using Addr = Register::Address<0x4406f000,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PCERST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PCENMI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PCEINT; 
+//Power Calculation Engine (PCE)
+    namespace Nonepintcr{    ///<PCE core interrupt control
+        using Addr = Register::Address<0x4406f000,0xfffffff8,0,unsigned>;
+        ///PCERST
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pcerst{}; 
+        ///PCENMI
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pcenmi{}; 
+        ///PCEINT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pceint{}; 
     }
-    namespace Nonemintcr{
-        using Addr = Register::Address<0x4406f004,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MAININT; 
+    namespace Nonemintcr{    ///<Interrupt control to the main core
+        using Addr = Register::Address<0x4406f004,0xfffffffe,0,unsigned>;
+        ///MAININT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mainint{}; 
     }
-    namespace Nonepclkcr{
-        using Addr = Register::Address<0x4406f008,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> PCECLK; 
+    namespace Nonepclkcr{    ///<PCE core clock control)
+        using Addr = Register::Address<0x4406f008,0xfffffffe,0,unsigned>;
+        ///PCECLK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pceclk{}; 
     }
-    namespace Nonepnmiflg{
-        using Addr = Register::Address<0x4406f00c,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WDTNMIF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PCEIFNMIF; 
+    namespace Nonepnmiflg{    ///<PCE core NMI event flag)
+        using Addr = Register::Address<0x4406f00c,0xfffffffc,0,unsigned>;
+        ///WDTNMIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdtnmif{}; 
+        ///PCEIFNMIF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pceifnmif{}; 
     }
-    namespace Nonepnmiclr{
-        using Addr = Register::Address<0x4406f010,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> WDTNMIC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PCEIFNMIC; 
+    namespace Nonepnmiclr{    ///<PCE core NMI event clear)
+        using Addr = Register::Address<0x4406f010,0xfffffffc,0,unsigned>;
+        ///WDTNMIC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdtnmic{}; 
+        ///PCEIFNMIC
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pceifnmic{}; 
     }
 }

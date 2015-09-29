@@ -1,268 +1,422 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace EMAC1_ncr{
-        using Addr = Register::Address<0xf8030000,0xfffff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LLB; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> MPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CLRSTAT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> INCSTAT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> WESTAT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> BP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> TSTART; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> THALT; 
+//Ethernet MAC 10/100 1
+    namespace Emac1Ncr{    ///<Network Control Register
+        using Addr = Register::Address<0xf8030000,0xfffff800,0,unsigned>;
+        ///LoopBack
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lb{}; 
+        ///Loopback local
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> llb{}; 
+        ///Receive enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> re{}; 
+        ///Transmit enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> te{}; 
+        ///Management port enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mpe{}; 
+        ///Clear statistics registers
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> clrstat{}; 
+        ///Increment statistics registers
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> incstat{}; 
+        ///Write enable for statistics registers
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> westat{}; 
+        ///Back pressure
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> bp{}; 
+        ///Start transmission
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tstart{}; 
+        ///Transmit halt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> thalt{}; 
     }
-    namespace EMAC1_ncfgr{
-        using Addr = Register::Address<0xf8030004,0xfff00204>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SPD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> FD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> JFRAME; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> CAF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NBC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> MTI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> UNI; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> BIG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10)> CLK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> RTY; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> PAE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14)> RBOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> RLCE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> DRFCS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> EFRHD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> IRXFCS; 
+    namespace Emac1Ncfgr{    ///<Network Configuration Register
+        using Addr = Register::Address<0xf8030004,0xfff00204,0,unsigned>;
+        ///Speed
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> spd{}; 
+        ///Full Duplex
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fd{}; 
+        ///Jumbo Frames
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> jframe{}; 
+        ///Copy All Frames
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> caf{}; 
+        ///No Broadcast
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nbc{}; 
+        ///Multicast Hash Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mti{}; 
+        ///Unicast Hash Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> uni{}; 
+        ///Receive 1536 bytes frames
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> big{}; 
+        ///MDC clock divider
+        enum class clkVal {
+            mck8=0x00000000,     ///<MCK divided by 8 (MCK up to 20 MHz).
+            mck16=0x00000001,     ///<MCK divided by 16 (MCK up to 40 MHz).
+            mck32=0x00000002,     ///<MCK divided by 32 (MCK up to 80 MHz).
+            mck64=0x00000003,     ///<MCK divided by 64 (MCK up to 160 MHz).
+        };
+        namespace clkValC{
+            constexpr MPL::Value<clkVal,clkVal::mck8> mck8{};
+            constexpr MPL::Value<clkVal,clkVal::mck16> mck16{};
+            constexpr MPL::Value<clkVal,clkVal::mck32> mck32{};
+            constexpr MPL::Value<clkVal,clkVal::mck64> mck64{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,clkVal> clk{}; 
+        ///Retry test
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rty{}; 
+        ///Pause Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pae{}; 
+        ///Receive Buffer Offset
+        enum class rbofVal {
+            offset0=0x00000000,     ///<No offset from start of receive buffer.
+            offset1=0x00000001,     ///<One-byte offset from start of receive buffer.
+            offset2=0x00000002,     ///<Two-byte offset from start of receive buffer.
+            offset3=0x00000003,     ///<Three-byte offset from start of receive buffer.
+        };
+        namespace rbofValC{
+            constexpr MPL::Value<rbofVal,rbofVal::offset0> offset0{};
+            constexpr MPL::Value<rbofVal,rbofVal::offset1> offset1{};
+            constexpr MPL::Value<rbofVal,rbofVal::offset2> offset2{};
+            constexpr MPL::Value<rbofVal,rbofVal::offset3> offset3{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,rbofVal> rbof{}; 
+        ///Receive Length field Checking Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rlce{}; 
+        ///Discard Receive FCS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> drfcs{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> efrhd{}; 
+        ///Ignore RX FCS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> irxfcs{}; 
     }
-    namespace EMAC1_nsr{
-        using Addr = Register::Address<0xf8030008,0xfffffff9>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MDIO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> IDLE; 
+    namespace Emac1Nsr{    ///<Network Status Register
+        using Addr = Register::Address<0xf8030008,0xfffffff9,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mdio{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> idle{}; 
     }
-    namespace EMAC1_tsr{
-        using Addr = Register::Address<0xf8030014,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> UBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> COL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RLES; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TGO; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> BEX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> COMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> UND; 
+    namespace Emac1Tsr{    ///<Transmit Status Register
+        using Addr = Register::Address<0xf8030014,0xffffff80,0,unsigned>;
+        ///Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ubr{}; 
+        ///Collision Occurred
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> col{}; 
+        ///Retry Limit exceeded
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rles{}; 
+        ///Transmit Go
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tgo{}; 
+        ///Buffers exhausted mid frame
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> bex{}; 
+        ///Transmit Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> comp{}; 
+        ///Transmit Underrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> und{}; 
     }
-    namespace EMAC1_rbqp{
-        using Addr = Register::Address<0xf8030018,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> ADDR; 
+    namespace Emac1Rbqp{    ///<Receive Buffer Queue Pointer Register
+        using Addr = Register::Address<0xf8030018,0x00000003,0,unsigned>;
+        ///Receive buffer queue pointer address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_tbqp{
-        using Addr = Register::Address<0xf803001c,0x00000003>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2)> ADDR; 
+    namespace Emac1Tbqp{    ///<Transmit Buffer Queue Pointer Register
+        using Addr = Register::Address<0xf803001c,0x00000003,0,unsigned>;
+        ///Transmit buffer queue pointer address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_rsr{
-        using Addr = Register::Address<0xf8030020,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BNA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> REC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> OVR; 
+    namespace Emac1Rsr{    ///<Receive Status Register
+        using Addr = Register::Address<0xf8030020,0xfffffff8,0,unsigned>;
+        ///Buffer Not Available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bna{}; 
+        ///Frame Received
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rec{}; 
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ovr{}; 
     }
-    namespace EMAC1_isr{
-        using Addr = Register::Address<0xf8030024,0xffffc300>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RCOMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RXUBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TXUBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TUND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> RLEX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TXERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TCOMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ROVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> HRESP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> PFRE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> PTZ; 
+    namespace Emac1Isr{    ///<Interrupt Status Register
+        using Addr = Register::Address<0xf8030024,0xffffc300,0,unsigned>;
+        ///Management Frame Done
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfd{}; 
+        ///Receive Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rcomp{}; 
+        ///Receive Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxubr{}; 
+        ///Transmit Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txubr{}; 
+        ///Ethernet Transmit Buffer Underrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tund{}; 
+        ///Retry Limit Exceeded
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rlex{}; 
+        ///Transmit Error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txerr{}; 
+        ///Transmit Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tcomp{}; 
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rovr{}; 
+        ///Hresp not OK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> hresp{}; 
+        ///Pause Frame Received
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> pfre{}; 
+        ///Pause Time Zero
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ptz{}; 
     }
-    namespace EMAC1_ier{
-        using Addr = Register::Address<0xf8030028,0xffffc300>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RCOMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RXUBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TXUBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TUND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> RLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TXERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TCOMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ROVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> HRESP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> PFR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> PTZ; 
+    namespace Emac1Ier{    ///<Interrupt Enable Register
+        using Addr = Register::Address<0xf8030028,0xffffc300,0,unsigned>;
+        ///Management Frame sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfd{}; 
+        ///Receive Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rcomp{}; 
+        ///Receive Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxubr{}; 
+        ///Transmit Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txubr{}; 
+        ///Ethernet Transmit Buffer Underrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tund{}; 
+        ///Retry Limit Exceeded
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rle{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txerr{}; 
+        ///Transmit Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tcomp{}; 
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rovr{}; 
+        ///Hresp not OK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> hresp{}; 
+        ///Pause Frame Received
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> pfr{}; 
+        ///Pause Time Zero
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ptz{}; 
     }
-    namespace EMAC1_idr{
-        using Addr = Register::Address<0xf803002c,0xffffc300>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RCOMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RXUBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TXUBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TUND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> RLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TXERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TCOMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ROVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> HRESP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> PFR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> PTZ; 
+    namespace Emac1Idr{    ///<Interrupt Disable Register
+        using Addr = Register::Address<0xf803002c,0xffffc300,0,unsigned>;
+        ///Management Frame sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfd{}; 
+        ///Receive Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rcomp{}; 
+        ///Receive Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxubr{}; 
+        ///Transmit Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txubr{}; 
+        ///Ethernet Transmit Buffer Underrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tund{}; 
+        ///Retry Limit Exceeded
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rle{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txerr{}; 
+        ///Transmit Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tcomp{}; 
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rovr{}; 
+        ///Hresp not OK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> hresp{}; 
+        ///Pause Frame Received
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> pfr{}; 
+        ///Pause Time Zero
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ptz{}; 
     }
-    namespace EMAC1_imr{
-        using Addr = Register::Address<0xf8030030,0xffffc300>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> MFD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RCOMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RXUBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> TXUBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> TUND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> RLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> TXERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TCOMP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ROVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> HRESP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> PFR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> PTZ; 
+    namespace Emac1Imr{    ///<Interrupt Mask Register
+        using Addr = Register::Address<0xf8030030,0xffffc300,0,unsigned>;
+        ///Management Frame sent
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mfd{}; 
+        ///Receive Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rcomp{}; 
+        ///Receive Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxubr{}; 
+        ///Transmit Used Bit Read
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txubr{}; 
+        ///Ethernet Transmit Buffer Underrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tund{}; 
+        ///Retry Limit Exceeded
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rle{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txerr{}; 
+        ///Transmit Complete
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> tcomp{}; 
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rovr{}; 
+        ///Hresp not OK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> hresp{}; 
+        ///Pause Frame Received
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> pfr{}; 
+        ///Pause Time Zero
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> ptz{}; 
     }
-    namespace EMAC1_man{
-        using Addr = Register::Address<0xf8030034,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> CODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,18)> REGA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,23)> PHYA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> RW; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30)> SOF; 
+    namespace Emac1Man{    ///<Phy Maintenance Register
+        using Addr = Register::Address<0xf8030034,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> code{}; 
+        ///Register Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,18),Register::ReadWriteAccess,unsigned> rega{}; 
+        ///PHY Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,23),Register::ReadWriteAccess,unsigned> phya{}; 
+        ///Read-write
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> rw{}; 
+        ///Start of frame
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> sof{}; 
     }
-    namespace EMAC1_ptr{
-        using Addr = Register::Address<0xf8030038,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> PTIME; 
+    namespace Emac1Ptr{    ///<Pause Time Register
+        using Addr = Register::Address<0xf8030038,0xffff0000,0,unsigned>;
+        ///Pause Time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ptime{}; 
     }
-    namespace EMAC1_pfr{
-        using Addr = Register::Address<0xf803003c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> FROK; 
+    namespace Emac1Pfr{    ///<Pause Frames Received Register
+        using Addr = Register::Address<0xf803003c,0xffff0000,0,unsigned>;
+        ///Pause Frames received OK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> frok{}; 
     }
-    namespace EMAC1_fto{
-        using Addr = Register::Address<0xf8030040,0xff000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0)> FTOK; 
+    namespace Emac1Fto{    ///<Frames Transmitted Ok Register
+        using Addr = Register::Address<0xf8030040,0xff000000,0,unsigned>;
+        ///Frames Transmitted OK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ftok{}; 
     }
-    namespace EMAC1_scf{
-        using Addr = Register::Address<0xf8030044,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> SCF; 
+    namespace Emac1Scf{    ///<Single Collision Frames Register
+        using Addr = Register::Address<0xf8030044,0xffff0000,0,unsigned>;
+        ///Single Collision Frames
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> scf{}; 
     }
-    namespace EMAC1_mcf{
-        using Addr = Register::Address<0xf8030048,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> MCF; 
+    namespace Emac1Mcf{    ///<Multiple Collision Frames Register
+        using Addr = Register::Address<0xf8030048,0xffff0000,0,unsigned>;
+        ///Multicollision Frames
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcf{}; 
     }
-    namespace EMAC1_fro{
-        using Addr = Register::Address<0xf803004c,0xff000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0)> FROK; 
+    namespace Emac1Fro{    ///<Frames Received Ok Register
+        using Addr = Register::Address<0xf803004c,0xff000000,0,unsigned>;
+        ///Frames Received OK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> frok{}; 
     }
-    namespace EMAC1_fcse{
-        using Addr = Register::Address<0xf8030050,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> FCSE; 
+    namespace Emac1Fcse{    ///<Frame Check Sequence Errors Register
+        using Addr = Register::Address<0xf8030050,0xffffff00,0,unsigned>;
+        ///Frame Check Sequence Errors
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> fcse{}; 
     }
-    namespace EMAC1_ale{
-        using Addr = Register::Address<0xf8030054,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ALE; 
+    namespace Emac1Ale{    ///<Alignment Errors Register
+        using Addr = Register::Address<0xf8030054,0xffffff00,0,unsigned>;
+        ///Alignment Errors
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ale{}; 
     }
-    namespace EMAC1_dtf{
-        using Addr = Register::Address<0xf8030058,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DTF; 
+    namespace Emac1Dtf{    ///<Deferred Transmission Frames Register
+        using Addr = Register::Address<0xf8030058,0xffff0000,0,unsigned>;
+        ///Deferred Transmission Frames
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dtf{}; 
     }
-    namespace EMAC1_lcol{
-        using Addr = Register::Address<0xf803005c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> LCOL; 
+    namespace Emac1Lcol{    ///<Late Collisions Register
+        using Addr = Register::Address<0xf803005c,0xffffff00,0,unsigned>;
+        ///Late Collisions
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> lcol{}; 
     }
-    namespace EMAC1_ecol{
-        using Addr = Register::Address<0xf8030060,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> EXCOL; 
+    namespace Emac1Ecol{    ///<Excessive Collisions Register
+        using Addr = Register::Address<0xf8030060,0xffffff00,0,unsigned>;
+        ///Excessive Collisions
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> excol{}; 
     }
-    namespace EMAC1_tund{
-        using Addr = Register::Address<0xf8030064,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> TUND; 
+    namespace Emac1Tund{    ///<Transmit Underrun Errors Register
+        using Addr = Register::Address<0xf8030064,0xffffff00,0,unsigned>;
+        ///Transmit Underruns
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tund{}; 
     }
-    namespace EMAC1_cse{
-        using Addr = Register::Address<0xf8030068,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> CSE; 
+    namespace Emac1Cse{    ///<Carrier Sense Errors Register
+        using Addr = Register::Address<0xf8030068,0xffffff00,0,unsigned>;
+        ///Carrier Sense Errors
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cse{}; 
     }
-    namespace EMAC1_rre{
-        using Addr = Register::Address<0xf803006c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> RRE; 
+    namespace Emac1Rre{    ///<Receive Resource Errors Register
+        using Addr = Register::Address<0xf803006c,0xffff0000,0,unsigned>;
+        ///Receive Resource Errors
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rre{}; 
     }
-    namespace EMAC1_rov{
-        using Addr = Register::Address<0xf8030070,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> ROVR; 
+    namespace Emac1Rov{    ///<Receive Overrun Errors Register
+        using Addr = Register::Address<0xf8030070,0xffffff00,0,unsigned>;
+        ///Receive Overrun
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rovr{}; 
     }
-    namespace EMAC1_rse{
-        using Addr = Register::Address<0xf8030074,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> RSE; 
+    namespace Emac1Rse{    ///<Receive Symbol Errors Register
+        using Addr = Register::Address<0xf8030074,0xffffff00,0,unsigned>;
+        ///Receive Symbol Errors
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rse{}; 
     }
-    namespace EMAC1_ele{
-        using Addr = Register::Address<0xf8030078,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> EXL; 
+    namespace Emac1Ele{    ///<Excessive Length Errors Register
+        using Addr = Register::Address<0xf8030078,0xffffff00,0,unsigned>;
+        ///Excessive Length Errors
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> exl{}; 
     }
-    namespace EMAC1_rja{
-        using Addr = Register::Address<0xf803007c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> RJB; 
+    namespace Emac1Rja{    ///<Receive Jabbers Register
+        using Addr = Register::Address<0xf803007c,0xffffff00,0,unsigned>;
+        ///Receive Jabbers
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rjb{}; 
     }
-    namespace EMAC1_usf{
-        using Addr = Register::Address<0xf8030080,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> USF; 
+    namespace Emac1Usf{    ///<Undersize Frames Register
+        using Addr = Register::Address<0xf8030080,0xffffff00,0,unsigned>;
+        ///Undersize frames
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> usf{}; 
     }
-    namespace EMAC1_ste{
-        using Addr = Register::Address<0xf8030084,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> SQER; 
+    namespace Emac1Ste{    ///<SQE Test Errors Register
+        using Addr = Register::Address<0xf8030084,0xffffff00,0,unsigned>;
+        ///SQE test errors
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sqer{}; 
     }
-    namespace EMAC1_rle{
-        using Addr = Register::Address<0xf8030088,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> RLFM; 
+    namespace Emac1Rle{    ///<Received Length Field Mismatch Register
+        using Addr = Register::Address<0xf8030088,0xffffff00,0,unsigned>;
+        ///Receive Length Field Mismatch
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rlfm{}; 
     }
-    namespace EMAC1_hrb{
-        using Addr = Register::Address<0xf8030090,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ADDR; 
+    namespace Emac1Hrb{    ///<Hash Register Bottom [31:0] Register
+        using Addr = Register::Address<0xf8030090,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_hrt{
-        using Addr = Register::Address<0xf8030094,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ADDR; 
+    namespace Emac1Hrt{    ///<Hash Register Top [63:32] Register
+        using Addr = Register::Address<0xf8030094,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_sa1b{
-        using Addr = Register::Address<0xf8030098,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ADDR; 
+    namespace Emac1Sa1b{    ///<Specific Address 1 Bottom Register
+        using Addr = Register::Address<0xf8030098,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_sa1t{
-        using Addr = Register::Address<0xf803009c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> ADDR; 
+    namespace Emac1Sa1t{    ///<Specific Address 1 Top Register
+        using Addr = Register::Address<0xf803009c,0xffff0000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_sa2b{
-        using Addr = Register::Address<0xf80300a0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ADDR; 
+    namespace Emac1Sa2b{    ///<Specific Address 2 Bottom Register
+        using Addr = Register::Address<0xf80300a0,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_sa2t{
-        using Addr = Register::Address<0xf80300a4,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> ADDR; 
+    namespace Emac1Sa2t{    ///<Specific Address 2 Top Register
+        using Addr = Register::Address<0xf80300a4,0xffff0000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_sa3b{
-        using Addr = Register::Address<0xf80300a8,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ADDR; 
+    namespace Emac1Sa3b{    ///<Specific Address 3 Bottom Register
+        using Addr = Register::Address<0xf80300a8,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_sa3t{
-        using Addr = Register::Address<0xf80300ac,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> ADDR; 
+    namespace Emac1Sa3t{    ///<Specific Address 3 Top Register
+        using Addr = Register::Address<0xf80300ac,0xffff0000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_sa4b{
-        using Addr = Register::Address<0xf80300b0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ADDR; 
+    namespace Emac1Sa4b{    ///<Specific Address 4 Bottom Register
+        using Addr = Register::Address<0xf80300b0,0x00000000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_sa4t{
-        using Addr = Register::Address<0xf80300b4,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> ADDR; 
+    namespace Emac1Sa4t{    ///<Specific Address 4 Top Register
+        using Addr = Register::Address<0xf80300b4,0xffff0000,0,unsigned>;
+        ///None
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> addr{}; 
     }
-    namespace EMAC1_tid{
-        using Addr = Register::Address<0xf80300b8,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TID; 
+    namespace Emac1Tid{    ///<Type ID Checking Register
+        using Addr = Register::Address<0xf80300b8,0xffff0000,0,unsigned>;
+        ///Type ID checking
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tid{}; 
     }
-    namespace EMAC1_usrio{
-        using Addr = Register::Address<0xf80300c0,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RMII; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CLKEN; 
+    namespace Emac1Usrio{    ///<User Input/Output Register
+        using Addr = Register::Address<0xf80300c0,0xfffffffc,0,unsigned>;
+        ///Reduce MII
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rmii{}; 
+        ///Clock Enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> clken{}; 
     }
 }

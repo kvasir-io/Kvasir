@@ -1,176 +1,292 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonefs_gotgctl{
-        using Addr = Register::Address<0x50000000,0xfff0f0fc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> SRQSCS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> SRQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> HNGSCS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> HNPRQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> HSHNPEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> DHNPEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> CIDSTS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> DBCT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ASVLD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> BSVLD; 
+//USB on the go full speed
+    namespace NonefsGotgctl{    ///<OTG_FS control and status register           (OTG_FS_GOTGCTL)
+        using Addr = Register::Address<0x50000000,0xfff0f0fc,0,unsigned>;
+        ///Session request success
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> srqscs{}; 
+        ///Session request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> srq{}; 
+        ///Host negotiation success
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> hngscs{}; 
+        ///HNP request
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> hnprq{}; 
+        ///Host set HNP enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> hshnpen{}; 
+        ///Device HNP enabled
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dhnpen{}; 
+        ///Connector ID status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> cidsts{}; 
+        ///Long/short debounce time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dbct{}; 
+        ///A-session valid
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> asvld{}; 
+        ///B-session valid
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> bsvld{}; 
     }
-    namespace Nonefs_gotgint{
-        using Addr = Register::Address<0x50000004,0xfff1fcfb>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SEDET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> SRSSCHG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> HNSSCHG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> HNGDET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> ADTOCHG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> DBCDNE; 
+    namespace NonefsGotgint{    ///<OTG_FS interrupt register           (OTG_FS_GOTGINT)
+        using Addr = Register::Address<0x50000004,0xfff1fcfb,0,unsigned>;
+        ///Session end detected
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sedet{}; 
+        ///Session request success status               change
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> srsschg{}; 
+        ///Host negotiation success status               change
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> hnsschg{}; 
+        ///Host negotiation detected
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> hngdet{}; 
+        ///A-device timeout change
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> adtochg{}; 
+        ///Debounce done
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> dbcdne{}; 
     }
-    namespace Nonefs_gahbcfg{
-        using Addr = Register::Address<0x50000008,0xfffffe7e>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> GINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> TXFELVL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> PTXFELVL; 
+    namespace NonefsGahbcfg{    ///<OTG_FS AHB configuration register           (OTG_FS_GAHBCFG)
+        using Addr = Register::Address<0x50000008,0xfffffe7e,0,unsigned>;
+        ///Global interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> gint{}; 
+        ///TxFIFO empty level
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txfelvl{}; 
+        ///Periodic TxFIFO empty               level
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ptxfelvl{}; 
     }
-    namespace Nonefs_gusbcfg{
-        using Addr = Register::Address<0x5000000c,0x1fffc0b8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> TOCAL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> PHYSEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> SRPCAP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> HNPCAP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,10)> TRDT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> FHMOD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> FDMOD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> CTXPKT; 
+    namespace NonefsGusbcfg{    ///<OTG_FS USB configuration register           (OTG_FS_GUSBCFG)
+        using Addr = Register::Address<0x5000000c,0x1fffc0b8,0,unsigned>;
+        ///FS timeout calibration
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> tocal{}; 
+        ///Full Speed serial transceiver               select
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> physel{}; 
+        ///SRP-capable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> srpcap{}; 
+        ///HNP-capable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> hnpcap{}; 
+        ///USB turnaround time
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,10),Register::ReadWriteAccess,unsigned> trdt{}; 
+        ///Force host mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> fhmod{}; 
+        ///Force device mode
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> fdmod{}; 
+        ///Corrupt Tx packet
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ctxpkt{}; 
     }
-    namespace Nonefs_grstctl{
-        using Addr = Register::Address<0x50000010,0x7ffff808>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CSRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> HSRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> FCRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXFFLSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> TXFFLSH; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,6)> TXFNUM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> AHBIDL; 
+    namespace NonefsGrstctl{    ///<OTG_FS reset register           (OTG_FS_GRSTCTL)
+        using Addr = Register::Address<0x50000010,0x7ffff808,0,unsigned>;
+        ///Core soft reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> csrst{}; 
+        ///HCLK soft reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hsrst{}; 
+        ///Host frame counter reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> fcrst{}; 
+        ///RxFIFO flush
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxfflsh{}; 
+        ///TxFIFO flush
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txfflsh{}; 
+        ///TxFIFO number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,6),Register::ReadWriteAccess,unsigned> txfnum{}; 
+        ///AHB master idle
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ahbidl{}; 
     }
-    namespace Nonefs_gintsts{
-        using Addr = Register::Address<0x50000014,0x08c30300>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> CMOD; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MMIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> OTGINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXFLVL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NPTXFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> GINAKEFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> GOUTNAKEFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ESUSP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> USBSUSP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> USBRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ENUMDNE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ISOODRP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> EOPF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> IEPINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> OEPINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> IISOIXFR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> IPXFR_INCOMPISOOUT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> HPRTINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> HCINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> PTXFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> CIDSCHG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> DISCINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> SRQINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> WKUPINT; 
+    namespace NonefsGintsts{    ///<OTG_FS core interrupt register           (OTG_FS_GINTSTS)
+        using Addr = Register::Address<0x50000014,0x08c30300,0,unsigned>;
+        ///Current mode of operation
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmod{}; 
+        ///Mode mismatch interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mmis{}; 
+        ///OTG interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> otgint{}; 
+        ///Start of frame
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sof{}; 
+        ///RxFIFO non-empty
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxflvl{}; 
+        ///Non-periodic TxFIFO empty
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nptxfe{}; 
+        ///Global IN non-periodic NAK               effective
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ginakeff{}; 
+        ///Global OUT NAK effective
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> goutnakeff{}; 
+        ///Early suspend
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> esusp{}; 
+        ///USB suspend
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> usbsusp{}; 
+        ///USB reset
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> usbrst{}; 
+        ///Enumeration done
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> enumdne{}; 
+        ///Isochronous OUT packet dropped               interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> isoodrp{}; 
+        ///End of periodic frame               interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> eopf{}; 
+        ///IN endpoint interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> iepint{}; 
+        ///OUT endpoint interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> oepint{}; 
+        ///Incomplete isochronous IN               transfer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> iisoixfr{}; 
+        ///Incomplete periodic transfer(Host               mode)/Incomplete isochronous OUT transfer(Device               mode)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ipxfrIncompisoout{}; 
+        ///Host port interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> hprtint{}; 
+        ///Host channels interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> hcint{}; 
+        ///Periodic TxFIFO empty
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ptxfe{}; 
+        ///Connector ID status change
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> cidschg{}; 
+        ///Disconnect detected               interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> discint{}; 
+        ///Session request/new session detected               interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> srqint{}; 
+        ///Resume/remote wakeup detected               interrupt
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> wkupint{}; 
     }
-    namespace Nonefs_gintmsk{
-        using Addr = Register::Address<0x50000018,0x08c10301>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> MMISM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> OTGINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> SOFM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RXFLVLM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> NPTXFEM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> GINAKEFFM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> GONAKEFFM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> ESUSPM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> USBSUSPM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> USBRST; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ENUMDNEM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> ISOODRPM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> EOPFM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> EPMISM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> IEPINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> OEPINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> IISOIXFRM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21)> IPXFRM_IISOOXFRM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> PRTIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> HCIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> PTXFEM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> CIDSCHGM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29)> DISCINT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> SRQIM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> WUIM; 
+    namespace NonefsGintmsk{    ///<OTG_FS interrupt mask register           (OTG_FS_GINTMSK)
+        using Addr = Register::Address<0x50000018,0x08c10301,0,unsigned>;
+        ///Mode mismatch interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mmism{}; 
+        ///OTG interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> otgint{}; 
+        ///Start of frame mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sofm{}; 
+        ///Receive FIFO non-empty               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxflvlm{}; 
+        ///Non-periodic TxFIFO empty               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> nptxfem{}; 
+        ///Global non-periodic IN NAK effective               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ginakeffm{}; 
+        ///Global OUT NAK effective               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> gonakeffm{}; 
+        ///Early suspend mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> esuspm{}; 
+        ///USB suspend mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> usbsuspm{}; 
+        ///USB reset mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> usbrst{}; 
+        ///Enumeration done mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> enumdnem{}; 
+        ///Isochronous OUT packet dropped interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> isoodrpm{}; 
+        ///End of periodic frame interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> eopfm{}; 
+        ///Endpoint mismatch interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> epmism{}; 
+        ///IN endpoints interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> iepint{}; 
+        ///OUT endpoints interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> oepint{}; 
+        ///Incomplete isochronous IN transfer               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> iisoixfrm{}; 
+        ///Incomplete periodic transfer mask(Host               mode)/Incomplete isochronous OUT transfer mask(Device               mode)
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ipxfrmIisooxfrm{}; 
+        ///Host port interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> prtim{}; 
+        ///Host channels interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> hcim{}; 
+        ///Periodic TxFIFO empty mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> ptxfem{}; 
+        ///Connector ID status change               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> cidschgm{}; 
+        ///Disconnect detected interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> discint{}; 
+        ///Session request/new session detected               interrupt mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> srqim{}; 
+        ///Resume/remote wakeup detected interrupt               mask
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> wuim{}; 
     }
-    namespace Nonefs_grxstsr_device{
-        using Addr = Register::Address<0x5000001c,0xfe000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EPNUM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,4)> BCNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,15)> DPID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,17)> PKTSTS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,21)> FRMNUM; 
+    namespace NonefsGrxstsrDevice{    ///<OTG_FS Receive status debug read(Device           mode)
+        using Addr = Register::Address<0x5000001c,0xfe000000,0,unsigned>;
+        ///Endpoint number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> epnum{}; 
+        ///Byte count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,4),Register::ReadWriteAccess,unsigned> bcnt{}; 
+        ///Data PID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,15),Register::ReadWriteAccess,unsigned> dpid{}; 
+        ///Packet status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,17),Register::ReadWriteAccess,unsigned> pktsts{}; 
+        ///Frame number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,21),Register::ReadWriteAccess,unsigned> frmnum{}; 
     }
-    namespace Nonefs_grxstsr_host{
-        using Addr = Register::Address<0x5000001c,0xfe000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EPNUM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,4)> BCNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,15)> DPID; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,17)> PKTSTS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,21)> FRMNUM; 
+    namespace NonefsGrxstsrHost{    ///<OTG_FS Receive status debug read(Host           mode)
+        using Addr = Register::Address<0x5000001c,0xfe000000,0,unsigned>;
+        ///Endpoint number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> epnum{}; 
+        ///Byte count
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,4),Register::ReadWriteAccess,unsigned> bcnt{}; 
+        ///Data PID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,15),Register::ReadWriteAccess,unsigned> dpid{}; 
+        ///Packet status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,17),Register::ReadWriteAccess,unsigned> pktsts{}; 
+        ///Frame number
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,21),Register::ReadWriteAccess,unsigned> frmnum{}; 
     }
-    namespace Nonefs_grxfsiz{
-        using Addr = Register::Address<0x50000024,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> RXFD; 
+    namespace NonefsGrxfsiz{    ///<OTG_FS Receive FIFO size register           (OTG_FS_GRXFSIZ)
+        using Addr = Register::Address<0x50000024,0xffff0000,0,unsigned>;
+        ///RxFIFO depth
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxfd{}; 
     }
-    namespace Nonefs_gnptxfsiz_device{
-        using Addr = Register::Address<0x50000028,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TX0FSA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> TX0FD; 
+    namespace NonefsGnptxfsizDevice{    ///<OTG_FS non-periodic transmit FIFO size           register (Device mode)
+        using Addr = Register::Address<0x50000028,0x00000000,0,unsigned>;
+        ///Endpoint 0 transmit RAM start               address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tx0fsa{}; 
+        ///Endpoint 0 TxFIFO depth
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> tx0fd{}; 
     }
-    namespace Nonefs_gnptxfsiz_host{
-        using Addr = Register::Address<0x50000028,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> NPTXFSA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> NPTXFD; 
+    namespace NonefsGnptxfsizHost{    ///<OTG_FS non-periodic transmit FIFO size           register (Host mode)
+        using Addr = Register::Address<0x50000028,0x00000000,0,unsigned>;
+        ///Non-periodic transmit RAM start               address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> nptxfsa{}; 
+        ///Non-periodic TxFIFO depth
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> nptxfd{}; 
     }
-    namespace Nonefs_gnptxsts{
-        using Addr = Register::Address<0x5000002c,0x80000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> NPTXFSAV; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16)> NPTQXSAV; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24)> NPTXQTOP; 
+    namespace NonefsGnptxsts{    ///<OTG_FS non-periodic transmit FIFO/queue           status register (OTG_FS_GNPTXSTS)
+        using Addr = Register::Address<0x5000002c,0x80000000,0,unsigned>;
+        ///Non-periodic TxFIFO space               available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> nptxfsav{}; 
+        ///Non-periodic transmit request queue               space available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> nptqxsav{}; 
+        ///Top of the non-periodic transmit request               queue
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> nptxqtop{}; 
     }
-    namespace Nonefs_gccfg{
-        using Addr = Register::Address<0x50000038,0xffe2ffff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> PWRDWN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18)> VBUSASEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> VBUSBSEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20)> SOFOUTEN; 
+    namespace NonefsGccfg{    ///<OTG_FS general core configuration register           (OTG_FS_GCCFG)
+        using Addr = Register::Address<0x50000038,0xffe2ffff,0,unsigned>;
+        ///Power down
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pwrdwn{}; 
+        ///Enable the VBUS sensing               device
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusasen{}; 
+        ///Enable the VBUS sensing               device
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> vbusbsen{}; 
+        ///SOF output enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> sofouten{}; 
     }
-    namespace Nonefs_cid{
-        using Addr = Register::Address<0x5000003c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PRODUCT_ID; 
+    namespace NonefsCid{    ///<core ID register
+        using Addr = Register::Address<0x5000003c,0x00000000,0,unsigned>;
+        ///Product ID field
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> productId{}; 
     }
-    namespace Nonefs_hptxfsiz{
-        using Addr = Register::Address<0x50000100,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> PTXSA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> PTXFSIZ; 
+    namespace NonefsHptxfsiz{    ///<OTG_FS Host periodic transmit FIFO size           register (OTG_FS_HPTXFSIZ)
+        using Addr = Register::Address<0x50000100,0x00000000,0,unsigned>;
+        ///Host periodic TxFIFO start               address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ptxsa{}; 
+        ///Host periodic TxFIFO depth
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ptxfsiz{}; 
     }
-    namespace Nonefs_dieptxf1{
-        using Addr = Register::Address<0x50000104,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> INEPTXSA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> INEPTXFD; 
+    namespace NonefsDieptxf1{    ///<OTG_FS device IN endpoint transmit FIFO size           register (OTG_FS_DIEPTXF2)
+        using Addr = Register::Address<0x50000104,0x00000000,0,unsigned>;
+        ///IN endpoint FIFO2 transmit RAM start               address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ineptxsa{}; 
+        ///IN endpoint TxFIFO depth
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ineptxfd{}; 
     }
-    namespace Nonefs_dieptxf2{
-        using Addr = Register::Address<0x50000108,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> INEPTXSA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> INEPTXFD; 
+    namespace NonefsDieptxf2{    ///<OTG_FS device IN endpoint transmit FIFO size           register (OTG_FS_DIEPTXF3)
+        using Addr = Register::Address<0x50000108,0x00000000,0,unsigned>;
+        ///IN endpoint FIFO3 transmit RAM start               address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ineptxsa{}; 
+        ///IN endpoint TxFIFO depth
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ineptxfd{}; 
     }
-    namespace Nonefs_dieptxf3{
-        using Addr = Register::Address<0x5000010c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> INEPTXSA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> INEPTXFD; 
+    namespace NonefsDieptxf3{    ///<OTG_FS device IN endpoint transmit FIFO size           register (OTG_FS_DIEPTXF4)
+        using Addr = Register::Address<0x5000010c,0x00000000,0,unsigned>;
+        ///IN endpoint FIFO4 transmit RAM start               address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ineptxsa{}; 
+        ///IN endpoint TxFIFO depth
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ineptxfd{}; 
     }
 }

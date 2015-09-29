@@ -1,56 +1,230 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace MCG_c1{
-        using Addr = Register::Address<0x40064000,0xffffff3c>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IREFSTEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> IRCLKEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6)> CLKS; 
+//Multipurpose Clock Generator Lite
+    namespace McgC1{    ///<MCG Control Register 1
+        using Addr = Register::Address<0x40064000,0xffffff3c,0,unsigned char>;
+        ///Internal Reference Stop Enable
+        enum class irefstenVal {
+            v0=0x00000000,     ///<LIRC is disabled in Stop mode.
+            v1=0x00000001,     ///<LIRC is enabled in Stop mode, if IRCLKEN is set.
+        };
+        namespace irefstenValC{
+            constexpr MPL::Value<irefstenVal,irefstenVal::v0> v0{};
+            constexpr MPL::Value<irefstenVal,irefstenVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,irefstenVal> irefsten{}; 
+        ///Internal Reference Clock Enable
+        enum class irclkenVal {
+            v0=0x00000000,     ///<LIRC is disabled.
+            v1=0x00000001,     ///<LIRC is enabled.
+        };
+        namespace irclkenValC{
+            constexpr MPL::Value<irclkenVal,irclkenVal::v0> v0{};
+            constexpr MPL::Value<irclkenVal,irclkenVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,irclkenVal> irclken{}; 
+        ///Clock Source Select
+        enum class clksVal {
+            v00=0x00000000,     ///<Selects HIRC clock as the main clock source. This is HIRC mode.
+            v01=0x00000001,     ///<Selects LIRC clock as the main clock source. This is LIRC2M or LIRC8M mode.
+            v10=0x00000002,     ///<Selects external clock as the main clock source. This is EXT mode.
+            v11=0x00000003,     ///<Reserved. Writing 11 takes no effect.
+        };
+        namespace clksValC{
+            constexpr MPL::Value<clksVal,clksVal::v00> v00{};
+            constexpr MPL::Value<clksVal,clksVal::v01> v01{};
+            constexpr MPL::Value<clksVal,clksVal::v10> v10{};
+            constexpr MPL::Value<clksVal,clksVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,clksVal> clks{}; 
     }
-    namespace MCG_c2{
-        using Addr = Register::Address<0x40064001,0xffffffc2>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> IRCS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> EREFS0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> HGO0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> RANGE0; 
+    namespace McgC2{    ///<MCG Control Register 2
+        using Addr = Register::Address<0x40064001,0xffffffc2,0,unsigned char>;
+        ///Low-frequency Internal Reference Clock Select
+        enum class ircsVal {
+            v0=0x00000000,     ///<LIRC is in 2 MHz mode.
+            v1=0x00000001,     ///<LIRC is in 8 MHz mode.
+        };
+        namespace ircsValC{
+            constexpr MPL::Value<ircsVal,ircsVal::v0> v0{};
+            constexpr MPL::Value<ircsVal,ircsVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ircsVal> ircs{}; 
+        ///External Clock Source Select
+        enum class erefs0Val {
+            v0=0x00000000,     ///<External clock requested.
+            v1=0x00000001,     ///<Oscillator requested.
+        };
+        namespace erefs0ValC{
+            constexpr MPL::Value<erefs0Val,erefs0Val::v0> v0{};
+            constexpr MPL::Value<erefs0Val,erefs0Val::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,erefs0Val> erefs0{}; 
+        ///Crystal Oscillator Operation Mode Select
+        enum class hgo0Val {
+            v0=0x00000000,     ///<Configure crystal oscillator for low-power operation.
+            v1=0x00000001,     ///<Configure crystal oscillator for high-gain operation.
+        };
+        namespace hgo0ValC{
+            constexpr MPL::Value<hgo0Val,hgo0Val::v0> v0{};
+            constexpr MPL::Value<hgo0Val,hgo0Val::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,hgo0Val> hgo0{}; 
+        ///External Clock Source Frequency Range Select
+        enum class range0Val {
+            v00=0x00000000,     ///<Low frequency range selected for the crystal oscillator or the external clock source.
+            v01=0x00000001,     ///<High frequency range selected for the crystal oscillator or the external clock source.
+            v10=0x00000002,     ///<Very high frequency range selected for the crystal oscillator or the external clock source.
+            v11=0x00000003,     ///<Very high frequency range selected for the crystal oscillator or the external clock source. Same effect as 10.
+        };
+        namespace range0ValC{
+            constexpr MPL::Value<range0Val,range0Val::v00> v00{};
+            constexpr MPL::Value<range0Val,range0Val::v01> v01{};
+            constexpr MPL::Value<range0Val,range0Val::v10> v10{};
+            constexpr MPL::Value<range0Val,range0Val::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,range0Val> range0{}; 
     }
-    namespace MCG_s{
-        using Addr = Register::Address<0x40064006,0xfffffff1>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> OSCINIT0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> CLKST; 
+    namespace McgS{    ///<MCG Status Register
+        using Addr = Register::Address<0x40064006,0xfffffff1,0,unsigned char>;
+        ///OSC Initialization Status
+        enum class oscinit0Val {
+            v0=0x00000000,     ///<OSC is not ready.
+            v1=0x00000001,     ///<OSC clock is ready.
+        };
+        namespace oscinit0ValC{
+            constexpr MPL::Value<oscinit0Val,oscinit0Val::v0> v0{};
+            constexpr MPL::Value<oscinit0Val,oscinit0Val::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,oscinit0Val> oscinit0{}; 
+        ///Clock Mode Status
+        enum class clkstVal {
+            v00=0x00000000,     ///<HIRC clock is selected as the main clock source, and MCG_Lite works at HIRC mode.
+            v01=0x00000001,     ///<LIRC clock is selected as the main clock source, and MCG_Lite works at LIRC2M or LIRC8M mode.
+            v10=0x00000002,     ///<External clock is selected as the main clock source, and MCG_Lite works at EXT mode.
+        };
+        namespace clkstValC{
+            constexpr MPL::Value<clkstVal,clkstVal::v00> v00{};
+            constexpr MPL::Value<clkstVal,clkstVal::v01> v01{};
+            constexpr MPL::Value<clkstVal,clkstVal::v10> v10{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,clkstVal> clkst{}; 
     }
-    namespace MCG_sc{
-        using Addr = Register::Address<0x40064008,0xfffffff1>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1)> FCRDIV; 
+    namespace McgSc{    ///<MCG Status and Control Register
+        using Addr = Register::Address<0x40064008,0xfffffff1,0,unsigned char>;
+        ///Low-frequency Internal Reference Clock Divider
+        enum class fcrdivVal {
+            v000=0x00000000,     ///<Division factor is 1.
+            v001=0x00000001,     ///<Division factor is 2.
+            v010=0x00000002,     ///<Division factor is 4.
+            v011=0x00000003,     ///<Division factor is 8.
+            v100=0x00000004,     ///<Division factor is 16.
+            v101=0x00000005,     ///<Division factor is 32.
+            v110=0x00000006,     ///<Division factor is 64.
+            v111=0x00000007,     ///<Division factor is 128.
+        };
+        namespace fcrdivValC{
+            constexpr MPL::Value<fcrdivVal,fcrdivVal::v000> v000{};
+            constexpr MPL::Value<fcrdivVal,fcrdivVal::v001> v001{};
+            constexpr MPL::Value<fcrdivVal,fcrdivVal::v010> v010{};
+            constexpr MPL::Value<fcrdivVal,fcrdivVal::v011> v011{};
+            constexpr MPL::Value<fcrdivVal,fcrdivVal::v100> v100{};
+            constexpr MPL::Value<fcrdivVal,fcrdivVal::v101> v101{};
+            constexpr MPL::Value<fcrdivVal,fcrdivVal::v110> v110{};
+            constexpr MPL::Value<fcrdivVal,fcrdivVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,fcrdivVal> fcrdiv{}; 
     }
-    namespace MCG_hctrim{
-        using Addr = Register::Address<0x40064014,0xffffffc0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0)> COARSE_TRIM; 
+    namespace McgHctrim{    ///<MCG High-frequency IRC Coarse Trim Register
+        using Addr = Register::Address<0x40064014,0xffffffc0,0,unsigned char>;
+        ///High-frequency IRC Coarse Trim
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> coarseTrim{}; 
     }
-    namespace MCG_httrim{
-        using Addr = Register::Address<0x40064015,0xffffffe0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> TEMPCO_TRIM; 
+    namespace McgHttrim{    ///<MCG High-frequency IRC Tempco (Temperature Coefficient) Trim Register
+        using Addr = Register::Address<0x40064015,0xffffffe0,0,unsigned char>;
+        ///High-frequency IRC Tempco Trim
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> tempcoTrim{}; 
     }
-    namespace MCG_hftrim{
-        using Addr = Register::Address<0x40064016,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> FINE_TRIM; 
+    namespace McgHftrim{    ///<MCG High-frequency IRC Fine Trim Register
+        using Addr = Register::Address<0x40064016,0xffffff80,0,unsigned char>;
+        ///High-frequency IRC Fine Trim
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> fineTrim{}; 
     }
-    namespace MCG_mc{
-        using Addr = Register::Address<0x40064018,0xffffff78>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> LIRC_DIV2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> HIRCEN; 
+    namespace McgMc{    ///<MCG Miscellaneous Control Register
+        using Addr = Register::Address<0x40064018,0xffffff78,0,unsigned char>;
+        ///Second Low-frequency Internal Reference Clock Divider
+        enum class lircDiv2Val {
+            v000=0x00000000,     ///<Division factor is 1.
+            v001=0x00000001,     ///<Division factor is 2.
+            v010=0x00000002,     ///<Division factor is 4.
+            v011=0x00000003,     ///<Division factor is 8.
+            v100=0x00000004,     ///<Division factor is 16.
+            v101=0x00000005,     ///<Division factor is 32.
+            v110=0x00000006,     ///<Division factor is 64.
+            v111=0x00000007,     ///<Division factor is 128.
+        };
+        namespace lircDiv2ValC{
+            constexpr MPL::Value<lircDiv2Val,lircDiv2Val::v000> v000{};
+            constexpr MPL::Value<lircDiv2Val,lircDiv2Val::v001> v001{};
+            constexpr MPL::Value<lircDiv2Val,lircDiv2Val::v010> v010{};
+            constexpr MPL::Value<lircDiv2Val,lircDiv2Val::v011> v011{};
+            constexpr MPL::Value<lircDiv2Val,lircDiv2Val::v100> v100{};
+            constexpr MPL::Value<lircDiv2Val,lircDiv2Val::v101> v101{};
+            constexpr MPL::Value<lircDiv2Val,lircDiv2Val::v110> v110{};
+            constexpr MPL::Value<lircDiv2Val,lircDiv2Val::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,lircDiv2Val> lircDiv2{}; 
+        ///High-frequency IRC Enable
+        enum class hircenVal {
+            v0=0x00000000,     ///<HIRC source is not enabled.
+            v1=0x00000001,     ///<HIRC source is enabled.
+        };
+        namespace hircenValC{
+            constexpr MPL::Value<hircenVal,hircenVal::v0> v0{};
+            constexpr MPL::Value<hircenVal,hircenVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,hircenVal> hircen{}; 
     }
-    namespace MCG_ltrimrng{
-        using Addr = Register::Address<0x40064019,0xfffffff0>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> STRIMRNG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> FTRIMRNG; 
+    namespace McgLtrimrng{    ///<MCG Low-frequency IRC Trim Range Register
+        using Addr = Register::Address<0x40064019,0xfffffff0,0,unsigned char>;
+        ///LIRC Slow TRIM (2 MHz) Range
+        enum class strimrngVal {
+            v00=0x00000000,     ///<Frequency shift by 10%.
+            v01=0x00000001,     ///<No frequency shift.
+            v10=0x00000002,     ///<No frequency shift.
+            v11=0x00000003,     ///<Frequency shift by -10%.
+        };
+        namespace strimrngValC{
+            constexpr MPL::Value<strimrngVal,strimrngVal::v00> v00{};
+            constexpr MPL::Value<strimrngVal,strimrngVal::v01> v01{};
+            constexpr MPL::Value<strimrngVal,strimrngVal::v10> v10{};
+            constexpr MPL::Value<strimrngVal,strimrngVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,strimrngVal> strimrng{}; 
+        ///LIRC Fast TRIM (8 MHz) Range
+        enum class ftrimrngVal {
+            v00=0x00000000,     ///<Frequency shift by 10%.
+            v01=0x00000001,     ///<No frequency shift.
+            v10=0x00000002,     ///<No frequency shift.
+            v11=0x00000003,     ///<Frequency shift by -10%.
+        };
+        namespace ftrimrngValC{
+            constexpr MPL::Value<ftrimrngVal,ftrimrngVal::v00> v00{};
+            constexpr MPL::Value<ftrimrngVal,ftrimrngVal::v01> v01{};
+            constexpr MPL::Value<ftrimrngVal,ftrimrngVal::v10> v10{};
+            constexpr MPL::Value<ftrimrngVal,ftrimrngVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,ftrimrngVal> ftrimrng{}; 
     }
-    namespace MCG_lftrim{
-        using Addr = Register::Address<0x4006401a,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> LIRC_FTRIM; 
+    namespace McgLftrim{    ///<MCG Low-frequency IRC8M Trim Register
+        using Addr = Register::Address<0x4006401a,0xffffff80,0,unsigned char>;
+        ///LIRC8M TRIM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> lircFtrim{}; 
     }
-    namespace MCG_lstrim{
-        using Addr = Register::Address<0x4006401b,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> LIRC_STRIM; 
+    namespace McgLstrim{    ///<MCG Low-frequency IRC2M Trim Register
+        using Addr = Register::Address<0x4006401b,0xffffff80,0,unsigned char>;
+        ///LIRC2M TRIM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> lircStrim{}; 
     }
 }

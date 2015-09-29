@@ -1,176 +1,306 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneep0r{
-        using Addr = Register::Address<0x40005c00,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> DTOG_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> STAT_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP_KIND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CTR_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DTOG_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> STAT_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EA; 
+//Universal serial bus full-speed device
+      interface
+    namespace Noneep0r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c00,0xffff0000,0,unsigned>;
+        ///CTR_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
+        ///DTOG_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dtogRx{}; 
+        ///STAT_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        ///SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EP_KIND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epKind{}; 
+        ///CTR_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ctrTx{}; 
+        ///DTOG_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dtogTx{}; 
+        ///STAT_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        ///EA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep1r{
-        using Addr = Register::Address<0x40005c04,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> DTOG_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> STAT_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP_KIND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CTR_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DTOG_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> STAT_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EA; 
+    namespace Noneep1r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c04,0xffff0000,0,unsigned>;
+        ///CTR_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
+        ///DTOG_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dtogRx{}; 
+        ///STAT_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        ///SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EP_KIND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epKind{}; 
+        ///CTR_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ctrTx{}; 
+        ///DTOG_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dtogTx{}; 
+        ///STAT_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        ///EA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep2r{
-        using Addr = Register::Address<0x40005c08,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> DTOG_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> STAT_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP_KIND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CTR_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DTOG_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> STAT_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EA; 
+    namespace Noneep2r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c08,0xffff0000,0,unsigned>;
+        ///CTR_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
+        ///DTOG_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dtogRx{}; 
+        ///STAT_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        ///SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EP_KIND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epKind{}; 
+        ///CTR_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ctrTx{}; 
+        ///DTOG_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dtogTx{}; 
+        ///STAT_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        ///EA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep3r{
-        using Addr = Register::Address<0x40005c0c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> DTOG_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> STAT_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP_KIND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CTR_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DTOG_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> STAT_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EA; 
+    namespace Noneep3r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c0c,0xffff0000,0,unsigned>;
+        ///CTR_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
+        ///DTOG_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dtogRx{}; 
+        ///STAT_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        ///SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EP_KIND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epKind{}; 
+        ///CTR_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ctrTx{}; 
+        ///DTOG_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dtogTx{}; 
+        ///STAT_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        ///EA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep4r{
-        using Addr = Register::Address<0x40005c10,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> DTOG_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> STAT_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP_KIND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CTR_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DTOG_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> STAT_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EA; 
+    namespace Noneep4r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c10,0xffff0000,0,unsigned>;
+        ///CTR_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
+        ///DTOG_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dtogRx{}; 
+        ///STAT_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        ///SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EP_KIND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epKind{}; 
+        ///CTR_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ctrTx{}; 
+        ///DTOG_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dtogTx{}; 
+        ///STAT_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        ///EA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep5r{
-        using Addr = Register::Address<0x40005c14,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> DTOG_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> STAT_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP_KIND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CTR_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DTOG_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> STAT_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EA; 
+    namespace Noneep5r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c14,0xffff0000,0,unsigned>;
+        ///CTR_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
+        ///DTOG_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dtogRx{}; 
+        ///STAT_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        ///SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EP_KIND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epKind{}; 
+        ///CTR_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ctrTx{}; 
+        ///DTOG_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dtogTx{}; 
+        ///STAT_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        ///EA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep6r{
-        using Addr = Register::Address<0x40005c18,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> DTOG_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> STAT_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP_KIND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CTR_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DTOG_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> STAT_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EA; 
+    namespace Noneep6r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c18,0xffff0000,0,unsigned>;
+        ///CTR_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
+        ///DTOG_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dtogRx{}; 
+        ///STAT_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        ///SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EP_KIND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epKind{}; 
+        ///CTR_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ctrTx{}; 
+        ///DTOG_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dtogTx{}; 
+        ///STAT_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        ///EA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Noneep7r{
-        using Addr = Register::Address<0x40005c1c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> DTOG_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> STAT_RX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9)> EPTYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> EP_KIND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> CTR_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> DTOG_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4)> STAT_TX; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EA; 
+    namespace Noneep7r{    ///<endpoint register
+        using Addr = Register::Address<0x40005c1c,0xffff0000,0,unsigned>;
+        ///CTR_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrRx{}; 
+        ///DTOG_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dtogRx{}; 
+        ///STAT_RX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> statRx{}; 
+        ///SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> setup{}; 
+        ///EPTYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> eptype{}; 
+        ///EP_KIND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> epKind{}; 
+        ///CTR_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ctrTx{}; 
+        ///DTOG_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dtogTx{}; 
+        ///STAT_TX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> statTx{}; 
+        ///EA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ea{}; 
     }
-    namespace Nonecntr{
-        using Addr = Register::Address<0x40005c40,0xffff0040>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTRM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> PMAOVRM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERRM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> WKUPM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SUSPM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> RESETM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SOFM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ESOFM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> L1REQM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> L1RESUME; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> RESUME; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> FSUSP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> LPMODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> PDWN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> FRES; 
+    namespace Nonecntr{    ///<control register
+        using Addr = Register::Address<0x40005c40,0xffff0040,0,unsigned>;
+        ///CTRM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctrm{}; 
+        ///PMAOVRM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pmaovrm{}; 
+        ///ERRM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> errm{}; 
+        ///WKUPM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> wkupm{}; 
+        ///SUSPM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> suspm{}; 
+        ///RESETM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> resetm{}; 
+        ///SOFM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> sofm{}; 
+        ///ESOFM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> esofm{}; 
+        ///L1REQM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> l1reqm{}; 
+        ///L1RESUME
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> l1resume{}; 
+        ///RESUME
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> resume{}; 
+        ///FSUSP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> fsusp{}; 
+        ///LPMODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lpmode{}; 
+        ///PDWN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pdwn{}; 
+        ///FRES
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fres{}; 
     }
-    namespace Noneistr{
-        using Addr = Register::Address<0x40005c44,0xffff0060>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> PMAOVR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> ERR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> WKUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SUSP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> RESET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> ESOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> L1REQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> EP_ID; 
+    namespace Noneistr{    ///<interrupt status register
+        using Addr = Register::Address<0x40005c44,0xffff0060,0,unsigned>;
+        ///CTR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ctr{}; 
+        ///PMAOVR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pmaovr{}; 
+        ///ERR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> err{}; 
+        ///WKUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> wkup{}; 
+        ///SUSP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> susp{}; 
+        ///RESET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> reset{}; 
+        ///SOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> sof{}; 
+        ///ESOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> esof{}; 
+        ///L1REQ
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> l1req{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///EP_ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> epId{}; 
     }
-    namespace Nonefnr{
-        using Addr = Register::Address<0x40005c48,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> RXDP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> RXDM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> LCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,11)> LSOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> FN; 
+    namespace Nonefnr{    ///<frame number register
+        using Addr = Register::Address<0x40005c48,0xffff0000,0,unsigned>;
+        ///RXDP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxdp{}; 
+        ///RXDM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rxdm{}; 
+        ///LCK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> lck{}; 
+        ///LSOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,unsigned> lsof{}; 
+        ///FN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> fn{}; 
     }
-    namespace Nonedaddr{
-        using Addr = Register::Address<0x40005c4c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> EF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> ADD; 
+    namespace Nonedaddr{    ///<device address
+        using Addr = Register::Address<0x40005c4c,0xffffff00,0,unsigned>;
+        ///EF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ef{}; 
+        ///ADD
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> add{}; 
     }
-    namespace Nonebtable{
-        using Addr = Register::Address<0x40005c50,0xffff0007>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,3)> BTABLE; 
+    namespace Nonebtable{    ///<Buffer table address
+        using Addr = Register::Address<0x40005c50,0xffff0007,0,unsigned>;
+        ///BTABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,3),Register::ReadWriteAccess,unsigned> btable{}; 
     }
-    namespace Nonelpmcsr{
-        using Addr = Register::Address<0x40005c54,0xffffff04>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> BESL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> REMWAKE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> LPMACK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> LPMEN; 
+    namespace Nonelpmcsr{    ///<LPM control and status
+          register
+        using Addr = Register::Address<0x40005c54,0xffffff04,0,unsigned>;
+        ///BESL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> besl{}; 
+        ///REMWAKE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> remwake{}; 
+        ///LPMACK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lpmack{}; 
+        ///LPMEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lpmen{}; 
     }
-    namespace Nonebcdr{
-        using Addr = Register::Address<0x40005c58,0xffff7f00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> DPPU; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> PS2DET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> SDET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> PDET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> DCDET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> SDEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> PDEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> DCDEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> BCDEN; 
+    namespace Nonebcdr{    ///<Battery charging detector
+        using Addr = Register::Address<0x40005c58,0xffff7f00,0,unsigned>;
+        ///DPPU
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dppu{}; 
+        ///PS2DET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ps2det{}; 
+        ///SDET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> sdet{}; 
+        ///PDET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pdet{}; 
+        ///DCDET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dcdet{}; 
+        ///SDEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sden{}; 
+        ///PDEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pden{}; 
+        ///DCDEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dcden{}; 
+        ///BCDEN
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bcden{}; 
     }
 }

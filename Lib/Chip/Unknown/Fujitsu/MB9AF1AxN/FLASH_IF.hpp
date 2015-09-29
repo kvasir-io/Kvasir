@@ -1,21 +1,27 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonefaszr{
-        using Addr = Register::Address<0x40000000,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> ASZ; 
+//Flash Memory
+    namespace Nonefaszr{    ///<Flash Access Size Register
+        using Addr = Register::Address<0x40000000,0xfffffffc,0,unsigned>;
+        ///Flash Access Size 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> asz{}; 
     }
-    namespace Nonefstr{
-        using Addr = Register::Address<0x40000008,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> HNG; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RDY; 
+    namespace Nonefstr{    ///<Flash Status Register
+        using Addr = Register::Address<0x40000008,0xfffffffc,0,unsigned>;
+        ///Flash Hang flag
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hng{}; 
+        ///Flash Rdy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdy{}; 
     }
-    namespace Nonefsyndn{
-        using Addr = Register::Address<0x40000010,0xfffffff8>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0)> SD; 
+    namespace Nonefsyndn{    ///<Flash Sync Down Register
+        using Addr = Register::Address<0x40000010,0xfffffff8,0,unsigned>;
+        ///Flash Sync
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> sd{}; 
     }
-    namespace Nonecrtrmm{
-        using Addr = Register::Address<0x40000100,0xfffffc00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0)> TRMM; 
+    namespace Nonecrtrmm{    ///<CR Trimming Data Mirror Register
+        using Addr = Register::Address<0x40000100,0xfffffc00,0,unsigned>;
+        ///CR Trimming Data Mirror
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> trmm{}; 
     }
 }

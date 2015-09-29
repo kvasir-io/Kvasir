@@ -1,143 +1,697 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace SPI0_mcr{
-        using Addr = Register::Address<0x4002c000,0x00c000fe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> HALT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8)> SMPL_PT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> CLR_RXF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> CLR_TXF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DIS_RXF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> DIS_TXF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> MDIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> DOZE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16)> PCSIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> ROOE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> PCSSE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> MTFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> FRZ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28)> DCONF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> CONT_SCKE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> MSTR; 
+//Deserial Serial Peripheral Interface
+    namespace Spi0Mcr{    ///<DSPI Module Configuration Register
+        using Addr = Register::Address<0x4002c000,0x00c000fe,0,unsigned>;
+        ///Halt
+        enum class haltVal {
+            v0=0x00000000,     ///<Start transfers.
+            v1=0x00000001,     ///<Stop transfers.
+        };
+        namespace haltValC{
+            constexpr MPL::Value<haltVal,haltVal::v0> v0{};
+            constexpr MPL::Value<haltVal,haltVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,haltVal> halt{}; 
+        ///Sample Point
+        enum class smplPtVal {
+            v00=0x00000000,     ///<0 system clocks between SCK edge and SIN sample
+            v01=0x00000001,     ///<1 system clock between SCK edge and SIN sample
+            v10=0x00000002,     ///<2 system clocks between SCK edge and SIN sample
+            v11=0x00000003,     ///<Reserved
+        };
+        namespace smplPtValC{
+            constexpr MPL::Value<smplPtVal,smplPtVal::v00> v00{};
+            constexpr MPL::Value<smplPtVal,smplPtVal::v01> v01{};
+            constexpr MPL::Value<smplPtVal,smplPtVal::v10> v10{};
+            constexpr MPL::Value<smplPtVal,smplPtVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,smplPtVal> smplPt{}; 
+        ///no description available
+        enum class clrRxfVal {
+            v0=0x00000000,     ///<Do not clear the Rx FIFO counter.
+            v1=0x00000001,     ///<Clear the Rx FIFO counter.
+        };
+        namespace clrRxfValC{
+            constexpr MPL::Value<clrRxfVal,clrRxfVal::v0> v0{};
+            constexpr MPL::Value<clrRxfVal,clrRxfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,clrRxfVal> clrRxf{}; 
+        ///Clear TX FIFO
+        enum class clrTxfVal {
+            v0=0x00000000,     ///<Do not clear the Tx FIFO counter.
+            v1=0x00000001,     ///<Clear the Tx FIFO counter.
+        };
+        namespace clrTxfValC{
+            constexpr MPL::Value<clrTxfVal,clrTxfVal::v0> v0{};
+            constexpr MPL::Value<clrTxfVal,clrTxfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,clrTxfVal> clrTxf{}; 
+        ///Disable Receive FIFO
+        enum class disRxfVal {
+            v0=0x00000000,     ///<Rx FIFO is enabled.
+            v1=0x00000001,     ///<Rx FIFO is disabled.
+        };
+        namespace disRxfValC{
+            constexpr MPL::Value<disRxfVal,disRxfVal::v0> v0{};
+            constexpr MPL::Value<disRxfVal,disRxfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,disRxfVal> disRxf{}; 
+        ///Disable Transmit FIFO
+        enum class disTxfVal {
+            v0=0x00000000,     ///<Tx FIFO is enabled.
+            v1=0x00000001,     ///<Tx FIFO is disabled.
+        };
+        namespace disTxfValC{
+            constexpr MPL::Value<disTxfVal,disTxfVal::v0> v0{};
+            constexpr MPL::Value<disTxfVal,disTxfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,disTxfVal> disTxf{}; 
+        ///Module Disable
+        enum class mdisVal {
+            v0=0x00000000,     ///<Enable DSPI clocks.
+            v1=0x00000001,     ///<Allow external logic to disable DSPI clocks.
+        };
+        namespace mdisValC{
+            constexpr MPL::Value<mdisVal,mdisVal::v0> v0{};
+            constexpr MPL::Value<mdisVal,mdisVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,mdisVal> mdis{}; 
+        ///Doze Enable
+        enum class dozeVal {
+            v0=0x00000000,     ///<Doze mode has no effect on DSPI.
+            v1=0x00000001,     ///<Doze mode disables DSPI.
+        };
+        namespace dozeValC{
+            constexpr MPL::Value<dozeVal,dozeVal::v0> v0{};
+            constexpr MPL::Value<dozeVal,dozeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,dozeVal> doze{}; 
+        ///Peripheral Chip Select x Inactive State
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pcsis{}; 
+        ///Receive FIFO Overflow Overwrite Enable
+        enum class rooeVal {
+            v0=0x00000000,     ///<Incoming data is ignored.
+            v1=0x00000001,     ///<Incoming data is shifted into the shift register.
+        };
+        namespace rooeValC{
+            constexpr MPL::Value<rooeVal,rooeVal::v0> v0{};
+            constexpr MPL::Value<rooeVal,rooeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,rooeVal> rooe{}; 
+        ///Peripheral Chip Select Strobe Enable
+        enum class pcsseVal {
+            v0=0x00000000,     ///<PCS[5]/PCSS is used as the Peripheral Chip Select[5] signal.
+            v1=0x00000001,     ///<PCS[5]/PCSS is used as an active-low PCS Strobe signal.
+        };
+        namespace pcsseValC{
+            constexpr MPL::Value<pcsseVal,pcsseVal::v0> v0{};
+            constexpr MPL::Value<pcsseVal,pcsseVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,pcsseVal> pcsse{}; 
+        ///Modified Timing Format Enable
+        enum class mtfeVal {
+            v0=0x00000000,     ///<Modified SPI transfer format disabled.
+            v1=0x00000001,     ///<Modified SPI transfer format enabled.
+        };
+        namespace mtfeValC{
+            constexpr MPL::Value<mtfeVal,mtfeVal::v0> v0{};
+            constexpr MPL::Value<mtfeVal,mtfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,mtfeVal> mtfe{}; 
+        ///Freeze
+        enum class frzVal {
+            v0=0x00000000,     ///<Do not halt serial transfers in debug mode.
+            v1=0x00000001,     ///<Halt serial transfers in debug mode.
+        };
+        namespace frzValC{
+            constexpr MPL::Value<frzVal,frzVal::v0> v0{};
+            constexpr MPL::Value<frzVal,frzVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,frzVal> frz{}; 
+        ///DSPI Configuration
+        enum class dconfVal {
+            v00=0x00000000,     ///<SPI
+            v01=0x00000001,     ///<Reserved
+            v10=0x00000002,     ///<Reserved
+            v11=0x00000003,     ///<Reserved
+        };
+        namespace dconfValC{
+            constexpr MPL::Value<dconfVal,dconfVal::v00> v00{};
+            constexpr MPL::Value<dconfVal,dconfVal::v01> v01{};
+            constexpr MPL::Value<dconfVal,dconfVal::v10> v10{};
+            constexpr MPL::Value<dconfVal,dconfVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,dconfVal> dconf{}; 
+        ///Continuous SCK Enable
+        enum class contSckeVal {
+            v0=0x00000000,     ///<Continuous SCK disabled.
+            v1=0x00000001,     ///<Continuous SCK enabled.
+        };
+        namespace contSckeValC{
+            constexpr MPL::Value<contSckeVal,contSckeVal::v0> v0{};
+            constexpr MPL::Value<contSckeVal,contSckeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,contSckeVal> contScke{}; 
+        ///Master/Slave Mode Select
+        enum class mstrVal {
+            v0=0x00000000,     ///<DSPI is in slave mode.
+            v1=0x00000001,     ///<DSPI is in master mode.
+        };
+        namespace mstrValC{
+            constexpr MPL::Value<mstrVal,mstrVal::v0> v0{};
+            constexpr MPL::Value<mstrVal,mstrVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,mstrVal> mstr{}; 
     }
-    namespace SPI0_tcr{
-        using Addr = Register::Address<0x4002c008,0x0000ffff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> SPI_TCNT; 
+    namespace Spi0Tcr{    ///<DSPI Transfer Count Register
+        using Addr = Register::Address<0x4002c008,0x0000ffff,0,unsigned>;
+        ///SPI Transfer Counter
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> spiTcnt{}; 
     }
-    namespace SPI0_ctar_slave{
-        using Addr = Register::Address<0x4002c00c,0x01ffffff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> CPHA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> CPOL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,27)> FMSZ; 
+    namespace Spi0CtarSlave{    ///<DSPI Clock and Transfer Attributes Register (In Slave Mode)
+        using Addr = Register::Address<0x4002c00c,0x01ffffff,0,unsigned>;
+        ///Clock Phase
+        enum class cphaVal {
+            v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
+            v1=0x00000001,     ///<Data is changed on the leading edge of SCK and captured on the following edge.
+        };
+        namespace cphaValC{
+            constexpr MPL::Value<cphaVal,cphaVal::v0> v0{};
+            constexpr MPL::Value<cphaVal,cphaVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,cphaVal> cpha{}; 
+        ///Clock Polarity
+        enum class cpolVal {
+            v0=0x00000000,     ///<The inactive state value of SCK is low.
+            v1=0x00000001,     ///<The inactive state value of SCK is high.
+        };
+        namespace cpolValC{
+            constexpr MPL::Value<cpolVal,cpolVal::v0> v0{};
+            constexpr MPL::Value<cpolVal,cpolVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,cpolVal> cpol{}; 
+        ///Frame Size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
     }
-    namespace SPI0_ctar0{
-        using Addr = Register::Address<0x4002c00c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> BR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> DT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> ASC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> CSSCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> PBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> PDT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> PASC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22)> PCSSCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> LSBFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> CPHA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> CPOL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,27)> FMSZ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> DBR; 
+    namespace Spi0Ctar0{    ///<DSPI Clock and Transfer Attributes Register (In Master Mode)
+        using Addr = Register::Address<0x4002c00c,0x00000000,0,unsigned>;
+        ///Baud Rate Scaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
+        ///Delay After Transfer Scaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> dt{}; 
+        ///After SCK Delay Scaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> asc{}; 
+        ///PCS to SCK Delay Scaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> cssck{}; 
+        ///Baud Rate Prescaler
+        enum class pbrVal {
+            v00=0x00000000,     ///<Baud Rate Prescaler value is 2.
+            v01=0x00000001,     ///<Baud Rate Prescaler value is 3.
+            v10=0x00000002,     ///<Baud Rate Prescaler value is 5.
+            v11=0x00000003,     ///<Baud Rate Prescaler value is 7.
+        };
+        namespace pbrValC{
+            constexpr MPL::Value<pbrVal,pbrVal::v00> v00{};
+            constexpr MPL::Value<pbrVal,pbrVal::v01> v01{};
+            constexpr MPL::Value<pbrVal,pbrVal::v10> v10{};
+            constexpr MPL::Value<pbrVal,pbrVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,pbrVal> pbr{}; 
+        ///Delay after Transfer Prescaler
+        enum class pdtVal {
+            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
+            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
+            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
+            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
+        };
+        namespace pdtValC{
+            constexpr MPL::Value<pdtVal,pdtVal::v00> v00{};
+            constexpr MPL::Value<pdtVal,pdtVal::v01> v01{};
+            constexpr MPL::Value<pdtVal,pdtVal::v10> v10{};
+            constexpr MPL::Value<pdtVal,pdtVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,pdtVal> pdt{}; 
+        ///After SCK Delay Prescaler
+        enum class pascVal {
+            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
+            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
+            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
+            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
+        };
+        namespace pascValC{
+            constexpr MPL::Value<pascVal,pascVal::v00> v00{};
+            constexpr MPL::Value<pascVal,pascVal::v01> v01{};
+            constexpr MPL::Value<pascVal,pascVal::v10> v10{};
+            constexpr MPL::Value<pascVal,pascVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,pascVal> pasc{}; 
+        ///PCS to SCK Delay Prescaler
+        enum class pcssckVal {
+            v00=0x00000000,     ///<PCS to SCK Prescaler value is 1.
+            v01=0x00000001,     ///<PCS to SCK Prescaler value is 3.
+            v10=0x00000002,     ///<PCS to SCK Prescaler value is 5.
+            v11=0x00000003,     ///<PCS to SCK Prescaler value is 7.
+        };
+        namespace pcssckValC{
+            constexpr MPL::Value<pcssckVal,pcssckVal::v00> v00{};
+            constexpr MPL::Value<pcssckVal,pcssckVal::v01> v01{};
+            constexpr MPL::Value<pcssckVal,pcssckVal::v10> v10{};
+            constexpr MPL::Value<pcssckVal,pcssckVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,pcssckVal> pcssck{}; 
+        ///LSB First
+        enum class lsbfeVal {
+            v0=0x00000000,     ///<Data is transferred MSB first.
+            v1=0x00000001,     ///<Data is transferred LSB first.
+        };
+        namespace lsbfeValC{
+            constexpr MPL::Value<lsbfeVal,lsbfeVal::v0> v0{};
+            constexpr MPL::Value<lsbfeVal,lsbfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,lsbfeVal> lsbfe{}; 
+        ///Clock Phase
+        enum class cphaVal {
+            v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
+            v1=0x00000001,     ///<Data is changed on the leading edge of SCK and captured on the following edge.
+        };
+        namespace cphaValC{
+            constexpr MPL::Value<cphaVal,cphaVal::v0> v0{};
+            constexpr MPL::Value<cphaVal,cphaVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,cphaVal> cpha{}; 
+        ///Clock Polarity
+        enum class cpolVal {
+            v0=0x00000000,     ///<The inactive state value of SCK is low.
+            v1=0x00000001,     ///<The inactive state value of SCK is high.
+        };
+        namespace cpolValC{
+            constexpr MPL::Value<cpolVal,cpolVal::v0> v0{};
+            constexpr MPL::Value<cpolVal,cpolVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,cpolVal> cpol{}; 
+        ///Frame Size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
+        ///Double Baud Rate
+        enum class dbrVal {
+            v0=0x00000000,     ///<The baud rate is computed normally with a 50/50 duty cycle.
+            v1=0x00000001,     ///<The baud rate is doubled with the duty cycle depending on the Baud Rate Prescaler.
+        };
+        namespace dbrValC{
+            constexpr MPL::Value<dbrVal,dbrVal::v0> v0{};
+            constexpr MPL::Value<dbrVal,dbrVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,dbrVal> dbr{}; 
     }
-    namespace SPI0_ctar1{
-        using Addr = Register::Address<0x4002c010,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> BR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> DT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> ASC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> CSSCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16)> PBR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18)> PDT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20)> PASC; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22)> PCSSCK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> LSBFE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> CPHA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> CPOL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,27)> FMSZ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> DBR; 
+    namespace Spi0Ctar1{    ///<DSPI Clock and Transfer Attributes Register (In Master Mode)
+        using Addr = Register::Address<0x4002c010,0x00000000,0,unsigned>;
+        ///Baud Rate Scaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
+        ///Delay After Transfer Scaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> dt{}; 
+        ///After SCK Delay Scaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> asc{}; 
+        ///PCS to SCK Delay Scaler
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> cssck{}; 
+        ///Baud Rate Prescaler
+        enum class pbrVal {
+            v00=0x00000000,     ///<Baud Rate Prescaler value is 2.
+            v01=0x00000001,     ///<Baud Rate Prescaler value is 3.
+            v10=0x00000002,     ///<Baud Rate Prescaler value is 5.
+            v11=0x00000003,     ///<Baud Rate Prescaler value is 7.
+        };
+        namespace pbrValC{
+            constexpr MPL::Value<pbrVal,pbrVal::v00> v00{};
+            constexpr MPL::Value<pbrVal,pbrVal::v01> v01{};
+            constexpr MPL::Value<pbrVal,pbrVal::v10> v10{};
+            constexpr MPL::Value<pbrVal,pbrVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,pbrVal> pbr{}; 
+        ///Delay after Transfer Prescaler
+        enum class pdtVal {
+            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
+            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
+            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
+            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
+        };
+        namespace pdtValC{
+            constexpr MPL::Value<pdtVal,pdtVal::v00> v00{};
+            constexpr MPL::Value<pdtVal,pdtVal::v01> v01{};
+            constexpr MPL::Value<pdtVal,pdtVal::v10> v10{};
+            constexpr MPL::Value<pdtVal,pdtVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,pdtVal> pdt{}; 
+        ///After SCK Delay Prescaler
+        enum class pascVal {
+            v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
+            v01=0x00000001,     ///<Delay after Transfer Prescaler value is 3.
+            v10=0x00000002,     ///<Delay after Transfer Prescaler value is 5.
+            v11=0x00000003,     ///<Delay after Transfer Prescaler value is 7.
+        };
+        namespace pascValC{
+            constexpr MPL::Value<pascVal,pascVal::v00> v00{};
+            constexpr MPL::Value<pascVal,pascVal::v01> v01{};
+            constexpr MPL::Value<pascVal,pascVal::v10> v10{};
+            constexpr MPL::Value<pascVal,pascVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,pascVal> pasc{}; 
+        ///PCS to SCK Delay Prescaler
+        enum class pcssckVal {
+            v00=0x00000000,     ///<PCS to SCK Prescaler value is 1.
+            v01=0x00000001,     ///<PCS to SCK Prescaler value is 3.
+            v10=0x00000002,     ///<PCS to SCK Prescaler value is 5.
+            v11=0x00000003,     ///<PCS to SCK Prescaler value is 7.
+        };
+        namespace pcssckValC{
+            constexpr MPL::Value<pcssckVal,pcssckVal::v00> v00{};
+            constexpr MPL::Value<pcssckVal,pcssckVal::v01> v01{};
+            constexpr MPL::Value<pcssckVal,pcssckVal::v10> v10{};
+            constexpr MPL::Value<pcssckVal,pcssckVal::v11> v11{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,pcssckVal> pcssck{}; 
+        ///LSB First
+        enum class lsbfeVal {
+            v0=0x00000000,     ///<Data is transferred MSB first.
+            v1=0x00000001,     ///<Data is transferred LSB first.
+        };
+        namespace lsbfeValC{
+            constexpr MPL::Value<lsbfeVal,lsbfeVal::v0> v0{};
+            constexpr MPL::Value<lsbfeVal,lsbfeVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,lsbfeVal> lsbfe{}; 
+        ///Clock Phase
+        enum class cphaVal {
+            v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
+            v1=0x00000001,     ///<Data is changed on the leading edge of SCK and captured on the following edge.
+        };
+        namespace cphaValC{
+            constexpr MPL::Value<cphaVal,cphaVal::v0> v0{};
+            constexpr MPL::Value<cphaVal,cphaVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,cphaVal> cpha{}; 
+        ///Clock Polarity
+        enum class cpolVal {
+            v0=0x00000000,     ///<The inactive state value of SCK is low.
+            v1=0x00000001,     ///<The inactive state value of SCK is high.
+        };
+        namespace cpolValC{
+            constexpr MPL::Value<cpolVal,cpolVal::v0> v0{};
+            constexpr MPL::Value<cpolVal,cpolVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,cpolVal> cpol{}; 
+        ///Frame Size
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
+        ///Double Baud Rate
+        enum class dbrVal {
+            v0=0x00000000,     ///<The baud rate is computed normally with a 50/50 duty cycle.
+            v1=0x00000001,     ///<The baud rate is doubled with the duty cycle depending on the Baud Rate Prescaler.
+        };
+        namespace dbrValC{
+            constexpr MPL::Value<dbrVal,dbrVal::v0> v0{};
+            constexpr MPL::Value<dbrVal,dbrVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,dbrVal> dbr{}; 
     }
-    namespace SPI0_sr{
-        using Addr = Register::Address<0x4002c02c,0x25f50000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> POPNXTPTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> RXCTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> TXNXTPTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12)> TXCTR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> RFDF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> RFOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> TFFF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> TFUF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EOQF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30)> TXRXS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> TCF; 
+    namespace Spi0Sr{    ///<DSPI Status Register
+        using Addr = Register::Address<0x4002c02c,0x25f50000,0,unsigned>;
+        ///Pop Next Pointer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> popnxtptr{}; 
+        ///RX FIFO Counter
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rxctr{}; 
+        ///Transmit Next Pointer
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> txnxtptr{}; 
+        ///TX FIFO Counter
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> txctr{}; 
+        ///Receive FIFO Drain Flag
+        enum class rfdfVal {
+            v0=0x00000000,     ///<Rx FIFO is empty.
+            v1=0x00000001,     ///<Rx FIFO is not empty.
+        };
+        namespace rfdfValC{
+            constexpr MPL::Value<rfdfVal,rfdfVal::v0> v0{};
+            constexpr MPL::Value<rfdfVal,rfdfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,rfdfVal> rfdf{}; 
+        ///Receive FIFO Overflow Flag
+        enum class rfofVal {
+            v0=0x00000000,     ///<No Rx FIFO overflow.
+            v1=0x00000001,     ///<Rx FIFO overflow has occurred.
+        };
+        namespace rfofValC{
+            constexpr MPL::Value<rfofVal,rfofVal::v0> v0{};
+            constexpr MPL::Value<rfofVal,rfofVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,rfofVal> rfof{}; 
+        ///Transmit FIFO Fill Flag
+        enum class tfffVal {
+            v0=0x00000000,     ///<Tx FIFO is full.
+            v1=0x00000001,     ///<Tx FIFO is not full.
+        };
+        namespace tfffValC{
+            constexpr MPL::Value<tfffVal,tfffVal::v0> v0{};
+            constexpr MPL::Value<tfffVal,tfffVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,tfffVal> tfff{}; 
+        ///Transmit FIFO Underflow Flag
+        enum class tfufVal {
+            v0=0x00000000,     ///<No Tx FIFO underflow.
+            v1=0x00000001,     ///<Tx FIFO underflow has occurred.
+        };
+        namespace tfufValC{
+            constexpr MPL::Value<tfufVal,tfufVal::v0> v0{};
+            constexpr MPL::Value<tfufVal,tfufVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,tfufVal> tfuf{}; 
+        ///End of Queue Flag
+        enum class eoqfVal {
+            v0=0x00000000,     ///<EOQ is not set in the executing command.
+            v1=0x00000001,     ///<EOQ is set in the executing SPI command.
+        };
+        namespace eoqfValC{
+            constexpr MPL::Value<eoqfVal,eoqfVal::v0> v0{};
+            constexpr MPL::Value<eoqfVal,eoqfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,eoqfVal> eoqf{}; 
+        ///TX and RX Status
+        enum class txrxsVal {
+            v0=0x00000000,     ///<Transmit and receive operations are disabled (DSPI is in stopped state).
+            v1=0x00000001,     ///<Transmit and receive operations are enabled (DSPI is in running state).
+        };
+        namespace txrxsValC{
+            constexpr MPL::Value<txrxsVal,txrxsVal::v0> v0{};
+            constexpr MPL::Value<txrxsVal,txrxsVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,txrxsVal> txrxs{}; 
+        ///Transfer Complete Flag
+        enum class tcfVal {
+            v0=0x00000000,     ///<Transfer not complete.
+            v1=0x00000001,     ///<Transfer complete.
+        };
+        namespace tcfValC{
+            constexpr MPL::Value<tcfVal,tcfVal::v0> v0{};
+            constexpr MPL::Value<tcfVal,tcfVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,tcfVal> tcf{}; 
     }
-    namespace SPI0_rser{
-        using Addr = Register::Address<0x4002c030,0x64f4ffff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16)> RFDF_DIRS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17)> RFDF_RE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19)> RFOF_RE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24)> TFFF_DIRS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25)> TFFF_RE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> TFUF_RE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28)> EOQF_RE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> TCF_RE; 
+    namespace Spi0Rser{    ///<DSPI DMA/Interrupt Request Select and Enable Register
+        using Addr = Register::Address<0x4002c030,0x64f4ffff,0,unsigned>;
+        ///Receive FIFO Drain DMA or Interrupt Request Select.
+        enum class rfdfDirsVal {
+            v0=0x00000000,     ///<Interrupt request.
+            v1=0x00000001,     ///<DMA request.
+        };
+        namespace rfdfDirsValC{
+            constexpr MPL::Value<rfdfDirsVal,rfdfDirsVal::v0> v0{};
+            constexpr MPL::Value<rfdfDirsVal,rfdfDirsVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,rfdfDirsVal> rfdfDirs{}; 
+        ///Receive FIFO Drain Request Enable
+        enum class rfdfReVal {
+            v0=0x00000000,     ///<RFDF interrupt or DMA requests are disabled
+            v1=0x00000001,     ///<RFDF interrupt or DMA requests are enabled
+        };
+        namespace rfdfReValC{
+            constexpr MPL::Value<rfdfReVal,rfdfReVal::v0> v0{};
+            constexpr MPL::Value<rfdfReVal,rfdfReVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,rfdfReVal> rfdfRe{}; 
+        ///Receive FIFO Overflow Request Enable
+        enum class rfofReVal {
+            v0=0x00000000,     ///<RFOF interrupt requests are disabled.
+            v1=0x00000001,     ///<RFOF interrupt requests are enabled.
+        };
+        namespace rfofReValC{
+            constexpr MPL::Value<rfofReVal,rfofReVal::v0> v0{};
+            constexpr MPL::Value<rfofReVal,rfofReVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,rfofReVal> rfofRe{}; 
+        ///Transmit FIFO Fill DMA or Interrupt Request Select
+        enum class tfffDirsVal {
+            v0=0x00000000,     ///<TFFF flag generates interrupt requests.
+            v1=0x00000001,     ///<TFFF flag generates DMA requests.
+        };
+        namespace tfffDirsValC{
+            constexpr MPL::Value<tfffDirsVal,tfffDirsVal::v0> v0{};
+            constexpr MPL::Value<tfffDirsVal,tfffDirsVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tfffDirsVal> tfffDirs{}; 
+        ///Transmit FIFO Fill Request Enable
+        enum class tfffReVal {
+            v0=0x00000000,     ///<TFFF interrupts or DMA requests are disabled.
+            v1=0x00000001,     ///<TFFF interrupts or DMA requests are enabled.
+        };
+        namespace tfffReValC{
+            constexpr MPL::Value<tfffReVal,tfffReVal::v0> v0{};
+            constexpr MPL::Value<tfffReVal,tfffReVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,tfffReVal> tfffRe{}; 
+        ///Transmit FIFO Underflow Request Enable
+        enum class tfufReVal {
+            v0=0x00000000,     ///<TFUF interrupt requests are disabled.
+            v1=0x00000001,     ///<TFUF interrupt requests are enabled.
+        };
+        namespace tfufReValC{
+            constexpr MPL::Value<tfufReVal,tfufReVal::v0> v0{};
+            constexpr MPL::Value<tfufReVal,tfufReVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,tfufReVal> tfufRe{}; 
+        ///DSPI Finished Request Enable
+        enum class eoqfReVal {
+            v0=0x00000000,     ///<EOQF interrupt requests are disabled.
+            v1=0x00000001,     ///<EOQF interrupt requests are enabled.
+        };
+        namespace eoqfReValC{
+            constexpr MPL::Value<eoqfReVal,eoqfReVal::v0> v0{};
+            constexpr MPL::Value<eoqfReVal,eoqfReVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,eoqfReVal> eoqfRe{}; 
+        ///Transmission Complete Request Enable
+        enum class tcfReVal {
+            v0=0x00000000,     ///<TCF interrupt requests are disabled.
+            v1=0x00000001,     ///<TCF interrupt requests are enabled.
+        };
+        namespace tcfReValC{
+            constexpr MPL::Value<tcfReVal,tcfReVal::v0> v0{};
+            constexpr MPL::Value<tcfReVal,tcfReVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,tcfReVal> tcfRe{}; 
     }
-    namespace SPI0_pushr{
-        using Addr = Register::Address<0x4002c034,0x03c00000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXDATA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16)> PCS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26)> CTCNT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27)> EOQ; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,28)> CTAS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31)> CONT; 
+    namespace Spi0Pushr{    ///<DSPI PUSH TX FIFO Register In Master Mode
+        using Addr = Register::Address<0x4002c034,0x03c00000,0,unsigned>;
+        ///Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pcs{}; 
+        ///Clear Transfer Counter.
+        enum class ctcntVal {
+            v0=0x00000000,     ///<Do not clear the TCR[SPI_TCNT] field.
+            v1=0x00000001,     ///<Clear the TCR[SPI_TCNT] field.
+        };
+        namespace ctcntValC{
+            constexpr MPL::Value<ctcntVal,ctcntVal::v0> v0{};
+            constexpr MPL::Value<ctcntVal,ctcntVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ctcntVal> ctcnt{}; 
+        ///End Of Queue
+        enum class eoqVal {
+            v0=0x00000000,     ///<The SPI data is not the last data to transfer.
+            v1=0x00000001,     ///<The SPI data is the last data to transfer.
+        };
+        namespace eoqValC{
+            constexpr MPL::Value<eoqVal,eoqVal::v0> v0{};
+            constexpr MPL::Value<eoqVal,eoqVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,eoqVal> eoq{}; 
+        ///Clock and Transfer Attributes Select.
+        enum class ctasVal {
+            v000=0x00000000,     ///<CTAR0
+            v001=0x00000001,     ///<CTAR1
+            v010=0x00000002,     ///<Reserved
+            v011=0x00000003,     ///<Reserved
+            v100=0x00000004,     ///<Reserved
+            v101=0x00000005,     ///<Reserved
+            v110=0x00000006,     ///<Reserved
+            v111=0x00000007,     ///<Reserved
+        };
+        namespace ctasValC{
+            constexpr MPL::Value<ctasVal,ctasVal::v000> v000{};
+            constexpr MPL::Value<ctasVal,ctasVal::v001> v001{};
+            constexpr MPL::Value<ctasVal,ctasVal::v010> v010{};
+            constexpr MPL::Value<ctasVal,ctasVal::v011> v011{};
+            constexpr MPL::Value<ctasVal,ctasVal::v100> v100{};
+            constexpr MPL::Value<ctasVal,ctasVal::v101> v101{};
+            constexpr MPL::Value<ctasVal,ctasVal::v110> v110{};
+            constexpr MPL::Value<ctasVal,ctasVal::v111> v111{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,ctasVal> ctas{}; 
+        ///Continuous Peripheral Chip Select Enable
+        enum class contVal {
+            v0=0x00000000,     ///<Return PCSn signals to their inactive state between transfers.
+            v1=0x00000001,     ///<Keep PCSn signals asserted between transfers.
+        };
+        namespace contValC{
+            constexpr MPL::Value<contVal,contVal::v0> v0{};
+            constexpr MPL::Value<contVal,contVal::v1> v1{};
+        }
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,contVal> cont{}; 
     }
-    namespace SPI0_pushr_slave{
-        using Addr = Register::Address<0x4002c034,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXDATA; 
+    namespace Spi0PushrSlave{    ///<DSPI PUSH TX FIFO Register In Slave Mode
+        using Addr = Register::Address<0x4002c034,0xffff0000,0,unsigned>;
+        ///Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
     }
-    namespace SPI0_popr{
-        using Addr = Register::Address<0x4002c038,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXDATA; 
+    namespace Spi0Popr{    ///<DSPI POP RX FIFO Register
+        using Addr = Register::Address<0x4002c038,0x00000000,0,unsigned>;
+        ///Received Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
     }
-    namespace SPI0_txfr0{
-        using Addr = Register::Address<0x4002c03c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXDATA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> TXCMD_TXDATA; 
+    namespace Spi0Txfr0{    ///<DSPI Transmit FIFO Registers
+        using Addr = Register::Address<0x4002c03c,0x00000000,0,unsigned>;
+        ///Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        ///Transmit Command or Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
     }
-    namespace SPI0_txfr1{
-        using Addr = Register::Address<0x4002c040,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXDATA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> TXCMD_TXDATA; 
+    namespace Spi0Txfr1{    ///<DSPI Transmit FIFO Registers
+        using Addr = Register::Address<0x4002c040,0x00000000,0,unsigned>;
+        ///Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        ///Transmit Command or Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
     }
-    namespace SPI0_txfr2{
-        using Addr = Register::Address<0x4002c044,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXDATA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> TXCMD_TXDATA; 
+    namespace Spi0Txfr2{    ///<DSPI Transmit FIFO Registers
+        using Addr = Register::Address<0x4002c044,0x00000000,0,unsigned>;
+        ///Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        ///Transmit Command or Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
     }
-    namespace SPI0_txfr3{
-        using Addr = Register::Address<0x4002c048,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> TXDATA; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16)> TXCMD_TXDATA; 
+    namespace Spi0Txfr3{    ///<DSPI Transmit FIFO Registers
+        using Addr = Register::Address<0x4002c048,0x00000000,0,unsigned>;
+        ///Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        ///Transmit Command or Transmit Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
     }
-    namespace SPI0_rxfr0{
-        using Addr = Register::Address<0x4002c07c,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXDATA; 
+    namespace Spi0Rxfr0{    ///<DSPI Receive FIFO Registers
+        using Addr = Register::Address<0x4002c07c,0x00000000,0,unsigned>;
+        ///Receive Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
     }
-    namespace SPI0_rxfr1{
-        using Addr = Register::Address<0x4002c080,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXDATA; 
+    namespace Spi0Rxfr1{    ///<DSPI Receive FIFO Registers
+        using Addr = Register::Address<0x4002c080,0x00000000,0,unsigned>;
+        ///Receive Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
     }
-    namespace SPI0_rxfr2{
-        using Addr = Register::Address<0x4002c084,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXDATA; 
+    namespace Spi0Rxfr2{    ///<DSPI Receive FIFO Registers
+        using Addr = Register::Address<0x4002c084,0x00000000,0,unsigned>;
+        ///Receive Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
     }
-    namespace SPI0_rxfr3{
-        using Addr = Register::Address<0x4002c088,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RXDATA; 
+    namespace Spi0Rxfr3{    ///<DSPI Receive FIFO Registers
+        using Addr = Register::Address<0x4002c088,0x00000000,0,unsigned>;
+        ///Receive Data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
     }
 }

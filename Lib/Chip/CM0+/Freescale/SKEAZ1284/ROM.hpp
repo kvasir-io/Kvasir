@@ -1,64 +1,80 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace ROM_entry{
-        using Addr = Register::Address<0xf0002000,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> ENTRY; 
+//System ROM
+    namespace RomEntry{    ///<Entry
+        using Addr = Register::Address<0xf0002000,0x00000000,0,unsigned>;
+        ///ENTRY
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> entry{}; 
     }
-    namespace ROM_tablemark{
-        using Addr = Register::Address<0xf0002004,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> MARK; 
+    namespace RomTablemark{    ///<End of Table Marker Register
+        using Addr = Register::Address<0xf0002004,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mark{}; 
     }
-    namespace ROM_sysaccess{
-        using Addr = Register::Address<0xf0002fcc,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> SYSACCESS; 
+    namespace RomSysaccess{    ///<System Access Register
+        using Addr = Register::Address<0xf0002fcc,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sysaccess{}; 
     }
-    namespace ROM_periphid4{
-        using Addr = Register::Address<0xf0002fd0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PERIPHID; 
+    namespace RomPeriphid4{    ///<Peripheral ID Register
+        using Addr = Register::Address<0xf0002fd0,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> periphid{}; 
     }
-    namespace ROM_periphid5{
-        using Addr = Register::Address<0xf0002fd4,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PERIPHID; 
+    namespace RomPeriphid5{    ///<Peripheral ID Register
+        using Addr = Register::Address<0xf0002fd4,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> periphid{}; 
     }
-    namespace ROM_periphid6{
-        using Addr = Register::Address<0xf0002fd8,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PERIPHID; 
+    namespace RomPeriphid6{    ///<Peripheral ID Register
+        using Addr = Register::Address<0xf0002fd8,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> periphid{}; 
     }
-    namespace ROM_periphid7{
-        using Addr = Register::Address<0xf0002fdc,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PERIPHID; 
+    namespace RomPeriphid7{    ///<Peripheral ID Register
+        using Addr = Register::Address<0xf0002fdc,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> periphid{}; 
     }
-    namespace ROM_periphid0{
-        using Addr = Register::Address<0xf0002fe0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PERIPHID; 
+    namespace RomPeriphid0{    ///<Peripheral ID Register
+        using Addr = Register::Address<0xf0002fe0,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> periphid{}; 
     }
-    namespace ROM_periphid1{
-        using Addr = Register::Address<0xf0002fe4,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PERIPHID; 
+    namespace RomPeriphid1{    ///<Peripheral ID Register
+        using Addr = Register::Address<0xf0002fe4,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> periphid{}; 
     }
-    namespace ROM_periphid2{
-        using Addr = Register::Address<0xf0002fe8,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PERIPHID; 
+    namespace RomPeriphid2{    ///<Peripheral ID Register
+        using Addr = Register::Address<0xf0002fe8,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> periphid{}; 
     }
-    namespace ROM_periphid3{
-        using Addr = Register::Address<0xf0002fec,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> PERIPHID; 
+    namespace RomPeriphid3{    ///<Peripheral ID Register
+        using Addr = Register::Address<0xf0002fec,0x00000000,0,unsigned>;
+        ///no description available
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> periphid{}; 
     }
-    namespace ROM_compid0{
-        using Addr = Register::Address<0xf0002ff0,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> COMPID; 
+    namespace RomCompid0{    ///<Component ID Register
+        using Addr = Register::Address<0xf0002ff0,0x00000000,0,unsigned>;
+        ///Component ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> compid{}; 
     }
-    namespace ROM_compid1{
-        using Addr = Register::Address<0xf0002ff4,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> COMPID; 
+    namespace RomCompid1{    ///<Component ID Register
+        using Addr = Register::Address<0xf0002ff4,0x00000000,0,unsigned>;
+        ///Component ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> compid{}; 
     }
-    namespace ROM_compid2{
-        using Addr = Register::Address<0xf0002ff8,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> COMPID; 
+    namespace RomCompid2{    ///<Component ID Register
+        using Addr = Register::Address<0xf0002ff8,0x00000000,0,unsigned>;
+        ///Component ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> compid{}; 
     }
-    namespace ROM_compid3{
-        using Addr = Register::Address<0xf0002ffc,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> COMPID; 
+    namespace RomCompid3{    ///<Component ID Register
+        using Addr = Register::Address<0xf0002ffc,0x00000000,0,unsigned>;
+        ///Component ID
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> compid{}; 
     }
 }

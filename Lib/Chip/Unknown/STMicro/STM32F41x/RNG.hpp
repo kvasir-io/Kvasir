@@ -1,21 +1,33 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonecr{
-        using Addr = Register::Address<0x50060800,0xfffffff3>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> IE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> RNGEN; 
+//Random number generator
+    namespace Nonecr{    ///<control register
+        using Addr = Register::Address<0x50060800,0xfffffff3,0,unsigned>;
+        ///Interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ie{}; 
+        ///Random number generator
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rngen{}; 
     }
-    namespace Nonesr{
-        using Addr = Register::Address<0x50060804,0xffffff98>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> SEIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> CEIS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> SECS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> CECS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> DRDY; 
+    namespace Nonesr{    ///<status register
+        using Addr = Register::Address<0x50060804,0xffffff98,0,unsigned>;
+        ///Seed error interrupt
+              status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> seis{}; 
+        ///Clock error interrupt
+              status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ceis{}; 
+        ///Seed error current status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> secs{}; 
+        ///Clock error current status
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cecs{}; 
+        ///Data ready
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> drdy{}; 
     }
-    namespace Nonedr{
-        using Addr = Register::Address<0x50060808,0x00000000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0)> RNDATA; 
+    namespace Nonedr{    ///<data register
+        using Addr = Register::Address<0x50060808,0x00000000,0,unsigned>;
+        ///Random data
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rndata{}; 
     }
 }

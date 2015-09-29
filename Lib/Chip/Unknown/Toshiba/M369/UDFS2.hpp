@@ -1,299 +1,460 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Noneadr{
-        using Addr = Register::Address<0x40008200,0xffff0080>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> DEV_ADR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DEFAULT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> ADDRESSED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> CONFIGURED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> SUSPEND; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> CUR_SPEED; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> EP_BI_MODE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> STAGE_ERR; 
+//UDC2(USB -Spec2.0 Device contoller)
+    namespace Noneadr{    ///<UDC2 Address State
+        using Addr = Register::Address<0x40008200,0xffff0080,0,unsigned>;
+        ///DEV_ADR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> devAdr{}; 
+        ///DEFAULT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> default_{}; 
+        ///ADDRESSED
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> addressed{}; 
+        ///CONFIGURED
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> configured{}; 
+        ///SUSPEND
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> suspend{}; 
+        ///CUR_SPEED
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> curSpeed{}; 
+        ///EP_BI_MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> epBiMode{}; 
+        ///STAGE_ERR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> stageErr{}; 
     }
-    namespace Nonefrm{
-        using Addr = Register::Address<0x40008204,0xffff4800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> FRAME; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> F_STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> CREATE_SOF; 
+    namespace Nonefrm{    ///<UDC2 Frame
+        using Addr = Register::Address<0x40008204,0xffff4800,0,unsigned>;
+        ///FRAME
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> frame{}; 
+        ///F_STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> fStatus{}; 
+        ///CREATE_SOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> createSof{}; 
     }
-    namespace Nonecmd{
-        using Addr = Register::Address<0x4000820c,0xffff7000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0)> COM; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4)> EP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8)> RX_NULLPKT_EP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> INT_TOGGLE; 
+    namespace Nonecmd{    ///<UDC2 Command
+        using Addr = Register::Address<0x4000820c,0xffff7000,0,unsigned>;
+        ///COM
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> com{}; 
+        ///EP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> ep{}; 
+        ///RX_NULLPKT_EP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> rxNullpktEp{}; 
+        ///INT_TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> intToggle{}; 
     }
-    namespace Nonebrq{
-        using Addr = Register::Address<0x40008210,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0)> RECIPIENT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,5)> REQ_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8)> REQUESET; 
+    namespace Nonebrq{    ///<UDC2 bRequest-bmRequest Type
+        using Addr = Register::Address<0x40008210,0xffff0000,0,unsigned>;
+        ///RECIPIENT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> recipient{}; 
+        ///REQ_TYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> reqType{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///REQUESET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> requeset{}; 
     }
-    namespace Nonewvl{
-        using Addr = Register::Address<0x40008214,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> VALUE; 
+    namespace Nonewvl{    ///<UDC2 wValue
+        using Addr = Register::Address<0x40008214,0xffff0000,0,unsigned>;
+        ///VALUE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> value{}; 
     }
-    namespace Nonewidx{
-        using Addr = Register::Address<0x40008218,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> INDEX; 
+    namespace Nonewidx{    ///<UDC2 wIndex
+        using Addr = Register::Address<0x40008218,0xffff0000,0,unsigned>;
+        ///INDEX
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> index{}; 
     }
-    namespace Nonewlgth{
-        using Addr = Register::Address<0x4000821c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> LENGTH; 
+    namespace Nonewlgth{    ///<UDC2 wLength
+        using Addr = Register::Address<0x4000821c,0xffff0000,0,unsigned>;
+        ///LENGTH
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> length{}; 
     }
-    namespace Noneint{
-        using Addr = Register::Address<0x40008220,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> I_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> I_STATUS_NAK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> I_STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> I_RX_DATA0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> I_SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I_EP0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> I_EP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> I_NAK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> M_SETUP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9)> M_STATUS_NAK; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10)> M_STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11)> M_RX_DATA0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> M_SOF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13)> M_EP0; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> M_EP; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> M_NAK; 
+    namespace Noneint{    ///<UDC2 INT
+        using Addr = Register::Address<0x40008220,0xffff0000,0,unsigned>;
+        ///I_SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> iSetup{}; 
+        ///I_STATUS_NAK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> iStatusNak{}; 
+        ///I_STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> iStatus{}; 
+        ///I_RX_DATA0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> iRxData0{}; 
+        ///I_SOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> iSof{}; 
+        ///I_EP0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> iEp0{}; 
+        ///I_EP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> iEp{}; 
+        ///I_NAK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> iNak{}; 
+        ///M_SETUP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mSetup{}; 
+        ///M_STATUS_NAK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> mStatusNak{}; 
+        ///M_STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> mStatus{}; 
+        ///M_RX_DATA0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> mRxData0{}; 
+        ///M_SOF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> mSof{}; 
+        ///M_EP0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> mEp0{}; 
+        ///M_EP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> mEp{}; 
+        ///M_NAK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> mNak{}; 
     }
-    namespace Noneintep{
-        using Addr = Register::Address<0x40008224,0xffffff01>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> I_EP1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> I_EP2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> I_EP3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> I_EP4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I_EP5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> I_EP6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> I_EP7; 
+    namespace Noneintep{    ///<UDC2 INT_EP
+        using Addr = Register::Address<0x40008224,0xffffff01,0,unsigned>;
+        ///I_EP1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> iEp1{}; 
+        ///I_EP2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> iEp2{}; 
+        ///I_EP3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> iEp3{}; 
+        ///I_EP4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> iEp4{}; 
+        ///I_EP5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> iEp5{}; 
+        ///I_EP6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> iEp6{}; 
+        ///I_EP7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> iEp7{}; 
     }
-    namespace Noneintepmsk{
-        using Addr = Register::Address<0x40008228,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> M_EP; 
+    namespace Noneintepmsk{    ///<UDC2 INT_EP_MASK
+        using Addr = Register::Address<0x40008228,0xffffff00,0,unsigned>;
+        ///M_EP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> mEp{}; 
     }
-    namespace Noneintrx0{
-        using Addr = Register::Address<0x4000822c,0xffffff00>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0)> RX_D0_EP; 
+    namespace Noneintrx0{    ///<UDC2 INT RX DATA0
+        using Addr = Register::Address<0x4000822c,0xffffff00,0,unsigned>;
+        ///RX_D0_EP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxD0Ep{}; 
     }
-    namespace Noneep0msz{
-        using Addr = Register::Address<0x40008230,0xffff6f80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> MAX_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DSET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TX_0DATA; 
+    namespace Noneep0msz{    ///<UDC2 EP0 Max Packet Size
+        using Addr = Register::Address<0x40008230,0xffff6f80,0,unsigned>;
+        ///MAX_PKT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> maxPkt{}; 
+        ///DSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dset{}; 
+        ///TX_0DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tx0data{}; 
     }
-    namespace Noneep0sts{
-        using Addr = Register::Address<0x40008234,0xffff41ff>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TOGGLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> EP0_MASK; 
+    namespace Noneep0sts{    ///<UDC2 EP0 Status
+        using Addr = Register::Address<0x40008234,0xffff41ff,0,unsigned>;
+        ///STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> status{}; 
+        ///TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> toggle{}; 
+        ///EP0_MASK
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ep0Mask{}; 
     }
-    namespace Noneep0dsz{
-        using Addr = Register::Address<0x40008238,0xffffff80>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0)> SIZE; 
+    namespace Noneep0dsz{    ///<UDC2 EP0 Data Size
+        using Addr = Register::Address<0x40008238,0xffffff80,0,unsigned>;
+        ///SIZE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> size{}; 
     }
-    namespace Noneep0fifo{
-        using Addr = Register::Address<0x4000823c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Noneep0fifo{    ///<UDC2 EP0 FIFO
+        using Addr = Register::Address<0x4000823c,0xffff0000,0,unsigned>;
+        ///DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneep1msz{
-        using Addr = Register::Address<0x40008240,0xffff6800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> MAX_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DSET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TX_0DATA; 
+    namespace Noneep1msz{    ///<UDC2 EP1 Max Packet Size
+        using Addr = Register::Address<0x40008240,0xffff6800,0,unsigned>;
+        ///MAX_PKT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> maxPkt{}; 
+        ///DSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dset{}; 
+        ///TX_0DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tx0data{}; 
     }
-    namespace Noneep1sts{
-        using Addr = Register::Address<0x40008244,0xffff0070>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> NUM_MF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> T_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DISABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TOGGLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BUS_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> PKT_MODE; 
+    namespace Noneep1sts{    ///<UDC2 EP1 Status
+        using Addr = Register::Address<0x40008244,0xffff0070,0,unsigned>;
+        ///NUM_MF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> numMf{}; 
+        ///T_TYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tType{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///DISABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> disable{}; 
+        ///STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> status{}; 
+        ///TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> toggle{}; 
+        ///BUS_SEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> busSel{}; 
+        ///PKT_MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pktMode{}; 
     }
-    namespace Noneep1dsz{
-        using Addr = Register::Address<0x40008248,0xfffff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> SIZE; 
+    namespace Noneep1dsz{    ///<UDC2 EP1 Data Size
+        using Addr = Register::Address<0x40008248,0xfffff800,0,unsigned>;
+        ///SIZE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> size{}; 
     }
-    namespace Noneep1fifo{
-        using Addr = Register::Address<0x4000824c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Noneep1fifo{    ///<UDC2 EP1 FIFO
+        using Addr = Register::Address<0x4000824c,0xffff0000,0,unsigned>;
+        ///DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneep2msz{
-        using Addr = Register::Address<0x40008250,0xffff6800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> MAX_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DSET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TX_0DATA; 
+    namespace Noneep2msz{    ///<UDC2 EP2 Max Packet Size
+        using Addr = Register::Address<0x40008250,0xffff6800,0,unsigned>;
+        ///MAX_PKT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> maxPkt{}; 
+        ///DSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dset{}; 
+        ///TX_0DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tx0data{}; 
     }
-    namespace Noneep2sts{
-        using Addr = Register::Address<0x40008254,0xffff0070>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> NUM_MF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> T_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DISABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TOGGLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BUS_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> PKT_MODE; 
+    namespace Noneep2sts{    ///<UDC2 EP2 Status
+        using Addr = Register::Address<0x40008254,0xffff0070,0,unsigned>;
+        ///NUM_MF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> numMf{}; 
+        ///T_TYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tType{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///DISABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> disable{}; 
+        ///STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> status{}; 
+        ///TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> toggle{}; 
+        ///BUS_SEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> busSel{}; 
+        ///PKT_MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pktMode{}; 
     }
-    namespace Noneep2dsz{
-        using Addr = Register::Address<0x40008258,0xfffff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> SIZE; 
+    namespace Noneep2dsz{    ///<UDC2 EP2 Data Size
+        using Addr = Register::Address<0x40008258,0xfffff800,0,unsigned>;
+        ///SIZE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> size{}; 
     }
-    namespace Noneep2fifo{
-        using Addr = Register::Address<0x4000825c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Noneep2fifo{    ///<UDC2 EP2 FIFO
+        using Addr = Register::Address<0x4000825c,0xffff0000,0,unsigned>;
+        ///DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneep3msz{
-        using Addr = Register::Address<0x40008260,0xffff6800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> MAX_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DSET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TX_0DATA; 
+    namespace Noneep3msz{    ///<UDC3 EP3 Max Packet Size
+        using Addr = Register::Address<0x40008260,0xffff6800,0,unsigned>;
+        ///MAX_PKT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> maxPkt{}; 
+        ///DSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dset{}; 
+        ///TX_0DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tx0data{}; 
     }
-    namespace Noneep3sts{
-        using Addr = Register::Address<0x40008264,0xffff0070>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> NUM_MF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> T_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DISABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TOGGLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BUS_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> PKT_MODE; 
+    namespace Noneep3sts{    ///<UDC3 EP3 Status
+        using Addr = Register::Address<0x40008264,0xffff0070,0,unsigned>;
+        ///NUM_MF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> numMf{}; 
+        ///T_TYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tType{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///DISABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> disable{}; 
+        ///STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> status{}; 
+        ///TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> toggle{}; 
+        ///BUS_SEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> busSel{}; 
+        ///PKT_MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pktMode{}; 
     }
-    namespace Noneep3dsz{
-        using Addr = Register::Address<0x40008268,0xfffff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> SIZE; 
+    namespace Noneep3dsz{    ///<UDC3 EP3 Data Size
+        using Addr = Register::Address<0x40008268,0xfffff800,0,unsigned>;
+        ///SIZE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> size{}; 
     }
-    namespace Noneep3fifo{
-        using Addr = Register::Address<0x4000826c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Noneep3fifo{    ///<UDC3 EP3 FIFO
+        using Addr = Register::Address<0x4000826c,0xffff0000,0,unsigned>;
+        ///DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneep4msz{
-        using Addr = Register::Address<0x40008270,0xffff6800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> MAX_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DSET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TX_0DATA; 
+    namespace Noneep4msz{    ///<UDC2 EP4 Max Packet Size
+        using Addr = Register::Address<0x40008270,0xffff6800,0,unsigned>;
+        ///MAX_PKT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> maxPkt{}; 
+        ///DSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dset{}; 
+        ///TX_0DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tx0data{}; 
     }
-    namespace Noneep4sts{
-        using Addr = Register::Address<0x40008274,0xffff0070>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> NUM_MF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> T_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DISABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TOGGLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BUS_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> PKT_MODE; 
+    namespace Noneep4sts{    ///<UDC2 EP4 Status
+        using Addr = Register::Address<0x40008274,0xffff0070,0,unsigned>;
+        ///NUM_MF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> numMf{}; 
+        ///T_TYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tType{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///DISABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> disable{}; 
+        ///STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> status{}; 
+        ///TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> toggle{}; 
+        ///BUS_SEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> busSel{}; 
+        ///PKT_MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pktMode{}; 
     }
-    namespace Noneep4dsz{
-        using Addr = Register::Address<0x40008278,0xfffff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> SIZE; 
+    namespace Noneep4dsz{    ///<UDC2 EP4 Data Size
+        using Addr = Register::Address<0x40008278,0xfffff800,0,unsigned>;
+        ///SIZE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> size{}; 
     }
-    namespace Noneep4fifo{
-        using Addr = Register::Address<0x4000827c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Noneep4fifo{    ///<UDC2 EP4 FIFO
+        using Addr = Register::Address<0x4000827c,0xffff0000,0,unsigned>;
+        ///DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneep5msz{
-        using Addr = Register::Address<0x40008280,0xffff6800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> MAX_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DSET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TX_0DATA; 
+    namespace Noneep5msz{    ///<UDC2 EP5 Max Packet Size
+        using Addr = Register::Address<0x40008280,0xffff6800,0,unsigned>;
+        ///MAX_PKT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> maxPkt{}; 
+        ///DSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dset{}; 
+        ///TX_0DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tx0data{}; 
     }
-    namespace Noneep5sts{
-        using Addr = Register::Address<0x40008284,0xffff0070>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> NUM_MF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> T_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DISABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TOGGLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BUS_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> PKT_MODE; 
+    namespace Noneep5sts{    ///<UDC2 EP5 Status
+        using Addr = Register::Address<0x40008284,0xffff0070,0,unsigned>;
+        ///NUM_MF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> numMf{}; 
+        ///T_TYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tType{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///DISABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> disable{}; 
+        ///STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> status{}; 
+        ///TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> toggle{}; 
+        ///BUS_SEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> busSel{}; 
+        ///PKT_MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pktMode{}; 
     }
-    namespace Noneep5dsz{
-        using Addr = Register::Address<0x40008288,0xfffff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> SIZE; 
+    namespace Noneep5dsz{    ///<UDC2 EP5 Data Size
+        using Addr = Register::Address<0x40008288,0xfffff800,0,unsigned>;
+        ///SIZE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> size{}; 
     }
-    namespace Noneep5fifo{
-        using Addr = Register::Address<0x4000828c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Noneep5fifo{    ///<UDC2 EP5 FIFO
+        using Addr = Register::Address<0x4000828c,0xffff0000,0,unsigned>;
+        ///DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneep6msz{
-        using Addr = Register::Address<0x40008290,0xffff6800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> MAX_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DSET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TX_0DATA; 
+    namespace Noneep6msz{    ///<UDC2 EP6 Max Packet Size
+        using Addr = Register::Address<0x40008290,0xffff6800,0,unsigned>;
+        ///MAX_PKT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> maxPkt{}; 
+        ///DSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dset{}; 
+        ///TX_0DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tx0data{}; 
     }
-    namespace Noneep6sts{
-        using Addr = Register::Address<0x40008294,0xffff0070>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> NUM_MF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> T_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DISABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TOGGLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BUS_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> PKT_MODE; 
+    namespace Noneep6sts{    ///<UDC2 EP6 Status
+        using Addr = Register::Address<0x40008294,0xffff0070,0,unsigned>;
+        ///NUM_MF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> numMf{}; 
+        ///T_TYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tType{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///DISABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> disable{}; 
+        ///STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> status{}; 
+        ///TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> toggle{}; 
+        ///BUS_SEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> busSel{}; 
+        ///PKT_MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pktMode{}; 
     }
-    namespace Noneep6dsz{
-        using Addr = Register::Address<0x40008298,0xfffff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> SIZE; 
+    namespace Noneep6dsz{    ///<UDC2 EP6 Data Size
+        using Addr = Register::Address<0x40008298,0xfffff800,0,unsigned>;
+        ///SIZE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> size{}; 
     }
-    namespace Noneep6fifo{
-        using Addr = Register::Address<0x4000829c,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Noneep6fifo{    ///<UDC2 EP6 FIFO
+        using Addr = Register::Address<0x4000829c,0xffff0000,0,unsigned>;
+        ///DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneep7msz{
-        using Addr = Register::Address<0x400082a0,0xffff6800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> MAX_PKT; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12)> DSET; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> TX_0DATA; 
+    namespace Noneep7msz{    ///<UDC2 EP7 Max Packet Size
+        using Addr = Register::Address<0x400082a0,0xffff6800,0,unsigned>;
+        ///MAX_PKT
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> maxPkt{}; 
+        ///DSET
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dset{}; 
+        ///TX_0DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tx0data{}; 
     }
-    namespace Noneep7sts{
-        using Addr = Register::Address<0x400082a4,0xffff0070>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0)> NUM_MF; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2)> T_TYPE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> DIR; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8)> DISABLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9)> STATUS; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12)> TOGGLE; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14)> BUS_SEL; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15)> PKT_MODE; 
+    namespace Noneep7sts{    ///<UDC2 EP7 Status
+        using Addr = Register::Address<0x400082a4,0xffff0070,0,unsigned>;
+        ///NUM_MF
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> numMf{}; 
+        ///T_TYPE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tType{}; 
+        ///DIR
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dir{}; 
+        ///DISABLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> disable{}; 
+        ///STATUS
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> status{}; 
+        ///TOGGLE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> toggle{}; 
+        ///BUS_SEL
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> busSel{}; 
+        ///PKT_MODE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pktMode{}; 
     }
-    namespace Noneep7dsz{
-        using Addr = Register::Address<0x400082a8,0xfffff800>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0)> SIZE; 
+    namespace Noneep7dsz{    ///<UDC2 EP7 Data Size
+        using Addr = Register::Address<0x400082a8,0xfffff800,0,unsigned>;
+        ///SIZE
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> size{}; 
     }
-    namespace Noneep7fifo{
-        using Addr = Register::Address<0x400082ac,0xffff0000>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0)> DATA; 
+    namespace Noneep7fifo{    ///<UDC2 EP7 FIFO
+        using Addr = Register::Address<0x400082ac,0xffff0000,0,unsigned>;
+        ///DATA
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
     }
-    namespace Noneintnak{
-        using Addr = Register::Address<0x40008530,0xffffff01>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> I_EP1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> I_EP2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> I_EP3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> I_EP4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> I_EP5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> I_EP6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> I_EP7; 
+    namespace Noneintnak{    ///<UDC2 INT NAK
+        using Addr = Register::Address<0x40008530,0xffffff01,0,unsigned>;
+        ///I_EP1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> iEp1{}; 
+        ///I_EP2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> iEp2{}; 
+        ///I_EP3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> iEp3{}; 
+        ///I_EP4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> iEp4{}; 
+        ///I_EP5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> iEp5{}; 
+        ///I_EP6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> iEp6{}; 
+        ///I_EP7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> iEp7{}; 
     }
-    namespace Noneintnakmsk{
-        using Addr = Register::Address<0x40008534,0xffffff01>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> M_EP1; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2)> M_EP2; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3)> M_EP3; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4)> M_EP4; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5)> M_EP5; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6)> M_EP6; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7)> M_EP7; 
+    namespace Noneintnakmsk{    ///<UDC2 INT NAK MASK
+        using Addr = Register::Address<0x40008534,0xffffff01,0,unsigned>;
+        ///M_EP1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mEp1{}; 
+        ///M_EP2
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mEp2{}; 
+        ///M_EP3
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mEp3{}; 
+        ///M_EP4
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mEp4{}; 
+        ///M_EP5
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mEp5{}; 
+        ///M_EP6
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mEp6{}; 
+        ///M_EP7
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mEp7{}; 
     }
 }

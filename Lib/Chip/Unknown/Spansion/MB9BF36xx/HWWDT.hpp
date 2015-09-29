@@ -1,25 +1,29 @@
 #pragma once 
 #include "Register/Utility.hpp"
 namespace Kvasir {
-    namespace Nonewdg_ldr{
-        using Addr = Register::Address<0x40011000,0xffffffff>;
+// peripheral HWWDT 
+    namespace NonewdgLdr{    ///< register WDG_LDR 
+        using Addr = Register::Address<0x40011000,0xffffffff,0,unsigned>;
     }
-    namespace Nonewdg_vlr{
-        using Addr = Register::Address<0x40011004,0xffffffff>;
+    namespace NonewdgVlr{    ///< register WDG_VLR 
+        using Addr = Register::Address<0x40011004,0xffffffff,0,unsigned>;
     }
-    namespace Nonewdg_ctl{
-        using Addr = Register::Address<0x40011008,0xfffffffc>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1)> RESEN; 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> INTEN; 
+    namespace NonewdgCtl{    ///< register WDG_CTL 
+        using Addr = Register::Address<0x40011008,0xfffffffc,0,unsigned char>;
+        /// bitfield RESEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> resen{}; 
+        /// bitfield INTEN 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inten{}; 
     }
-    namespace Nonewdg_icl{
-        using Addr = Register::Address<0x4001100c,0xffffffff>;
+    namespace NonewdgIcl{    ///< register WDG_ICL 
+        using Addr = Register::Address<0x4001100c,0xffffffff,0,unsigned char>;
     }
-    namespace Nonewdg_ris{
-        using Addr = Register::Address<0x40011010,0xfffffffe>;
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0)> RIS; 
+    namespace NonewdgRis{    ///< register WDG_RIS 
+        using Addr = Register::Address<0x40011010,0xfffffffe,0,unsigned char>;
+        /// bitfield RIS 
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ris{}; 
     }
-    namespace Nonewdg_lck{
-        using Addr = Register::Address<0x40011c00,0xffffffff>;
+    namespace NonewdgLck{    ///< register WDG_LCK 
+        using Addr = Register::Address<0x40011c00,0xffffffff,0,unsigned>;
     }
 }
