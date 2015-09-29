@@ -38,27 +38,27 @@ namespace Io{
 	}
 	template<int Port, int Pin>
 	struct MakeAction<Action::Input,PinLocation<Port,Pin>> :
-		Detail::ClearBitActionT<(0xA0002000U + Port*4),Pin>{};
+		Detail::ClearBitActionT<(0x1C002000U + Port*4),Pin>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Output,PinLocation<Port,Pin>> :
-		Detail::SetBitActionT<(0xA0002000U + Port*4),Pin>{};
+		Detail::SetBitActionT<(0x1C002000U + Port*4),Pin>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Set,PinLocation<Port,Pin>> :
-		Detail::SetBitActionT<(0xA0002200U + Port*4),Pin>{};
+		Detail::SetBitActionT<(0x1C002200U + Port*4),Pin>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Clear,PinLocation<Port,Pin>> :
-		Detail::SetBitActionT<(0xA0002280U + Port*4),Pin>{};
+		Detail::SetBitActionT<(0x1C002280U + Port*4),Pin>{};
 	template<int Port, int Pin>
 	struct MakeAction<Action::Toggle,PinLocation<Port,Pin>> :
-		Detail::SetBitActionT<(0xA0002300U + Port*4),Pin>{};
-	template<int Pin, int Function>
-	struct MakeAction<Action::PinFunction<Function>,PinLocation<0,Pin>> :
-		Detail::WriteFunctionActionT<(0x40044000U + Pin*4),Function>{};
-	template<int Pin, int Function>
-	struct MakeAction<Action::PinFunction<Function>,PinLocation<1,Pin>> :
-		Detail::WriteFunctionActionT<(0x40044060U + Pin*4),Function>{};
-	template<int Pin, int Function>
-	struct MakeAction<Action::PinFunction<Function>,PinLocation<2,Pin>> :
-		Detail::WriteFunctionActionT<(0x400440F0U + Pin*4),Function>{};
+		Detail::SetBitActionT<(0x1C002300U + Port*4),Pin>{};
+	//template<int Pin, int Function>
+	//struct MakeAction<Action::PinFunction<Function>,PinLocation<0,Pin>> :
+		//Detail::WriteFunctionActionT<(0x40044000U + Pin*4),Function>{};
+	//template<int Pin, int Function>
+	//struct MakeAction<Action::PinFunction<Function>,PinLocation<1,Pin>> :
+		//Detail::WriteFunctionActionT<(0x40044060U + Pin*4),Function>{};
+	//template<int Pin, int Function>
+	//struct MakeAction<Action::PinFunction<Function>,PinLocation<2,Pin>> :
+		//Detail::WriteFunctionActionT<(0x400440F0U + Pin*4),Function>{};
 }
 }

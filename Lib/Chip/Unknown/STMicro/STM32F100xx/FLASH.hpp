@@ -1,0 +1,83 @@
+#pragma once 
+#include "Register/Utility.hpp"
+namespace Kvasir {
+//FLASH
+    namespace Noneacr{    ///<Flash access control register
+        using Addr = Register::Address<0x40022000,0xfffffff7,0,unsigned>;
+        ///Flash half cycle access
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> hlfcya{}; 
+    }
+    namespace Nonekeyr{    ///<Flash key register
+        using Addr = Register::Address<0x40022004,0x00000000,0,unsigned>;
+        ///FPEC key
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> key{}; 
+    }
+    namespace Noneoptkeyr{    ///<Flash option key register
+        using Addr = Register::Address<0x40022008,0x00000000,0,unsigned>;
+        ///Option byte key
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> optkey{}; 
+    }
+    namespace Nonesr{    ///<Status register
+        using Addr = Register::Address<0x4002200c,0xffffffca,0,unsigned>;
+        ///End of operation
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> eop{}; 
+        ///Write protection error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> wrprterr{}; 
+        ///Programming error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pgerr{}; 
+        ///Busy
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bsy{}; 
+    }
+    namespace Nonecr{    ///<Control register
+        using Addr = Register::Address<0x40022010,0xffffe908,0,unsigned>;
+        ///Programming
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pg{}; 
+        ///Page Erase
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> per{}; 
+        ///Mass Erase
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mer{}; 
+        ///Option byte programming
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> optpg{}; 
+        ///Option byte erase
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> opter{}; 
+        ///Start
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> strt{}; 
+        ///Lock
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> lock{}; 
+        ///Option bytes write enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> optwre{}; 
+        ///Error interrupt enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> errie{}; 
+        ///End of operation interrupt
+              enable
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> eopie{}; 
+    }
+    namespace Nonear{    ///<Flash address register
+        using Addr = Register::Address<0x40022014,0x00000000,0,unsigned>;
+        ///Flash Address
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> far{}; 
+    }
+    namespace Noneobr{    ///<Option byte register
+        using Addr = Register::Address<0x4002201c,0xfc0003e0,0,unsigned>;
+        ///Option byte error
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> opterr{}; 
+        ///Read protection
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rdprt{}; 
+        ///WDG_SW
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wdgSw{}; 
+        ///nRST_STOP
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> nrstStop{}; 
+        ///nRST_STDBY
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nrstStdby{}; 
+        ///Data0
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,10),Register::ReadWriteAccess,unsigned> data0{}; 
+        ///Data1
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,18),Register::ReadWriteAccess,unsigned> data1{}; 
+    }
+    namespace Nonewrpr{    ///<Write protection register
+        using Addr = Register::Address<0x40022020,0x00000000,0,unsigned>;
+        ///Write protect
+        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> wrp{}; 
+    }
+}
