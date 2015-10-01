@@ -49,7 +49,7 @@ def parseIo(extention,device,path):
                     outFile.write("        struct MakeAction<Action::%s,PinLocation<%d,Pin>> :\n" % (key.capitalize(),portNumber))
                     outFile.write("            Register::Action<Register::BitLocation<Register::Address<0x%08x,0x%08x>,(1<<Pin)>,Register::%s>{};\n\n"\
                         % (address,reserved,action))
-    outFile.write("    }\n}")
+    outFile.write("    }\n}\n")
 
 def parseRegister(register, baseAddress, prefix):
     reservedBits = 0xFFFFFFFF
