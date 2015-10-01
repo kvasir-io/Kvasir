@@ -35,6 +35,23 @@ namespace Io{
 	constexpr HwPort<13> 	port13{};
 	constexpr HwPort<14> 	port14{};
 	constexpr HwPort<15> 	port15{};
+	
+	constexpr HwPort< 0> 	portA {};
+	constexpr HwPort< 1> 	portB {};
+	constexpr HwPort< 2> 	portC {};
+	constexpr HwPort< 3> 	portD {};
+	constexpr HwPort< 4> 	portE {};
+	constexpr HwPort< 5> 	portF {};
+	constexpr HwPort< 6> 	portG {};
+	constexpr HwPort< 7> 	portH {};
+	constexpr HwPort< 8> 	portI {};
+	constexpr HwPort< 9> 	portJ {};
+	constexpr HwPort<10> 	portK {};
+	constexpr HwPort<11> 	portL {};
+	constexpr HwPort<12> 	portM {};
+	constexpr HwPort<13> 	portN {};
+	constexpr HwPort<14> 	portO {};
+	constexpr HwPort<15> 	portP {};
 
 	constexpr Pin< 0> 	pin0{};
 	constexpr Pin< 1> 	pin1{};

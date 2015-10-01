@@ -1,75 +1,61 @@
-import os
+﻿import os
 from os.path import join, basename
 from cmsis_svd.parser import SVDParser
 import site
 import json
 import re
+from FormattingTools import formatNamespace,formatVariable,formatEnumValue,\
+    useEnumeratedValues,getAccess,getKey,clearBitsFromRange,formatCpuName
+import argparse
+import sys
 
-def formatNamespace(input):
-    r = re.compile('[^a-zA-Z0-9_]')
-    from operator import add
-    from functools import reduce
-    return reduce(add, map(lambda s: s.capitalize(), r.sub('',input).lower().split('_')))
+def formatIoPorts(input):
+    if ',' in input:
+        return input.split(',')
+    elif '-' in input:
+        m = input.split('-')
+        if m[1].isdigit():
+            return range(int(m[1]),int(m[2]))
+        elif len(m[1]) == 1:
+            return [chr(i) for i in range(ord(m[0][0]),ord(m[1][0])+1)]
+    else:
+        return [input]
 
-def formatVariable(input):
-    #all c++ keywords
-    cppKeywords = ['alignas','alignof','and','asm','auto','bitand','bitor','bool','break','case',\
-    'catch','char','class','compl','concept','const','constexpr','continue','decltype','default',\
-    'delete','do','double','else','enum','explicit','export','extern','false','float','for'\
-    'friend','goto','if','inline','int','long','mutable','namespace','new','noexcept','not'\
-    'nullptr','operator','or','private','protected','public','register','requires','return'\
-    'short','signed','sizeof','static','struct','switch','template','this','throw','true'\
-    'try','typedef','typeid','typename','union','unsigned','using','virtual','void','volatile'\
-    'while','xor']
-  
-    out = formatNamespace(input)
-    out = out[:1].lower()+out[1:]
-    if out in cppKeywords:
-        out += '_'              #suffix register names that are c++ keywords to prevent clash
-    return out
-    
-def formatEnumValue(input):
-    if input[:1].isdigit():
-        input = 'v' + input
-    return formatVariable(input)
-    
-def useEnumeratedValues(values,fieldWidth):
-    if values is not None:
-        if len(values) > 4 or fieldWidth <=2:  # hack to ge around  https://github.com/posborne/cmsis-svd/issues/14
-            return 1
-    return 0
-    
-def getAccess(reg,field):
-    access = "ReadWriteAccess"
-    if field.access is not None:
-        if field.access is "read-only":
-            access = "ReadOnlyAccess"
-        elif field.access is "write-only":
-            access = "WriteOnlyAccess"
-    return access
-    
-def getKey(extention,*args):
-    current = extention;
-    for arg in args:
-        if not isinstance(current, dict):
-            return None
-        if current[arg] is None:
-            return None
-        else:
-            current = current[arg]
-    return current
-        
-
-def clearBitsFromRange(msb, lsb, privious = 0):
-    for ii in range(lsb,msb+1):
-        privious &= ~(1<<ii)
-    return privious
+def parseIo(extention,device,path):
+    outFile = open(os.path.join(path,"Io.hpp"),'w',encoding='utf-8')
+    outFile.write('#pragma once\n#include "Io/Io.hpp"\n#include "Register/Register.hpp"\n')
+    outFile.write("namespace Kvasir{\n    namespace Io{\n")
+    io = getKey(extention,['kvasir','io'])
+    for key in io:
+        if key!="default":
+            type = getKey(io,[key,'type'])
+            if type == 'group':
+                for port in formatIoPorts(getKey(io,[key,'ports'])):
+                    peripheral = getKey(io,[key,'peripheral']).replace('%s',port)
+                    register = getKey(io,[key,'register']).replace('%s',port)
+                    address = getKey(device,[peripheral]).base_address + getKey(device,[peripheral,register]).address_offset
+                    reserved = 0xFFFFFFFF
+                    for field in getKey(device,[peripheral,register]).fields:
+                        reserved = clearBitsFromRange(field.bit_offset + field.bit_width -1,field.bit_offset,reserved)
+                    portNumber = port
+                    if not portNumber.isdigit():
+                        portNumber = ord(portNumber)-ord('A')
+                    
+                    if key == "read":
+                        action = "ReadAction"
+                    else:
+                        action = "WriteLiteralAction<(%s<<Pin)>" % getKey(io,[key,'value'])
+                    outFile.write("        template<int Pin>\n")
+                    outFile.write("        struct MakeAction<Action::%s,PinLocation<%d,Pin>> :\n" % (key.capitalize(),portNumber))
+                    outFile.write("            Register::Action<Register::BitLocation<Register::Address<0x%08x,0x%08x>,(1<<Pin)>,Register::%s>{};\n\n"\
+                        % (address,reserved,action))
+    outFile.write("    }\n}")
 
 def parseRegister(register, baseAddress, prefix):
     reservedBits = 0xFFFFFFFF
     fieldOut = ""
     for field in register.fields:
-        msb = (field.bit_offset + field.bit_width) - 1
+        msb = field.bit_offset+field.bit_width-1
         lsb = field.bit_offset
         fieldType = "unsigned"
         fieldName = formatVariable(field.name)
@@ -107,25 +93,17 @@ def parsePeripheral(peripheral):
     out += parseRegisters(peripheral.registers,peripheral.base_address,peripheral.prepend_to_name)
     return out
     
-def parseFile(path,company,file):
+def parseFile(company,file):
+    print("Parsing %s,%s " % (company,file))
     parser = SVDParser.for_packaged_svd(company, file + ".svd",1,1)
     extention = []
     jsonPath = os.path.join(os.path.dirname(os.path.abspath(__file__)),"Extention",company,file+".json")
     #print(jsonPath)
+    device = parser.get_device()
     if os.path.isfile(jsonPath):
         extFile = open(jsonPath,"r",encoding='utf-8')
         extention = json.load(extFile)
-    print("Parsing %s,%s " % (company,file))
-    device = parser.get_device()
-    subdir = getKey(extention,"device","cpu","name")
-    if subdir is None:
-        if device.cpu is not None and device.cpu.name is not None:
-            if device.cpu.name == 'CM0PLUS':
-                subdir = 'CM0+'
-            else:
-                subdir = device.cpu.name
-        else:
-            subdir = "Unknown"
+    subdir = formatCpuName(getKey(extention,["device","cpu","name"]),device)
     chipDir = os.path.join('..','..','Lib','Chip')
     subdir = os.path.join(chipDir, subdir)
     if not os.path.exists(subdir):
@@ -137,6 +115,9 @@ def parseFile(path,company,file):
     if not os.path.exists(subdir):
         os.makedirs(subdir)
     chipText = "#pragma once \n"
+    if getKey(extention,["kvasir","io"]):
+        parseIo(extention,device,subdir)
+        chipText += "#include \"%s\"\n" % (os.path.join(subdir,"Io.hpp"))
     for peripheral in device.peripherals:
         if peripheral.name is not None:
             outPath = os.path.join(subdir,peripheral.name+".hpp")
@@ -153,14 +134,32 @@ def parseFile(path,company,file):
     outFile = open(os.path.join(chipDir,file + ".hpp"), 'w',encoding='utf-8')
     outFile.write(chipText)
     
-path = site.getsitepackages()[1] + '\cmsis_svd\data'
-print(path)
-for root, dirs, files in os.walk(path):
-    print("processing: " + basename(root))
-    if len(files) and basename(root) != "ARM_SAMPLE":
+def parseAll(path):
+    for root, dirs, files in os.walk(path):
+        print("processing: " + basename(root))
+        if len(files) and basename(root) != "ARM_SAMPLE":
+            for file in files:
+                filename, file_extension = os.path.splitext(file)
+                if file_extension == ".svd":
+                    parseFile(path,basename(root),filename)
+def parseCompany(path,company):
+    for root, dirs, files in os.walk(os.join(path,company)):
         for file in files:
             filename, file_extension = os.path.splitext(file)
             if file_extension == ".svd":
-                parseFile(path,basename(root),filename)
+                parseFile(path,company,filename)
+                
+parser = argparse.ArgumentParser(description='Generate chip files')
+parser.add_argument('-f,--file', dest='file', help='file name to parse')
+parser.add_argument('-p,--path', dest='path', default=site.getsitepackages()[1] + '\cmsis_svd\data', help='folder to parse')
+parser.add_argument('-c,--company', dest='company', help='company to parse')
 
+args = parser.parse_args()
+
+if args.file is None and args.company is None:
+    parseAll(path)
+elif args.file is None:
+    parseFolder(args.path, args.company)
+elif args.company is not None:
+    parseFile(args.company,args.file)
 

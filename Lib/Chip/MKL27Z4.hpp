@@ -1,4 +1,5 @@
 #pragma once 
+#include "..\..\Lib\Chip\CM0+\Freescale\MKL27Z4\Io.hpp"
 #include "..\..\Lib\Chip\CM0+\Freescale\MKL27Z4\FTFA_FlashConfig.hpp"
 #include "..\..\Lib\Chip\CM0+\Freescale\MKL27Z4\DMA.hpp"
 #include "..\..\Lib\Chip\CM0+\Freescale\MKL27Z4\FTFA.hpp"
