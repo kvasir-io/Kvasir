@@ -1,0 +1,34 @@
+{
+	"kvasir":{
+		"io":{
+			"default":{
+				"type":"group",
+				"ports":"A-E",
+				"peripheral":"PT%s"
+			},
+			"output":{
+				"value":1,
+				"register":"PDDR"
+			},
+			"input":{
+				"value":0,
+				"register":"PDDR"
+			},
+			"set":{
+				"value":1,
+				"register":"PSOR"
+			},
+			"clear":{
+				"value":1,
+				"register":"PCOR"
+			},
+			"toggle":{
+				"value":1,
+				"register":"PTOR"
+			},
+			"read":{
+				"register":"PDIR"
+			}
+		}
+	}
+}

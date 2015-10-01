@@ -115,19 +115,19 @@ def parseFile(company,file):
     if not os.path.exists(subdir):
         os.makedirs(subdir)
     chipText = "#pragma once \n"
+    incDir = subdir[10:]
     if getKey(extention,["kvasir","io"]):
         parseIo(extention,device,subdir)
-        chipText += "#include \"%s\"\n" % (os.path.join(subdir,"Io.hpp"))
+        chipText += "#include \"%s\"\n" % (os.path.join(incDir,"Io.hpp"))
     for peripheral in device.peripherals:
         if peripheral.name is not None:
-            outPath = os.path.join(subdir,peripheral.name+".hpp")
-            chipText += "#include \"%s\"\n" % (outPath)
+            chipText += "#include \"%s\"\n" % (os.path.join(incDir,peripheral.name+".hpp"))
             out = "#pragma once \n#include \"Register/Utility.hpp\"\n"
             out += "namespace Kvasir {\n"
             out += parsePeripheral(peripheral)
             out += "}\n"
 
-            outFile = open(outPath, 'w',encoding='utf-8')
+            outFile = open(os.path.join(subdir,peripheral.name+".hpp"), 'w',encoding='utf-8')
             outFile.write(out)
         else:
             print("error no name in %s" % (file))
@@ -141,13 +141,13 @@ def parseAll(path):
             for file in files:
                 filename, file_extension = os.path.splitext(file)
                 if file_extension == ".svd":
-                    parseFile(path,basename(root),filename)
+                    parseFile(basename(root),filename)
 def parseCompany(path,company):
     for root, dirs, files in os.walk(os.join(path,company)):
         for file in files:
             filename, file_extension = os.path.splitext(file)
             if file_extension == ".svd":
-                parseFile(path,company,filename)
+                parseFile(company,filename)
                 
 parser = argparse.ArgumentParser(description='Generate chip files')
 parser.add_argument('-f,--file', dest='file', help='file name to parse')
@@ -157,7 +157,7 @@ parser.add_argument('-c,--company', dest='company', help='company to parse')
 args = parser.parse_args()
 
 if args.file is None and args.company is None:
-    parseAll(path)
+    parseAll(args.path)
 elif args.file is None:
     parseFolder(args.path, args.company)
 elif args.company is not None:
