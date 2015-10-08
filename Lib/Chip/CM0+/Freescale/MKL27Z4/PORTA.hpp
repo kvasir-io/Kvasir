@@ -492,24 +492,18 @@ namespace Kvasir {
         constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dseVal> dse{}; 
         ///Pin Mux Control
         enum class muxVal {
-            v000=0x00000000,     ///<Pin disabled (analog).
-            v001=0x00000001,     ///<Alternative 1 (GPIO).
-            v010=0x00000002,     ///<Alternative 2 (chip-specific).
-            v011=0x00000003,     ///<Alternative 3 (chip-specific).
-            v100=0x00000004,     ///<Alternative 4 (chip-specific).
-            v101=0x00000005,     ///<Alternative 5 (chip-specific).
-            v110=0x00000006,     ///<Alternative 6 (chip-specific).
-            v111=0x00000007,     ///<Alternative 7 (chip-specific).
+            disabled=0x00000000,     ///<Pin disabled (analog).
+            gpio=0x00000001,     ///<Alternative 1 (GPIO).
+            i2c1Sda=0x00000002,     ///<Alternative 2 (chip-specific).
+            tpm0ch1=0x00000003,     ///<Alternative 3 (chip-specific).
+            gpio=0x00000007,     ///<Alternative 7 (chip-specific).
         };
         namespace muxValC{
-            constexpr MPL::Value<muxVal,muxVal::v000> v000{};
-            constexpr MPL::Value<muxVal,muxVal::v001> v001{};
-            constexpr MPL::Value<muxVal,muxVal::v010> v010{};
-            constexpr MPL::Value<muxVal,muxVal::v011> v011{};
-            constexpr MPL::Value<muxVal,muxVal::v100> v100{};
-            constexpr MPL::Value<muxVal,muxVal::v101> v101{};
-            constexpr MPL::Value<muxVal,muxVal::v110> v110{};
-            constexpr MPL::Value<muxVal,muxVal::v111> v111{};
+            constexpr MPL::Value<muxVal,muxVal::disabled> disabled{};
+            constexpr MPL::Value<muxVal,muxVal::gpio> gpio{};
+            constexpr MPL::Value<muxVal,muxVal::i2c1Sda> i2c1Sda{};
+            constexpr MPL::Value<muxVal,muxVal::tpm0ch1> tpm0ch1{};
+            constexpr MPL::Value<muxVal,muxVal::gpio> gpio{};
         }
         constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,muxVal> mux{}; 
         ///Interrupt Configuration
