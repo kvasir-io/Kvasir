@@ -4,8 +4,7 @@ from cmsis_svd.parser import SVDParser
 import site
 import json
 import re
-from FormattingTools import formatNamespace,formatVariable,formatEnumValue,\
-    useEnumeratedValues,getAccess,getKey,clearBitsFromRange,formatCpuName
+import FormattingTools as Ft
 import argparse
 import sys
 
@@ -25,18 +24,18 @@ def parseIo(extention,device,path):
     outFile = open(os.path.join(path,"Io.hpp"),'w',encoding='utf-8')
     outFile.write('#pragma once\n#include "Io/Io.hpp"\n#include "Register/Register.hpp"\n')
     outFile.write("namespace Kvasir{\n    namespace Io{\n")
-    io = getKey(extention,['kvasir','io'])
-    for key in io:
+    io = Ft.getKey(extention,['kvasir','io'])
+    for key in sorted(io):
         if key!="default":
-            type = getKey(io,[key,'type'])
+            type = Ft.getKey(io,[key,'type'])
             if type == 'group':
-                for port in formatIoPorts(getKey(io,[key,'ports'])):
-                    peripheral = getKey(io,[key,'peripheral']).replace('%s',port)
-                    register = getKey(io,[key,'register']).replace('%s',port)
-                    address = getKey(device,[peripheral]).base_address + getKey(device,[peripheral,register]).address_offset
+                for port in formatIoPorts(Ft.getKey(io,[key,'ports'])):
+                    peripheral = Ft.getKey(io,[key,'peripheral']).replace('%s',port)
+                    register = Ft.getKey(io,[key,'register']).replace('%s',port)
+                    address = Ft.getKey(device,[peripheral]).base_address + Ft.getKey(device,[peripheral,register]).address_offset
                     reserved = 0xFFFFFFFF
-                    for field in getKey(device,[peripheral,register]).fields:
-                        reserved = clearBitsFromRange(field.bit_offset + field.bit_width -1,field.bit_offset,reserved)
+                    for field in Ft.getKey(device,[peripheral,register]).fields:
+                        reserved = Ft.clearBitsFromRange(field.bit_offset + field.bit_width -1,field.bit_offset,reserved)
                     portNumber = port
                     if not portNumber.isdigit():
                         portNumber = ord(portNumber)-ord('A')
@@ -44,53 +43,54 @@ def parseIo(extention,device,path):
                     if key == "read":
                         action = "ReadAction"
                     else:
-                        action = "WriteLiteralAction<(%s<<Pin)>" % getKey(io,[key,'value'])
+                        action = "WriteLiteralAction<(%s<<Pin)>" % Ft.getKey(io,[key,'value'])
                     outFile.write("        template<int Pin>\n")
                     outFile.write("        struct MakeAction<Action::%s,PinLocation<%d,Pin>> :\n" % (key.capitalize(),portNumber))
                     outFile.write("            Register::Action<Register::BitLocation<Register::Address<0x%08x,0x%08x>,(1<<Pin)>,Register::%s>{};\n\n"\
                         % (address,reserved,action))
     outFile.write("    }\n}\n")
 
-def parseRegister(register, baseAddress, prefix):
+def parseRegister(register, baseAddress, prefix, ext):
     reservedBits = 0xFFFFFFFF
     fieldOut = ""
     for field in register.fields:
         msb = field.bit_offset+field.bit_width-1
         lsb = field.bit_offset
         fieldType = "unsigned"
-        fieldName = formatVariable(field.name)
+        fieldName = Ft.formatVariable(field.name)
         fieldOut += "        ///%s\n" % field.description
-        if useEnumeratedValues(field.enumerated_values,field.bit_width):
+        if Ft.useEnumeratedValues(field.enumerated_values,field.bit_width):
             fieldType = "%sVal" % (fieldName)
             fieldOut += "        enum class %s {\n" % fieldType
             cValuesOut = ""
             for v in field.enumerated_values:
                 if v.value is not None and v.is_default is None:     #some value are defaults, we ignore them
-                    valName = formatEnumValue(v.name)
-                    fieldOut+="            %s=0x%08x,     ///<%s\n" % (valName,v.value,v.description)
-                    cValuesOut+="            constexpr MPL::Value<%sVal,%sVal::%s> %s{};\n" % (fieldName,fieldName,valName,valName)
+                    valName = Ft.getKey(ext,['field',field.name,'enum',v.name,'.rename']) or Ft.formatEnumValue(v.name)
+                    if valName != 'reserved':
+                        fieldOut+="            %s=0x%08x,     ///<%s\n" % (valName,v.value,v.description)
+                        cValuesOut+="            constexpr MPL::Value<%sVal,%sVal::%s> %s{};\n" % (fieldName,fieldName,valName,valName)
             fieldOut += "        };\n        namespace %sValC{\n%s        }\n" % (fieldName,cValuesOut)
-        fieldOut += "        constexpr Register::BitLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n" % (msb,lsb,getAccess(register,field),fieldType,fieldName)
-        reservedBits = clearBitsFromRange(msb,lsb,reservedBits)
+        fieldOut += "        constexpr Register::BitLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n" % (msb,lsb,Ft.getAccess(register,field),fieldType,fieldName)
+        reservedBits = Ft.clearBitsFromRange(msb,lsb,reservedBits)
             
     regType = "unsigned"
     if register.size is not None and register.size is 8:
         regType = "unsigned char"
-    out = "    namespace %s{    ///<%s\n" % (formatNamespace("%s%s" % (prefix, register.name)),register.description)
+    out = "    namespace %s{    ///<%s\n" % (Ft.formatNamespace("%s%s" % (prefix, register.name)),register.description)
     out += "        using Addr = Register::Address<0x%08x,0x%08x,0,%s>;\n" % (baseAddress + register.address_offset,reservedBits,regType)
     out += fieldOut 
     out +=	"    }\n"
     return out 
 
-def parseRegisters(registers,baseAddress,prefix):
+def parseRegisters(registers,baseAddress,prefix, ext):
     out = ""
     for register in registers:
-        out += parseRegister(register,baseAddress,prefix)
+        out += parseRegister(register, baseAddress, prefix, Ft.getKey(ext,[register.name]))
     return out
 
-def parsePeripheral(peripheral):
+def parsePeripheral(peripheral, ext):
     out = "//%s\n" % (peripheral.description)
-    out += parseRegisters(peripheral.registers,peripheral.base_address,peripheral.prepend_to_name)
+    out += parseRegisters(peripheral.registers, peripheral.base_address, peripheral.prepend_to_name, Ft.getKey(ext,['register']))
     return out
     
 def parseFile(company,file):
@@ -103,7 +103,7 @@ def parseFile(company,file):
     if os.path.isfile(jsonPath):
         extFile = open(jsonPath,"r",encoding='utf-8')
         extention = json.load(extFile)
-    subdir = formatCpuName(getKey(extention,["device","cpu","name"]),device)
+    subdir = Ft.formatCpuName(Ft.getKey(extention,["device","cpu","name"]),device)
     chipDir = os.path.join('..','..','Lib','Chip')
     subdir = os.path.join(chipDir, subdir)
     if not os.path.exists(subdir):
@@ -116,7 +116,7 @@ def parseFile(company,file):
         os.makedirs(subdir)
     chipText = "#pragma once \n"
     incDir = subdir[10:]
-    if getKey(extention,["kvasir","io"]):
+    if Ft.getKey(extention,["kvasir","io"]):
         parseIo(extention,device,subdir)
         chipText += "#include \"%s\"\n" % (os.path.join(incDir,"Io.hpp"))
     for peripheral in device.peripherals:
@@ -124,7 +124,7 @@ def parseFile(company,file):
             chipText += "#include \"%s\"\n" % (os.path.join(incDir,peripheral.name+".hpp"))
             out = "#pragma once \n#include \"Register/Utility.hpp\"\n"
             out += "namespace Kvasir {\n"
-            out += parsePeripheral(peripheral)
+            out += parsePeripheral(peripheral,Ft.getKey(extention,['.'+peripheral.name]))
             out += "}\n"
 
             outFile = open(os.path.join(subdir,peripheral.name+".hpp"), 'w',encoding='utf-8')
