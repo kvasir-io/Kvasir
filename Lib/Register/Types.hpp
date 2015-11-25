@@ -143,8 +143,21 @@ namespace Register{
 	};
 
 	template<int I, typename TValueObject>
-	auto get(TValueObject o)->decltype(o.template get<I>()){
+	auto get(TValueObject o)->decltype(o.template get<I>()) {
 		return o.template get<I>();
+	}
+	namespace Detail{
+		template<typename Object, typename TBitLocation>
+		struct GetBitLocationIndex;
+		template<typename TA, typename TLocations, typename TBitLocation>
+		struct GetBitLocationIndex<ValueObject<TA, TLocations>, TBitLocation> : MPL::Find<TLocations, TBitLocation> {};
+		
+		template<typename Object, typename TBitLocation>
+		using GetBitLocationIndexT = typename GetBitLocationIndex<Object, TBitLocation>::Type;
+	}
+	template<typename T, typename TValueObject>
+	auto get(T, TValueObject o)->decltype(o.template get<Detail::GetBitLocationIndex<TValueObject,T>::value>()) {
+		return o.template get<Detail::GetBitLocationIndex<TValueObject, T>::value>();
 	}
 }
 }
