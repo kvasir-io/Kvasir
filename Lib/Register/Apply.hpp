@@ -169,8 +169,8 @@ namespace Kvasir {
 			};
 
 			//takes an args list or tree, flattens it and removes all actions which are not reads
-			template<typename TArgList>
-			using GetReadsT = TransformT<RemoveT<MPL::FlattenT<TArgList>, Template<IsNotReadPred>>, Template<GetBitLocation>>;
+			template<typename... TArgList>
+				using GetReadsT = TransformT<RemoveT<MPL::FlattenT<MPL::List<TArgList...>>, Template<IsNotReadPred>>, Template<GetBitLocation>>;
 
 			template<typename T>
 			struct GetReadMask : Int<0>{};
@@ -242,10 +242,10 @@ namespace Kvasir {
 			template<typename... Ts>
 			using GetReturnTypeT = ValueObject<
 					UniqueT<SortT<TransformT<
-						GetReadsT<List<Ts...>>,
+						GetReadsT<Ts...>,
 						Template<GetAddress>
 					>>>,
-					GetReadsT<List<Ts...>>
+					GetReadsT<Ts...>
 				>;
 			template<typename T>
 			struct ArgToApplyIsPlausible : FalseType{};
@@ -260,7 +260,7 @@ namespace Kvasir {
 
 		//if apply contains reads return a ValueObject
 		template<typename...Args>
-			inline MPL::DisableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::List<Args...>>>::value == 0),
+			inline MPL::DisableIfT<(MPL::SizeT<Detail::GetReadsT<Args...>>::value == 0),
 			Detail::GetReturnTypeT<Args...>>
 		apply(Args...args){
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
