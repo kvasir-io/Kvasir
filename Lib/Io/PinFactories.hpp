@@ -71,9 +71,17 @@ namespace Io{
 	}
 
 	template<typename TPortPin>
-	constexpr Detail::MakeActionIfPinLocationT<Action::Set,TPortPin>
-	set(TPortPin){
-		return{};
+	constexpr Detail::MakeActionIfPinLocationT<Action::Set, TPortPin>
+	set(TPortPin) {
+		return  { };
+	};
+	
+	template<typename TPP1, typename TPP2, typename... TPortPins>
+	constexpr MPL::List<Detail::MakeActionIfPinLocationT<Action::Set, TPP1>,
+		Detail::MakeActionIfPinLocationT<Action::Set, TPP2>,
+		Detail::MakeActionIfPinLocationT<Action::Set, TPortPins>...>
+	set(TPP1,TPP2,TPortPins...) {
+		return  { };
 	};
 
 	template<typename TPortPin>
@@ -81,17 +89,42 @@ namespace Io{
 	clear(TPortPin){
 		return{};
 	};
-
-	template<typename TPortPin>
-	constexpr Detail::MakeActionIfPinLocationT<Action::Toggle,TPortPin>
-	toggle(TPortPin){
-		return{};
+	
+	template<typename TPP1, typename TPP2, typename... TPortPins>
+	constexpr MPL::List<Detail::MakeActionIfPinLocationT<Action::Clear, TPP1>,
+		Detail::MakeActionIfPinLocationT<Action::Clear, TPP2>,
+		Detail::MakeActionIfPinLocationT<Action::Clear, TPortPins>...>
+	clear(TPP1, TPP2, TPortPins...)
+	{
+		return { };
 	};
 
 	template<typename TPortPin>
-	constexpr Detail::MakeActionIfPinLocationT<Action::Read,TPortPin>
-	read(TPortPin){
-		return{};
+	constexpr Detail::MakeActionIfPinLocationT<Action::Toggle, TPortPin>
+	toggle(TPortPin) {
+		return  { };
+	};
+
+	template<typename TPP1, typename TPP2, typename... TPortPins>
+	constexpr MPL::List<Detail::MakeActionIfPinLocationT<Action::Toggle, TPP1>,
+		Detail::MakeActionIfPinLocationT<Action::Toggle, TPP2>,
+		Detail::MakeActionIfPinLocationT<Action::Toggle, TPortPins>...>
+	toggle(TPP1, TPP2, TPortPins...) {
+		return  { };
+	};
+
+	template<typename TPortPin>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Read, TPortPin>
+	read(TPortPin) {
+		return  { };
+	};
+	
+	template<typename TPP1, typename TPP2, typename... TPortPins>
+	constexpr MPL::List<Detail::MakeActionIfPinLocationT<Action::Read, TPP1>,
+		Detail::MakeActionIfPinLocationT<Action::Read, TPP2>,
+		Detail::MakeActionIfPinLocationT<Action::Read, TPortPins>...>
+	read(TPP1, TPP2, TPortPins...) {
+		return  { };
 	};
 
 	template<typename TPort, typename TPin>
