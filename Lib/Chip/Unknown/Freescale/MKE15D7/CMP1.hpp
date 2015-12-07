@@ -5,17 +5,17 @@ namespace Kvasir {
     namespace Cmp1Cr0{    ///<CMP Control Register 0
         using Addr = Register::Address<0x40051000,0xffffff8e,0,unsigned char>;
         ///Comparator hard block hysteresis control
-        enum class hystctrVal {
+        enum class HystctrVal {
             v0=0x00000000,     ///<Level 0
             v1=0x00000001,     ///<Level 1
         };
-        namespace hystctrValC{
-            constexpr MPL::Value<hystctrVal,hystctrVal::v0> v0{};
-            constexpr MPL::Value<hystctrVal,hystctrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,HystctrVal> hystctr{}; 
+        namespace HystctrValC{
+            constexpr Register::FieldValue<decltype(hystctr),HystctrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hystctr),HystctrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,hystctrVal> hystctr{}; 
         ///Filter Sample Count
-        enum class filterCntVal {
+        enum class FiltercntVal {
             v000=0x00000000,     ///<Filter is disabled. If SE = 1, then COUT is a logic zero (this is not a legal state, and is not recommended). If SE = 0, COUT = COUTA.
             v001=0x00000001,     ///<1 consecutive sample must agree (comparator output is simply sampled).
             v010=0x00000002,     ///<2 consecutive samples must agree.
@@ -25,210 +25,218 @@ namespace Kvasir {
             v110=0x00000006,     ///<6 consecutive samples must agree.
             v111=0x00000007,     ///<7 consecutive samples must agree.
         };
-        namespace filterCntValC{
-            constexpr MPL::Value<filterCntVal,filterCntVal::v000> v000{};
-            constexpr MPL::Value<filterCntVal,filterCntVal::v001> v001{};
-            constexpr MPL::Value<filterCntVal,filterCntVal::v010> v010{};
-            constexpr MPL::Value<filterCntVal,filterCntVal::v011> v011{};
-            constexpr MPL::Value<filterCntVal,filterCntVal::v100> v100{};
-            constexpr MPL::Value<filterCntVal,filterCntVal::v101> v101{};
-            constexpr MPL::Value<filterCntVal,filterCntVal::v110> v110{};
-            constexpr MPL::Value<filterCntVal,filterCntVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,FiltercntVal> filterCnt{}; 
+        namespace FiltercntValC{
+            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,filterCntVal> filterCnt{}; 
     }
     namespace Cmp1Cr1{    ///<CMP Control Register 1
         using Addr = Register::Address<0x40051001,0xffffff20,0,unsigned char>;
         ///Comparator Module Enable
-        enum class enVal {
+        enum class EnVal {
             v0=0x00000000,     ///<Analog Comparator disabled.
             v1=0x00000001,     ///<Analog Comparator enabled.
         };
-        namespace enValC{
-            constexpr MPL::Value<enVal,enVal::v0> v0{};
-            constexpr MPL::Value<enVal,enVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnVal> en{}; 
+        namespace EnValC{
+            constexpr Register::FieldValue<decltype(en),EnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(en),EnVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,enVal> en{}; 
         ///Comparator Output Pin Enable
-        enum class opeVal {
+        enum class OpeVal {
             v0=0x00000000,     ///<The comparator output (CMPO) is not available on the associated CMPO output pin. The pin is available for use by other on-chip functions.
             v1=0x00000001,     ///<The comparator output (CMPO) is available on the associated CMPO output pin. The comparator output (CMPO) is driven out on the associated CMPO output pin.
         };
-        namespace opeValC{
-            constexpr MPL::Value<opeVal,opeVal::v0> v0{};
-            constexpr MPL::Value<opeVal,opeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OpeVal> ope{}; 
+        namespace OpeValC{
+            constexpr Register::FieldValue<decltype(ope),OpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ope),OpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,opeVal> ope{}; 
         ///Comparator Output Select
-        enum class cosVal {
+        enum class CosVal {
             v0=0x00000000,     ///<Set CMPO to equal COUT (filtered comparator output).
             v1=0x00000001,     ///<Set CMPO to equal COUTA (unfiltered comparator output).
         };
-        namespace cosValC{
-            constexpr MPL::Value<cosVal,cosVal::v0> v0{};
-            constexpr MPL::Value<cosVal,cosVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CosVal> cos{}; 
+        namespace CosValC{
+            constexpr Register::FieldValue<decltype(cos),CosVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cos),CosVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,cosVal> cos{}; 
         ///Comparator INVERT
-        enum class invVal {
+        enum class InvVal {
             v0=0x00000000,     ///<Does not invert the comparator output.
             v1=0x00000001,     ///<Inverts the comparator output.
         };
-        namespace invValC{
-            constexpr MPL::Value<invVal,invVal::v0> v0{};
-            constexpr MPL::Value<invVal,invVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,InvVal> inv{}; 
+        namespace InvValC{
+            constexpr Register::FieldValue<decltype(inv),InvVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(inv),InvVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,invVal> inv{}; 
         ///Power Mode Select
-        enum class pmodeVal {
+        enum class PmodeVal {
             v0=0x00000000,     ///<Low Speed (LS) comparison mode selected.
             v1=0x00000001,     ///<High Speed (HS) comparison mode selected.
         };
-        namespace pmodeValC{
-            constexpr MPL::Value<pmodeVal,pmodeVal::v0> v0{};
-            constexpr MPL::Value<pmodeVal,pmodeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,PmodeVal> pmode{}; 
+        namespace PmodeValC{
+            constexpr Register::FieldValue<decltype(pmode),PmodeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pmode),PmodeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,pmodeVal> pmode{}; 
         ///Windowing Enable
-        enum class weVal {
+        enum class WeVal {
             v0=0x00000000,     ///<Windowing mode not selected.
             v1=0x00000001,     ///<Windowing mode selected.
         };
-        namespace weValC{
-            constexpr MPL::Value<weVal,weVal::v0> v0{};
-            constexpr MPL::Value<weVal,weVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WeVal> we{}; 
+        namespace WeValC{
+            constexpr Register::FieldValue<decltype(we),WeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(we),WeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,weVal> we{}; 
         ///Sample Enable
-        enum class seVal {
+        enum class SeVal {
             v0=0x00000000,     ///<Sampling mode not selected.
             v1=0x00000001,     ///<Sampling mode selected.
         };
-        namespace seValC{
-            constexpr MPL::Value<seVal,seVal::v0> v0{};
-            constexpr MPL::Value<seVal,seVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SeVal> se{}; 
+        namespace SeValC{
+            constexpr Register::FieldValue<decltype(se),SeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(se),SeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,seVal> se{}; 
     }
     namespace Cmp1Fpr{    ///<CMP Filter Period Register
         using Addr = Register::Address<0x40051002,0xffffff00,0,unsigned char>;
         ///Filter Sample Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> filtPer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> filtPer{}; 
+        namespace FiltperValC{
+        }
     }
     namespace Cmp1Scr{    ///<CMP Status and Control Register
         using Addr = Register::Address<0x40051003,0xffffffa0,0,unsigned char>;
         ///Analog Comparator Output
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cout{}; 
+        namespace CoutValC{
+        }
         ///Analog Comparator Flag Falling
-        enum class cffVal {
+        enum class CffVal {
             v0=0x00000000,     ///<Falling edge on COUT has not been detected.
             v1=0x00000001,     ///<Falling edge on COUT has occurred.
         };
-        namespace cffValC{
-            constexpr MPL::Value<cffVal,cffVal::v0> v0{};
-            constexpr MPL::Value<cffVal,cffVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CffVal> cff{}; 
+        namespace CffValC{
+            constexpr Register::FieldValue<decltype(cff),CffVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cff),CffVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,cffVal> cff{}; 
         ///Analog Comparator Flag Rising
-        enum class cfrVal {
+        enum class CfrVal {
             v0=0x00000000,     ///<Rising edge on COUT has not been detected.
             v1=0x00000001,     ///<Rising edge on COUT has occurred.
         };
-        namespace cfrValC{
-            constexpr MPL::Value<cfrVal,cfrVal::v0> v0{};
-            constexpr MPL::Value<cfrVal,cfrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CfrVal> cfr{}; 
+        namespace CfrValC{
+            constexpr Register::FieldValue<decltype(cfr),CfrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cfr),CfrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,cfrVal> cfr{}; 
         ///Comparator Interrupt Enable Falling
-        enum class iefVal {
+        enum class IefVal {
             v0=0x00000000,     ///<Interrupt disabled.
             v1=0x00000001,     ///<Interrupt enabled.
         };
-        namespace iefValC{
-            constexpr MPL::Value<iefVal,iefVal::v0> v0{};
-            constexpr MPL::Value<iefVal,iefVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IefVal> ief{}; 
+        namespace IefValC{
+            constexpr Register::FieldValue<decltype(ief),IefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ief),IefVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,iefVal> ief{}; 
         ///Comparator Interrupt Enable Rising
-        enum class ierVal {
+        enum class IerVal {
             v0=0x00000000,     ///<Interrupt disabled.
             v1=0x00000001,     ///<Interrupt enabled.
         };
-        namespace ierValC{
-            constexpr MPL::Value<ierVal,ierVal::v0> v0{};
-            constexpr MPL::Value<ierVal,ierVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IerVal> ier{}; 
+        namespace IerValC{
+            constexpr Register::FieldValue<decltype(ier),IerVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ier),IerVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ierVal> ier{}; 
         ///DMA Enable Control
-        enum class dmaenVal {
+        enum class DmaenVal {
             v0=0x00000000,     ///<DMA disabled.
             v1=0x00000001,     ///<DMA enabled.
         };
-        namespace dmaenValC{
-            constexpr MPL::Value<dmaenVal,dmaenVal::v0> v0{};
-            constexpr MPL::Value<dmaenVal,dmaenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
+        namespace DmaenValC{
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,dmaenVal> dmaen{}; 
     }
     namespace Cmp1Daccr{    ///<DAC Control Register
         using Addr = Register::Address<0x40051004,0xffffff00,0,unsigned char>;
         ///DAC Output Voltage Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> vosel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> vosel{}; 
+        namespace VoselValC{
+        }
         ///Supply Voltage Reference Source Select
-        enum class vrselVal {
+        enum class VrselVal {
             v0=0x00000000,     ///<Vin1 is selected as resistor ladder network supply reference Vin.
             v1=0x00000001,     ///<Vin2 is selected as resistor ladder network supply reference Vin.
         };
-        namespace vrselValC{
-            constexpr MPL::Value<vrselVal,vrselVal::v0> v0{};
-            constexpr MPL::Value<vrselVal,vrselVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,VrselVal> vrsel{}; 
+        namespace VrselValC{
+            constexpr Register::FieldValue<decltype(vrsel),VrselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vrsel),VrselVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,vrselVal> vrsel{}; 
         ///DAC Enable
-        enum class dacenVal {
+        enum class DacenVal {
             v0=0x00000000,     ///<DAC is disabled.
             v1=0x00000001,     ///<DAC is enabled.
         };
-        namespace dacenValC{
-            constexpr MPL::Value<dacenVal,dacenVal::v0> v0{};
-            constexpr MPL::Value<dacenVal,dacenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DacenVal> dacen{}; 
+        namespace DacenValC{
+            constexpr Register::FieldValue<decltype(dacen),DacenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dacen),DacenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,dacenVal> dacen{}; 
     }
     namespace Cmp1Muxcr{    ///<MUX Control Register
         using Addr = Register::Address<0x40051005,0xffffffcc,0,unsigned char>;
         ///Minus Input MUX Control
-        enum class mselVal {
+        enum class MselVal {
             v00=0x00000000,     ///<IN0
             v01=0x00000001,     ///<IN1
             v10=0x00000002,     ///<IN2
             v11=0x00000003,     ///<6-bit DAC output is selected
         };
-        namespace mselValC{
-            constexpr MPL::Value<mselVal,mselVal::v00> v00{};
-            constexpr MPL::Value<mselVal,mselVal::v01> v01{};
-            constexpr MPL::Value<mselVal,mselVal::v10> v10{};
-            constexpr MPL::Value<mselVal,mselVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,MselVal> msel{}; 
+        namespace MselValC{
+            constexpr Register::FieldValue<decltype(msel),MselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,mselVal> msel{}; 
         ///Plus Input MUX Control
-        enum class pselVal {
+        enum class PselVal {
             v00=0x00000000,     ///<IN0
             v01=0x00000001,     ///<IN1
             v10=0x00000002,     ///<IN2
             v11=0x00000003,     ///<6-bit DAC output is selected
         };
-        namespace pselValC{
-            constexpr MPL::Value<pselVal,pselVal::v00> v00{};
-            constexpr MPL::Value<pselVal,pselVal::v01> v01{};
-            constexpr MPL::Value<pselVal,pselVal::v10> v10{};
-            constexpr MPL::Value<pselVal,pselVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,PselVal> psel{}; 
+        namespace PselValC{
+            constexpr Register::FieldValue<decltype(psel),PselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,pselVal> psel{}; 
     }
     namespace Cmp1Muxpe{    ///<MUX Pin Enable Register
         using Addr = Register::Address<0x40051006,0xfffffff8,0,unsigned char>;
         ///Positive Input Pin Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> inpe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> inpe{}; 
+        namespace InpeValC{
+        }
     }
 }

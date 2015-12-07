@@ -5,29 +5,39 @@ namespace Kvasir {
     namespace SysctrlBod33{    ///<3.3V Brown-Out Detector (BOD33) Control
         using Addr = Register::Address<0x40000834,0xffc00ca1,0,unsigned>;
         ///Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///Hysteresis
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hyst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hyst{}; 
+        namespace HystValC{
+        }
         ///BOD33 Action
-        enum class actionVal {
+        enum class ActionVal {
             none=0x00000000,     ///<No action
             reset=0x00000001,     ///<The BOD33 generates a reset
             interrupt=0x00000002,     ///<The BOD33 generates an interrupt
         };
-        namespace actionValC{
-            constexpr MPL::Value<actionVal,actionVal::none> none{};
-            constexpr MPL::Value<actionVal,actionVal::reset> reset{};
-            constexpr MPL::Value<actionVal,actionVal::interrupt> interrupt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ActionVal> action{}; 
+        namespace ActionValC{
+            constexpr Register::FieldValue<decltype(action),ActionVal::none> none{};
+            constexpr Register::FieldValue<decltype(action),ActionVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(action),ActionVal::interrupt> interrupt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,actionVal> action{}; 
         ///Run in Standby
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        namespace RunstdbyValC{
+        }
         ///Operation Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mode{}; 
+        namespace ModeValC{
+        }
         ///Clock Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cen{}; 
+        namespace CenValC{
+        }
         ///Prescaler Select
-        enum class pselVal {
+        enum class PselVal {
             div2=0x00000000,     ///<Divide clock by 2
             div4=0x00000001,     ///<Divide clock by 4
             div8=0x00000002,     ///<Divide clock by 8
@@ -45,412 +55,660 @@ namespace Kvasir {
             div32k=0x0000000e,     ///<Divide clock by 32768
             div64k=0x0000000f,     ///<Divide clock by 65536
         };
-        namespace pselValC{
-            constexpr MPL::Value<pselVal,pselVal::div2> div2{};
-            constexpr MPL::Value<pselVal,pselVal::div4> div4{};
-            constexpr MPL::Value<pselVal,pselVal::div8> div8{};
-            constexpr MPL::Value<pselVal,pselVal::div16> div16{};
-            constexpr MPL::Value<pselVal,pselVal::div32> div32{};
-            constexpr MPL::Value<pselVal,pselVal::div64> div64{};
-            constexpr MPL::Value<pselVal,pselVal::div128> div128{};
-            constexpr MPL::Value<pselVal,pselVal::div256> div256{};
-            constexpr MPL::Value<pselVal,pselVal::div512> div512{};
-            constexpr MPL::Value<pselVal,pselVal::div1k> div1k{};
-            constexpr MPL::Value<pselVal,pselVal::div2k> div2k{};
-            constexpr MPL::Value<pselVal,pselVal::div4k> div4k{};
-            constexpr MPL::Value<pselVal,pselVal::div8k> div8k{};
-            constexpr MPL::Value<pselVal,pselVal::div16k> div16k{};
-            constexpr MPL::Value<pselVal,pselVal::div32k> div32k{};
-            constexpr MPL::Value<pselVal,pselVal::div64k> div64k{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,PselVal> psel{}; 
+        namespace PselValC{
+            constexpr Register::FieldValue<decltype(psel),PselVal::div2> div2{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div4> div4{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div8> div8{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div16> div16{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div32> div32{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div64> div64{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div128> div128{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div256> div256{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div512> div512{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div1k> div1k{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div2k> div2k{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div4k> div4k{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div8k> div8k{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div16k> div16k{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div32k> div32k{};
+            constexpr Register::FieldValue<decltype(psel),PselVal::div64k> div64k{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,pselVal> psel{}; 
         ///BOD33 Threshold Level
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> level{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> level{}; 
+        namespace LevelValC{
+        }
     }
     namespace SysctrlDfllctrl{    ///<DFLL48M Control
         using Addr = Register::Address<0x40000824,0xfffff001,0,unsigned>;
         ///DFLL Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///Operating Mode Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mode{}; 
+        namespace ModeValC{
+        }
         ///Stable DFLL Frequency
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> stable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> stable{}; 
+        namespace StableValC{
+        }
         ///Lose Lock After Wake
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> llaw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> llaw{}; 
+        namespace LlawValC{
+        }
         ///USB Clock Recovery Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> usbcrm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> usbcrm{}; 
+        namespace UsbcrmValC{
+        }
         ///Run in Standby
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        namespace RunstdbyValC{
+        }
         ///On Demand Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        namespace OndemandValC{
+        }
         ///Chill Cycle Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ccdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ccdis{}; 
+        namespace CcdisValC{
+        }
         ///Quick Lock Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> qldis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> qldis{}; 
+        namespace QldisValC{
+        }
         ///Bypass Coarse Lock
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bplckc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bplckc{}; 
+        namespace BplckcValC{
+        }
         ///Wait Lock
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> waitlock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> waitlock{}; 
+        namespace WaitlockValC{
+        }
     }
     namespace SysctrlDfllmul{    ///<DFLL48M Multiplier
         using Addr = Register::Address<0x4000082c,0x00000000,0,unsigned>;
         ///DFLL Multiply Factor
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mul{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mul{}; 
+        namespace MulValC{
+        }
         ///Fine Maximum Step
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> fstep{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> fstep{}; 
+        namespace FstepValC{
+        }
         ///Coarse Maximum Step
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> cstep{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> cstep{}; 
+        namespace CstepValC{
+        }
     }
     namespace SysctrlDfllsync{    ///<DFLL48M Synchronization
         using Addr = Register::Address<0x40000830,0xffffff7f,0,unsigned char>;
         ///Read Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> readreq{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> readreq{}; 
+        namespace ReadreqValC{
+        }
     }
     namespace SysctrlDfllval{    ///<DFLL48M Value
         using Addr = Register::Address<0x40000828,0x00000000,0,unsigned>;
         ///Fine Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> fine{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> fine{}; 
+        namespace FineValC{
+        }
         ///Coarse Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> coarse{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> coarse{}; 
+        namespace CoarseValC{
+        }
         ///Multiplication Ratio Difference
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> diff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> diff{}; 
+        namespace DiffValC{
+        }
     }
     namespace SysctrlDpllctrla{    ///<DPLL Control A
         using Addr = Register::Address<0x40000844,0xffffff3d,0,unsigned char>;
         ///DPLL Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///Run in Standby
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        namespace RunstdbyValC{
+        }
         ///On Demand Clock Activation
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        namespace OndemandValC{
+        }
     }
     namespace SysctrlDpllctrlb{    ///<DPLL Control B
         using Addr = Register::Address<0x4000084c,0xf800e8c0,0,unsigned>;
         ///Proportional Integral Filter Selection
-        enum class filterVal {
+        enum class FilterVal {
             default_=0x00000000,     ///<Default filter mode
             lbfilt=0x00000001,     ///<Low bandwidth filter
             hbfilt=0x00000002,     ///<High bandwidth filter
             hdfilt=0x00000003,     ///<High damping filter
         };
-        namespace filterValC{
-            constexpr MPL::Value<filterVal,filterVal::default_> default_{};
-            constexpr MPL::Value<filterVal,filterVal::lbfilt> lbfilt{};
-            constexpr MPL::Value<filterVal,filterVal::hbfilt> hbfilt{};
-            constexpr MPL::Value<filterVal,filterVal::hdfilt> hdfilt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,FilterVal> filter{}; 
+        namespace FilterValC{
+            constexpr Register::FieldValue<decltype(filter),FilterVal::default_> default_{};
+            constexpr Register::FieldValue<decltype(filter),FilterVal::lbfilt> lbfilt{};
+            constexpr Register::FieldValue<decltype(filter),FilterVal::hbfilt> hbfilt{};
+            constexpr Register::FieldValue<decltype(filter),FilterVal::hdfilt> hdfilt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,filterVal> filter{}; 
         ///Low-Power Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lpen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lpen{}; 
+        namespace LpenValC{
+        }
         ///Wake Up Fast
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> wuf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> wuf{}; 
+        namespace WufValC{
+        }
         ///Reference Clock Selection
-        enum class refclkVal {
+        enum class RefclkVal {
             ref0=0x00000000,     ///<CLK_DPLL_REF0 clock reference
             ref1=0x00000001,     ///<CLK_DPLL_REF1 clock reference
             gclk=0x00000002,     ///<GCLK_DPLL clock reference
         };
-        namespace refclkValC{
-            constexpr MPL::Value<refclkVal,refclkVal::ref0> ref0{};
-            constexpr MPL::Value<refclkVal,refclkVal::ref1> ref1{};
-            constexpr MPL::Value<refclkVal,refclkVal::gclk> gclk{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,RefclkVal> refclk{}; 
+        namespace RefclkValC{
+            constexpr Register::FieldValue<decltype(refclk),RefclkVal::ref0> ref0{};
+            constexpr Register::FieldValue<decltype(refclk),RefclkVal::ref1> ref1{};
+            constexpr Register::FieldValue<decltype(refclk),RefclkVal::gclk> gclk{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,refclkVal> refclk{}; 
         ///Lock Time
-        enum class ltimeVal {
+        enum class LtimeVal {
             v0x0=0x00000000,     ///<Default	No time-out
             v0x4=0x00000004,     ///<8MS	Time-out if no lock within 8 ms
             v0x5=0x00000005,     ///<9MS	Time-out if no lock within 9 ms
             v0x6=0x00000006,     ///<10MS	Time-out if no lock within 10 ms
             v0x7=0x00000007,     ///<11MS	Time-out if no lock within 11 ms
         };
-        namespace ltimeValC{
-            constexpr MPL::Value<ltimeVal,ltimeVal::v0x0> v0x0{};
-            constexpr MPL::Value<ltimeVal,ltimeVal::v0x4> v0x4{};
-            constexpr MPL::Value<ltimeVal,ltimeVal::v0x5> v0x5{};
-            constexpr MPL::Value<ltimeVal,ltimeVal::v0x6> v0x6{};
-            constexpr MPL::Value<ltimeVal,ltimeVal::v0x7> v0x7{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,LtimeVal> ltime{}; 
+        namespace LtimeValC{
+            constexpr Register::FieldValue<decltype(ltime),LtimeVal::v0x0> v0x0{};
+            constexpr Register::FieldValue<decltype(ltime),LtimeVal::v0x4> v0x4{};
+            constexpr Register::FieldValue<decltype(ltime),LtimeVal::v0x5> v0x5{};
+            constexpr Register::FieldValue<decltype(ltime),LtimeVal::v0x6> v0x6{};
+            constexpr Register::FieldValue<decltype(ltime),LtimeVal::v0x7> v0x7{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,ltimeVal> ltime{}; 
         ///Lock Bypass
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> lbypass{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> lbypass{}; 
+        namespace LbypassValC{
+        }
         ///Clock Divider
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> div{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> div{}; 
+        namespace DivValC{
+        }
     }
     namespace SysctrlDpllratio{    ///<DPLL Ratio Control
         using Addr = Register::Address<0x40000848,0xfff0f000,0,unsigned>;
         ///Loop Divider Ratio
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> ldr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> ldr{}; 
+        namespace LdrValC{
+        }
         ///Loop Divider Ratio Fractional Part
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> ldrfrac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> ldrfrac{}; 
+        namespace LdrfracValC{
+        }
     }
     namespace SysctrlDpllstatus{    ///<DPLL Status
         using Addr = Register::Address<0x40000850,0xfffffff0,0,unsigned char>;
         ///DPLL Lock Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lock{}; 
+        namespace LockValC{
+        }
         ///Output Clock Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> clkrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> clkrdy{}; 
+        namespace ClkrdyValC{
+        }
         ///DPLL Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///Divider Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> div{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> div{}; 
+        namespace DivValC{
+        }
     }
     namespace SysctrlIntenclr{    ///<Interrupt Enable Clear
         using Addr = Register::Address<0x40000800,0xfffc7000,0,unsigned>;
         ///XOSC Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> xoscrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> xoscrdy{}; 
+        namespace XoscrdyValC{
+        }
         ///XOSC32K Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> xosc32krdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> xosc32krdy{}; 
+        namespace Xosc32krdyValC{
+        }
         ///OSC32K Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32krdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32krdy{}; 
+        namespace Osc32krdyValC{
+        }
         ///OSC8M Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> osc8mrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> osc8mrdy{}; 
+        namespace Osc8mrdyValC{
+        }
         ///DFLL Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dfllrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dfllrdy{}; 
+        namespace DfllrdyValC{
+        }
         ///DFLL Out Of Bounds Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dflloob{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dflloob{}; 
+        namespace DflloobValC{
+        }
         ///DFLL Lock Fine Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dflllckf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dflllckf{}; 
+        namespace DflllckfValC{
+        }
         ///DFLL Lock Coarse Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dflllckc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dflllckc{}; 
+        namespace DflllckcValC{
+        }
         ///DFLL Reference Clock Stopped Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dfllrcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dfllrcs{}; 
+        namespace DfllrcsValC{
+        }
         ///BOD33 Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bod33rdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bod33rdy{}; 
+        namespace Bod33rdyValC{
+        }
         ///BOD33 Detection Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bod33det{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bod33det{}; 
+        namespace Bod33detValC{
+        }
         ///BOD33 Synchronization Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> b33srdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> b33srdy{}; 
+        namespace B33srdyValC{
+        }
         ///DPLL Lock Rise Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dplllckr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dplllckr{}; 
+        namespace DplllckrValC{
+        }
         ///DPLL Lock Fall Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dplllckf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dplllckf{}; 
+        namespace DplllckfValC{
+        }
         ///DPLL Lock Timeout Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dplllto{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dplllto{}; 
+        namespace DpllltoValC{
+        }
     }
     namespace SysctrlIntenset{    ///<Interrupt Enable Set
         using Addr = Register::Address<0x40000804,0xfffc7000,0,unsigned>;
         ///XOSC Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> xoscrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> xoscrdy{}; 
+        namespace XoscrdyValC{
+        }
         ///XOSC32K Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> xosc32krdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> xosc32krdy{}; 
+        namespace Xosc32krdyValC{
+        }
         ///OSC32K Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32krdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32krdy{}; 
+        namespace Osc32krdyValC{
+        }
         ///OSC8M Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> osc8mrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> osc8mrdy{}; 
+        namespace Osc8mrdyValC{
+        }
         ///DFLL Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dfllrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dfllrdy{}; 
+        namespace DfllrdyValC{
+        }
         ///DFLL Out Of Bounds Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dflloob{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dflloob{}; 
+        namespace DflloobValC{
+        }
         ///DFLL Lock Fine Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dflllckf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dflllckf{}; 
+        namespace DflllckfValC{
+        }
         ///DFLL Lock Coarse Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dflllckc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dflllckc{}; 
+        namespace DflllckcValC{
+        }
         ///DFLL Reference Clock Stopped Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dfllrcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dfllrcs{}; 
+        namespace DfllrcsValC{
+        }
         ///BOD33 Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bod33rdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bod33rdy{}; 
+        namespace Bod33rdyValC{
+        }
         ///BOD33 Detection Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bod33det{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bod33det{}; 
+        namespace Bod33detValC{
+        }
         ///BOD33 Synchronization Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> b33srdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> b33srdy{}; 
+        namespace B33srdyValC{
+        }
         ///DPLL Lock Rise Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dplllckr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dplllckr{}; 
+        namespace DplllckrValC{
+        }
         ///DPLL Lock Fall Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dplllckf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dplllckf{}; 
+        namespace DplllckfValC{
+        }
         ///DPLL Lock Timeout Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dplllto{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dplllto{}; 
+        namespace DpllltoValC{
+        }
     }
     namespace SysctrlIntflag{    ///<Interrupt Flag Status and Clear
         using Addr = Register::Address<0x40000808,0xfffc7000,0,unsigned>;
         ///XOSC Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> xoscrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> xoscrdy{}; 
+        namespace XoscrdyValC{
+        }
         ///XOSC32K Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> xosc32krdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> xosc32krdy{}; 
+        namespace Xosc32krdyValC{
+        }
         ///OSC32K Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32krdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32krdy{}; 
+        namespace Osc32krdyValC{
+        }
         ///OSC8M Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> osc8mrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> osc8mrdy{}; 
+        namespace Osc8mrdyValC{
+        }
         ///DFLL Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dfllrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dfllrdy{}; 
+        namespace DfllrdyValC{
+        }
         ///DFLL Out Of Bounds
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dflloob{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dflloob{}; 
+        namespace DflloobValC{
+        }
         ///DFLL Lock Fine
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dflllckf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dflllckf{}; 
+        namespace DflllckfValC{
+        }
         ///DFLL Lock Coarse
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dflllckc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dflllckc{}; 
+        namespace DflllckcValC{
+        }
         ///DFLL Reference Clock Stopped
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dfllrcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dfllrcs{}; 
+        namespace DfllrcsValC{
+        }
         ///BOD33 Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bod33rdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bod33rdy{}; 
+        namespace Bod33rdyValC{
+        }
         ///BOD33 Detection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bod33det{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bod33det{}; 
+        namespace Bod33detValC{
+        }
         ///BOD33 Synchronization Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> b33srdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> b33srdy{}; 
+        namespace B33srdyValC{
+        }
         ///DPLL Lock Rise
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dplllckr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dplllckr{}; 
+        namespace DplllckrValC{
+        }
         ///DPLL Lock Fall
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dplllckf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dplllckf{}; 
+        namespace DplllckfValC{
+        }
         ///DPLL Lock Timeout
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dplllto{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dplllto{}; 
+        namespace DpllltoValC{
+        }
     }
     namespace SysctrlOsculp32k{    ///<32kHz Ultra Low Power Internal Oscillator (OSCULP32K) Control
         using Addr = Register::Address<0x4000081c,0xffffff60,0,unsigned char>;
         ///Oscillator Calibration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> calib{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> calib{}; 
+        namespace CalibValC{
+        }
         ///Write Lock
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrtlock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrtlock{}; 
+        namespace WrtlockValC{
+        }
     }
     namespace SysctrlOsc8m{    ///<8MHz Internal Oscillator (OSC8M) Control
         using Addr = Register::Address<0x40000820,0x3000fc3d,0,unsigned>;
         ///Oscillator Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///Run in Standby
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        namespace RunstdbyValC{
+        }
         ///On Demand Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        namespace OndemandValC{
+        }
         ///Oscillator Prescaler
-        enum class prescVal {
+        enum class PrescVal {
             v0x0=0x00000000,     ///<1
             v0x1=0x00000001,     ///<2
             v0x2=0x00000002,     ///<4
             v0x3=0x00000003,     ///<8
         };
-        namespace prescValC{
-            constexpr MPL::Value<prescVal,prescVal::v0x0> v0x0{};
-            constexpr MPL::Value<prescVal,prescVal::v0x1> v0x1{};
-            constexpr MPL::Value<prescVal,prescVal::v0x2> v0x2{};
-            constexpr MPL::Value<prescVal,prescVal::v0x3> v0x3{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,PrescVal> presc{}; 
+        namespace PrescValC{
+            constexpr Register::FieldValue<decltype(presc),PrescVal::v0x0> v0x0{};
+            constexpr Register::FieldValue<decltype(presc),PrescVal::v0x1> v0x1{};
+            constexpr Register::FieldValue<decltype(presc),PrescVal::v0x2> v0x2{};
+            constexpr Register::FieldValue<decltype(presc),PrescVal::v0x3> v0x3{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,prescVal> presc{}; 
         ///Oscillator Calibration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> calib{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> calib{}; 
+        namespace CalibValC{
+        }
         ///Oscillator Frequency Range
-        enum class frangeVal {
+        enum class FrangeVal {
             v0x0=0x00000000,     ///<4 to 6MHz
             v0x1=0x00000001,     ///<6 to 8MHz
             v0x2=0x00000002,     ///<8 to 11MHz
             v0x3=0x00000003,     ///<11 to 15MHz
         };
-        namespace frangeValC{
-            constexpr MPL::Value<frangeVal,frangeVal::v0x0> v0x0{};
-            constexpr MPL::Value<frangeVal,frangeVal::v0x1> v0x1{};
-            constexpr MPL::Value<frangeVal,frangeVal::v0x2> v0x2{};
-            constexpr MPL::Value<frangeVal,frangeVal::v0x3> v0x3{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,FrangeVal> frange{}; 
+        namespace FrangeValC{
+            constexpr Register::FieldValue<decltype(frange),FrangeVal::v0x0> v0x0{};
+            constexpr Register::FieldValue<decltype(frange),FrangeVal::v0x1> v0x1{};
+            constexpr Register::FieldValue<decltype(frange),FrangeVal::v0x2> v0x2{};
+            constexpr Register::FieldValue<decltype(frange),FrangeVal::v0x3> v0x3{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,frangeVal> frange{}; 
     }
     namespace SysctrlOsc32k{    ///<32kHz Internal Oscillator (OSC32K) Control
         using Addr = Register::Address<0x40000818,0xff80e831,0,unsigned>;
         ///Oscillator Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///32kHz Output Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> en32k{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> en32k{}; 
+        namespace En32kValC{
+        }
         ///1kHz Output Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> en1k{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> en1k{}; 
+        namespace En1kValC{
+        }
         ///Run in Standby
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        namespace RunstdbyValC{
+        }
         ///On Demand Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        namespace OndemandValC{
+        }
         ///Oscillator Start-Up Time
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> startup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> startup{}; 
+        namespace StartupValC{
+        }
         ///Write Lock
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> wrtlock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> wrtlock{}; 
+        namespace WrtlockValC{
+        }
         ///Oscillator Calibration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> calib{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> calib{}; 
+        namespace CalibValC{
+        }
     }
     namespace SysctrlPclksr{    ///<Power and Clocks Status
         using Addr = Register::Address<0x4000080c,0xfffc7000,0,unsigned>;
         ///XOSC Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> xoscrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> xoscrdy{}; 
+        namespace XoscrdyValC{
+        }
         ///XOSC32K Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> xosc32krdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> xosc32krdy{}; 
+        namespace Xosc32krdyValC{
+        }
         ///OSC32K Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32krdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32krdy{}; 
+        namespace Osc32krdyValC{
+        }
         ///OSC8M Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> osc8mrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> osc8mrdy{}; 
+        namespace Osc8mrdyValC{
+        }
         ///DFLL Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dfllrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dfllrdy{}; 
+        namespace DfllrdyValC{
+        }
         ///DFLL Out Of Bounds
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dflloob{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dflloob{}; 
+        namespace DflloobValC{
+        }
         ///DFLL Lock Fine
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dflllckf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dflllckf{}; 
+        namespace DflllckfValC{
+        }
         ///DFLL Lock Coarse
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dflllckc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dflllckc{}; 
+        namespace DflllckcValC{
+        }
         ///DFLL Reference Clock Stopped
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dfllrcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dfllrcs{}; 
+        namespace DfllrcsValC{
+        }
         ///BOD33 Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bod33rdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> bod33rdy{}; 
+        namespace Bod33rdyValC{
+        }
         ///BOD33 Detection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bod33det{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bod33det{}; 
+        namespace Bod33detValC{
+        }
         ///BOD33 Synchronization Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> b33srdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> b33srdy{}; 
+        namespace B33srdyValC{
+        }
         ///DPLL Lock Rise
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dplllckr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dplllckr{}; 
+        namespace DplllckrValC{
+        }
         ///DPLL Lock Fall
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dplllckf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dplllckf{}; 
+        namespace DplllckfValC{
+        }
         ///DPLL Lock Timeout
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dplllto{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dplllto{}; 
+        namespace DpllltoValC{
+        }
     }
     namespace SysctrlVref{    ///<Voltage References System (VREF) Control
         using Addr = Register::Address<0x40000840,0xf800fff9,0,unsigned>;
         ///Temperature Sensor Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tsen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tsen{}; 
+        namespace TsenValC{
+        }
         ///Bandgap Output Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> bgouten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> bgouten{}; 
+        namespace BgoutenValC{
+        }
         ///Bandgap Voltage Generator Calibration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> calib{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> calib{}; 
+        namespace CalibValC{
+        }
     }
     namespace SysctrlXosc{    ///<External Multipurpose Crystal Oscillator (XOSC) Control
         using Addr = Register::Address<0x40000810,0xffff0039,0,unsigned>;
         ///Oscillator Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///Crystal Oscillator Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> xtalen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> xtalen{}; 
+        namespace XtalenValC{
+        }
         ///Run in Standby
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        namespace RunstdbyValC{
+        }
         ///On Demand Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        namespace OndemandValC{
+        }
         ///Oscillator Gain
-        enum class gainVal {
+        enum class GainVal {
             v0x0=0x00000000,     ///<2MHz
             v0x1=0x00000001,     ///<4MHz
             v0x2=0x00000002,     ///<8MHz
             v0x3=0x00000003,     ///<16MHz
             v0x4=0x00000004,     ///<30MHz
         };
-        namespace gainValC{
-            constexpr MPL::Value<gainVal,gainVal::v0x0> v0x0{};
-            constexpr MPL::Value<gainVal,gainVal::v0x1> v0x1{};
-            constexpr MPL::Value<gainVal,gainVal::v0x2> v0x2{};
-            constexpr MPL::Value<gainVal,gainVal::v0x3> v0x3{};
-            constexpr MPL::Value<gainVal,gainVal::v0x4> v0x4{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,GainVal> gain{}; 
+        namespace GainValC{
+            constexpr Register::FieldValue<decltype(gain),GainVal::v0x0> v0x0{};
+            constexpr Register::FieldValue<decltype(gain),GainVal::v0x1> v0x1{};
+            constexpr Register::FieldValue<decltype(gain),GainVal::v0x2> v0x2{};
+            constexpr Register::FieldValue<decltype(gain),GainVal::v0x3> v0x3{};
+            constexpr Register::FieldValue<decltype(gain),GainVal::v0x4> v0x4{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,gainVal> gain{}; 
         ///Automatic Amplitude Gain Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ampgc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ampgc{}; 
+        namespace AmpgcValC{
+        }
         ///Start-Up Time
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> startup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> startup{}; 
+        namespace StartupValC{
+        }
     }
     namespace SysctrlXosc32k{    ///<32kHz External Crystal Oscillator (XOSC32K) Control
         using Addr = Register::Address<0x40000814,0xffffe801,0,unsigned>;
         ///Oscillator Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///Crystal Oscillator Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> xtalen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> xtalen{}; 
+        namespace XtalenValC{
+        }
         ///32kHz Output Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> en32k{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> en32k{}; 
+        namespace En32kValC{
+        }
         ///1kHz Output Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> en1k{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> en1k{}; 
+        namespace En1kValC{
+        }
         ///Automatic Amplitude Control Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> aampen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> aampen{}; 
+        namespace AampenValC{
+        }
         ///Run in Standby
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
+        namespace RunstdbyValC{
+        }
         ///On Demand Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ondemand{}; 
+        namespace OndemandValC{
+        }
         ///Oscillator Start-Up Time
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> startup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> startup{}; 
+        namespace StartupValC{
+        }
         ///Write Lock
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> wrtlock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> wrtlock{}; 
+        namespace WrtlockValC{
+        }
     }
 }

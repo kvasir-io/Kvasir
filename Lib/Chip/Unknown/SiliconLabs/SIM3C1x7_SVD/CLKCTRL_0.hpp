@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace Nonecontrol{    ///<Module Control
         using Addr = Register::Address<0x4002d000,0xcffef8f8,0,unsigned>;
         ///AHB Clock Source Select. 
-        enum class ahbselVal {
+        enum class AhbselVal {
             lposc0=0x00000000,     ///<AHB clock source is the Low-Power Oscillator.
             lfosc0=0x00000001,     ///<AHB clock source is the Low-Frequency Oscillator.
             rtc0osc=0x00000002,     ///<AHB clock source is the RTC Oscillator.
@@ -13,17 +13,17 @@ namespace Kvasir {
             pll0osc=0x00000005,     ///<AHB clock source is the PLL.
             lposc0Div=0x00000006,     ///<AHB clock source is a divided version of the Low-Power Oscillator.
         };
-        namespace ahbselValC{
-            constexpr MPL::Value<ahbselVal,ahbselVal::lposc0> lposc0{};
-            constexpr MPL::Value<ahbselVal,ahbselVal::lfosc0> lfosc0{};
-            constexpr MPL::Value<ahbselVal,ahbselVal::rtc0osc> rtc0osc{};
-            constexpr MPL::Value<ahbselVal,ahbselVal::extosc0> extosc0{};
-            constexpr MPL::Value<ahbselVal,ahbselVal::pll0osc> pll0osc{};
-            constexpr MPL::Value<ahbselVal,ahbselVal::lposc0Div> lposc0Div{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,AhbselVal> ahbsel{}; 
+        namespace AhbselValC{
+            constexpr Register::FieldValue<decltype(ahbsel),AhbselVal::lposc0> lposc0{};
+            constexpr Register::FieldValue<decltype(ahbsel),AhbselVal::lfosc0> lfosc0{};
+            constexpr Register::FieldValue<decltype(ahbsel),AhbselVal::rtc0osc> rtc0osc{};
+            constexpr Register::FieldValue<decltype(ahbsel),AhbselVal::extosc0> extosc0{};
+            constexpr Register::FieldValue<decltype(ahbsel),AhbselVal::pll0osc> pll0osc{};
+            constexpr Register::FieldValue<decltype(ahbsel),AhbselVal::lposc0Div> lposc0Div{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,ahbselVal> ahbsel{}; 
         ///AHB Clock Divider. 
-        enum class ahbdivVal {
+        enum class AhbdivVal {
             div1=0x00000000,     ///<AHB clock divided by 1.
             div2=0x00000001,     ///<AHB clock divided by 2.
             div4=0x00000002,     ///<AHB clock divided by 4.
@@ -33,431 +33,431 @@ namespace Kvasir {
             div64=0x00000006,     ///<AHB clock divided by 64.
             div128=0x00000007,     ///<AHB clock divided by 128.
         };
-        namespace ahbdivValC{
-            constexpr MPL::Value<ahbdivVal,ahbdivVal::div1> div1{};
-            constexpr MPL::Value<ahbdivVal,ahbdivVal::div2> div2{};
-            constexpr MPL::Value<ahbdivVal,ahbdivVal::div4> div4{};
-            constexpr MPL::Value<ahbdivVal,ahbdivVal::div8> div8{};
-            constexpr MPL::Value<ahbdivVal,ahbdivVal::div16> div16{};
-            constexpr MPL::Value<ahbdivVal,ahbdivVal::div32> div32{};
-            constexpr MPL::Value<ahbdivVal,ahbdivVal::div64> div64{};
-            constexpr MPL::Value<ahbdivVal,ahbdivVal::div128> div128{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,AhbdivVal> ahbdiv{}; 
+        namespace AhbdivValC{
+            constexpr Register::FieldValue<decltype(ahbdiv),AhbdivVal::div1> div1{};
+            constexpr Register::FieldValue<decltype(ahbdiv),AhbdivVal::div2> div2{};
+            constexpr Register::FieldValue<decltype(ahbdiv),AhbdivVal::div4> div4{};
+            constexpr Register::FieldValue<decltype(ahbdiv),AhbdivVal::div8> div8{};
+            constexpr Register::FieldValue<decltype(ahbdiv),AhbdivVal::div16> div16{};
+            constexpr Register::FieldValue<decltype(ahbdiv),AhbdivVal::div32> div32{};
+            constexpr Register::FieldValue<decltype(ahbdiv),AhbdivVal::div64> div64{};
+            constexpr Register::FieldValue<decltype(ahbdiv),AhbdivVal::div128> div128{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,ahbdivVal> ahbdiv{}; 
         ///APB Clock Divider. 
-        enum class apbdivVal {
+        enum class ApbdivVal {
             div1=0x00000000,     ///<APB clock is the same as the AHB clock (divided by 1).
             div2=0x00000001,     ///<APB clock is the AHB clock divided by 2.
         };
-        namespace apbdivValC{
-            constexpr MPL::Value<apbdivVal,apbdivVal::div1> div1{};
-            constexpr MPL::Value<apbdivVal,apbdivVal::div2> div2{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,ApbdivVal> apbdiv{}; 
+        namespace ApbdivValC{
+            constexpr Register::FieldValue<decltype(apbdiv),ApbdivVal::div1> div1{};
+            constexpr Register::FieldValue<decltype(apbdiv),ApbdivVal::div2> div2{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,apbdivVal> apbdiv{}; 
         ///External Clock Edge Select. 
-        enum class exteselVal {
+        enum class ExteselVal {
             bothEdges=0x00000000,     ///<External clock generated by both rising and falling edges of the external oscillator.
             risingOnly=0x00000001,     ///<External clock generated by only rising edges of the external oscillator.
         };
-        namespace exteselValC{
-            constexpr MPL::Value<exteselVal,exteselVal::bothEdges> bothEdges{};
-            constexpr MPL::Value<exteselVal,exteselVal::risingOnly> risingOnly{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,ExteselVal> extesel{}; 
+        namespace ExteselValC{
+            constexpr Register::FieldValue<decltype(extesel),ExteselVal::bothEdges> bothEdges{};
+            constexpr Register::FieldValue<decltype(extesel),ExteselVal::risingOnly> risingOnly{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,exteselVal> extesel{}; 
         ///Oscillators Busy Flag. 
-        enum class obusyfVal {
+        enum class ObusyfVal {
             notSet=0x00000000,     ///<AHB and APB oscillators are not busy.
             set=0x00000001,     ///<AHB and APB oscillators are busy and the AHBSEL, AHBDIV, and APBDIV fields should not be modified.
         };
-        namespace obusyfValC{
-            constexpr MPL::Value<obusyfVal,obusyfVal::notSet> notSet{};
-            constexpr MPL::Value<obusyfVal,obusyfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,ObusyfVal> obusyf{}; 
+        namespace ObusyfValC{
+            constexpr Register::FieldValue<decltype(obusyf),ObusyfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(obusyf),ObusyfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,obusyfVal> obusyf{}; 
     }
     namespace Noneahbclkg{    ///<AHB Clock Gate
         using Addr = Register::Address<0x4002d010,0xfffffff0,0,unsigned>;
         ///RAM Clock Enable. 
-        enum class ramcenVal {
+        enum class RamcenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the RAM.
             enabled=0x00000001,     ///<Enable the AHB clock to the RAM (default).
         };
-        namespace ramcenValC{
-            constexpr MPL::Value<ramcenVal,ramcenVal::disabled> disabled{};
-            constexpr MPL::Value<ramcenVal,ramcenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RamcenVal> ramcen{}; 
+        namespace RamcenValC{
+            constexpr Register::FieldValue<decltype(ramcen),RamcenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ramcen),RamcenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ramcenVal> ramcen{}; 
         ///DMA Controller Clock Enable. 
-        enum class dmacenVal {
+        enum class DmacenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the DMA Controller (default).
             enabled=0x00000001,     ///<Enable the AHB clock to the DMA Controller.
         };
-        namespace dmacenValC{
-            constexpr MPL::Value<dmacenVal,dmacenVal::disabled> disabled{};
-            constexpr MPL::Value<dmacenVal,dmacenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DmacenVal> dmacen{}; 
+        namespace DmacenValC{
+            constexpr Register::FieldValue<decltype(dmacen),DmacenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dmacen),DmacenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dmacenVal> dmacen{}; 
         ///Flash Clock Enable. 
-        enum class flashcenVal {
+        enum class FlashcenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the Flash.
             enabled=0x00000001,     ///<Enable the AHB clock to the Flash (default).
         };
-        namespace flashcenValC{
-            constexpr MPL::Value<flashcenVal,flashcenVal::disabled> disabled{};
-            constexpr MPL::Value<flashcenVal,flashcenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FlashcenVal> flashcen{}; 
+        namespace FlashcenValC{
+            constexpr Register::FieldValue<decltype(flashcen),FlashcenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(flashcen),FlashcenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,flashcenVal> flashcen{}; 
         ///EMIF Clock Enable. 
-        enum class emif0cenVal {
+        enum class Emif0cenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the External Memory Interface (EMIF) (default).
             enabled=0x00000001,     ///<Enable the AHB clock to the External Memory Interface (EMIF).
         };
-        namespace emif0cenValC{
-            constexpr MPL::Value<emif0cenVal,emif0cenVal::disabled> disabled{};
-            constexpr MPL::Value<emif0cenVal,emif0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Emif0cenVal> emif0cen{}; 
+        namespace Emif0cenValC{
+            constexpr Register::FieldValue<decltype(emif0cen),Emif0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(emif0cen),Emif0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,emif0cenVal> emif0cen{}; 
     }
     namespace Noneapbclkg0{    ///<APB Clock Gate 0
         using Addr = Register::Address<0x4002d020,0x90000000,0,unsigned>;
         ///PLL Module Clock Enable. 
-        enum class pll0cenVal {
+        enum class Pll0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the PLL0 registers (default).
             enabled=0x00000001,     ///<Enable the APB clock to the PLL0 registers.
         };
-        namespace pll0cenValC{
-            constexpr MPL::Value<pll0cenVal,pll0cenVal::disabled> disabled{};
-            constexpr MPL::Value<pll0cenVal,pll0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Pll0cenVal> pll0cen{}; 
+        namespace Pll0cenValC{
+            constexpr Register::FieldValue<decltype(pll0cen),Pll0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pll0cen),Pll0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,pll0cenVal> pll0cen{}; 
         ///Port Bank Module Clock Enable. 
-        enum class pb0cenVal {
+        enum class Pb0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the Port Bank Modules (default).
             enabled=0x00000001,     ///<Enable the APB clock to the Port Bank Modules.
         };
-        namespace pb0cenValC{
-            constexpr MPL::Value<pb0cenVal,pb0cenVal::disabled> disabled{};
-            constexpr MPL::Value<pb0cenVal,pb0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Pb0cenVal> pb0cen{}; 
+        namespace Pb0cenValC{
+            constexpr Register::FieldValue<decltype(pb0cen),Pb0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pb0cen),Pb0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,pb0cenVal> pb0cen{}; 
         ///USART0 Module Clock Enable. 
-        enum class usart0cenVal {
+        enum class Usart0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the USART0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the USART0 Module.
         };
-        namespace usart0cenValC{
-            constexpr MPL::Value<usart0cenVal,usart0cenVal::disabled> disabled{};
-            constexpr MPL::Value<usart0cenVal,usart0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Usart0cenVal> usart0cen{}; 
+        namespace Usart0cenValC{
+            constexpr Register::FieldValue<decltype(usart0cen),Usart0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(usart0cen),Usart0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,usart0cenVal> usart0cen{}; 
         ///USART1 Module Clock Enable. 
-        enum class usart1cenVal {
+        enum class Usart1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the USART1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the USART1 Module.
         };
-        namespace usart1cenValC{
-            constexpr MPL::Value<usart1cenVal,usart1cenVal::disabled> disabled{};
-            constexpr MPL::Value<usart1cenVal,usart1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Usart1cenVal> usart1cen{}; 
+        namespace Usart1cenValC{
+            constexpr Register::FieldValue<decltype(usart1cen),Usart1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(usart1cen),Usart1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,usart1cenVal> usart1cen{}; 
         ///UART0 Module Clock Enable. 
-        enum class uart0cenVal {
+        enum class Uart0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the UART0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the UART0 Module.
         };
-        namespace uart0cenValC{
-            constexpr MPL::Value<uart0cenVal,uart0cenVal::disabled> disabled{};
-            constexpr MPL::Value<uart0cenVal,uart0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Uart0cenVal> uart0cen{}; 
+        namespace Uart0cenValC{
+            constexpr Register::FieldValue<decltype(uart0cen),Uart0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(uart0cen),Uart0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,uart0cenVal> uart0cen{}; 
         ///UART1 Module Clock Enable. 
-        enum class uart1cenVal {
+        enum class Uart1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the UART1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the UART1 Module.
         };
-        namespace uart1cenValC{
-            constexpr MPL::Value<uart1cenVal,uart1cenVal::disabled> disabled{};
-            constexpr MPL::Value<uart1cenVal,uart1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Uart1cenVal> uart1cen{}; 
+        namespace Uart1cenValC{
+            constexpr Register::FieldValue<decltype(uart1cen),Uart1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(uart1cen),Uart1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,uart1cenVal> uart1cen{}; 
         ///SPI0 Module Clock Enable. 
-        enum class spi0cenVal {
+        enum class Spi0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the SPI0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the SPI0 Module.
         };
-        namespace spi0cenValC{
-            constexpr MPL::Value<spi0cenVal,spi0cenVal::disabled> disabled{};
-            constexpr MPL::Value<spi0cenVal,spi0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Spi0cenVal> spi0cen{}; 
+        namespace Spi0cenValC{
+            constexpr Register::FieldValue<decltype(spi0cen),Spi0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(spi0cen),Spi0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,spi0cenVal> spi0cen{}; 
         ///SPI1 Module Clock Enable. 
-        enum class spi1cenVal {
+        enum class Spi1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the SPI1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the SPI1 Module.
         };
-        namespace spi1cenValC{
-            constexpr MPL::Value<spi1cenVal,spi1cenVal::disabled> disabled{};
-            constexpr MPL::Value<spi1cenVal,spi1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Spi1cenVal> spi1cen{}; 
+        namespace Spi1cenValC{
+            constexpr Register::FieldValue<decltype(spi1cen),Spi1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(spi1cen),Spi1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,spi1cenVal> spi1cen{}; 
         ///SPI2 Module Clock Enable. 
-        enum class spi2cenVal {
+        enum class Spi2cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the SPI2 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the SPI2 Module.
         };
-        namespace spi2cenValC{
-            constexpr MPL::Value<spi2cenVal,spi2cenVal::disabled> disabled{};
-            constexpr MPL::Value<spi2cenVal,spi2cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Spi2cenVal> spi2cen{}; 
+        namespace Spi2cenValC{
+            constexpr Register::FieldValue<decltype(spi2cen),Spi2cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(spi2cen),Spi2cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,spi2cenVal> spi2cen{}; 
         ///I2C0 Module Clock Enable. 
-        enum class i2c0cenVal {
+        enum class I2c0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the I2C0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the I2C0 Module.
         };
-        namespace i2c0cenValC{
-            constexpr MPL::Value<i2c0cenVal,i2c0cenVal::disabled> disabled{};
-            constexpr MPL::Value<i2c0cenVal,i2c0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,I2c0cenVal> i2c0cen{}; 
+        namespace I2c0cenValC{
+            constexpr Register::FieldValue<decltype(i2c0cen),I2c0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(i2c0cen),I2c0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,i2c0cenVal> i2c0cen{}; 
         ///I2C1 Module Clock Enable. 
-        enum class i2c1cenVal {
+        enum class I2c1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the I2C1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the I2C1 Module.
         };
-        namespace i2c1cenValC{
-            constexpr MPL::Value<i2c1cenVal,i2c1cenVal::disabled> disabled{};
-            constexpr MPL::Value<i2c1cenVal,i2c1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,I2c1cenVal> i2c1cen{}; 
+        namespace I2c1cenValC{
+            constexpr Register::FieldValue<decltype(i2c1cen),I2c1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(i2c1cen),I2c1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,i2c1cenVal> i2c1cen{}; 
         ///EPCA0 Module Clock Enable. 
-        enum class epca0cenVal {
+        enum class Epca0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the EPCA0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the EPCA0 Module.
         };
-        namespace epca0cenValC{
-            constexpr MPL::Value<epca0cenVal,epca0cenVal::disabled> disabled{};
-            constexpr MPL::Value<epca0cenVal,epca0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Epca0cenVal> epca0cen{}; 
+        namespace Epca0cenValC{
+            constexpr Register::FieldValue<decltype(epca0cen),Epca0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(epca0cen),Epca0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,epca0cenVal> epca0cen{}; 
         ///PCA0 Module Clock Enable. 
-        enum class pca0cenVal {
+        enum class Pca0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the PCA0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the PCA0 Module.
         };
-        namespace pca0cenValC{
-            constexpr MPL::Value<pca0cenVal,pca0cenVal::disabled> disabled{};
-            constexpr MPL::Value<pca0cenVal,pca0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Pca0cenVal> pca0cen{}; 
+        namespace Pca0cenValC{
+            constexpr Register::FieldValue<decltype(pca0cen),Pca0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pca0cen),Pca0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,pca0cenVal> pca0cen{}; 
         ///PCA1 Module Clock Enable. 
-        enum class pca1cenVal {
+        enum class Pca1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the PCA1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the PCA1 Module.
         };
-        namespace pca1cenValC{
-            constexpr MPL::Value<pca1cenVal,pca1cenVal::disabled> disabled{};
-            constexpr MPL::Value<pca1cenVal,pca1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Pca1cenVal> pca1cen{}; 
+        namespace Pca1cenValC{
+            constexpr Register::FieldValue<decltype(pca1cen),Pca1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pca1cen),Pca1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,pca1cenVal> pca1cen{}; 
         ///SSG0 Module Clock Enable. 
-        enum class ssg0cenVal {
+        enum class Ssg0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the SSG0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the SSG0 Module.
         };
-        namespace ssg0cenValC{
-            constexpr MPL::Value<ssg0cenVal,ssg0cenVal::disabled> disabled{};
-            constexpr MPL::Value<ssg0cenVal,ssg0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ssg0cenVal> ssg0cen{}; 
+        namespace Ssg0cenValC{
+            constexpr Register::FieldValue<decltype(ssg0cen),Ssg0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ssg0cen),Ssg0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ssg0cenVal> ssg0cen{}; 
         ///TIMER0 Module Clock Enable. 
-        enum class timer0cenVal {
+        enum class Timer0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the TIMER0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the TIMER0 Module.
         };
-        namespace timer0cenValC{
-            constexpr MPL::Value<timer0cenVal,timer0cenVal::disabled> disabled{};
-            constexpr MPL::Value<timer0cenVal,timer0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Timer0cenVal> timer0cen{}; 
+        namespace Timer0cenValC{
+            constexpr Register::FieldValue<decltype(timer0cen),Timer0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(timer0cen),Timer0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,timer0cenVal> timer0cen{}; 
         ///TIMER1 Module Clock Enable. 
-        enum class timer1cenVal {
+        enum class Timer1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the TIMER1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the TIMER1 Module.
         };
-        namespace timer1cenValC{
-            constexpr MPL::Value<timer1cenVal,timer1cenVal::disabled> disabled{};
-            constexpr MPL::Value<timer1cenVal,timer1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Timer1cenVal> timer1cen{}; 
+        namespace Timer1cenValC{
+            constexpr Register::FieldValue<decltype(timer1cen),Timer1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(timer1cen),Timer1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,timer1cenVal> timer1cen{}; 
         ///SARADC0 Module Clock Enable. 
-        enum class adc0cenVal {
+        enum class Adc0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the SARADC0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the SARADC0 Module.
         };
-        namespace adc0cenValC{
-            constexpr MPL::Value<adc0cenVal,adc0cenVal::disabled> disabled{};
-            constexpr MPL::Value<adc0cenVal,adc0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Adc0cenVal> adc0cen{}; 
+        namespace Adc0cenValC{
+            constexpr Register::FieldValue<decltype(adc0cen),Adc0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(adc0cen),Adc0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,adc0cenVal> adc0cen{}; 
         ///SARADC1 Module Clock Enable. 
-        enum class adc1cenVal {
+        enum class Adc1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the SARADC1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the SARADC1 Module.
         };
-        namespace adc1cenValC{
-            constexpr MPL::Value<adc1cenVal,adc1cenVal::disabled> disabled{};
-            constexpr MPL::Value<adc1cenVal,adc1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Adc1cenVal> adc1cen{}; 
+        namespace Adc1cenValC{
+            constexpr Register::FieldValue<decltype(adc1cen),Adc1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(adc1cen),Adc1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,adc1cenVal> adc1cen{}; 
         ///Comparator 0 Module Clock Enable. 
-        enum class cmp0cenVal {
+        enum class Cmp0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the Comparator 0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the Comparator 0 Module.
         };
-        namespace cmp0cenValC{
-            constexpr MPL::Value<cmp0cenVal,cmp0cenVal::disabled> disabled{};
-            constexpr MPL::Value<cmp0cenVal,cmp0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Cmp0cenVal> cmp0cen{}; 
+        namespace Cmp0cenValC{
+            constexpr Register::FieldValue<decltype(cmp0cen),Cmp0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmp0cen),Cmp0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,cmp0cenVal> cmp0cen{}; 
         ///Comparator 1 Module Clock Enable. 
-        enum class cmp1cenVal {
+        enum class Cmp1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the Comparator 1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the Comparator 1 Module.
         };
-        namespace cmp1cenValC{
-            constexpr MPL::Value<cmp1cenVal,cmp1cenVal::disabled> disabled{};
-            constexpr MPL::Value<cmp1cenVal,cmp1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Cmp1cenVal> cmp1cen{}; 
+        namespace Cmp1cenValC{
+            constexpr Register::FieldValue<decltype(cmp1cen),Cmp1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmp1cen),Cmp1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,cmp1cenVal> cmp1cen{}; 
         ///Capacitive Sensing (CAPSENSE0) Module Clock Enable. 
-        enum class cs0cenVal {
+        enum class Cs0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the CAPSENSE0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the CAPSENSE0 Module.
         };
-        namespace cs0cenValC{
-            constexpr MPL::Value<cs0cenVal,cs0cenVal::disabled> disabled{};
-            constexpr MPL::Value<cs0cenVal,cs0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Cs0cenVal> cs0cen{}; 
+        namespace Cs0cenValC{
+            constexpr Register::FieldValue<decltype(cs0cen),Cs0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cs0cen),Cs0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,cs0cenVal> cs0cen{}; 
         ///AES0 Module Clock Enable. 
-        enum class aes0cenVal {
+        enum class Aes0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the AES0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the AES0 Module.
         };
-        namespace aes0cenValC{
-            constexpr MPL::Value<aes0cenVal,aes0cenVal::disabled> disabled{};
-            constexpr MPL::Value<aes0cenVal,aes0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Aes0cenVal> aes0cen{}; 
+        namespace Aes0cenValC{
+            constexpr Register::FieldValue<decltype(aes0cen),Aes0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(aes0cen),Aes0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,aes0cenVal> aes0cen{}; 
         ///CRC0 Module Clock Enable. 
-        enum class crc0cenVal {
+        enum class Crc0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the CRC0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the CRC0 Module.
         };
-        namespace crc0cenValC{
-            constexpr MPL::Value<crc0cenVal,crc0cenVal::disabled> disabled{};
-            constexpr MPL::Value<crc0cenVal,crc0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,Crc0cenVal> crc0cen{}; 
+        namespace Crc0cenValC{
+            constexpr Register::FieldValue<decltype(crc0cen),Crc0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(crc0cen),Crc0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,crc0cenVal> crc0cen{}; 
         ///IDAC0 Module Clock Enable. 
-        enum class idac0cenVal {
+        enum class Idac0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the IDAC0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the IDAC0 Module.
         };
-        namespace idac0cenValC{
-            constexpr MPL::Value<idac0cenVal,idac0cenVal::disabled> disabled{};
-            constexpr MPL::Value<idac0cenVal,idac0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Idac0cenVal> idac0cen{}; 
+        namespace Idac0cenValC{
+            constexpr Register::FieldValue<decltype(idac0cen),Idac0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(idac0cen),Idac0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,idac0cenVal> idac0cen{}; 
         ///IDAC1 Module Clock Enable. 
-        enum class idac1cenVal {
+        enum class Idac1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the IDAC1 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the IDAC1 Module.
         };
-        namespace idac1cenValC{
-            constexpr MPL::Value<idac1cenVal,idac1cenVal::disabled> disabled{};
-            constexpr MPL::Value<idac1cenVal,idac1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Idac1cenVal> idac1cen{}; 
+        namespace Idac1cenValC{
+            constexpr Register::FieldValue<decltype(idac1cen),Idac1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(idac1cen),Idac1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,idac1cenVal> idac1cen{}; 
         ///Low Power Timer (LPTIMER0) Module Clock Enable. 
-        enum class lpt0cenVal {
+        enum class Lpt0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the LPTIMER0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the LPTIMER0 Module.
         };
-        namespace lpt0cenValC{
-            constexpr MPL::Value<lpt0cenVal,lpt0cenVal::disabled> disabled{};
-            constexpr MPL::Value<lpt0cenVal,lpt0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Lpt0cenVal> lpt0cen{}; 
+        namespace Lpt0cenValC{
+            constexpr Register::FieldValue<decltype(lpt0cen),Lpt0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lpt0cen),Lpt0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,lpt0cenVal> lpt0cen{}; 
         ///I2S0 Module Clock Enable. 
-        enum class i2s0cenVal {
+        enum class I2s0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the I2S0 Module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the I2S0 Module.
         };
-        namespace i2s0cenValC{
-            constexpr MPL::Value<i2s0cenVal,i2s0cenVal::disabled> disabled{};
-            constexpr MPL::Value<i2s0cenVal,i2s0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,I2s0cenVal> i2s0cen{}; 
+        namespace I2s0cenValC{
+            constexpr Register::FieldValue<decltype(i2s0cen),I2s0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(i2s0cen),I2s0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,i2s0cenVal> i2s0cen{}; 
         ///External Regulator Clock Enable. 
-        enum class evregcenVal {
+        enum class EvregcenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the External Regulator Module (EXTVREG0) (default).
             enabled=0x00000001,     ///<Enable the APB clock to the External Regulator Module (EXTVREG0).
         };
-        namespace evregcenValC{
-            constexpr MPL::Value<evregcenVal,evregcenVal::disabled> disabled{};
-            constexpr MPL::Value<evregcenVal,evregcenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,EvregcenVal> evregcen{}; 
+        namespace EvregcenValC{
+            constexpr Register::FieldValue<decltype(evregcen),EvregcenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(evregcen),EvregcenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,evregcenVal> evregcen{}; 
         ///Flash Controller Clock Enable. 
-        enum class flctrlcenVal {
+        enum class FlctrlcenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the Flash Controller Module (FLASHCTRL0) (default).
             enabled=0x00000001,     ///<Enable the APB clock to the Flash Controller Module (FLASHCTRL0).
         };
-        namespace flctrlcenValC{
-            constexpr MPL::Value<flctrlcenVal,flctrlcenVal::disabled> disabled{};
-            constexpr MPL::Value<flctrlcenVal,flctrlcenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,FlctrlcenVal> flctrlcen{}; 
+        namespace FlctrlcenValC{
+            constexpr Register::FieldValue<decltype(flctrlcen),FlctrlcenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(flctrlcen),FlctrlcenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,flctrlcenVal> flctrlcen{}; 
     }
     namespace Noneapbclkg1{    ///<APB Clock Gate 1
         using Addr = Register::Address<0x4002d030,0xfffffff8,0,unsigned>;
         ///Miscellaneous 0 Clock Enable. 
-        enum class misc0cenVal {
+        enum class Misc0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the RSTSRC0, LOCK0, VMON0, VREG0, LDO0, VREF0, EXTOSC0, LPOSC0, EXTVREG0, IVC0 and RTC0 modules (default).
             enabled=0x00000001,     ///<Enable the APB clock to the  RSTSRC0, LOCK0, VMON0, VREG0, LDO0, VREF0, EXTOSC0, LPOSC0, EXTVREG0, IVC0 and RTC0 modules.
         };
-        namespace misc0cenValC{
-            constexpr MPL::Value<misc0cenVal,misc0cenVal::disabled> disabled{};
-            constexpr MPL::Value<misc0cenVal,misc0cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Misc0cenVal> misc0cen{}; 
+        namespace Misc0cenValC{
+            constexpr Register::FieldValue<decltype(misc0cen),Misc0cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(misc0cen),Misc0cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,misc0cenVal> misc0cen{}; 
         ///Miscellaneous 1 Clock Enable. 
-        enum class misc1cenVal {
+        enum class Misc1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the  Watchdog Timer (WDTIMER0), EMIF0, and DMA Crossbar (DMAXBAR0) modules.
             enabled=0x00000001,     ///<Enable the APB clock to the  Watchdog Timer (WDTIMER0), EMIF0, and DMA Crossbar (DMAXBAR0) modules (default).
         };
-        namespace misc1cenValC{
-            constexpr MPL::Value<misc1cenVal,misc1cenVal::disabled> disabled{};
-            constexpr MPL::Value<misc1cenVal,misc1cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Misc1cenVal> misc1cen{}; 
+        namespace Misc1cenValC{
+            constexpr Register::FieldValue<decltype(misc1cen),Misc1cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(misc1cen),Misc1cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,misc1cenVal> misc1cen{}; 
         ///Miscellaneous 2 Clock Enable. 
-        enum class misc2cenVal {
+        enum class Misc2cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the  OSCVLDF flag in the EXTOSC module (default).
             enabled=0x00000001,     ///<Enable the APB clock to the  OSCVLDF flag in the EXTOSC module.
         };
-        namespace misc2cenValC{
-            constexpr MPL::Value<misc2cenVal,misc2cenVal::disabled> disabled{};
-            constexpr MPL::Value<misc2cenVal,misc2cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Misc2cenVal> misc2cen{}; 
+        namespace Misc2cenValC{
+            constexpr Register::FieldValue<decltype(misc2cen),Misc2cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(misc2cen),Misc2cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,misc2cenVal> misc2cen{}; 
     }
     namespace Nonepm3cn{    ///<Power Mode 3 Clock Control
         using Addr = Register::Address<0x4002d040,0xfffefff8,0,unsigned>;
         ///Power Mode 3 Fast-Wake Clock Source. 
-        enum class pm3cselVal {
+        enum class Pm3cselVal {
             lposc0=0x00000000,     ///<Power Mode 3 clock source is the Low-Power Oscillator.
             lfosc0=0x00000001,     ///<Power Mode 3 clock source is the Low-Frequency Oscillator.
             rtc0osc=0x00000002,     ///<Power Mode 3 clock source is the RTC Oscillator.
@@ -465,24 +465,24 @@ namespace Kvasir {
             pll0osc=0x00000005,     ///<Power Mode 3 clock source is the PLL.
             lposc0Div=0x00000006,     ///<Power Mode 3 clock source is a divided version of the Low-Power Oscillator.
         };
-        namespace pm3cselValC{
-            constexpr MPL::Value<pm3cselVal,pm3cselVal::lposc0> lposc0{};
-            constexpr MPL::Value<pm3cselVal,pm3cselVal::lfosc0> lfosc0{};
-            constexpr MPL::Value<pm3cselVal,pm3cselVal::rtc0osc> rtc0osc{};
-            constexpr MPL::Value<pm3cselVal,pm3cselVal::extosc0> extosc0{};
-            constexpr MPL::Value<pm3cselVal,pm3cselVal::pll0osc> pll0osc{};
-            constexpr MPL::Value<pm3cselVal,pm3cselVal::lposc0Div> lposc0Div{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,Pm3cselVal> pm3csel{}; 
+        namespace Pm3cselValC{
+            constexpr Register::FieldValue<decltype(pm3csel),Pm3cselVal::lposc0> lposc0{};
+            constexpr Register::FieldValue<decltype(pm3csel),Pm3cselVal::lfosc0> lfosc0{};
+            constexpr Register::FieldValue<decltype(pm3csel),Pm3cselVal::rtc0osc> rtc0osc{};
+            constexpr Register::FieldValue<decltype(pm3csel),Pm3cselVal::extosc0> extosc0{};
+            constexpr Register::FieldValue<decltype(pm3csel),Pm3cselVal::pll0osc> pll0osc{};
+            constexpr Register::FieldValue<decltype(pm3csel),Pm3cselVal::lposc0Div> lposc0Div{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,pm3cselVal> pm3csel{}; 
         ///Power Mode 3 Fast-Wake Clock Enable. 
-        enum class pm3cenVal {
+        enum class Pm3cenVal {
             disabled=0x00000000,     ///<Disable the core clock when in Power Mode 3.
             enabled=0x00000001,     ///<The core clock is enabled and runs off the clock selected by PM3CSEL in Power Mode 3.
         };
-        namespace pm3cenValC{
-            constexpr MPL::Value<pm3cenVal,pm3cenVal::disabled> disabled{};
-            constexpr MPL::Value<pm3cenVal,pm3cenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Pm3cenVal> pm3cen{}; 
+        namespace Pm3cenValC{
+            constexpr Register::FieldValue<decltype(pm3cen),Pm3cenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pm3cen),Pm3cenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,pm3cenVal> pm3cen{}; 
     }
 }

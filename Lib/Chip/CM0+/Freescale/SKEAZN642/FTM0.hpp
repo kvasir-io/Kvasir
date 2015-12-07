@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace Ftm0Sc{    ///<Status And Control
         using Addr = Register::Address<0x40038000,0xffffff00,0,unsigned>;
         ///Prescale Factor Selection
-        enum class psVal {
+        enum class PsVal {
             v000=0x00000000,     ///<Divide by 1
             v001=0x00000001,     ///<Divide by 2
             v010=0x00000002,     ///<Divide by 4
@@ -15,142 +15,166 @@ namespace Kvasir {
             v110=0x00000006,     ///<Divide by 64
             v111=0x00000007,     ///<Divide by 128
         };
-        namespace psValC{
-            constexpr MPL::Value<psVal,psVal::v000> v000{};
-            constexpr MPL::Value<psVal,psVal::v001> v001{};
-            constexpr MPL::Value<psVal,psVal::v010> v010{};
-            constexpr MPL::Value<psVal,psVal::v011> v011{};
-            constexpr MPL::Value<psVal,psVal::v100> v100{};
-            constexpr MPL::Value<psVal,psVal::v101> v101{};
-            constexpr MPL::Value<psVal,psVal::v110> v110{};
-            constexpr MPL::Value<psVal,psVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,PsVal> ps{}; 
+        namespace PsValC{
+            constexpr Register::FieldValue<decltype(ps),PsVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,psVal> ps{}; 
         ///Clock Source Selection
-        enum class clksVal {
+        enum class ClksVal {
             v00=0x00000000,     ///<No clock selected. This in effect disables the FTM counter.
             v01=0x00000001,     ///<System clock
             v10=0x00000002,     ///<Fixed frequency clock
             v11=0x00000003,     ///<External clock
         };
-        namespace clksValC{
-            constexpr MPL::Value<clksVal,clksVal::v00> v00{};
-            constexpr MPL::Value<clksVal,clksVal::v01> v01{};
-            constexpr MPL::Value<clksVal,clksVal::v10> v10{};
-            constexpr MPL::Value<clksVal,clksVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ClksVal> clks{}; 
+        namespace ClksValC{
+            constexpr Register::FieldValue<decltype(clks),ClksVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(clks),ClksVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(clks),ClksVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(clks),ClksVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,clksVal> clks{}; 
         ///Center-Aligned PWM Select
-        enum class cpwmsVal {
+        enum class CpwmsVal {
             v0=0x00000000,     ///<FTM counter operates in Up Counting mode.
             v1=0x00000001,     ///<FTM counter operates in Up-Down Counting mode.
         };
-        namespace cpwmsValC{
-            constexpr MPL::Value<cpwmsVal,cpwmsVal::v0> v0{};
-            constexpr MPL::Value<cpwmsVal,cpwmsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,CpwmsVal> cpwms{}; 
+        namespace CpwmsValC{
+            constexpr Register::FieldValue<decltype(cpwms),CpwmsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpwms),CpwmsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,cpwmsVal> cpwms{}; 
         ///Timer Overflow Interrupt Enable
-        enum class toieVal {
+        enum class ToieVal {
             v0=0x00000000,     ///<Disable TOF interrupts. Use software polling.
             v1=0x00000001,     ///<Enable TOF interrupts. An interrupt is generated when TOF equals one.
         };
-        namespace toieValC{
-            constexpr MPL::Value<toieVal,toieVal::v0> v0{};
-            constexpr MPL::Value<toieVal,toieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ToieVal> toie{}; 
+        namespace ToieValC{
+            constexpr Register::FieldValue<decltype(toie),ToieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(toie),ToieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,toieVal> toie{}; 
         ///Timer Overflow Flag
-        enum class tofVal {
+        enum class TofVal {
             v0=0x00000000,     ///<FTM counter has not overflowed.
             v1=0x00000001,     ///<FTM counter has overflowed.
         };
-        namespace tofValC{
-            constexpr MPL::Value<tofVal,tofVal::v0> v0{};
-            constexpr MPL::Value<tofVal,tofVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TofVal> tof{}; 
+        namespace TofValC{
+            constexpr Register::FieldValue<decltype(tof),TofVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tof),TofVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,tofVal> tof{}; 
     }
     namespace Ftm0Cnt{    ///<Counter
         using Addr = Register::Address<0x40038004,0xffff0000,0,unsigned>;
         ///Counter Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
+        namespace CountValC{
+        }
     }
     namespace Ftm0Mod{    ///<Modulo
         using Addr = Register::Address<0x40038008,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
+        namespace ModValC{
+        }
     }
     namespace Ftm0C0sc{    ///<Channel (n) Status And Control
         using Addr = Register::Address<0x4003800c,0xffffff03,0,unsigned>;
         ///Edge or Level Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        namespace ElsaValC{
+        }
         ///Edge or Level Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        namespace ElsbValC{
+        }
         ///Channel Mode Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        namespace MsaValC{
+        }
         ///Channel Mode Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        namespace MsbValC{
+        }
         ///Channel Interrupt Enable
-        enum class chieVal {
+        enum class ChieVal {
             v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
             v1=0x00000001,     ///<Enable channel interrupts.
         };
-        namespace chieValC{
-            constexpr MPL::Value<chieVal,chieVal::v0> v0{};
-            constexpr MPL::Value<chieVal,chieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie),ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie),ChieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,chieVal> chie{}; 
         ///Channel Flag
-        enum class chfVal {
+        enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
             v1=0x00000001,     ///<A channel event has occurred.
         };
-        namespace chfValC{
-            constexpr MPL::Value<chfVal,chfVal::v0> v0{};
-            constexpr MPL::Value<chfVal,chfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf),ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf),ChfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,chfVal> chf{}; 
     }
     namespace Ftm0C1sc{    ///<Channel (n) Status And Control
         using Addr = Register::Address<0x40038014,0xffffff03,0,unsigned>;
         ///Edge or Level Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
+        namespace ElsaValC{
+        }
         ///Edge or Level Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> elsb{}; 
+        namespace ElsbValC{
+        }
         ///Channel Mode Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> msa{}; 
+        namespace MsaValC{
+        }
         ///Channel Mode Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> msb{}; 
+        namespace MsbValC{
+        }
         ///Channel Interrupt Enable
-        enum class chieVal {
+        enum class ChieVal {
             v0=0x00000000,     ///<Disable channel interrupts. Use software polling.
             v1=0x00000001,     ///<Enable channel interrupts.
         };
-        namespace chieValC{
-            constexpr MPL::Value<chieVal,chieVal::v0> v0{};
-            constexpr MPL::Value<chieVal,chieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChieVal> chie{}; 
+        namespace ChieValC{
+            constexpr Register::FieldValue<decltype(chie),ChieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chie),ChieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,chieVal> chie{}; 
         ///Channel Flag
-        enum class chfVal {
+        enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
             v1=0x00000001,     ///<A channel event has occurred.
         };
-        namespace chfValC{
-            constexpr MPL::Value<chfVal,chfVal::v0> v0{};
-            constexpr MPL::Value<chfVal,chfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ChfVal> chf{}; 
+        namespace ChfValC{
+            constexpr Register::FieldValue<decltype(chf),ChfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chf),ChfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,chfVal> chf{}; 
     }
     namespace Ftm0C0v{    ///<Channel (n) Value
         using Addr = Register::Address<0x40038010,0xffff0000,0,unsigned>;
         ///Channel Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+        namespace ValValC{
+        }
     }
     namespace Ftm0C1v{    ///<Channel (n) Value
         using Addr = Register::Address<0x40038018,0xffff0000,0,unsigned>;
         ///Channel Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
+        namespace ValValC{
+        }
     }
 }

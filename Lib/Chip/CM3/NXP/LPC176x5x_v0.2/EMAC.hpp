@@ -5,495 +5,857 @@ namespace Kvasir {
     namespace Nonemac1{    ///<MAC configuration register 1.
         using Addr = Register::Address<0x50000000,0xffff30e0,0,unsigned>;
         ///RECEIVE ENABLE. Set this to allow receive frames to be received. Internally the MAC synchronizes this control bit to the incoming receive stream.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxenable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxenable{}; 
+        namespace RxenableValC{
+        }
         ///PASS ALL RECEIVE FRAMES. When enabled (set to 1), the MAC will pass all frames regardless of type (normal vs. Control). When disabled, the MAC does not pass valid Control frames.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> parf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> parf{}; 
+        namespace ParfValC{
+        }
         ///RX FLOW CONTROL. When enabled (set to 1), the MAC acts upon received PAUSE Flow Control frames. When disabled, received PAUSE Flow Control frames are ignored.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxflowctrl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxflowctrl{}; 
+        namespace RxflowctrlValC{
+        }
         ///TX FLOW CONTROL. When enabled (set to 1), PAUSE Flow Control frames are allowed to be transmitted. When disabled, Flow Control frames are blocked.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txflowctrl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txflowctrl{}; 
+        namespace TxflowctrlValC{
+        }
         ///Setting this bit will cause the MAC Transmit interface to be looped back to the MAC Receive interface. Clearing this bit results in normal operation.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> loopback{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> loopback{}; 
+        namespace LoopbackValC{
+        }
         ///Setting this bit will put the Transmit Function logic in reset.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> resettx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> resettx{}; 
+        namespace ResettxValC{
+        }
         ///Setting this bit resets the MAC Control Sublayer / Transmit logic. The MCS logic implements flow control.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> resetmcstx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> resetmcstx{}; 
+        namespace ResetmcstxValC{
+        }
         ///Setting this bit will put the Ethernet receive logic in reset.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> resetrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> resetrx{}; 
+        namespace ResetrxValC{
+        }
         ///Setting this bit resets the MAC Control Sublayer / Receive logic. The MCS logic implements flow control.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> resetmcsrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> resetmcsrx{}; 
+        namespace ResetmcsrxValC{
+        }
         ///SIMULATION RESET. Setting this bit will cause a reset to the random number generator within the Transmit Function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> simreset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> simreset{}; 
+        namespace SimresetValC{
+        }
         ///SOFT RESET. Setting this bit will put all modules within the MAC in reset except the Host Interface.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> softreset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> softreset{}; 
+        namespace SoftresetValC{
+        }
     }
     namespace Nonemac2{    ///<MAC configuration register 2.
         using Addr = Register::Address<0x50000004,0xffff8c00,0,unsigned>;
         ///When enabled (set to 1), the MAC operates in Full-Duplex mode. When disabled, the MAC operates in Half-Duplex mode.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fullduplex{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fullduplex{}; 
+        namespace FullduplexValC{
+        }
         ///FRAMELENGTH CHECKING. When enabled (set to 1), both transmit and receive frame lengths are compared to the Length/Type field. If the Length/Type field represents a length then the check is performed. Mismatches are reported in the StatusInfo word for each received frame.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> flc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> flc{}; 
+        namespace FlcValC{
+        }
         ///HUGE FRAME ENABLEWhen enabled (set to 1), frames of any length are transmitted and received.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hfen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hfen{}; 
+        namespace HfenValC{
+        }
         ///DELAYED CRC. This bit determines the number of bytes, if any, of proprietary header information that exist on the front of IEEE 802.3 frames. When 1, four bytes of header (ignored by the CRC function) are added. When 0, there is no proprietary header.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> delayedcrc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> delayedcrc{}; 
+        namespace DelayedcrcValC{
+        }
         ///CRC ENABLESet this bit to append a CRC to every frame whether padding was required or not. Must be set if PAD/CRC ENABLE is set. Clear this bit if frames presented to the MAC contain a CRC.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> crcen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> crcen{}; 
+        namespace CrcenValC{
+        }
         ///PAD CRC ENABLE. Set this bit to have the MAC pad all short frames. Clear this bit if frames presented to the MAC have a valid length. This bit is used in conjunction with AUTO PAD ENABLE and VLAN PAD ENABLE. See Table 153 - Pad Operation for details on the pad function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> padcrcen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> padcrcen{}; 
+        namespace PadcrcenValC{
+        }
         ///VLAN PAD ENABLE. Set this bit to cause the MAC to pad all short frames to 64 bytes and append a valid CRC. Consult Table 153 - Pad Operation for more information on the various padding features. Note: This bit is ignored if PAD / CRC ENABLE is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> vlanpaden{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> vlanpaden{}; 
+        namespace VlanpadenValC{
+        }
         ///AUTODETECTPAD ENABLE. Set this bit to cause the MAC to automatically detect the type of frame, either tagged or un-tagged, by comparing the two octets following the source address with 0x8100 (VLAN Protocol ID) and pad accordingly. Table 153 - Pad Operation provides a description of the pad function based on the configuration of this register. Note: This bit is ignored if PAD / CRC ENABLE is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> autodetpaden{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> autodetpaden{}; 
+        namespace AutodetpadenValC{
+        }
         ///PURE PREAMBLE ENFORCEMEN. When enabled (set to 1), the MAC will verify the content of the preamble to ensure it contains 0x55 and is error-free. A packet with an incorrect preamble is discarded. When disabled, no preamble checking is performed.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ppenf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ppenf{}; 
+        namespace PpenfValC{
+        }
         ///LONG PREAMBLE ENFORCEMENT. When enabled (set to 1), the MAC only allows receive packets which contain preamble fields less than 12 bytes in length. When disabled, the MAC allows any length preamble as per the Standard.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> lpenf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> lpenf{}; 
+        namespace LpenfValC{
+        }
         ///When enabled (set to 1), the MAC will immediately retransmit following a collision rather than using the Binary Exponential Backoff algorithm as specified in the Standard.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> nobackoff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> nobackoff{}; 
+        namespace NobackoffValC{
+        }
         ///BACK PRESSURE / NO BACKOFF. When enabled (set to 1), after the MAC incidentally causes a collision during back pressure, it will immediately retransmit without backoff, reducing the chance of further collisions and ensuring transmit packets get sent.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> bpNobackoff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> bpNobackoff{}; 
+        namespace BpnobackoffValC{
+        }
         ///When enabled (set to 1) the MAC will defer to carrier indefinitely as per the Standard. When disabled, the MAC will abort when the excessive deferral limit is reached.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> excessdefer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> excessdefer{}; 
+        namespace ExcessdeferValC{
+        }
     }
     namespace Noneipgt{    ///<Back-to-Back Inter-Packet-Gap register.
         using Addr = Register::Address<0x50000008,0xffffff80,0,unsigned>;
         ///BACK-TO-BACK INTER-PACKET-GAP.This is a programmable field representing the nibble time offset of the minimum possible period between the end of any transmitted packet to the beginning of the next. In Full-Duplex mode, the register value should be the desired period in nibble times minus 3. In Half-Duplex mode, the register value should be the desired period in nibble times minus 6. In Full-Duplex the recommended setting is 0x15 (21d), which represents the minimum IPG of 960 ns (in 100 Mbps mode) or 9.6 us (in 10 Mbps mode). In Half-Duplex the recommended setting is 0x12 (18d), which also represents the minimum IPG of 960 ns (in 100 Mbps mode) or 9.6 us (in 10 Mbps mode).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> btobintegap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> btobintegap{}; 
+        namespace BtobintegapValC{
+        }
     }
     namespace Noneipgr{    ///<Non Back-to-Back Inter-Packet-Gap register.
         using Addr = Register::Address<0x5000000c,0xffff8080,0,unsigned>;
         ///NON-BACK-TO-BACK INTER-PACKET-GAP PART2. This is a programmable field representing the Non-Back-to-Back Inter-Packet-Gap. The recommended value is 0x12 (18d), which represents the minimum IPG of 960 ns (in 100 Mbps mode) or 9.6 us (in 10 Mbps mode).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> nbtobintegap2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> nbtobintegap2{}; 
+        namespace Nbtobintegap2ValC{
+        }
         ///NON-BACK-TO-BACK INTER-PACKET-GAP PART1. This is a programmable field representing the optional carrierSense window referenced in IEEE 802.3/4.2.3.2.1 'Carrier Deference'. If carrier is detected during the timing of IPGR1, the MAC defers to carrier. If, however, carrier becomes active after IPGR1, the MAC continues timing IPGR2 and transmits, knowingly causing a collision, thus ensuring fair access to medium. Its range of values is 0x0 to IPGR2. The recommended value is 0xC (12d)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> nbtobintegap1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> nbtobintegap1{}; 
+        namespace Nbtobintegap1ValC{
+        }
     }
     namespace Noneclrt{    ///<Collision window / Retry register.
         using Addr = Register::Address<0x50000010,0xffffc0f0,0,unsigned>;
         ///RETRANSMISSION MAXIMUM.This is a programmable field specifying the number of retransmission attempts following a collision before aborting the packet due to excessive collisions. The Standard specifies the attemptLimit to be 0xF (15d). See IEEE 802.3/4.2.3.2.5.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> retransmax{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> retransmax{}; 
+        namespace RetransmaxValC{
+        }
         ///COLLISION WINDOW. This is a programmable field representing the slot time or collision window during which collisions occur in properly configured networks. The default value of 0x37 (55d) represents a 56 byte window following the preamble and SFD.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> collwin{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> collwin{}; 
+        namespace CollwinValC{
+        }
     }
     namespace Nonemaxf{    ///<Maximum Frame register.
         using Addr = Register::Address<0x50000014,0xffff0000,0,unsigned>;
         ///MAXIMUM FRAME LENGTH. This field resets to the value 0x0600, which represents a maximum receive frame of 1536 octets. An untagged maximum size Ethernet frame is 1518 octets. A tagged frame adds four octets for a total of 1522 octets. If a shorter maximum length restriction is desired, program this 16-bit field.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> maxflen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> maxflen{}; 
+        namespace MaxflenValC{
+        }
     }
     namespace Nonesupp{    ///<PHY Support register.
         using Addr = Register::Address<0x50000018,0xfffffeff,0,unsigned>;
         ///This bit configures the Reduced MII logic for the current operating speed. When set, 100 Mbps mode is selected. When cleared, 10 Mbps mode is selected.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> speed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> speed{}; 
+        namespace SpeedValC{
+        }
     }
     namespace Nonetest{    ///<Test register.
         using Addr = Register::Address<0x5000001c,0xfffffff8,0,unsigned>;
         ///SHORTCUT PAUSE QUANTA. This bit reduces the effective PAUSE quanta from 64 byte-times to 1 byte-time.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> scpq{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> scpq{}; 
+        namespace ScpqValC{
+        }
         ///This bit causes the MAC Control sublayer to inhibit transmissions, just as if a PAUSE Receive Control frame with a nonzero pause time parameter was received.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> testpause{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> testpause{}; 
+        namespace TestpauseValC{
+        }
         ///TEST BACKPRESSURE. Setting this bit will cause the MAC to assert backpressure on the link. Backpressure causes preamble to be transmitted, raising carrier sense. A transmit packet from the system will be sent during backpressure.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> testbp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> testbp{}; 
+        namespace TestbpValC{
+        }
     }
     namespace Nonemcfg{    ///<MII Mgmt Configuration register.
         using Addr = Register::Address<0x50000020,0xffff7fc0,0,unsigned>;
         ///SCAN INCREMENT. Set this bit to cause the MII Management hardware to perform read cycles across a range of PHYs. When set, the MII Management hardware will perform read cycles from address 1 through the value set in PHY ADDRESS[4:0]. Clear this bit to allow continuous reads of the same PHY.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> scaninc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> scaninc{}; 
+        namespace ScanincValC{
+        }
         ///SUPPRESS PREAMBLE. Set this bit to cause the MII Management hardware to perform read/write cycles without the 32-bit preamble field. Clear this bit to cause normal cycles to be performed. Some PHYs support suppressed preamble.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> supppreamble{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> supppreamble{}; 
+        namespace SupppreambleValC{
+        }
         ///CLOCK SELECT. This field is used by the clock divide logic in creating the MII Management Clock (MDC) which IEEE 802.3u defines to be no faster than 2.5 MHz. Some PHYs support clock rates up to 12.5 MHz, however. The AHB bus clock (HCLK) is divided by the specified amount. Refer to Table 160 below for the definition of values for this field.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> clocksel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> clocksel{}; 
+        namespace ClockselValC{
+        }
         ///RESET MII MGMT. This bit resets the MII Management hardware.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> resetmiimgmt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> resetmiimgmt{}; 
+        namespace ResetmiimgmtValC{
+        }
     }
     namespace Nonemcmd{    ///<MII Mgmt Command register.
         using Addr = Register::Address<0x50000024,0xfffffffc,0,unsigned>;
         ///This bit causes the MII Management hardware to perform a single Read cycle. The Read data is returned in Register MRDD (MII Mgmt Read Data).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> read{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> read{}; 
+        namespace ReadValC{
+        }
         ///This bit causes the MII Management hardware to perform Read cycles continuously. This is useful for monitoring Link Fail for example.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scan{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scan{}; 
+        namespace ScanValC{
+        }
     }
     namespace Nonemadr{    ///<MII Mgmt Address register.
         using Addr = Register::Address<0x50000028,0xffffe0e0,0,unsigned>;
         ///REGISTER ADDRESS. This field represents the 5-bit Register Address field of Mgmt cycles. Up to 32 registers can be accessed.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> regaddr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> regaddr{}; 
+        namespace RegaddrValC{
+        }
         ///PHY ADDRESS. This field represents the 5-bit PHY Address field of Mgmt cycles. Up to 31 PHYs can be addressed (0 is reserved).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> phyaddr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> phyaddr{}; 
+        namespace PhyaddrValC{
+        }
     }
     namespace Nonemwtd{    ///<MII Mgmt Write Data register.
         using Addr = Register::Address<0x5000002c,0xffff0000,0,unsigned>;
         ///WRITE DATA. When written, an MII Mgmt write cycle is performed using the 16-bit data and the pre-configured PHY and Register addresses from the MII Mgmt Address register (MADR).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> writedata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> writedata{}; 
+        namespace WritedataValC{
+        }
     }
     namespace Nonemrdd{    ///<MII Mgmt Read Data register.
         using Addr = Register::Address<0x50000030,0xffff0000,0,unsigned>;
         ///READ DATA. Following an MII Mgmt Read Cycle, the 16-bit data can be read from this location.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> readdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> readdata{}; 
+        namespace ReaddataValC{
+        }
     }
     namespace Nonemind{    ///<MII Mgmt Indicators register.
         using Addr = Register::Address<0x50000034,0xfffffff0,0,unsigned>;
         ///When 1 is returned - indicates MII Mgmt is currently performing an MII Mgmt Read or Write cycle.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> busy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> busy{}; 
+        namespace BusyValC{
+        }
         ///When 1 is returned - indicates a scan operation (continuous MII Mgmt Read cycles) is in progress.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scanning{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> scanning{}; 
+        namespace ScanningValC{
+        }
         ///When 1 is returned - indicates MII Mgmt Read cycle has not completed and the Read Data is not yet valid.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> notvalid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> notvalid{}; 
+        namespace NotvalidValC{
+        }
         ///When 1 is returned - indicates that an MII Mgmt link fail has occurred.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> miilinkfail{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> miilinkfail{}; 
+        namespace MiilinkfailValC{
+        }
     }
     namespace Nonesa0{    ///<Station Address 0 register.
         using Addr = Register::Address<0x50000040,0xffff0000,0,unsigned>;
         ///STATION ADDRESS, 2nd octet. This field holds the second octet of the station address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> saddr2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> saddr2{}; 
+        namespace Saddr2ValC{
+        }
         ///STATION ADDRESS, 1st octet. This field holds the first octet of the station address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> saddr1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> saddr1{}; 
+        namespace Saddr1ValC{
+        }
     }
     namespace Nonesa1{    ///<Station Address 1 register.
         using Addr = Register::Address<0x50000044,0xffff0000,0,unsigned>;
         ///STATION ADDRESS, 4th octet. This field holds the fourth octet of the station address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> saddr4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> saddr4{}; 
+        namespace Saddr4ValC{
+        }
         ///STATION ADDRESS, 3rd octet. This field holds the third octet of the station address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> saddr3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> saddr3{}; 
+        namespace Saddr3ValC{
+        }
     }
     namespace Nonesa2{    ///<Station Address 2 register.
         using Addr = Register::Address<0x50000048,0xffff0000,0,unsigned>;
         ///STATION ADDRESS, 6th octet. This field holds the sixth octet of the station address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> saddr6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> saddr6{}; 
+        namespace Saddr6ValC{
+        }
         ///STATION ADDRESS, 5th octet. This field holds the fifth octet of the station address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> saddr5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> saddr5{}; 
+        namespace Saddr5ValC{
+        }
     }
     namespace Nonecommand{    ///<Command register.
         using Addr = Register::Address<0x50000100,0xfffff804,0,unsigned>;
         ///Enable receive.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxenable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxenable{}; 
+        namespace RxenableValC{
+        }
         ///Enable transmit.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txenable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txenable{}; 
+        namespace TxenableValC{
+        }
         ///When a  1  is written, all datapaths and the host registers are reset. The MAC needs to be reset separately.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> regreset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> regreset{}; 
+        namespace RegresetValC{
+        }
         ///When a  1  is written, the transmit datapath is reset.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txreset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txreset{}; 
+        namespace TxresetValC{
+        }
         ///When a  1  is written, the receive datapath is reset.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxreset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxreset{}; 
+        namespace RxresetValC{
+        }
         ///When set to  1 , passes runt frames s1maller than 64 bytes to memory unless they have a CRC error. If 0 runt frames are filtered out.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> passruntframe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> passruntframe{}; 
+        namespace PassruntframeValC{
+        }
         ///When set to  1 , disables receive filtering i.e. all frames received are written to memory.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> passrxfilter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> passrxfilter{}; 
+        namespace PassrxfilterValC{
+        }
         ///Enable IEEE 802.3 / clause 31 flow control sending pause frames in full duplex and continuous preamble in half duplex.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txflowcontrol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txflowcontrol{}; 
+        namespace TxflowcontrolValC{
+        }
         ///When set to  1 , RMII mode is selected; if 0, MII mode is selected.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rmii{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rmii{}; 
+        namespace RmiiValC{
+        }
         ///When set to  1 , indicates full duplex operation.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> fullduplex{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> fullduplex{}; 
+        namespace FullduplexValC{
+        }
     }
     namespace Nonestatus{    ///<Status register.
         using Addr = Register::Address<0x50000104,0xfffffffc,0,unsigned>;
         ///If 1, the receive channel is active. If 0, the receive channel is inactive.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxstatus{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxstatus{}; 
+        namespace RxstatusValC{
+        }
         ///If 1, the transmit channel is active. If 0, the transmit channel is inactive.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txstatus{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txstatus{}; 
+        namespace TxstatusValC{
+        }
     }
     namespace Nonerxdescriptor{    ///<Receive descriptor base address register.
         using Addr = Register::Address<0x50000108,0x00000003,0,unsigned>;
         ///MSBs of receive descriptor base address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> rxdescriptor{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> rxdescriptor{}; 
+        namespace RxdescriptorValC{
+        }
     }
     namespace Nonerxstatus{    ///<Receive status base address register.
         using Addr = Register::Address<0x5000010c,0x00000007,0,unsigned>;
         ///MSBs of receive status base address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> rxstatus{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> rxstatus{}; 
+        namespace RxstatusValC{
+        }
     }
     namespace Nonerxdescriptornumber{    ///<Receive number of descriptors register.
         using Addr = Register::Address<0x50000110,0xffff0000,0,unsigned>;
         ///RxDescriptorNumber. Number of descriptors in the descriptor array for which RxDescriptor is the base address. The number of descriptors is minus one encoded.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxdescriptorn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxdescriptorn{}; 
+        namespace RxdescriptornValC{
+        }
     }
     namespace Nonerxproduceindex{    ///<Receive produce index register.
         using Addr = Register::Address<0x50000114,0xffff0000,0,unsigned>;
         ///Index of the descriptor that is going to be filled next by the receive datapath.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxproduceix{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxproduceix{}; 
+        namespace RxproduceixValC{
+        }
     }
     namespace Nonerxconsumeindex{    ///<Receive consume index register.
         using Addr = Register::Address<0x50000118,0xffff0000,0,unsigned>;
         ///Index of the descriptor that is going to be processed next by the receive
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxconsumeix{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxconsumeix{}; 
+        namespace RxconsumeixValC{
+        }
     }
     namespace Nonetxdescriptor{    ///<Transmit descriptor base address register.
         using Addr = Register::Address<0x5000011c,0x00000003,0,unsigned>;
         ///TxDescriptor. MSBs of transmit descriptor base address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> txd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> txd{}; 
+        namespace TxdValC{
+        }
     }
     namespace Nonetxstatus{    ///<Transmit status base address register.
         using Addr = Register::Address<0x50000120,0x00000003,0,unsigned>;
         ///TxStatus. MSBs of transmit status base address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> txstat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> txstat{}; 
+        namespace TxstatValC{
+        }
     }
     namespace Nonetxdescriptornumber{    ///<Transmit number of descriptors register.
         using Addr = Register::Address<0x50000124,0xffff0000,0,unsigned>;
         ///TxDescriptorNumber. Number of descriptors in the descriptor array for which TxDescriptor is the base address. The register is minus one encoded.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdn{}; 
+        namespace TxdnValC{
+        }
     }
     namespace Nonetxproduceindex{    ///<Transmit produce index register.
         using Addr = Register::Address<0x50000128,0xffff0000,0,unsigned>;
         ///TxProduceIndex. Index of the descriptor that is going to be filled next by the transmit software driver.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txpi{}; 
+        namespace TxpiValC{
+        }
     }
     namespace Nonetxconsumeindex{    ///<Transmit consume index register.
         using Addr = Register::Address<0x5000012c,0xffff0000,0,unsigned>;
         ///TxConsumeIndex. Index of the descriptor that is going to be transmitted next by the transmit datapath.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txci{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txci{}; 
+        namespace TxciValC{
+        }
     }
     namespace Nonetsv0{    ///<Transmit status vector 0 register.
         using Addr = Register::Address<0x50000158,0x00000000,0,unsigned>;
         ///CRC error. The attached CRC in the packet did not match the internally generated CRC.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> crcerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> crcerr{}; 
+        namespace CrcerrValC{
+        }
         ///Length check error. Indicates the frame length field does not match the actual number of data items and is not a type field.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lce{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lce{}; 
+        namespace LceValC{
+        }
         ///Length out of range. Indicates that frame type/length field was larger than 1500 bytes. The EMAC doesn't distinguish the frame type and frame length, so, e.g. when the IP(0x8000) or ARP(0x0806) packets are received, it compares the frame type with the max length and gives the "Length out of range" error. In fact, this bit is not an error indication, but simply a statement by the chip regarding the status of the received frame.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lor{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lor{}; 
+        namespace LorValC{
+        }
         ///Transmission of packet was completed.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> done{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> done{}; 
+        namespace DoneValC{
+        }
         ///Packet's destination was a multicast address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> multicast{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> multicast{}; 
+        namespace MulticastValC{
+        }
         ///Packet's destination was a broadcast address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> broadcast{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> broadcast{}; 
+        namespace BroadcastValC{
+        }
         ///Packet was deferred for at least one attempt, but less than an excessive defer.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> packetdefer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> packetdefer{}; 
+        namespace PacketdeferValC{
+        }
         ///Excessive Defer. Packet was deferred in excess of 6071 nibble times in 100 Mbps or 24287 bit times in 10 Mbps mode.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> exdf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> exdf{}; 
+        namespace ExdfValC{
+        }
         ///Excessive Collision. Packet was aborted due to exceeding of maximum allowed number of collisions.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> excol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> excol{}; 
+        namespace ExcolValC{
+        }
         ///Late Collision. Collision occurred beyond collision window, 512 bit times.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> lcol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> lcol{}; 
+        namespace LcolValC{
+        }
         ///Byte count in frame was greater than can be represented in the transmit byte count field in TSV1.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> giant{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> giant{}; 
+        namespace GiantValC{
+        }
         ///Host side caused buffer underrun.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> underrun{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> underrun{}; 
+        namespace UnderrunValC{
+        }
         ///The total number of bytes transferred including collided attempts.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,12),Register::ReadWriteAccess,unsigned> totalbytes{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,12),Register::ReadWriteAccess,unsigned> totalbytes{}; 
+        namespace TotalbytesValC{
+        }
         ///The frame was a control frame.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> controlframe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> controlframe{}; 
+        namespace ControlframeValC{
+        }
         ///The frame was a control frame with a valid PAUSE opcode.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> pause{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> pause{}; 
+        namespace PauseValC{
+        }
         ///Carrier-sense method backpressure was previously applied.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> backpressure{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> backpressure{}; 
+        namespace BackpressureValC{
+        }
         ///Frame's length/type field contained 0x8100 which is the VLAN protocol identifier.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> vlan{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> vlan{}; 
+        namespace VlanValC{
+        }
     }
     namespace Nonetsv1{    ///<Transmit status vector 1 register.
         using Addr = Register::Address<0x5000015c,0xfff00000,0,unsigned>;
         ///Transmit byte count. The total number of bytes in the frame, not counting the collided bytes.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tbc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tbc{}; 
+        namespace TbcValC{
+        }
         ///Transmit collision count. Number of collisions the current packet incurred during transmission attempts. The maximum number of collisions (16) cannot be represented.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tcc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tcc{}; 
+        namespace TccValC{
+        }
     }
     namespace Nonersv{    ///<Receive status vector register.
         using Addr = Register::Address<0x50000160,0x80000000,0,unsigned>;
         ///Received byte count. Indicates length of received frame.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rbc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rbc{}; 
+        namespace RbcValC{
+        }
         ///Packet previously ignored. Indicates that a packet was dropped.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ppi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> ppi{}; 
+        namespace PpiValC{
+        }
         ///RXDV event previously seen. Indicates that the last receive event seen was not long enough to be a valid packet.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rxdvseen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rxdvseen{}; 
+        namespace RxdvseenValC{
+        }
         ///Carrier event previously seen. Indicates that at some time since the last receive statistics, a carrier event was detected.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ceseen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> ceseen{}; 
+        namespace CeseenValC{
+        }
         ///Receive code violation. Indicates that received PHY data does not represent a valid receive code.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rcv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rcv{}; 
+        namespace RcvValC{
+        }
         ///CRC error. The attached CRC in the packet did not match the internally generated CRC.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> crcerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> crcerr{}; 
+        namespace CrcerrValC{
+        }
         ///Length check error. Indicates the frame length field does not match the actual number of data items and is not a type field.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> lcerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> lcerr{}; 
+        namespace LcerrValC{
+        }
         ///Length out of range. Indicates that frame type/length field was larger than 1518 bytes. The EMAC doesn't distinguish the frame type and frame length, so, e.g. when the IP(0x8000) or ARP(0x0806) packets are received, it compares the frame type with the max length and gives the "Length out of range" error. In fact, this bit is not an error indication, but simply a statement by the chip regarding the status of the received frame.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> lor{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> lor{}; 
+        namespace LorValC{
+        }
         ///Receive OK. The packet had valid CRC and no symbol errors.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> rok{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> rok{}; 
+        namespace RokValC{
+        }
         ///The packet destination was a multicast address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> multicast{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> multicast{}; 
+        namespace MulticastValC{
+        }
         ///The packet destination was a broadcast address.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> broadcast{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> broadcast{}; 
+        namespace BroadcastValC{
+        }
         ///Indicates that after the end of packet another 1-7 bits were received. A single nibble, called dribble nibble, is formed but not sent out.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dribblenibble{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dribblenibble{}; 
+        namespace DribblenibbleValC{
+        }
         ///The frame was a control frame.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> controlframe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> controlframe{}; 
+        namespace ControlframeValC{
+        }
         ///The frame was a control frame with a valid PAUSE opcode.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> pause{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> pause{}; 
+        namespace PauseValC{
+        }
         ///Unsupported Opcode. The current frame was recognized as a Control Frame but contains an unknown opcode.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> uo{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> uo{}; 
+        namespace UoValC{
+        }
         ///Frame's length/type field contained 0x8100 which is the VLAN protocol identifier.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> vlan{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> vlan{}; 
+        namespace VlanValC{
+        }
     }
     namespace Noneflowcontrolcounter{    ///<Flow control counter register.
         using Addr = Register::Address<0x50000170,0x00000000,0,unsigned>;
         ///MirrorCounter. In full duplex mode the MirrorCounter specifies the number of cycles before re-issuing the Pause control frame.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mc{}; 
+        namespace McValC{
+        }
         ///PauseTimer. In full-duplex mode the PauseTimer specifies the value that is inserted into the pause timer field of a pause flow control frame. In half duplex mode the PauseTimer specifies the number of backpressure cycles.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pt{}; 
+        namespace PtValC{
+        }
     }
     namespace Noneflowcontrolstatus{    ///<Flow control status register.
         using Addr = Register::Address<0x50000174,0xffff0000,0,unsigned>;
         ///MirrorCounterCurrent. In full duplex mode this register represents the current value of the datapath's mirror counter which counts up to the value specified by the MirrorCounter field in the FlowControlCounter register. In half duplex mode the register counts until it reaches the value of the PauseTimer bits in the FlowControlCounter register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mcc{}; 
+        namespace MccValC{
+        }
     }
     namespace Nonerxfilterctrl{    ///<Receive filter control register.
         using Addr = Register::Address<0x50000200,0xffffcfc0,0,unsigned>;
         ///AcceptUnicastEn. When set to 1, all unicast frames are accepted.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> aue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> aue{}; 
+        namespace AueValC{
+        }
         ///AcceptBroadcastEn. When set to 1, all broadcast frames are accepted.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> abe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> abe{}; 
+        namespace AbeValC{
+        }
         ///AcceptMulticastEn. When set to 1, all multicast frames are accepted.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ame{}; 
+        namespace AmeValC{
+        }
         ///AcceptUnicastHashEn. When set to 1, unicast frames that pass the imperfect hash filter are accepted.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> auhe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> auhe{}; 
+        namespace AuheValC{
+        }
         ///AcceptMulticastHashEn. When set to 1, multicast frames that pass the imperfect hash filter are accepted.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> amhe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> amhe{}; 
+        namespace AmheValC{
+        }
         ///AcceptPerfectEn. When set to 1, the frames with a destination address identical to the station address are accepted.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ape{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ape{}; 
+        namespace ApeValC{
+        }
         ///MagicPacketEnWoL. When set to 1, the result of the magic packet filter will generate a WoL interrupt when there is a match.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> mpew{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> mpew{}; 
+        namespace MpewValC{
+        }
         ///RxFilterEnWoL. When set to 1, the result of the perfect address matching filter and the imperfect hash filter will generate a WoL interrupt when there is a match.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rfew{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rfew{}; 
+        namespace RfewValC{
+        }
     }
     namespace Nonerxfilterwolstatus{    ///<Receive filter WoL status register.
         using Addr = Register::Address<0x50000204,0xfffffe40,0,unsigned>;
         ///AcceptUnicastWoL. When the value is 1, a unicast frames caused WoL.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> auw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> auw{}; 
+        namespace AuwValC{
+        }
         ///AcceptBroadcastWoL. When the value is 1, a broadcast frame caused WoL.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> abw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> abw{}; 
+        namespace AbwValC{
+        }
         ///AcceptMulticastWoL. When the value is 1, a multicast frame caused WoL.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> amw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> amw{}; 
+        namespace AmwValC{
+        }
         ///AcceptUnicastHashWoL. When the value is 1, a unicast frame that passes the imperfect hash filter caused WoL.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> auhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> auhw{}; 
+        namespace AuhwValC{
+        }
         ///AcceptMulticastHashWoL. When the value is 1, a multicast frame that passes the imperfect hash filter caused WoL.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> amhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> amhw{}; 
+        namespace AmhwValC{
+        }
         ///AcceptPerfectWoL. When the value is 1, the perfect address matching filter caused WoL.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> apw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> apw{}; 
+        namespace ApwValC{
+        }
         ///RxFilterWoL. When the value is 1, the receive filter caused WoL.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rfw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rfw{}; 
+        namespace RfwValC{
+        }
         ///MagicPacketWoL. When the value is 1, the magic packet filter caused WoL.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mpw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mpw{}; 
+        namespace MpwValC{
+        }
     }
     namespace Nonerxfilterwolclear{    ///<Receive filter WoL clear register.
         using Addr = Register::Address<0x50000208,0xfffffe40,0,unsigned>;
         ///AcceptUnicastWoLClr. When a 1 is written, the corresponding status bit in the RxFilterWoLStatus register is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> auwclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> auwclr{}; 
+        namespace AuwclrValC{
+        }
         ///AcceptBroadcastWoLClr. When a 1 is written, the corresponding status bit in the RxFilterWoLStatus register is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> abwclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> abwclr{}; 
+        namespace AbwclrValC{
+        }
         ///AcceptMulticastWoLClr. When a 1 is written, the corresponding status bit in the RxFilterWoLStatus register is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> amwclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> amwclr{}; 
+        namespace AmwclrValC{
+        }
         ///AcceptUnicastHashWoLClr. When a 1 is written, the corresponding status bit in the RxFilterWoLStatus register is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> auhwclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> auhwclr{}; 
+        namespace AuhwclrValC{
+        }
         ///AcceptMulticastHashWoLClr. When a 1 is written, the corresponding status bit in the RxFilterWoLStatus register is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> amhwclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> amhwclr{}; 
+        namespace AmhwclrValC{
+        }
         ///AcceptPerfectWoLClr. When a 1 is written, the corresponding status bit in the RxFilterWoLStatus register is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> apwclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> apwclr{}; 
+        namespace ApwclrValC{
+        }
         ///RxFilterWoLClr. When a 1 is written, the corresponding status bit in the RxFilterWoLStatus register is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rfwclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rfwclr{}; 
+        namespace RfwclrValC{
+        }
         ///MagicPacketWoLClr. When a 1 is written, the corresponding status bit in the RxFilterWoLStatus register is cleared.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mpwclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mpwclr{}; 
+        namespace MpwclrValC{
+        }
     }
     namespace Nonehashfilterl{    ///<Hash filter table LSBs register.
         using Addr = Register::Address<0x50000210,0x00000000,0,unsigned>;
         ///HashFilterL. Bits 31:0 of the imperfect filter hash table for receive filtering.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hfl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hfl{}; 
+        namespace HflValC{
+        }
     }
     namespace Nonehashfilterh{    ///<Hash filter table MSBs register.
         using Addr = Register::Address<0x50000214,0x00000000,0,unsigned>;
         ///Bits 63:32 of the imperfect filter hash table for receive filtering.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hfh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hfh{}; 
+        namespace HfhValC{
+        }
     }
     namespace Noneintstatus{    ///<Interrupt status register.
         using Addr = Register::Address<0x50000fe0,0xffffcf00,0,unsigned>;
         ///Interrupt set on a fatal overrun error in the receive queue. The fatal interrupt should be resolved by a Rx soft-reset. The bit is not set when there is a nonfatal overrun error.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxoverrunint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxoverrunint{}; 
+        namespace RxoverrunintValC{
+        }
         ///Interrupt trigger on receive errors: AlignmentError, RangeError, LengthError, SymbolError, CRCError or NoDescriptor or Overrun.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxerrorint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxerrorint{}; 
+        namespace RxerrorintValC{
+        }
         ///Interrupt triggered when all receive descriptors have been processed i.e. on the transition to the situation where ProduceIndex == ConsumeIndex.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxfinishedint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxfinishedint{}; 
+        namespace RxfinishedintValC{
+        }
         ///Interrupt triggered when a receive descriptor has been processed while the Interrupt bit in the Control field of the descriptor was set.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxdoneint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxdoneint{}; 
+        namespace RxdoneintValC{
+        }
         ///Interrupt set on a fatal underrun error in the transmit queue. The fatal interrupt should be resolved by a Tx soft-reset. The bit is not set when there is a nonfatal underrun error.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderrunint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderrunint{}; 
+        namespace TxunderrunintValC{
+        }
         ///Interrupt trigger on transmit errors: LateCollision, ExcessiveCollision and ExcessiveDefer, NoDescriptor or Underrun.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txerrorint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txerrorint{}; 
+        namespace TxerrorintValC{
+        }
         ///Interrupt triggered when all transmit descriptors have been processed i.e. on the transition to the situation where ProduceIndex == ConsumeIndex.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txfinishedint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txfinishedint{}; 
+        namespace TxfinishedintValC{
+        }
         ///Interrupt triggered when a descriptor has been transmitted while the Interrupt bit in the Control field of the descriptor was set.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdoneint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdoneint{}; 
+        namespace TxdoneintValC{
+        }
         ///Interrupt triggered by software writing a 1 to the SoftIntSet bit in the IntSet register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> softint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> softint{}; 
+        namespace SoftintValC{
+        }
         ///Interrupt triggered by a Wake-up event detected by the receive filter.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> wakeupint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> wakeupint{}; 
+        namespace WakeupintValC{
+        }
     }
     namespace Noneintenable{    ///<Interrupt enable register.
         using Addr = Register::Address<0x50000fe4,0xffffcf00,0,unsigned>;
         ///Enable for interrupt trigger on receive buffer overrun or descriptor underrun situations.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxoverruninten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxoverruninten{}; 
+        namespace RxoverrunintenValC{
+        }
         ///Enable for interrupt trigger on receive errors.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxerrorinten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxerrorinten{}; 
+        namespace RxerrorintenValC{
+        }
         ///Enable for interrupt triggered when all receive descriptors have been processed i.e. on the transition to the situation where ProduceIndex == ConsumeIndex.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxfinishedinten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxfinishedinten{}; 
+        namespace RxfinishedintenValC{
+        }
         ///Enable for interrupt triggered when a receive descriptor has been processed while the Interrupt bit in the Control field of the descriptor was set.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxdoneinten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxdoneinten{}; 
+        namespace RxdoneintenValC{
+        }
         ///Enable for interrupt trigger on transmit buffer or descriptor underrun situations.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderruninten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderruninten{}; 
+        namespace TxunderrunintenValC{
+        }
         ///Enable for interrupt trigger on transmit errors.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txerrorinten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txerrorinten{}; 
+        namespace TxerrorintenValC{
+        }
         ///Enable for interrupt triggered when all transmit descriptors have been processed i.e. on the transition to the situation where ProduceIndex == ConsumeIndex.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txfinishedinten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txfinishedinten{}; 
+        namespace TxfinishedintenValC{
+        }
         ///Enable for interrupt triggered when a descriptor has been transmitted while the Interrupt bit in the Control field of the descriptor was set.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdoneinten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdoneinten{}; 
+        namespace TxdoneintenValC{
+        }
         ///Enable for interrupt triggered by the SoftInt bit in the IntStatus register, caused by software writing a 1 to the SoftIntSet bit in the IntSet register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> softinten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> softinten{}; 
+        namespace SoftintenValC{
+        }
         ///Enable for interrupt triggered by a Wake-up event detected by the receive filter.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> wakeupinten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> wakeupinten{}; 
+        namespace WakeupintenValC{
+        }
     }
     namespace Noneintclear{    ///<Interrupt clear register.
         using Addr = Register::Address<0x50000fe8,0xffffcf00,0,unsigned>;
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxoverrunintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxoverrunintclr{}; 
+        namespace RxoverrunintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxerrorintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxerrorintclr{}; 
+        namespace RxerrorintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxfinishedintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxfinishedintclr{}; 
+        namespace RxfinishedintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxdoneintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxdoneintclr{}; 
+        namespace RxdoneintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderrunintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderrunintclr{}; 
+        namespace TxunderrunintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txerrorintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txerrorintclr{}; 
+        namespace TxerrorintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txfinishedintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txfinishedintclr{}; 
+        namespace TxfinishedintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdoneintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdoneintclr{}; 
+        namespace TxdoneintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> softintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> softintclr{}; 
+        namespace SoftintclrValC{
+        }
         ///Writing a 1 clears the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> wakeupintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> wakeupintclr{}; 
+        namespace WakeupintclrValC{
+        }
     }
     namespace Noneintset{    ///<Interrupt set register.
         using Addr = Register::Address<0x50000fec,0xffffcf00,0,unsigned>;
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxoverrunintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxoverrunintset{}; 
+        namespace RxoverrunintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxerrorintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxerrorintset{}; 
+        namespace RxerrorintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxfinishedintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxfinishedintset{}; 
+        namespace RxfinishedintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxdoneintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rxdoneintset{}; 
+        namespace RxdoneintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderrunintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txunderrunintset{}; 
+        namespace TxunderrunintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txerrorintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> txerrorintset{}; 
+        namespace TxerrorintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txfinishedintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txfinishedintset{}; 
+        namespace TxfinishedintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdoneintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdoneintset{}; 
+        namespace TxdoneintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> softintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> softintset{}; 
+        namespace SoftintsetValC{
+        }
         ///Writing a 1 to one sets the corresponding status bit in interrupt status register IntStatus.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> wakeupintset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> wakeupintset{}; 
+        namespace WakeupintsetValC{
+        }
     }
     namespace Nonepowerdown{    ///<Power-down register.
         using Addr = Register::Address<0x50000ff4,0x7fffffff,0,unsigned>;
         ///PowerDownMACAHB. If true, all AHB accesses will return a read/write error, except accesses to the Power-Down register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pd{}; 
+        namespace PdValC{
+        }
     }
 }

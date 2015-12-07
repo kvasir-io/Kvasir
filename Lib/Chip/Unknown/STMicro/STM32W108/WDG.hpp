@@ -5,18 +5,26 @@ namespace Kvasir {
     namespace NonewdgCr{    ///<WDG configuration register
         using Addr = Register::Address<0x40006000,0xfffffffc,0,unsigned>;
         ///WDGDIS
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wdgdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wdgdis{}; 
+        namespace WdgdisValC{
+        }
         ///WDGEN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdgen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdgen{}; 
+        namespace WdgenValC{
+        }
     }
     namespace NonewdgKr{    ///<WDG key register
         using Addr = Register::Address<0x40006004,0xffff0000,0,unsigned>;
         ///KEY
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> key{}; 
+        namespace KeyValC{
+        }
     }
     namespace NonewdgKicksr{    ///<WDG kick-start register
         using Addr = Register::Address<0x40006008,0xffff0000,0,unsigned>;
         ///KS
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ks{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ks{}; 
+        namespace KsValC{
+        }
     }
 }

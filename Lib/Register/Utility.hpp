@@ -87,11 +87,11 @@ namespace Register{
 		template<typename T>
 		struct GetFieldType;
 		template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType, typename TAction>
-		struct GetFieldType<Action<BitLocation<TAddress,Mask,TAccess,TFieldType>,TAction>> {
+		struct GetFieldType<Action<FieldLocation<TAddress,Mask,TAccess,TFieldType>,TAction>> {
 			using Type = TFieldType;
 		};
 		template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType>
-		struct GetFieldType<BitLocation<TAddress,Mask,TAccess,TFieldType>>{
+		struct GetFieldType<FieldLocation<TAddress,Mask,TAccess,TFieldType>>{
 			using Type = TFieldType;
 		};
 		template<typename T>
@@ -105,24 +105,24 @@ namespace Register{
 		struct IsWriteRuntime : FalseType{};
 
 		template<typename T>
-		struct IsBitLocation : FalseType{};
+		struct IsFieldLocation : FalseType{};
 		template<typename TAddress, unsigned Mask, typename Access, typename TFieldType>
-		struct IsBitLocation<BitLocation<TAddress, Mask, Access, TFieldType>> : TrueType {};
+		struct IsFieldLocation<FieldLocation<TAddress, Mask, Access, TFieldType>> : TrueType {};
 
 		template<typename T>
 		struct IsWritable : FalseType{};
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, bool Popable, typename TFieldType>
-		struct IsWritable<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,Popable,false>, TFieldType>> : TrueType {};
+		struct IsWritable<FieldLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,Popable,false>, TFieldType>> : TrueType {};
 
 		template<typename T>
 		struct IsSetToClear : FalseType{};
 		template<typename TAddress, unsigned Mask, bool Readable, bool Writable, bool ClearOnRead, bool Popable, typename TFieldType>
-		struct IsSetToClear<BitLocation<TAddress, Mask, Access<Readable,Writable,ClearOnRead,Popable,true>, TFieldType>> : TrueType {};
+		struct IsSetToClear<FieldLocation<TAddress, Mask, Access<Readable,Writable,ClearOnRead,Popable,true>, TFieldType>> : TrueType {};
 
 		template<typename T, typename U>
 		struct WriteLocationAndCompileTimeValueTypeAreSame : FalseType {};
 		template<typename AT, unsigned M, bool Readable, bool ClearOnRead, typename FT, FT V>
-		struct WriteLocationAndCompileTimeValueTypeAreSame<BitLocation<AT, M, Access<Readable,true,ClearOnRead,false,false>, FT>,MPL::Value<FT,V>> : TrueType{};
+		struct WriteLocationAndCompileTimeValueTypeAreSame<FieldLocation<AT, M, Access<Readable,true,ClearOnRead,false,false>, FT>,MPL::Value<FT,V>> : TrueType{};
 
 		//getters for specific parameters of an Action
 		template<typename T>
@@ -141,7 +141,7 @@ namespace Register{
 			using Type = Unsigned<A>;
 		};
 		template<typename TAddress, unsigned Mask, typename TAccess, typename TFiledType>
-		struct GetAddress<BitLocation<TAddress,Mask,TAccess,TFiledType>> {
+		struct GetAddress<FieldLocation<TAddress,Mask,TAccess,TFiledType>> {
 			static constexpr unsigned value = TAddress::value;
 			static unsigned read(){
 				volatile unsigned& reg = *((volatile unsigned*)value);
@@ -154,7 +154,7 @@ namespace Register{
 			using Type = Unsigned<TAddress::value>;
 		};
 		template<typename TReadLoc, typename TWriteLoc>
-		struct GetAddress<BitLocationPair<TReadLoc,TWriteLoc>> {
+		struct GetAddress<FieldLocationPair<TReadLoc,TWriteLoc>> {
 			static constexpr unsigned value = TReadLoc::value;
 			static unsigned read(){
 				volatile unsigned& reg = *((volatile unsigned*)value);
@@ -166,13 +166,13 @@ namespace Register{
 			}
 			using Type = Unsigned<value>;
 		};
-		template<typename TBitLocation, typename TAction>
-		struct GetAddress<Action<TBitLocation,TAction>> : GetAddress<TBitLocation> {};
+		template<typename TFieldLocation, typename TAction>
+		struct GetAddress<Action<TFieldLocation,TAction>> : GetAddress<TFieldLocation> {};
 
 		template<typename T>
-		struct GetBitLocation;
+		struct GetFieldLocation;
 		template<typename TLocation, typename TAction>
-		struct GetBitLocation<Action<TLocation,TAction>> : TLocation {};
+		struct GetFieldLocation<Action<TLocation,TAction>> : TLocation {};
 
 		//predecate retuning result of left < right for RegisterOptions
 		template<typename TLeft, typename TRight>
@@ -192,12 +192,12 @@ namespace Register{
 
 		template<typename T>
 		struct GetMask;
-		//from BitLocations
+		//from FieldLocations
 		template<typename Address, unsigned Mask, typename TAccess, typename ResultType>
-		struct GetMask<BitLocation<Address,Mask,TAccess,ResultType>> : Value<unsigned,Mask>{};
+		struct GetMask<FieldLocation<Address,Mask,TAccess,ResultType>> : Value<unsigned,Mask>{};
 		//from Action
-		template<typename TBitLocation, typename TAction>
-		struct GetMask<Action<TBitLocation,TAction>> : GetMask<TBitLocation>{};
+		template<typename TFieldLocation, typename TAction>
+		struct GetMask<Action<TFieldLocation,TAction>> : GetMask<TFieldLocation>{};
 
 	}
 }

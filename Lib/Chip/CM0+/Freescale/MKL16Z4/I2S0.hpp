@@ -5,675 +5,711 @@ namespace Kvasir {
     namespace I2s0Tcsr{    ///<SAI Transmit Control Register
         using Addr = Register::Address<0x4002f000,0x0ce1e1fd,0,unsigned>;
         ///FIFO Warning DMA Enable
-        enum class fwdeVal {
+        enum class FwdeVal {
             v0=0x00000000,     ///<Disables the DMA request.
             v1=0x00000001,     ///<Enables the DMA request.
         };
-        namespace fwdeValC{
-            constexpr MPL::Value<fwdeVal,fwdeVal::v0> v0{};
-            constexpr MPL::Value<fwdeVal,fwdeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FwdeVal> fwde{}; 
+        namespace FwdeValC{
+            constexpr Register::FieldValue<decltype(fwde),FwdeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fwde),FwdeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,fwdeVal> fwde{}; 
         ///FIFO Warning Interrupt Enable
-        enum class fwieVal {
+        enum class FwieVal {
             v0=0x00000000,     ///<Disables the interrupt.
             v1=0x00000001,     ///<Enables the interrupt.
         };
-        namespace fwieValC{
-            constexpr MPL::Value<fwieVal,fwieVal::v0> v0{};
-            constexpr MPL::Value<fwieVal,fwieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,FwieVal> fwie{}; 
+        namespace FwieValC{
+            constexpr Register::FieldValue<decltype(fwie),FwieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fwie),FwieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,fwieVal> fwie{}; 
         ///FIFO Error Interrupt Enable
-        enum class feieVal {
+        enum class FeieVal {
             v0=0x00000000,     ///<Disables the interrupt.
             v1=0x00000001,     ///<Enables the interrupt.
         };
-        namespace feieValC{
-            constexpr MPL::Value<feieVal,feieVal::v0> v0{};
-            constexpr MPL::Value<feieVal,feieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,FeieVal> feie{}; 
+        namespace FeieValC{
+            constexpr Register::FieldValue<decltype(feie),FeieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(feie),FeieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,feieVal> feie{}; 
         ///Sync Error Interrupt Enable
-        enum class seieVal {
+        enum class SeieVal {
             v0=0x00000000,     ///<Disables interrupt.
             v1=0x00000001,     ///<Enables interrupt.
         };
-        namespace seieValC{
-            constexpr MPL::Value<seieVal,seieVal::v0> v0{};
-            constexpr MPL::Value<seieVal,seieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,SeieVal> seie{}; 
+        namespace SeieValC{
+            constexpr Register::FieldValue<decltype(seie),SeieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(seie),SeieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,seieVal> seie{}; 
         ///Word Start Interrupt Enable
-        enum class wsieVal {
+        enum class WsieVal {
             v0=0x00000000,     ///<Disables interrupt.
             v1=0x00000001,     ///<Enables interrupt.
         };
-        namespace wsieValC{
-            constexpr MPL::Value<wsieVal,wsieVal::v0> v0{};
-            constexpr MPL::Value<wsieVal,wsieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,WsieVal> wsie{}; 
+        namespace WsieValC{
+            constexpr Register::FieldValue<decltype(wsie),WsieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wsie),WsieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,wsieVal> wsie{}; 
         ///FIFO Warning Flag
-        enum class fwfVal {
+        enum class FwfVal {
             v0=0x00000000,     ///<No enabled transmit FIFO is empty.
             v1=0x00000001,     ///<Enabled transmit FIFO is empty.
         };
-        namespace fwfValC{
-            constexpr MPL::Value<fwfVal,fwfVal::v0> v0{};
-            constexpr MPL::Value<fwfVal,fwfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,FwfVal> fwf{}; 
+        namespace FwfValC{
+            constexpr Register::FieldValue<decltype(fwf),FwfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fwf),FwfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,fwfVal> fwf{}; 
         ///FIFO Error Flag
-        enum class fefVal {
+        enum class FefVal {
             v0=0x00000000,     ///<Transmit underrun not detected.
             v1=0x00000001,     ///<Transmit underrun detected.
         };
-        namespace fefValC{
-            constexpr MPL::Value<fefVal,fefVal::v0> v0{};
-            constexpr MPL::Value<fefVal,fefVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,FefVal> fef{}; 
+        namespace FefValC{
+            constexpr Register::FieldValue<decltype(fef),FefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fef),FefVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,fefVal> fef{}; 
         ///Sync Error Flag
-        enum class sefVal {
+        enum class SefVal {
             v0=0x00000000,     ///<Sync error not detected.
             v1=0x00000001,     ///<Frame sync error detected.
         };
-        namespace sefValC{
-            constexpr MPL::Value<sefVal,sefVal::v0> v0{};
-            constexpr MPL::Value<sefVal,sefVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,SefVal> sef{}; 
+        namespace SefValC{
+            constexpr Register::FieldValue<decltype(sef),SefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sef),SefVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,sefVal> sef{}; 
         ///Word Start Flag
-        enum class wsfVal {
+        enum class WsfVal {
             v0=0x00000000,     ///<Start of word not detected.
             v1=0x00000001,     ///<Start of word detected.
         };
-        namespace wsfValC{
-            constexpr MPL::Value<wsfVal,wsfVal::v0> v0{};
-            constexpr MPL::Value<wsfVal,wsfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,WsfVal> wsf{}; 
+        namespace WsfValC{
+            constexpr Register::FieldValue<decltype(wsf),WsfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wsf),WsfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,wsfVal> wsf{}; 
         ///Software Reset
-        enum class srVal {
+        enum class SrVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<Software reset.
         };
-        namespace srValC{
-            constexpr MPL::Value<srVal,srVal::v0> v0{};
-            constexpr MPL::Value<srVal,srVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,SrVal> sr{}; 
+        namespace SrValC{
+            constexpr Register::FieldValue<decltype(sr),SrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sr),SrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,srVal> sr{}; 
         ///FIFO Reset
-        enum class frVal {
+        enum class FrVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<FIFO reset.
         };
-        namespace frValC{
-            constexpr MPL::Value<frVal,frVal::v0> v0{};
-            constexpr MPL::Value<frVal,frVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,FrVal> fr{}; 
+        namespace FrValC{
+            constexpr Register::FieldValue<decltype(fr),FrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fr),FrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,frVal> fr{}; 
         ///Bit Clock Enable
-        enum class bceVal {
+        enum class BceVal {
             v0=0x00000000,     ///<Transmit bit clock is disabled.
             v1=0x00000001,     ///<Transmit bit clock is enabled.
         };
-        namespace bceValC{
-            constexpr MPL::Value<bceVal,bceVal::v0> v0{};
-            constexpr MPL::Value<bceVal,bceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BceVal> bce{}; 
+        namespace BceValC{
+            constexpr Register::FieldValue<decltype(bce),BceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bce),BceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,bceVal> bce{}; 
         ///Debug Enable
-        enum class dbgeVal {
+        enum class DbgeVal {
             v0=0x00000000,     ///<Transmitter is disabled in Debug mode, after completing the current frame.
             v1=0x00000001,     ///<Transmitter is enabled in Debug mode.
         };
-        namespace dbgeValC{
-            constexpr MPL::Value<dbgeVal,dbgeVal::v0> v0{};
-            constexpr MPL::Value<dbgeVal,dbgeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,DbgeVal> dbge{}; 
+        namespace DbgeValC{
+            constexpr Register::FieldValue<decltype(dbge),DbgeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dbge),DbgeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,dbgeVal> dbge{}; 
         ///Stop Enable
-        enum class stopeVal {
+        enum class StopeVal {
             v0=0x00000000,     ///<Transmitter disabled in Stop mode.
             v1=0x00000001,     ///<Transmitter enabled in Stop mode.
         };
-        namespace stopeValC{
-            constexpr MPL::Value<stopeVal,stopeVal::v0> v0{};
-            constexpr MPL::Value<stopeVal,stopeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,StopeVal> stope{}; 
+        namespace StopeValC{
+            constexpr Register::FieldValue<decltype(stope),StopeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stope),StopeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,stopeVal> stope{}; 
         ///Transmitter Enable
-        enum class teVal {
+        enum class TeVal {
             v0=0x00000000,     ///<Transmitter is disabled.
             v1=0x00000001,     ///<Transmitter is enabled, or transmitter has been disabled and has not yet reached end of frame.
         };
-        namespace teValC{
-            constexpr MPL::Value<teVal,teVal::v0> v0{};
-            constexpr MPL::Value<teVal,teVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,TeVal> te{}; 
+        namespace TeValC{
+            constexpr Register::FieldValue<decltype(te),TeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(te),TeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,teVal> te{}; 
     }
     namespace I2s0Tcr2{    ///<SAI Transmit Configuration 2 Register
         using Addr = Register::Address<0x4002f008,0x00ffff00,0,unsigned>;
         ///Bit Clock Divide
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        namespace DivValC{
+        }
         ///Bit Clock Direction
-        enum class bcdVal {
+        enum class BcdVal {
             v0=0x00000000,     ///<Bit clock is generated externally in Slave mode.
             v1=0x00000001,     ///<Bit clock is generated internally in Master mode.
         };
-        namespace bcdValC{
-            constexpr MPL::Value<bcdVal,bcdVal::v0> v0{};
-            constexpr MPL::Value<bcdVal,bcdVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,BcdVal> bcd{}; 
+        namespace BcdValC{
+            constexpr Register::FieldValue<decltype(bcd),BcdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bcd),BcdVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,bcdVal> bcd{}; 
         ///Bit Clock Polarity
-        enum class bcpVal {
+        enum class BcpVal {
             v0=0x00000000,     ///<Bit clock is active high with drive outputs on rising edge and sample inputs on falling edge.
             v1=0x00000001,     ///<Bit clock is active low with drive outputs on falling edge and sample inputs on rising edge.
         };
-        namespace bcpValC{
-            constexpr MPL::Value<bcpVal,bcpVal::v0> v0{};
-            constexpr MPL::Value<bcpVal,bcpVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BcpVal> bcp{}; 
+        namespace BcpValC{
+            constexpr Register::FieldValue<decltype(bcp),BcpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bcp),BcpVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,bcpVal> bcp{}; 
         ///MCLK Select
-        enum class mselVal {
+        enum class MselVal {
             v00=0x00000000,     ///<Bus Clock selected.
             v01=0x00000001,     ///<Master Clock (MCLK) 1 option selected.
             v10=0x00000002,     ///<Master Clock (MCLK) 2 option selected.
             v11=0x00000003,     ///<Master Clock (MCLK) 3 option selected.
         };
-        namespace mselValC{
-            constexpr MPL::Value<mselVal,mselVal::v00> v00{};
-            constexpr MPL::Value<mselVal,mselVal::v01> v01{};
-            constexpr MPL::Value<mselVal,mselVal::v10> v10{};
-            constexpr MPL::Value<mselVal,mselVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,MselVal> msel{}; 
+        namespace MselValC{
+            constexpr Register::FieldValue<decltype(msel),MselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,mselVal> msel{}; 
         ///Bit Clock Input
-        enum class bciVal {
+        enum class BciVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<Internal logic is clocked as if bit clock was externally generated.
         };
-        namespace bciValC{
-            constexpr MPL::Value<bciVal,bciVal::v0> v0{};
-            constexpr MPL::Value<bciVal,bciVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BciVal> bci{}; 
+        namespace BciValC{
+            constexpr Register::FieldValue<decltype(bci),BciVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bci),BciVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,bciVal> bci{}; 
         ///Bit Clock Swap
-        enum class bcsVal {
+        enum class BcsVal {
             v0=0x00000000,     ///<Use the normal bit clock source.
             v1=0x00000001,     ///<Swap the bit clock source.
         };
-        namespace bcsValC{
-            constexpr MPL::Value<bcsVal,bcsVal::v0> v0{};
-            constexpr MPL::Value<bcsVal,bcsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BcsVal> bcs{}; 
+        namespace BcsValC{
+            constexpr Register::FieldValue<decltype(bcs),BcsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bcs),BcsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,bcsVal> bcs{}; 
         ///Synchronous Mode
-        enum class syncVal {
+        enum class SyncVal {
             v00=0x00000000,     ///<Asynchronous mode.
             v01=0x00000001,     ///<Synchronous with receiver.
             v10=0x00000002,     ///<Synchronous with another SAI transmitter.
             v11=0x00000003,     ///<Synchronous with another SAI receiver.
         };
-        namespace syncValC{
-            constexpr MPL::Value<syncVal,syncVal::v00> v00{};
-            constexpr MPL::Value<syncVal,syncVal::v01> v01{};
-            constexpr MPL::Value<syncVal,syncVal::v10> v10{};
-            constexpr MPL::Value<syncVal,syncVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,SyncVal> sync{}; 
+        namespace SyncValC{
+            constexpr Register::FieldValue<decltype(sync),SyncVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sync),SyncVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sync),SyncVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sync),SyncVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,syncVal> sync{}; 
     }
     namespace I2s0Tcr3{    ///<SAI Transmit Configuration 3 Register
         using Addr = Register::Address<0x4002f00c,0xfffefffe,0,unsigned>;
         ///Word Flag Configuration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdfl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdfl{}; 
+        namespace WdflValC{
+        }
         ///Transmit Channel Enable
-        enum class tceVal {
+        enum class TceVal {
             v0=0x00000000,     ///<Transmit data channel N is disabled.
             v1=0x00000001,     ///<Transmit data channel N is enabled.
         };
-        namespace tceValC{
-            constexpr MPL::Value<tceVal,tceVal::v0> v0{};
-            constexpr MPL::Value<tceVal,tceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,TceVal> tce{}; 
+        namespace TceValC{
+            constexpr Register::FieldValue<decltype(tce),TceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tce),TceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tceVal> tce{}; 
     }
     namespace I2s0Tcr4{    ///<SAI Transmit Configuration 4 Register
         using Addr = Register::Address<0x4002f010,0xfffee0e4,0,unsigned>;
         ///Frame Sync Direction
-        enum class fsdVal {
+        enum class FsdVal {
             v0=0x00000000,     ///<Frame sync is generated externally in Slave mode.
             v1=0x00000001,     ///<Frame sync is generated internally in Master mode.
         };
-        namespace fsdValC{
-            constexpr MPL::Value<fsdVal,fsdVal::v0> v0{};
-            constexpr MPL::Value<fsdVal,fsdVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FsdVal> fsd{}; 
+        namespace FsdValC{
+            constexpr Register::FieldValue<decltype(fsd),FsdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fsd),FsdVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,fsdVal> fsd{}; 
         ///Frame Sync Polarity
-        enum class fspVal {
+        enum class FspVal {
             v0=0x00000000,     ///<Frame sync is active high.
             v1=0x00000001,     ///<Frame sync is active low.
         };
-        namespace fspValC{
-            constexpr MPL::Value<fspVal,fspVal::v0> v0{};
-            constexpr MPL::Value<fspVal,fspVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FspVal> fsp{}; 
+        namespace FspValC{
+            constexpr Register::FieldValue<decltype(fsp),FspVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fsp),FspVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,fspVal> fsp{}; 
         ///Frame Sync Early
-        enum class fseVal {
+        enum class FseVal {
             v0=0x00000000,     ///<Frame sync asserts with the first bit of the frame.
             v1=0x00000001,     ///<Frame sync asserts one bit before the first bit of the frame.
         };
-        namespace fseValC{
-            constexpr MPL::Value<fseVal,fseVal::v0> v0{};
-            constexpr MPL::Value<fseVal,fseVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,FseVal> fse{}; 
+        namespace FseValC{
+            constexpr Register::FieldValue<decltype(fse),FseVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fse),FseVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,fseVal> fse{}; 
         ///MSB First
-        enum class mfVal {
+        enum class MfVal {
             v0=0x00000000,     ///<LSB is transmitted first.
             v1=0x00000001,     ///<MSB is transmitted first.
         };
-        namespace mfValC{
-            constexpr MPL::Value<mfVal,mfVal::v0> v0{};
-            constexpr MPL::Value<mfVal,mfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MfVal> mf{}; 
+        namespace MfValC{
+            constexpr Register::FieldValue<decltype(mf),MfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mf),MfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,mfVal> mf{}; 
         ///Sync Width
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sywd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sywd{}; 
+        namespace SywdValC{
+        }
         ///Frame size
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> frsz{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> frsz{}; 
+        namespace FrszValC{
+        }
     }
     namespace I2s0Tcr5{    ///<SAI Transmit Configuration 5 Register
         using Addr = Register::Address<0x4002f014,0xe0e0e0ff,0,unsigned>;
         ///First Bit Shifted
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbt{}; 
+        namespace FbtValC{
+        }
         ///Word 0 Width
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> w0w{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> w0w{}; 
+        namespace W0wValC{
+        }
         ///Word N Width
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
+        namespace WnwValC{
+        }
     }
     namespace I2s0Tdr{    ///<SAI Transmit Data Register
         using Addr = Register::Address<0x4002f020,0x00000000,0,unsigned>;
         ///Transmit Data Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tdr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tdr{}; 
+        namespace TdrValC{
+        }
     }
     namespace I2s0Tmr{    ///<SAI Transmit Mask Register
         using Addr = Register::Address<0x4002f060,0xfffffffc,0,unsigned>;
         ///Transmit Word Mask
-        enum class twmVal {
+        enum class TwmVal {
             v0=0x00000000,     ///<Word N is enabled.
             v1=0x00000001,     ///<Word N is masked. The transmit data pins are tri-stated when masked.
         };
-        namespace twmValC{
-            constexpr MPL::Value<twmVal,twmVal::v0> v0{};
-            constexpr MPL::Value<twmVal,twmVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,TwmVal> twm{}; 
+        namespace TwmValC{
+            constexpr Register::FieldValue<decltype(twm),TwmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(twm),TwmVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,twmVal> twm{}; 
     }
     namespace I2s0Rcsr{    ///<SAI Receive Control Register
         using Addr = Register::Address<0x4002f080,0x0ce1e1fd,0,unsigned>;
         ///FIFO Warning DMA Enable
-        enum class fwdeVal {
+        enum class FwdeVal {
             v0=0x00000000,     ///<Disables the DMA request.
             v1=0x00000001,     ///<Enables the DMA request.
         };
-        namespace fwdeValC{
-            constexpr MPL::Value<fwdeVal,fwdeVal::v0> v0{};
-            constexpr MPL::Value<fwdeVal,fwdeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FwdeVal> fwde{}; 
+        namespace FwdeValC{
+            constexpr Register::FieldValue<decltype(fwde),FwdeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fwde),FwdeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,fwdeVal> fwde{}; 
         ///FIFO Warning Interrupt Enable
-        enum class fwieVal {
+        enum class FwieVal {
             v0=0x00000000,     ///<Disables the interrupt.
             v1=0x00000001,     ///<Enables the interrupt.
         };
-        namespace fwieValC{
-            constexpr MPL::Value<fwieVal,fwieVal::v0> v0{};
-            constexpr MPL::Value<fwieVal,fwieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,FwieVal> fwie{}; 
+        namespace FwieValC{
+            constexpr Register::FieldValue<decltype(fwie),FwieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fwie),FwieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,fwieVal> fwie{}; 
         ///FIFO Error Interrupt Enable
-        enum class feieVal {
+        enum class FeieVal {
             v0=0x00000000,     ///<Disables the interrupt.
             v1=0x00000001,     ///<Enables the interrupt.
         };
-        namespace feieValC{
-            constexpr MPL::Value<feieVal,feieVal::v0> v0{};
-            constexpr MPL::Value<feieVal,feieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,FeieVal> feie{}; 
+        namespace FeieValC{
+            constexpr Register::FieldValue<decltype(feie),FeieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(feie),FeieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,feieVal> feie{}; 
         ///Sync Error Interrupt Enable
-        enum class seieVal {
+        enum class SeieVal {
             v0=0x00000000,     ///<Disables interrupt.
             v1=0x00000001,     ///<Enables interrupt.
         };
-        namespace seieValC{
-            constexpr MPL::Value<seieVal,seieVal::v0> v0{};
-            constexpr MPL::Value<seieVal,seieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,SeieVal> seie{}; 
+        namespace SeieValC{
+            constexpr Register::FieldValue<decltype(seie),SeieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(seie),SeieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,seieVal> seie{}; 
         ///Word Start Interrupt Enable
-        enum class wsieVal {
+        enum class WsieVal {
             v0=0x00000000,     ///<Disables interrupt.
             v1=0x00000001,     ///<Enables interrupt.
         };
-        namespace wsieValC{
-            constexpr MPL::Value<wsieVal,wsieVal::v0> v0{};
-            constexpr MPL::Value<wsieVal,wsieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,WsieVal> wsie{}; 
+        namespace WsieValC{
+            constexpr Register::FieldValue<decltype(wsie),WsieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wsie),WsieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,wsieVal> wsie{}; 
         ///FIFO Warning Flag
-        enum class fwfVal {
+        enum class FwfVal {
             v0=0x00000000,     ///<No enabled receive FIFO is full.
             v1=0x00000001,     ///<Enabled receive FIFO is full.
         };
-        namespace fwfValC{
-            constexpr MPL::Value<fwfVal,fwfVal::v0> v0{};
-            constexpr MPL::Value<fwfVal,fwfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,FwfVal> fwf{}; 
+        namespace FwfValC{
+            constexpr Register::FieldValue<decltype(fwf),FwfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fwf),FwfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,fwfVal> fwf{}; 
         ///FIFO Error Flag
-        enum class fefVal {
+        enum class FefVal {
             v0=0x00000000,     ///<Receive overflow not detected.
             v1=0x00000001,     ///<Receive overflow detected.
         };
-        namespace fefValC{
-            constexpr MPL::Value<fefVal,fefVal::v0> v0{};
-            constexpr MPL::Value<fefVal,fefVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,FefVal> fef{}; 
+        namespace FefValC{
+            constexpr Register::FieldValue<decltype(fef),FefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fef),FefVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,fefVal> fef{}; 
         ///Sync Error Flag
-        enum class sefVal {
+        enum class SefVal {
             v0=0x00000000,     ///<Sync error not detected.
             v1=0x00000001,     ///<Frame sync error detected.
         };
-        namespace sefValC{
-            constexpr MPL::Value<sefVal,sefVal::v0> v0{};
-            constexpr MPL::Value<sefVal,sefVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,SefVal> sef{}; 
+        namespace SefValC{
+            constexpr Register::FieldValue<decltype(sef),SefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sef),SefVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,sefVal> sef{}; 
         ///Word Start Flag
-        enum class wsfVal {
+        enum class WsfVal {
             v0=0x00000000,     ///<Start of word not detected.
             v1=0x00000001,     ///<Start of word detected.
         };
-        namespace wsfValC{
-            constexpr MPL::Value<wsfVal,wsfVal::v0> v0{};
-            constexpr MPL::Value<wsfVal,wsfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,WsfVal> wsf{}; 
+        namespace WsfValC{
+            constexpr Register::FieldValue<decltype(wsf),WsfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wsf),WsfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,wsfVal> wsf{}; 
         ///Software Reset
-        enum class srVal {
+        enum class SrVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<Software reset.
         };
-        namespace srValC{
-            constexpr MPL::Value<srVal,srVal::v0> v0{};
-            constexpr MPL::Value<srVal,srVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,SrVal> sr{}; 
+        namespace SrValC{
+            constexpr Register::FieldValue<decltype(sr),SrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sr),SrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,srVal> sr{}; 
         ///FIFO Reset
-        enum class frVal {
+        enum class FrVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<FIFO reset.
         };
-        namespace frValC{
-            constexpr MPL::Value<frVal,frVal::v0> v0{};
-            constexpr MPL::Value<frVal,frVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,FrVal> fr{}; 
+        namespace FrValC{
+            constexpr Register::FieldValue<decltype(fr),FrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fr),FrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,frVal> fr{}; 
         ///Bit Clock Enable
-        enum class bceVal {
+        enum class BceVal {
             v0=0x00000000,     ///<Receive bit clock is disabled.
             v1=0x00000001,     ///<Receive bit clock is enabled.
         };
-        namespace bceValC{
-            constexpr MPL::Value<bceVal,bceVal::v0> v0{};
-            constexpr MPL::Value<bceVal,bceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BceVal> bce{}; 
+        namespace BceValC{
+            constexpr Register::FieldValue<decltype(bce),BceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bce),BceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,bceVal> bce{}; 
         ///Debug Enable
-        enum class dbgeVal {
+        enum class DbgeVal {
             v0=0x00000000,     ///<Receiver is disabled in Debug mode, after completing the current frame.
             v1=0x00000001,     ///<Receiver is enabled in Debug mode.
         };
-        namespace dbgeValC{
-            constexpr MPL::Value<dbgeVal,dbgeVal::v0> v0{};
-            constexpr MPL::Value<dbgeVal,dbgeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,DbgeVal> dbge{}; 
+        namespace DbgeValC{
+            constexpr Register::FieldValue<decltype(dbge),DbgeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dbge),DbgeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,dbgeVal> dbge{}; 
         ///Stop Enable
-        enum class stopeVal {
+        enum class StopeVal {
             v0=0x00000000,     ///<Receiver disabled in Stop mode.
             v1=0x00000001,     ///<Receiver enabled in Stop mode.
         };
-        namespace stopeValC{
-            constexpr MPL::Value<stopeVal,stopeVal::v0> v0{};
-            constexpr MPL::Value<stopeVal,stopeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,StopeVal> stope{}; 
+        namespace StopeValC{
+            constexpr Register::FieldValue<decltype(stope),StopeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stope),StopeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,stopeVal> stope{}; 
         ///Receiver Enable
-        enum class reVal {
+        enum class ReVal {
             v0=0x00000000,     ///<Receiver is disabled.
             v1=0x00000001,     ///<Receiver is enabled, or receiver has been disabled and has not yet reached end of frame.
         };
-        namespace reValC{
-            constexpr MPL::Value<reVal,reVal::v0> v0{};
-            constexpr MPL::Value<reVal,reVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,ReVal> re{}; 
+        namespace ReValC{
+            constexpr Register::FieldValue<decltype(re),ReVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(re),ReVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,reVal> re{}; 
     }
     namespace I2s0Rcr2{    ///<SAI Receive Configuration 2 Register
         using Addr = Register::Address<0x4002f088,0x00ffff00,0,unsigned>;
         ///Bit Clock Divide
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        namespace DivValC{
+        }
         ///Bit Clock Direction
-        enum class bcdVal {
+        enum class BcdVal {
             v0=0x00000000,     ///<Bit clock is generated externally in Slave mode.
             v1=0x00000001,     ///<Bit clock is generated internally in Master mode.
         };
-        namespace bcdValC{
-            constexpr MPL::Value<bcdVal,bcdVal::v0> v0{};
-            constexpr MPL::Value<bcdVal,bcdVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,BcdVal> bcd{}; 
+        namespace BcdValC{
+            constexpr Register::FieldValue<decltype(bcd),BcdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bcd),BcdVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,bcdVal> bcd{}; 
         ///Bit Clock Polarity
-        enum class bcpVal {
+        enum class BcpVal {
             v0=0x00000000,     ///<Bit Clock is active high with drive outputs on rising edge and sample inputs on falling edge.
             v1=0x00000001,     ///<Bit Clock is active low with drive outputs on falling edge and sample inputs on rising edge.
         };
-        namespace bcpValC{
-            constexpr MPL::Value<bcpVal,bcpVal::v0> v0{};
-            constexpr MPL::Value<bcpVal,bcpVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BcpVal> bcp{}; 
+        namespace BcpValC{
+            constexpr Register::FieldValue<decltype(bcp),BcpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bcp),BcpVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,bcpVal> bcp{}; 
         ///MCLK Select
-        enum class mselVal {
+        enum class MselVal {
             v00=0x00000000,     ///<Bus Clock selected.
             v01=0x00000001,     ///<Master Clock (MCLK) 1 option selected.
             v10=0x00000002,     ///<Master Clock (MCLK) 2 option selected.
             v11=0x00000003,     ///<Master Clock (MCLK) 3 option selected.
         };
-        namespace mselValC{
-            constexpr MPL::Value<mselVal,mselVal::v00> v00{};
-            constexpr MPL::Value<mselVal,mselVal::v01> v01{};
-            constexpr MPL::Value<mselVal,mselVal::v10> v10{};
-            constexpr MPL::Value<mselVal,mselVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,MselVal> msel{}; 
+        namespace MselValC{
+            constexpr Register::FieldValue<decltype(msel),MselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(msel),MselVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,mselVal> msel{}; 
         ///Bit Clock Input
-        enum class bciVal {
+        enum class BciVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<Internal logic is clocked as if bit clock was externally generated.
         };
-        namespace bciValC{
-            constexpr MPL::Value<bciVal,bciVal::v0> v0{};
-            constexpr MPL::Value<bciVal,bciVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BciVal> bci{}; 
+        namespace BciValC{
+            constexpr Register::FieldValue<decltype(bci),BciVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bci),BciVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,bciVal> bci{}; 
         ///Bit Clock Swap
-        enum class bcsVal {
+        enum class BcsVal {
             v0=0x00000000,     ///<Use the normal bit clock source.
             v1=0x00000001,     ///<Swap the bit clock source.
         };
-        namespace bcsValC{
-            constexpr MPL::Value<bcsVal,bcsVal::v0> v0{};
-            constexpr MPL::Value<bcsVal,bcsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BcsVal> bcs{}; 
+        namespace BcsValC{
+            constexpr Register::FieldValue<decltype(bcs),BcsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bcs),BcsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,bcsVal> bcs{}; 
         ///Synchronous Mode
-        enum class syncVal {
+        enum class SyncVal {
             v00=0x00000000,     ///<Asynchronous mode.
             v01=0x00000001,     ///<Synchronous with transmitter.
             v10=0x00000002,     ///<Synchronous with another SAI receiver.
             v11=0x00000003,     ///<Synchronous with another SAI transmitter.
         };
-        namespace syncValC{
-            constexpr MPL::Value<syncVal,syncVal::v00> v00{};
-            constexpr MPL::Value<syncVal,syncVal::v01> v01{};
-            constexpr MPL::Value<syncVal,syncVal::v10> v10{};
-            constexpr MPL::Value<syncVal,syncVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,SyncVal> sync{}; 
+        namespace SyncValC{
+            constexpr Register::FieldValue<decltype(sync),SyncVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sync),SyncVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sync),SyncVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sync),SyncVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,syncVal> sync{}; 
     }
     namespace I2s0Rcr3{    ///<SAI Receive Configuration 3 Register
         using Addr = Register::Address<0x4002f08c,0xfffefffe,0,unsigned>;
         ///Word Flag Configuration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdfl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdfl{}; 
+        namespace WdflValC{
+        }
         ///Receive Channel Enable
-        enum class rceVal {
+        enum class RceVal {
             v0=0x00000000,     ///<Receive data channel N is disabled.
             v1=0x00000001,     ///<Receive data channel N is enabled.
         };
-        namespace rceValC{
-            constexpr MPL::Value<rceVal,rceVal::v0> v0{};
-            constexpr MPL::Value<rceVal,rceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,RceVal> rce{}; 
+        namespace RceValC{
+            constexpr Register::FieldValue<decltype(rce),RceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rce),RceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,rceVal> rce{}; 
     }
     namespace I2s0Rcr4{    ///<SAI Receive Configuration 4 Register
         using Addr = Register::Address<0x4002f090,0xfffee0e4,0,unsigned>;
         ///Frame Sync Direction
-        enum class fsdVal {
+        enum class FsdVal {
             v0=0x00000000,     ///<Frame Sync is generated externally in Slave mode.
             v1=0x00000001,     ///<Frame Sync is generated internally in Master mode.
         };
-        namespace fsdValC{
-            constexpr MPL::Value<fsdVal,fsdVal::v0> v0{};
-            constexpr MPL::Value<fsdVal,fsdVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FsdVal> fsd{}; 
+        namespace FsdValC{
+            constexpr Register::FieldValue<decltype(fsd),FsdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fsd),FsdVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,fsdVal> fsd{}; 
         ///Frame Sync Polarity
-        enum class fspVal {
+        enum class FspVal {
             v0=0x00000000,     ///<Frame sync is active high.
             v1=0x00000001,     ///<Frame sync is active low.
         };
-        namespace fspValC{
-            constexpr MPL::Value<fspVal,fspVal::v0> v0{};
-            constexpr MPL::Value<fspVal,fspVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FspVal> fsp{}; 
+        namespace FspValC{
+            constexpr Register::FieldValue<decltype(fsp),FspVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fsp),FspVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,fspVal> fsp{}; 
         ///Frame Sync Early
-        enum class fseVal {
+        enum class FseVal {
             v0=0x00000000,     ///<Frame sync asserts with the first bit of the frame.
             v1=0x00000001,     ///<Frame sync asserts one bit before the first bit of the frame.
         };
-        namespace fseValC{
-            constexpr MPL::Value<fseVal,fseVal::v0> v0{};
-            constexpr MPL::Value<fseVal,fseVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,FseVal> fse{}; 
+        namespace FseValC{
+            constexpr Register::FieldValue<decltype(fse),FseVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fse),FseVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,fseVal> fse{}; 
         ///MSB First
-        enum class mfVal {
+        enum class MfVal {
             v0=0x00000000,     ///<LSB is received first.
             v1=0x00000001,     ///<MSB is received first.
         };
-        namespace mfValC{
-            constexpr MPL::Value<mfVal,mfVal::v0> v0{};
-            constexpr MPL::Value<mfVal,mfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MfVal> mf{}; 
+        namespace MfValC{
+            constexpr Register::FieldValue<decltype(mf),MfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mf),MfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,mfVal> mf{}; 
         ///Sync Width
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sywd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sywd{}; 
+        namespace SywdValC{
+        }
         ///Frame Size
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> frsz{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> frsz{}; 
+        namespace FrszValC{
+        }
     }
     namespace I2s0Rcr5{    ///<SAI Receive Configuration 5 Register
         using Addr = Register::Address<0x4002f094,0xe0e0e0ff,0,unsigned>;
         ///First Bit Shifted
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbt{}; 
+        namespace FbtValC{
+        }
         ///Word 0 Width
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> w0w{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> w0w{}; 
+        namespace W0wValC{
+        }
         ///Word N Width
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
+        namespace WnwValC{
+        }
     }
     namespace I2s0Rdr{    ///<SAI Receive Data Register
         using Addr = Register::Address<0x4002f0a0,0x00000000,0,unsigned>;
         ///Receive Data Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rdr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rdr{}; 
+        namespace RdrValC{
+        }
     }
     namespace I2s0Rmr{    ///<SAI Receive Mask Register
         using Addr = Register::Address<0x4002f0e0,0xfffffffc,0,unsigned>;
         ///Receive Word Mask
-        enum class rwmVal {
+        enum class RwmVal {
             v0=0x00000000,     ///<Word N is enabled.
             v1=0x00000001,     ///<Word N is masked.
         };
-        namespace rwmValC{
-            constexpr MPL::Value<rwmVal,rwmVal::v0> v0{};
-            constexpr MPL::Value<rwmVal,rwmVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RwmVal> rwm{}; 
+        namespace RwmValC{
+            constexpr Register::FieldValue<decltype(rwm),RwmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rwm),RwmVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,rwmVal> rwm{}; 
     }
     namespace I2s0Mcr{    ///<SAI MCLK Control Register
         using Addr = Register::Address<0x4002f100,0x3cffffff,0,unsigned>;
         ///MCLK Input Clock Select
-        enum class micsVal {
+        enum class MicsVal {
             v00=0x00000000,     ///<MCLK divider input clock 0 selected.
             v01=0x00000001,     ///<MCLK divider input clock 1 selected.
             v10=0x00000002,     ///<MCLK divider input clock 2 selected.
             v11=0x00000003,     ///<MCLK divider input clock 3 selected.
         };
-        namespace micsValC{
-            constexpr MPL::Value<micsVal,micsVal::v00> v00{};
-            constexpr MPL::Value<micsVal,micsVal::v01> v01{};
-            constexpr MPL::Value<micsVal,micsVal::v10> v10{};
-            constexpr MPL::Value<micsVal,micsVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,MicsVal> mics{}; 
+        namespace MicsValC{
+            constexpr Register::FieldValue<decltype(mics),MicsVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(mics),MicsVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(mics),MicsVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(mics),MicsVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,micsVal> mics{}; 
         ///MCLK Output Enable
-        enum class moeVal {
+        enum class MoeVal {
             v0=0x00000000,     ///<MCLK signal pin is configured as an input that bypasses the MCLK divider.
             v1=0x00000001,     ///<MCLK signal pin is configured as an output from the MCLK divider and the MCLK divider is enabled.
         };
-        namespace moeValC{
-            constexpr MPL::Value<moeVal,moeVal::v0> v0{};
-            constexpr MPL::Value<moeVal,moeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,MoeVal> moe{}; 
+        namespace MoeValC{
+            constexpr Register::FieldValue<decltype(moe),MoeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(moe),MoeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,moeVal> moe{}; 
         ///Divider Update Flag
-        enum class dufVal {
+        enum class DufVal {
             v0=0x00000000,     ///<MCLK divider ratio is not being updated currently.
             v1=0x00000001,     ///<MCLK divider ratio is updating on-the-fly. Further updates to the MCLK divider ratio are blocked while this flag remains set.
         };
-        namespace dufValC{
-            constexpr MPL::Value<dufVal,dufVal::v0> v0{};
-            constexpr MPL::Value<dufVal,dufVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,DufVal> duf{}; 
+        namespace DufValC{
+            constexpr Register::FieldValue<decltype(duf),DufVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(duf),DufVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,dufVal> duf{}; 
     }
     namespace I2s0Mdr{    ///<SAI MCLK Divide Register
         using Addr = Register::Address<0x4002f104,0xfff00000,0,unsigned>;
         ///MCLK Divide
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> divide{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> divide{}; 
+        namespace DivideValC{
+        }
         ///MCLK Fraction
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,12),Register::ReadWriteAccess,unsigned> fract{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,12),Register::ReadWriteAccess,unsigned> fract{}; 
+        namespace FractValC{
+        }
     }
 }

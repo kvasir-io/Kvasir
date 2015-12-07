@@ -5,101 +5,159 @@ namespace Kvasir {
     namespace Noneen{    ///<RMC Enable Register
         using Addr = Register::Address<0x400e7000,0xfffffffe,0,unsigned>;
         ///RMCEN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rmcen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rmcen{}; 
+        namespace RmcenValC{
+        }
     }
     namespace Noneren{    ///<RMC Receive Enable Register
         using Addr = Register::Address<0x400e7004,0xfffffffe,0,unsigned>;
         ///RMCREN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rmcren{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rmcren{}; 
+        namespace RmcrenValC{
+        }
     }
     namespace Nonerbuf1{    ///<RMC Receive Data Buffer Register 1
         using Addr = Register::Address<0x400e7008,0x00000000,0,unsigned>;
         ///RMCRBUF
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rmcrbuf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rmcrbuf{}; 
+        namespace RmcrbufValC{
+        }
     }
     namespace Nonerbuf2{    ///<RMC Receive Data Buffer Register 2
         using Addr = Register::Address<0x400e700c,0x00000000,0,unsigned>;
         ///RMCRBUF
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rmcrbuf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rmcrbuf{}; 
+        namespace RmcrbufValC{
+        }
     }
     namespace Nonerbuf3{    ///<RMC Receive Data Buffer Register 3
         using Addr = Register::Address<0x400e7010,0xffffff00,0,unsigned>;
         ///RMCRBUF
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rmcrbuf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rmcrbuf{}; 
+        namespace RmcrbufValC{
+        }
     }
     namespace Nonercr1{    ///<RMC Receive Control Register 1
         using Addr = Register::Address<0x400e7014,0x00000000,0,unsigned>;
         ///RMCLLMIN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rmcllmin{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rmcllmin{}; 
+        namespace RmcllminValC{
+        }
         ///RMCLLMAX
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> rmcllmax{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> rmcllmax{}; 
+        namespace RmcllmaxValC{
+        }
         ///RMCLCMIN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> rmclcmin{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> rmclcmin{}; 
+        namespace RmclcminValC{
+        }
         ///RMCLCMAX
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> rmclcmax{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> rmclcmax{}; 
+        namespace RmclcmaxValC{
+        }
     }
     namespace Nonercr2{    ///<RMC Receive Control Register 2
         using Addr = Register::Address<0x400e7018,0x3cff0000,0,unsigned>;
         ///RMCDMAX
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rmcdmax{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rmcdmax{}; 
+        namespace RmcdmaxValC{
+        }
         ///RMCLL
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> rmcll{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> rmcll{}; 
+        namespace RmcllValC{
+        }
         ///RMCPHM
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> rmcphm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> rmcphm{}; 
+        namespace RmcphmValC{
+        }
         ///RMCLD
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> rmcld{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> rmcld{}; 
+        namespace RmcldValC{
+        }
         ///RMCEDIEN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> rmcedien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> rmcedien{}; 
+        namespace RmcedienValC{
+        }
         ///RMCLIEN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> rmclien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> rmclien{}; 
+        namespace RmclienValC{
+        }
     }
     namespace Nonercr3{    ///<RMC Receive Control Register 3
         using Addr = Register::Address<0x400e701c,0xffff8080,0,unsigned>;
         ///RMCDATL
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcdatl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcdatl{}; 
+        namespace RmcdatlValC{
+        }
         ///RMCDATH
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> rmcdath{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> rmcdath{}; 
+        namespace RmcdathValC{
+        }
     }
     namespace Nonercr4{    ///<RMC Receive Control Register 4
         using Addr = Register::Address<0x400e7020,0xffffff70,0,unsigned>;
         ///RMCNC
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rmcnc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rmcnc{}; 
+        namespace RmcncValC{
+        }
         ///RMCPO
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rmcpo{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rmcpo{}; 
+        namespace RmcpoValC{
+        }
     }
     namespace Nonerstat{    ///<RMC Receive Status Register
         using Addr = Register::Address<0x400e7024,0xffff0f00,0,unsigned>;
         ///RMCRNUM
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcrnum{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcrnum{}; 
+        namespace RmcrnumValC{
+        }
         ///RMCRLDR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rmcrldr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rmcrldr{}; 
+        namespace RmcrldrValC{
+        }
         ///RMCEDIF
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rmcedif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rmcedif{}; 
+        namespace RmcedifValC{
+        }
         ///RMCDMAXIF
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rmcdmaxif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rmcdmaxif{}; 
+        namespace RmcdmaxifValC{
+        }
         ///RMCLOIF
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rmcloif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rmcloif{}; 
+        namespace RmcloifValC{
+        }
         ///RMCRLIF
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rmcrlif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rmcrlif{}; 
+        namespace RmcrlifValC{
+        }
     }
     namespace Noneend1{    ///<RMC Receive End Bit Number Register 1
         using Addr = Register::Address<0x400e7028,0xffffff80,0,unsigned>;
         ///RMCEND1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcend1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcend1{}; 
+        namespace Rmcend1ValC{
+        }
     }
     namespace Noneend2{    ///<RMC Receive End Bit Number Register 2
         using Addr = Register::Address<0x400e702c,0xffffff80,0,unsigned>;
         ///RMCEND2
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcend2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcend2{}; 
+        namespace Rmcend2ValC{
+        }
     }
     namespace Noneend3{    ///<RMC Receive End Bit Number Register 3
         using Addr = Register::Address<0x400e7030,0xffffff80,0,unsigned>;
         ///RMCEND3
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcend3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rmcend3{}; 
+        namespace Rmcend3ValC{
+        }
     }
     namespace Nonefssel{    ///<RMC Frequency Selection Register
         using Addr = Register::Address<0x400e7034,0xfffffffe,0,unsigned>;
         ///RMCCLK
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rmcclk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rmcclk{}; 
+        namespace RmcclkValC{
+        }
     }
 }

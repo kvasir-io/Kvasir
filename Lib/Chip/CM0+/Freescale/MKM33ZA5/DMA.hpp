@@ -5,302 +5,326 @@ namespace Kvasir {
     namespace DmaSar0{    ///<Source Address Register
         using Addr = Register::Address<0x40008100,0x00000000,0,unsigned>;
         ///SAR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sar{}; 
+        namespace SarValC{
+        }
     }
     namespace DmaSar1{    ///<Source Address Register
         using Addr = Register::Address<0x40008110,0x00000000,0,unsigned>;
         ///SAR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sar{}; 
+        namespace SarValC{
+        }
     }
     namespace DmaSar2{    ///<Source Address Register
         using Addr = Register::Address<0x40008120,0x00000000,0,unsigned>;
         ///SAR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sar{}; 
+        namespace SarValC{
+        }
     }
     namespace DmaSar3{    ///<Source Address Register
         using Addr = Register::Address<0x40008130,0x00000000,0,unsigned>;
         ///SAR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sar{}; 
+        namespace SarValC{
+        }
     }
     namespace DmaDar0{    ///<Destination Address Register
         using Addr = Register::Address<0x40008104,0x00000000,0,unsigned>;
         ///DAR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dar{}; 
+        namespace DarValC{
+        }
     }
     namespace DmaDar1{    ///<Destination Address Register
         using Addr = Register::Address<0x40008114,0x00000000,0,unsigned>;
         ///DAR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dar{}; 
+        namespace DarValC{
+        }
     }
     namespace DmaDar2{    ///<Destination Address Register
         using Addr = Register::Address<0x40008124,0x00000000,0,unsigned>;
         ///DAR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dar{}; 
+        namespace DarValC{
+        }
     }
     namespace DmaDar3{    ///<Destination Address Register
         using Addr = Register::Address<0x40008134,0x00000000,0,unsigned>;
         ///DAR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dar{}; 
+        namespace DarValC{
+        }
     }
     namespace DmaDsrBcr0{    ///<DMA Status Register / Byte Count Register
         using Addr = Register::Address<0x40008108,0x88000000,0,unsigned>;
         ///BCR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> bcr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> bcr{}; 
+        namespace BcrValC{
+        }
         ///Transactions Done
-        enum class doneVal {
+        enum class DoneVal {
             v0=0x00000000,     ///<DMA transfer is not yet complete. Writing a 0 has no effect.
             v1=0x00000001,     ///<DMA transfer completed. Writing a 1 to this bit clears all DMA status bits and should be used in an interrupt service routine to clear the DMA interrupt and error bits.
         };
-        namespace doneValC{
-            constexpr MPL::Value<doneVal,doneVal::v0> v0{};
-            constexpr MPL::Value<doneVal,doneVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,DoneVal> done{}; 
+        namespace DoneValC{
+            constexpr Register::FieldValue<decltype(done),DoneVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,doneVal> done{}; 
         ///Busy
-        enum class bsyVal {
+        enum class BsyVal {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
             v1=0x00000001,     ///<BSY is set the first time the channel is enabled after a transfer is initiated.
         };
-        namespace bsyValC{
-            constexpr MPL::Value<bsyVal,bsyVal::v0> v0{};
-            constexpr MPL::Value<bsyVal,bsyVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BsyVal> bsy{}; 
+        namespace BsyValC{
+            constexpr Register::FieldValue<decltype(bsy),BsyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bsy),BsyVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,bsyVal> bsy{}; 
         ///Request
-        enum class reqVal {
+        enum class ReqVal {
             v0=0x00000000,     ///<No request is pending or the channel is currently active. Cleared when the channel is selected.
             v1=0x00000001,     ///<The DMA channel has a transfer remaining and the channel is not selected.
         };
-        namespace reqValC{
-            constexpr MPL::Value<reqVal,reqVal::v0> v0{};
-            constexpr MPL::Value<reqVal,reqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ReqVal> req{}; 
+        namespace ReqValC{
+            constexpr Register::FieldValue<decltype(req),ReqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(req),ReqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,reqVal> req{}; 
         ///Bus Error on Destination
-        enum class bedVal {
+        enum class BedVal {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the write portion of a transfer.
         };
-        namespace bedValC{
-            constexpr MPL::Value<bedVal,bedVal::v0> v0{};
-            constexpr MPL::Value<bedVal,bedVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BedVal> bed{}; 
+        namespace BedValC{
+            constexpr Register::FieldValue<decltype(bed),BedVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bed),BedVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,bedVal> bed{}; 
         ///Bus Error on Source
-        enum class besVal {
+        enum class BesVal {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the read portion of a transfer.
         };
-        namespace besValC{
-            constexpr MPL::Value<besVal,besVal::v0> v0{};
-            constexpr MPL::Value<besVal,besVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BesVal> bes{}; 
+        namespace BesValC{
+            constexpr Register::FieldValue<decltype(bes),BesVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bes),BesVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,besVal> bes{}; 
         ///Configuration Error
-        enum class ceVal {
+        enum class CeVal {
             v0=0x00000000,     ///<No configuration error exists.
             v1=0x00000001,     ///<A configuration error has occurred.
         };
-        namespace ceValC{
-            constexpr MPL::Value<ceVal,ceVal::v0> v0{};
-            constexpr MPL::Value<ceVal,ceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CeVal> ce{}; 
+        namespace CeValC{
+            constexpr Register::FieldValue<decltype(ce),CeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ce),CeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ceVal> ce{}; 
     }
     namespace DmaDsrBcr1{    ///<DMA Status Register / Byte Count Register
         using Addr = Register::Address<0x40008118,0x88000000,0,unsigned>;
         ///BCR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> bcr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> bcr{}; 
+        namespace BcrValC{
+        }
         ///Transactions Done
-        enum class doneVal {
+        enum class DoneVal {
             v0=0x00000000,     ///<DMA transfer is not yet complete. Writing a 0 has no effect.
             v1=0x00000001,     ///<DMA transfer completed. Writing a 1 to this bit clears all DMA status bits and should be used in an interrupt service routine to clear the DMA interrupt and error bits.
         };
-        namespace doneValC{
-            constexpr MPL::Value<doneVal,doneVal::v0> v0{};
-            constexpr MPL::Value<doneVal,doneVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,DoneVal> done{}; 
+        namespace DoneValC{
+            constexpr Register::FieldValue<decltype(done),DoneVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,doneVal> done{}; 
         ///Busy
-        enum class bsyVal {
+        enum class BsyVal {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
             v1=0x00000001,     ///<BSY is set the first time the channel is enabled after a transfer is initiated.
         };
-        namespace bsyValC{
-            constexpr MPL::Value<bsyVal,bsyVal::v0> v0{};
-            constexpr MPL::Value<bsyVal,bsyVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BsyVal> bsy{}; 
+        namespace BsyValC{
+            constexpr Register::FieldValue<decltype(bsy),BsyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bsy),BsyVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,bsyVal> bsy{}; 
         ///Request
-        enum class reqVal {
+        enum class ReqVal {
             v0=0x00000000,     ///<No request is pending or the channel is currently active. Cleared when the channel is selected.
             v1=0x00000001,     ///<The DMA channel has a transfer remaining and the channel is not selected.
         };
-        namespace reqValC{
-            constexpr MPL::Value<reqVal,reqVal::v0> v0{};
-            constexpr MPL::Value<reqVal,reqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ReqVal> req{}; 
+        namespace ReqValC{
+            constexpr Register::FieldValue<decltype(req),ReqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(req),ReqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,reqVal> req{}; 
         ///Bus Error on Destination
-        enum class bedVal {
+        enum class BedVal {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the write portion of a transfer.
         };
-        namespace bedValC{
-            constexpr MPL::Value<bedVal,bedVal::v0> v0{};
-            constexpr MPL::Value<bedVal,bedVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BedVal> bed{}; 
+        namespace BedValC{
+            constexpr Register::FieldValue<decltype(bed),BedVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bed),BedVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,bedVal> bed{}; 
         ///Bus Error on Source
-        enum class besVal {
+        enum class BesVal {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the read portion of a transfer.
         };
-        namespace besValC{
-            constexpr MPL::Value<besVal,besVal::v0> v0{};
-            constexpr MPL::Value<besVal,besVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BesVal> bes{}; 
+        namespace BesValC{
+            constexpr Register::FieldValue<decltype(bes),BesVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bes),BesVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,besVal> bes{}; 
         ///Configuration Error
-        enum class ceVal {
+        enum class CeVal {
             v0=0x00000000,     ///<No configuration error exists.
             v1=0x00000001,     ///<A configuration error has occurred.
         };
-        namespace ceValC{
-            constexpr MPL::Value<ceVal,ceVal::v0> v0{};
-            constexpr MPL::Value<ceVal,ceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CeVal> ce{}; 
+        namespace CeValC{
+            constexpr Register::FieldValue<decltype(ce),CeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ce),CeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ceVal> ce{}; 
     }
     namespace DmaDsrBcr2{    ///<DMA Status Register / Byte Count Register
         using Addr = Register::Address<0x40008128,0x88000000,0,unsigned>;
         ///BCR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> bcr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> bcr{}; 
+        namespace BcrValC{
+        }
         ///Transactions Done
-        enum class doneVal {
+        enum class DoneVal {
             v0=0x00000000,     ///<DMA transfer is not yet complete. Writing a 0 has no effect.
             v1=0x00000001,     ///<DMA transfer completed. Writing a 1 to this bit clears all DMA status bits and should be used in an interrupt service routine to clear the DMA interrupt and error bits.
         };
-        namespace doneValC{
-            constexpr MPL::Value<doneVal,doneVal::v0> v0{};
-            constexpr MPL::Value<doneVal,doneVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,DoneVal> done{}; 
+        namespace DoneValC{
+            constexpr Register::FieldValue<decltype(done),DoneVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,doneVal> done{}; 
         ///Busy
-        enum class bsyVal {
+        enum class BsyVal {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
             v1=0x00000001,     ///<BSY is set the first time the channel is enabled after a transfer is initiated.
         };
-        namespace bsyValC{
-            constexpr MPL::Value<bsyVal,bsyVal::v0> v0{};
-            constexpr MPL::Value<bsyVal,bsyVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BsyVal> bsy{}; 
+        namespace BsyValC{
+            constexpr Register::FieldValue<decltype(bsy),BsyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bsy),BsyVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,bsyVal> bsy{}; 
         ///Request
-        enum class reqVal {
+        enum class ReqVal {
             v0=0x00000000,     ///<No request is pending or the channel is currently active. Cleared when the channel is selected.
             v1=0x00000001,     ///<The DMA channel has a transfer remaining and the channel is not selected.
         };
-        namespace reqValC{
-            constexpr MPL::Value<reqVal,reqVal::v0> v0{};
-            constexpr MPL::Value<reqVal,reqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ReqVal> req{}; 
+        namespace ReqValC{
+            constexpr Register::FieldValue<decltype(req),ReqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(req),ReqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,reqVal> req{}; 
         ///Bus Error on Destination
-        enum class bedVal {
+        enum class BedVal {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the write portion of a transfer.
         };
-        namespace bedValC{
-            constexpr MPL::Value<bedVal,bedVal::v0> v0{};
-            constexpr MPL::Value<bedVal,bedVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BedVal> bed{}; 
+        namespace BedValC{
+            constexpr Register::FieldValue<decltype(bed),BedVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bed),BedVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,bedVal> bed{}; 
         ///Bus Error on Source
-        enum class besVal {
+        enum class BesVal {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the read portion of a transfer.
         };
-        namespace besValC{
-            constexpr MPL::Value<besVal,besVal::v0> v0{};
-            constexpr MPL::Value<besVal,besVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BesVal> bes{}; 
+        namespace BesValC{
+            constexpr Register::FieldValue<decltype(bes),BesVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bes),BesVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,besVal> bes{}; 
         ///Configuration Error
-        enum class ceVal {
+        enum class CeVal {
             v0=0x00000000,     ///<No configuration error exists.
             v1=0x00000001,     ///<A configuration error has occurred.
         };
-        namespace ceValC{
-            constexpr MPL::Value<ceVal,ceVal::v0> v0{};
-            constexpr MPL::Value<ceVal,ceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CeVal> ce{}; 
+        namespace CeValC{
+            constexpr Register::FieldValue<decltype(ce),CeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ce),CeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ceVal> ce{}; 
     }
     namespace DmaDsrBcr3{    ///<DMA Status Register / Byte Count Register
         using Addr = Register::Address<0x40008138,0x88000000,0,unsigned>;
         ///BCR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> bcr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> bcr{}; 
+        namespace BcrValC{
+        }
         ///Transactions Done
-        enum class doneVal {
+        enum class DoneVal {
             v0=0x00000000,     ///<DMA transfer is not yet complete. Writing a 0 has no effect.
             v1=0x00000001,     ///<DMA transfer completed. Writing a 1 to this bit clears all DMA status bits and should be used in an interrupt service routine to clear the DMA interrupt and error bits.
         };
-        namespace doneValC{
-            constexpr MPL::Value<doneVal,doneVal::v0> v0{};
-            constexpr MPL::Value<doneVal,doneVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,DoneVal> done{}; 
+        namespace DoneValC{
+            constexpr Register::FieldValue<decltype(done),DoneVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,doneVal> done{}; 
         ///Busy
-        enum class bsyVal {
+        enum class BsyVal {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
             v1=0x00000001,     ///<BSY is set the first time the channel is enabled after a transfer is initiated.
         };
-        namespace bsyValC{
-            constexpr MPL::Value<bsyVal,bsyVal::v0> v0{};
-            constexpr MPL::Value<bsyVal,bsyVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BsyVal> bsy{}; 
+        namespace BsyValC{
+            constexpr Register::FieldValue<decltype(bsy),BsyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bsy),BsyVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,bsyVal> bsy{}; 
         ///Request
-        enum class reqVal {
+        enum class ReqVal {
             v0=0x00000000,     ///<No request is pending or the channel is currently active. Cleared when the channel is selected.
             v1=0x00000001,     ///<The DMA channel has a transfer remaining and the channel is not selected.
         };
-        namespace reqValC{
-            constexpr MPL::Value<reqVal,reqVal::v0> v0{};
-            constexpr MPL::Value<reqVal,reqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ReqVal> req{}; 
+        namespace ReqValC{
+            constexpr Register::FieldValue<decltype(req),ReqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(req),ReqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,reqVal> req{}; 
         ///Bus Error on Destination
-        enum class bedVal {
+        enum class BedVal {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the write portion of a transfer.
         };
-        namespace bedValC{
-            constexpr MPL::Value<bedVal,bedVal::v0> v0{};
-            constexpr MPL::Value<bedVal,bedVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BedVal> bed{}; 
+        namespace BedValC{
+            constexpr Register::FieldValue<decltype(bed),BedVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bed),BedVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,bedVal> bed{}; 
         ///Bus Error on Source
-        enum class besVal {
+        enum class BesVal {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the read portion of a transfer.
         };
-        namespace besValC{
-            constexpr MPL::Value<besVal,besVal::v0> v0{};
-            constexpr MPL::Value<besVal,besVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BesVal> bes{}; 
+        namespace BesValC{
+            constexpr Register::FieldValue<decltype(bes),BesVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bes),BesVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,besVal> bes{}; 
         ///Configuration Error
-        enum class ceVal {
+        enum class CeVal {
             v0=0x00000000,     ///<No configuration error exists.
             v1=0x00000001,     ///<A configuration error has occurred.
         };
-        namespace ceValC{
-            constexpr MPL::Value<ceVal,ceVal::v0> v0{};
-            constexpr MPL::Value<ceVal,ceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CeVal> ce{}; 
+        namespace CeValC{
+            constexpr Register::FieldValue<decltype(ce),CeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ce),CeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ceVal> ce{}; 
     }
     namespace DmaDsr0{    ///<DMA_DSR0 register.
         using Addr = Register::Address<0x4000810b,0xffffffff,0,unsigned char>;
@@ -308,59 +332,59 @@ namespace Kvasir {
     namespace DmaDcr0{    ///<DMA Control Register
         using Addr = Register::Address<0x4000810c,0x00000040,0,unsigned>;
         ///Link Channel 2
-        enum class lch2Val {
+        enum class Lch2Val {
             v00=0x00000000,     ///<DMA Channel 0
             v01=0x00000001,     ///<DMA Channel 1
             v10=0x00000002,     ///<DMA Channel 2
             v11=0x00000003,     ///<DMA Channel 3
         };
-        namespace lch2ValC{
-            constexpr MPL::Value<lch2Val,lch2Val::v00> v00{};
-            constexpr MPL::Value<lch2Val,lch2Val::v01> v01{};
-            constexpr MPL::Value<lch2Val,lch2Val::v10> v10{};
-            constexpr MPL::Value<lch2Val,lch2Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Lch2Val> lch2{}; 
+        namespace Lch2ValC{
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,lch2Val> lch2{}; 
         ///Link Channel 1
-        enum class lch1Val {
+        enum class Lch1Val {
             v00=0x00000000,     ///<DMA Channel 0
             v01=0x00000001,     ///<DMA Channel 1
             v10=0x00000002,     ///<DMA Channel 2
             v11=0x00000003,     ///<DMA Channel 3
         };
-        namespace lch1ValC{
-            constexpr MPL::Value<lch1Val,lch1Val::v00> v00{};
-            constexpr MPL::Value<lch1Val,lch1Val::v01> v01{};
-            constexpr MPL::Value<lch1Val,lch1Val::v10> v10{};
-            constexpr MPL::Value<lch1Val,lch1Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Lch1Val> lch1{}; 
+        namespace Lch1ValC{
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,lch1Val> lch1{}; 
         ///Link Channel Control
-        enum class linkccVal {
+        enum class LinkccVal {
             v00=0x00000000,     ///<No channel-to-channel linking
             v01=0x00000001,     ///<Perform a link to channel LCH1 after each cycle-steal transfer followed by a link to LCH2 after the BCR decrements to 0.
             v10=0x00000002,     ///<Perform a link to channel LCH1 after each cycle-steal transfer
             v11=0x00000003,     ///<Perform a link to channel LCH1 after the BCR decrements to 0.
         };
-        namespace linkccValC{
-            constexpr MPL::Value<linkccVal,linkccVal::v00> v00{};
-            constexpr MPL::Value<linkccVal,linkccVal::v01> v01{};
-            constexpr MPL::Value<linkccVal,linkccVal::v10> v10{};
-            constexpr MPL::Value<linkccVal,linkccVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,LinkccVal> linkcc{}; 
+        namespace LinkccValC{
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,linkccVal> linkcc{}; 
         ///Disable Request
-        enum class dReqVal {
+        enum class DreqVal {
             v0=0x00000000,     ///<ERQ bit is not affected.
             v1=0x00000001,     ///<ERQ bit is cleared when the BCR is exhausted.
         };
-        namespace dReqValC{
-            constexpr MPL::Value<dReqVal,dReqVal::v0> v0{};
-            constexpr MPL::Value<dReqVal,dReqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DreqVal> dReq{}; 
+        namespace DreqValC{
+            constexpr Register::FieldValue<decltype(dReq),DreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dReq),DreqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,dReqVal> dReq{}; 
         ///Destination Address Modulo
-        enum class dmodVal {
+        enum class DmodVal {
             v0000=0x00000000,     ///<Buffer disabled
             v0001=0x00000001,     ///<Circular buffer size is 16 bytes
             v0010=0x00000002,     ///<Circular buffer size is 32 bytes
@@ -378,27 +402,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Circular buffer size is 128 KB
             v1111=0x0000000f,     ///<Circular buffer size is 256 KB
         };
-        namespace dmodValC{
-            constexpr MPL::Value<dmodVal,dmodVal::v0000> v0000{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0001> v0001{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0010> v0010{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0011> v0011{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0100> v0100{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0101> v0101{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0110> v0110{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0111> v0111{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1000> v1000{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1001> v1001{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1010> v1010{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1011> v1011{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1100> v1100{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1101> v1101{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1110> v1110{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,DmodVal> dmod{}; 
+        namespace DmodValC{
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,dmodVal> dmod{}; 
         ///Source Address Modulo
-        enum class smodVal {
+        enum class SmodVal {
             v0000=0x00000000,     ///<Buffer disabled
             v0001=0x00000001,     ///<Circular buffer size is 16 bytes.
             v0010=0x00000002,     ///<Circular buffer size is 32 bytes.
@@ -416,206 +440,208 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Circular buffer size is 128 KB.
             v1111=0x0000000f,     ///<Circular buffer size is 256 KB.
         };
-        namespace smodValC{
-            constexpr MPL::Value<smodVal,smodVal::v0000> v0000{};
-            constexpr MPL::Value<smodVal,smodVal::v0001> v0001{};
-            constexpr MPL::Value<smodVal,smodVal::v0010> v0010{};
-            constexpr MPL::Value<smodVal,smodVal::v0011> v0011{};
-            constexpr MPL::Value<smodVal,smodVal::v0100> v0100{};
-            constexpr MPL::Value<smodVal,smodVal::v0101> v0101{};
-            constexpr MPL::Value<smodVal,smodVal::v0110> v0110{};
-            constexpr MPL::Value<smodVal,smodVal::v0111> v0111{};
-            constexpr MPL::Value<smodVal,smodVal::v1000> v1000{};
-            constexpr MPL::Value<smodVal,smodVal::v1001> v1001{};
-            constexpr MPL::Value<smodVal,smodVal::v1010> v1010{};
-            constexpr MPL::Value<smodVal,smodVal::v1011> v1011{};
-            constexpr MPL::Value<smodVal,smodVal::v1100> v1100{};
-            constexpr MPL::Value<smodVal,smodVal::v1101> v1101{};
-            constexpr MPL::Value<smodVal,smodVal::v1110> v1110{};
-            constexpr MPL::Value<smodVal,smodVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,SmodVal> smod{}; 
+        namespace SmodValC{
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,smodVal> smod{}; 
         ///Start Transfer
-        enum class startVal {
+        enum class StartVal {
             v0=0x00000000,     ///<DMA inactive
             v1=0x00000001,     ///<The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.
         };
-        namespace startValC{
-            constexpr MPL::Value<startVal,startVal::v0> v0{};
-            constexpr MPL::Value<startVal,startVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,StartVal> start{}; 
+        namespace StartValC{
+            constexpr Register::FieldValue<decltype(start),StartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(start),StartVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,startVal> start{}; 
         ///Destination Size
-        enum class dsizeVal {
+        enum class DsizeVal {
             v00=0x00000000,     ///<32-bit
             v01=0x00000001,     ///<8-bit
             v10=0x00000002,     ///<16-bit
             v11=0x00000003,     ///<Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)
         };
-        namespace dsizeValC{
-            constexpr MPL::Value<dsizeVal,dsizeVal::v00> v00{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v01> v01{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v10> v10{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,DsizeVal> dsize{}; 
+        namespace DsizeValC{
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,dsizeVal> dsize{}; 
         ///Destination Increment
-        enum class dincVal {
+        enum class DincVal {
             v0=0x00000000,     ///<No change to the DAR after a successful transfer.
             v1=0x00000001,     ///<The DAR increments by 1, 2, 4 depending upon the size of the transfer.
         };
-        namespace dincValC{
-            constexpr MPL::Value<dincVal,dincVal::v0> v0{};
-            constexpr MPL::Value<dincVal,dincVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,DincVal> dinc{}; 
+        namespace DincValC{
+            constexpr Register::FieldValue<decltype(dinc),DincVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dinc),DincVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,dincVal> dinc{}; 
         ///Source Size
-        enum class ssizeVal {
+        enum class SsizeVal {
             v00=0x00000000,     ///<32-bit
             v01=0x00000001,     ///<8-bit
             v10=0x00000002,     ///<16-bit
             v11=0x00000003,     ///<Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)
         };
-        namespace ssizeValC{
-            constexpr MPL::Value<ssizeVal,ssizeVal::v00> v00{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v01> v01{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v10> v10{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,SsizeVal> ssize{}; 
+        namespace SsizeValC{
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,ssizeVal> ssize{}; 
         ///Source Increment
-        enum class sincVal {
+        enum class SincVal {
             v0=0x00000000,     ///<No change to SAR after a successful transfer.
             v1=0x00000001,     ///<The SAR increments by 1, 2, 4 as determined by the transfer size.
         };
-        namespace sincValC{
-            constexpr MPL::Value<sincVal,sincVal::v0> v0{};
-            constexpr MPL::Value<sincVal,sincVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,SincVal> sinc{}; 
+        namespace SincValC{
+            constexpr Register::FieldValue<decltype(sinc),SincVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sinc),SincVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sincVal> sinc{}; 
         ///Enable asynchronous DMA requests
-        enum class eadreqVal {
+        enum class EadreqVal {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        namespace eadreqValC{
-            constexpr MPL::Value<eadreqVal,eadreqVal::v0> v0{};
-            constexpr MPL::Value<eadreqVal,eadreqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,EadreqVal> eadreq{}; 
+        namespace EadreqValC{
+            constexpr Register::FieldValue<decltype(eadreq),EadreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eadreq),EadreqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,eadreqVal> eadreq{}; 
         ///User Mode, Nonsecure Mode
-        enum class umnsmVal {
+        enum class UmnsmVal {
             v00=0x00000000,     ///<Channel attributes are set to the current mode.
             v01=0x00000001,     ///<If the current mode is privileged and secure, then attributes are set to {privileged, secure}. Otherwise, writing this value terminates in an error.
             v10=0x00000002,     ///<If the current mode is privileged and secure or if the current mode is user and secure, then attributes are set to {user, secure}. Otherwise, writing this value terminates in an error.
             v11=0x00000003,     ///<If the current mode is privileged and secure, user and secure, or user and nonsecure, then attributes are set to {user, nonsecure}.
         };
-        namespace umnsmValC{
-            constexpr MPL::Value<umnsmVal,umnsmVal::v00> v00{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v01> v01{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v10> v10{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,UmnsmVal> umnsm{}; 
+        namespace UmnsmValC{
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,umnsmVal> umnsm{}; 
         ///Channel Access Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> chacr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> chacr{}; 
+        namespace ChacrValC{
+        }
         ///Auto-align
-        enum class aaVal {
+        enum class AaVal {
             v0=0x00000000,     ///<Auto-align disabled
             v1=0x00000001,     ///<If SSIZE indicates a transfer no smaller than DSIZE, source accesses are auto-aligned; otherwise, destination accesses are auto-aligned. Source alignment takes precedence over destination alignment. If auto-alignment is enabled, the appropriate address register increments, regardless of DINC or SINC.
         };
-        namespace aaValC{
-            constexpr MPL::Value<aaVal,aaVal::v0> v0{};
-            constexpr MPL::Value<aaVal,aaVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,AaVal> aa{}; 
+        namespace AaValC{
+            constexpr Register::FieldValue<decltype(aa),AaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aa),AaVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,aaVal> aa{}; 
         ///Cycle Steal
-        enum class csVal {
+        enum class CsVal {
             v0=0x00000000,     ///<DMA continuously makes read/write transfers until the BCR decrements to 0.
             v1=0x00000001,     ///<Forces a single read/write transfer per request.
         };
-        namespace csValC{
-            constexpr MPL::Value<csVal,csVal::v0> v0{};
-            constexpr MPL::Value<csVal,csVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,CsVal> cs{}; 
+        namespace CsValC{
+            constexpr Register::FieldValue<decltype(cs),CsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cs),CsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,csVal> cs{}; 
         ///Enable Peripheral Request
-        enum class erqVal {
+        enum class ErqVal {
             v0=0x00000000,     ///<Peripheral request is ignored.
             v1=0x00000001,     ///<Enables peripheral request to initiate transfer. A software-initiated request (setting START) is always enabled.
         };
-        namespace erqValC{
-            constexpr MPL::Value<erqVal,erqVal::v0> v0{};
-            constexpr MPL::Value<erqVal,erqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ErqVal> erq{}; 
+        namespace ErqValC{
+            constexpr Register::FieldValue<decltype(erq),ErqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(erq),ErqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,erqVal> erq{}; 
         ///Enable Interrupt on Completion of Transfer
-        enum class eintVal {
+        enum class EintVal {
             v0=0x00000000,     ///<No interrupt is generated.
             v1=0x00000001,     ///<Interrupt signal is enabled.
         };
-        namespace eintValC{
-            constexpr MPL::Value<eintVal,eintVal::v0> v0{};
-            constexpr MPL::Value<eintVal,eintVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,EintVal> eint{}; 
+        namespace EintValC{
+            constexpr Register::FieldValue<decltype(eint),EintVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eint),EintVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,eintVal> eint{}; 
     }
     namespace DmaDcr1{    ///<DMA Control Register
         using Addr = Register::Address<0x4000811c,0x00000040,0,unsigned>;
         ///Link Channel 2
-        enum class lch2Val {
+        enum class Lch2Val {
             v00=0x00000000,     ///<DMA Channel 0
             v01=0x00000001,     ///<DMA Channel 1
             v10=0x00000002,     ///<DMA Channel 2
             v11=0x00000003,     ///<DMA Channel 3
         };
-        namespace lch2ValC{
-            constexpr MPL::Value<lch2Val,lch2Val::v00> v00{};
-            constexpr MPL::Value<lch2Val,lch2Val::v01> v01{};
-            constexpr MPL::Value<lch2Val,lch2Val::v10> v10{};
-            constexpr MPL::Value<lch2Val,lch2Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Lch2Val> lch2{}; 
+        namespace Lch2ValC{
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,lch2Val> lch2{}; 
         ///Link Channel 1
-        enum class lch1Val {
+        enum class Lch1Val {
             v00=0x00000000,     ///<DMA Channel 0
             v01=0x00000001,     ///<DMA Channel 1
             v10=0x00000002,     ///<DMA Channel 2
             v11=0x00000003,     ///<DMA Channel 3
         };
-        namespace lch1ValC{
-            constexpr MPL::Value<lch1Val,lch1Val::v00> v00{};
-            constexpr MPL::Value<lch1Val,lch1Val::v01> v01{};
-            constexpr MPL::Value<lch1Val,lch1Val::v10> v10{};
-            constexpr MPL::Value<lch1Val,lch1Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Lch1Val> lch1{}; 
+        namespace Lch1ValC{
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,lch1Val> lch1{}; 
         ///Link Channel Control
-        enum class linkccVal {
+        enum class LinkccVal {
             v00=0x00000000,     ///<No channel-to-channel linking
             v01=0x00000001,     ///<Perform a link to channel LCH1 after each cycle-steal transfer followed by a link to LCH2 after the BCR decrements to 0.
             v10=0x00000002,     ///<Perform a link to channel LCH1 after each cycle-steal transfer
             v11=0x00000003,     ///<Perform a link to channel LCH1 after the BCR decrements to 0.
         };
-        namespace linkccValC{
-            constexpr MPL::Value<linkccVal,linkccVal::v00> v00{};
-            constexpr MPL::Value<linkccVal,linkccVal::v01> v01{};
-            constexpr MPL::Value<linkccVal,linkccVal::v10> v10{};
-            constexpr MPL::Value<linkccVal,linkccVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,LinkccVal> linkcc{}; 
+        namespace LinkccValC{
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,linkccVal> linkcc{}; 
         ///Disable Request
-        enum class dReqVal {
+        enum class DreqVal {
             v0=0x00000000,     ///<ERQ bit is not affected.
             v1=0x00000001,     ///<ERQ bit is cleared when the BCR is exhausted.
         };
-        namespace dReqValC{
-            constexpr MPL::Value<dReqVal,dReqVal::v0> v0{};
-            constexpr MPL::Value<dReqVal,dReqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DreqVal> dReq{}; 
+        namespace DreqValC{
+            constexpr Register::FieldValue<decltype(dReq),DreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dReq),DreqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,dReqVal> dReq{}; 
         ///Destination Address Modulo
-        enum class dmodVal {
+        enum class DmodVal {
             v0000=0x00000000,     ///<Buffer disabled
             v0001=0x00000001,     ///<Circular buffer size is 16 bytes
             v0010=0x00000002,     ///<Circular buffer size is 32 bytes
@@ -633,27 +659,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Circular buffer size is 128 KB
             v1111=0x0000000f,     ///<Circular buffer size is 256 KB
         };
-        namespace dmodValC{
-            constexpr MPL::Value<dmodVal,dmodVal::v0000> v0000{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0001> v0001{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0010> v0010{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0011> v0011{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0100> v0100{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0101> v0101{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0110> v0110{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0111> v0111{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1000> v1000{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1001> v1001{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1010> v1010{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1011> v1011{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1100> v1100{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1101> v1101{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1110> v1110{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,DmodVal> dmod{}; 
+        namespace DmodValC{
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,dmodVal> dmod{}; 
         ///Source Address Modulo
-        enum class smodVal {
+        enum class SmodVal {
             v0000=0x00000000,     ///<Buffer disabled
             v0001=0x00000001,     ///<Circular buffer size is 16 bytes.
             v0010=0x00000002,     ///<Circular buffer size is 32 bytes.
@@ -671,206 +697,208 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Circular buffer size is 128 KB.
             v1111=0x0000000f,     ///<Circular buffer size is 256 KB.
         };
-        namespace smodValC{
-            constexpr MPL::Value<smodVal,smodVal::v0000> v0000{};
-            constexpr MPL::Value<smodVal,smodVal::v0001> v0001{};
-            constexpr MPL::Value<smodVal,smodVal::v0010> v0010{};
-            constexpr MPL::Value<smodVal,smodVal::v0011> v0011{};
-            constexpr MPL::Value<smodVal,smodVal::v0100> v0100{};
-            constexpr MPL::Value<smodVal,smodVal::v0101> v0101{};
-            constexpr MPL::Value<smodVal,smodVal::v0110> v0110{};
-            constexpr MPL::Value<smodVal,smodVal::v0111> v0111{};
-            constexpr MPL::Value<smodVal,smodVal::v1000> v1000{};
-            constexpr MPL::Value<smodVal,smodVal::v1001> v1001{};
-            constexpr MPL::Value<smodVal,smodVal::v1010> v1010{};
-            constexpr MPL::Value<smodVal,smodVal::v1011> v1011{};
-            constexpr MPL::Value<smodVal,smodVal::v1100> v1100{};
-            constexpr MPL::Value<smodVal,smodVal::v1101> v1101{};
-            constexpr MPL::Value<smodVal,smodVal::v1110> v1110{};
-            constexpr MPL::Value<smodVal,smodVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,SmodVal> smod{}; 
+        namespace SmodValC{
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,smodVal> smod{}; 
         ///Start Transfer
-        enum class startVal {
+        enum class StartVal {
             v0=0x00000000,     ///<DMA inactive
             v1=0x00000001,     ///<The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.
         };
-        namespace startValC{
-            constexpr MPL::Value<startVal,startVal::v0> v0{};
-            constexpr MPL::Value<startVal,startVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,StartVal> start{}; 
+        namespace StartValC{
+            constexpr Register::FieldValue<decltype(start),StartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(start),StartVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,startVal> start{}; 
         ///Destination Size
-        enum class dsizeVal {
+        enum class DsizeVal {
             v00=0x00000000,     ///<32-bit
             v01=0x00000001,     ///<8-bit
             v10=0x00000002,     ///<16-bit
             v11=0x00000003,     ///<Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)
         };
-        namespace dsizeValC{
-            constexpr MPL::Value<dsizeVal,dsizeVal::v00> v00{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v01> v01{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v10> v10{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,DsizeVal> dsize{}; 
+        namespace DsizeValC{
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,dsizeVal> dsize{}; 
         ///Destination Increment
-        enum class dincVal {
+        enum class DincVal {
             v0=0x00000000,     ///<No change to the DAR after a successful transfer.
             v1=0x00000001,     ///<The DAR increments by 1, 2, 4 depending upon the size of the transfer.
         };
-        namespace dincValC{
-            constexpr MPL::Value<dincVal,dincVal::v0> v0{};
-            constexpr MPL::Value<dincVal,dincVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,DincVal> dinc{}; 
+        namespace DincValC{
+            constexpr Register::FieldValue<decltype(dinc),DincVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dinc),DincVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,dincVal> dinc{}; 
         ///Source Size
-        enum class ssizeVal {
+        enum class SsizeVal {
             v00=0x00000000,     ///<32-bit
             v01=0x00000001,     ///<8-bit
             v10=0x00000002,     ///<16-bit
             v11=0x00000003,     ///<Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)
         };
-        namespace ssizeValC{
-            constexpr MPL::Value<ssizeVal,ssizeVal::v00> v00{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v01> v01{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v10> v10{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,SsizeVal> ssize{}; 
+        namespace SsizeValC{
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,ssizeVal> ssize{}; 
         ///Source Increment
-        enum class sincVal {
+        enum class SincVal {
             v0=0x00000000,     ///<No change to SAR after a successful transfer.
             v1=0x00000001,     ///<The SAR increments by 1, 2, 4 as determined by the transfer size.
         };
-        namespace sincValC{
-            constexpr MPL::Value<sincVal,sincVal::v0> v0{};
-            constexpr MPL::Value<sincVal,sincVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,SincVal> sinc{}; 
+        namespace SincValC{
+            constexpr Register::FieldValue<decltype(sinc),SincVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sinc),SincVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sincVal> sinc{}; 
         ///Enable asynchronous DMA requests
-        enum class eadreqVal {
+        enum class EadreqVal {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        namespace eadreqValC{
-            constexpr MPL::Value<eadreqVal,eadreqVal::v0> v0{};
-            constexpr MPL::Value<eadreqVal,eadreqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,EadreqVal> eadreq{}; 
+        namespace EadreqValC{
+            constexpr Register::FieldValue<decltype(eadreq),EadreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eadreq),EadreqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,eadreqVal> eadreq{}; 
         ///User Mode, Nonsecure Mode
-        enum class umnsmVal {
+        enum class UmnsmVal {
             v00=0x00000000,     ///<Channel attributes are set to the current mode.
             v01=0x00000001,     ///<If the current mode is privileged and secure, then attributes are set to {privileged, secure}. Otherwise, writing this value terminates in an error.
             v10=0x00000002,     ///<If the current mode is privileged and secure or if the current mode is user and secure, then attributes are set to {user, secure}. Otherwise, writing this value terminates in an error.
             v11=0x00000003,     ///<If the current mode is privileged and secure, user and secure, or user and nonsecure, then attributes are set to {user, nonsecure}.
         };
-        namespace umnsmValC{
-            constexpr MPL::Value<umnsmVal,umnsmVal::v00> v00{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v01> v01{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v10> v10{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,UmnsmVal> umnsm{}; 
+        namespace UmnsmValC{
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,umnsmVal> umnsm{}; 
         ///Channel Access Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> chacr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> chacr{}; 
+        namespace ChacrValC{
+        }
         ///Auto-align
-        enum class aaVal {
+        enum class AaVal {
             v0=0x00000000,     ///<Auto-align disabled
             v1=0x00000001,     ///<If SSIZE indicates a transfer no smaller than DSIZE, source accesses are auto-aligned; otherwise, destination accesses are auto-aligned. Source alignment takes precedence over destination alignment. If auto-alignment is enabled, the appropriate address register increments, regardless of DINC or SINC.
         };
-        namespace aaValC{
-            constexpr MPL::Value<aaVal,aaVal::v0> v0{};
-            constexpr MPL::Value<aaVal,aaVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,AaVal> aa{}; 
+        namespace AaValC{
+            constexpr Register::FieldValue<decltype(aa),AaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aa),AaVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,aaVal> aa{}; 
         ///Cycle Steal
-        enum class csVal {
+        enum class CsVal {
             v0=0x00000000,     ///<DMA continuously makes read/write transfers until the BCR decrements to 0.
             v1=0x00000001,     ///<Forces a single read/write transfer per request.
         };
-        namespace csValC{
-            constexpr MPL::Value<csVal,csVal::v0> v0{};
-            constexpr MPL::Value<csVal,csVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,CsVal> cs{}; 
+        namespace CsValC{
+            constexpr Register::FieldValue<decltype(cs),CsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cs),CsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,csVal> cs{}; 
         ///Enable Peripheral Request
-        enum class erqVal {
+        enum class ErqVal {
             v0=0x00000000,     ///<Peripheral request is ignored.
             v1=0x00000001,     ///<Enables peripheral request to initiate transfer. A software-initiated request (setting START) is always enabled.
         };
-        namespace erqValC{
-            constexpr MPL::Value<erqVal,erqVal::v0> v0{};
-            constexpr MPL::Value<erqVal,erqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ErqVal> erq{}; 
+        namespace ErqValC{
+            constexpr Register::FieldValue<decltype(erq),ErqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(erq),ErqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,erqVal> erq{}; 
         ///Enable Interrupt on Completion of Transfer
-        enum class eintVal {
+        enum class EintVal {
             v0=0x00000000,     ///<No interrupt is generated.
             v1=0x00000001,     ///<Interrupt signal is enabled.
         };
-        namespace eintValC{
-            constexpr MPL::Value<eintVal,eintVal::v0> v0{};
-            constexpr MPL::Value<eintVal,eintVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,EintVal> eint{}; 
+        namespace EintValC{
+            constexpr Register::FieldValue<decltype(eint),EintVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eint),EintVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,eintVal> eint{}; 
     }
     namespace DmaDcr2{    ///<DMA Control Register
         using Addr = Register::Address<0x4000812c,0x00000040,0,unsigned>;
         ///Link Channel 2
-        enum class lch2Val {
+        enum class Lch2Val {
             v00=0x00000000,     ///<DMA Channel 0
             v01=0x00000001,     ///<DMA Channel 1
             v10=0x00000002,     ///<DMA Channel 2
             v11=0x00000003,     ///<DMA Channel 3
         };
-        namespace lch2ValC{
-            constexpr MPL::Value<lch2Val,lch2Val::v00> v00{};
-            constexpr MPL::Value<lch2Val,lch2Val::v01> v01{};
-            constexpr MPL::Value<lch2Val,lch2Val::v10> v10{};
-            constexpr MPL::Value<lch2Val,lch2Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Lch2Val> lch2{}; 
+        namespace Lch2ValC{
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,lch2Val> lch2{}; 
         ///Link Channel 1
-        enum class lch1Val {
+        enum class Lch1Val {
             v00=0x00000000,     ///<DMA Channel 0
             v01=0x00000001,     ///<DMA Channel 1
             v10=0x00000002,     ///<DMA Channel 2
             v11=0x00000003,     ///<DMA Channel 3
         };
-        namespace lch1ValC{
-            constexpr MPL::Value<lch1Val,lch1Val::v00> v00{};
-            constexpr MPL::Value<lch1Val,lch1Val::v01> v01{};
-            constexpr MPL::Value<lch1Val,lch1Val::v10> v10{};
-            constexpr MPL::Value<lch1Val,lch1Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Lch1Val> lch1{}; 
+        namespace Lch1ValC{
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,lch1Val> lch1{}; 
         ///Link Channel Control
-        enum class linkccVal {
+        enum class LinkccVal {
             v00=0x00000000,     ///<No channel-to-channel linking
             v01=0x00000001,     ///<Perform a link to channel LCH1 after each cycle-steal transfer followed by a link to LCH2 after the BCR decrements to 0.
             v10=0x00000002,     ///<Perform a link to channel LCH1 after each cycle-steal transfer
             v11=0x00000003,     ///<Perform a link to channel LCH1 after the BCR decrements to 0.
         };
-        namespace linkccValC{
-            constexpr MPL::Value<linkccVal,linkccVal::v00> v00{};
-            constexpr MPL::Value<linkccVal,linkccVal::v01> v01{};
-            constexpr MPL::Value<linkccVal,linkccVal::v10> v10{};
-            constexpr MPL::Value<linkccVal,linkccVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,LinkccVal> linkcc{}; 
+        namespace LinkccValC{
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,linkccVal> linkcc{}; 
         ///Disable Request
-        enum class dReqVal {
+        enum class DreqVal {
             v0=0x00000000,     ///<ERQ bit is not affected.
             v1=0x00000001,     ///<ERQ bit is cleared when the BCR is exhausted.
         };
-        namespace dReqValC{
-            constexpr MPL::Value<dReqVal,dReqVal::v0> v0{};
-            constexpr MPL::Value<dReqVal,dReqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DreqVal> dReq{}; 
+        namespace DreqValC{
+            constexpr Register::FieldValue<decltype(dReq),DreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dReq),DreqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,dReqVal> dReq{}; 
         ///Destination Address Modulo
-        enum class dmodVal {
+        enum class DmodVal {
             v0000=0x00000000,     ///<Buffer disabled
             v0001=0x00000001,     ///<Circular buffer size is 16 bytes
             v0010=0x00000002,     ///<Circular buffer size is 32 bytes
@@ -888,27 +916,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Circular buffer size is 128 KB
             v1111=0x0000000f,     ///<Circular buffer size is 256 KB
         };
-        namespace dmodValC{
-            constexpr MPL::Value<dmodVal,dmodVal::v0000> v0000{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0001> v0001{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0010> v0010{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0011> v0011{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0100> v0100{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0101> v0101{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0110> v0110{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0111> v0111{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1000> v1000{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1001> v1001{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1010> v1010{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1011> v1011{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1100> v1100{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1101> v1101{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1110> v1110{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,DmodVal> dmod{}; 
+        namespace DmodValC{
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,dmodVal> dmod{}; 
         ///Source Address Modulo
-        enum class smodVal {
+        enum class SmodVal {
             v0000=0x00000000,     ///<Buffer disabled
             v0001=0x00000001,     ///<Circular buffer size is 16 bytes.
             v0010=0x00000002,     ///<Circular buffer size is 32 bytes.
@@ -926,206 +954,208 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Circular buffer size is 128 KB.
             v1111=0x0000000f,     ///<Circular buffer size is 256 KB.
         };
-        namespace smodValC{
-            constexpr MPL::Value<smodVal,smodVal::v0000> v0000{};
-            constexpr MPL::Value<smodVal,smodVal::v0001> v0001{};
-            constexpr MPL::Value<smodVal,smodVal::v0010> v0010{};
-            constexpr MPL::Value<smodVal,smodVal::v0011> v0011{};
-            constexpr MPL::Value<smodVal,smodVal::v0100> v0100{};
-            constexpr MPL::Value<smodVal,smodVal::v0101> v0101{};
-            constexpr MPL::Value<smodVal,smodVal::v0110> v0110{};
-            constexpr MPL::Value<smodVal,smodVal::v0111> v0111{};
-            constexpr MPL::Value<smodVal,smodVal::v1000> v1000{};
-            constexpr MPL::Value<smodVal,smodVal::v1001> v1001{};
-            constexpr MPL::Value<smodVal,smodVal::v1010> v1010{};
-            constexpr MPL::Value<smodVal,smodVal::v1011> v1011{};
-            constexpr MPL::Value<smodVal,smodVal::v1100> v1100{};
-            constexpr MPL::Value<smodVal,smodVal::v1101> v1101{};
-            constexpr MPL::Value<smodVal,smodVal::v1110> v1110{};
-            constexpr MPL::Value<smodVal,smodVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,SmodVal> smod{}; 
+        namespace SmodValC{
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,smodVal> smod{}; 
         ///Start Transfer
-        enum class startVal {
+        enum class StartVal {
             v0=0x00000000,     ///<DMA inactive
             v1=0x00000001,     ///<The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.
         };
-        namespace startValC{
-            constexpr MPL::Value<startVal,startVal::v0> v0{};
-            constexpr MPL::Value<startVal,startVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,StartVal> start{}; 
+        namespace StartValC{
+            constexpr Register::FieldValue<decltype(start),StartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(start),StartVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,startVal> start{}; 
         ///Destination Size
-        enum class dsizeVal {
+        enum class DsizeVal {
             v00=0x00000000,     ///<32-bit
             v01=0x00000001,     ///<8-bit
             v10=0x00000002,     ///<16-bit
             v11=0x00000003,     ///<Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)
         };
-        namespace dsizeValC{
-            constexpr MPL::Value<dsizeVal,dsizeVal::v00> v00{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v01> v01{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v10> v10{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,DsizeVal> dsize{}; 
+        namespace DsizeValC{
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,dsizeVal> dsize{}; 
         ///Destination Increment
-        enum class dincVal {
+        enum class DincVal {
             v0=0x00000000,     ///<No change to the DAR after a successful transfer.
             v1=0x00000001,     ///<The DAR increments by 1, 2, 4 depending upon the size of the transfer.
         };
-        namespace dincValC{
-            constexpr MPL::Value<dincVal,dincVal::v0> v0{};
-            constexpr MPL::Value<dincVal,dincVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,DincVal> dinc{}; 
+        namespace DincValC{
+            constexpr Register::FieldValue<decltype(dinc),DincVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dinc),DincVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,dincVal> dinc{}; 
         ///Source Size
-        enum class ssizeVal {
+        enum class SsizeVal {
             v00=0x00000000,     ///<32-bit
             v01=0x00000001,     ///<8-bit
             v10=0x00000002,     ///<16-bit
             v11=0x00000003,     ///<Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)
         };
-        namespace ssizeValC{
-            constexpr MPL::Value<ssizeVal,ssizeVal::v00> v00{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v01> v01{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v10> v10{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,SsizeVal> ssize{}; 
+        namespace SsizeValC{
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,ssizeVal> ssize{}; 
         ///Source Increment
-        enum class sincVal {
+        enum class SincVal {
             v0=0x00000000,     ///<No change to SAR after a successful transfer.
             v1=0x00000001,     ///<The SAR increments by 1, 2, 4 as determined by the transfer size.
         };
-        namespace sincValC{
-            constexpr MPL::Value<sincVal,sincVal::v0> v0{};
-            constexpr MPL::Value<sincVal,sincVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,SincVal> sinc{}; 
+        namespace SincValC{
+            constexpr Register::FieldValue<decltype(sinc),SincVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sinc),SincVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sincVal> sinc{}; 
         ///Enable asynchronous DMA requests
-        enum class eadreqVal {
+        enum class EadreqVal {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        namespace eadreqValC{
-            constexpr MPL::Value<eadreqVal,eadreqVal::v0> v0{};
-            constexpr MPL::Value<eadreqVal,eadreqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,EadreqVal> eadreq{}; 
+        namespace EadreqValC{
+            constexpr Register::FieldValue<decltype(eadreq),EadreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eadreq),EadreqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,eadreqVal> eadreq{}; 
         ///User Mode, Nonsecure Mode
-        enum class umnsmVal {
+        enum class UmnsmVal {
             v00=0x00000000,     ///<Channel attributes are set to the current mode.
             v01=0x00000001,     ///<If the current mode is privileged and secure, then attributes are set to {privileged, secure}. Otherwise, writing this value terminates in an error.
             v10=0x00000002,     ///<If the current mode is privileged and secure or if the current mode is user and secure, then attributes are set to {user, secure}. Otherwise, writing this value terminates in an error.
             v11=0x00000003,     ///<If the current mode is privileged and secure, user and secure, or user and nonsecure, then attributes are set to {user, nonsecure}.
         };
-        namespace umnsmValC{
-            constexpr MPL::Value<umnsmVal,umnsmVal::v00> v00{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v01> v01{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v10> v10{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,UmnsmVal> umnsm{}; 
+        namespace UmnsmValC{
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,umnsmVal> umnsm{}; 
         ///Channel Access Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> chacr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> chacr{}; 
+        namespace ChacrValC{
+        }
         ///Auto-align
-        enum class aaVal {
+        enum class AaVal {
             v0=0x00000000,     ///<Auto-align disabled
             v1=0x00000001,     ///<If SSIZE indicates a transfer no smaller than DSIZE, source accesses are auto-aligned; otherwise, destination accesses are auto-aligned. Source alignment takes precedence over destination alignment. If auto-alignment is enabled, the appropriate address register increments, regardless of DINC or SINC.
         };
-        namespace aaValC{
-            constexpr MPL::Value<aaVal,aaVal::v0> v0{};
-            constexpr MPL::Value<aaVal,aaVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,AaVal> aa{}; 
+        namespace AaValC{
+            constexpr Register::FieldValue<decltype(aa),AaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aa),AaVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,aaVal> aa{}; 
         ///Cycle Steal
-        enum class csVal {
+        enum class CsVal {
             v0=0x00000000,     ///<DMA continuously makes read/write transfers until the BCR decrements to 0.
             v1=0x00000001,     ///<Forces a single read/write transfer per request.
         };
-        namespace csValC{
-            constexpr MPL::Value<csVal,csVal::v0> v0{};
-            constexpr MPL::Value<csVal,csVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,CsVal> cs{}; 
+        namespace CsValC{
+            constexpr Register::FieldValue<decltype(cs),CsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cs),CsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,csVal> cs{}; 
         ///Enable Peripheral Request
-        enum class erqVal {
+        enum class ErqVal {
             v0=0x00000000,     ///<Peripheral request is ignored.
             v1=0x00000001,     ///<Enables peripheral request to initiate transfer. A software-initiated request (setting START) is always enabled.
         };
-        namespace erqValC{
-            constexpr MPL::Value<erqVal,erqVal::v0> v0{};
-            constexpr MPL::Value<erqVal,erqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ErqVal> erq{}; 
+        namespace ErqValC{
+            constexpr Register::FieldValue<decltype(erq),ErqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(erq),ErqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,erqVal> erq{}; 
         ///Enable Interrupt on Completion of Transfer
-        enum class eintVal {
+        enum class EintVal {
             v0=0x00000000,     ///<No interrupt is generated.
             v1=0x00000001,     ///<Interrupt signal is enabled.
         };
-        namespace eintValC{
-            constexpr MPL::Value<eintVal,eintVal::v0> v0{};
-            constexpr MPL::Value<eintVal,eintVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,EintVal> eint{}; 
+        namespace EintValC{
+            constexpr Register::FieldValue<decltype(eint),EintVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eint),EintVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,eintVal> eint{}; 
     }
     namespace DmaDcr3{    ///<DMA Control Register
         using Addr = Register::Address<0x4000813c,0x00000040,0,unsigned>;
         ///Link Channel 2
-        enum class lch2Val {
+        enum class Lch2Val {
             v00=0x00000000,     ///<DMA Channel 0
             v01=0x00000001,     ///<DMA Channel 1
             v10=0x00000002,     ///<DMA Channel 2
             v11=0x00000003,     ///<DMA Channel 3
         };
-        namespace lch2ValC{
-            constexpr MPL::Value<lch2Val,lch2Val::v00> v00{};
-            constexpr MPL::Value<lch2Val,lch2Val::v01> v01{};
-            constexpr MPL::Value<lch2Val,lch2Val::v10> v10{};
-            constexpr MPL::Value<lch2Val,lch2Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Lch2Val> lch2{}; 
+        namespace Lch2ValC{
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(lch2),Lch2Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,lch2Val> lch2{}; 
         ///Link Channel 1
-        enum class lch1Val {
+        enum class Lch1Val {
             v00=0x00000000,     ///<DMA Channel 0
             v01=0x00000001,     ///<DMA Channel 1
             v10=0x00000002,     ///<DMA Channel 2
             v11=0x00000003,     ///<DMA Channel 3
         };
-        namespace lch1ValC{
-            constexpr MPL::Value<lch1Val,lch1Val::v00> v00{};
-            constexpr MPL::Value<lch1Val,lch1Val::v01> v01{};
-            constexpr MPL::Value<lch1Val,lch1Val::v10> v10{};
-            constexpr MPL::Value<lch1Val,lch1Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Lch1Val> lch1{}; 
+        namespace Lch1ValC{
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(lch1),Lch1Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,lch1Val> lch1{}; 
         ///Link Channel Control
-        enum class linkccVal {
+        enum class LinkccVal {
             v00=0x00000000,     ///<No channel-to-channel linking
             v01=0x00000001,     ///<Perform a link to channel LCH1 after each cycle-steal transfer followed by a link to LCH2 after the BCR decrements to 0.
             v10=0x00000002,     ///<Perform a link to channel LCH1 after each cycle-steal transfer
             v11=0x00000003,     ///<Perform a link to channel LCH1 after the BCR decrements to 0.
         };
-        namespace linkccValC{
-            constexpr MPL::Value<linkccVal,linkccVal::v00> v00{};
-            constexpr MPL::Value<linkccVal,linkccVal::v01> v01{};
-            constexpr MPL::Value<linkccVal,linkccVal::v10> v10{};
-            constexpr MPL::Value<linkccVal,linkccVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,LinkccVal> linkcc{}; 
+        namespace LinkccValC{
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(linkcc),LinkccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,linkccVal> linkcc{}; 
         ///Disable Request
-        enum class dReqVal {
+        enum class DreqVal {
             v0=0x00000000,     ///<ERQ bit is not affected.
             v1=0x00000001,     ///<ERQ bit is cleared when the BCR is exhausted.
         };
-        namespace dReqValC{
-            constexpr MPL::Value<dReqVal,dReqVal::v0> v0{};
-            constexpr MPL::Value<dReqVal,dReqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DreqVal> dReq{}; 
+        namespace DreqValC{
+            constexpr Register::FieldValue<decltype(dReq),DreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dReq),DreqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,dReqVal> dReq{}; 
         ///Destination Address Modulo
-        enum class dmodVal {
+        enum class DmodVal {
             v0000=0x00000000,     ///<Buffer disabled
             v0001=0x00000001,     ///<Circular buffer size is 16 bytes
             v0010=0x00000002,     ///<Circular buffer size is 32 bytes
@@ -1143,27 +1173,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Circular buffer size is 128 KB
             v1111=0x0000000f,     ///<Circular buffer size is 256 KB
         };
-        namespace dmodValC{
-            constexpr MPL::Value<dmodVal,dmodVal::v0000> v0000{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0001> v0001{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0010> v0010{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0011> v0011{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0100> v0100{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0101> v0101{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0110> v0110{};
-            constexpr MPL::Value<dmodVal,dmodVal::v0111> v0111{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1000> v1000{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1001> v1001{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1010> v1010{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1011> v1011{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1100> v1100{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1101> v1101{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1110> v1110{};
-            constexpr MPL::Value<dmodVal,dmodVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,DmodVal> dmod{}; 
+        namespace DmodValC{
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(dmod),DmodVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,dmodVal> dmod{}; 
         ///Source Address Modulo
-        enum class smodVal {
+        enum class SmodVal {
             v0000=0x00000000,     ///<Buffer disabled
             v0001=0x00000001,     ///<Circular buffer size is 16 bytes.
             v0010=0x00000002,     ///<Circular buffer size is 32 bytes.
@@ -1181,149 +1211,151 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Circular buffer size is 128 KB.
             v1111=0x0000000f,     ///<Circular buffer size is 256 KB.
         };
-        namespace smodValC{
-            constexpr MPL::Value<smodVal,smodVal::v0000> v0000{};
-            constexpr MPL::Value<smodVal,smodVal::v0001> v0001{};
-            constexpr MPL::Value<smodVal,smodVal::v0010> v0010{};
-            constexpr MPL::Value<smodVal,smodVal::v0011> v0011{};
-            constexpr MPL::Value<smodVal,smodVal::v0100> v0100{};
-            constexpr MPL::Value<smodVal,smodVal::v0101> v0101{};
-            constexpr MPL::Value<smodVal,smodVal::v0110> v0110{};
-            constexpr MPL::Value<smodVal,smodVal::v0111> v0111{};
-            constexpr MPL::Value<smodVal,smodVal::v1000> v1000{};
-            constexpr MPL::Value<smodVal,smodVal::v1001> v1001{};
-            constexpr MPL::Value<smodVal,smodVal::v1010> v1010{};
-            constexpr MPL::Value<smodVal,smodVal::v1011> v1011{};
-            constexpr MPL::Value<smodVal,smodVal::v1100> v1100{};
-            constexpr MPL::Value<smodVal,smodVal::v1101> v1101{};
-            constexpr MPL::Value<smodVal,smodVal::v1110> v1110{};
-            constexpr MPL::Value<smodVal,smodVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,SmodVal> smod{}; 
+        namespace SmodValC{
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(smod),SmodVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,smodVal> smod{}; 
         ///Start Transfer
-        enum class startVal {
+        enum class StartVal {
             v0=0x00000000,     ///<DMA inactive
             v1=0x00000001,     ///<The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.
         };
-        namespace startValC{
-            constexpr MPL::Value<startVal,startVal::v0> v0{};
-            constexpr MPL::Value<startVal,startVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,StartVal> start{}; 
+        namespace StartValC{
+            constexpr Register::FieldValue<decltype(start),StartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(start),StartVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,startVal> start{}; 
         ///Destination Size
-        enum class dsizeVal {
+        enum class DsizeVal {
             v00=0x00000000,     ///<32-bit
             v01=0x00000001,     ///<8-bit
             v10=0x00000002,     ///<16-bit
             v11=0x00000003,     ///<Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)
         };
-        namespace dsizeValC{
-            constexpr MPL::Value<dsizeVal,dsizeVal::v00> v00{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v01> v01{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v10> v10{};
-            constexpr MPL::Value<dsizeVal,dsizeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,DsizeVal> dsize{}; 
+        namespace DsizeValC{
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(dsize),DsizeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,dsizeVal> dsize{}; 
         ///Destination Increment
-        enum class dincVal {
+        enum class DincVal {
             v0=0x00000000,     ///<No change to the DAR after a successful transfer.
             v1=0x00000001,     ///<The DAR increments by 1, 2, 4 depending upon the size of the transfer.
         };
-        namespace dincValC{
-            constexpr MPL::Value<dincVal,dincVal::v0> v0{};
-            constexpr MPL::Value<dincVal,dincVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,DincVal> dinc{}; 
+        namespace DincValC{
+            constexpr Register::FieldValue<decltype(dinc),DincVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dinc),DincVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,dincVal> dinc{}; 
         ///Source Size
-        enum class ssizeVal {
+        enum class SsizeVal {
             v00=0x00000000,     ///<32-bit
             v01=0x00000001,     ///<8-bit
             v10=0x00000002,     ///<16-bit
             v11=0x00000003,     ///<Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)
         };
-        namespace ssizeValC{
-            constexpr MPL::Value<ssizeVal,ssizeVal::v00> v00{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v01> v01{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v10> v10{};
-            constexpr MPL::Value<ssizeVal,ssizeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,SsizeVal> ssize{}; 
+        namespace SsizeValC{
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(ssize),SsizeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,ssizeVal> ssize{}; 
         ///Source Increment
-        enum class sincVal {
+        enum class SincVal {
             v0=0x00000000,     ///<No change to SAR after a successful transfer.
             v1=0x00000001,     ///<The SAR increments by 1, 2, 4 as determined by the transfer size.
         };
-        namespace sincValC{
-            constexpr MPL::Value<sincVal,sincVal::v0> v0{};
-            constexpr MPL::Value<sincVal,sincVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,SincVal> sinc{}; 
+        namespace SincValC{
+            constexpr Register::FieldValue<decltype(sinc),SincVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sinc),SincVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sincVal> sinc{}; 
         ///Enable asynchronous DMA requests
-        enum class eadreqVal {
+        enum class EadreqVal {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        namespace eadreqValC{
-            constexpr MPL::Value<eadreqVal,eadreqVal::v0> v0{};
-            constexpr MPL::Value<eadreqVal,eadreqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,EadreqVal> eadreq{}; 
+        namespace EadreqValC{
+            constexpr Register::FieldValue<decltype(eadreq),EadreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eadreq),EadreqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,eadreqVal> eadreq{}; 
         ///User Mode, Nonsecure Mode
-        enum class umnsmVal {
+        enum class UmnsmVal {
             v00=0x00000000,     ///<Channel attributes are set to the current mode.
             v01=0x00000001,     ///<If the current mode is privileged and secure, then attributes are set to {privileged, secure}. Otherwise, writing this value terminates in an error.
             v10=0x00000002,     ///<If the current mode is privileged and secure or if the current mode is user and secure, then attributes are set to {user, secure}. Otherwise, writing this value terminates in an error.
             v11=0x00000003,     ///<If the current mode is privileged and secure, user and secure, or user and nonsecure, then attributes are set to {user, nonsecure}.
         };
-        namespace umnsmValC{
-            constexpr MPL::Value<umnsmVal,umnsmVal::v00> v00{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v01> v01{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v10> v10{};
-            constexpr MPL::Value<umnsmVal,umnsmVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,UmnsmVal> umnsm{}; 
+        namespace UmnsmValC{
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(umnsm),UmnsmVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,umnsmVal> umnsm{}; 
         ///Channel Access Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> chacr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> chacr{}; 
+        namespace ChacrValC{
+        }
         ///Auto-align
-        enum class aaVal {
+        enum class AaVal {
             v0=0x00000000,     ///<Auto-align disabled
             v1=0x00000001,     ///<If SSIZE indicates a transfer no smaller than DSIZE, source accesses are auto-aligned; otherwise, destination accesses are auto-aligned. Source alignment takes precedence over destination alignment. If auto-alignment is enabled, the appropriate address register increments, regardless of DINC or SINC.
         };
-        namespace aaValC{
-            constexpr MPL::Value<aaVal,aaVal::v0> v0{};
-            constexpr MPL::Value<aaVal,aaVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,AaVal> aa{}; 
+        namespace AaValC{
+            constexpr Register::FieldValue<decltype(aa),AaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aa),AaVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,aaVal> aa{}; 
         ///Cycle Steal
-        enum class csVal {
+        enum class CsVal {
             v0=0x00000000,     ///<DMA continuously makes read/write transfers until the BCR decrements to 0.
             v1=0x00000001,     ///<Forces a single read/write transfer per request.
         };
-        namespace csValC{
-            constexpr MPL::Value<csVal,csVal::v0> v0{};
-            constexpr MPL::Value<csVal,csVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,CsVal> cs{}; 
+        namespace CsValC{
+            constexpr Register::FieldValue<decltype(cs),CsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cs),CsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,csVal> cs{}; 
         ///Enable Peripheral Request
-        enum class erqVal {
+        enum class ErqVal {
             v0=0x00000000,     ///<Peripheral request is ignored.
             v1=0x00000001,     ///<Enables peripheral request to initiate transfer. A software-initiated request (setting START) is always enabled.
         };
-        namespace erqValC{
-            constexpr MPL::Value<erqVal,erqVal::v0> v0{};
-            constexpr MPL::Value<erqVal,erqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ErqVal> erq{}; 
+        namespace ErqValC{
+            constexpr Register::FieldValue<decltype(erq),ErqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(erq),ErqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,erqVal> erq{}; 
         ///Enable Interrupt on Completion of Transfer
-        enum class eintVal {
+        enum class EintVal {
             v0=0x00000000,     ///<No interrupt is generated.
             v1=0x00000001,     ///<Interrupt signal is enabled.
         };
-        namespace eintValC{
-            constexpr MPL::Value<eintVal,eintVal::v0> v0{};
-            constexpr MPL::Value<eintVal,eintVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,EintVal> eint{}; 
+        namespace EintValC{
+            constexpr Register::FieldValue<decltype(eint),EintVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eint),EintVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,eintVal> eint{}; 
     }
     namespace DmaDsr1{    ///<DMA_DSR1 register.
         using Addr = Register::Address<0x4000811b,0xffffffff,0,unsigned char>;

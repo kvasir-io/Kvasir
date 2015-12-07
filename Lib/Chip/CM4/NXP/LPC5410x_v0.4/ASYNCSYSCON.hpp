@@ -6,40 +6,64 @@ namespace Kvasir {
         using Addr = Register::Address<0x40080000,0xffff1901,0,unsigned>;
         ///USART0 reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> usart0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> usart0{}; 
+        namespace Usart0ValC{
+        }
         ///USART1 reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> usart1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> usart1{}; 
+        namespace Usart1ValC{
+        }
         ///USART2 reset control.0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> usart2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> usart2{}; 
+        namespace Usart2ValC{
+        }
         ///USART3 reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> usart3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> usart3{}; 
+        namespace Usart3ValC{
+        }
         ///I2C0 reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> i2c0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> i2c0{}; 
+        namespace I2c0ValC{
+        }
         ///I2C1 reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> i2c1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> i2c1{}; 
+        namespace I2c1ValC{
+        }
         ///I2C2 reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> i2c2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> i2c2{}; 
+        namespace I2c2ValC{
+        }
         ///SPI0 reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> spi0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> spi0{}; 
+        namespace Spi0ValC{
+        }
         ///SPI1 reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> spi1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> spi1{}; 
+        namespace Spi1ValC{
+        }
         ///Timer 0 reset control. 0 = Clear reset to this function. 1
 								= Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> timer0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> timer0{}; 
+        namespace Timer0ValC{
+        }
         ///Timer 1 reset control. 0 = Clear reset to this function. 1
 								= Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> timer1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> timer1{}; 
+        namespace Timer1ValC{
+        }
         ///FRG reset control. 0 = Clear reset to this function. 1 =
 								Assert reset to this function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> frg0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> frg0{}; 
+        namespace Frg0ValC{
+        }
     }
     namespace Noneaysncpresetctrlset{    ///<Set bits in AYSNCPRESETCTRL
         using Addr = Register::Address<0x40080004,0x00000000,0,unsigned>;
@@ -47,7 +71,9 @@ namespace Kvasir {
 								bits in the AYSNCPRESETCTRL register, if they are implemented. Bits
 								that do not correspond to defined bits in AYSNCPRESETCTRL are
 								reserved and only zeroes should be written to them.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> arstSet{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> arstSet{}; 
+        namespace ArstsetValC{
+        }
     }
     namespace Noneaysncpresetctrlclr{    ///<Clear bits in AYSNCPRESETCTRL
         using Addr = Register::Address<0x40080008,0x00000000,0,unsigned>;
@@ -55,46 +81,72 @@ namespace Kvasir {
 								or bits in the AYSNCPRESETCTRL register, if they are implemented.
 								Bits that do not correspond to defined bits in AYSNCPRESETCTRL are
 								reserved and only zeroes should be written to them.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> arstClr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> arstClr{}; 
+        namespace ArstclrValC{
+        }
     }
     namespace Noneasyncapbclkctrl{    ///<Async peripheral clock control
         using Addr = Register::Address<0x40080010,0xffff1901,0,unsigned>;
         ///Controls the clock for USART0. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> usart0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> usart0{}; 
+        namespace Usart0ValC{
+        }
         ///Controls the clock for USART1. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> usart1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> usart1{}; 
+        namespace Usart1ValC{
+        }
         ///Controls the clock for USART2. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> usart2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> usart2{}; 
+        namespace Usart2ValC{
+        }
         ///Controls the clock for USART3. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> usart3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> usart3{}; 
+        namespace Usart3ValC{
+        }
         ///Controls the clock for I2C0. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> i2c0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> i2c0{}; 
+        namespace I2c0ValC{
+        }
         ///Controls the clock for I2C1. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> i2c1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> i2c1{}; 
+        namespace I2c1ValC{
+        }
         ///Controls the clock for I2C2. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> i2c2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> i2c2{}; 
+        namespace I2c2ValC{
+        }
         ///Controls the clock for SPI0. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> spi0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> spi0{}; 
+        namespace Spi0ValC{
+        }
         ///Controls the clock for SPI1. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> spi1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> spi1{}; 
+        namespace Spi1ValC{
+        }
         ///Controls the clock for TIMER0. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> timer0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> timer0{}; 
+        namespace Timer0ValC{
+        }
         ///Controls the clock for TIMER1. 0 = Disable; 1 =
 								Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> timer1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> timer1{}; 
+        namespace Timer1ValC{
+        }
         ///Controls the clock for the Fractional Rate Generator used
 								with the USARTs. 0 = Disable; 1 = Enable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> frg0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> frg0{}; 
+        namespace Frg0ValC{
+        }
     }
     namespace Noneasyncapbclkctrlset{    ///<Set bits in ASYNCAPBCLKCTRL
         using Addr = Register::Address<0x40080014,0x00000000,0,unsigned>;
@@ -102,7 +154,9 @@ namespace Kvasir {
 								bits in the ASYNCAPBCLKCTRL register, if they are implemented. Bits
 								that do not correspond to defined bits in AYSNCPRESETCTRL are
 								reserved and only zeroes should be written to them.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> aclkSet{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> aclkSet{}; 
+        namespace AclksetValC{
+        }
     }
     namespace Noneasyncapbclkctrlclr{    ///<Clear bits in ASYNCAPBCLKCTRL
         using Addr = Register::Address<0x40080018,0x00000000,0,unsigned>;
@@ -110,100 +164,104 @@ namespace Kvasir {
 								or bits in the ASYNCAPBCLKCTRL register, if they are implemented.
 								Bits that do not correspond to defined bits in ASYNCAPBCLKCTRL are
 								reserved and only zeroes should be written to them.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> aclkClr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> aclkClr{}; 
+        namespace AclkclrValC{
+        }
     }
     namespace Noneasyncapbclksela{    ///<Async APB clock source select A
         using Addr = Register::Address<0x40080020,0xfffffffc,0,unsigned>;
         ///Clock source for asynchronous clock source selector
 								A
-        enum class selVal {
+        enum class SelVal {
             ircOscillator=0x00000000,     ///<IRC Oscillator
             watchdogOscillator=0x00000001,     ///<Watchdog oscillator
-            reserved=0x00000002,     ///<Reserved
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace selValC{
-            constexpr MPL::Value<selVal,selVal::ircOscillator> ircOscillator{};
-            constexpr MPL::Value<selVal,selVal::watchdogOscillator> watchdogOscillator{};
-            constexpr MPL::Value<selVal,selVal::reserved> reserved{};
-            constexpr MPL::Value<selVal,selVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
+        namespace SelValC{
+            constexpr Register::FieldValue<decltype(sel),SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(sel),SelVal::watchdogOscillator> watchdogOscillator{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,selVal> sel{}; 
     }
     namespace Noneasyncapbclkselb{    ///<Async APB clock source select B
         using Addr = Register::Address<0x40080024,0xfffffffc,0,unsigned>;
         ///Clock source for asynchronous clock source selector
 								B.
-        enum class selVal {
+        enum class SelVal {
             mainClock=0x00000000,     ///<Main clock
             clkin=0x00000001,     ///<CLKIN
             systemPllOutput=0x00000002,     ///<System PLL output.
             asyncapbclksela=0x00000003,     ///<ASYNCAPBCLKSELA. Clock selected by the
 										ASYNCAPBCLKSELA register.
         };
-        namespace selValC{
-            constexpr MPL::Value<selVal,selVal::mainClock> mainClock{};
-            constexpr MPL::Value<selVal,selVal::clkin> clkin{};
-            constexpr MPL::Value<selVal,selVal::systemPllOutput> systemPllOutput{};
-            constexpr MPL::Value<selVal,selVal::asyncapbclksela> asyncapbclksela{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
+        namespace SelValC{
+            constexpr Register::FieldValue<decltype(sel),SelVal::mainClock> mainClock{};
+            constexpr Register::FieldValue<decltype(sel),SelVal::clkin> clkin{};
+            constexpr Register::FieldValue<decltype(sel),SelVal::systemPllOutput> systemPllOutput{};
+            constexpr Register::FieldValue<decltype(sel),SelVal::asyncapbclksela> asyncapbclksela{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,selVal> sel{}; 
     }
     namespace Noneasyncclkdiv{    ///<Async APB clock divider
         using Addr = Register::Address<0x40080028,0xffffff00,0,unsigned>;
         ///Asynchronous APB clock divider value. 0: Clock disabled. 1:
 								Divide by 1. to 255: Divide by 255.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        namespace DivValC{
+        }
     }
     namespace Nonefrgctrl{    ///<USART fractional rate generator control
         using Addr = Register::Address<0x40080030,0xffff0000,0,unsigned>;
         ///Denominator of the fractional divider. DIV is equal to the
 								programmed value +1. Always set to 0xFF to use with the fractional
 								baud rate generator.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        namespace DivValC{
+        }
         ///Numerator of the fractional divider. MULT is equal to the
 								programmed value.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> mult{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> mult{}; 
+        namespace MultValC{
+        }
     }
     namespace Nonebodctrl{    ///<Brown-Out Detect control
         using Addr = Register::Address<0x40080044,0xffffffe0,0,unsigned>;
         ///BOD reset level
-        enum class bodrstlevVal {
+        enum class BodrstlevVal {
             level01=0x00000000,     ///<Level 0: 1.5 V
             level11=0x00000001,     ///<Level 1: 1.85 V
             level22=0x00000002,     ///<Level 2: 2.0 V
             level32=0x00000003,     ///<Level 3: 2.3 V
         };
-        namespace bodrstlevValC{
-            constexpr MPL::Value<bodrstlevVal,bodrstlevVal::level01> level01{};
-            constexpr MPL::Value<bodrstlevVal,bodrstlevVal::level11> level11{};
-            constexpr MPL::Value<bodrstlevVal,bodrstlevVal::level22> level22{};
-            constexpr MPL::Value<bodrstlevVal,bodrstlevVal::level32> level32{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,BodrstlevVal> bodrstlev{}; 
+        namespace BodrstlevValC{
+            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level01> level01{};
+            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level11> level11{};
+            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level22> level22{};
+            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level32> level32{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,bodrstlevVal> bodrstlev{}; 
         ///BOD interrupt level
-        enum class bodintvalVal {
+        enum class BodintvalVal {
             level02=0x00000000,     ///<Level 0: 2.05 V
             level12=0x00000001,     ///<Level 1: 2.45 V
             level22=0x00000002,     ///<Level 2: 2.75 V
             level33=0x00000003,     ///<Level 3: 3.05 V
         };
-        namespace bodintvalValC{
-            constexpr MPL::Value<bodintvalVal,bodintvalVal::level02> level02{};
-            constexpr MPL::Value<bodintvalVal,bodintvalVal::level12> level12{};
-            constexpr MPL::Value<bodintvalVal,bodintvalVal::level22> level22{};
-            constexpr MPL::Value<bodintvalVal,bodintvalVal::level33> level33{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,BodintvalVal> bodintval{}; 
+        namespace BodintvalValC{
+            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level02> level02{};
+            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level12> level12{};
+            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level22> level22{};
+            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level33> level33{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,bodintvalVal> bodintval{}; 
         ///BOD reset enable
-        enum class bodrstenaVal {
+        enum class BodrstenaVal {
             disableResetFuncti=0x00000000,     ///<Disable reset function.
             enableResetFunctio=0x00000001,     ///<Enable reset function.
         };
-        namespace bodrstenaValC{
-            constexpr MPL::Value<bodrstenaVal,bodrstenaVal::disableResetFuncti> disableResetFuncti{};
-            constexpr MPL::Value<bodrstenaVal,bodrstenaVal::enableResetFunctio> enableResetFunctio{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,BodrstenaVal> bodrstena{}; 
+        namespace BodrstenaValC{
+            constexpr Register::FieldValue<decltype(bodrstena),BodrstenaVal::disableResetFuncti> disableResetFuncti{};
+            constexpr Register::FieldValue<decltype(bodrstena),BodrstenaVal::enableResetFunctio> enableResetFunctio{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bodrstenaVal> bodrstena{}; 
     }
 }

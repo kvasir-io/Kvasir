@@ -5,504 +5,820 @@ namespace Kvasir {
     namespace PortCtrl0{    ///<Control
         using Addr = Register::Address<0x41004424,0x00000000,0,unsigned>;
         ///Input Sampling Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sampling{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sampling{}; 
+        namespace SamplingValC{
+        }
     }
     namespace PortCtrl1{    ///<Control
         using Addr = Register::Address<0x410044a4,0x00000000,0,unsigned>;
         ///Input Sampling Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sampling{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sampling{}; 
+        namespace SamplingValC{
+        }
     }
     namespace PortCtrl2{    ///<Control
         using Addr = Register::Address<0x41004524,0x00000000,0,unsigned>;
         ///Input Sampling Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sampling{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sampling{}; 
+        namespace SamplingValC{
+        }
     }
     namespace PortDir0{    ///<Data Direction
         using Addr = Register::Address<0x41004400,0x00000000,0,unsigned>;
         ///Port Data Direction
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dir{}; 
+        namespace DirValC{
+        }
     }
     namespace PortDir1{    ///<Data Direction
         using Addr = Register::Address<0x41004480,0x00000000,0,unsigned>;
         ///Port Data Direction
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dir{}; 
+        namespace DirValC{
+        }
     }
     namespace PortDir2{    ///<Data Direction
         using Addr = Register::Address<0x41004500,0x00000000,0,unsigned>;
         ///Port Data Direction
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dir{}; 
+        namespace DirValC{
+        }
     }
     namespace PortDirclr0{    ///<Data Direction Clear
         using Addr = Register::Address<0x41004404,0x00000000,0,unsigned>;
         ///Port Data Direction Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirclr{}; 
+        namespace DirclrValC{
+        }
     }
     namespace PortDirclr1{    ///<Data Direction Clear
         using Addr = Register::Address<0x41004484,0x00000000,0,unsigned>;
         ///Port Data Direction Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirclr{}; 
+        namespace DirclrValC{
+        }
     }
     namespace PortDirclr2{    ///<Data Direction Clear
         using Addr = Register::Address<0x41004504,0x00000000,0,unsigned>;
         ///Port Data Direction Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirclr{}; 
+        namespace DirclrValC{
+        }
     }
     namespace PortDirset0{    ///<Data Direction Set
         using Addr = Register::Address<0x41004408,0x00000000,0,unsigned>;
         ///Port Data Direction Set
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirset{}; 
+        namespace DirsetValC{
+        }
     }
     namespace PortDirset1{    ///<Data Direction Set
         using Addr = Register::Address<0x41004488,0x00000000,0,unsigned>;
         ///Port Data Direction Set
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirset{}; 
+        namespace DirsetValC{
+        }
     }
     namespace PortDirset2{    ///<Data Direction Set
         using Addr = Register::Address<0x41004508,0x00000000,0,unsigned>;
         ///Port Data Direction Set
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirset{}; 
+        namespace DirsetValC{
+        }
     }
     namespace PortDirtgl0{    ///<Data Direction Toggle
         using Addr = Register::Address<0x4100440c,0x00000000,0,unsigned>;
         ///Port Data Direction Toggle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirtgl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirtgl{}; 
+        namespace DirtglValC{
+        }
     }
     namespace PortDirtgl1{    ///<Data Direction Toggle
         using Addr = Register::Address<0x4100448c,0x00000000,0,unsigned>;
         ///Port Data Direction Toggle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirtgl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirtgl{}; 
+        namespace DirtglValC{
+        }
     }
     namespace PortDirtgl2{    ///<Data Direction Toggle
         using Addr = Register::Address<0x4100450c,0x00000000,0,unsigned>;
         ///Port Data Direction Toggle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirtgl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dirtgl{}; 
+        namespace DirtglValC{
+        }
     }
     namespace PortIn0{    ///<Data Input Value
         using Addr = Register::Address<0x41004420,0x00000000,0,unsigned>;
         ///Port Data Input Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> in{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> in{}; 
+        namespace InValC{
+        }
     }
     namespace PortIn1{    ///<Data Input Value
         using Addr = Register::Address<0x410044a0,0x00000000,0,unsigned>;
         ///Port Data Input Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> in{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> in{}; 
+        namespace InValC{
+        }
     }
     namespace PortIn2{    ///<Data Input Value
         using Addr = Register::Address<0x41004520,0x00000000,0,unsigned>;
         ///Port Data Input Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> in{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> in{}; 
+        namespace InValC{
+        }
     }
     namespace PortOut0{    ///<Data Output Value
         using Addr = Register::Address<0x41004410,0x00000000,0,unsigned>;
         ///Port Data Output Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> out{}; 
+        namespace OutValC{
+        }
     }
     namespace PortOut1{    ///<Data Output Value
         using Addr = Register::Address<0x41004490,0x00000000,0,unsigned>;
         ///Port Data Output Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> out{}; 
+        namespace OutValC{
+        }
     }
     namespace PortOut2{    ///<Data Output Value
         using Addr = Register::Address<0x41004510,0x00000000,0,unsigned>;
         ///Port Data Output Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> out{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> out{}; 
+        namespace OutValC{
+        }
     }
     namespace PortOutclr0{    ///<Data Output Value Clear
         using Addr = Register::Address<0x41004414,0x00000000,0,unsigned>;
         ///Port Data Output Value Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outclr{}; 
+        namespace OutclrValC{
+        }
     }
     namespace PortOutclr1{    ///<Data Output Value Clear
         using Addr = Register::Address<0x41004494,0x00000000,0,unsigned>;
         ///Port Data Output Value Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outclr{}; 
+        namespace OutclrValC{
+        }
     }
     namespace PortOutclr2{    ///<Data Output Value Clear
         using Addr = Register::Address<0x41004514,0x00000000,0,unsigned>;
         ///Port Data Output Value Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outclr{}; 
+        namespace OutclrValC{
+        }
     }
     namespace PortOutset0{    ///<Data Output Value Set
         using Addr = Register::Address<0x41004418,0x00000000,0,unsigned>;
         ///Port Data Output Value Set
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outset{}; 
+        namespace OutsetValC{
+        }
     }
     namespace PortOutset1{    ///<Data Output Value Set
         using Addr = Register::Address<0x41004498,0x00000000,0,unsigned>;
         ///Port Data Output Value Set
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outset{}; 
+        namespace OutsetValC{
+        }
     }
     namespace PortOutset2{    ///<Data Output Value Set
         using Addr = Register::Address<0x41004518,0x00000000,0,unsigned>;
         ///Port Data Output Value Set
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outset{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outset{}; 
+        namespace OutsetValC{
+        }
     }
     namespace PortOuttgl0{    ///<Data Output Value Toggle
         using Addr = Register::Address<0x4100441c,0x00000000,0,unsigned>;
         ///Port Data Output Value Toggle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outtgl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outtgl{}; 
+        namespace OuttglValC{
+        }
     }
     namespace PortOuttgl1{    ///<Data Output Value Toggle
         using Addr = Register::Address<0x4100449c,0x00000000,0,unsigned>;
         ///Port Data Output Value Toggle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outtgl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outtgl{}; 
+        namespace OuttglValC{
+        }
     }
     namespace PortOuttgl2{    ///<Data Output Value Toggle
         using Addr = Register::Address<0x4100451c,0x00000000,0,unsigned>;
         ///Port Data Output Value Toggle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outtgl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> outtgl{}; 
+        namespace OuttglValC{
+        }
     }
     namespace PortPincfg00{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004440,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg01{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004441,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg02{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004442,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg03{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004443,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg04{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004444,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg05{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004445,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg06{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004446,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg07{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004447,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg08{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004448,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg09{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004449,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg010{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100444a,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg011{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100444b,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg012{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100444c,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg013{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100444d,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg014{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100444e,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg015{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100444f,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg016{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004450,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg017{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004451,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg018{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004452,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg019{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004453,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg020{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004454,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg021{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004455,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg022{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004456,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg023{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004457,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg024{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004458,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg025{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x41004459,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg026{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100445a,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg027{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100445b,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg028{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100445c,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg029{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100445d,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg030{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100445e,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg031{    ///<Pin Configuration n - Group 0
         using Addr = Register::Address<0x4100445f,0xffffffb8,0,unsigned char>;
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
     }
     namespace PortPincfg10{    ///<Pin Configuration n - Group 1
         using Addr = Register::Address<0x410044c0,0xffffffff,0,unsigned>;
@@ -699,7 +1015,7 @@ namespace Kvasir {
     namespace PortPmux00{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004430,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -709,19 +1025,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -731,22 +1047,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux01{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004431,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -756,19 +1072,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -778,22 +1094,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux02{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004432,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -803,19 +1119,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -825,22 +1141,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux03{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004433,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -850,19 +1166,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -872,22 +1188,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux04{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004434,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -897,19 +1213,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -919,22 +1235,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux05{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004435,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -944,19 +1260,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -966,22 +1282,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux06{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004436,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -991,19 +1307,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1013,22 +1329,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux07{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004437,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1038,19 +1354,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1060,22 +1376,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux08{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004438,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1085,19 +1401,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1107,22 +1423,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux09{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x41004439,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1132,19 +1448,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1154,22 +1470,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux010{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x4100443a,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1179,19 +1495,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1201,22 +1517,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux011{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x4100443b,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1226,19 +1542,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1248,22 +1564,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux012{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x4100443c,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1273,19 +1589,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1295,22 +1611,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux013{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x4100443d,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1320,19 +1636,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1342,22 +1658,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux014{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x4100443e,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1367,19 +1683,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1389,22 +1705,22 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux015{    ///<Peripheral Multiplexing n - Group 0
         using Addr = Register::Address<0x4100443f,0xffffff00,0,unsigned char>;
         ///Peripheral Multiplexing Even
-        enum class pmuxeVal {
+        enum class PmuxeVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1414,19 +1730,19 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxeValC{
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::a> a{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::b> b{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::c> c{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::d> d{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::e> e{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::f> f{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::g> g{};
-            constexpr MPL::Value<pmuxeVal,pmuxeVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,PmuxeVal> pmuxe{}; 
+        namespace PmuxeValC{
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxe),PmuxeVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,pmuxeVal> pmuxe{}; 
         ///Peripheral Multiplexing Odd
-        enum class pmuxoVal {
+        enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
             b=0x00000001,     ///<Peripheral function B selected
             c=0x00000002,     ///<Peripheral function C selected
@@ -1436,17 +1752,17 @@ namespace Kvasir {
             g=0x00000006,     ///<Peripheral function G selected
             h=0x00000007,     ///<Peripheral function H selected
         };
-        namespace pmuxoValC{
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::a> a{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::b> b{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::c> c{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::d> d{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::e> e{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::f> f{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::g> g{};
-            constexpr MPL::Value<pmuxoVal,pmuxoVal::h> h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,PmuxoVal> pmuxo{}; 
+        namespace PmuxoValC{
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::a> a{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::b> b{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::c> c{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::d> d{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::e> e{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::f> f{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::g> g{};
+            constexpr Register::FieldValue<decltype(pmuxo),PmuxoVal::h> h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,pmuxoVal> pmuxo{}; 
     }
     namespace PortPmux10{    ///<Peripheral Multiplexing n - Group 1
         using Addr = Register::Address<0x410044b0,0xffffffff,0,unsigned>;
@@ -1547,64 +1863,118 @@ namespace Kvasir {
     namespace PortWrconfig0{    ///<Write Configuration
         using Addr = Register::Address<0x41004428,0x20b80000,0,unsigned>;
         ///Pin Mask for Multiple Pin Configuration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pinmask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pinmask{}; 
+        namespace PinmaskValC{
+        }
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
         ///Peripheral Multiplexing
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> pmux{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> pmux{}; 
+        namespace PmuxValC{
+        }
         ///Write PMUX
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> wrpmux{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> wrpmux{}; 
+        namespace WrpmuxValC{
+        }
         ///Write PINCFG
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> wrpincfg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> wrpincfg{}; 
+        namespace WrpincfgValC{
+        }
         ///Half-Word Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> hwsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> hwsel{}; 
+        namespace HwselValC{
+        }
     }
     namespace PortWrconfig1{    ///<Write Configuration
         using Addr = Register::Address<0x410044a8,0x20b80000,0,unsigned>;
         ///Pin Mask for Multiple Pin Configuration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pinmask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pinmask{}; 
+        namespace PinmaskValC{
+        }
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
         ///Peripheral Multiplexing
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> pmux{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> pmux{}; 
+        namespace PmuxValC{
+        }
         ///Write PMUX
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> wrpmux{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> wrpmux{}; 
+        namespace WrpmuxValC{
+        }
         ///Write PINCFG
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> wrpincfg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> wrpincfg{}; 
+        namespace WrpincfgValC{
+        }
         ///Half-Word Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> hwsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> hwsel{}; 
+        namespace HwselValC{
+        }
     }
     namespace PortWrconfig2{    ///<Write Configuration
         using Addr = Register::Address<0x41004528,0x20b80000,0,unsigned>;
         ///Pin Mask for Multiple Pin Configuration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pinmask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pinmask{}; 
+        namespace PinmaskValC{
+        }
         ///Peripheral Multiplexer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pmuxen{}; 
+        namespace PmuxenValC{
+        }
         ///Input Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> inen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> inen{}; 
+        namespace InenValC{
+        }
         ///Pull Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> pullen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> pullen{}; 
+        namespace PullenValC{
+        }
         ///Output Driver Strength Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> drvstr{}; 
+        namespace DrvstrValC{
+        }
         ///Peripheral Multiplexing
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> pmux{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> pmux{}; 
+        namespace PmuxValC{
+        }
         ///Write PMUX
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> wrpmux{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> wrpmux{}; 
+        namespace WrpmuxValC{
+        }
         ///Write PINCFG
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> wrpincfg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> wrpincfg{}; 
+        namespace WrpincfgValC{
+        }
         ///Half-Word Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> hwsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> hwsel{}; 
+        namespace HwselValC{
+        }
     }
 }

@@ -5,150 +5,236 @@ namespace Kvasir {
     namespace DbguCr{    ///<Control Register
         using Addr = Register::Address<0xffffee00,0xfffffe03,0,unsigned>;
         ///Reset Receiver
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rstrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rstrx{}; 
+        namespace RstrxValC{
+        }
         ///Reset Transmitter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsttx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsttx{}; 
+        namespace RsttxValC{
+        }
         ///Receiver Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxen{}; 
+        namespace RxenValC{
+        }
         ///Receiver Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdis{}; 
+        namespace RxdisValC{
+        }
         ///Transmitter Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txen{}; 
+        namespace TxenValC{
+        }
         ///Transmitter Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdis{}; 
+        namespace TxdisValC{
+        }
         ///Reset Status Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rststa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rststa{}; 
+        namespace RststaValC{
+        }
     }
     namespace DbguMr{    ///<Mode Register
         using Addr = Register::Address<0xffffee04,0xffff31ff,0,unsigned>;
         ///Parity Type
-        enum class parVal {
+        enum class ParVal {
             even=0x00000000,     ///<Even Parity
             odd=0x00000001,     ///<Odd Parity
             space=0x00000002,     ///<Space: Parity forced to 0
             mark=0x00000003,     ///<Mark: Parity forced to 1
             none=0x00000004,     ///<No Parity
         };
-        namespace parValC{
-            constexpr MPL::Value<parVal,parVal::even> even{};
-            constexpr MPL::Value<parVal,parVal::odd> odd{};
-            constexpr MPL::Value<parVal,parVal::space> space{};
-            constexpr MPL::Value<parVal,parVal::mark> mark{};
-            constexpr MPL::Value<parVal,parVal::none> none{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,ParVal> par{}; 
+        namespace ParValC{
+            constexpr Register::FieldValue<decltype(par),ParVal::even> even{};
+            constexpr Register::FieldValue<decltype(par),ParVal::odd> odd{};
+            constexpr Register::FieldValue<decltype(par),ParVal::space> space{};
+            constexpr Register::FieldValue<decltype(par),ParVal::mark> mark{};
+            constexpr Register::FieldValue<decltype(par),ParVal::none> none{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,parVal> par{}; 
         ///Channel Mode
-        enum class chmodeVal {
+        enum class ChmodeVal {
             norm=0x00000000,     ///<Normal Mode
             auto_=0x00000001,     ///<Automatic Echo
             locloop=0x00000002,     ///<Local Loopback
             remloop=0x00000003,     ///<Remote Loopback
         };
-        namespace chmodeValC{
-            constexpr MPL::Value<chmodeVal,chmodeVal::norm> norm{};
-            constexpr MPL::Value<chmodeVal,chmodeVal::auto_> auto_{};
-            constexpr MPL::Value<chmodeVal,chmodeVal::locloop> locloop{};
-            constexpr MPL::Value<chmodeVal,chmodeVal::remloop> remloop{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,ChmodeVal> chmode{}; 
+        namespace ChmodeValC{
+            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::norm> norm{};
+            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::auto_> auto_{};
+            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::locloop> locloop{};
+            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::remloop> remloop{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,chmodeVal> chmode{}; 
     }
     namespace DbguIer{    ///<Interrupt Enable Register
         using Addr = Register::Address<0xffffee08,0x3ffffd1c,0,unsigned>;
         ///Enable RXRDY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///Enable TXRDY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Enable Overrun Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Enable Framing Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        namespace FrameValC{
+        }
         ///Enable Parity Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        namespace PareValC{
+        }
         ///Enable TXEMPTY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///Enable COMMTX (from ARM) Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
+        namespace CommtxValC{
+        }
         ///Enable COMMRX (from ARM) Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
+        namespace CommrxValC{
+        }
     }
     namespace DbguIdr{    ///<Interrupt Disable Register
         using Addr = Register::Address<0xffffee0c,0x3ffffd1c,0,unsigned>;
         ///Disable RXRDY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///Disable TXRDY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Disable Overrun Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Disable Framing Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        namespace FrameValC{
+        }
         ///Disable Parity Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        namespace PareValC{
+        }
         ///Disable TXEMPTY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///Disable COMMTX (from ARM) Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
+        namespace CommtxValC{
+        }
         ///Disable COMMRX (from ARM) Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
+        namespace CommrxValC{
+        }
     }
     namespace DbguImr{    ///<Interrupt Mask Register
         using Addr = Register::Address<0xffffee10,0x3ffffd1c,0,unsigned>;
         ///Mask RXRDY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///Disable TXRDY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Mask Overrun Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Mask Framing Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        namespace FrameValC{
+        }
         ///Mask Parity Error Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        namespace PareValC{
+        }
         ///Mask TXEMPTY Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///Mask COMMTX Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
+        namespace CommtxValC{
+        }
         ///Mask COMMRX Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
+        namespace CommrxValC{
+        }
     }
     namespace DbguSr{    ///<Status Register
         using Addr = Register::Address<0xffffee14,0x3ffffd1c,0,unsigned>;
         ///Receiver Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///Transmitter Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Overrun Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Framing Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        namespace FrameValC{
+        }
         ///Parity Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        namespace PareValC{
+        }
         ///Transmitter Empty
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///Debug Communication Channel Write Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
+        namespace CommtxValC{
+        }
         ///Debug Communication Channel Read Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
+        namespace CommrxValC{
+        }
     }
     namespace DbguRhr{    ///<Receive Holding Register
         using Addr = Register::Address<0xffffee18,0xffffff00,0,unsigned>;
         ///Received Character
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxchr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxchr{}; 
+        namespace RxchrValC{
+        }
     }
     namespace DbguThr{    ///<Transmit Holding Register
         using Addr = Register::Address<0xffffee1c,0xffffff00,0,unsigned>;
         ///Character to be Transmitted
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txchr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txchr{}; 
+        namespace TxchrValC{
+        }
     }
     namespace DbguBrgr{    ///<Baud Rate Generator Register
         using Addr = Register::Address<0xffffee20,0xffff0000,0,unsigned>;
         ///Clock Divisor
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cd{}; 
+        namespace CdValC{
+        }
     }
     namespace DbguCidr{    ///<Chip ID Register
         using Addr = Register::Address<0xffffee40,0x00000000,0,unsigned>;
         ///Version of the Device
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> version{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> version{}; 
+        namespace VersionValC{
+        }
         ///Embedded Processor
-        enum class eprocVal {
+        enum class EprocVal {
             arm946es=0x00000001,     ///<ARM946ES
             arm7tdmi=0x00000002,     ///<ARM7TDMI
             cm3=0x00000003,     ///<Cortex-M3
@@ -156,17 +242,17 @@ namespace Kvasir {
             arm926ejs=0x00000005,     ///<ARM926EJS
             ca5=0x00000006,     ///<Cortex-A5
         };
-        namespace eprocValC{
-            constexpr MPL::Value<eprocVal,eprocVal::arm946es> arm946es{};
-            constexpr MPL::Value<eprocVal,eprocVal::arm7tdmi> arm7tdmi{};
-            constexpr MPL::Value<eprocVal,eprocVal::cm3> cm3{};
-            constexpr MPL::Value<eprocVal,eprocVal::arm920t> arm920t{};
-            constexpr MPL::Value<eprocVal,eprocVal::arm926ejs> arm926ejs{};
-            constexpr MPL::Value<eprocVal,eprocVal::ca5> ca5{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,EprocVal> eproc{}; 
+        namespace EprocValC{
+            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm946es> arm946es{};
+            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm7tdmi> arm7tdmi{};
+            constexpr Register::FieldValue<decltype(eproc),EprocVal::cm3> cm3{};
+            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm920t> arm920t{};
+            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm926ejs> arm926ejs{};
+            constexpr Register::FieldValue<decltype(eproc),EprocVal::ca5> ca5{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,eprocVal> eproc{}; 
         ///Nonvolatile Program Memory Size
-        enum class nvpsizVal {
+        enum class NvpsizVal {
             none=0x00000000,     ///<None
             v8k=0x00000001,     ///<8K bytes
             v16k=0x00000002,     ///<16K bytes
@@ -178,21 +264,21 @@ namespace Kvasir {
             v1024k=0x0000000c,     ///<1024K bytes
             v2048k=0x0000000e,     ///<2048K bytes
         };
-        namespace nvpsizValC{
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::none> none{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v8k> v8k{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v16k> v16k{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v32k> v32k{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v64k> v64k{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v128k> v128k{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v256k> v256k{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v512k> v512k{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v1024k> v1024k{};
-            constexpr MPL::Value<nvpsizVal,nvpsizVal::v2048k> v2048k{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,NvpsizVal> nvpsiz{}; 
+        namespace NvpsizValC{
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::none> none{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v512k> v512k{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v1024k> v1024k{};
+            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v2048k> v2048k{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,nvpsizVal> nvpsiz{}; 
         ///None
-        enum class nvpsiz2Val {
+        enum class Nvpsiz2Val {
             none=0x00000000,     ///<None
             v8k=0x00000001,     ///<8K bytes
             v16k=0x00000002,     ///<16K bytes
@@ -204,21 +290,21 @@ namespace Kvasir {
             v1024k=0x0000000c,     ///<1024K bytes
             v2048k=0x0000000e,     ///<2048K bytes
         };
-        namespace nvpsiz2ValC{
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::none> none{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v8k> v8k{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v16k> v16k{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v32k> v32k{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v64k> v64k{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v128k> v128k{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v256k> v256k{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v512k> v512k{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v1024k> v1024k{};
-            constexpr MPL::Value<nvpsiz2Val,nvpsiz2Val::v2048k> v2048k{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,Nvpsiz2Val> nvpsiz2{}; 
+        namespace Nvpsiz2ValC{
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::none> none{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v512k> v512k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v1024k> v1024k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v2048k> v2048k{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,nvpsiz2Val> nvpsiz2{}; 
         ///Internal SRAM Size
-        enum class sramsizVal {
+        enum class SramsizVal {
             v1k=0x00000001,     ///<1K bytes
             v2k=0x00000002,     ///<2K bytes
             v6k=0x00000003,     ///<6K bytes
@@ -235,26 +321,26 @@ namespace Kvasir {
             v96k=0x0000000e,     ///<96K bytes
             v512k=0x0000000f,     ///<512K bytes
         };
-        namespace sramsizValC{
-            constexpr MPL::Value<sramsizVal,sramsizVal::v1k> v1k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v2k> v2k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v6k> v6k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v112k> v112k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v4k> v4k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v80k> v80k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v160k> v160k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v8k> v8k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v16k> v16k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v32k> v32k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v64k> v64k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v128k> v128k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v256k> v256k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v96k> v96k{};
-            constexpr MPL::Value<sramsizVal,sramsizVal::v512k> v512k{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,SramsizVal> sramsiz{}; 
+        namespace SramsizValC{
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v1k> v1k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v2k> v2k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v6k> v6k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v112k> v112k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v4k> v4k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v80k> v80k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v160k> v160k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v96k> v96k{};
+            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v512k> v512k{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,sramsizVal> sramsiz{}; 
         ///Architecture Identifier
-        enum class archVal {
+        enum class ArchVal {
             at91sam9xx=0x00000019,     ///<AT91SAM9xx Series
             at91sam9xexx=0x00000029,     ///<AT91SAM9XExx Series
             at91x34=0x00000034,     ///<AT91x34 Series
@@ -291,71 +377,77 @@ namespace Kvasir {
             atsam3sdxc=0x0000009a,     ///<ATSAM3SDxC Series (100-pin version)
             at75cxx=0x000000f0,     ///<AT75Cxx Series
         };
-        namespace archValC{
-            constexpr MPL::Value<archVal,archVal::at91sam9xx> at91sam9xx{};
-            constexpr MPL::Value<archVal,archVal::at91sam9xexx> at91sam9xexx{};
-            constexpr MPL::Value<archVal,archVal::at91x34> at91x34{};
-            constexpr MPL::Value<archVal,archVal::cap7> cap7{};
-            constexpr MPL::Value<archVal,archVal::cap9> cap9{};
-            constexpr MPL::Value<archVal,archVal::cap11> cap11{};
-            constexpr MPL::Value<archVal,archVal::at91x40> at91x40{};
-            constexpr MPL::Value<archVal,archVal::at91x42> at91x42{};
-            constexpr MPL::Value<archVal,archVal::at91x55> at91x55{};
-            constexpr MPL::Value<archVal,archVal::at91sam7axx> at91sam7axx{};
-            constexpr MPL::Value<archVal,archVal::at91sam7aqxx> at91sam7aqxx{};
-            constexpr MPL::Value<archVal,archVal::at91x63> at91x63{};
-            constexpr MPL::Value<archVal,archVal::at91sam7sxx> at91sam7sxx{};
-            constexpr MPL::Value<archVal,archVal::at91sam7xcxx> at91sam7xcxx{};
-            constexpr MPL::Value<archVal,archVal::at91sam7sexx> at91sam7sexx{};
-            constexpr MPL::Value<archVal,archVal::at91sam7lxx> at91sam7lxx{};
-            constexpr MPL::Value<archVal,archVal::at91sam7xxx> at91sam7xxx{};
-            constexpr MPL::Value<archVal,archVal::at91sam7slxx> at91sam7slxx{};
-            constexpr MPL::Value<archVal,archVal::atsam3uxc> atsam3uxc{};
-            constexpr MPL::Value<archVal,archVal::atsam3uxe> atsam3uxe{};
-            constexpr MPL::Value<archVal,archVal::atsam3axc> atsam3axc{};
-            constexpr MPL::Value<archVal,archVal::atsam3xxc> atsam3xxc{};
-            constexpr MPL::Value<archVal,archVal::atsam3xxe> atsam3xxe{};
-            constexpr MPL::Value<archVal,archVal::atsam3xxg> atsam3xxg{};
-            constexpr MPL::Value<archVal,archVal::atsam3sxa> atsam3sxa{};
-            constexpr MPL::Value<archVal,archVal::atsam3sxb> atsam3sxb{};
-            constexpr MPL::Value<archVal,archVal::atsam3sxc> atsam3sxc{};
-            constexpr MPL::Value<archVal,archVal::at91x92> at91x92{};
-            constexpr MPL::Value<archVal,archVal::atsam3nxa> atsam3nxa{};
-            constexpr MPL::Value<archVal,archVal::atsam3nxb> atsam3nxb{};
-            constexpr MPL::Value<archVal,archVal::atsam3nxc> atsam3nxc{};
-            constexpr MPL::Value<archVal,archVal::atsam3sdxa> atsam3sdxa{};
-            constexpr MPL::Value<archVal,archVal::atsam3sdxb> atsam3sdxb{};
-            constexpr MPL::Value<archVal,archVal::atsam3sdxc> atsam3sdxc{};
-            constexpr MPL::Value<archVal,archVal::at75cxx> at75cxx{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,20),Register::ReadWriteAccess,ArchVal> arch{}; 
+        namespace ArchValC{
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam9xx> at91sam9xx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam9xexx> at91sam9xexx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x34> at91x34{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::cap7> cap7{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::cap9> cap9{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::cap11> cap11{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x40> at91x40{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x42> at91x42{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x55> at91x55{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7axx> at91sam7axx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7aqxx> at91sam7aqxx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x63> at91x63{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7sxx> at91sam7sxx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7xcxx> at91sam7xcxx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7sexx> at91sam7sexx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7lxx> at91sam7lxx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7xxx> at91sam7xxx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7slxx> at91sam7slxx{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3uxc> atsam3uxc{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3uxe> atsam3uxe{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3axc> atsam3axc{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3xxc> atsam3xxc{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3xxe> atsam3xxe{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3xxg> atsam3xxg{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sxa> atsam3sxa{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sxb> atsam3sxb{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sxc> atsam3sxc{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x92> at91x92{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3nxa> atsam3nxa{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3nxb> atsam3nxb{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3nxc> atsam3nxc{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sdxa> atsam3sdxa{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sdxb> atsam3sdxb{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sdxc> atsam3sdxc{};
+            constexpr Register::FieldValue<decltype(arch),ArchVal::at75cxx> at75cxx{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,20),Register::ReadWriteAccess,archVal> arch{}; 
         ///Nonvolatile Program Memory Type
-        enum class nvptypVal {
+        enum class NvptypVal {
             rom=0x00000000,     ///<ROM
             romless=0x00000001,     ///<ROMless or on-chip Flash
             flash=0x00000002,     ///<Embedded Flash Memory
             romFlash=0x00000003,     ///<ROM and Embedded Flash MemoryNVPSIZ is ROM size      NVPSIZ2 is Flash size
             sram=0x00000004,     ///<SRAM emulating ROM
         };
-        namespace nvptypValC{
-            constexpr MPL::Value<nvptypVal,nvptypVal::rom> rom{};
-            constexpr MPL::Value<nvptypVal,nvptypVal::romless> romless{};
-            constexpr MPL::Value<nvptypVal,nvptypVal::flash> flash{};
-            constexpr MPL::Value<nvptypVal,nvptypVal::romFlash> romFlash{};
-            constexpr MPL::Value<nvptypVal,nvptypVal::sram> sram{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,NvptypVal> nvptyp{}; 
+        namespace NvptypValC{
+            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::rom> rom{};
+            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::romless> romless{};
+            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::flash> flash{};
+            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::romFlash> romFlash{};
+            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::sram> sram{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,nvptypVal> nvptyp{}; 
         ///Extension Flag
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ext{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ext{}; 
+        namespace ExtValC{
+        }
     }
     namespace DbguExid{    ///<Chip ID Extension Register
         using Addr = Register::Address<0xffffee44,0x00000000,0,unsigned>;
         ///Chip ID Extension
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> exid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> exid{}; 
+        namespace ExidValC{
+        }
     }
     namespace DbguFnr{    ///<Force NTRST Register
         using Addr = Register::Address<0xffffee48,0xfffffffe,0,unsigned>;
         ///Force NTRST
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fntrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fntrst{}; 
+        namespace FntrstValC{
+        }
     }
 }

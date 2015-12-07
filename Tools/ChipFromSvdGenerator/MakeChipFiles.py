@@ -46,7 +46,7 @@ def parseIo(extention,device,path):
                         action = "WriteLiteralAction<(%s<<Pin)>" % Ft.getKey(io,[key,'value'])
                     outFile.write("        template<int Pin>\n")
                     outFile.write("        struct MakeAction<Action::%s,PinLocation<%d,Pin>> :\n" % (key.capitalize(),portNumber))
-                    outFile.write("            Register::Action<Register::BitLocation<Register::Address<0x%08x,0x%08x>,(1<<Pin)>,Register::%s>{};\n\n"\
+                    outFile.write("            Register::Action<Register::FieldLocation<Register::Address<0x%08x,0x%08x>,(1<<Pin)>,Register::%s>{};\n\n"\
                         % (address,reserved,action))
     outFile.write("    }\n}\n")
 
@@ -59,8 +59,9 @@ def parseRegister(register, baseAddress, prefix, ext):
         fieldType = "unsigned"
         fieldName = Ft.formatVariable(field.name)
         fieldOut += "        ///%s\n" % field.description
+        cValuesOut = ""
         if Ft.useEnumeratedValues(field.enumerated_values,field.bit_width):
-            fieldType = "%sVal" % (fieldName)
+            fieldType = "%sVal" % (fieldName.capitalize())
             fieldOut += "        enum class %s {\n" % fieldType
             cValuesOut = ""
             for v in field.enumerated_values:
@@ -68,9 +69,10 @@ def parseRegister(register, baseAddress, prefix, ext):
                     valName = Ft.getKey(ext,['field',field.name,'enum',v.name,'.rename']) or Ft.formatEnumValue(v.name)
                     if valName != 'reserved':
                         fieldOut+="            %s=0x%08x,     ///<%s\n" % (valName,v.value,v.description)
-                        cValuesOut+="            constexpr MPL::Value<%sVal,%sVal::%s> %s{};\n" % (fieldName,fieldName,valName,valName)
-            fieldOut += "        };\n        namespace %sValC{\n%s        }\n" % (fieldName,cValuesOut)
-        fieldOut += "        constexpr Register::BitLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n" % (msb,lsb,Ft.getAccess(register,field),fieldType,fieldName)
+                        cValuesOut+="            constexpr Register::FieldValue<decltype(%s),%sVal::%s> %s{};\n" % (fieldName,fieldName.capitalize(),valName,valName)
+            fieldOut += "        };\n"
+        fieldOut += "        constexpr Register::FieldLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n" % (msb,lsb,Ft.getAccess(register,field),fieldType,fieldName)
+        fieldOut += "        namespace %sValC{\n%s        }\n" % (fieldName.capitalize(),cValuesOut)
         reservedBits = Ft.clearBitsFromRange(msb,lsb,reservedBits)
             
     regType = "unsigned"
@@ -83,6 +85,8 @@ def parseRegister(register, baseAddress, prefix, ext):
     return out 
 
 def parseRegisters(registers,baseAddress,prefix, ext):
+    if registers is None:
+        return ""
     out = ""
     for register in registers:
         out += parseRegister(register, baseAddress, prefix, Ft.getKey(ext,[register.name]))

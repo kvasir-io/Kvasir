@@ -5,165 +5,189 @@ namespace Kvasir {
     namespace WdogStctrlh{    ///<Watchdog Status and Control Register High
         using Addr = Register::Address<0x40053000,0xffff8380,0,unsigned>;
         ///no description available
-        enum class wdogenVal {
+        enum class WdogenVal {
             v0=0x00000000,     ///<WDOG is disabled.
             v1=0x00000001,     ///<WDOG is enabled.
         };
-        namespace wdogenValC{
-            constexpr MPL::Value<wdogenVal,wdogenVal::v0> v0{};
-            constexpr MPL::Value<wdogenVal,wdogenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,WdogenVal> wdogen{}; 
+        namespace WdogenValC{
+            constexpr Register::FieldValue<decltype(wdogen),WdogenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wdogen),WdogenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,wdogenVal> wdogen{}; 
         ///no description available
-        enum class clksrcVal {
+        enum class ClksrcVal {
             v0=0x00000000,     ///<WDOG clock sourced from LPO .
             v1=0x00000001,     ///<WDOG clock sourced from alternate clock source.
         };
-        namespace clksrcValC{
-            constexpr MPL::Value<clksrcVal,clksrcVal::v0> v0{};
-            constexpr MPL::Value<clksrcVal,clksrcVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ClksrcVal> clksrc{}; 
+        namespace ClksrcValC{
+            constexpr Register::FieldValue<decltype(clksrc),ClksrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(clksrc),ClksrcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,clksrcVal> clksrc{}; 
         ///no description available
-        enum class irqrstenVal {
+        enum class IrqrstenVal {
             v0=0x00000000,     ///<WDOG time-out generates reset only.
             v1=0x00000001,     ///<WDOG time-out initially generates an interrupt. After WCT, it generates a reset.
         };
-        namespace irqrstenValC{
-            constexpr MPL::Value<irqrstenVal,irqrstenVal::v0> v0{};
-            constexpr MPL::Value<irqrstenVal,irqrstenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,IrqrstenVal> irqrsten{}; 
+        namespace IrqrstenValC{
+            constexpr Register::FieldValue<decltype(irqrsten),IrqrstenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqrsten),IrqrstenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,irqrstenVal> irqrsten{}; 
         ///no description available
-        enum class winenVal {
+        enum class WinenVal {
             v0=0x00000000,     ///<Windowing mode is disabled.
             v1=0x00000001,     ///<Windowing mode is enabled.
         };
-        namespace winenValC{
-            constexpr MPL::Value<winenVal,winenVal::v0> v0{};
-            constexpr MPL::Value<winenVal,winenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,WinenVal> winen{}; 
+        namespace WinenValC{
+            constexpr Register::FieldValue<decltype(winen),WinenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(winen),WinenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,winenVal> winen{}; 
         ///no description available
-        enum class allowupdateVal {
+        enum class AllowupdateVal {
             v0=0x00000000,     ///<No further updates allowed to WDOG write-once registers.
             v1=0x00000001,     ///<WDOG write-once registers can be unlocked for updating.
         };
-        namespace allowupdateValC{
-            constexpr MPL::Value<allowupdateVal,allowupdateVal::v0> v0{};
-            constexpr MPL::Value<allowupdateVal,allowupdateVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AllowupdateVal> allowupdate{}; 
+        namespace AllowupdateValC{
+            constexpr Register::FieldValue<decltype(allowupdate),AllowupdateVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(allowupdate),AllowupdateVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,allowupdateVal> allowupdate{}; 
         ///no description available
-        enum class dbgenVal {
+        enum class DbgenVal {
             v0=0x00000000,     ///<WDOG is disabled in CPU Debug mode.
             v1=0x00000001,     ///<WDOG is enabled in CPU Debug mode.
         };
-        namespace dbgenValC{
-            constexpr MPL::Value<dbgenVal,dbgenVal::v0> v0{};
-            constexpr MPL::Value<dbgenVal,dbgenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DbgenVal> dbgen{}; 
+        namespace DbgenValC{
+            constexpr Register::FieldValue<decltype(dbgen),DbgenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dbgen),DbgenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,dbgenVal> dbgen{}; 
         ///no description available
-        enum class stopenVal {
+        enum class StopenVal {
             v0=0x00000000,     ///<WDOG is disabled in CPU Stop mode.
             v1=0x00000001,     ///<WDOG is enabled in CPU Stop mode.
         };
-        namespace stopenValC{
-            constexpr MPL::Value<stopenVal,stopenVal::v0> v0{};
-            constexpr MPL::Value<stopenVal,stopenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,StopenVal> stopen{}; 
+        namespace StopenValC{
+            constexpr Register::FieldValue<decltype(stopen),StopenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stopen),StopenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,stopenVal> stopen{}; 
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> testwdog{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> testwdog{}; 
+        namespace TestwdogValC{
+        }
         ///no description available
-        enum class testselVal {
+        enum class TestselVal {
             v0=0x00000000,     ///<Quick test. The timer runs in normal operation. You can load a small time-out value to do a quick test.
             v1=0x00000001,     ///<Byte test. Puts the timer in the byte test mode where individual bytes of the timer are enabled for operation and are compared for time-out against the corresponding byte of the programmed time-out value. Select the byte through BYTESEL[1:0] for testing.
         };
-        namespace testselValC{
-            constexpr MPL::Value<testselVal,testselVal::v0> v0{};
-            constexpr MPL::Value<testselVal,testselVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,TestselVal> testsel{}; 
+        namespace TestselValC{
+            constexpr Register::FieldValue<decltype(testsel),TestselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(testsel),TestselVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,testselVal> testsel{}; 
         ///no description available
-        enum class byteselVal {
+        enum class ByteselVal {
             v00=0x00000000,     ///<Byte 0 selected
             v01=0x00000001,     ///<Byte 1 selected
             v10=0x00000002,     ///<Byte 2 selected
             v11=0x00000003,     ///<Byte 3 selected
         };
-        namespace byteselValC{
-            constexpr MPL::Value<byteselVal,byteselVal::v00> v00{};
-            constexpr MPL::Value<byteselVal,byteselVal::v01> v01{};
-            constexpr MPL::Value<byteselVal,byteselVal::v10> v10{};
-            constexpr MPL::Value<byteselVal,byteselVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,ByteselVal> bytesel{}; 
+        namespace ByteselValC{
+            constexpr Register::FieldValue<decltype(bytesel),ByteselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(bytesel),ByteselVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(bytesel),ByteselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(bytesel),ByteselVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,byteselVal> bytesel{}; 
         ///no description available
-        enum class distestwdogVal {
+        enum class DistestwdogVal {
             v0=0x00000000,     ///<WDOG functional test mode is not disabled.
             v1=0x00000001,     ///<WDOG functional test mode is disabled permanently until reset.
         };
-        namespace distestwdogValC{
-            constexpr MPL::Value<distestwdogVal,distestwdogVal::v0> v0{};
-            constexpr MPL::Value<distestwdogVal,distestwdogVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,DistestwdogVal> distestwdog{}; 
+        namespace DistestwdogValC{
+            constexpr Register::FieldValue<decltype(distestwdog),DistestwdogVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(distestwdog),DistestwdogVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,distestwdogVal> distestwdog{}; 
     }
     namespace WdogStctrll{    ///<Watchdog Status and Control Register Low
         using Addr = Register::Address<0x40053002,0xffff7fff,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> intflg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> intflg{}; 
+        namespace IntflgValC{
+        }
     }
     namespace WdogTovalh{    ///<Watchdog Time-out Value Register High
         using Addr = Register::Address<0x40053004,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tovalhigh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tovalhigh{}; 
+        namespace TovalhighValC{
+        }
     }
     namespace WdogTovall{    ///<Watchdog Time-out Value Register Low
         using Addr = Register::Address<0x40053006,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tovallow{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tovallow{}; 
+        namespace TovallowValC{
+        }
     }
     namespace WdogWinh{    ///<Watchdog Window Register High
         using Addr = Register::Address<0x40053008,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> winhigh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> winhigh{}; 
+        namespace WinhighValC{
+        }
     }
     namespace WdogWinl{    ///<Watchdog Window Register Low
         using Addr = Register::Address<0x4005300a,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> winlow{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> winlow{}; 
+        namespace WinlowValC{
+        }
     }
     namespace WdogRefresh{    ///<Watchdog Refresh register
         using Addr = Register::Address<0x4005300c,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdogrefresh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdogrefresh{}; 
+        namespace WdogrefreshValC{
+        }
     }
     namespace WdogUnlock{    ///<Watchdog Unlock register
         using Addr = Register::Address<0x4005300e,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdogunlock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> wdogunlock{}; 
+        namespace WdogunlockValC{
+        }
     }
     namespace WdogTmrouth{    ///<Watchdog Timer Output Register High
         using Addr = Register::Address<0x40053010,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timerouthigh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timerouthigh{}; 
+        namespace TimerouthighValC{
+        }
     }
     namespace WdogTmroutl{    ///<Watchdog Timer Output Register Low
         using Addr = Register::Address<0x40053012,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timeroutlow{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> timeroutlow{}; 
+        namespace TimeroutlowValC{
+        }
     }
     namespace WdogRstcnt{    ///<Watchdog Reset Count register
         using Addr = Register::Address<0x40053014,0xffff0000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rstcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rstcnt{}; 
+        namespace RstcntValC{
+        }
     }
     namespace WdogPresc{    ///<Watchdog Prescaler register
         using Addr = Register::Address<0x40053016,0xfffff8ff,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> prescval{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> prescval{}; 
+        namespace PrescvalValC{
+        }
     }
 }

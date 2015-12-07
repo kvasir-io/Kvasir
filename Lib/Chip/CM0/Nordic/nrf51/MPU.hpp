@@ -5,215 +5,215 @@ namespace Kvasir {
     namespace Noneperr0{    ///<Configuration of peripherals in mpu regions.
         using Addr = Register::Address<0x40000528,0x3ff00020,0,unsigned>;
         ///POWER_CLOCK region configuration.
-        enum class powerClockVal {
+        enum class PowerclockVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace powerClockValC{
-            constexpr MPL::Value<powerClockVal,powerClockVal::inregion0> inregion0{};
-            constexpr MPL::Value<powerClockVal,powerClockVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerclockVal> powerClock{}; 
+        namespace PowerclockValC{
+            constexpr Register::FieldValue<decltype(powerClock),PowerclockVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(powerClock),PowerclockVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,powerClockVal> powerClock{}; 
         ///RADIO region configuration.
-        enum class radioVal {
+        enum class RadioVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace radioValC{
-            constexpr MPL::Value<radioVal,radioVal::inregion0> inregion0{};
-            constexpr MPL::Value<radioVal,radioVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RadioVal> radio{}; 
+        namespace RadioValC{
+            constexpr Register::FieldValue<decltype(radio),RadioVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(radio),RadioVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,radioVal> radio{}; 
         ///UART0 region configuration.
-        enum class uart0Val {
+        enum class Uart0Val {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace uart0ValC{
-            constexpr MPL::Value<uart0Val,uart0Val::inregion0> inregion0{};
-            constexpr MPL::Value<uart0Val,uart0Val::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Uart0Val> uart0{}; 
+        namespace Uart0ValC{
+            constexpr Register::FieldValue<decltype(uart0),Uart0Val::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(uart0),Uart0Val::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,uart0Val> uart0{}; 
         ///SPI0 and TWI0 region configuration.
-        enum class spi0Twi0Val {
+        enum class Spi0twi0Val {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace spi0Twi0ValC{
-            constexpr MPL::Value<spi0Twi0Val,spi0Twi0Val::inregion0> inregion0{};
-            constexpr MPL::Value<spi0Twi0Val,spi0Twi0Val::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Spi0twi0Val> spi0Twi0{}; 
+        namespace Spi0twi0ValC{
+            constexpr Register::FieldValue<decltype(spi0Twi0),Spi0twi0Val::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(spi0Twi0),Spi0twi0Val::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,spi0Twi0Val> spi0Twi0{}; 
         ///SPI1 and TWI1 region configuration.
-        enum class spi1Twi1Val {
+        enum class Spi1twi1Val {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace spi1Twi1ValC{
-            constexpr MPL::Value<spi1Twi1Val,spi1Twi1Val::inregion0> inregion0{};
-            constexpr MPL::Value<spi1Twi1Val,spi1Twi1Val::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Spi1twi1Val> spi1Twi1{}; 
+        namespace Spi1twi1ValC{
+            constexpr Register::FieldValue<decltype(spi1Twi1),Spi1twi1Val::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(spi1Twi1),Spi1twi1Val::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,spi1Twi1Val> spi1Twi1{}; 
         ///GPIOTE region configuration.
-        enum class gpioteVal {
+        enum class GpioteVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace gpioteValC{
-            constexpr MPL::Value<gpioteVal,gpioteVal::inregion0> inregion0{};
-            constexpr MPL::Value<gpioteVal,gpioteVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,GpioteVal> gpiote{}; 
+        namespace GpioteValC{
+            constexpr Register::FieldValue<decltype(gpiote),GpioteVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(gpiote),GpioteVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,gpioteVal> gpiote{}; 
         ///ADC region configuration.
-        enum class adcVal {
+        enum class AdcVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace adcValC{
-            constexpr MPL::Value<adcVal,adcVal::inregion0> inregion0{};
-            constexpr MPL::Value<adcVal,adcVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdcVal> adc{}; 
+        namespace AdcValC{
+            constexpr Register::FieldValue<decltype(adc),AdcVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(adc),AdcVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,adcVal> adc{}; 
         ///TIMER0 region configuration.
-        enum class timer0Val {
+        enum class Timer0Val {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace timer0ValC{
-            constexpr MPL::Value<timer0Val,timer0Val::inregion0> inregion0{};
-            constexpr MPL::Value<timer0Val,timer0Val::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Timer0Val> timer0{}; 
+        namespace Timer0ValC{
+            constexpr Register::FieldValue<decltype(timer0),Timer0Val::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(timer0),Timer0Val::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,timer0Val> timer0{}; 
         ///TIMER1 region configuration.
-        enum class timer1Val {
+        enum class Timer1Val {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace timer1ValC{
-            constexpr MPL::Value<timer1Val,timer1Val::inregion0> inregion0{};
-            constexpr MPL::Value<timer1Val,timer1Val::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Timer1Val> timer1{}; 
+        namespace Timer1ValC{
+            constexpr Register::FieldValue<decltype(timer1),Timer1Val::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(timer1),Timer1Val::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,timer1Val> timer1{}; 
         ///TIMER2 region configuration.
-        enum class timer2Val {
+        enum class Timer2Val {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace timer2ValC{
-            constexpr MPL::Value<timer2Val,timer2Val::inregion0> inregion0{};
-            constexpr MPL::Value<timer2Val,timer2Val::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Timer2Val> timer2{}; 
+        namespace Timer2ValC{
+            constexpr Register::FieldValue<decltype(timer2),Timer2Val::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(timer2),Timer2Val::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,timer2Val> timer2{}; 
         ///RTC0 region configuration.
-        enum class rtc0Val {
+        enum class Rtc0Val {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace rtc0ValC{
-            constexpr MPL::Value<rtc0Val,rtc0Val::inregion0> inregion0{};
-            constexpr MPL::Value<rtc0Val,rtc0Val::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Rtc0Val> rtc0{}; 
+        namespace Rtc0ValC{
+            constexpr Register::FieldValue<decltype(rtc0),Rtc0Val::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(rtc0),Rtc0Val::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,rtc0Val> rtc0{}; 
         ///TEMP region configuration.
-        enum class tempVal {
+        enum class TempVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace tempValC{
-            constexpr MPL::Value<tempVal,tempVal::inregion0> inregion0{};
-            constexpr MPL::Value<tempVal,tempVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,TempVal> temp{}; 
+        namespace TempValC{
+            constexpr Register::FieldValue<decltype(temp),TempVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(temp),TempVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tempVal> temp{}; 
         ///RNG region configuration.
-        enum class rngVal {
+        enum class RngVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace rngValC{
-            constexpr MPL::Value<rngVal,rngVal::inregion0> inregion0{};
-            constexpr MPL::Value<rngVal,rngVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,RngVal> rng{}; 
+        namespace RngValC{
+            constexpr Register::FieldValue<decltype(rng),RngVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(rng),RngVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,rngVal> rng{}; 
         ///ECB region configuration.
-        enum class ecbVal {
+        enum class EcbVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace ecbValC{
-            constexpr MPL::Value<ecbVal,ecbVal::inregion0> inregion0{};
-            constexpr MPL::Value<ecbVal,ecbVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,EcbVal> ecb{}; 
+        namespace EcbValC{
+            constexpr Register::FieldValue<decltype(ecb),EcbVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(ecb),EcbVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ecbVal> ecb{}; 
         ///CCM and AAR region configuration.
-        enum class ccmAarVal {
+        enum class CcmaarVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace ccmAarValC{
-            constexpr MPL::Value<ccmAarVal,ccmAarVal::inregion0> inregion0{};
-            constexpr MPL::Value<ccmAarVal,ccmAarVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,CcmaarVal> ccmAar{}; 
+        namespace CcmaarValC{
+            constexpr Register::FieldValue<decltype(ccmAar),CcmaarVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(ccmAar),CcmaarVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ccmAarVal> ccmAar{}; 
         ///WDT region configuration.
-        enum class wdtVal {
+        enum class WdtVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace wdtValC{
-            constexpr MPL::Value<wdtVal,wdtVal::inregion0> inregion0{};
-            constexpr MPL::Value<wdtVal,wdtVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,WdtVal> wdt{}; 
+        namespace WdtValC{
+            constexpr Register::FieldValue<decltype(wdt),WdtVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(wdt),WdtVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,wdtVal> wdt{}; 
         ///RTC1 region configuration.
-        enum class rtc1Val {
+        enum class Rtc1Val {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace rtc1ValC{
-            constexpr MPL::Value<rtc1Val,rtc1Val::inregion0> inregion0{};
-            constexpr MPL::Value<rtc1Val,rtc1Val::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Rtc1Val> rtc1{}; 
+        namespace Rtc1ValC{
+            constexpr Register::FieldValue<decltype(rtc1),Rtc1Val::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(rtc1),Rtc1Val::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,rtc1Val> rtc1{}; 
         ///QDEC region configuration.
-        enum class qdecVal {
+        enum class QdecVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace qdecValC{
-            constexpr MPL::Value<qdecVal,qdecVal::inregion0> inregion0{};
-            constexpr MPL::Value<qdecVal,qdecVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,QdecVal> qdec{}; 
+        namespace QdecValC{
+            constexpr Register::FieldValue<decltype(qdec),QdecVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(qdec),QdecVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,qdecVal> qdec{}; 
         ///LPCOMP region configuration.
-        enum class lpcompVal {
+        enum class LpcompVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace lpcompValC{
-            constexpr MPL::Value<lpcompVal,lpcompVal::inregion0> inregion0{};
-            constexpr MPL::Value<lpcompVal,lpcompVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,LpcompVal> lpcomp{}; 
+        namespace LpcompValC{
+            constexpr Register::FieldValue<decltype(lpcomp),LpcompVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(lpcomp),LpcompVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,lpcompVal> lpcomp{}; 
         ///NVMC region configuration.
-        enum class nvmcVal {
+        enum class NvmcVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace nvmcValC{
-            constexpr MPL::Value<nvmcVal,nvmcVal::inregion0> inregion0{};
-            constexpr MPL::Value<nvmcVal,nvmcVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,NvmcVal> nvmc{}; 
+        namespace NvmcValC{
+            constexpr Register::FieldValue<decltype(nvmc),NvmcVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(nvmc),NvmcVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,nvmcVal> nvmc{}; 
         ///PPI region configuration.
-        enum class ppiVal {
+        enum class PpiVal {
             inregion0=0x00000001,     ///<Peripheral configured in region 0.
             inregion1=0x00000000,     ///<Peripheral configured in region 1.
         };
-        namespace ppiValC{
-            constexpr MPL::Value<ppiVal,ppiVal::inregion0> inregion0{};
-            constexpr MPL::Value<ppiVal,ppiVal::inregion1> inregion1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,PpiVal> ppi{}; 
+        namespace PpiValC{
+            constexpr Register::FieldValue<decltype(ppi),PpiVal::inregion0> inregion0{};
+            constexpr Register::FieldValue<decltype(ppi),PpiVal::inregion1> inregion1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,ppiVal> ppi{}; 
     }
     namespace Nonerlenr0{    ///<Length of RAM region 0.
         using Addr = Register::Address<0x4000052c,0xffffffff,0,unsigned>;
@@ -221,799 +221,799 @@ namespace Kvasir {
     namespace Noneprotenset0{    ///<Erase and write protection bit enable set register.
         using Addr = Register::Address<0x40000600,0x00000000,0,unsigned>;
         ///Protection enable for region 0.
-        enum class protreg0Val {
+        enum class Protreg0Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg0ValC{
-            constexpr MPL::Value<protreg0Val,protreg0Val::disabled> disabled{};
-            constexpr MPL::Value<protreg0Val,protreg0Val::enabled> enabled{};
-            constexpr MPL::Value<protreg0Val,protreg0Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Protreg0Val> protreg0{}; 
+        namespace Protreg0ValC{
+            constexpr Register::FieldValue<decltype(protreg0),Protreg0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg0),Protreg0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg0),Protreg0Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,protreg0Val> protreg0{}; 
         ///Protection enable for region 1.
-        enum class protreg1Val {
+        enum class Protreg1Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg1ValC{
-            constexpr MPL::Value<protreg1Val,protreg1Val::disabled> disabled{};
-            constexpr MPL::Value<protreg1Val,protreg1Val::enabled> enabled{};
-            constexpr MPL::Value<protreg1Val,protreg1Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Protreg1Val> protreg1{}; 
+        namespace Protreg1ValC{
+            constexpr Register::FieldValue<decltype(protreg1),Protreg1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg1),Protreg1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg1),Protreg1Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,protreg1Val> protreg1{}; 
         ///Protection enable for region 2.
-        enum class protreg2Val {
+        enum class Protreg2Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg2ValC{
-            constexpr MPL::Value<protreg2Val,protreg2Val::disabled> disabled{};
-            constexpr MPL::Value<protreg2Val,protreg2Val::enabled> enabled{};
-            constexpr MPL::Value<protreg2Val,protreg2Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Protreg2Val> protreg2{}; 
+        namespace Protreg2ValC{
+            constexpr Register::FieldValue<decltype(protreg2),Protreg2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg2),Protreg2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg2),Protreg2Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,protreg2Val> protreg2{}; 
         ///Protection enable for region 3.
-        enum class protreg3Val {
+        enum class Protreg3Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg3ValC{
-            constexpr MPL::Value<protreg3Val,protreg3Val::disabled> disabled{};
-            constexpr MPL::Value<protreg3Val,protreg3Val::enabled> enabled{};
-            constexpr MPL::Value<protreg3Val,protreg3Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Protreg3Val> protreg3{}; 
+        namespace Protreg3ValC{
+            constexpr Register::FieldValue<decltype(protreg3),Protreg3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg3),Protreg3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg3),Protreg3Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,protreg3Val> protreg3{}; 
         ///Protection enable for region 4.
-        enum class protreg4Val {
+        enum class Protreg4Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg4ValC{
-            constexpr MPL::Value<protreg4Val,protreg4Val::disabled> disabled{};
-            constexpr MPL::Value<protreg4Val,protreg4Val::enabled> enabled{};
-            constexpr MPL::Value<protreg4Val,protreg4Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Protreg4Val> protreg4{}; 
+        namespace Protreg4ValC{
+            constexpr Register::FieldValue<decltype(protreg4),Protreg4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg4),Protreg4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg4),Protreg4Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,protreg4Val> protreg4{}; 
         ///Protection enable for region 5.
-        enum class protreg5Val {
+        enum class Protreg5Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg5ValC{
-            constexpr MPL::Value<protreg5Val,protreg5Val::disabled> disabled{};
-            constexpr MPL::Value<protreg5Val,protreg5Val::enabled> enabled{};
-            constexpr MPL::Value<protreg5Val,protreg5Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Protreg5Val> protreg5{}; 
+        namespace Protreg5ValC{
+            constexpr Register::FieldValue<decltype(protreg5),Protreg5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg5),Protreg5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg5),Protreg5Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,protreg5Val> protreg5{}; 
         ///Protection enable for region 6.
-        enum class protreg6Val {
+        enum class Protreg6Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg6ValC{
-            constexpr MPL::Value<protreg6Val,protreg6Val::disabled> disabled{};
-            constexpr MPL::Value<protreg6Val,protreg6Val::enabled> enabled{};
-            constexpr MPL::Value<protreg6Val,protreg6Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Protreg6Val> protreg6{}; 
+        namespace Protreg6ValC{
+            constexpr Register::FieldValue<decltype(protreg6),Protreg6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg6),Protreg6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg6),Protreg6Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,protreg6Val> protreg6{}; 
         ///Protection enable for region 7.
-        enum class protreg7Val {
+        enum class Protreg7Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg7ValC{
-            constexpr MPL::Value<protreg7Val,protreg7Val::disabled> disabled{};
-            constexpr MPL::Value<protreg7Val,protreg7Val::enabled> enabled{};
-            constexpr MPL::Value<protreg7Val,protreg7Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Protreg7Val> protreg7{}; 
+        namespace Protreg7ValC{
+            constexpr Register::FieldValue<decltype(protreg7),Protreg7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg7),Protreg7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg7),Protreg7Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,protreg7Val> protreg7{}; 
         ///Protection enable for region 8.
-        enum class protreg8Val {
+        enum class Protreg8Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg8ValC{
-            constexpr MPL::Value<protreg8Val,protreg8Val::disabled> disabled{};
-            constexpr MPL::Value<protreg8Val,protreg8Val::enabled> enabled{};
-            constexpr MPL::Value<protreg8Val,protreg8Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Protreg8Val> protreg8{}; 
+        namespace Protreg8ValC{
+            constexpr Register::FieldValue<decltype(protreg8),Protreg8Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg8),Protreg8Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg8),Protreg8Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,protreg8Val> protreg8{}; 
         ///Protection enable for region 9.
-        enum class protreg9Val {
+        enum class Protreg9Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg9ValC{
-            constexpr MPL::Value<protreg9Val,protreg9Val::disabled> disabled{};
-            constexpr MPL::Value<protreg9Val,protreg9Val::enabled> enabled{};
-            constexpr MPL::Value<protreg9Val,protreg9Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Protreg9Val> protreg9{}; 
+        namespace Protreg9ValC{
+            constexpr Register::FieldValue<decltype(protreg9),Protreg9Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg9),Protreg9Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg9),Protreg9Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,protreg9Val> protreg9{}; 
         ///Protection enable for region 10.
-        enum class protreg10Val {
+        enum class Protreg10Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg10ValC{
-            constexpr MPL::Value<protreg10Val,protreg10Val::disabled> disabled{};
-            constexpr MPL::Value<protreg10Val,protreg10Val::enabled> enabled{};
-            constexpr MPL::Value<protreg10Val,protreg10Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Protreg10Val> protreg10{}; 
+        namespace Protreg10ValC{
+            constexpr Register::FieldValue<decltype(protreg10),Protreg10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg10),Protreg10Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg10),Protreg10Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,protreg10Val> protreg10{}; 
         ///Protection enable for region 11.
-        enum class protreg11Val {
+        enum class Protreg11Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg11ValC{
-            constexpr MPL::Value<protreg11Val,protreg11Val::disabled> disabled{};
-            constexpr MPL::Value<protreg11Val,protreg11Val::enabled> enabled{};
-            constexpr MPL::Value<protreg11Val,protreg11Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Protreg11Val> protreg11{}; 
+        namespace Protreg11ValC{
+            constexpr Register::FieldValue<decltype(protreg11),Protreg11Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg11),Protreg11Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg11),Protreg11Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,protreg11Val> protreg11{}; 
         ///Protection enable for region 12.
-        enum class protreg12Val {
+        enum class Protreg12Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg12ValC{
-            constexpr MPL::Value<protreg12Val,protreg12Val::disabled> disabled{};
-            constexpr MPL::Value<protreg12Val,protreg12Val::enabled> enabled{};
-            constexpr MPL::Value<protreg12Val,protreg12Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Protreg12Val> protreg12{}; 
+        namespace Protreg12ValC{
+            constexpr Register::FieldValue<decltype(protreg12),Protreg12Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg12),Protreg12Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg12),Protreg12Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,protreg12Val> protreg12{}; 
         ///Protection enable for region 13.
-        enum class protreg13Val {
+        enum class Protreg13Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg13ValC{
-            constexpr MPL::Value<protreg13Val,protreg13Val::disabled> disabled{};
-            constexpr MPL::Value<protreg13Val,protreg13Val::enabled> enabled{};
-            constexpr MPL::Value<protreg13Val,protreg13Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Protreg13Val> protreg13{}; 
+        namespace Protreg13ValC{
+            constexpr Register::FieldValue<decltype(protreg13),Protreg13Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg13),Protreg13Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg13),Protreg13Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,protreg13Val> protreg13{}; 
         ///Protection enable for region 14.
-        enum class protreg14Val {
+        enum class Protreg14Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg14ValC{
-            constexpr MPL::Value<protreg14Val,protreg14Val::disabled> disabled{};
-            constexpr MPL::Value<protreg14Val,protreg14Val::enabled> enabled{};
-            constexpr MPL::Value<protreg14Val,protreg14Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Protreg14Val> protreg14{}; 
+        namespace Protreg14ValC{
+            constexpr Register::FieldValue<decltype(protreg14),Protreg14Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg14),Protreg14Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg14),Protreg14Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,protreg14Val> protreg14{}; 
         ///Protection enable for region 15.
-        enum class protreg15Val {
+        enum class Protreg15Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg15ValC{
-            constexpr MPL::Value<protreg15Val,protreg15Val::disabled> disabled{};
-            constexpr MPL::Value<protreg15Val,protreg15Val::enabled> enabled{};
-            constexpr MPL::Value<protreg15Val,protreg15Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Protreg15Val> protreg15{}; 
+        namespace Protreg15ValC{
+            constexpr Register::FieldValue<decltype(protreg15),Protreg15Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg15),Protreg15Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg15),Protreg15Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,protreg15Val> protreg15{}; 
         ///Protection enable for region 16.
-        enum class protreg16Val {
+        enum class Protreg16Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg16ValC{
-            constexpr MPL::Value<protreg16Val,protreg16Val::disabled> disabled{};
-            constexpr MPL::Value<protreg16Val,protreg16Val::enabled> enabled{};
-            constexpr MPL::Value<protreg16Val,protreg16Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Protreg16Val> protreg16{}; 
+        namespace Protreg16ValC{
+            constexpr Register::FieldValue<decltype(protreg16),Protreg16Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg16),Protreg16Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg16),Protreg16Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,protreg16Val> protreg16{}; 
         ///Protection enable for region 17.
-        enum class protreg17Val {
+        enum class Protreg17Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg17ValC{
-            constexpr MPL::Value<protreg17Val,protreg17Val::disabled> disabled{};
-            constexpr MPL::Value<protreg17Val,protreg17Val::enabled> enabled{};
-            constexpr MPL::Value<protreg17Val,protreg17Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Protreg17Val> protreg17{}; 
+        namespace Protreg17ValC{
+            constexpr Register::FieldValue<decltype(protreg17),Protreg17Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg17),Protreg17Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg17),Protreg17Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,protreg17Val> protreg17{}; 
         ///Protection enable for region 18.
-        enum class protreg18Val {
+        enum class Protreg18Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg18ValC{
-            constexpr MPL::Value<protreg18Val,protreg18Val::disabled> disabled{};
-            constexpr MPL::Value<protreg18Val,protreg18Val::enabled> enabled{};
-            constexpr MPL::Value<protreg18Val,protreg18Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Protreg18Val> protreg18{}; 
+        namespace Protreg18ValC{
+            constexpr Register::FieldValue<decltype(protreg18),Protreg18Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg18),Protreg18Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg18),Protreg18Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,protreg18Val> protreg18{}; 
         ///Protection enable for region 19.
-        enum class protreg19Val {
+        enum class Protreg19Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg19ValC{
-            constexpr MPL::Value<protreg19Val,protreg19Val::disabled> disabled{};
-            constexpr MPL::Value<protreg19Val,protreg19Val::enabled> enabled{};
-            constexpr MPL::Value<protreg19Val,protreg19Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Protreg19Val> protreg19{}; 
+        namespace Protreg19ValC{
+            constexpr Register::FieldValue<decltype(protreg19),Protreg19Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg19),Protreg19Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg19),Protreg19Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,protreg19Val> protreg19{}; 
         ///Protection enable for region 20.
-        enum class protreg20Val {
+        enum class Protreg20Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg20ValC{
-            constexpr MPL::Value<protreg20Val,protreg20Val::disabled> disabled{};
-            constexpr MPL::Value<protreg20Val,protreg20Val::enabled> enabled{};
-            constexpr MPL::Value<protreg20Val,protreg20Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Protreg20Val> protreg20{}; 
+        namespace Protreg20ValC{
+            constexpr Register::FieldValue<decltype(protreg20),Protreg20Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg20),Protreg20Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg20),Protreg20Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,protreg20Val> protreg20{}; 
         ///Protection enable for region 21.
-        enum class protreg21Val {
+        enum class Protreg21Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg21ValC{
-            constexpr MPL::Value<protreg21Val,protreg21Val::disabled> disabled{};
-            constexpr MPL::Value<protreg21Val,protreg21Val::enabled> enabled{};
-            constexpr MPL::Value<protreg21Val,protreg21Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Protreg21Val> protreg21{}; 
+        namespace Protreg21ValC{
+            constexpr Register::FieldValue<decltype(protreg21),Protreg21Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg21),Protreg21Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg21),Protreg21Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,protreg21Val> protreg21{}; 
         ///Protection enable for region 22.
-        enum class protreg22Val {
+        enum class Protreg22Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg22ValC{
-            constexpr MPL::Value<protreg22Val,protreg22Val::disabled> disabled{};
-            constexpr MPL::Value<protreg22Val,protreg22Val::enabled> enabled{};
-            constexpr MPL::Value<protreg22Val,protreg22Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Protreg22Val> protreg22{}; 
+        namespace Protreg22ValC{
+            constexpr Register::FieldValue<decltype(protreg22),Protreg22Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg22),Protreg22Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg22),Protreg22Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,protreg22Val> protreg22{}; 
         ///Protection enable for region 23.
-        enum class protreg23Val {
+        enum class Protreg23Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg23ValC{
-            constexpr MPL::Value<protreg23Val,protreg23Val::disabled> disabled{};
-            constexpr MPL::Value<protreg23Val,protreg23Val::enabled> enabled{};
-            constexpr MPL::Value<protreg23Val,protreg23Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,Protreg23Val> protreg23{}; 
+        namespace Protreg23ValC{
+            constexpr Register::FieldValue<decltype(protreg23),Protreg23Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg23),Protreg23Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg23),Protreg23Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,protreg23Val> protreg23{}; 
         ///Protection enable for region 24.
-        enum class protreg24Val {
+        enum class Protreg24Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg24ValC{
-            constexpr MPL::Value<protreg24Val,protreg24Val::disabled> disabled{};
-            constexpr MPL::Value<protreg24Val,protreg24Val::enabled> enabled{};
-            constexpr MPL::Value<protreg24Val,protreg24Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Protreg24Val> protreg24{}; 
+        namespace Protreg24ValC{
+            constexpr Register::FieldValue<decltype(protreg24),Protreg24Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg24),Protreg24Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg24),Protreg24Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,protreg24Val> protreg24{}; 
         ///Protection enable for region 25.
-        enum class protreg25Val {
+        enum class Protreg25Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg25ValC{
-            constexpr MPL::Value<protreg25Val,protreg25Val::disabled> disabled{};
-            constexpr MPL::Value<protreg25Val,protreg25Val::enabled> enabled{};
-            constexpr MPL::Value<protreg25Val,protreg25Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Protreg25Val> protreg25{}; 
+        namespace Protreg25ValC{
+            constexpr Register::FieldValue<decltype(protreg25),Protreg25Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg25),Protreg25Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg25),Protreg25Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,protreg25Val> protreg25{}; 
         ///Protection enable for region 26.
-        enum class protreg26Val {
+        enum class Protreg26Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg26ValC{
-            constexpr MPL::Value<protreg26Val,protreg26Val::disabled> disabled{};
-            constexpr MPL::Value<protreg26Val,protreg26Val::enabled> enabled{};
-            constexpr MPL::Value<protreg26Val,protreg26Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Protreg26Val> protreg26{}; 
+        namespace Protreg26ValC{
+            constexpr Register::FieldValue<decltype(protreg26),Protreg26Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg26),Protreg26Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg26),Protreg26Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,protreg26Val> protreg26{}; 
         ///Protection enable for region 27.
-        enum class protreg27Val {
+        enum class Protreg27Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg27ValC{
-            constexpr MPL::Value<protreg27Val,protreg27Val::disabled> disabled{};
-            constexpr MPL::Value<protreg27Val,protreg27Val::enabled> enabled{};
-            constexpr MPL::Value<protreg27Val,protreg27Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,Protreg27Val> protreg27{}; 
+        namespace Protreg27ValC{
+            constexpr Register::FieldValue<decltype(protreg27),Protreg27Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg27),Protreg27Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg27),Protreg27Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,protreg27Val> protreg27{}; 
         ///Protection enable for region 28.
-        enum class protreg28Val {
+        enum class Protreg28Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg28ValC{
-            constexpr MPL::Value<protreg28Val,protreg28Val::disabled> disabled{};
-            constexpr MPL::Value<protreg28Val,protreg28Val::enabled> enabled{};
-            constexpr MPL::Value<protreg28Val,protreg28Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Protreg28Val> protreg28{}; 
+        namespace Protreg28ValC{
+            constexpr Register::FieldValue<decltype(protreg28),Protreg28Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg28),Protreg28Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg28),Protreg28Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,protreg28Val> protreg28{}; 
         ///Protection enable for region 29.
-        enum class protreg29Val {
+        enum class Protreg29Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg29ValC{
-            constexpr MPL::Value<protreg29Val,protreg29Val::disabled> disabled{};
-            constexpr MPL::Value<protreg29Val,protreg29Val::enabled> enabled{};
-            constexpr MPL::Value<protreg29Val,protreg29Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Protreg29Val> protreg29{}; 
+        namespace Protreg29ValC{
+            constexpr Register::FieldValue<decltype(protreg29),Protreg29Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg29),Protreg29Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg29),Protreg29Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,protreg29Val> protreg29{}; 
         ///Protection enable for region 30.
-        enum class protreg30Val {
+        enum class Protreg30Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg30ValC{
-            constexpr MPL::Value<protreg30Val,protreg30Val::disabled> disabled{};
-            constexpr MPL::Value<protreg30Val,protreg30Val::enabled> enabled{};
-            constexpr MPL::Value<protreg30Val,protreg30Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Protreg30Val> protreg30{}; 
+        namespace Protreg30ValC{
+            constexpr Register::FieldValue<decltype(protreg30),Protreg30Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg30),Protreg30Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg30),Protreg30Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,protreg30Val> protreg30{}; 
         ///Protection enable for region 31.
-        enum class protreg31Val {
+        enum class Protreg31Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg31ValC{
-            constexpr MPL::Value<protreg31Val,protreg31Val::disabled> disabled{};
-            constexpr MPL::Value<protreg31Val,protreg31Val::enabled> enabled{};
-            constexpr MPL::Value<protreg31Val,protreg31Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,Protreg31Val> protreg31{}; 
+        namespace Protreg31ValC{
+            constexpr Register::FieldValue<decltype(protreg31),Protreg31Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg31),Protreg31Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg31),Protreg31Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,protreg31Val> protreg31{}; 
     }
     namespace Noneprotenset1{    ///<Erase and write protection bit enable set register.
         using Addr = Register::Address<0x40000604,0x00000000,0,unsigned>;
         ///Protection enable for region 32.
-        enum class protreg32Val {
+        enum class Protreg32Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg32ValC{
-            constexpr MPL::Value<protreg32Val,protreg32Val::disabled> disabled{};
-            constexpr MPL::Value<protreg32Val,protreg32Val::enabled> enabled{};
-            constexpr MPL::Value<protreg32Val,protreg32Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Protreg32Val> protreg32{}; 
+        namespace Protreg32ValC{
+            constexpr Register::FieldValue<decltype(protreg32),Protreg32Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg32),Protreg32Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg32),Protreg32Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,protreg32Val> protreg32{}; 
         ///Protection enable for region 33.
-        enum class protreg33Val {
+        enum class Protreg33Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg33ValC{
-            constexpr MPL::Value<protreg33Val,protreg33Val::disabled> disabled{};
-            constexpr MPL::Value<protreg33Val,protreg33Val::enabled> enabled{};
-            constexpr MPL::Value<protreg33Val,protreg33Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Protreg33Val> protreg33{}; 
+        namespace Protreg33ValC{
+            constexpr Register::FieldValue<decltype(protreg33),Protreg33Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg33),Protreg33Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg33),Protreg33Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,protreg33Val> protreg33{}; 
         ///Protection enable for region 34.
-        enum class protreg34Val {
+        enum class Protreg34Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg34ValC{
-            constexpr MPL::Value<protreg34Val,protreg34Val::disabled> disabled{};
-            constexpr MPL::Value<protreg34Val,protreg34Val::enabled> enabled{};
-            constexpr MPL::Value<protreg34Val,protreg34Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Protreg34Val> protreg34{}; 
+        namespace Protreg34ValC{
+            constexpr Register::FieldValue<decltype(protreg34),Protreg34Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg34),Protreg34Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg34),Protreg34Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,protreg34Val> protreg34{}; 
         ///Protection enable for region 35.
-        enum class protreg35Val {
+        enum class Protreg35Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg35ValC{
-            constexpr MPL::Value<protreg35Val,protreg35Val::disabled> disabled{};
-            constexpr MPL::Value<protreg35Val,protreg35Val::enabled> enabled{};
-            constexpr MPL::Value<protreg35Val,protreg35Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Protreg35Val> protreg35{}; 
+        namespace Protreg35ValC{
+            constexpr Register::FieldValue<decltype(protreg35),Protreg35Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg35),Protreg35Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg35),Protreg35Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,protreg35Val> protreg35{}; 
         ///Protection enable for region 36.
-        enum class protreg36Val {
+        enum class Protreg36Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg36ValC{
-            constexpr MPL::Value<protreg36Val,protreg36Val::disabled> disabled{};
-            constexpr MPL::Value<protreg36Val,protreg36Val::enabled> enabled{};
-            constexpr MPL::Value<protreg36Val,protreg36Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Protreg36Val> protreg36{}; 
+        namespace Protreg36ValC{
+            constexpr Register::FieldValue<decltype(protreg36),Protreg36Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg36),Protreg36Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg36),Protreg36Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,protreg36Val> protreg36{}; 
         ///Protection enable for region 37.
-        enum class protreg37Val {
+        enum class Protreg37Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg37ValC{
-            constexpr MPL::Value<protreg37Val,protreg37Val::disabled> disabled{};
-            constexpr MPL::Value<protreg37Val,protreg37Val::enabled> enabled{};
-            constexpr MPL::Value<protreg37Val,protreg37Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Protreg37Val> protreg37{}; 
+        namespace Protreg37ValC{
+            constexpr Register::FieldValue<decltype(protreg37),Protreg37Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg37),Protreg37Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg37),Protreg37Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,protreg37Val> protreg37{}; 
         ///Protection enable for region 38.
-        enum class protreg38Val {
+        enum class Protreg38Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg38ValC{
-            constexpr MPL::Value<protreg38Val,protreg38Val::disabled> disabled{};
-            constexpr MPL::Value<protreg38Val,protreg38Val::enabled> enabled{};
-            constexpr MPL::Value<protreg38Val,protreg38Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Protreg38Val> protreg38{}; 
+        namespace Protreg38ValC{
+            constexpr Register::FieldValue<decltype(protreg38),Protreg38Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg38),Protreg38Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg38),Protreg38Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,protreg38Val> protreg38{}; 
         ///Protection enable for region 39.
-        enum class protreg39Val {
+        enum class Protreg39Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg39ValC{
-            constexpr MPL::Value<protreg39Val,protreg39Val::disabled> disabled{};
-            constexpr MPL::Value<protreg39Val,protreg39Val::enabled> enabled{};
-            constexpr MPL::Value<protreg39Val,protreg39Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Protreg39Val> protreg39{}; 
+        namespace Protreg39ValC{
+            constexpr Register::FieldValue<decltype(protreg39),Protreg39Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg39),Protreg39Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg39),Protreg39Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,protreg39Val> protreg39{}; 
         ///Protection enable for region 40.
-        enum class protreg40Val {
+        enum class Protreg40Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg40ValC{
-            constexpr MPL::Value<protreg40Val,protreg40Val::disabled> disabled{};
-            constexpr MPL::Value<protreg40Val,protreg40Val::enabled> enabled{};
-            constexpr MPL::Value<protreg40Val,protreg40Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Protreg40Val> protreg40{}; 
+        namespace Protreg40ValC{
+            constexpr Register::FieldValue<decltype(protreg40),Protreg40Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg40),Protreg40Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg40),Protreg40Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,protreg40Val> protreg40{}; 
         ///Protection enable for region 41.
-        enum class protreg41Val {
+        enum class Protreg41Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg41ValC{
-            constexpr MPL::Value<protreg41Val,protreg41Val::disabled> disabled{};
-            constexpr MPL::Value<protreg41Val,protreg41Val::enabled> enabled{};
-            constexpr MPL::Value<protreg41Val,protreg41Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Protreg41Val> protreg41{}; 
+        namespace Protreg41ValC{
+            constexpr Register::FieldValue<decltype(protreg41),Protreg41Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg41),Protreg41Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg41),Protreg41Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,protreg41Val> protreg41{}; 
         ///Protection enable for region 42.
-        enum class protreg42Val {
+        enum class Protreg42Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg42ValC{
-            constexpr MPL::Value<protreg42Val,protreg42Val::disabled> disabled{};
-            constexpr MPL::Value<protreg42Val,protreg42Val::enabled> enabled{};
-            constexpr MPL::Value<protreg42Val,protreg42Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Protreg42Val> protreg42{}; 
+        namespace Protreg42ValC{
+            constexpr Register::FieldValue<decltype(protreg42),Protreg42Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg42),Protreg42Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg42),Protreg42Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,protreg42Val> protreg42{}; 
         ///Protection enable for region 43.
-        enum class protreg43Val {
+        enum class Protreg43Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg43ValC{
-            constexpr MPL::Value<protreg43Val,protreg43Val::disabled> disabled{};
-            constexpr MPL::Value<protreg43Val,protreg43Val::enabled> enabled{};
-            constexpr MPL::Value<protreg43Val,protreg43Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Protreg43Val> protreg43{}; 
+        namespace Protreg43ValC{
+            constexpr Register::FieldValue<decltype(protreg43),Protreg43Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg43),Protreg43Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg43),Protreg43Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,protreg43Val> protreg43{}; 
         ///Protection enable for region 44.
-        enum class protreg44Val {
+        enum class Protreg44Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg44ValC{
-            constexpr MPL::Value<protreg44Val,protreg44Val::disabled> disabled{};
-            constexpr MPL::Value<protreg44Val,protreg44Val::enabled> enabled{};
-            constexpr MPL::Value<protreg44Val,protreg44Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Protreg44Val> protreg44{}; 
+        namespace Protreg44ValC{
+            constexpr Register::FieldValue<decltype(protreg44),Protreg44Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg44),Protreg44Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg44),Protreg44Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,protreg44Val> protreg44{}; 
         ///Protection enable for region 45.
-        enum class protreg45Val {
+        enum class Protreg45Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg45ValC{
-            constexpr MPL::Value<protreg45Val,protreg45Val::disabled> disabled{};
-            constexpr MPL::Value<protreg45Val,protreg45Val::enabled> enabled{};
-            constexpr MPL::Value<protreg45Val,protreg45Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Protreg45Val> protreg45{}; 
+        namespace Protreg45ValC{
+            constexpr Register::FieldValue<decltype(protreg45),Protreg45Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg45),Protreg45Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg45),Protreg45Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,protreg45Val> protreg45{}; 
         ///Protection enable for region 46.
-        enum class protreg46Val {
+        enum class Protreg46Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg46ValC{
-            constexpr MPL::Value<protreg46Val,protreg46Val::disabled> disabled{};
-            constexpr MPL::Value<protreg46Val,protreg46Val::enabled> enabled{};
-            constexpr MPL::Value<protreg46Val,protreg46Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Protreg46Val> protreg46{}; 
+        namespace Protreg46ValC{
+            constexpr Register::FieldValue<decltype(protreg46),Protreg46Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg46),Protreg46Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg46),Protreg46Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,protreg46Val> protreg46{}; 
         ///Protection enable for region 47.
-        enum class protreg47Val {
+        enum class Protreg47Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg47ValC{
-            constexpr MPL::Value<protreg47Val,protreg47Val::disabled> disabled{};
-            constexpr MPL::Value<protreg47Val,protreg47Val::enabled> enabled{};
-            constexpr MPL::Value<protreg47Val,protreg47Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Protreg47Val> protreg47{}; 
+        namespace Protreg47ValC{
+            constexpr Register::FieldValue<decltype(protreg47),Protreg47Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg47),Protreg47Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg47),Protreg47Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,protreg47Val> protreg47{}; 
         ///Protection enable for region 48.
-        enum class protreg48Val {
+        enum class Protreg48Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg48ValC{
-            constexpr MPL::Value<protreg48Val,protreg48Val::disabled> disabled{};
-            constexpr MPL::Value<protreg48Val,protreg48Val::enabled> enabled{};
-            constexpr MPL::Value<protreg48Val,protreg48Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Protreg48Val> protreg48{}; 
+        namespace Protreg48ValC{
+            constexpr Register::FieldValue<decltype(protreg48),Protreg48Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg48),Protreg48Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg48),Protreg48Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,protreg48Val> protreg48{}; 
         ///Protection enable for region 49.
-        enum class protreg49Val {
+        enum class Protreg49Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg49ValC{
-            constexpr MPL::Value<protreg49Val,protreg49Val::disabled> disabled{};
-            constexpr MPL::Value<protreg49Val,protreg49Val::enabled> enabled{};
-            constexpr MPL::Value<protreg49Val,protreg49Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Protreg49Val> protreg49{}; 
+        namespace Protreg49ValC{
+            constexpr Register::FieldValue<decltype(protreg49),Protreg49Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg49),Protreg49Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg49),Protreg49Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,protreg49Val> protreg49{}; 
         ///Protection enable for region 50.
-        enum class protreg50Val {
+        enum class Protreg50Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg50ValC{
-            constexpr MPL::Value<protreg50Val,protreg50Val::disabled> disabled{};
-            constexpr MPL::Value<protreg50Val,protreg50Val::enabled> enabled{};
-            constexpr MPL::Value<protreg50Val,protreg50Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Protreg50Val> protreg50{}; 
+        namespace Protreg50ValC{
+            constexpr Register::FieldValue<decltype(protreg50),Protreg50Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg50),Protreg50Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg50),Protreg50Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,protreg50Val> protreg50{}; 
         ///Protection enable for region 51.
-        enum class protreg51Val {
+        enum class Protreg51Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg51ValC{
-            constexpr MPL::Value<protreg51Val,protreg51Val::disabled> disabled{};
-            constexpr MPL::Value<protreg51Val,protreg51Val::enabled> enabled{};
-            constexpr MPL::Value<protreg51Val,protreg51Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Protreg51Val> protreg51{}; 
+        namespace Protreg51ValC{
+            constexpr Register::FieldValue<decltype(protreg51),Protreg51Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg51),Protreg51Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg51),Protreg51Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,protreg51Val> protreg51{}; 
         ///Protection enable for region 52.
-        enum class protreg52Val {
+        enum class Protreg52Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg52ValC{
-            constexpr MPL::Value<protreg52Val,protreg52Val::disabled> disabled{};
-            constexpr MPL::Value<protreg52Val,protreg52Val::enabled> enabled{};
-            constexpr MPL::Value<protreg52Val,protreg52Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Protreg52Val> protreg52{}; 
+        namespace Protreg52ValC{
+            constexpr Register::FieldValue<decltype(protreg52),Protreg52Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg52),Protreg52Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg52),Protreg52Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,protreg52Val> protreg52{}; 
         ///Protection enable for region 53.
-        enum class protreg53Val {
+        enum class Protreg53Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg53ValC{
-            constexpr MPL::Value<protreg53Val,protreg53Val::disabled> disabled{};
-            constexpr MPL::Value<protreg53Val,protreg53Val::enabled> enabled{};
-            constexpr MPL::Value<protreg53Val,protreg53Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Protreg53Val> protreg53{}; 
+        namespace Protreg53ValC{
+            constexpr Register::FieldValue<decltype(protreg53),Protreg53Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg53),Protreg53Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg53),Protreg53Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,protreg53Val> protreg53{}; 
         ///Protection enable for region 54.
-        enum class protreg54Val {
+        enum class Protreg54Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg54ValC{
-            constexpr MPL::Value<protreg54Val,protreg54Val::disabled> disabled{};
-            constexpr MPL::Value<protreg54Val,protreg54Val::enabled> enabled{};
-            constexpr MPL::Value<protreg54Val,protreg54Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Protreg54Val> protreg54{}; 
+        namespace Protreg54ValC{
+            constexpr Register::FieldValue<decltype(protreg54),Protreg54Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg54),Protreg54Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg54),Protreg54Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,protreg54Val> protreg54{}; 
         ///Protection enable for region 55.
-        enum class protreg55Val {
+        enum class Protreg55Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg55ValC{
-            constexpr MPL::Value<protreg55Val,protreg55Val::disabled> disabled{};
-            constexpr MPL::Value<protreg55Val,protreg55Val::enabled> enabled{};
-            constexpr MPL::Value<protreg55Val,protreg55Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,Protreg55Val> protreg55{}; 
+        namespace Protreg55ValC{
+            constexpr Register::FieldValue<decltype(protreg55),Protreg55Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg55),Protreg55Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg55),Protreg55Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,protreg55Val> protreg55{}; 
         ///Protection enable for region 56.
-        enum class protreg56Val {
+        enum class Protreg56Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg56ValC{
-            constexpr MPL::Value<protreg56Val,protreg56Val::disabled> disabled{};
-            constexpr MPL::Value<protreg56Val,protreg56Val::enabled> enabled{};
-            constexpr MPL::Value<protreg56Val,protreg56Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Protreg56Val> protreg56{}; 
+        namespace Protreg56ValC{
+            constexpr Register::FieldValue<decltype(protreg56),Protreg56Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg56),Protreg56Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg56),Protreg56Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,protreg56Val> protreg56{}; 
         ///Protection enable for region 57.
-        enum class protreg57Val {
+        enum class Protreg57Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg57ValC{
-            constexpr MPL::Value<protreg57Val,protreg57Val::disabled> disabled{};
-            constexpr MPL::Value<protreg57Val,protreg57Val::enabled> enabled{};
-            constexpr MPL::Value<protreg57Val,protreg57Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Protreg57Val> protreg57{}; 
+        namespace Protreg57ValC{
+            constexpr Register::FieldValue<decltype(protreg57),Protreg57Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg57),Protreg57Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg57),Protreg57Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,protreg57Val> protreg57{}; 
         ///Protection enable for region 58.
-        enum class protreg58Val {
+        enum class Protreg58Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg58ValC{
-            constexpr MPL::Value<protreg58Val,protreg58Val::disabled> disabled{};
-            constexpr MPL::Value<protreg58Val,protreg58Val::enabled> enabled{};
-            constexpr MPL::Value<protreg58Val,protreg58Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Protreg58Val> protreg58{}; 
+        namespace Protreg58ValC{
+            constexpr Register::FieldValue<decltype(protreg58),Protreg58Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg58),Protreg58Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg58),Protreg58Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,protreg58Val> protreg58{}; 
         ///Protection enable for region 59.
-        enum class protreg59Val {
+        enum class Protreg59Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg59ValC{
-            constexpr MPL::Value<protreg59Val,protreg59Val::disabled> disabled{};
-            constexpr MPL::Value<protreg59Val,protreg59Val::enabled> enabled{};
-            constexpr MPL::Value<protreg59Val,protreg59Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,Protreg59Val> protreg59{}; 
+        namespace Protreg59ValC{
+            constexpr Register::FieldValue<decltype(protreg59),Protreg59Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg59),Protreg59Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg59),Protreg59Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,protreg59Val> protreg59{}; 
         ///Protection enable for region 60.
-        enum class protreg60Val {
+        enum class Protreg60Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg60ValC{
-            constexpr MPL::Value<protreg60Val,protreg60Val::disabled> disabled{};
-            constexpr MPL::Value<protreg60Val,protreg60Val::enabled> enabled{};
-            constexpr MPL::Value<protreg60Val,protreg60Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Protreg60Val> protreg60{}; 
+        namespace Protreg60ValC{
+            constexpr Register::FieldValue<decltype(protreg60),Protreg60Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg60),Protreg60Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg60),Protreg60Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,protreg60Val> protreg60{}; 
         ///Protection enable for region 61.
-        enum class protreg61Val {
+        enum class Protreg61Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg61ValC{
-            constexpr MPL::Value<protreg61Val,protreg61Val::disabled> disabled{};
-            constexpr MPL::Value<protreg61Val,protreg61Val::enabled> enabled{};
-            constexpr MPL::Value<protreg61Val,protreg61Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Protreg61Val> protreg61{}; 
+        namespace Protreg61ValC{
+            constexpr Register::FieldValue<decltype(protreg61),Protreg61Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg61),Protreg61Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg61),Protreg61Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,protreg61Val> protreg61{}; 
         ///Protection enable for region 62.
-        enum class protreg62Val {
+        enum class Protreg62Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg62ValC{
-            constexpr MPL::Value<protreg62Val,protreg62Val::disabled> disabled{};
-            constexpr MPL::Value<protreg62Val,protreg62Val::enabled> enabled{};
-            constexpr MPL::Value<protreg62Val,protreg62Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Protreg62Val> protreg62{}; 
+        namespace Protreg62ValC{
+            constexpr Register::FieldValue<decltype(protreg62),Protreg62Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg62),Protreg62Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg62),Protreg62Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,protreg62Val> protreg62{}; 
         ///Protection enable for region 63.
-        enum class protreg63Val {
+        enum class Protreg63Val {
             disabled=0x00000000,     ///<Protection disabled.
             enabled=0x00000001,     ///<Protection enabled.
             set=0x00000001,     ///<Enable protection on write.
         };
-        namespace protreg63ValC{
-            constexpr MPL::Value<protreg63Val,protreg63Val::disabled> disabled{};
-            constexpr MPL::Value<protreg63Val,protreg63Val::enabled> enabled{};
-            constexpr MPL::Value<protreg63Val,protreg63Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,Protreg63Val> protreg63{}; 
+        namespace Protreg63ValC{
+            constexpr Register::FieldValue<decltype(protreg63),Protreg63Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protreg63),Protreg63Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(protreg63),Protreg63Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,protreg63Val> protreg63{}; 
     }
     namespace Nonedisableindebug{    ///<Disable erase and write protection mechanism in debug mode.
         using Addr = Register::Address<0x40000608,0xfffffffe,0,unsigned>;
         ///Disable protection mechanism in debug mode.
-        enum class disableindebugVal {
+        enum class DisableindebugVal {
             enabled=0x00000000,     ///<Protection enabled.
             disabled=0x00000001,     ///<Protection disabled.
         };
-        namespace disableindebugValC{
-            constexpr MPL::Value<disableindebugVal,disableindebugVal::enabled> enabled{};
-            constexpr MPL::Value<disableindebugVal,disableindebugVal::disabled> disabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DisableindebugVal> disableindebug{}; 
+        namespace DisableindebugValC{
+            constexpr Register::FieldValue<decltype(disableindebug),DisableindebugVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(disableindebug),DisableindebugVal::disabled> disabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,disableindebugVal> disableindebug{}; 
     }
     namespace Noneprotblocksize{    ///<Erase and write protection block size.
         using Addr = Register::Address<0x4000060c,0xfffffffc,0,unsigned>;
         ///Erase and write protection block size.
-        enum class protblocksizeVal {
+        enum class ProtblocksizeVal {
             v4k=0x00000000,     ///<Erase and write protection block size is 4k.
         };
-        namespace protblocksizeValC{
-            constexpr MPL::Value<protblocksizeVal,protblocksizeVal::v4k> v4k{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ProtblocksizeVal> protblocksize{}; 
+        namespace ProtblocksizeValC{
+            constexpr Register::FieldValue<decltype(protblocksize),ProtblocksizeVal::v4k> v4k{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,protblocksizeVal> protblocksize{}; 
     }
 }

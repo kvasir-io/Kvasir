@@ -46,22 +46,22 @@ namespace Kvasir {
 
 		//bit helpers
 		template<typename Address, int Position, typename TFieldType = bool>
-		using RWBitLocT = BitLocation<Address,(1<<Position),ReadWriteAccess,TFieldType>;
+		using RWBitLocT = FieldLocation<Address,(1<<Position),ReadWriteAccess,TFieldType>;
 		template<typename Address, int Position, typename TFieldType = bool>
-		using ROBitLocT = BitLocation<Address,(1<<Position),ReadOnlyAccess,TFieldType>;
+		using ROBitLocT = FieldLocation<Address,(1<<Position),ReadOnlyAccess,TFieldType>;
 		template<typename Address, int Position, typename TFieldType = bool>
-		using WOBitLocT = BitLocation<Address,(1<<Position),WriteOnlyAccess,TFieldType>;
+		using WOBitLocT = FieldLocation<Address,(1<<Position),WriteOnlyAccess,TFieldType>;
 		///Readable bit Write in set to clear mode
 		template<typename Address, int Position, typename TFieldType = bool>
-		using RSTCBitLocT = BitLocation<Address,(1<<Position),RSetToClearAccess,TFieldType>;
+		using RSTCBitLocT = FieldLocation<Address,(1<<Position),RSetToClearAccess,TFieldType>;
 
 		//bit field helpers
 		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
-		using RWFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),ReadWriteAccess,TFieldType>;
+		using RWFieldLocT = FieldLocation<Address,maskFromRange(HighestBit,LowestBit),ReadWriteAccess,TFieldType>;
 		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
-		using ROFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),ReadOnlyAccess,TFieldType>;
+		using ROFieldLocT = FieldLocation<Address,maskFromRange(HighestBit,LowestBit),ReadOnlyAccess,TFieldType>;
 		template<typename Address, int HighestBit, int LowestBit, typename TFieldType = unsigned>
-		using WOFieldLocT = BitLocation<Address,maskFromRange(HighestBit,LowestBit),WriteOnlyAccess,TFieldType>;
+		using WOFieldLocT = FieldLocation<Address,maskFromRange(HighestBit,LowestBit),WriteOnlyAccess,TFieldType>;
 
 	}
 }

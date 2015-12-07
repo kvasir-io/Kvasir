@@ -7,18 +7,28 @@ namespace Kvasir {
         using Addr = Register::Address<0x40010030,0xfffffff0,0,unsigned>;
         ///Voltage reference buffer
               enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> envr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> envr{}; 
+        namespace EnvrValC{
+        }
         ///High impedance mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hiz{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hiz{}; 
+        namespace HizValC{
+        }
         ///Voltage reference scale
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vrs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vrs{}; 
+        namespace VrsValC{
+        }
         ///Voltage reference buffer
               ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vrr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vrr{}; 
+        namespace VrrValC{
+        }
     }
     namespace Noneccr{    ///<calibration control register
         using Addr = Register::Address<0x40010034,0xffffffc0,0,unsigned>;
         ///Trimming code
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> trim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> trim{}; 
+        namespace TrimValC{
+        }
     }
 }

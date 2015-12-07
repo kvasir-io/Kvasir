@@ -5,258 +5,278 @@ namespace Kvasir {
     namespace PitMcr{    ///<PIT Module Control Register
         using Addr = Register::Address<0x40037000,0xfffffffc,0,unsigned>;
         ///Freeze
-        enum class frzVal {
+        enum class FrzVal {
             v0=0x00000000,     ///<Timers continue to run in Debug mode.
             v1=0x00000001,     ///<Timers are stopped in Debug mode.
         };
-        namespace frzValC{
-            constexpr MPL::Value<frzVal,frzVal::v0> v0{};
-            constexpr MPL::Value<frzVal,frzVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FrzVal> frz{}; 
+        namespace FrzValC{
+            constexpr Register::FieldValue<decltype(frz),FrzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(frz),FrzVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,frzVal> frz{}; 
         ///Module Disable - (PIT section)
-        enum class mdisVal {
+        enum class MdisVal {
             v0=0x00000000,     ///<Clock for standard PIT timers is enabled.
             v1=0x00000001,     ///<Clock for standard PIT timers is disabled.
         };
-        namespace mdisValC{
-            constexpr MPL::Value<mdisVal,mdisVal::v0> v0{};
-            constexpr MPL::Value<mdisVal,mdisVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,MdisVal> mdis{}; 
+        namespace MdisValC{
+            constexpr Register::FieldValue<decltype(mdis),MdisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mdis),MdisVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,mdisVal> mdis{}; 
     }
     namespace PitLtmr64h{    ///<PIT Upper Lifetime Timer Register
         using Addr = Register::Address<0x400370e0,0x00000000,0,unsigned>;
         ///Life Timer value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> lth{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> lth{}; 
+        namespace LthValC{
+        }
     }
     namespace PitLtmr64l{    ///<PIT Lower Lifetime Timer Register
         using Addr = Register::Address<0x400370e4,0x00000000,0,unsigned>;
         ///Life Timer value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ltl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ltl{}; 
+        namespace LtlValC{
+        }
     }
     namespace PitLdval0{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037100,0x00000000,0,unsigned>;
         ///Timer Start Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
+        namespace TsvValC{
+        }
     }
     namespace PitLdval1{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037110,0x00000000,0,unsigned>;
         ///Timer Start Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
+        namespace TsvValC{
+        }
     }
     namespace PitLdval2{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037120,0x00000000,0,unsigned>;
         ///Timer Start Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
+        namespace TsvValC{
+        }
     }
     namespace PitLdval3{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037130,0x00000000,0,unsigned>;
         ///Timer Start Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
+        namespace TsvValC{
+        }
     }
     namespace PitCval0{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037104,0x00000000,0,unsigned>;
         ///Current Timer Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        namespace TvlValC{
+        }
     }
     namespace PitCval1{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037114,0x00000000,0,unsigned>;
         ///Current Timer Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        namespace TvlValC{
+        }
     }
     namespace PitCval2{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037124,0x00000000,0,unsigned>;
         ///Current Timer Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        namespace TvlValC{
+        }
     }
     namespace PitCval3{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037134,0x00000000,0,unsigned>;
         ///Current Timer Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        namespace TvlValC{
+        }
     }
     namespace PitTctrl0{    ///<Timer Control Register
         using Addr = Register::Address<0x40037108,0xfffffff8,0,unsigned>;
         ///Timer Enable
-        enum class tenVal {
+        enum class TenVal {
             v0=0x00000000,     ///<Timer n is disabled.
             v1=0x00000001,     ///<Timer n is enabled.
         };
-        namespace tenValC{
-            constexpr MPL::Value<tenVal,tenVal::v0> v0{};
-            constexpr MPL::Value<tenVal,tenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
+        namespace TenValC{
+            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tenVal> ten{}; 
         ///Timer Interrupt Enable
-        enum class tieVal {
+        enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
             v1=0x00000001,     ///<Interrupt will be requested whenever TIF is set.
         };
-        namespace tieValC{
-            constexpr MPL::Value<tieVal,tieVal::v0> v0{};
-            constexpr MPL::Value<tieVal,tieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
+        namespace TieValC{
+            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tieVal> tie{}; 
         ///Chain Mode
-        enum class chnVal {
+        enum class ChnVal {
             v0=0x00000000,     ///<Timer is not chained.
             v1=0x00000001,     ///<Timer is chained to previous timer. For example, for Channel 2, if this field is set, Timer 2 is chained to Timer 1.
         };
-        namespace chnValC{
-            constexpr MPL::Value<chnVal,chnVal::v0> v0{};
-            constexpr MPL::Value<chnVal,chnVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ChnVal> chn{}; 
+        namespace ChnValC{
+            constexpr Register::FieldValue<decltype(chn),ChnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chn),ChnVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,chnVal> chn{}; 
     }
     namespace PitTctrl1{    ///<Timer Control Register
         using Addr = Register::Address<0x40037118,0xfffffff8,0,unsigned>;
         ///Timer Enable
-        enum class tenVal {
+        enum class TenVal {
             v0=0x00000000,     ///<Timer n is disabled.
             v1=0x00000001,     ///<Timer n is enabled.
         };
-        namespace tenValC{
-            constexpr MPL::Value<tenVal,tenVal::v0> v0{};
-            constexpr MPL::Value<tenVal,tenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
+        namespace TenValC{
+            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tenVal> ten{}; 
         ///Timer Interrupt Enable
-        enum class tieVal {
+        enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
             v1=0x00000001,     ///<Interrupt will be requested whenever TIF is set.
         };
-        namespace tieValC{
-            constexpr MPL::Value<tieVal,tieVal::v0> v0{};
-            constexpr MPL::Value<tieVal,tieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
+        namespace TieValC{
+            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tieVal> tie{}; 
         ///Chain Mode
-        enum class chnVal {
+        enum class ChnVal {
             v0=0x00000000,     ///<Timer is not chained.
             v1=0x00000001,     ///<Timer is chained to previous timer. For example, for Channel 2, if this field is set, Timer 2 is chained to Timer 1.
         };
-        namespace chnValC{
-            constexpr MPL::Value<chnVal,chnVal::v0> v0{};
-            constexpr MPL::Value<chnVal,chnVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ChnVal> chn{}; 
+        namespace ChnValC{
+            constexpr Register::FieldValue<decltype(chn),ChnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chn),ChnVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,chnVal> chn{}; 
     }
     namespace PitTctrl2{    ///<Timer Control Register
         using Addr = Register::Address<0x40037128,0xfffffff8,0,unsigned>;
         ///Timer Enable
-        enum class tenVal {
+        enum class TenVal {
             v0=0x00000000,     ///<Timer n is disabled.
             v1=0x00000001,     ///<Timer n is enabled.
         };
-        namespace tenValC{
-            constexpr MPL::Value<tenVal,tenVal::v0> v0{};
-            constexpr MPL::Value<tenVal,tenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
+        namespace TenValC{
+            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tenVal> ten{}; 
         ///Timer Interrupt Enable
-        enum class tieVal {
+        enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
             v1=0x00000001,     ///<Interrupt will be requested whenever TIF is set.
         };
-        namespace tieValC{
-            constexpr MPL::Value<tieVal,tieVal::v0> v0{};
-            constexpr MPL::Value<tieVal,tieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
+        namespace TieValC{
+            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tieVal> tie{}; 
         ///Chain Mode
-        enum class chnVal {
+        enum class ChnVal {
             v0=0x00000000,     ///<Timer is not chained.
             v1=0x00000001,     ///<Timer is chained to previous timer. For example, for Channel 2, if this field is set, Timer 2 is chained to Timer 1.
         };
-        namespace chnValC{
-            constexpr MPL::Value<chnVal,chnVal::v0> v0{};
-            constexpr MPL::Value<chnVal,chnVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ChnVal> chn{}; 
+        namespace ChnValC{
+            constexpr Register::FieldValue<decltype(chn),ChnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chn),ChnVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,chnVal> chn{}; 
     }
     namespace PitTctrl3{    ///<Timer Control Register
         using Addr = Register::Address<0x40037138,0xfffffff8,0,unsigned>;
         ///Timer Enable
-        enum class tenVal {
+        enum class TenVal {
             v0=0x00000000,     ///<Timer n is disabled.
             v1=0x00000001,     ///<Timer n is enabled.
         };
-        namespace tenValC{
-            constexpr MPL::Value<tenVal,tenVal::v0> v0{};
-            constexpr MPL::Value<tenVal,tenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
+        namespace TenValC{
+            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tenVal> ten{}; 
         ///Timer Interrupt Enable
-        enum class tieVal {
+        enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
             v1=0x00000001,     ///<Interrupt will be requested whenever TIF is set.
         };
-        namespace tieValC{
-            constexpr MPL::Value<tieVal,tieVal::v0> v0{};
-            constexpr MPL::Value<tieVal,tieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
+        namespace TieValC{
+            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tieVal> tie{}; 
         ///Chain Mode
-        enum class chnVal {
+        enum class ChnVal {
             v0=0x00000000,     ///<Timer is not chained.
             v1=0x00000001,     ///<Timer is chained to previous timer. For example, for Channel 2, if this field is set, Timer 2 is chained to Timer 1.
         };
-        namespace chnValC{
-            constexpr MPL::Value<chnVal,chnVal::v0> v0{};
-            constexpr MPL::Value<chnVal,chnVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ChnVal> chn{}; 
+        namespace ChnValC{
+            constexpr Register::FieldValue<decltype(chn),ChnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chn),ChnVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,chnVal> chn{}; 
     }
     namespace PitTflg0{    ///<Timer Flag Register
         using Addr = Register::Address<0x4003710c,0xfffffffe,0,unsigned>;
         ///Timer Interrupt Flag
-        enum class tifVal {
+        enum class TifVal {
             v0=0x00000000,     ///<Timeout has not yet occurred.
             v1=0x00000001,     ///<Timeout has occurred.
         };
-        namespace tifValC{
-            constexpr MPL::Value<tifVal,tifVal::v0> v0{};
-            constexpr MPL::Value<tifVal,tifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
+        namespace TifValC{
+            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tifVal> tif{}; 
     }
     namespace PitTflg1{    ///<Timer Flag Register
         using Addr = Register::Address<0x4003711c,0xfffffffe,0,unsigned>;
         ///Timer Interrupt Flag
-        enum class tifVal {
+        enum class TifVal {
             v0=0x00000000,     ///<Timeout has not yet occurred.
             v1=0x00000001,     ///<Timeout has occurred.
         };
-        namespace tifValC{
-            constexpr MPL::Value<tifVal,tifVal::v0> v0{};
-            constexpr MPL::Value<tifVal,tifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
+        namespace TifValC{
+            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tifVal> tif{}; 
     }
     namespace PitTflg2{    ///<Timer Flag Register
         using Addr = Register::Address<0x4003712c,0xfffffffe,0,unsigned>;
         ///Timer Interrupt Flag
-        enum class tifVal {
+        enum class TifVal {
             v0=0x00000000,     ///<Timeout has not yet occurred.
             v1=0x00000001,     ///<Timeout has occurred.
         };
-        namespace tifValC{
-            constexpr MPL::Value<tifVal,tifVal::v0> v0{};
-            constexpr MPL::Value<tifVal,tifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
+        namespace TifValC{
+            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tifVal> tif{}; 
     }
     namespace PitTflg3{    ///<Timer Flag Register
         using Addr = Register::Address<0x4003713c,0xfffffffe,0,unsigned>;
         ///Timer Interrupt Flag
-        enum class tifVal {
+        enum class TifVal {
             v0=0x00000000,     ///<Timeout has not yet occurred.
             v1=0x00000001,     ///<Timeout has occurred.
         };
-        namespace tifValC{
-            constexpr MPL::Value<tifVal,tifVal::v0> v0{};
-            constexpr MPL::Value<tifVal,tifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
+        namespace TifValC{
+            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tifVal> tif{}; 
     }
 }

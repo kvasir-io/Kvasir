@@ -5,25 +5,37 @@ namespace Kvasir {
     namespace Nonebftm1Cr{    ///<BFTM1_CR
         using Addr = Register::Address<0x40077000,0xfffffff8,0,unsigned>;
         ///MIEN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mien{}; 
+        namespace MienValC{
+        }
         ///OSM
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> osm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> osm{}; 
+        namespace OsmValC{
+        }
         ///CEN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cen{}; 
+        namespace CenValC{
+        }
     }
     namespace Nonebftm1Sr{    ///<BFTM1_SR
         using Addr = Register::Address<0x40077004,0xfffffffe,0,unsigned>;
         ///MIF
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mif{}; 
+        namespace MifValC{
+        }
     }
     namespace Nonebftm1Cntr{    ///<BFTM1_CNTR
         using Addr = Register::Address<0x40077008,0x00000000,0,unsigned>;
         ///CNTR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cntr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cntr{}; 
+        namespace CntrValC{
+        }
     }
     namespace Nonebftm1Cmpr{    ///<BFTM1_CMPR
         using Addr = Register::Address<0x4007700c,0x00000000,0,unsigned>;
         ///CMP
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cmp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cmp{}; 
+        namespace CmpValC{
+        }
     }
 }

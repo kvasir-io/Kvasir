@@ -5,59 +5,65 @@ namespace Kvasir {
     namespace Nonecompval{    ///<Compare register
         using Addr = Register::Address<0x400c0000,0x00000000,0,unsigned>;
         ///Compare register. Holds the compare value which is compared to the counter.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricomp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricomp{}; 
+        namespace RicompValC{
+        }
     }
     namespace Nonemask{    ///<Mask register. This register holds the 32-bit mask value. A 1 written to any bit will force a compare on the corresponding bit of the counter and compare register.
         using Addr = Register::Address<0x400c0004,0x00000000,0,unsigned>;
         ///Mask register. This register holds the 32-bit mask value. A one written to any bit overrides the result of the comparison for the corresponding bit of the counter and compare register (causes the comparison of the register bits to be always true).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rimask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rimask{}; 
+        namespace RimaskValC{
+        }
     }
     namespace Nonectrl{    ///<Control register.
         using Addr = Register::Address<0x400c0008,0xfffffff0,0,unsigned>;
         ///Interrupt flag
-        enum class ritintVal {
+        enum class RitintVal {
             thisBitIsSetTo1=0x00000001,     ///<This bit is set to 1 by hardware whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. Writing a 1 to this bit will clear it to 0. Writing a 0 has no effect.
             theCounterValueDo=0x00000000,     ///<The counter value does not equal the masked compare value.
         };
-        namespace ritintValC{
-            constexpr MPL::Value<ritintVal,ritintVal::thisBitIsSetTo1> thisBitIsSetTo1{};
-            constexpr MPL::Value<ritintVal,ritintVal::theCounterValueDo> theCounterValueDo{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RitintVal> ritint{}; 
+        namespace RitintValC{
+            constexpr Register::FieldValue<decltype(ritint),RitintVal::thisBitIsSetTo1> thisBitIsSetTo1{};
+            constexpr Register::FieldValue<decltype(ritint),RitintVal::theCounterValueDo> theCounterValueDo{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ritintVal> ritint{}; 
         ///Timer enable clear
-        enum class ritenclrVal {
+        enum class RitenclrVal {
             theTimerWillBeCl=0x00000001,     ///<The timer will be cleared to 0 whenever the counter value equals the masked compare value specified by the contents of RICOMPVAL and RIMASK registers. This will occur on the same clock that sets the interrupt flag.
             theTimerWillNotB=0x00000000,     ///<The timer will not be cleared to 0.
         };
-        namespace ritenclrValC{
-            constexpr MPL::Value<ritenclrVal,ritenclrVal::theTimerWillBeCl> theTimerWillBeCl{};
-            constexpr MPL::Value<ritenclrVal,ritenclrVal::theTimerWillNotB> theTimerWillNotB{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RitenclrVal> ritenclr{}; 
+        namespace RitenclrValC{
+            constexpr Register::FieldValue<decltype(ritenclr),RitenclrVal::theTimerWillBeCl> theTimerWillBeCl{};
+            constexpr Register::FieldValue<decltype(ritenclr),RitenclrVal::theTimerWillNotB> theTimerWillNotB{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ritenclrVal> ritenclr{}; 
         ///Timer enable for debug
-        enum class ritenbrVal {
+        enum class RitenbrVal {
             theTimerIsHalted=0x00000001,     ///<The timer is halted when the processor is halted for debugging.
             debugHasNoEffect=0x00000000,     ///<Debug has no effect on the timer operation.
         };
-        namespace ritenbrValC{
-            constexpr MPL::Value<ritenbrVal,ritenbrVal::theTimerIsHalted> theTimerIsHalted{};
-            constexpr MPL::Value<ritenbrVal,ritenbrVal::debugHasNoEffect> debugHasNoEffect{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RitenbrVal> ritenbr{}; 
+        namespace RitenbrValC{
+            constexpr Register::FieldValue<decltype(ritenbr),RitenbrVal::theTimerIsHalted> theTimerIsHalted{};
+            constexpr Register::FieldValue<decltype(ritenbr),RitenbrVal::debugHasNoEffect> debugHasNoEffect{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ritenbrVal> ritenbr{}; 
         ///Timer enable.
-        enum class ritenVal {
+        enum class RitenVal {
             timerEnabledThis=0x00000001,     ///<Timer enabled. This can be overruled by a debug halt if enabled in bit 2.
             timerDisabled=0x00000000,     ///<Timer disabled.
         };
-        namespace ritenValC{
-            constexpr MPL::Value<ritenVal,ritenVal::timerEnabledThis> timerEnabledThis{};
-            constexpr MPL::Value<ritenVal,ritenVal::timerDisabled> timerDisabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RitenVal> riten{}; 
+        namespace RitenValC{
+            constexpr Register::FieldValue<decltype(riten),RitenVal::timerEnabledThis> timerEnabledThis{};
+            constexpr Register::FieldValue<decltype(riten),RitenVal::timerDisabled> timerDisabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ritenVal> riten{}; 
     }
     namespace Nonecounter{    ///<32-bit counter
         using Addr = Register::Address<0x400c000c,0x00000000,0,unsigned>;
         ///32-bit up counter. Counts continuously unless RITEN bit in RICTRL register is cleared or debug mode is entered (if enabled by the RITNEBR bit in RICTRL). Can be loaded to any value in software.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricounter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricounter{}; 
+        namespace RicounterValC{
+        }
     }
 }

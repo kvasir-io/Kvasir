@@ -5,55 +5,59 @@ namespace Kvasir {
     namespace Pdb0Sc{    ///<Status and Control Register
         using Addr = Register::Address<0x40036000,0xfff00010,0,unsigned>;
         ///Load OK
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ldok{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ldok{}; 
+        namespace LdokValC{
+        }
         ///Continuous Mode Enable
-        enum class contVal {
+        enum class ContVal {
             v0=0x00000000,     ///<PDB operation in One-Shot mode
             v1=0x00000001,     ///<PDB operation in Continuous mode
         };
-        namespace contValC{
-            constexpr MPL::Value<contVal,contVal::v0> v0{};
-            constexpr MPL::Value<contVal,contVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ContVal> cont{}; 
+        namespace ContValC{
+            constexpr Register::FieldValue<decltype(cont),ContVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cont),ContVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,contVal> cont{}; 
         ///Multiplication Factor Select for Prescaler
-        enum class multVal {
+        enum class MultVal {
             v00=0x00000000,     ///<Multiplication factor is 1
             v01=0x00000001,     ///<Multiplication factor is 10
             v10=0x00000002,     ///<Multiplication factor is 20
             v11=0x00000003,     ///<Multiplication factor is 40
         };
-        namespace multValC{
-            constexpr MPL::Value<multVal,multVal::v00> v00{};
-            constexpr MPL::Value<multVal,multVal::v01> v01{};
-            constexpr MPL::Value<multVal,multVal::v10> v10{};
-            constexpr MPL::Value<multVal,multVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,MultVal> mult{}; 
+        namespace MultValC{
+            constexpr Register::FieldValue<decltype(mult),MultVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(mult),MultVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(mult),MultVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(mult),MultVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,multVal> mult{}; 
         ///PDB Interrupt Enable.
-        enum class pdbieVal {
+        enum class PdbieVal {
             v0=0x00000000,     ///<PDB interrupt disabled
             v1=0x00000001,     ///<PDB interrupt enabled
         };
-        namespace pdbieValC{
-            constexpr MPL::Value<pdbieVal,pdbieVal::v0> v0{};
-            constexpr MPL::Value<pdbieVal,pdbieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,PdbieVal> pdbie{}; 
+        namespace PdbieValC{
+            constexpr Register::FieldValue<decltype(pdbie),PdbieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pdbie),PdbieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,pdbieVal> pdbie{}; 
         ///PDB Interrupt Flag
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pdbif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pdbif{}; 
+        namespace PdbifValC{
+        }
         ///PDB Enable
-        enum class pdbenVal {
+        enum class PdbenVal {
             v0=0x00000000,     ///<PDB disabled. Counter is off.
             v1=0x00000001,     ///<PDB enabled.
         };
-        namespace pdbenValC{
-            constexpr MPL::Value<pdbenVal,pdbenVal::v0> v0{};
-            constexpr MPL::Value<pdbenVal,pdbenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PdbenVal> pdben{}; 
+        namespace PdbenValC{
+            constexpr Register::FieldValue<decltype(pdben),PdbenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pdben),PdbenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,pdbenVal> pdben{}; 
         ///Trigger Input Source Select
-        enum class trgselVal {
+        enum class TrgselVal {
             v0000=0x00000000,     ///<Trigger-In 0 is selected
             v0001=0x00000001,     ///<Trigger-In 1 is selected
             v0010=0x00000002,     ///<Trigger-In 2 is selected
@@ -71,27 +75,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Trigger-In 14 is selected
             v1111=0x0000000f,     ///<Software trigger is selected
         };
-        namespace trgselValC{
-            constexpr MPL::Value<trgselVal,trgselVal::v0000> v0000{};
-            constexpr MPL::Value<trgselVal,trgselVal::v0001> v0001{};
-            constexpr MPL::Value<trgselVal,trgselVal::v0010> v0010{};
-            constexpr MPL::Value<trgselVal,trgselVal::v0011> v0011{};
-            constexpr MPL::Value<trgselVal,trgselVal::v0100> v0100{};
-            constexpr MPL::Value<trgselVal,trgselVal::v0101> v0101{};
-            constexpr MPL::Value<trgselVal,trgselVal::v0110> v0110{};
-            constexpr MPL::Value<trgselVal,trgselVal::v0111> v0111{};
-            constexpr MPL::Value<trgselVal,trgselVal::v1000> v1000{};
-            constexpr MPL::Value<trgselVal,trgselVal::v1001> v1001{};
-            constexpr MPL::Value<trgselVal,trgselVal::v1010> v1010{};
-            constexpr MPL::Value<trgselVal,trgselVal::v1011> v1011{};
-            constexpr MPL::Value<trgselVal,trgselVal::v1100> v1100{};
-            constexpr MPL::Value<trgselVal,trgselVal::v1101> v1101{};
-            constexpr MPL::Value<trgselVal,trgselVal::v1110> v1110{};
-            constexpr MPL::Value<trgselVal,trgselVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,TrgselVal> trgsel{}; 
+        namespace TrgselValC{
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(trgsel),TrgselVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,trgselVal> trgsel{}; 
         ///Prescaler Divider Select
-        enum class prescalerVal {
+        enum class PrescalerVal {
             v000=0x00000000,     ///<Counting uses the peripheral clock divided by multiplication factor selected by MULT.
             v001=0x00000001,     ///<Counting uses the peripheral clock divided by twice of the multiplication factor selected by MULT.
             v010=0x00000002,     ///<Counting uses the peripheral clock divided by four times of the multiplication factor selected by MULT.
@@ -101,166 +105,214 @@ namespace Kvasir {
             v110=0x00000006,     ///<Counting uses the peripheral clock divided by 64 times of the multiplication factor selected by MULT.
             v111=0x00000007,     ///<Counting uses the peripheral clock divided by 128 times of the multiplication factor selected by MULT.
         };
-        namespace prescalerValC{
-            constexpr MPL::Value<prescalerVal,prescalerVal::v000> v000{};
-            constexpr MPL::Value<prescalerVal,prescalerVal::v001> v001{};
-            constexpr MPL::Value<prescalerVal,prescalerVal::v010> v010{};
-            constexpr MPL::Value<prescalerVal,prescalerVal::v011> v011{};
-            constexpr MPL::Value<prescalerVal,prescalerVal::v100> v100{};
-            constexpr MPL::Value<prescalerVal,prescalerVal::v101> v101{};
-            constexpr MPL::Value<prescalerVal,prescalerVal::v110> v110{};
-            constexpr MPL::Value<prescalerVal,prescalerVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,PrescalerVal> prescaler{}; 
+        namespace PrescalerValC{
+            constexpr Register::FieldValue<decltype(prescaler),PrescalerVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(prescaler),PrescalerVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(prescaler),PrescalerVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(prescaler),PrescalerVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(prescaler),PrescalerVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(prescaler),PrescalerVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(prescaler),PrescalerVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(prescaler),PrescalerVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,prescalerVal> prescaler{}; 
         ///DMA Enable
-        enum class dmaenVal {
+        enum class DmaenVal {
             v0=0x00000000,     ///<DMA disabled
             v1=0x00000001,     ///<DMA enabled
         };
-        namespace dmaenValC{
-            constexpr MPL::Value<dmaenVal,dmaenVal::v0> v0{};
-            constexpr MPL::Value<dmaenVal,dmaenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
+        namespace DmaenValC{
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,dmaenVal> dmaen{}; 
         ///Software Trigger
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> swtrig{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> swtrig{}; 
+        namespace SwtrigValC{
+        }
         ///PDB Sequence Error Interrupt Enable
-        enum class pdbeieVal {
+        enum class PdbeieVal {
             v0=0x00000000,     ///<PDB sequence error interrupt disabled.
             v1=0x00000001,     ///<PDB sequence error interrupt enabled.
         };
-        namespace pdbeieValC{
-            constexpr MPL::Value<pdbeieVal,pdbeieVal::v0> v0{};
-            constexpr MPL::Value<pdbeieVal,pdbeieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,PdbeieVal> pdbeie{}; 
+        namespace PdbeieValC{
+            constexpr Register::FieldValue<decltype(pdbeie),PdbeieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pdbeie),PdbeieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,pdbeieVal> pdbeie{}; 
         ///Load Mode Select
-        enum class ldmodVal {
+        enum class LdmodVal {
             v00=0x00000000,     ///<The internal registers are loaded with the values from their buffers immediately after 1 is written to LDOK.
             v01=0x00000001,     ///<The internal registers are loaded with the values from their buffers when the PDB counter reaches the MOD register value after 1 is written to LDOK.
             v10=0x00000002,     ///<The internal registers are loaded with the values from their buffers when a trigger input event is detected after 1 is written to LDOK.
             v11=0x00000003,     ///<The internal registers are loaded with the values from their buffers when either the PDB counter reaches the MOD register value or a trigger input event is detected, after 1 is written to LDOK.
         };
-        namespace ldmodValC{
-            constexpr MPL::Value<ldmodVal,ldmodVal::v00> v00{};
-            constexpr MPL::Value<ldmodVal,ldmodVal::v01> v01{};
-            constexpr MPL::Value<ldmodVal,ldmodVal::v10> v10{};
-            constexpr MPL::Value<ldmodVal,ldmodVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,LdmodVal> ldmod{}; 
+        namespace LdmodValC{
+            constexpr Register::FieldValue<decltype(ldmod),LdmodVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(ldmod),LdmodVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(ldmod),LdmodVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(ldmod),LdmodVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,ldmodVal> ldmod{}; 
     }
     namespace Pdb0Mod{    ///<Modulus Register
         using Addr = Register::Address<0x40036004,0xffff0000,0,unsigned>;
         ///PDB Modulus
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
+        namespace ModValC{
+        }
     }
     namespace Pdb0Cnt{    ///<Counter Register
         using Addr = Register::Address<0x40036008,0xffff0000,0,unsigned>;
         ///PDB Counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        namespace CntValC{
+        }
     }
     namespace Pdb0Idly{    ///<Interrupt Delay Register
         using Addr = Register::Address<0x4003600c,0xffff0000,0,unsigned>;
         ///PDB Interrupt Delay
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> idly{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> idly{}; 
+        namespace IdlyValC{
+        }
     }
     namespace Pdb0Ch0c1{    ///<Channel n Control Register 1
         using Addr = Register::Address<0x40036010,0xff000000,0,unsigned>;
         ///PDB Channel Pre-Trigger Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> en{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> en{}; 
+        namespace EnValC{
+        }
         ///PDB Channel Pre-Trigger Output Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> tos{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> tos{}; 
+        namespace TosValC{
+        }
         ///PDB Channel Pre-Trigger Back-to-Back Operation Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> bb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> bb{}; 
+        namespace BbValC{
+        }
     }
     namespace Pdb0Ch1c1{    ///<Channel n Control Register 1
         using Addr = Register::Address<0x40036038,0xff000000,0,unsigned>;
         ///PDB Channel Pre-Trigger Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> en{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> en{}; 
+        namespace EnValC{
+        }
         ///PDB Channel Pre-Trigger Output Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> tos{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> tos{}; 
+        namespace TosValC{
+        }
         ///PDB Channel Pre-Trigger Back-to-Back Operation Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> bb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> bb{}; 
+        namespace BbValC{
+        }
     }
     namespace Pdb0Ch0s{    ///<Channel n Status Register
         using Addr = Register::Address<0x40036014,0xff00ff00,0,unsigned>;
         ///PDB Channel Sequence Error Flags
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> err{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> err{}; 
+        namespace ErrValC{
+        }
         ///PDB Channel Flags
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> cf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> cf{}; 
+        namespace CfValC{
+        }
     }
     namespace Pdb0Ch1s{    ///<Channel n Status Register
         using Addr = Register::Address<0x4003603c,0xff00ff00,0,unsigned>;
         ///PDB Channel Sequence Error Flags
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> err{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> err{}; 
+        namespace ErrValC{
+        }
         ///PDB Channel Flags
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> cf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> cf{}; 
+        namespace CfValC{
+        }
     }
     namespace Pdb0Ch0dly0{    ///<Channel n Delay 0 Register
         using Addr = Register::Address<0x40036018,0xffff0000,0,unsigned>;
         ///PDB Channel Delay
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        namespace DlyValC{
+        }
     }
     namespace Pdb0Ch1dly0{    ///<Channel n Delay 0 Register
         using Addr = Register::Address<0x40036040,0xffff0000,0,unsigned>;
         ///PDB Channel Delay
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        namespace DlyValC{
+        }
     }
     namespace Pdb0Ch0dly1{    ///<Channel n Delay 1 Register
         using Addr = Register::Address<0x4003601c,0xffff0000,0,unsigned>;
         ///PDB Channel Delay
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        namespace DlyValC{
+        }
     }
     namespace Pdb0Ch1dly1{    ///<Channel n Delay 1 Register
         using Addr = Register::Address<0x40036044,0xffff0000,0,unsigned>;
         ///PDB Channel Delay
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly{}; 
+        namespace DlyValC{
+        }
     }
     namespace Pdb0Dacintc{    ///<DAC Interval Trigger n Control Register
         using Addr = Register::Address<0x40036150,0xfffffffc,0,unsigned>;
         ///DAC Interval Trigger Enable
-        enum class toeVal {
+        enum class ToeVal {
             v0=0x00000000,     ///<DAC interval trigger disabled.
             v1=0x00000001,     ///<DAC interval trigger enabled.
         };
-        namespace toeValC{
-            constexpr MPL::Value<toeVal,toeVal::v0> v0{};
-            constexpr MPL::Value<toeVal,toeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ToeVal> toe{}; 
+        namespace ToeValC{
+            constexpr Register::FieldValue<decltype(toe),ToeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(toe),ToeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,toeVal> toe{}; 
         ///DAC External Trigger Input Enable
-        enum class extVal {
+        enum class ExtVal {
             v0=0x00000000,     ///<DAC external trigger input disabled. DAC interval counter is reset and started counting when a rising edge is detected on selected trigger input source or software trigger is selected and SWTRIG is written with 1.
             v1=0x00000001,     ///<DAC external trigger input enabled. DAC interval counter is bypassed and DAC external trigger input triggers the DAC interval trigger.
         };
-        namespace extValC{
-            constexpr MPL::Value<extVal,extVal::v0> v0{};
-            constexpr MPL::Value<extVal,extVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ExtVal> ext{}; 
+        namespace ExtValC{
+            constexpr Register::FieldValue<decltype(ext),ExtVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ext),ExtVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,extVal> ext{}; 
     }
     namespace Pdb0Dacint{    ///<DAC Interval n Register
         using Addr = Register::Address<0x40036154,0xffff0000,0,unsigned>;
         ///DAC Interval
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> int_{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> int_{}; 
+        namespace Int_ValC{
+        }
     }
     namespace Pdb0Poen{    ///<Pulse-Out n Enable Register
         using Addr = Register::Address<0x40036190,0xffffff00,0,unsigned>;
         ///PDB Pulse-Out Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> poen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> poen{}; 
+        namespace PoenValC{
+        }
     }
     namespace Pdb0Po0dly{    ///<Pulse-Out n Delay Register
         using Addr = Register::Address<0x40036194,0x00000000,0,unsigned>;
         ///PDB Pulse-Out Delay 2
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly2{}; 
+        namespace Dly2ValC{
+        }
         ///PDB Pulse-Out Delay 1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> dly1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> dly1{}; 
+        namespace Dly1ValC{
+        }
     }
     namespace Pdb0Po1dly{    ///<Pulse-Out n Delay Register
         using Addr = Register::Address<0x40036198,0x00000000,0,unsigned>;
         ///PDB Pulse-Out Delay 2
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dly2{}; 
+        namespace Dly2ValC{
+        }
         ///PDB Pulse-Out Delay 1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> dly1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> dly1{}; 
+        namespace Dly1ValC{
+        }
     }
 }

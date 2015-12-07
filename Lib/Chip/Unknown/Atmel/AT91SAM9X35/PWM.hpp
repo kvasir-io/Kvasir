@@ -5,9 +5,11 @@ namespace Kvasir {
     namespace PwmMr{    ///<PWM Mode Register
         using Addr = Register::Address<0xf8034000,0xf000f000,0,unsigned>;
         ///CLKA, CLKB Divide Factor
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> diva{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> diva{}; 
+        namespace DivaValC{
+        }
         ///None
-        enum class preaVal {
+        enum class PreaVal {
             mck=0x00000000,     ///<Master Clock
             mckdiv2=0x00000001,     ///<Master Clock divided by 2
             mckdiv4=0x00000002,     ///<Master Clock divided by 4
@@ -20,24 +22,26 @@ namespace Kvasir {
             mckdiv512=0x00000009,     ///<Master Clock divided by 512
             mckdiv1024=0x0000000a,     ///<Master Clock divided by 1024
         };
-        namespace preaValC{
-            constexpr MPL::Value<preaVal,preaVal::mck> mck{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv2> mckdiv2{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv4> mckdiv4{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv8> mckdiv8{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv16> mckdiv16{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv32> mckdiv32{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv64> mckdiv64{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv128> mckdiv128{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv256> mckdiv256{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv512> mckdiv512{};
-            constexpr MPL::Value<preaVal,preaVal::mckdiv1024> mckdiv1024{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,PreaVal> prea{}; 
+        namespace PreaValC{
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv2> mckdiv2{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv4> mckdiv4{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv8> mckdiv8{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv16> mckdiv16{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv32> mckdiv32{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv64> mckdiv64{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv128> mckdiv128{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv256> mckdiv256{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv512> mckdiv512{};
+            constexpr Register::FieldValue<decltype(prea),PreaVal::mckdiv1024> mckdiv1024{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,preaVal> prea{}; 
         ///CLKA, CLKB Divide Factor
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> divb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> divb{}; 
+        namespace DivbValC{
+        }
         ///None
-        enum class prebVal {
+        enum class PrebVal {
             mck=0x00000000,     ///<Master Clock
             mckdiv2=0x00000001,     ///<Master Clock divided by 2
             mckdiv4=0x00000002,     ///<Master Clock divided by 4
@@ -50,102 +54,158 @@ namespace Kvasir {
             mckdiv512=0x00000009,     ///<Master Clock divided by 512
             mckdiv1024=0x0000000a,     ///<Master Clock divided by 1024
         };
-        namespace prebValC{
-            constexpr MPL::Value<prebVal,prebVal::mck> mck{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv2> mckdiv2{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv4> mckdiv4{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv8> mckdiv8{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv16> mckdiv16{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv32> mckdiv32{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv64> mckdiv64{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv128> mckdiv128{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv256> mckdiv256{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv512> mckdiv512{};
-            constexpr MPL::Value<prebVal,prebVal::mckdiv1024> mckdiv1024{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,PrebVal> preb{}; 
+        namespace PrebValC{
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv2> mckdiv2{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv4> mckdiv4{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv8> mckdiv8{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv16> mckdiv16{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv32> mckdiv32{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv64> mckdiv64{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv128> mckdiv128{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv256> mckdiv256{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv512> mckdiv512{};
+            constexpr Register::FieldValue<decltype(preb),PrebVal::mckdiv1024> mckdiv1024{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,prebVal> preb{}; 
     }
     namespace PwmEna{    ///<PWM Enable Register
         using Addr = Register::Address<0xf8034004,0xfffffff0,0,unsigned>;
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        namespace Chid0ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        namespace Chid1ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        namespace Chid2ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        namespace Chid3ValC{
+        }
     }
     namespace PwmDis{    ///<PWM Disable Register
         using Addr = Register::Address<0xf8034008,0xfffffff0,0,unsigned>;
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        namespace Chid0ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        namespace Chid1ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        namespace Chid2ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        namespace Chid3ValC{
+        }
     }
     namespace PwmSr{    ///<PWM Status Register
         using Addr = Register::Address<0xf803400c,0xfffffff0,0,unsigned>;
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        namespace Chid0ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        namespace Chid1ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        namespace Chid2ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        namespace Chid3ValC{
+        }
     }
     namespace PwmIer{    ///<PWM Interrupt Enable Register
         using Addr = Register::Address<0xf8034010,0xfffffff0,0,unsigned>;
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        namespace Chid0ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        namespace Chid1ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        namespace Chid2ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        namespace Chid3ValC{
+        }
     }
     namespace PwmIdr{    ///<PWM Interrupt Disable Register
         using Addr = Register::Address<0xf8034014,0xfffffff0,0,unsigned>;
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        namespace Chid0ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        namespace Chid1ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        namespace Chid2ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        namespace Chid3ValC{
+        }
     }
     namespace PwmImr{    ///<PWM Interrupt Mask Register
         using Addr = Register::Address<0xf8034018,0xfffffff0,0,unsigned>;
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        namespace Chid0ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        namespace Chid1ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        namespace Chid2ValC{
+        }
         ///Channel ID.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        namespace Chid3ValC{
+        }
     }
     namespace PwmIsr{    ///<PWM Interrupt Status Register
         using Addr = Register::Address<0xf803401c,0xfffffff0,0,unsigned>;
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> chid0{}; 
+        namespace Chid0ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> chid1{}; 
+        namespace Chid1ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> chid2{}; 
+        namespace Chid2ValC{
+        }
         ///Channel ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> chid3{}; 
+        namespace Chid3ValC{
+        }
     }
     namespace PwmCmr0{    ///<PWM Channel Mode Register (ch_num = 0)
         using Addr = Register::Address<0xf8034200,0xfffff8f0,0,unsigned>;
         ///Channel Pre-scaler
-        enum class cpreVal {
+        enum class CpreVal {
             mck=0x00000000,     ///<Master Clock
             mckdiv2=0x00000001,     ///<Master Clock divided by 2
             mckdiv4=0x00000002,     ///<Master Clock divided by 4
@@ -160,53 +220,67 @@ namespace Kvasir {
             clka=0x0000000b,     ///<Clock A
             clkb=0x0000000c,     ///<Clock B
         };
-        namespace cpreValC{
-            constexpr MPL::Value<cpreVal,cpreVal::mck> mck{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv2> mckdiv2{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv4> mckdiv4{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv8> mckdiv8{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv16> mckdiv16{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv32> mckdiv32{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv64> mckdiv64{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv128> mckdiv128{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv256> mckdiv256{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv512> mckdiv512{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv1024> mckdiv1024{};
-            constexpr MPL::Value<cpreVal,cpreVal::clka> clka{};
-            constexpr MPL::Value<cpreVal,cpreVal::clkb> clkb{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,CpreVal> cpre{}; 
+        namespace CpreValC{
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv2> mckdiv2{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv4> mckdiv4{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv8> mckdiv8{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv16> mckdiv16{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv32> mckdiv32{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv64> mckdiv64{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv128> mckdiv128{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv256> mckdiv256{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv512> mckdiv512{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv1024> mckdiv1024{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::clka> clka{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::clkb> clkb{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,cpreVal> cpre{}; 
         ///Channel Alignment
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
+        namespace CalgValC{
+        }
         ///Channel Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cpol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cpol{}; 
+        namespace CpolValC{
+        }
         ///Channel Update Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpd{}; 
+        namespace CpdValC{
+        }
     }
     namespace PwmCdty0{    ///<PWM Channel Duty Cycle Register (ch_num = 0)
         using Addr = Register::Address<0xf8034204,0x00000000,0,unsigned>;
         ///Channel Duty Cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cdty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cdty{}; 
+        namespace CdtyValC{
+        }
     }
     namespace PwmCprd0{    ///<PWM Channel Period Register (ch_num = 0)
         using Addr = Register::Address<0xf8034208,0x00000000,0,unsigned>;
         ///Channel Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cprd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cprd{}; 
+        namespace CprdValC{
+        }
     }
     namespace PwmCcnt0{    ///<PWM Channel Counter Register (ch_num = 0)
         using Addr = Register::Address<0xf803420c,0x00000000,0,unsigned>;
         ///Channel Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        namespace CntValC{
+        }
     }
     namespace PwmCupd0{    ///<PWM Channel Update Register (ch_num = 0)
         using Addr = Register::Address<0xf8034210,0x00000000,0,unsigned>;
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cupd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cupd{}; 
+        namespace CupdValC{
+        }
     }
     namespace PwmCmr1{    ///<PWM Channel Mode Register (ch_num = 1)
         using Addr = Register::Address<0xf8034220,0xfffff8f0,0,unsigned>;
         ///Channel Pre-scaler
-        enum class cpreVal {
+        enum class CpreVal {
             mck=0x00000000,     ///<Master Clock
             mckdiv2=0x00000001,     ///<Master Clock divided by 2
             mckdiv4=0x00000002,     ///<Master Clock divided by 4
@@ -221,53 +295,67 @@ namespace Kvasir {
             clka=0x0000000b,     ///<Clock A
             clkb=0x0000000c,     ///<Clock B
         };
-        namespace cpreValC{
-            constexpr MPL::Value<cpreVal,cpreVal::mck> mck{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv2> mckdiv2{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv4> mckdiv4{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv8> mckdiv8{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv16> mckdiv16{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv32> mckdiv32{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv64> mckdiv64{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv128> mckdiv128{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv256> mckdiv256{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv512> mckdiv512{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv1024> mckdiv1024{};
-            constexpr MPL::Value<cpreVal,cpreVal::clka> clka{};
-            constexpr MPL::Value<cpreVal,cpreVal::clkb> clkb{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,CpreVal> cpre{}; 
+        namespace CpreValC{
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv2> mckdiv2{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv4> mckdiv4{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv8> mckdiv8{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv16> mckdiv16{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv32> mckdiv32{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv64> mckdiv64{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv128> mckdiv128{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv256> mckdiv256{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv512> mckdiv512{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv1024> mckdiv1024{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::clka> clka{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::clkb> clkb{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,cpreVal> cpre{}; 
         ///Channel Alignment
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
+        namespace CalgValC{
+        }
         ///Channel Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cpol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cpol{}; 
+        namespace CpolValC{
+        }
         ///Channel Update Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpd{}; 
+        namespace CpdValC{
+        }
     }
     namespace PwmCdty1{    ///<PWM Channel Duty Cycle Register (ch_num = 1)
         using Addr = Register::Address<0xf8034224,0x00000000,0,unsigned>;
         ///Channel Duty Cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cdty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cdty{}; 
+        namespace CdtyValC{
+        }
     }
     namespace PwmCprd1{    ///<PWM Channel Period Register (ch_num = 1)
         using Addr = Register::Address<0xf8034228,0x00000000,0,unsigned>;
         ///Channel Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cprd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cprd{}; 
+        namespace CprdValC{
+        }
     }
     namespace PwmCcnt1{    ///<PWM Channel Counter Register (ch_num = 1)
         using Addr = Register::Address<0xf803422c,0x00000000,0,unsigned>;
         ///Channel Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        namespace CntValC{
+        }
     }
     namespace PwmCupd1{    ///<PWM Channel Update Register (ch_num = 1)
         using Addr = Register::Address<0xf8034230,0x00000000,0,unsigned>;
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cupd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cupd{}; 
+        namespace CupdValC{
+        }
     }
     namespace PwmCmr2{    ///<PWM Channel Mode Register (ch_num = 2)
         using Addr = Register::Address<0xf8034240,0xfffff8f0,0,unsigned>;
         ///Channel Pre-scaler
-        enum class cpreVal {
+        enum class CpreVal {
             mck=0x00000000,     ///<Master Clock
             mckdiv2=0x00000001,     ///<Master Clock divided by 2
             mckdiv4=0x00000002,     ///<Master Clock divided by 4
@@ -282,53 +370,67 @@ namespace Kvasir {
             clka=0x0000000b,     ///<Clock A
             clkb=0x0000000c,     ///<Clock B
         };
-        namespace cpreValC{
-            constexpr MPL::Value<cpreVal,cpreVal::mck> mck{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv2> mckdiv2{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv4> mckdiv4{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv8> mckdiv8{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv16> mckdiv16{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv32> mckdiv32{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv64> mckdiv64{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv128> mckdiv128{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv256> mckdiv256{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv512> mckdiv512{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv1024> mckdiv1024{};
-            constexpr MPL::Value<cpreVal,cpreVal::clka> clka{};
-            constexpr MPL::Value<cpreVal,cpreVal::clkb> clkb{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,CpreVal> cpre{}; 
+        namespace CpreValC{
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv2> mckdiv2{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv4> mckdiv4{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv8> mckdiv8{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv16> mckdiv16{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv32> mckdiv32{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv64> mckdiv64{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv128> mckdiv128{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv256> mckdiv256{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv512> mckdiv512{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv1024> mckdiv1024{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::clka> clka{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::clkb> clkb{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,cpreVal> cpre{}; 
         ///Channel Alignment
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
+        namespace CalgValC{
+        }
         ///Channel Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cpol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cpol{}; 
+        namespace CpolValC{
+        }
         ///Channel Update Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpd{}; 
+        namespace CpdValC{
+        }
     }
     namespace PwmCdty2{    ///<PWM Channel Duty Cycle Register (ch_num = 2)
         using Addr = Register::Address<0xf8034244,0x00000000,0,unsigned>;
         ///Channel Duty Cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cdty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cdty{}; 
+        namespace CdtyValC{
+        }
     }
     namespace PwmCprd2{    ///<PWM Channel Period Register (ch_num = 2)
         using Addr = Register::Address<0xf8034248,0x00000000,0,unsigned>;
         ///Channel Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cprd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cprd{}; 
+        namespace CprdValC{
+        }
     }
     namespace PwmCcnt2{    ///<PWM Channel Counter Register (ch_num = 2)
         using Addr = Register::Address<0xf803424c,0x00000000,0,unsigned>;
         ///Channel Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        namespace CntValC{
+        }
     }
     namespace PwmCupd2{    ///<PWM Channel Update Register (ch_num = 2)
         using Addr = Register::Address<0xf8034250,0x00000000,0,unsigned>;
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cupd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cupd{}; 
+        namespace CupdValC{
+        }
     }
     namespace PwmCmr3{    ///<PWM Channel Mode Register (ch_num = 3)
         using Addr = Register::Address<0xf8034260,0xfffff8f0,0,unsigned>;
         ///Channel Pre-scaler
-        enum class cpreVal {
+        enum class CpreVal {
             mck=0x00000000,     ///<Master Clock
             mckdiv2=0x00000001,     ///<Master Clock divided by 2
             mckdiv4=0x00000002,     ///<Master Clock divided by 4
@@ -343,47 +445,61 @@ namespace Kvasir {
             clka=0x0000000b,     ///<Clock A
             clkb=0x0000000c,     ///<Clock B
         };
-        namespace cpreValC{
-            constexpr MPL::Value<cpreVal,cpreVal::mck> mck{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv2> mckdiv2{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv4> mckdiv4{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv8> mckdiv8{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv16> mckdiv16{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv32> mckdiv32{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv64> mckdiv64{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv128> mckdiv128{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv256> mckdiv256{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv512> mckdiv512{};
-            constexpr MPL::Value<cpreVal,cpreVal::mckdiv1024> mckdiv1024{};
-            constexpr MPL::Value<cpreVal,cpreVal::clka> clka{};
-            constexpr MPL::Value<cpreVal,cpreVal::clkb> clkb{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,CpreVal> cpre{}; 
+        namespace CpreValC{
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv2> mckdiv2{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv4> mckdiv4{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv8> mckdiv8{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv16> mckdiv16{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv32> mckdiv32{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv64> mckdiv64{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv128> mckdiv128{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv256> mckdiv256{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv512> mckdiv512{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::mckdiv1024> mckdiv1024{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::clka> clka{};
+            constexpr Register::FieldValue<decltype(cpre),CpreVal::clkb> clkb{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,cpreVal> cpre{}; 
         ///Channel Alignment
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
+        namespace CalgValC{
+        }
         ///Channel Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cpol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cpol{}; 
+        namespace CpolValC{
+        }
         ///Channel Update Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cpd{}; 
+        namespace CpdValC{
+        }
     }
     namespace PwmCdty3{    ///<PWM Channel Duty Cycle Register (ch_num = 3)
         using Addr = Register::Address<0xf8034264,0x00000000,0,unsigned>;
         ///Channel Duty Cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cdty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cdty{}; 
+        namespace CdtyValC{
+        }
     }
     namespace PwmCprd3{    ///<PWM Channel Period Register (ch_num = 3)
         using Addr = Register::Address<0xf8034268,0x00000000,0,unsigned>;
         ///Channel Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cprd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cprd{}; 
+        namespace CprdValC{
+        }
     }
     namespace PwmCcnt3{    ///<PWM Channel Counter Register (ch_num = 3)
         using Addr = Register::Address<0xf803426c,0x00000000,0,unsigned>;
         ///Channel Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        namespace CntValC{
+        }
     }
     namespace PwmCupd3{    ///<PWM Channel Update Register (ch_num = 3)
         using Addr = Register::Address<0xf8034270,0x00000000,0,unsigned>;
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cupd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cupd{}; 
+        namespace CupdValC{
+        }
     }
 }

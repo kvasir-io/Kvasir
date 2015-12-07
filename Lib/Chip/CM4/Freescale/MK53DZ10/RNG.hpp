@@ -5,241 +5,259 @@ namespace Kvasir {
     namespace RngVer{    ///<RNGB Version ID Register
         using Addr = Register::Address<0x400a0000,0x0fff0000,0,unsigned>;
         ///Minor version number.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> minor{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> minor{}; 
+        namespace MinorValC{
+        }
         ///Major version number.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> major{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> major{}; 
+        namespace MajorValC{
+        }
         ///Random number generator type
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> type{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> type{}; 
+        namespace TypeValC{
+        }
     }
     namespace RngCmd{    ///<RNGB Command Register
         using Addr = Register::Address<0x400a0004,0xffffff8c,0,unsigned>;
         ///Self test.
-        enum class stVal {
+        enum class StVal {
             v0=0x00000000,     ///<Not in self test mode.
             v1=0x00000001,     ///<Self test mode.
         };
-        namespace stValC{
-            constexpr MPL::Value<stVal,stVal::v0> v0{};
-            constexpr MPL::Value<stVal,stVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StVal> st{}; 
+        namespace StValC{
+            constexpr Register::FieldValue<decltype(st),StVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(st),StVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,stVal> st{}; 
         ///Generate seed.
-        enum class gsVal {
+        enum class GsVal {
             v0=0x00000000,     ///<Not in seed generation mode.
             v1=0x00000001,     ///<Generate seed mode.
         };
-        namespace gsValC{
-            constexpr MPL::Value<gsVal,gsVal::v0> v0{};
-            constexpr MPL::Value<gsVal,gsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,GsVal> gs{}; 
+        namespace GsValC{
+            constexpr Register::FieldValue<decltype(gs),GsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gs),GsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,gsVal> gs{}; 
         ///Clear interrupt.
-        enum class ciVal {
+        enum class CiVal {
             v0=0x00000000,     ///<Do not clear interrupt.
             v1=0x00000001,     ///<Clear interrupt.
         };
-        namespace ciValC{
-            constexpr MPL::Value<ciVal,ciVal::v0> v0{};
-            constexpr MPL::Value<ciVal,ciVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CiVal> ci{}; 
+        namespace CiValC{
+            constexpr Register::FieldValue<decltype(ci),CiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ci),CiVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ciVal> ci{}; 
         ///Clear error.
-        enum class ceVal {
+        enum class CeVal {
             v0=0x00000000,     ///<Do not clear errors and interrupt.
             v1=0x00000001,     ///<Clear errors and interrupt.
         };
-        namespace ceValC{
-            constexpr MPL::Value<ceVal,ceVal::v0> v0{};
-            constexpr MPL::Value<ceVal,ceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,CeVal> ce{}; 
+        namespace CeValC{
+            constexpr Register::FieldValue<decltype(ce),CeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ce),CeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ceVal> ce{}; 
         ///Software reset.
-        enum class srVal {
+        enum class SrVal {
             v0=0x00000000,     ///<Do not perform a software reset.
             v1=0x00000001,     ///<Software reset.
         };
-        namespace srValC{
-            constexpr MPL::Value<srVal,srVal::v0> v0{};
-            constexpr MPL::Value<srVal,srVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SrVal> sr{}; 
+        namespace SrValC{
+            constexpr Register::FieldValue<decltype(sr),SrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sr),SrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,srVal> sr{}; 
     }
     namespace RngCr{    ///<RNGB Control Register
         using Addr = Register::Address<0x400a0008,0xffffff8c,0,unsigned>;
         ///FIFO underflow response mode.
-        enum class fufmodVal {
+        enum class FufmodVal {
             v00=0x00000000,     ///<Return all zeros and set RNG_ESR[FUFE]
             v01=0x00000001,     ///<Return all zeros and set RNG_ESR[FUFE]
             v10=0x00000002,     ///<Generate bus transfer error
             v11=0x00000003,     ///<Generate interrupt and return all zeros (Overrides RNG_CR[MASKERR])
         };
-        namespace fufmodValC{
-            constexpr MPL::Value<fufmodVal,fufmodVal::v00> v00{};
-            constexpr MPL::Value<fufmodVal,fufmodVal::v01> v01{};
-            constexpr MPL::Value<fufmodVal,fufmodVal::v10> v10{};
-            constexpr MPL::Value<fufmodVal,fufmodVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,FufmodVal> fufmod{}; 
+        namespace FufmodValC{
+            constexpr Register::FieldValue<decltype(fufmod),FufmodVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fufmod),FufmodVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fufmod),FufmodVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fufmod),FufmodVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,fufmodVal> fufmod{}; 
         ///Auto-reseed.
-        enum class arVal {
+        enum class ArVal {
             v0=0x00000000,     ///<Do not enable automatic reseeding.
             v1=0x00000001,     ///<Enable automatic reseeding.
         };
-        namespace arValC{
-            constexpr MPL::Value<arVal,arVal::v0> v0{};
-            constexpr MPL::Value<arVal,arVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ArVal> ar{}; 
+        namespace ArValC{
+            constexpr Register::FieldValue<decltype(ar),ArVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ar),ArVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,arVal> ar{}; 
         ///Mask done interrupt.
-        enum class maskdoneVal {
+        enum class MaskdoneVal {
             v0=0x00000000,     ///<No mask applied.
             v1=0x00000001,     ///<Mask applied.
         };
-        namespace maskdoneValC{
-            constexpr MPL::Value<maskdoneVal,maskdoneVal::v0> v0{};
-            constexpr MPL::Value<maskdoneVal,maskdoneVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MaskdoneVal> maskdone{}; 
+        namespace MaskdoneValC{
+            constexpr Register::FieldValue<decltype(maskdone),MaskdoneVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(maskdone),MaskdoneVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,maskdoneVal> maskdone{}; 
         ///Mask error interrupt.
-        enum class maskerrVal {
+        enum class MaskerrVal {
             v0=0x00000000,     ///<No mask applied.
             v1=0x00000001,     ///<Mask applied to the error interrupt.
         };
-        namespace maskerrValC{
-            constexpr MPL::Value<maskerrVal,maskerrVal::v0> v0{};
-            constexpr MPL::Value<maskerrVal,maskerrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskerrVal> maskerr{}; 
+        namespace MaskerrValC{
+            constexpr Register::FieldValue<decltype(maskerr),MaskerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(maskerr),MaskerrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,maskerrVal> maskerr{}; 
     }
     namespace RngSr{    ///<RNGB Status Register
         using Addr = Register::Address<0x400a000c,0x001e0081,0,unsigned>;
         ///Busy.
-        enum class busyVal {
+        enum class BusyVal {
             v0=0x00000000,     ///<Not busy.
             v1=0x00000001,     ///<Busy.
         };
-        namespace busyValC{
-            constexpr MPL::Value<busyVal,busyVal::v0> v0{};
-            constexpr MPL::Value<busyVal,busyVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,BusyVal> busy{}; 
+        namespace BusyValC{
+            constexpr Register::FieldValue<decltype(busy),BusyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(busy),BusyVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,busyVal> busy{}; 
         ///Sleep.
-        enum class slpVal {
+        enum class SlpVal {
             v0=0x00000000,     ///<RNGB is not in sleep mode.
             v1=0x00000001,     ///<RNGB is in sleep mode.
         };
-        namespace slpValC{
-            constexpr MPL::Value<slpVal,slpVal::v0> v0{};
-            constexpr MPL::Value<slpVal,slpVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SlpVal> slp{}; 
+        namespace SlpValC{
+            constexpr Register::FieldValue<decltype(slp),SlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(slp),SlpVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,slpVal> slp{}; 
         ///Reseed needed.
-        enum class rsVal {
+        enum class RsVal {
             v0=0x00000000,     ///<RNGB does not need to be reseeded.
             v1=0x00000001,     ///<RNGB needs to be reseeded.
         };
-        namespace rsValC{
-            constexpr MPL::Value<rsVal,rsVal::v0> v0{};
-            constexpr MPL::Value<rsVal,rsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RsVal> rs{}; 
+        namespace RsValC{
+            constexpr Register::FieldValue<decltype(rs),RsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rs),RsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,rsVal> rs{}; 
         ///Self test done.
-        enum class stdnVal {
+        enum class StdnVal {
             v0=0x00000000,     ///<Self test not complete.
             v1=0x00000001,     ///<Completed a self test since the last reset.
         };
-        namespace stdnValC{
-            constexpr MPL::Value<stdnVal,stdnVal::v0> v0{};
-            constexpr MPL::Value<stdnVal,stdnVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,StdnVal> stdn{}; 
+        namespace StdnValC{
+            constexpr Register::FieldValue<decltype(stdn),StdnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stdn),StdnVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,stdnVal> stdn{}; 
         ///Seed done.
-        enum class sdnVal {
+        enum class SdnVal {
             v0=0x00000000,     ///<Seed generation process not complete.
             v1=0x00000001,     ///<Completed seed generation since the last reset.
         };
-        namespace sdnValC{
-            constexpr MPL::Value<sdnVal,sdnVal::v0> v0{};
-            constexpr MPL::Value<sdnVal,sdnVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SdnVal> sdn{}; 
+        namespace SdnValC{
+            constexpr Register::FieldValue<decltype(sdn),SdnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sdn),SdnVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,sdnVal> sdn{}; 
         ///New seed done.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> nsdn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> nsdn{}; 
+        namespace NsdnValC{
+        }
         ///FIFO level.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> fifoLvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> fifoLvl{}; 
+        namespace FifolvlValC{
+        }
         ///FIFO size.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> fifoSize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> fifoSize{}; 
+        namespace FifosizeValC{
+        }
         ///Error.
-        enum class errVal {
+        enum class ErrVal {
             v0=0x00000000,     ///<No error.
             v1=0x00000001,     ///<Error detected.
         };
-        namespace errValC{
-            constexpr MPL::Value<errVal,errVal::v0> v0{};
-            constexpr MPL::Value<errVal,errVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,ErrVal> err{}; 
+        namespace ErrValC{
+            constexpr Register::FieldValue<decltype(err),ErrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(err),ErrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,errVal> err{}; 
         ///Self Test Pass Fail.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,unsigned> stPf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,unsigned> stPf{}; 
+        namespace StpfValC{
+        }
         ///Statistics test pass fail.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> statpf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> statpf{}; 
+        namespace StatpfValC{
+        }
     }
     namespace RngEsr{    ///<RNGB Error Status Register
         using Addr = Register::Address<0x400a0010,0xffffffe0,0,unsigned>;
         ///Linear feedback shift register (LFSR) error.
-        enum class lfeVal {
+        enum class LfeVal {
             v0=0x00000000,     ///<LFSRs are working properly.
             v1=0x00000001,     ///<LFSR failure has occurred.
         };
-        namespace lfeValC{
-            constexpr MPL::Value<lfeVal,lfeVal::v0> v0{};
-            constexpr MPL::Value<lfeVal,lfeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LfeVal> lfe{}; 
+        namespace LfeValC{
+            constexpr Register::FieldValue<decltype(lfe),LfeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lfe),LfeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,lfeVal> lfe{}; 
         ///Oscillator error.
-        enum class osceVal {
+        enum class OsceVal {
             v0=0x00000000,     ///<RNG oscillator is working properly.
             v1=0x00000001,     ///<Problem detected with the RNG oscillator.
         };
-        namespace osceValC{
-            constexpr MPL::Value<osceVal,osceVal::v0> v0{};
-            constexpr MPL::Value<osceVal,osceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OsceVal> osce{}; 
+        namespace OsceValC{
+            constexpr Register::FieldValue<decltype(osce),OsceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(osce),OsceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,osceVal> osce{}; 
         ///Self test error.
-        enum class steVal {
+        enum class SteVal {
             v0=0x00000000,     ///<RNGB has not failed self test.
             v1=0x00000001,     ///<RNGB has failed self test.
         };
-        namespace steValC{
-            constexpr MPL::Value<steVal,steVal::v0> v0{};
-            constexpr MPL::Value<steVal,steVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SteVal> ste{}; 
+        namespace SteValC{
+            constexpr Register::FieldValue<decltype(ste),SteVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ste),SteVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,steVal> ste{}; 
         ///Statistical test error.
-        enum class sateVal {
+        enum class SateVal {
             v0=0x00000000,     ///<RNGB has not failed the statistical tests.
             v1=0x00000001,     ///<RNGB has failed the statistical tests during initialization.
         };
-        namespace sateValC{
-            constexpr MPL::Value<sateVal,sateVal::v0> v0{};
-            constexpr MPL::Value<sateVal,sateVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,SateVal> sate{}; 
+        namespace SateValC{
+            constexpr Register::FieldValue<decltype(sate),SateVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sate),SateVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,sateVal> sate{}; 
         ///FIFO underflow error
-        enum class fufeVal {
+        enum class FufeVal {
             v0=0x00000000,     ///<FIFO underflow has not occurred.
             v1=0x00000001,     ///<FIFO underflow has occurred
         };
-        namespace fufeValC{
-            constexpr MPL::Value<fufeVal,fufeVal::v0> v0{};
-            constexpr MPL::Value<fufeVal,fufeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,FufeVal> fufe{}; 
+        namespace FufeValC{
+            constexpr Register::FieldValue<decltype(fufe),FufeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fufe),FufeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,fufeVal> fufe{}; 
     }
     namespace RngOut{    ///<RNGB Output FIFO
         using Addr = Register::Address<0x400a0014,0x00000000,0,unsigned>;
         ///Random Output
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> randout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> randout{}; 
+        namespace RandoutValC{
+        }
     }
 }

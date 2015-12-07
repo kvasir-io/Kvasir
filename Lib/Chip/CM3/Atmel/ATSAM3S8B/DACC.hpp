@@ -5,70 +5,80 @@ namespace Kvasir {
     namespace DaccCr{    ///<Control Register
         using Addr = Register::Address<0x4003c000,0xfffffffe,0,unsigned>;
         ///Software Reset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        namespace SwrstValC{
+        }
     }
     namespace DaccMr{    ///<Mode Register
         using Addr = Register::Address<0x4003c004,0xc0cc0080,0,unsigned>;
         ///Trigger Enable
-        enum class trgenVal {
+        enum class TrgenVal {
             dis=0x00000000,     ///<External trigger mode disabled. DACC in free running mode.
             en=0x00000001,     ///<External trigger mode enabled.
         };
-        namespace trgenValC{
-            constexpr MPL::Value<trgenVal,trgenVal::dis> dis{};
-            constexpr MPL::Value<trgenVal,trgenVal::en> en{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TrgenVal> trgen{}; 
+        namespace TrgenValC{
+            constexpr Register::FieldValue<decltype(trgen),TrgenVal::dis> dis{};
+            constexpr Register::FieldValue<decltype(trgen),TrgenVal::en> en{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,trgenVal> trgen{}; 
         ///Trigger Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trgsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trgsel{}; 
+        namespace TrgselValC{
+        }
         ///Word Transfer
-        enum class wordVal {
+        enum class WordVal {
             half=0x00000000,     ///<Half-Word transfer
             word=0x00000001,     ///<Word Transfer
         };
-        namespace wordValC{
-            constexpr MPL::Value<wordVal,wordVal::half> half{};
-            constexpr MPL::Value<wordVal,wordVal::word> word{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,WordVal> word{}; 
+        namespace WordValC{
+            constexpr Register::FieldValue<decltype(word),WordVal::half> half{};
+            constexpr Register::FieldValue<decltype(word),WordVal::word> word{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,wordVal> word{}; 
         ///Sleep Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sleep{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sleep{}; 
+        namespace SleepValC{
+        }
         ///Fast Wake up Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> fastwkup{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> fastwkup{}; 
+        namespace FastwkupValC{
+        }
         ///Refresh Period
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> refresh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> refresh{}; 
+        namespace RefreshValC{
+        }
         ///User Channel Selection
-        enum class userSelVal {
+        enum class UserselVal {
             channel0=0x00000000,     ///<Channel 0
             channel1=0x00000001,     ///<Channel 1
         };
-        namespace userSelValC{
-            constexpr MPL::Value<userSelVal,userSelVal::channel0> channel0{};
-            constexpr MPL::Value<userSelVal,userSelVal::channel1> channel1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,UserselVal> userSel{}; 
+        namespace UserselValC{
+            constexpr Register::FieldValue<decltype(userSel),UserselVal::channel0> channel0{};
+            constexpr Register::FieldValue<decltype(userSel),UserselVal::channel1> channel1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,userSelVal> userSel{}; 
         ///Tag Selection Mode
-        enum class tagVal {
+        enum class TagVal {
             dis=0x00000000,     ///<Tag selection mode disabled. Using USER_SEL to select the channel for the conversion.
             en=0x00000001,     ///<Tag selection mode enabled
         };
-        namespace tagValC{
-            constexpr MPL::Value<tagVal,tagVal::dis> dis{};
-            constexpr MPL::Value<tagVal,tagVal::en> en{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,TagVal> tag{}; 
+        namespace TagValC{
+            constexpr Register::FieldValue<decltype(tag),TagVal::dis> dis{};
+            constexpr Register::FieldValue<decltype(tag),TagVal::en> en{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tagVal> tag{}; 
         ///Max Speed Mode
-        enum class maxsVal {
+        enum class MaxsVal {
             normal=0x00000000,     ///<Normal Mode
             maximum=0x00000001,     ///<Max Speed Mode enabled
         };
-        namespace maxsValC{
-            constexpr MPL::Value<maxsVal,maxsVal::normal> normal{};
-            constexpr MPL::Value<maxsVal,maxsVal::maximum> maximum{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,MaxsVal> maxs{}; 
+        namespace MaxsValC{
+            constexpr Register::FieldValue<decltype(maxs),MaxsVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(maxs),MaxsVal::maximum> maximum{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,maxsVal> maxs{}; 
         ///Startup Time Selection
-        enum class startupVal {
+        enum class StartupVal {
             v0=0x00000000,     ///<0 periods of DACClock
             v8=0x00000001,     ///<8 periods of DACClock
             v16=0x00000002,     ///<16 periods of DACClock
@@ -102,171 +112,251 @@ namespace Kvasir {
             v1920=0x0000001e,     ///<1920 periods of DACClock
             v1984=0x0000001f,     ///<1984 periods of DACClock
         };
-        namespace startupValC{
-            constexpr MPL::Value<startupVal,startupVal::v0> v0{};
-            constexpr MPL::Value<startupVal,startupVal::v8> v8{};
-            constexpr MPL::Value<startupVal,startupVal::v16> v16{};
-            constexpr MPL::Value<startupVal,startupVal::v24> v24{};
-            constexpr MPL::Value<startupVal,startupVal::v64> v64{};
-            constexpr MPL::Value<startupVal,startupVal::v80> v80{};
-            constexpr MPL::Value<startupVal,startupVal::v96> v96{};
-            constexpr MPL::Value<startupVal,startupVal::v112> v112{};
-            constexpr MPL::Value<startupVal,startupVal::v512> v512{};
-            constexpr MPL::Value<startupVal,startupVal::v576> v576{};
-            constexpr MPL::Value<startupVal,startupVal::v640> v640{};
-            constexpr MPL::Value<startupVal,startupVal::v704> v704{};
-            constexpr MPL::Value<startupVal,startupVal::v768> v768{};
-            constexpr MPL::Value<startupVal,startupVal::v832> v832{};
-            constexpr MPL::Value<startupVal,startupVal::v896> v896{};
-            constexpr MPL::Value<startupVal,startupVal::v960> v960{};
-            constexpr MPL::Value<startupVal,startupVal::v1024> v1024{};
-            constexpr MPL::Value<startupVal,startupVal::v1088> v1088{};
-            constexpr MPL::Value<startupVal,startupVal::v1152> v1152{};
-            constexpr MPL::Value<startupVal,startupVal::v1216> v1216{};
-            constexpr MPL::Value<startupVal,startupVal::v1280> v1280{};
-            constexpr MPL::Value<startupVal,startupVal::v1344> v1344{};
-            constexpr MPL::Value<startupVal,startupVal::v1408> v1408{};
-            constexpr MPL::Value<startupVal,startupVal::v1472> v1472{};
-            constexpr MPL::Value<startupVal,startupVal::v1536> v1536{};
-            constexpr MPL::Value<startupVal,startupVal::v1600> v1600{};
-            constexpr MPL::Value<startupVal,startupVal::v1664> v1664{};
-            constexpr MPL::Value<startupVal,startupVal::v1728> v1728{};
-            constexpr MPL::Value<startupVal,startupVal::v1792> v1792{};
-            constexpr MPL::Value<startupVal,startupVal::v1856> v1856{};
-            constexpr MPL::Value<startupVal,startupVal::v1920> v1920{};
-            constexpr MPL::Value<startupVal,startupVal::v1984> v1984{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,StartupVal> startup{}; 
+        namespace StartupValC{
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v8> v8{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v16> v16{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v24> v24{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v64> v64{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v80> v80{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v96> v96{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v112> v112{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v512> v512{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v576> v576{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v640> v640{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v704> v704{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v768> v768{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v832> v832{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v896> v896{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v960> v960{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1024> v1024{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1088> v1088{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1152> v1152{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1216> v1216{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1280> v1280{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1344> v1344{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1408> v1408{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1472> v1472{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1536> v1536{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1600> v1600{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1664> v1664{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1728> v1728{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1792> v1792{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1856> v1856{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1920> v1920{};
+            constexpr Register::FieldValue<decltype(startup),StartupVal::v1984> v1984{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,startupVal> startup{}; 
     }
     namespace DaccCher{    ///<Channel Enable Register
         using Addr = Register::Address<0x4003c010,0xfffffffc,0,unsigned>;
         ///Channel 0 Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        namespace Ch0ValC{
+        }
         ///Channel 1 Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        namespace Ch1ValC{
+        }
     }
     namespace DaccChdr{    ///<Channel Disable Register
         using Addr = Register::Address<0x4003c014,0xfffffffc,0,unsigned>;
         ///Channel 0 Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        namespace Ch0ValC{
+        }
         ///Channel 1 Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        namespace Ch1ValC{
+        }
     }
     namespace DaccChsr{    ///<Channel Status Register
         using Addr = Register::Address<0x4003c018,0xfffffffc,0,unsigned>;
         ///Channel 0 Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        namespace Ch0ValC{
+        }
         ///Channel 1 Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        namespace Ch1ValC{
+        }
     }
     namespace DaccCdr{    ///<Conversion Data Register
         using Addr = Register::Address<0x4003c020,0x00000000,0,unsigned>;
         ///Data to Convert
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
+        namespace DataValC{
+        }
     }
     namespace DaccIer{    ///<Interrupt Enable Register
         using Addr = Register::Address<0x4003c024,0xfffffff0,0,unsigned>;
         ///Transmit Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///End of Conversion Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        namespace EocValC{
+        }
         ///End of Transmit Buffer Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        namespace EndtxValC{
+        }
         ///Transmit Buffer Empty Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        namespace TxbufeValC{
+        }
     }
     namespace DaccIdr{    ///<Interrupt Disable Register
         using Addr = Register::Address<0x4003c028,0xfffffff0,0,unsigned>;
         ///Transmit Ready Interrupt Disable.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///End of Conversion Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        namespace EocValC{
+        }
         ///End of Transmit Buffer Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        namespace EndtxValC{
+        }
         ///Transmit Buffer Empty Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        namespace TxbufeValC{
+        }
     }
     namespace DaccImr{    ///<Interrupt Mask Register
         using Addr = Register::Address<0x4003c02c,0xfffffff0,0,unsigned>;
         ///Transmit Ready Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///End of Conversion Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        namespace EocValC{
+        }
         ///End of Transmit Buffer Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        namespace EndtxValC{
+        }
         ///Transmit Buffer Empty Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        namespace TxbufeValC{
+        }
     }
     namespace DaccIsr{    ///<Interrupt Status Register
         using Addr = Register::Address<0x4003c030,0xfffffff0,0,unsigned>;
         ///Transmit Ready Interrupt Flag
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///End of Conversion Interrupt Flag
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        namespace EocValC{
+        }
         ///End of DMA Interrupt Flag
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        namespace EndtxValC{
+        }
         ///Transmit Buffer Empty
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        namespace TxbufeValC{
+        }
     }
     namespace DaccAcr{    ///<Analog Current Register
         using Addr = Register::Address<0x4003c094,0xfffffcf0,0,unsigned>;
         ///Analog Output Current Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ibctlch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ibctlch0{}; 
+        namespace Ibctlch0ValC{
+        }
         ///Analog Output Current Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> ibctlch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> ibctlch1{}; 
+        namespace Ibctlch1ValC{
+        }
         ///Bias Current Control for DAC Core
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> ibctldaccore{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> ibctldaccore{}; 
+        namespace IbctldaccoreValC{
+        }
     }
     namespace DaccWpmr{    ///<Write Protect Mode register
         using Addr = Register::Address<0x4003c0e4,0x000000fe,0,unsigned>;
         ///Write Protect Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
+        namespace WpenValC{
+        }
         ///Write Protect KEY
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
+        namespace WpkeyValC{
+        }
     }
     namespace DaccWpsr{    ///<Write Protect Status register
         using Addr = Register::Address<0x4003c0e8,0xffff00fe,0,unsigned>;
         ///Write protection error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wproterr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wproterr{}; 
+        namespace WproterrValC{
+        }
         ///Write protection error address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wprotaddr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wprotaddr{}; 
+        namespace WprotaddrValC{
+        }
     }
     namespace DaccTpr{    ///<Transmit Pointer Register
         using Addr = Register::Address<0x4003c108,0x00000000,0,unsigned>;
         ///Transmit Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txptr{}; 
+        namespace TxptrValC{
+        }
     }
     namespace DaccTcr{    ///<Transmit Counter Register
         using Addr = Register::Address<0x4003c10c,0xffff0000,0,unsigned>;
         ///Transmit Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txctr{}; 
+        namespace TxctrValC{
+        }
     }
     namespace DaccTnpr{    ///<Transmit Next Pointer Register
         using Addr = Register::Address<0x4003c118,0x00000000,0,unsigned>;
         ///Transmit Next Pointer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txnptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txnptr{}; 
+        namespace TxnptrValC{
+        }
     }
     namespace DaccTncr{    ///<Transmit Next Counter Register
         using Addr = Register::Address<0x4003c11c,0xffff0000,0,unsigned>;
         ///Transmit Counter Next
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txnctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txnctr{}; 
+        namespace TxnctrValC{
+        }
     }
     namespace DaccPtcr{    ///<Transfer Control Register
         using Addr = Register::Address<0x4003c120,0xfffffcfc,0,unsigned>;
         ///Receiver Transfer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        namespace RxtenValC{
+        }
         ///Receiver Transfer Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
+        namespace RxtdisValC{
+        }
         ///Transmitter Transfer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        namespace TxtenValC{
+        }
         ///Transmitter Transfer Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
+        namespace TxtdisValC{
+        }
     }
     namespace DaccPtsr{    ///<Transfer Status Register
         using Addr = Register::Address<0x4003c124,0xfffffefe,0,unsigned>;
         ///Receiver Transfer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        namespace RxtenValC{
+        }
         ///Transmitter Transfer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        namespace TxtenValC{
+        }
     }
 }

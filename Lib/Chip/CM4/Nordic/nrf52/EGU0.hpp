@@ -101,554 +101,554 @@ namespace Kvasir {
     namespace Noneinten{    ///<Enable or disable interrupt
         using Addr = Register::Address<0x40014300,0xffff0000,0,unsigned>;
         ///Enable or disable interrupt on EVENTS_TRIGGERED[0] event
-        enum class triggered0Val {
+        enum class Triggered0Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered0ValC{
-            constexpr MPL::Value<triggered0Val,triggered0Val::disabled> disabled{};
-            constexpr MPL::Value<triggered0Val,triggered0Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Triggered0Val> triggered0{}; 
+        namespace Triggered0ValC{
+            constexpr Register::FieldValue<decltype(triggered0),Triggered0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered0),Triggered0Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,triggered0Val> triggered0{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[1] event
-        enum class triggered1Val {
+        enum class Triggered1Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered1ValC{
-            constexpr MPL::Value<triggered1Val,triggered1Val::disabled> disabled{};
-            constexpr MPL::Value<triggered1Val,triggered1Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Triggered1Val> triggered1{}; 
+        namespace Triggered1ValC{
+            constexpr Register::FieldValue<decltype(triggered1),Triggered1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered1),Triggered1Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,triggered1Val> triggered1{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[2] event
-        enum class triggered2Val {
+        enum class Triggered2Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered2ValC{
-            constexpr MPL::Value<triggered2Val,triggered2Val::disabled> disabled{};
-            constexpr MPL::Value<triggered2Val,triggered2Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Triggered2Val> triggered2{}; 
+        namespace Triggered2ValC{
+            constexpr Register::FieldValue<decltype(triggered2),Triggered2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered2),Triggered2Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,triggered2Val> triggered2{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[3] event
-        enum class triggered3Val {
+        enum class Triggered3Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered3ValC{
-            constexpr MPL::Value<triggered3Val,triggered3Val::disabled> disabled{};
-            constexpr MPL::Value<triggered3Val,triggered3Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Triggered3Val> triggered3{}; 
+        namespace Triggered3ValC{
+            constexpr Register::FieldValue<decltype(triggered3),Triggered3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered3),Triggered3Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,triggered3Val> triggered3{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[4] event
-        enum class triggered4Val {
+        enum class Triggered4Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered4ValC{
-            constexpr MPL::Value<triggered4Val,triggered4Val::disabled> disabled{};
-            constexpr MPL::Value<triggered4Val,triggered4Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Triggered4Val> triggered4{}; 
+        namespace Triggered4ValC{
+            constexpr Register::FieldValue<decltype(triggered4),Triggered4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered4),Triggered4Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,triggered4Val> triggered4{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[5] event
-        enum class triggered5Val {
+        enum class Triggered5Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered5ValC{
-            constexpr MPL::Value<triggered5Val,triggered5Val::disabled> disabled{};
-            constexpr MPL::Value<triggered5Val,triggered5Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Triggered5Val> triggered5{}; 
+        namespace Triggered5ValC{
+            constexpr Register::FieldValue<decltype(triggered5),Triggered5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered5),Triggered5Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,triggered5Val> triggered5{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[6] event
-        enum class triggered6Val {
+        enum class Triggered6Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered6ValC{
-            constexpr MPL::Value<triggered6Val,triggered6Val::disabled> disabled{};
-            constexpr MPL::Value<triggered6Val,triggered6Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Triggered6Val> triggered6{}; 
+        namespace Triggered6ValC{
+            constexpr Register::FieldValue<decltype(triggered6),Triggered6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered6),Triggered6Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,triggered6Val> triggered6{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[7] event
-        enum class triggered7Val {
+        enum class Triggered7Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered7ValC{
-            constexpr MPL::Value<triggered7Val,triggered7Val::disabled> disabled{};
-            constexpr MPL::Value<triggered7Val,triggered7Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Triggered7Val> triggered7{}; 
+        namespace Triggered7ValC{
+            constexpr Register::FieldValue<decltype(triggered7),Triggered7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered7),Triggered7Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,triggered7Val> triggered7{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[8] event
-        enum class triggered8Val {
+        enum class Triggered8Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered8ValC{
-            constexpr MPL::Value<triggered8Val,triggered8Val::disabled> disabled{};
-            constexpr MPL::Value<triggered8Val,triggered8Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Triggered8Val> triggered8{}; 
+        namespace Triggered8ValC{
+            constexpr Register::FieldValue<decltype(triggered8),Triggered8Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered8),Triggered8Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,triggered8Val> triggered8{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[9] event
-        enum class triggered9Val {
+        enum class Triggered9Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered9ValC{
-            constexpr MPL::Value<triggered9Val,triggered9Val::disabled> disabled{};
-            constexpr MPL::Value<triggered9Val,triggered9Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Triggered9Val> triggered9{}; 
+        namespace Triggered9ValC{
+            constexpr Register::FieldValue<decltype(triggered9),Triggered9Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered9),Triggered9Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,triggered9Val> triggered9{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[10] event
-        enum class triggered10Val {
+        enum class Triggered10Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered10ValC{
-            constexpr MPL::Value<triggered10Val,triggered10Val::disabled> disabled{};
-            constexpr MPL::Value<triggered10Val,triggered10Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Triggered10Val> triggered10{}; 
+        namespace Triggered10ValC{
+            constexpr Register::FieldValue<decltype(triggered10),Triggered10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered10),Triggered10Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,triggered10Val> triggered10{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[11] event
-        enum class triggered11Val {
+        enum class Triggered11Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered11ValC{
-            constexpr MPL::Value<triggered11Val,triggered11Val::disabled> disabled{};
-            constexpr MPL::Value<triggered11Val,triggered11Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Triggered11Val> triggered11{}; 
+        namespace Triggered11ValC{
+            constexpr Register::FieldValue<decltype(triggered11),Triggered11Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered11),Triggered11Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,triggered11Val> triggered11{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[12] event
-        enum class triggered12Val {
+        enum class Triggered12Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered12ValC{
-            constexpr MPL::Value<triggered12Val,triggered12Val::disabled> disabled{};
-            constexpr MPL::Value<triggered12Val,triggered12Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Triggered12Val> triggered12{}; 
+        namespace Triggered12ValC{
+            constexpr Register::FieldValue<decltype(triggered12),Triggered12Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered12),Triggered12Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,triggered12Val> triggered12{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[13] event
-        enum class triggered13Val {
+        enum class Triggered13Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered13ValC{
-            constexpr MPL::Value<triggered13Val,triggered13Val::disabled> disabled{};
-            constexpr MPL::Value<triggered13Val,triggered13Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Triggered13Val> triggered13{}; 
+        namespace Triggered13ValC{
+            constexpr Register::FieldValue<decltype(triggered13),Triggered13Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered13),Triggered13Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,triggered13Val> triggered13{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[14] event
-        enum class triggered14Val {
+        enum class Triggered14Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered14ValC{
-            constexpr MPL::Value<triggered14Val,triggered14Val::disabled> disabled{};
-            constexpr MPL::Value<triggered14Val,triggered14Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Triggered14Val> triggered14{}; 
+        namespace Triggered14ValC{
+            constexpr Register::FieldValue<decltype(triggered14),Triggered14Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered14),Triggered14Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,triggered14Val> triggered14{}; 
         ///Enable or disable interrupt on EVENTS_TRIGGERED[15] event
-        enum class triggered15Val {
+        enum class Triggered15Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace triggered15ValC{
-            constexpr MPL::Value<triggered15Val,triggered15Val::disabled> disabled{};
-            constexpr MPL::Value<triggered15Val,triggered15Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Triggered15Val> triggered15{}; 
+        namespace Triggered15ValC{
+            constexpr Register::FieldValue<decltype(triggered15),Triggered15Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered15),Triggered15Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,triggered15Val> triggered15{}; 
     }
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40014304,0xffff0000,0,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[0] event
-        enum class triggered0Val {
+        enum class Triggered0Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered0ValC{
-            constexpr MPL::Value<triggered0Val,triggered0Val::disabled> disabled{};
-            constexpr MPL::Value<triggered0Val,triggered0Val::enabled> enabled{};
-            constexpr MPL::Value<triggered0Val,triggered0Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Triggered0Val> triggered0{}; 
+        namespace Triggered0ValC{
+            constexpr Register::FieldValue<decltype(triggered0),Triggered0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered0),Triggered0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered0),Triggered0Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,triggered0Val> triggered0{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[1] event
-        enum class triggered1Val {
+        enum class Triggered1Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered1ValC{
-            constexpr MPL::Value<triggered1Val,triggered1Val::disabled> disabled{};
-            constexpr MPL::Value<triggered1Val,triggered1Val::enabled> enabled{};
-            constexpr MPL::Value<triggered1Val,triggered1Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Triggered1Val> triggered1{}; 
+        namespace Triggered1ValC{
+            constexpr Register::FieldValue<decltype(triggered1),Triggered1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered1),Triggered1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered1),Triggered1Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,triggered1Val> triggered1{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[2] event
-        enum class triggered2Val {
+        enum class Triggered2Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered2ValC{
-            constexpr MPL::Value<triggered2Val,triggered2Val::disabled> disabled{};
-            constexpr MPL::Value<triggered2Val,triggered2Val::enabled> enabled{};
-            constexpr MPL::Value<triggered2Val,triggered2Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Triggered2Val> triggered2{}; 
+        namespace Triggered2ValC{
+            constexpr Register::FieldValue<decltype(triggered2),Triggered2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered2),Triggered2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered2),Triggered2Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,triggered2Val> triggered2{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[3] event
-        enum class triggered3Val {
+        enum class Triggered3Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered3ValC{
-            constexpr MPL::Value<triggered3Val,triggered3Val::disabled> disabled{};
-            constexpr MPL::Value<triggered3Val,triggered3Val::enabled> enabled{};
-            constexpr MPL::Value<triggered3Val,triggered3Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Triggered3Val> triggered3{}; 
+        namespace Triggered3ValC{
+            constexpr Register::FieldValue<decltype(triggered3),Triggered3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered3),Triggered3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered3),Triggered3Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,triggered3Val> triggered3{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[4] event
-        enum class triggered4Val {
+        enum class Triggered4Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered4ValC{
-            constexpr MPL::Value<triggered4Val,triggered4Val::disabled> disabled{};
-            constexpr MPL::Value<triggered4Val,triggered4Val::enabled> enabled{};
-            constexpr MPL::Value<triggered4Val,triggered4Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Triggered4Val> triggered4{}; 
+        namespace Triggered4ValC{
+            constexpr Register::FieldValue<decltype(triggered4),Triggered4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered4),Triggered4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered4),Triggered4Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,triggered4Val> triggered4{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[5] event
-        enum class triggered5Val {
+        enum class Triggered5Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered5ValC{
-            constexpr MPL::Value<triggered5Val,triggered5Val::disabled> disabled{};
-            constexpr MPL::Value<triggered5Val,triggered5Val::enabled> enabled{};
-            constexpr MPL::Value<triggered5Val,triggered5Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Triggered5Val> triggered5{}; 
+        namespace Triggered5ValC{
+            constexpr Register::FieldValue<decltype(triggered5),Triggered5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered5),Triggered5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered5),Triggered5Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,triggered5Val> triggered5{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[6] event
-        enum class triggered6Val {
+        enum class Triggered6Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered6ValC{
-            constexpr MPL::Value<triggered6Val,triggered6Val::disabled> disabled{};
-            constexpr MPL::Value<triggered6Val,triggered6Val::enabled> enabled{};
-            constexpr MPL::Value<triggered6Val,triggered6Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Triggered6Val> triggered6{}; 
+        namespace Triggered6ValC{
+            constexpr Register::FieldValue<decltype(triggered6),Triggered6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered6),Triggered6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered6),Triggered6Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,triggered6Val> triggered6{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[7] event
-        enum class triggered7Val {
+        enum class Triggered7Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered7ValC{
-            constexpr MPL::Value<triggered7Val,triggered7Val::disabled> disabled{};
-            constexpr MPL::Value<triggered7Val,triggered7Val::enabled> enabled{};
-            constexpr MPL::Value<triggered7Val,triggered7Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Triggered7Val> triggered7{}; 
+        namespace Triggered7ValC{
+            constexpr Register::FieldValue<decltype(triggered7),Triggered7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered7),Triggered7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered7),Triggered7Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,triggered7Val> triggered7{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[8] event
-        enum class triggered8Val {
+        enum class Triggered8Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered8ValC{
-            constexpr MPL::Value<triggered8Val,triggered8Val::disabled> disabled{};
-            constexpr MPL::Value<triggered8Val,triggered8Val::enabled> enabled{};
-            constexpr MPL::Value<triggered8Val,triggered8Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Triggered8Val> triggered8{}; 
+        namespace Triggered8ValC{
+            constexpr Register::FieldValue<decltype(triggered8),Triggered8Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered8),Triggered8Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered8),Triggered8Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,triggered8Val> triggered8{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[9] event
-        enum class triggered9Val {
+        enum class Triggered9Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered9ValC{
-            constexpr MPL::Value<triggered9Val,triggered9Val::disabled> disabled{};
-            constexpr MPL::Value<triggered9Val,triggered9Val::enabled> enabled{};
-            constexpr MPL::Value<triggered9Val,triggered9Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Triggered9Val> triggered9{}; 
+        namespace Triggered9ValC{
+            constexpr Register::FieldValue<decltype(triggered9),Triggered9Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered9),Triggered9Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered9),Triggered9Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,triggered9Val> triggered9{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[10] event
-        enum class triggered10Val {
+        enum class Triggered10Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered10ValC{
-            constexpr MPL::Value<triggered10Val,triggered10Val::disabled> disabled{};
-            constexpr MPL::Value<triggered10Val,triggered10Val::enabled> enabled{};
-            constexpr MPL::Value<triggered10Val,triggered10Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Triggered10Val> triggered10{}; 
+        namespace Triggered10ValC{
+            constexpr Register::FieldValue<decltype(triggered10),Triggered10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered10),Triggered10Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered10),Triggered10Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,triggered10Val> triggered10{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[11] event
-        enum class triggered11Val {
+        enum class Triggered11Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered11ValC{
-            constexpr MPL::Value<triggered11Val,triggered11Val::disabled> disabled{};
-            constexpr MPL::Value<triggered11Val,triggered11Val::enabled> enabled{};
-            constexpr MPL::Value<triggered11Val,triggered11Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Triggered11Val> triggered11{}; 
+        namespace Triggered11ValC{
+            constexpr Register::FieldValue<decltype(triggered11),Triggered11Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered11),Triggered11Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered11),Triggered11Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,triggered11Val> triggered11{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[12] event
-        enum class triggered12Val {
+        enum class Triggered12Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered12ValC{
-            constexpr MPL::Value<triggered12Val,triggered12Val::disabled> disabled{};
-            constexpr MPL::Value<triggered12Val,triggered12Val::enabled> enabled{};
-            constexpr MPL::Value<triggered12Val,triggered12Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Triggered12Val> triggered12{}; 
+        namespace Triggered12ValC{
+            constexpr Register::FieldValue<decltype(triggered12),Triggered12Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered12),Triggered12Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered12),Triggered12Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,triggered12Val> triggered12{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[13] event
-        enum class triggered13Val {
+        enum class Triggered13Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered13ValC{
-            constexpr MPL::Value<triggered13Val,triggered13Val::disabled> disabled{};
-            constexpr MPL::Value<triggered13Val,triggered13Val::enabled> enabled{};
-            constexpr MPL::Value<triggered13Val,triggered13Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Triggered13Val> triggered13{}; 
+        namespace Triggered13ValC{
+            constexpr Register::FieldValue<decltype(triggered13),Triggered13Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered13),Triggered13Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered13),Triggered13Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,triggered13Val> triggered13{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[14] event
-        enum class triggered14Val {
+        enum class Triggered14Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered14ValC{
-            constexpr MPL::Value<triggered14Val,triggered14Val::disabled> disabled{};
-            constexpr MPL::Value<triggered14Val,triggered14Val::enabled> enabled{};
-            constexpr MPL::Value<triggered14Val,triggered14Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Triggered14Val> triggered14{}; 
+        namespace Triggered14ValC{
+            constexpr Register::FieldValue<decltype(triggered14),Triggered14Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered14),Triggered14Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered14),Triggered14Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,triggered14Val> triggered14{}; 
         ///Write '1' to Enable interrupt on EVENTS_TRIGGERED[15] event
-        enum class triggered15Val {
+        enum class Triggered15Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace triggered15ValC{
-            constexpr MPL::Value<triggered15Val,triggered15Val::disabled> disabled{};
-            constexpr MPL::Value<triggered15Val,triggered15Val::enabled> enabled{};
-            constexpr MPL::Value<triggered15Val,triggered15Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Triggered15Val> triggered15{}; 
+        namespace Triggered15ValC{
+            constexpr Register::FieldValue<decltype(triggered15),Triggered15Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered15),Triggered15Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered15),Triggered15Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,triggered15Val> triggered15{}; 
     }
     namespace Noneintenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40014308,0xffff0000,0,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[0] event
-        enum class triggered0Val {
+        enum class Triggered0Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered0ValC{
-            constexpr MPL::Value<triggered0Val,triggered0Val::disabled> disabled{};
-            constexpr MPL::Value<triggered0Val,triggered0Val::enabled> enabled{};
-            constexpr MPL::Value<triggered0Val,triggered0Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Triggered0Val> triggered0{}; 
+        namespace Triggered0ValC{
+            constexpr Register::FieldValue<decltype(triggered0),Triggered0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered0),Triggered0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered0),Triggered0Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,triggered0Val> triggered0{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[1] event
-        enum class triggered1Val {
+        enum class Triggered1Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered1ValC{
-            constexpr MPL::Value<triggered1Val,triggered1Val::disabled> disabled{};
-            constexpr MPL::Value<triggered1Val,triggered1Val::enabled> enabled{};
-            constexpr MPL::Value<triggered1Val,triggered1Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Triggered1Val> triggered1{}; 
+        namespace Triggered1ValC{
+            constexpr Register::FieldValue<decltype(triggered1),Triggered1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered1),Triggered1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered1),Triggered1Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,triggered1Val> triggered1{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[2] event
-        enum class triggered2Val {
+        enum class Triggered2Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered2ValC{
-            constexpr MPL::Value<triggered2Val,triggered2Val::disabled> disabled{};
-            constexpr MPL::Value<triggered2Val,triggered2Val::enabled> enabled{};
-            constexpr MPL::Value<triggered2Val,triggered2Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Triggered2Val> triggered2{}; 
+        namespace Triggered2ValC{
+            constexpr Register::FieldValue<decltype(triggered2),Triggered2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered2),Triggered2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered2),Triggered2Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,triggered2Val> triggered2{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[3] event
-        enum class triggered3Val {
+        enum class Triggered3Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered3ValC{
-            constexpr MPL::Value<triggered3Val,triggered3Val::disabled> disabled{};
-            constexpr MPL::Value<triggered3Val,triggered3Val::enabled> enabled{};
-            constexpr MPL::Value<triggered3Val,triggered3Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Triggered3Val> triggered3{}; 
+        namespace Triggered3ValC{
+            constexpr Register::FieldValue<decltype(triggered3),Triggered3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered3),Triggered3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered3),Triggered3Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,triggered3Val> triggered3{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[4] event
-        enum class triggered4Val {
+        enum class Triggered4Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered4ValC{
-            constexpr MPL::Value<triggered4Val,triggered4Val::disabled> disabled{};
-            constexpr MPL::Value<triggered4Val,triggered4Val::enabled> enabled{};
-            constexpr MPL::Value<triggered4Val,triggered4Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Triggered4Val> triggered4{}; 
+        namespace Triggered4ValC{
+            constexpr Register::FieldValue<decltype(triggered4),Triggered4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered4),Triggered4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered4),Triggered4Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,triggered4Val> triggered4{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[5] event
-        enum class triggered5Val {
+        enum class Triggered5Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered5ValC{
-            constexpr MPL::Value<triggered5Val,triggered5Val::disabled> disabled{};
-            constexpr MPL::Value<triggered5Val,triggered5Val::enabled> enabled{};
-            constexpr MPL::Value<triggered5Val,triggered5Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Triggered5Val> triggered5{}; 
+        namespace Triggered5ValC{
+            constexpr Register::FieldValue<decltype(triggered5),Triggered5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered5),Triggered5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered5),Triggered5Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,triggered5Val> triggered5{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[6] event
-        enum class triggered6Val {
+        enum class Triggered6Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered6ValC{
-            constexpr MPL::Value<triggered6Val,triggered6Val::disabled> disabled{};
-            constexpr MPL::Value<triggered6Val,triggered6Val::enabled> enabled{};
-            constexpr MPL::Value<triggered6Val,triggered6Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Triggered6Val> triggered6{}; 
+        namespace Triggered6ValC{
+            constexpr Register::FieldValue<decltype(triggered6),Triggered6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered6),Triggered6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered6),Triggered6Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,triggered6Val> triggered6{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[7] event
-        enum class triggered7Val {
+        enum class Triggered7Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered7ValC{
-            constexpr MPL::Value<triggered7Val,triggered7Val::disabled> disabled{};
-            constexpr MPL::Value<triggered7Val,triggered7Val::enabled> enabled{};
-            constexpr MPL::Value<triggered7Val,triggered7Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Triggered7Val> triggered7{}; 
+        namespace Triggered7ValC{
+            constexpr Register::FieldValue<decltype(triggered7),Triggered7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered7),Triggered7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered7),Triggered7Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,triggered7Val> triggered7{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[8] event
-        enum class triggered8Val {
+        enum class Triggered8Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered8ValC{
-            constexpr MPL::Value<triggered8Val,triggered8Val::disabled> disabled{};
-            constexpr MPL::Value<triggered8Val,triggered8Val::enabled> enabled{};
-            constexpr MPL::Value<triggered8Val,triggered8Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Triggered8Val> triggered8{}; 
+        namespace Triggered8ValC{
+            constexpr Register::FieldValue<decltype(triggered8),Triggered8Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered8),Triggered8Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered8),Triggered8Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,triggered8Val> triggered8{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[9] event
-        enum class triggered9Val {
+        enum class Triggered9Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered9ValC{
-            constexpr MPL::Value<triggered9Val,triggered9Val::disabled> disabled{};
-            constexpr MPL::Value<triggered9Val,triggered9Val::enabled> enabled{};
-            constexpr MPL::Value<triggered9Val,triggered9Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Triggered9Val> triggered9{}; 
+        namespace Triggered9ValC{
+            constexpr Register::FieldValue<decltype(triggered9),Triggered9Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered9),Triggered9Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered9),Triggered9Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,triggered9Val> triggered9{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[10] event
-        enum class triggered10Val {
+        enum class Triggered10Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered10ValC{
-            constexpr MPL::Value<triggered10Val,triggered10Val::disabled> disabled{};
-            constexpr MPL::Value<triggered10Val,triggered10Val::enabled> enabled{};
-            constexpr MPL::Value<triggered10Val,triggered10Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Triggered10Val> triggered10{}; 
+        namespace Triggered10ValC{
+            constexpr Register::FieldValue<decltype(triggered10),Triggered10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered10),Triggered10Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered10),Triggered10Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,triggered10Val> triggered10{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[11] event
-        enum class triggered11Val {
+        enum class Triggered11Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered11ValC{
-            constexpr MPL::Value<triggered11Val,triggered11Val::disabled> disabled{};
-            constexpr MPL::Value<triggered11Val,triggered11Val::enabled> enabled{};
-            constexpr MPL::Value<triggered11Val,triggered11Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Triggered11Val> triggered11{}; 
+        namespace Triggered11ValC{
+            constexpr Register::FieldValue<decltype(triggered11),Triggered11Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered11),Triggered11Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered11),Triggered11Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,triggered11Val> triggered11{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[12] event
-        enum class triggered12Val {
+        enum class Triggered12Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered12ValC{
-            constexpr MPL::Value<triggered12Val,triggered12Val::disabled> disabled{};
-            constexpr MPL::Value<triggered12Val,triggered12Val::enabled> enabled{};
-            constexpr MPL::Value<triggered12Val,triggered12Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Triggered12Val> triggered12{}; 
+        namespace Triggered12ValC{
+            constexpr Register::FieldValue<decltype(triggered12),Triggered12Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered12),Triggered12Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered12),Triggered12Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,triggered12Val> triggered12{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[13] event
-        enum class triggered13Val {
+        enum class Triggered13Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered13ValC{
-            constexpr MPL::Value<triggered13Val,triggered13Val::disabled> disabled{};
-            constexpr MPL::Value<triggered13Val,triggered13Val::enabled> enabled{};
-            constexpr MPL::Value<triggered13Val,triggered13Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Triggered13Val> triggered13{}; 
+        namespace Triggered13ValC{
+            constexpr Register::FieldValue<decltype(triggered13),Triggered13Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered13),Triggered13Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered13),Triggered13Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,triggered13Val> triggered13{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[14] event
-        enum class triggered14Val {
+        enum class Triggered14Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered14ValC{
-            constexpr MPL::Value<triggered14Val,triggered14Val::disabled> disabled{};
-            constexpr MPL::Value<triggered14Val,triggered14Val::enabled> enabled{};
-            constexpr MPL::Value<triggered14Val,triggered14Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Triggered14Val> triggered14{}; 
+        namespace Triggered14ValC{
+            constexpr Register::FieldValue<decltype(triggered14),Triggered14Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered14),Triggered14Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered14),Triggered14Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,triggered14Val> triggered14{}; 
         ///Write '1' to Clear interrupt on EVENTS_TRIGGERED[15] event
-        enum class triggered15Val {
+        enum class Triggered15Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace triggered15ValC{
-            constexpr MPL::Value<triggered15Val,triggered15Val::disabled> disabled{};
-            constexpr MPL::Value<triggered15Val,triggered15Val::enabled> enabled{};
-            constexpr MPL::Value<triggered15Val,triggered15Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Triggered15Val> triggered15{}; 
+        namespace Triggered15ValC{
+            constexpr Register::FieldValue<decltype(triggered15),Triggered15Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(triggered15),Triggered15Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(triggered15),Triggered15Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,triggered15Val> triggered15{}; 
     }
 }

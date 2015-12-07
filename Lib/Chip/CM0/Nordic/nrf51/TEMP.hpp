@@ -14,32 +14,32 @@ namespace Kvasir {
     namespace Noneintenset{    ///<Interrupt enable set register.
         using Addr = Register::Address<0x4000c304,0xfffffffe,0,unsigned>;
         ///Enable interrupt on DATARDY event.
-        enum class datardyVal {
+        enum class DatardyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
             enabled=0x00000001,     ///<Interrupt enabled.
             set=0x00000001,     ///<Enable interrupt on write.
         };
-        namespace datardyValC{
-            constexpr MPL::Value<datardyVal,datardyVal::disabled> disabled{};
-            constexpr MPL::Value<datardyVal,datardyVal::enabled> enabled{};
-            constexpr MPL::Value<datardyVal,datardyVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatardyVal> datardy{}; 
+        namespace DatardyValC{
+            constexpr Register::FieldValue<decltype(datardy),DatardyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(datardy),DatardyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(datardy),DatardyVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,datardyVal> datardy{}; 
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
         using Addr = Register::Address<0x4000c308,0xfffffffe,0,unsigned>;
         ///Disable interrupt on DATARDY event.
-        enum class datardyVal {
+        enum class DatardyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
             enabled=0x00000001,     ///<Interrupt enabled.
             clear=0x00000001,     ///<Disable interrupt on write.
         };
-        namespace datardyValC{
-            constexpr MPL::Value<datardyVal,datardyVal::disabled> disabled{};
-            constexpr MPL::Value<datardyVal,datardyVal::enabled> enabled{};
-            constexpr MPL::Value<datardyVal,datardyVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatardyVal> datardy{}; 
+        namespace DatardyValC{
+            constexpr Register::FieldValue<decltype(datardy),DatardyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(datardy),DatardyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(datardy),DatardyVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,datardyVal> datardy{}; 
     }
     namespace Nonetemp{    ///<Die temperature in degC, 2's complement format, 0.25 degC pecision.
         using Addr = Register::Address<0x4000c508,0xffffffff,0,unsigned>;
@@ -47,14 +47,14 @@ namespace Kvasir {
     namespace Nonepower{    ///<Peripheral power control.
         using Addr = Register::Address<0x4000cffc,0xfffffffe,0,unsigned>;
         ///Peripheral power control.
-        enum class powerVal {
+        enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.
             enabled=0x00000001,     ///<Module power enabled.
         };
-        namespace powerValC{
-            constexpr MPL::Value<powerVal,powerVal::disabled> disabled{};
-            constexpr MPL::Value<powerVal,powerVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
+        namespace PowerValC{
+            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,powerVal> power{}; 
     }
 }

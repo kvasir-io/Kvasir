@@ -5,138 +5,138 @@ namespace Kvasir {
     namespace RcmSrs0{    ///<System Reset Status Register 0
         using Addr = Register::Address<0x4007f000,0xffffff18,0,unsigned char>;
         ///Low Leakage Wakeup Reset
-        enum class wakeupVal {
+        enum class WakeupVal {
             v0=0x00000000,     ///<Reset not caused by wakeup source
             v1=0x00000001,     ///<Reset caused by wakeup source
         };
-        namespace wakeupValC{
-            constexpr MPL::Value<wakeupVal,wakeupVal::v0> v0{};
-            constexpr MPL::Value<wakeupVal,wakeupVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
+        namespace WakeupValC{
+            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,wakeupVal> wakeup{}; 
         ///Low-Voltage Detect Reset
-        enum class lvdVal {
+        enum class LvdVal {
             v0=0x00000000,     ///<Reset not caused by LVD trip or POR
             v1=0x00000001,     ///<Reset caused by LVD trip or POR
         };
-        namespace lvdValC{
-            constexpr MPL::Value<lvdVal,lvdVal::v0> v0{};
-            constexpr MPL::Value<lvdVal,lvdVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LvdVal> lvd{}; 
+        namespace LvdValC{
+            constexpr Register::FieldValue<decltype(lvd),LvdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvd),LvdVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,lvdVal> lvd{}; 
         ///Loss-of-Clock Reset
-        enum class locVal {
+        enum class LocVal {
             v0=0x00000000,     ///<Reset not caused by a loss of external clock.
             v1=0x00000001,     ///<Reset caused by a loss of external clock.
         };
-        namespace locValC{
-            constexpr MPL::Value<locVal,locVal::v0> v0{};
-            constexpr MPL::Value<locVal,locVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,LocVal> loc{}; 
+        namespace LocValC{
+            constexpr Register::FieldValue<decltype(loc),LocVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(loc),LocVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,locVal> loc{}; 
         ///Watchdog
-        enum class wdogVal {
+        enum class WdogVal {
             v0=0x00000000,     ///<Reset not caused by watchdog timeout
             v1=0x00000001,     ///<Reset caused by watchdog timeout
         };
-        namespace wdogValC{
-            constexpr MPL::Value<wdogVal,wdogVal::v0> v0{};
-            constexpr MPL::Value<wdogVal,wdogVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WdogVal> wdog{}; 
+        namespace WdogValC{
+            constexpr Register::FieldValue<decltype(wdog),WdogVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wdog),WdogVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wdogVal> wdog{}; 
         ///External Reset Pin
-        enum class pinVal {
+        enum class PinVal {
             v0=0x00000000,     ///<Reset not caused by external reset pin
             v1=0x00000001,     ///<Reset caused by external reset pin
         };
-        namespace pinValC{
-            constexpr MPL::Value<pinVal,pinVal::v0> v0{};
-            constexpr MPL::Value<pinVal,pinVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PinVal> pin{}; 
+        namespace PinValC{
+            constexpr Register::FieldValue<decltype(pin),PinVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pin),PinVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,pinVal> pin{}; 
         ///Power-On Reset
-        enum class porVal {
+        enum class PorVal {
             v0=0x00000000,     ///<Reset not caused by POR
             v1=0x00000001,     ///<Reset caused by POR
         };
-        namespace porValC{
-            constexpr MPL::Value<porVal,porVal::v0> v0{};
-            constexpr MPL::Value<porVal,porVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PorVal> por{}; 
+        namespace PorValC{
+            constexpr Register::FieldValue<decltype(por),PorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(por),PorVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,porVal> por{}; 
     }
     namespace RcmSrs1{    ///<System Reset Status Register 1
         using Addr = Register::Address<0x4007f001,0xffffffd1,0,unsigned char>;
         ///Core Lockup
-        enum class lockupVal {
+        enum class LockupVal {
             v0=0x00000000,     ///<Reset not caused by core LOCKUP event
             v1=0x00000001,     ///<Reset caused by core LOCKUP event
         };
-        namespace lockupValC{
-            constexpr MPL::Value<lockupVal,lockupVal::v0> v0{};
-            constexpr MPL::Value<lockupVal,lockupVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LockupVal> lockup{}; 
+        namespace LockupValC{
+            constexpr Register::FieldValue<decltype(lockup),LockupVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lockup),LockupVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,lockupVal> lockup{}; 
         ///Software
-        enum class swVal {
+        enum class SwVal {
             v0=0x00000000,     ///<Reset not caused by software setting of SYSRESETREQ bit
             v1=0x00000001,     ///<Reset caused by software setting of SYSRESETREQ bit
         };
-        namespace swValC{
-            constexpr MPL::Value<swVal,swVal::v0> v0{};
-            constexpr MPL::Value<swVal,swVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwVal> sw{}; 
+        namespace SwValC{
+            constexpr Register::FieldValue<decltype(sw),SwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sw),SwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,swVal> sw{}; 
         ///MDM-AP System Reset Request
-        enum class mdmApVal {
+        enum class MdmapVal {
             v0=0x00000000,     ///<Reset not caused by host debugger system setting of the System Reset Request bit
             v1=0x00000001,     ///<Reset caused by host debugger system setting of the System Reset Request bit
         };
-        namespace mdmApValC{
-            constexpr MPL::Value<mdmApVal,mdmApVal::v0> v0{};
-            constexpr MPL::Value<mdmApVal,mdmApVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,MdmapVal> mdmAp{}; 
+        namespace MdmapValC{
+            constexpr Register::FieldValue<decltype(mdmAp),MdmapVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mdmAp),MdmapVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,mdmApVal> mdmAp{}; 
         ///Stop Mode Acknowledge Error Reset
-        enum class sackerrVal {
+        enum class SackerrVal {
             v0=0x00000000,     ///<Reset not caused by peripheral failure to acknowledge attempt to enter stop mode
             v1=0x00000001,     ///<Reset caused by peripheral failure to acknowledge attempt to enter stop mode
         };
-        namespace sackerrValC{
-            constexpr MPL::Value<sackerrVal,sackerrVal::v0> v0{};
-            constexpr MPL::Value<sackerrVal,sackerrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SackerrVal> sackerr{}; 
+        namespace SackerrValC{
+            constexpr Register::FieldValue<decltype(sackerr),SackerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sackerr),SackerrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,sackerrVal> sackerr{}; 
     }
     namespace RcmRpfc{    ///<Reset Pin Filter Control register
         using Addr = Register::Address<0x4007f004,0xfffffff8,0,unsigned char>;
         ///Reset Pin Filter Select in Run and Wait Modes
-        enum class rstfltsrwVal {
+        enum class RstfltsrwVal {
             v00=0x00000000,     ///<All filtering disabled
             v01=0x00000001,     ///<Bus clock filter enabled for normal operation
             v10=0x00000002,     ///<LPO clock filter enabled for normal operation
         };
-        namespace rstfltsrwValC{
-            constexpr MPL::Value<rstfltsrwVal,rstfltsrwVal::v00> v00{};
-            constexpr MPL::Value<rstfltsrwVal,rstfltsrwVal::v01> v01{};
-            constexpr MPL::Value<rstfltsrwVal,rstfltsrwVal::v10> v10{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RstfltsrwVal> rstfltsrw{}; 
+        namespace RstfltsrwValC{
+            constexpr Register::FieldValue<decltype(rstfltsrw),RstfltsrwVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rstfltsrw),RstfltsrwVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rstfltsrw),RstfltsrwVal::v10> v10{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,rstfltsrwVal> rstfltsrw{}; 
         ///Reset Pin Filter Select in Stop Mode
-        enum class rstfltssVal {
+        enum class RstfltssVal {
             v0=0x00000000,     ///<All filtering disabled
             v1=0x00000001,     ///<LPO clock filter enabled
         };
-        namespace rstfltssValC{
-            constexpr MPL::Value<rstfltssVal,rstfltssVal::v0> v0{};
-            constexpr MPL::Value<rstfltssVal,rstfltssVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RstfltssVal> rstfltss{}; 
+        namespace RstfltssValC{
+            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,rstfltssVal> rstfltss{}; 
     }
     namespace RcmRpfw{    ///<Reset Pin Filter Width register
         using Addr = Register::Address<0x4007f005,0xffffffe0,0,unsigned char>;
         ///Reset Pin Filter Bus Clock Select
-        enum class rstfltselVal {
+        enum class RstfltselVal {
             v00000=0x00000000,     ///<Bus clock filter count is 1
             v00001=0x00000001,     ///<Bus clock filter count is 2
             v00010=0x00000002,     ///<Bus clock filter count is 3
@@ -170,40 +170,40 @@ namespace Kvasir {
             v11110=0x0000001e,     ///<Bus clock filter count is 31
             v11111=0x0000001f,     ///<Bus clock filter count is 32
         };
-        namespace rstfltselValC{
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v00000> v00000{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v00001> v00001{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v00010> v00010{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v00011> v00011{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v00100> v00100{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v00101> v00101{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v00110> v00110{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v00111> v00111{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v01000> v01000{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v01001> v01001{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v01010> v01010{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v01011> v01011{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v01100> v01100{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v01101> v01101{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v01110> v01110{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v01111> v01111{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v10000> v10000{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v10001> v10001{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v10010> v10010{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v10011> v10011{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v10100> v10100{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v10101> v10101{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v10110> v10110{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v10111> v10111{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v11000> v11000{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v11001> v11001{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v11010> v11010{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v11011> v11011{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v11100> v11100{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v11101> v11101{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v11110> v11110{};
-            constexpr MPL::Value<rstfltselVal,rstfltselVal::v11111> v11111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,RstfltselVal> rstfltsel{}; 
+        namespace RstfltselValC{
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v11000> v11000{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v11001> v11001{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v11100> v11100{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(rstfltsel),RstfltselVal::v11111> v11111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,rstfltselVal> rstfltsel{}; 
     }
 }

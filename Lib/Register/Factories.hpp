@@ -30,9 +30,9 @@ namespace Register{
 		template<typename TLocation, unsigned Value>
 		struct Write;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType, unsigned Value>
-		struct Write<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>, Value>
+		struct Write<FieldLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>, Value>
 			: Action<
-				BitLocation<
+				FieldLocation<
 					TAddress,
 					Mask,
 					Access<Readable,true,ClearOnRead,false,false>,
@@ -45,9 +45,9 @@ namespace Register{
 		template<typename TLocation>
 		struct Set;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
-		struct Set<BitLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>>
+		struct Set<FieldLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>>
 			: Action<
-				BitLocation<
+				FieldLocation<
 					TAddress,
 					Mask,
 					Access<Readable,true,ClearOnRead,false,false>,
@@ -65,13 +65,13 @@ namespace Register{
 		struct Clear;
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
 		struct Clear<
-			BitLocation<
+			FieldLocation<
 				TAddress,
 				Mask,
 				Access<Readable,true,ClearOnRead,false,false>,
 				TFieldType>> :
 			Action<
-				BitLocation<
+				FieldLocation<
 					TAddress,
 					Mask,
 					Access<Readable,true,ClearOnRead,false,false>,
@@ -91,13 +91,13 @@ namespace Register{
 		};
 		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
 		struct Reset<
-			BitLocation<
+			FieldLocation<
 				TAddress,
 				Mask,
 				Access<Readable,true,ClearOnRead,false,true>,
 				TFieldType>> :
 			Action<
-				BitLocation<
+				FieldLocation<
 					TAddress,
 					Mask,
 					Access<Readable,true,ClearOnRead,false,true>,
@@ -112,9 +112,9 @@ namespace Register{
 
 	}
 
-//Action factories which turn a BitLocation into an Action
+//Action factories which turn a FieldLocation into an Action
 	template<typename T>
-	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Action<T,ReadAction>>
+	constexpr inline MPL::EnableIfT<Detail::IsFieldLocation<T>::value,Action<T,ReadAction>>
 	read(T){
 		return {};
 	}
@@ -125,7 +125,7 @@ namespace Register{
 	}
 
 	template<typename T>
-	constexpr MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::SetT<T>>
+	constexpr MPL::EnableIfT<Detail::IsFieldLocation<T>::value,Detail::SetT<T>>
 	set(T){
 		return {};
 	}
@@ -136,7 +136,7 @@ namespace Register{
 	}
 
 	template<typename T>
-	constexpr MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::ClearT<T>>
+	constexpr MPL::EnableIfT<Detail::IsFieldLocation<T>::value,Detail::ClearT<T>>
 	clear(T){
 		return {};
 	}
@@ -147,7 +147,7 @@ namespace Register{
 	}
 
 	template<typename T>
-	constexpr MPL::EnableIfT<Detail::IsBitLocation<T>::value,Detail::ResetT<T>>
+	constexpr MPL::EnableIfT<Detail::IsFieldLocation<T>::value,Detail::ResetT<T>>
 	reset(T){
 		static_assert(Detail::IsSetToClear<T>::value,"Access violation: Register::reset only works on set to clear bits");
 		return {};
@@ -162,9 +162,9 @@ namespace Register{
 	//Write of runtime value
 	//T must be bit location or function will be removed from overload set
 	template<typename T>
-	constexpr inline MPL::EnableIfT<Detail::IsBitLocation<T>::value,Action<T,WriteAction>>
+	constexpr inline MPL::EnableIfT<Detail::IsFieldLocation<T>::value,Action<T,WriteAction>>
 	write(T,Detail::GetFieldTypeT<T> in){
-		static_assert(Detail::IsWritable<T>::value,"Access violation: The BitLocation provided is not marked as writable");
+		static_assert(Detail::IsWritable<T>::value,"Access violation: The FieldLocation provided is not marked as writable");
 		return Action<T,WriteAction>{unsigned(in)};
 	}
 
@@ -173,11 +173,19 @@ namespace Register{
 	//U mst be compile time value or function will be removed from overload set
 	template<typename T, typename U>
 	constexpr inline MPL::EnableIfT<
-		(Detail::IsBitLocation<T>::value && MPL::IsValue<U>::value),
-		Detail::WriteT<T,Detail::ValueToUnsigned<U>::value>>
-	write(T, U){
-		static_assert(Detail::WriteLocationAndCompileTimeValueTypeAreSame<T,U>::value,"type mismatch: the BitLocation field type and the compile time Value type must be the same");
-		return {};
+		(Detail::IsFieldLocation<T>::value && MPL::IsValue<U>::value),
+		Detail::WriteT<T, Detail::ValueToUnsigned<U>::value>>
+	write(T, U) {
+		static_assert(Detail::WriteLocationAndCompileTimeValueTypeAreSame<T, U>::value, "type mismatch: the FieldLocation field type and the compile time Value type must be the same");
+		return { };
 	}
+	
+	//compile time field value
+	//T must be a field value or function will be removed from overload set
+	template<typename T, typename T::DataType V>
+	constexpr inline decltype(write(T{}, MPL::Value<typename T::DataType, V>{}))
+		write(FieldValue<T, V>) {
+			return { };
+		}
 }
 }

@@ -8,3889 +8,3889 @@ namespace Kvasir {
     namespace Aips0Pacra{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000020,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor Protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write Protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted Protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor Protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted Protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrb{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000024,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor Protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write Protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted Protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor Protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted Protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrc{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000028,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor Protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write Protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted Protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor Protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted Protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrd{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x4000002c,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor Protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write Protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted Protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor Protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted Protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacre{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000040,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrf{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000044,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrg{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000048,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrh{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x4000004c,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacri{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000050,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrj{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000054,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrk{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000058,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrl{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x4000005c,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrm{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000060,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrn{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000064,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacro{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x40000068,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
     namespace Aips0Pacrp{    ///<Peripheral Access Control Register
         using Addr = Register::Address<0x4000006c,0x88888888,0,unsigned>;
         ///Trusted Protect
-        enum class tp7Val {
+        enum class Tp7Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp7ValC{
-            constexpr MPL::Value<tp7Val,tp7Val::v0> v0{};
-            constexpr MPL::Value<tp7Val,tp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Tp7Val> tp7{}; 
+        namespace Tp7ValC{
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp7),Tp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tp7Val> tp7{}; 
         ///Write Protect
-        enum class wp7Val {
+        enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp7ValC{
-            constexpr MPL::Value<wp7Val,wp7Val::v0> v0{};
-            constexpr MPL::Value<wp7Val,wp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wp7Val> wp7{}; 
+        namespace Wp7ValC{
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp7),Wp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wp7Val> wp7{}; 
         ///Supervisor Protect
-        enum class sp7Val {
+        enum class Sp7Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp7ValC{
-            constexpr MPL::Value<sp7Val,sp7Val::v0> v0{};
-            constexpr MPL::Value<sp7Val,sp7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sp7Val> sp7{}; 
+        namespace Sp7ValC{
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp7),Sp7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sp7Val> sp7{}; 
         ///Trusted Protect
-        enum class tp6Val {
+        enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp6ValC{
-            constexpr MPL::Value<tp6Val,tp6Val::v0> v0{};
-            constexpr MPL::Value<tp6Val,tp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Tp6Val> tp6{}; 
+        namespace Tp6ValC{
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp6),Tp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tp6Val> tp6{}; 
         ///Write Protect
-        enum class wp6Val {
+        enum class Wp6Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp6ValC{
-            constexpr MPL::Value<wp6Val,wp6Val::v0> v0{};
-            constexpr MPL::Value<wp6Val,wp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wp6Val> wp6{}; 
+        namespace Wp6ValC{
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp6),Wp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wp6Val> wp6{}; 
         ///Supervisor Protect
-        enum class sp6Val {
+        enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp6ValC{
-            constexpr MPL::Value<sp6Val,sp6Val::v0> v0{};
-            constexpr MPL::Value<sp6Val,sp6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Sp6Val> sp6{}; 
+        namespace Sp6ValC{
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp6),Sp6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sp6Val> sp6{}; 
         ///Trusted Protect
-        enum class tp5Val {
+        enum class Tp5Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp5ValC{
-            constexpr MPL::Value<tp5Val,tp5Val::v0> v0{};
-            constexpr MPL::Value<tp5Val,tp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Tp5Val> tp5{}; 
+        namespace Tp5ValC{
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp5),Tp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,tp5Val> tp5{}; 
         ///Write Protect
-        enum class wp5Val {
+        enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp5ValC{
-            constexpr MPL::Value<wp5Val,wp5Val::v0> v0{};
-            constexpr MPL::Value<wp5Val,wp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wp5Val> wp5{}; 
+        namespace Wp5ValC{
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp5),Wp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,wp5Val> wp5{}; 
         ///Supervisor Protect
-        enum class sp5Val {
+        enum class Sp5Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp5ValC{
-            constexpr MPL::Value<sp5Val,sp5Val::v0> v0{};
-            constexpr MPL::Value<sp5Val,sp5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sp5Val> sp5{}; 
+        namespace Sp5ValC{
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp5),Sp5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sp5Val> sp5{}; 
         ///Trusted protect
-        enum class tp4Val {
+        enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp4ValC{
-            constexpr MPL::Value<tp4Val,tp4Val::v0> v0{};
-            constexpr MPL::Value<tp4Val,tp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Tp4Val> tp4{}; 
+        namespace Tp4ValC{
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp4),Tp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,tp4Val> tp4{}; 
         ///Write Protect
-        enum class wp4Val {
+        enum class Wp4Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp4ValC{
-            constexpr MPL::Value<wp4Val,wp4Val::v0> v0{};
-            constexpr MPL::Value<wp4Val,wp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wp4Val> wp4{}; 
+        namespace Wp4ValC{
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp4),Wp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,wp4Val> wp4{}; 
         ///Supervisor protect
-        enum class sp4Val {
+        enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp4ValC{
-            constexpr MPL::Value<sp4Val,sp4Val::v0> v0{};
-            constexpr MPL::Value<sp4Val,sp4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Sp4Val> sp4{}; 
+        namespace Sp4ValC{
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp4),Sp4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,sp4Val> sp4{}; 
         ///Trusted Protect
-        enum class tp3Val {
+        enum class Tp3Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp3ValC{
-            constexpr MPL::Value<tp3Val,tp3Val::v0> v0{};
-            constexpr MPL::Value<tp3Val,tp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Tp3Val> tp3{}; 
+        namespace Tp3ValC{
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp3),Tp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,tp3Val> tp3{}; 
         ///Write protect
-        enum class wp3Val {
+        enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp3ValC{
-            constexpr MPL::Value<wp3Val,wp3Val::v0> v0{};
-            constexpr MPL::Value<wp3Val,wp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wp3Val> wp3{}; 
+        namespace Wp3ValC{
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp3),Wp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,wp3Val> wp3{}; 
         ///Supervisor Protect
-        enum class sp3Val {
+        enum class Sp3Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp3ValC{
-            constexpr MPL::Value<sp3Val,sp3Val::v0> v0{};
-            constexpr MPL::Value<sp3Val,sp3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Sp3Val> sp3{}; 
+        namespace Sp3ValC{
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp3),Sp3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,sp3Val> sp3{}; 
         ///Trusted protect
-        enum class tp2Val {
+        enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp2ValC{
-            constexpr MPL::Value<tp2Val,tp2Val::v0> v0{};
-            constexpr MPL::Value<tp2Val,tp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Tp2Val> tp2{}; 
+        namespace Tp2ValC{
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp2),Tp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,tp2Val> tp2{}; 
         ///Write Protect
-        enum class wp2Val {
+        enum class Wp2Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp2ValC{
-            constexpr MPL::Value<wp2Val,wp2Val::v0> v0{};
-            constexpr MPL::Value<wp2Val,wp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wp2Val> wp2{}; 
+        namespace Wp2ValC{
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp2),Wp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,wp2Val> wp2{}; 
         ///Supervisor protect
-        enum class sp2Val {
+        enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp2ValC{
-            constexpr MPL::Value<sp2Val,sp2Val::v0> v0{};
-            constexpr MPL::Value<sp2Val,sp2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Sp2Val> sp2{}; 
+        namespace Sp2ValC{
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp2),Sp2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,sp2Val> sp2{}; 
         ///Trusted Protect
-        enum class tp1Val {
+        enum class Tp1Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp1ValC{
-            constexpr MPL::Value<tp1Val,tp1Val::v0> v0{};
-            constexpr MPL::Value<tp1Val,tp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Tp1Val> tp1{}; 
+        namespace Tp1ValC{
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp1),Tp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,tp1Val> tp1{}; 
         ///Write Protect
-        enum class wp1Val {
+        enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp1ValC{
-            constexpr MPL::Value<wp1Val,wp1Val::v0> v0{};
-            constexpr MPL::Value<wp1Val,wp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wp1Val> wp1{}; 
+        namespace Wp1ValC{
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp1),Wp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,wp1Val> wp1{}; 
         ///Supervisor Protect
-        enum class sp1Val {
+        enum class Sp1Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp1ValC{
-            constexpr MPL::Value<sp1Val,sp1Val::v0> v0{};
-            constexpr MPL::Value<sp1Val,sp1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Sp1Val> sp1{}; 
+        namespace Sp1ValC{
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp1),Sp1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,sp1Val> sp1{}; 
         ///Trusted protect
-        enum class tp0Val {
+        enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
             v1=0x00000001,     ///<Accesses from an untrusted master are not allowed.
         };
-        namespace tp0ValC{
-            constexpr MPL::Value<tp0Val,tp0Val::v0> v0{};
-            constexpr MPL::Value<tp0Val,tp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Tp0Val> tp0{}; 
+        namespace Tp0ValC{
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(tp0),Tp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,tp0Val> tp0{}; 
         ///Write Protect
-        enum class wp0Val {
+        enum class Wp0Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
             v1=0x00000001,     ///<This peripheral is write protected.
         };
-        namespace wp0ValC{
-            constexpr MPL::Value<wp0Val,wp0Val::v0> v0{};
-            constexpr MPL::Value<wp0Val,wp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wp0Val> wp0{}; 
+        namespace Wp0ValC{
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(wp0),Wp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,wp0Val> wp0{}; 
         ///Supervisor Protect
-        enum class sp0Val {
+        enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
             v1=0x00000001,     ///<This peripheral requires supervisor privilege level for accesses.
         };
-        namespace sp0ValC{
-            constexpr MPL::Value<sp0Val,sp0Val::v0> v0{};
-            constexpr MPL::Value<sp0Val,sp0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Sp0Val> sp0{}; 
+        namespace Sp0ValC{
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(sp0),Sp0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,sp0Val> sp0{}; 
     }
 }

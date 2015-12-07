@@ -35,795 +35,797 @@ namespace Kvasir {
     namespace Noneinten{    ///<Enable or disable interrupt
         using Addr = Register::Address<0x40007300,0xffc00000,0,unsigned>;
         ///Enable or disable interrupt on EVENTS_STARTED event
-        enum class startedVal {
+        enum class StartedVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace startedValC{
-            constexpr MPL::Value<startedVal,startedVal::disabled> disabled{};
-            constexpr MPL::Value<startedVal,startedVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
+        namespace StartedValC{
+            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,startedVal> started{}; 
         ///Enable or disable interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,endVal> end{}; 
         ///Enable or disable interrupt on EVENTS_DONE event
-        enum class doneVal {
+        enum class DoneVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace doneValC{
-            constexpr MPL::Value<doneVal,doneVal::disabled> disabled{};
-            constexpr MPL::Value<doneVal,doneVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DoneVal> done{}; 
+        namespace DoneValC{
+            constexpr Register::FieldValue<decltype(done),DoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,doneVal> done{}; 
         ///Enable or disable interrupt on EVENTS_RESULTDONE event
-        enum class resultdoneVal {
+        enum class ResultdoneVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace resultdoneValC{
-            constexpr MPL::Value<resultdoneVal,resultdoneVal::disabled> disabled{};
-            constexpr MPL::Value<resultdoneVal,resultdoneVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ResultdoneVal> resultdone{}; 
+        namespace ResultdoneValC{
+            constexpr Register::FieldValue<decltype(resultdone),ResultdoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(resultdone),ResultdoneVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,resultdoneVal> resultdone{}; 
         ///Enable or disable interrupt on EVENTS_CALIBRATEDONE event
-        enum class calibratedoneVal {
+        enum class CalibratedoneVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace calibratedoneValC{
-            constexpr MPL::Value<calibratedoneVal,calibratedoneVal::disabled> disabled{};
-            constexpr MPL::Value<calibratedoneVal,calibratedoneVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CalibratedoneVal> calibratedone{}; 
+        namespace CalibratedoneValC{
+            constexpr Register::FieldValue<decltype(calibratedone),CalibratedoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(calibratedone),CalibratedoneVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,calibratedoneVal> calibratedone{}; 
         ///Enable or disable interrupt on EVENTS_STOPPED event
-        enum class stoppedVal {
+        enum class StoppedVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace stoppedValC{
-            constexpr MPL::Value<stoppedVal,stoppedVal::disabled> disabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,StoppedVal> stopped{}; 
+        namespace StoppedValC{
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,stoppedVal> stopped{}; 
         ///Enable or disable interrupt on EVENTS_CH[0].LIMITH event
-        enum class ch0limithVal {
+        enum class Ch0limithVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch0limithValC{
-            constexpr MPL::Value<ch0limithVal,ch0limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch0limithVal,ch0limithVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch0limithVal> ch0limith{}; 
+        namespace Ch0limithValC{
+            constexpr Register::FieldValue<decltype(ch0limith),Ch0limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0limith),Ch0limithVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ch0limithVal> ch0limith{}; 
         ///Enable or disable interrupt on EVENTS_CH[0].LIMITL event
-        enum class ch0limitlVal {
+        enum class Ch0limitlVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch0limitlValC{
-            constexpr MPL::Value<ch0limitlVal,ch0limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch0limitlVal,ch0limitlVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch0limitlVal> ch0limitl{}; 
+        namespace Ch0limitlValC{
+            constexpr Register::FieldValue<decltype(ch0limitl),Ch0limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0limitl),Ch0limitlVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ch0limitlVal> ch0limitl{}; 
         ///Enable or disable interrupt on EVENTS_CH[1].LIMITH event
-        enum class ch1limithVal {
+        enum class Ch1limithVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch1limithValC{
-            constexpr MPL::Value<ch1limithVal,ch1limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch1limithVal,ch1limithVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch1limithVal> ch1limith{}; 
+        namespace Ch1limithValC{
+            constexpr Register::FieldValue<decltype(ch1limith),Ch1limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1limith),Ch1limithVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ch1limithVal> ch1limith{}; 
         ///Enable or disable interrupt on EVENTS_CH[1].LIMITL event
-        enum class ch1limitlVal {
+        enum class Ch1limitlVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch1limitlValC{
-            constexpr MPL::Value<ch1limitlVal,ch1limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch1limitlVal,ch1limitlVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch1limitlVal> ch1limitl{}; 
+        namespace Ch1limitlValC{
+            constexpr Register::FieldValue<decltype(ch1limitl),Ch1limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1limitl),Ch1limitlVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ch1limitlVal> ch1limitl{}; 
         ///Enable or disable interrupt on EVENTS_CH[2].LIMITH event
-        enum class ch2limithVal {
+        enum class Ch2limithVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch2limithValC{
-            constexpr MPL::Value<ch2limithVal,ch2limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch2limithVal,ch2limithVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch2limithVal> ch2limith{}; 
+        namespace Ch2limithValC{
+            constexpr Register::FieldValue<decltype(ch2limith),Ch2limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2limith),Ch2limithVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ch2limithVal> ch2limith{}; 
         ///Enable or disable interrupt on EVENTS_CH[2].LIMITL event
-        enum class ch2limitlVal {
+        enum class Ch2limitlVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch2limitlValC{
-            constexpr MPL::Value<ch2limitlVal,ch2limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch2limitlVal,ch2limitlVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch2limitlVal> ch2limitl{}; 
+        namespace Ch2limitlValC{
+            constexpr Register::FieldValue<decltype(ch2limitl),Ch2limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2limitl),Ch2limitlVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,ch2limitlVal> ch2limitl{}; 
         ///Enable or disable interrupt on EVENTS_CH[3].LIMITH event
-        enum class ch3limithVal {
+        enum class Ch3limithVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch3limithValC{
-            constexpr MPL::Value<ch3limithVal,ch3limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch3limithVal,ch3limithVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch3limithVal> ch3limith{}; 
+        namespace Ch3limithValC{
+            constexpr Register::FieldValue<decltype(ch3limith),Ch3limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3limith),Ch3limithVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,ch3limithVal> ch3limith{}; 
         ///Enable or disable interrupt on EVENTS_CH[3].LIMITL event
-        enum class ch3limitlVal {
+        enum class Ch3limitlVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch3limitlValC{
-            constexpr MPL::Value<ch3limitlVal,ch3limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch3limitlVal,ch3limitlVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch3limitlVal> ch3limitl{}; 
+        namespace Ch3limitlValC{
+            constexpr Register::FieldValue<decltype(ch3limitl),Ch3limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3limitl),Ch3limitlVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,ch3limitlVal> ch3limitl{}; 
         ///Enable or disable interrupt on EVENTS_CH[4].LIMITH event
-        enum class ch4limithVal {
+        enum class Ch4limithVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch4limithValC{
-            constexpr MPL::Value<ch4limithVal,ch4limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch4limithVal,ch4limithVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch4limithVal> ch4limith{}; 
+        namespace Ch4limithValC{
+            constexpr Register::FieldValue<decltype(ch4limith),Ch4limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4limith),Ch4limithVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ch4limithVal> ch4limith{}; 
         ///Enable or disable interrupt on EVENTS_CH[4].LIMITL event
-        enum class ch4limitlVal {
+        enum class Ch4limitlVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch4limitlValC{
-            constexpr MPL::Value<ch4limitlVal,ch4limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch4limitlVal,ch4limitlVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch4limitlVal> ch4limitl{}; 
+        namespace Ch4limitlValC{
+            constexpr Register::FieldValue<decltype(ch4limitl),Ch4limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4limitl),Ch4limitlVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ch4limitlVal> ch4limitl{}; 
         ///Enable or disable interrupt on EVENTS_CH[5].LIMITH event
-        enum class ch5limithVal {
+        enum class Ch5limithVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch5limithValC{
-            constexpr MPL::Value<ch5limithVal,ch5limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch5limithVal,ch5limithVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Ch5limithVal> ch5limith{}; 
+        namespace Ch5limithValC{
+            constexpr Register::FieldValue<decltype(ch5limith),Ch5limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5limith),Ch5limithVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,ch5limithVal> ch5limith{}; 
         ///Enable or disable interrupt on EVENTS_CH[5].LIMITL event
-        enum class ch5limitlVal {
+        enum class Ch5limitlVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch5limitlValC{
-            constexpr MPL::Value<ch5limitlVal,ch5limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch5limitlVal,ch5limitlVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Ch5limitlVal> ch5limitl{}; 
+        namespace Ch5limitlValC{
+            constexpr Register::FieldValue<decltype(ch5limitl),Ch5limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5limitl),Ch5limitlVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,ch5limitlVal> ch5limitl{}; 
         ///Enable or disable interrupt on EVENTS_CH[6].LIMITH event
-        enum class ch6limithVal {
+        enum class Ch6limithVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch6limithValC{
-            constexpr MPL::Value<ch6limithVal,ch6limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch6limithVal,ch6limithVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Ch6limithVal> ch6limith{}; 
+        namespace Ch6limithValC{
+            constexpr Register::FieldValue<decltype(ch6limith),Ch6limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6limith),Ch6limithVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,ch6limithVal> ch6limith{}; 
         ///Enable or disable interrupt on EVENTS_CH[6].LIMITL event
-        enum class ch6limitlVal {
+        enum class Ch6limitlVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch6limitlValC{
-            constexpr MPL::Value<ch6limitlVal,ch6limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch6limitlVal,ch6limitlVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Ch6limitlVal> ch6limitl{}; 
+        namespace Ch6limitlValC{
+            constexpr Register::FieldValue<decltype(ch6limitl),Ch6limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6limitl),Ch6limitlVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,ch6limitlVal> ch6limitl{}; 
         ///Enable or disable interrupt on EVENTS_CH[7].LIMITH event
-        enum class ch7limithVal {
+        enum class Ch7limithVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch7limithValC{
-            constexpr MPL::Value<ch7limithVal,ch7limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch7limithVal,ch7limithVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Ch7limithVal> ch7limith{}; 
+        namespace Ch7limithValC{
+            constexpr Register::FieldValue<decltype(ch7limith),Ch7limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7limith),Ch7limithVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,ch7limithVal> ch7limith{}; 
         ///Enable or disable interrupt on EVENTS_CH[7].LIMITL event
-        enum class ch7limitlVal {
+        enum class Ch7limitlVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace ch7limitlValC{
-            constexpr MPL::Value<ch7limitlVal,ch7limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch7limitlVal,ch7limitlVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Ch7limitlVal> ch7limitl{}; 
+        namespace Ch7limitlValC{
+            constexpr Register::FieldValue<decltype(ch7limitl),Ch7limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7limitl),Ch7limitlVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,ch7limitlVal> ch7limitl{}; 
     }
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40007304,0xffc00000,0,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STARTED event
-        enum class startedVal {
+        enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace startedValC{
-            constexpr MPL::Value<startedVal,startedVal::disabled> disabled{};
-            constexpr MPL::Value<startedVal,startedVal::enabled> enabled{};
-            constexpr MPL::Value<startedVal,startedVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
+        namespace StartedValC{
+            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,startedVal> started{}; 
         ///Write '1' to Enable interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
-            constexpr MPL::Value<endVal,endVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,endVal> end{}; 
         ///Write '1' to Enable interrupt on EVENTS_DONE event
-        enum class doneVal {
+        enum class DoneVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace doneValC{
-            constexpr MPL::Value<doneVal,doneVal::disabled> disabled{};
-            constexpr MPL::Value<doneVal,doneVal::enabled> enabled{};
-            constexpr MPL::Value<doneVal,doneVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DoneVal> done{}; 
+        namespace DoneValC{
+            constexpr Register::FieldValue<decltype(done),DoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,doneVal> done{}; 
         ///Write '1' to Enable interrupt on EVENTS_RESULTDONE event
-        enum class resultdoneVal {
+        enum class ResultdoneVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace resultdoneValC{
-            constexpr MPL::Value<resultdoneVal,resultdoneVal::disabled> disabled{};
-            constexpr MPL::Value<resultdoneVal,resultdoneVal::enabled> enabled{};
-            constexpr MPL::Value<resultdoneVal,resultdoneVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ResultdoneVal> resultdone{}; 
+        namespace ResultdoneValC{
+            constexpr Register::FieldValue<decltype(resultdone),ResultdoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(resultdone),ResultdoneVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(resultdone),ResultdoneVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,resultdoneVal> resultdone{}; 
         ///Write '1' to Enable interrupt on EVENTS_CALIBRATEDONE event
-        enum class calibratedoneVal {
+        enum class CalibratedoneVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace calibratedoneValC{
-            constexpr MPL::Value<calibratedoneVal,calibratedoneVal::disabled> disabled{};
-            constexpr MPL::Value<calibratedoneVal,calibratedoneVal::enabled> enabled{};
-            constexpr MPL::Value<calibratedoneVal,calibratedoneVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CalibratedoneVal> calibratedone{}; 
+        namespace CalibratedoneValC{
+            constexpr Register::FieldValue<decltype(calibratedone),CalibratedoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(calibratedone),CalibratedoneVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(calibratedone),CalibratedoneVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,calibratedoneVal> calibratedone{}; 
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
-        enum class stoppedVal {
+        enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace stoppedValC{
-            constexpr MPL::Value<stoppedVal,stoppedVal::disabled> disabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::enabled> enabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,StoppedVal> stopped{}; 
+        namespace StoppedValC{
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,stoppedVal> stopped{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[0].LIMITH event
-        enum class ch0limithVal {
+        enum class Ch0limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch0limithValC{
-            constexpr MPL::Value<ch0limithVal,ch0limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch0limithVal,ch0limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch0limithVal,ch0limithVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch0limithVal> ch0limith{}; 
+        namespace Ch0limithValC{
+            constexpr Register::FieldValue<decltype(ch0limith),Ch0limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0limith),Ch0limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch0limith),Ch0limithVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ch0limithVal> ch0limith{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[0].LIMITL event
-        enum class ch0limitlVal {
+        enum class Ch0limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch0limitlValC{
-            constexpr MPL::Value<ch0limitlVal,ch0limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch0limitlVal,ch0limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch0limitlVal,ch0limitlVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch0limitlVal> ch0limitl{}; 
+        namespace Ch0limitlValC{
+            constexpr Register::FieldValue<decltype(ch0limitl),Ch0limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0limitl),Ch0limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch0limitl),Ch0limitlVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ch0limitlVal> ch0limitl{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[1].LIMITH event
-        enum class ch1limithVal {
+        enum class Ch1limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch1limithValC{
-            constexpr MPL::Value<ch1limithVal,ch1limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch1limithVal,ch1limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch1limithVal,ch1limithVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch1limithVal> ch1limith{}; 
+        namespace Ch1limithValC{
+            constexpr Register::FieldValue<decltype(ch1limith),Ch1limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1limith),Ch1limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch1limith),Ch1limithVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ch1limithVal> ch1limith{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[1].LIMITL event
-        enum class ch1limitlVal {
+        enum class Ch1limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch1limitlValC{
-            constexpr MPL::Value<ch1limitlVal,ch1limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch1limitlVal,ch1limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch1limitlVal,ch1limitlVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch1limitlVal> ch1limitl{}; 
+        namespace Ch1limitlValC{
+            constexpr Register::FieldValue<decltype(ch1limitl),Ch1limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1limitl),Ch1limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch1limitl),Ch1limitlVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ch1limitlVal> ch1limitl{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[2].LIMITH event
-        enum class ch2limithVal {
+        enum class Ch2limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch2limithValC{
-            constexpr MPL::Value<ch2limithVal,ch2limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch2limithVal,ch2limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch2limithVal,ch2limithVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch2limithVal> ch2limith{}; 
+        namespace Ch2limithValC{
+            constexpr Register::FieldValue<decltype(ch2limith),Ch2limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2limith),Ch2limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch2limith),Ch2limithVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ch2limithVal> ch2limith{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[2].LIMITL event
-        enum class ch2limitlVal {
+        enum class Ch2limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch2limitlValC{
-            constexpr MPL::Value<ch2limitlVal,ch2limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch2limitlVal,ch2limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch2limitlVal,ch2limitlVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch2limitlVal> ch2limitl{}; 
+        namespace Ch2limitlValC{
+            constexpr Register::FieldValue<decltype(ch2limitl),Ch2limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2limitl),Ch2limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch2limitl),Ch2limitlVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,ch2limitlVal> ch2limitl{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[3].LIMITH event
-        enum class ch3limithVal {
+        enum class Ch3limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch3limithValC{
-            constexpr MPL::Value<ch3limithVal,ch3limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch3limithVal,ch3limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch3limithVal,ch3limithVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch3limithVal> ch3limith{}; 
+        namespace Ch3limithValC{
+            constexpr Register::FieldValue<decltype(ch3limith),Ch3limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3limith),Ch3limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch3limith),Ch3limithVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,ch3limithVal> ch3limith{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[3].LIMITL event
-        enum class ch3limitlVal {
+        enum class Ch3limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch3limitlValC{
-            constexpr MPL::Value<ch3limitlVal,ch3limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch3limitlVal,ch3limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch3limitlVal,ch3limitlVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch3limitlVal> ch3limitl{}; 
+        namespace Ch3limitlValC{
+            constexpr Register::FieldValue<decltype(ch3limitl),Ch3limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3limitl),Ch3limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch3limitl),Ch3limitlVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,ch3limitlVal> ch3limitl{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[4].LIMITH event
-        enum class ch4limithVal {
+        enum class Ch4limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch4limithValC{
-            constexpr MPL::Value<ch4limithVal,ch4limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch4limithVal,ch4limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch4limithVal,ch4limithVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch4limithVal> ch4limith{}; 
+        namespace Ch4limithValC{
+            constexpr Register::FieldValue<decltype(ch4limith),Ch4limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4limith),Ch4limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch4limith),Ch4limithVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ch4limithVal> ch4limith{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[4].LIMITL event
-        enum class ch4limitlVal {
+        enum class Ch4limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch4limitlValC{
-            constexpr MPL::Value<ch4limitlVal,ch4limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch4limitlVal,ch4limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch4limitlVal,ch4limitlVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch4limitlVal> ch4limitl{}; 
+        namespace Ch4limitlValC{
+            constexpr Register::FieldValue<decltype(ch4limitl),Ch4limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4limitl),Ch4limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch4limitl),Ch4limitlVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ch4limitlVal> ch4limitl{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[5].LIMITH event
-        enum class ch5limithVal {
+        enum class Ch5limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch5limithValC{
-            constexpr MPL::Value<ch5limithVal,ch5limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch5limithVal,ch5limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch5limithVal,ch5limithVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Ch5limithVal> ch5limith{}; 
+        namespace Ch5limithValC{
+            constexpr Register::FieldValue<decltype(ch5limith),Ch5limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5limith),Ch5limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch5limith),Ch5limithVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,ch5limithVal> ch5limith{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[5].LIMITL event
-        enum class ch5limitlVal {
+        enum class Ch5limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch5limitlValC{
-            constexpr MPL::Value<ch5limitlVal,ch5limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch5limitlVal,ch5limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch5limitlVal,ch5limitlVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Ch5limitlVal> ch5limitl{}; 
+        namespace Ch5limitlValC{
+            constexpr Register::FieldValue<decltype(ch5limitl),Ch5limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5limitl),Ch5limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch5limitl),Ch5limitlVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,ch5limitlVal> ch5limitl{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[6].LIMITH event
-        enum class ch6limithVal {
+        enum class Ch6limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch6limithValC{
-            constexpr MPL::Value<ch6limithVal,ch6limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch6limithVal,ch6limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch6limithVal,ch6limithVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Ch6limithVal> ch6limith{}; 
+        namespace Ch6limithValC{
+            constexpr Register::FieldValue<decltype(ch6limith),Ch6limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6limith),Ch6limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch6limith),Ch6limithVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,ch6limithVal> ch6limith{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[6].LIMITL event
-        enum class ch6limitlVal {
+        enum class Ch6limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch6limitlValC{
-            constexpr MPL::Value<ch6limitlVal,ch6limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch6limitlVal,ch6limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch6limitlVal,ch6limitlVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Ch6limitlVal> ch6limitl{}; 
+        namespace Ch6limitlValC{
+            constexpr Register::FieldValue<decltype(ch6limitl),Ch6limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6limitl),Ch6limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch6limitl),Ch6limitlVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,ch6limitlVal> ch6limitl{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[7].LIMITH event
-        enum class ch7limithVal {
+        enum class Ch7limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch7limithValC{
-            constexpr MPL::Value<ch7limithVal,ch7limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch7limithVal,ch7limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch7limithVal,ch7limithVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Ch7limithVal> ch7limith{}; 
+        namespace Ch7limithValC{
+            constexpr Register::FieldValue<decltype(ch7limith),Ch7limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7limith),Ch7limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch7limith),Ch7limithVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,ch7limithVal> ch7limith{}; 
         ///Write '1' to Enable interrupt on EVENTS_CH[7].LIMITL event
-        enum class ch7limitlVal {
+        enum class Ch7limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace ch7limitlValC{
-            constexpr MPL::Value<ch7limitlVal,ch7limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch7limitlVal,ch7limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch7limitlVal,ch7limitlVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Ch7limitlVal> ch7limitl{}; 
+        namespace Ch7limitlValC{
+            constexpr Register::FieldValue<decltype(ch7limitl),Ch7limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7limitl),Ch7limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch7limitl),Ch7limitlVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,ch7limitlVal> ch7limitl{}; 
     }
     namespace Noneintenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40007308,0xffc00000,0,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STARTED event
-        enum class startedVal {
+        enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace startedValC{
-            constexpr MPL::Value<startedVal,startedVal::disabled> disabled{};
-            constexpr MPL::Value<startedVal,startedVal::enabled> enabled{};
-            constexpr MPL::Value<startedVal,startedVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
+        namespace StartedValC{
+            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,startedVal> started{}; 
         ///Write '1' to Clear interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
-            constexpr MPL::Value<endVal,endVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,endVal> end{}; 
         ///Write '1' to Clear interrupt on EVENTS_DONE event
-        enum class doneVal {
+        enum class DoneVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace doneValC{
-            constexpr MPL::Value<doneVal,doneVal::disabled> disabled{};
-            constexpr MPL::Value<doneVal,doneVal::enabled> enabled{};
-            constexpr MPL::Value<doneVal,doneVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DoneVal> done{}; 
+        namespace DoneValC{
+            constexpr Register::FieldValue<decltype(done),DoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(done),DoneVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,doneVal> done{}; 
         ///Write '1' to Clear interrupt on EVENTS_RESULTDONE event
-        enum class resultdoneVal {
+        enum class ResultdoneVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace resultdoneValC{
-            constexpr MPL::Value<resultdoneVal,resultdoneVal::disabled> disabled{};
-            constexpr MPL::Value<resultdoneVal,resultdoneVal::enabled> enabled{};
-            constexpr MPL::Value<resultdoneVal,resultdoneVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ResultdoneVal> resultdone{}; 
+        namespace ResultdoneValC{
+            constexpr Register::FieldValue<decltype(resultdone),ResultdoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(resultdone),ResultdoneVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(resultdone),ResultdoneVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,resultdoneVal> resultdone{}; 
         ///Write '1' to Clear interrupt on EVENTS_CALIBRATEDONE event
-        enum class calibratedoneVal {
+        enum class CalibratedoneVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace calibratedoneValC{
-            constexpr MPL::Value<calibratedoneVal,calibratedoneVal::disabled> disabled{};
-            constexpr MPL::Value<calibratedoneVal,calibratedoneVal::enabled> enabled{};
-            constexpr MPL::Value<calibratedoneVal,calibratedoneVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CalibratedoneVal> calibratedone{}; 
+        namespace CalibratedoneValC{
+            constexpr Register::FieldValue<decltype(calibratedone),CalibratedoneVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(calibratedone),CalibratedoneVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(calibratedone),CalibratedoneVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,calibratedoneVal> calibratedone{}; 
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
-        enum class stoppedVal {
+        enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace stoppedValC{
-            constexpr MPL::Value<stoppedVal,stoppedVal::disabled> disabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::enabled> enabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,StoppedVal> stopped{}; 
+        namespace StoppedValC{
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,stoppedVal> stopped{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[0].LIMITH event
-        enum class ch0limithVal {
+        enum class Ch0limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch0limithValC{
-            constexpr MPL::Value<ch0limithVal,ch0limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch0limithVal,ch0limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch0limithVal,ch0limithVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch0limithVal> ch0limith{}; 
+        namespace Ch0limithValC{
+            constexpr Register::FieldValue<decltype(ch0limith),Ch0limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0limith),Ch0limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch0limith),Ch0limithVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ch0limithVal> ch0limith{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[0].LIMITL event
-        enum class ch0limitlVal {
+        enum class Ch0limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch0limitlValC{
-            constexpr MPL::Value<ch0limitlVal,ch0limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch0limitlVal,ch0limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch0limitlVal,ch0limitlVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch0limitlVal> ch0limitl{}; 
+        namespace Ch0limitlValC{
+            constexpr Register::FieldValue<decltype(ch0limitl),Ch0limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0limitl),Ch0limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch0limitl),Ch0limitlVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ch0limitlVal> ch0limitl{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[1].LIMITH event
-        enum class ch1limithVal {
+        enum class Ch1limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch1limithValC{
-            constexpr MPL::Value<ch1limithVal,ch1limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch1limithVal,ch1limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch1limithVal,ch1limithVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch1limithVal> ch1limith{}; 
+        namespace Ch1limithValC{
+            constexpr Register::FieldValue<decltype(ch1limith),Ch1limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1limith),Ch1limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch1limith),Ch1limithVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ch1limithVal> ch1limith{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[1].LIMITL event
-        enum class ch1limitlVal {
+        enum class Ch1limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch1limitlValC{
-            constexpr MPL::Value<ch1limitlVal,ch1limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch1limitlVal,ch1limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch1limitlVal,ch1limitlVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch1limitlVal> ch1limitl{}; 
+        namespace Ch1limitlValC{
+            constexpr Register::FieldValue<decltype(ch1limitl),Ch1limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1limitl),Ch1limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch1limitl),Ch1limitlVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ch1limitlVal> ch1limitl{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[2].LIMITH event
-        enum class ch2limithVal {
+        enum class Ch2limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch2limithValC{
-            constexpr MPL::Value<ch2limithVal,ch2limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch2limithVal,ch2limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch2limithVal,ch2limithVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch2limithVal> ch2limith{}; 
+        namespace Ch2limithValC{
+            constexpr Register::FieldValue<decltype(ch2limith),Ch2limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2limith),Ch2limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch2limith),Ch2limithVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ch2limithVal> ch2limith{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[2].LIMITL event
-        enum class ch2limitlVal {
+        enum class Ch2limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch2limitlValC{
-            constexpr MPL::Value<ch2limitlVal,ch2limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch2limitlVal,ch2limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch2limitlVal,ch2limitlVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch2limitlVal> ch2limitl{}; 
+        namespace Ch2limitlValC{
+            constexpr Register::FieldValue<decltype(ch2limitl),Ch2limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2limitl),Ch2limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch2limitl),Ch2limitlVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,ch2limitlVal> ch2limitl{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[3].LIMITH event
-        enum class ch3limithVal {
+        enum class Ch3limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch3limithValC{
-            constexpr MPL::Value<ch3limithVal,ch3limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch3limithVal,ch3limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch3limithVal,ch3limithVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch3limithVal> ch3limith{}; 
+        namespace Ch3limithValC{
+            constexpr Register::FieldValue<decltype(ch3limith),Ch3limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3limith),Ch3limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch3limith),Ch3limithVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,ch3limithVal> ch3limith{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[3].LIMITL event
-        enum class ch3limitlVal {
+        enum class Ch3limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch3limitlValC{
-            constexpr MPL::Value<ch3limitlVal,ch3limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch3limitlVal,ch3limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch3limitlVal,ch3limitlVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch3limitlVal> ch3limitl{}; 
+        namespace Ch3limitlValC{
+            constexpr Register::FieldValue<decltype(ch3limitl),Ch3limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3limitl),Ch3limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch3limitl),Ch3limitlVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,ch3limitlVal> ch3limitl{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[4].LIMITH event
-        enum class ch4limithVal {
+        enum class Ch4limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch4limithValC{
-            constexpr MPL::Value<ch4limithVal,ch4limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch4limithVal,ch4limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch4limithVal,ch4limithVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch4limithVal> ch4limith{}; 
+        namespace Ch4limithValC{
+            constexpr Register::FieldValue<decltype(ch4limith),Ch4limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4limith),Ch4limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch4limith),Ch4limithVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ch4limithVal> ch4limith{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[4].LIMITL event
-        enum class ch4limitlVal {
+        enum class Ch4limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch4limitlValC{
-            constexpr MPL::Value<ch4limitlVal,ch4limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch4limitlVal,ch4limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch4limitlVal,ch4limitlVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch4limitlVal> ch4limitl{}; 
+        namespace Ch4limitlValC{
+            constexpr Register::FieldValue<decltype(ch4limitl),Ch4limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4limitl),Ch4limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch4limitl),Ch4limitlVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ch4limitlVal> ch4limitl{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[5].LIMITH event
-        enum class ch5limithVal {
+        enum class Ch5limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch5limithValC{
-            constexpr MPL::Value<ch5limithVal,ch5limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch5limithVal,ch5limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch5limithVal,ch5limithVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Ch5limithVal> ch5limith{}; 
+        namespace Ch5limithValC{
+            constexpr Register::FieldValue<decltype(ch5limith),Ch5limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5limith),Ch5limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch5limith),Ch5limithVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,ch5limithVal> ch5limith{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[5].LIMITL event
-        enum class ch5limitlVal {
+        enum class Ch5limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch5limitlValC{
-            constexpr MPL::Value<ch5limitlVal,ch5limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch5limitlVal,ch5limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch5limitlVal,ch5limitlVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Ch5limitlVal> ch5limitl{}; 
+        namespace Ch5limitlValC{
+            constexpr Register::FieldValue<decltype(ch5limitl),Ch5limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5limitl),Ch5limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch5limitl),Ch5limitlVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,ch5limitlVal> ch5limitl{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[6].LIMITH event
-        enum class ch6limithVal {
+        enum class Ch6limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch6limithValC{
-            constexpr MPL::Value<ch6limithVal,ch6limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch6limithVal,ch6limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch6limithVal,ch6limithVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Ch6limithVal> ch6limith{}; 
+        namespace Ch6limithValC{
+            constexpr Register::FieldValue<decltype(ch6limith),Ch6limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6limith),Ch6limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch6limith),Ch6limithVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,ch6limithVal> ch6limith{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[6].LIMITL event
-        enum class ch6limitlVal {
+        enum class Ch6limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch6limitlValC{
-            constexpr MPL::Value<ch6limitlVal,ch6limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch6limitlVal,ch6limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch6limitlVal,ch6limitlVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Ch6limitlVal> ch6limitl{}; 
+        namespace Ch6limitlValC{
+            constexpr Register::FieldValue<decltype(ch6limitl),Ch6limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6limitl),Ch6limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch6limitl),Ch6limitlVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,ch6limitlVal> ch6limitl{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[7].LIMITH event
-        enum class ch7limithVal {
+        enum class Ch7limithVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch7limithValC{
-            constexpr MPL::Value<ch7limithVal,ch7limithVal::disabled> disabled{};
-            constexpr MPL::Value<ch7limithVal,ch7limithVal::enabled> enabled{};
-            constexpr MPL::Value<ch7limithVal,ch7limithVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Ch7limithVal> ch7limith{}; 
+        namespace Ch7limithValC{
+            constexpr Register::FieldValue<decltype(ch7limith),Ch7limithVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7limith),Ch7limithVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch7limith),Ch7limithVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,ch7limithVal> ch7limith{}; 
         ///Write '1' to Clear interrupt on EVENTS_CH[7].LIMITL event
-        enum class ch7limitlVal {
+        enum class Ch7limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace ch7limitlValC{
-            constexpr MPL::Value<ch7limitlVal,ch7limitlVal::disabled> disabled{};
-            constexpr MPL::Value<ch7limitlVal,ch7limitlVal::enabled> enabled{};
-            constexpr MPL::Value<ch7limitlVal,ch7limitlVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Ch7limitlVal> ch7limitl{}; 
+        namespace Ch7limitlValC{
+            constexpr Register::FieldValue<decltype(ch7limitl),Ch7limitlVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7limitl),Ch7limitlVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch7limitl),Ch7limitlVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,ch7limitlVal> ch7limitl{}; 
     }
     namespace Nonestatus{    ///<Status
         using Addr = Register::Address<0x40007400,0xfffffffe,0,unsigned>;
         ///Status
-        enum class statusVal {
+        enum class StatusVal {
             ready=0x00000000,     ///<ADC is ready. No on-going conversion.
             busy=0x00000001,     ///<ADC is busy. Conversion in progress.
         };
-        namespace statusValC{
-            constexpr MPL::Value<statusVal,statusVal::ready> ready{};
-            constexpr MPL::Value<statusVal,statusVal::busy> busy{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StatusVal> status{}; 
+        namespace StatusValC{
+            constexpr Register::FieldValue<decltype(status),StatusVal::ready> ready{};
+            constexpr Register::FieldValue<decltype(status),StatusVal::busy> busy{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,statusVal> status{}; 
     }
     namespace Noneenable{    ///<Enable or disable ADC
         using Addr = Register::Address<0x40007500,0xfffffffe,0,unsigned>;
         ///Enable or disable ADC
-        enum class enableVal {
+        enum class EnableVal {
             disabled=0x00000000,     ///<Disable ADC
             enabled=0x00000001,     ///<Enable ADC
         };
-        namespace enableValC{
-            constexpr MPL::Value<enableVal,enableVal::disabled> disabled{};
-            constexpr MPL::Value<enableVal,enableVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnableVal> enable{}; 
+        namespace EnableValC{
+            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,enableVal> enable{}; 
     }
     namespace Noneresolution{    ///<Resolution configuration
         using Addr = Register::Address<0x400075f0,0xfffffff8,0,unsigned>;
         ///Set the resolution
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> val{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> val{}; 
+        namespace ValValC{
+        }
     }
     namespace Noneoversample{    ///<Oversampling configuration. OVERSAMPLE should not be combined with SCAN. The RESOLUTION is applied before averaging, thus for high OVERSAMPLE a higher RESOLUTION should be used.
         using Addr = Register::Address<0x400075f4,0xfffffff0,0,unsigned>;
         ///Oversample control
-        enum class oversampleVal {
+        enum class OversampleVal {
             bypass=0x00000000,     ///<Bypass oversampling
             over2x=0x00000001,     ///<Oversample 2x
             over4x=0x00000002,     ///<Oversample 4x
@@ -834,32 +836,34 @@ namespace Kvasir {
             over128x=0x00000007,     ///<Oversample 128x
             over256x=0x00000008,     ///<Oversample 256x
         };
-        namespace oversampleValC{
-            constexpr MPL::Value<oversampleVal,oversampleVal::bypass> bypass{};
-            constexpr MPL::Value<oversampleVal,oversampleVal::over2x> over2x{};
-            constexpr MPL::Value<oversampleVal,oversampleVal::over4x> over4x{};
-            constexpr MPL::Value<oversampleVal,oversampleVal::over8x> over8x{};
-            constexpr MPL::Value<oversampleVal,oversampleVal::over16x> over16x{};
-            constexpr MPL::Value<oversampleVal,oversampleVal::over32x> over32x{};
-            constexpr MPL::Value<oversampleVal,oversampleVal::over64x> over64x{};
-            constexpr MPL::Value<oversampleVal,oversampleVal::over128x> over128x{};
-            constexpr MPL::Value<oversampleVal,oversampleVal::over256x> over256x{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,OversampleVal> oversample{}; 
+        namespace OversampleValC{
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::bypass> bypass{};
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::over2x> over2x{};
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::over4x> over4x{};
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::over8x> over8x{};
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::over16x> over16x{};
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::over32x> over32x{};
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::over64x> over64x{};
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::over128x> over128x{};
+            constexpr Register::FieldValue<decltype(oversample),OversampleVal::over256x> over256x{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,oversampleVal> oversample{}; 
     }
     namespace Nonesamplerate{    ///<Controls normal or continuous sample rate
         using Addr = Register::Address<0x400075f8,0xffffe800,0,unsigned>;
         ///Capture and compare value. Sample rate is 16 MHz/CC
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        namespace CcValC{
+        }
         ///Select mode for sample rate control
-        enum class modeVal {
+        enum class ModeVal {
             task=0x00000000,     ///<Rate is controlled from SAMPLE task
             timers=0x00000001,     ///<Rate is controlled from local timer (use CC to control the rate)
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
-            constexpr MPL::Value<modeVal,modeVal::timers> timers{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::timers> timers{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,modeVal> mode{}; 
     }
 }

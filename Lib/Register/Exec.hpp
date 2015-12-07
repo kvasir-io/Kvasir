@@ -58,10 +58,10 @@ namespace Kvasir {
 			template<typename TAddress, unsigned Mask, bool Readable, bool SetToClear, typename FieldType, unsigned Data>
 			struct RegisterExec<
 				Register::Action<
-					BitLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
+					FieldLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
 					WriteLiteralAction<Data>>>
 				: GenericReadMaskOrWrite<
-				  	  BitLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
+				  	  FieldLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
 					  Mask,
 					  Data>
 			{
@@ -71,17 +71,17 @@ namespace Kvasir {
 			template<typename TAddress, unsigned Mask, bool Readable, bool SetToClear, typename FieldType>
 			struct RegisterExec<
 				Register::Action<
-					BitLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
+					FieldLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
 					WriteAction>>
 				: GenericReadMaskOrWrite<
-			  	  BitLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
+			  	  FieldLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
 				  Mask,
 				  0>	{};
 
 
 			template<typename TAddress, unsigned Mask, bool Writable, bool SetToClear, typename FieldType>
 			struct RegisterExec<Register::Action<
-				BitLocation<TAddress,Mask,Access<true,Writable,false,false,SetToClear>,FieldType>,ReadAction>>
+				FieldLocation<TAddress,Mask,Access<true,Writable,false,false,SetToClear>,FieldType>,ReadAction>>
 			{
 				unsigned operator()(unsigned in = 0){
 					return GetAddress<TAddress>::read();
@@ -90,10 +90,10 @@ namespace Kvasir {
 			template<typename TAddress, unsigned Mask, typename FieldType, unsigned Data>
 			struct RegisterExec<
 				Register::Action<
-					BitLocation<TAddress,Mask,Access<true,true,false,false,false>,FieldType>,
+					FieldLocation<TAddress,Mask,Access<true,true,false,false,false>,FieldType>,
 					XorLiteralAction<Data>>>
 				: GenericReadMaskOrWrite<
-				  BitLocation<TAddress,Mask,Access<true,true,false,false,false>,FieldType>,
+				  FieldLocation<TAddress,Mask,Access<true,true,false,false,false>,FieldType>,
 				  Mask,
 				  Data>
 			{
@@ -106,5 +106,9 @@ namespace Kvasir {
 				}
 			};
 		}
+
+
+		template<typename T, typename U>
+		struct ExecuteSeam : Detail::RegisterExec<T> {};
 	}
 }

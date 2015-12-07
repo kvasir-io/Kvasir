@@ -5,607 +5,625 @@ namespace Kvasir {
     namespace RtcTsr{    ///<RTC Time Seconds Register
         using Addr = Register::Address<0x4003d000,0x00000000,0,unsigned>;
         ///Time Seconds Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsr{}; 
+        namespace TsrValC{
+        }
     }
     namespace RtcTpr{    ///<RTC Time Prescaler Register
         using Addr = Register::Address<0x4003d004,0xffff0000,0,unsigned>;
         ///Time Prescaler Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tpr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tpr{}; 
+        namespace TprValC{
+        }
     }
     namespace RtcTar{    ///<RTC Time Alarm Register
         using Addr = Register::Address<0x4003d008,0x00000000,0,unsigned>;
         ///Time Alarm Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tar{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tar{}; 
+        namespace TarValC{
+        }
     }
     namespace RtcTcr{    ///<RTC Time Compensation Register
         using Addr = Register::Address<0x4003d00c,0x00000000,0,unsigned>;
         ///Time Compensation Register
-        enum class tcrVal {
+        enum class TcrVal {
             v10000000=0x00000080,     ///<Time prescaler register overflows every 32896 clock cycles.
             v11111111=0x000000ff,     ///<Time prescaler register overflows every 32769 clock cycles.
             v0=0x00000000,     ///<Time prescaler register overflows every 32768 clock cycles.
             v1=0x00000001,     ///<Time prescaler register overflows every 32767 clock cycles.
             v1111111=0x0000007f,     ///<Time prescaler register overflows every 32641 clock cycles.
         };
-        namespace tcrValC{
-            constexpr MPL::Value<tcrVal,tcrVal::v10000000> v10000000{};
-            constexpr MPL::Value<tcrVal,tcrVal::v11111111> v11111111{};
-            constexpr MPL::Value<tcrVal,tcrVal::v0> v0{};
-            constexpr MPL::Value<tcrVal,tcrVal::v1> v1{};
-            constexpr MPL::Value<tcrVal,tcrVal::v1111111> v1111111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,TcrVal> tcr{}; 
+        namespace TcrValC{
+            constexpr Register::FieldValue<decltype(tcr),TcrVal::v10000000> v10000000{};
+            constexpr Register::FieldValue<decltype(tcr),TcrVal::v11111111> v11111111{};
+            constexpr Register::FieldValue<decltype(tcr),TcrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcr),TcrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tcr),TcrVal::v1111111> v1111111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,tcrVal> tcr{}; 
         ///Compensation Interval Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cir{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cir{}; 
+        namespace CirValC{
+        }
         ///Time Compensation Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tcv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tcv{}; 
+        namespace TcvValC{
+        }
         ///Compensation Interval Counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> cic{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> cic{}; 
+        namespace CicValC{
+        }
     }
     namespace RtcCr{    ///<RTC Control Register
         using Addr = Register::Address<0x4003d010,0xffffc0f0,0,unsigned>;
         ///Software Reset
-        enum class swrVal {
+        enum class SwrVal {
             v0=0x00000000,     ///<No effect
             v1=0x00000001,     ///<Resets all RTC registers except for the SWR bit and the RTC_WAR and RTC_RAR registers. The SWR bit is cleared after VBAT POR and by software explicitly clearing it.
         };
-        namespace swrValC{
-            constexpr MPL::Value<swrVal,swrVal::v0> v0{};
-            constexpr MPL::Value<swrVal,swrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SwrVal> swr{}; 
+        namespace SwrValC{
+            constexpr Register::FieldValue<decltype(swr),SwrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(swr),SwrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,swrVal> swr{}; 
         ///Wakeup Pin Enable
-        enum class wpeVal {
+        enum class WpeVal {
             v0=0x00000000,     ///<Wakeup pin is disabled.
             v1=0x00000001,     ///<Wakeup pin is enabled and wakeup pin asserts if the RTC interrupt asserts and the chip is powered down.
         };
-        namespace wpeValC{
-            constexpr MPL::Value<wpeVal,wpeVal::v0> v0{};
-            constexpr MPL::Value<wpeVal,wpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,WpeVal> wpe{}; 
+        namespace WpeValC{
+            constexpr Register::FieldValue<decltype(wpe),WpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wpe),WpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wpeVal> wpe{}; 
         ///Supervisor Access
-        enum class supVal {
+        enum class SupVal {
             v0=0x00000000,     ///<Non-supervisor mode write accesses are not supported and generate a bus error.
             v1=0x00000001,     ///<Non-supervisor mode write accesses are supported.
         };
-        namespace supValC{
-            constexpr MPL::Value<supVal,supVal::v0> v0{};
-            constexpr MPL::Value<supVal,supVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SupVal> sup{}; 
+        namespace SupValC{
+            constexpr Register::FieldValue<decltype(sup),SupVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sup),SupVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,supVal> sup{}; 
         ///Update Mode
-        enum class umVal {
+        enum class UmVal {
             v0=0x00000000,     ///<Registers cannot be written when locked.
             v1=0x00000001,     ///<Registers can be written when locked under limited conditions.
         };
-        namespace umValC{
-            constexpr MPL::Value<umVal,umVal::v0> v0{};
-            constexpr MPL::Value<umVal,umVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,UmVal> um{}; 
+        namespace UmValC{
+            constexpr Register::FieldValue<decltype(um),UmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(um),UmVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,umVal> um{}; 
         ///Oscillator Enable
-        enum class osceVal {
+        enum class OsceVal {
             v0=0x00000000,     ///<32.768 kHz oscillator is disabled.
             v1=0x00000001,     ///<32.768 kHz oscillator is enabled. After setting this bit, wait the oscillator startup time before enabling the time counter to allow the 32.768 kHz clock time to stabilize.
         };
-        namespace osceValC{
-            constexpr MPL::Value<osceVal,osceVal::v0> v0{};
-            constexpr MPL::Value<osceVal,osceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,OsceVal> osce{}; 
+        namespace OsceValC{
+            constexpr Register::FieldValue<decltype(osce),OsceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(osce),OsceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,osceVal> osce{}; 
         ///Clock Output
-        enum class clkoVal {
+        enum class ClkoVal {
             v0=0x00000000,     ///<The 32kHz clock is output to other peripherals
             v1=0x00000001,     ///<The 32kHz clock is not output to other peripherals
         };
-        namespace clkoValC{
-            constexpr MPL::Value<clkoVal,clkoVal::v0> v0{};
-            constexpr MPL::Value<clkoVal,clkoVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ClkoVal> clko{}; 
+        namespace ClkoValC{
+            constexpr Register::FieldValue<decltype(clko),ClkoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(clko),ClkoVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,clkoVal> clko{}; 
         ///Oscillator 16pF load configure
-        enum class sc16pVal {
+        enum class Sc16pVal {
             v0=0x00000000,     ///<Disable the load.
             v1=0x00000001,     ///<Enable the additional load.
         };
-        namespace sc16pValC{
-            constexpr MPL::Value<sc16pVal,sc16pVal::v0> v0{};
-            constexpr MPL::Value<sc16pVal,sc16pVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Sc16pVal> sc16p{}; 
+        namespace Sc16pValC{
+            constexpr Register::FieldValue<decltype(sc16p),Sc16pVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sc16p),Sc16pVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,sc16pVal> sc16p{}; 
         ///Oscillator 8pF load configure
-        enum class sc8pVal {
+        enum class Sc8pVal {
             v0=0x00000000,     ///<Disable the load.
             v1=0x00000001,     ///<Enable the additional load.
         };
-        namespace sc8pValC{
-            constexpr MPL::Value<sc8pVal,sc8pVal::v0> v0{};
-            constexpr MPL::Value<sc8pVal,sc8pVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Sc8pVal> sc8p{}; 
+        namespace Sc8pValC{
+            constexpr Register::FieldValue<decltype(sc8p),Sc8pVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sc8p),Sc8pVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,sc8pVal> sc8p{}; 
         ///Oscillator 4pF load configure
-        enum class sc4pVal {
+        enum class Sc4pVal {
             v0=0x00000000,     ///<Disable the load.
             v1=0x00000001,     ///<Enable the additional load.
         };
-        namespace sc4pValC{
-            constexpr MPL::Value<sc4pVal,sc4pVal::v0> v0{};
-            constexpr MPL::Value<sc4pVal,sc4pVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Sc4pVal> sc4p{}; 
+        namespace Sc4pValC{
+            constexpr Register::FieldValue<decltype(sc4p),Sc4pVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sc4p),Sc4pVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,sc4pVal> sc4p{}; 
         ///Oscillator 2pF load configure
-        enum class sc2pVal {
+        enum class Sc2pVal {
             v0=0x00000000,     ///<Disable the load.
             v1=0x00000001,     ///<Enable the additional load.
         };
-        namespace sc2pValC{
-            constexpr MPL::Value<sc2pVal,sc2pVal::v0> v0{};
-            constexpr MPL::Value<sc2pVal,sc2pVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Sc2pVal> sc2p{}; 
+        namespace Sc2pValC{
+            constexpr Register::FieldValue<decltype(sc2p),Sc2pVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sc2p),Sc2pVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,sc2pVal> sc2p{}; 
     }
     namespace RtcSr{    ///<RTC Status Register
         using Addr = Register::Address<0x4003d014,0xffffffe0,0,unsigned>;
         ///Time Invalid Flag
-        enum class tifVal {
+        enum class TifVal {
             v0=0x00000000,     ///<Time is valid.
             v1=0x00000001,     ///<Time is invalid and time counter is read as zero.
         };
-        namespace tifValC{
-            constexpr MPL::Value<tifVal,tifVal::v0> v0{};
-            constexpr MPL::Value<tifVal,tifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
+        namespace TifValC{
+            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tifVal> tif{}; 
         ///Time Overflow Flag
-        enum class tofVal {
+        enum class TofVal {
             v0=0x00000000,     ///<Time overflow has not occurred.
             v1=0x00000001,     ///<Time overflow has occurred and time counter is read as zero.
         };
-        namespace tofValC{
-            constexpr MPL::Value<tofVal,tofVal::v0> v0{};
-            constexpr MPL::Value<tofVal,tofVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TofVal> tof{}; 
+        namespace TofValC{
+            constexpr Register::FieldValue<decltype(tof),TofVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tof),TofVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tofVal> tof{}; 
         ///Time Alarm Flag
-        enum class tafVal {
+        enum class TafVal {
             v0=0x00000000,     ///<Time alarm has not occurred.
             v1=0x00000001,     ///<Time alarm has occurred.
         };
-        namespace tafValC{
-            constexpr MPL::Value<tafVal,tafVal::v0> v0{};
-            constexpr MPL::Value<tafVal,tafVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TafVal> taf{}; 
+        namespace TafValC{
+            constexpr Register::FieldValue<decltype(taf),TafVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(taf),TafVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,tafVal> taf{}; 
         ///Monotonic Overflow Flag
-        enum class mofVal {
+        enum class MofVal {
             v0=0x00000000,     ///<Monotonic counter overflow has not occurred.
             v1=0x00000001,     ///<Monotonic counter overflow has occurred and monotonic counter is read as zero.
         };
-        namespace mofValC{
-            constexpr MPL::Value<mofVal,mofVal::v0> v0{};
-            constexpr MPL::Value<mofVal,mofVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,MofVal> mof{}; 
+        namespace MofValC{
+            constexpr Register::FieldValue<decltype(mof),MofVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mof),MofVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,mofVal> mof{}; 
         ///Time Counter Enable
-        enum class tceVal {
+        enum class TceVal {
             v0=0x00000000,     ///<Time counter is disabled.
             v1=0x00000001,     ///<Time counter is enabled.
         };
-        namespace tceValC{
-            constexpr MPL::Value<tceVal,tceVal::v0> v0{};
-            constexpr MPL::Value<tceVal,tceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TceVal> tce{}; 
+        namespace TceValC{
+            constexpr Register::FieldValue<decltype(tce),TceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tce),TceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tceVal> tce{}; 
     }
     namespace RtcLr{    ///<RTC Lock Register
         using Addr = Register::Address<0x4003d018,0xfffff087,0,unsigned>;
         ///Time Compensation Lock
-        enum class tclVal {
+        enum class TclVal {
             v0=0x00000000,     ///<Time compensation register is locked and writes are ignored.
             v1=0x00000001,     ///<Time compensation register is not locked and writes complete as normal.
         };
-        namespace tclValC{
-            constexpr MPL::Value<tclVal,tclVal::v0> v0{};
-            constexpr MPL::Value<tclVal,tclVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TclVal> tcl{}; 
+        namespace TclValC{
+            constexpr Register::FieldValue<decltype(tcl),TclVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcl),TclVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,tclVal> tcl{}; 
         ///Control Register Lock
-        enum class crlVal {
+        enum class CrlVal {
             v0=0x00000000,     ///<Control register is locked and writes are ignored.
             v1=0x00000001,     ///<Control register is not locked and writes complete as normal.
         };
-        namespace crlValC{
-            constexpr MPL::Value<crlVal,crlVal::v0> v0{};
-            constexpr MPL::Value<crlVal,crlVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CrlVal> crl{}; 
+        namespace CrlValC{
+            constexpr Register::FieldValue<decltype(crl),CrlVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(crl),CrlVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,crlVal> crl{}; 
         ///Status Register Lock
-        enum class srlVal {
+        enum class SrlVal {
             v0=0x00000000,     ///<Status register is locked and writes are ignored.
             v1=0x00000001,     ///<Status register is not locked and writes complete as normal.
         };
-        namespace srlValC{
-            constexpr MPL::Value<srlVal,srlVal::v0> v0{};
-            constexpr MPL::Value<srlVal,srlVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SrlVal> srl{}; 
+        namespace SrlValC{
+            constexpr Register::FieldValue<decltype(srl),SrlVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(srl),SrlVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,srlVal> srl{}; 
         ///Lock Register Lock
-        enum class lrlVal {
+        enum class LrlVal {
             v0=0x00000000,     ///<Lock register is locked and writes are ignored.
             v1=0x00000001,     ///<Lock register is not locked and writes complete as normal.
         };
-        namespace lrlValC{
-            constexpr MPL::Value<lrlVal,lrlVal::v0> v0{};
-            constexpr MPL::Value<lrlVal,lrlVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LrlVal> lrl{}; 
+        namespace LrlValC{
+            constexpr Register::FieldValue<decltype(lrl),LrlVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lrl),LrlVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,lrlVal> lrl{}; 
         ///Tamper Time Seconds Lock
-        enum class ttslVal {
+        enum class TtslVal {
             v0=0x00000000,     ///<Tamper time seconds register is locked and writes are ignored.
             v1=0x00000001,     ///<Tamper time seconds register is not locked and writes complete as normal.
         };
-        namespace ttslValC{
-            constexpr MPL::Value<ttslVal,ttslVal::v0> v0{};
-            constexpr MPL::Value<ttslVal,ttslVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TtslVal> ttsl{}; 
+        namespace TtslValC{
+            constexpr Register::FieldValue<decltype(ttsl),TtslVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ttsl),TtslVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ttslVal> ttsl{}; 
         ///Monotonic Enable Lock
-        enum class melVal {
+        enum class MelVal {
             v0=0x00000000,     ///<Monotonic enable register is locked and writes are ignored.
             v1=0x00000001,     ///<Monotonic enable register is not locked and writes complete as normal.
         };
-        namespace melValC{
-            constexpr MPL::Value<melVal,melVal::v0> v0{};
-            constexpr MPL::Value<melVal,melVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,MelVal> mel{}; 
+        namespace MelValC{
+            constexpr Register::FieldValue<decltype(mel),MelVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mel),MelVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,melVal> mel{}; 
         ///Monotonic Counter Low Lock
-        enum class mcllVal {
+        enum class McllVal {
             v0=0x00000000,     ///<Monotonic counter low register is locked and writes are ignored.
             v1=0x00000001,     ///<Monotonic counter low register is not locked and writes complete as normal.
         };
-        namespace mcllValC{
-            constexpr MPL::Value<mcllVal,mcllVal::v0> v0{};
-            constexpr MPL::Value<mcllVal,mcllVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,McllVal> mcll{}; 
+        namespace McllValC{
+            constexpr Register::FieldValue<decltype(mcll),McllVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mcll),McllVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,mcllVal> mcll{}; 
         ///Monotonic Counter High Lock
-        enum class mchlVal {
+        enum class MchlVal {
             v0=0x00000000,     ///<Monotonic counter high register is locked and writes are ignored.
             v1=0x00000001,     ///<Monotonic counter high register is not locked and writes complete as normal.
         };
-        namespace mchlValC{
-            constexpr MPL::Value<mchlVal,mchlVal::v0> v0{};
-            constexpr MPL::Value<mchlVal,mchlVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,MchlVal> mchl{}; 
+        namespace MchlValC{
+            constexpr Register::FieldValue<decltype(mchl),MchlVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mchl),MchlVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,mchlVal> mchl{}; 
     }
     namespace RtcIer{    ///<RTC Interrupt Enable Register
         using Addr = Register::Address<0x4003d01c,0xffffffe0,0,unsigned>;
         ///Time Invalid Interrupt Enable
-        enum class tiieVal {
+        enum class TiieVal {
             v0=0x00000000,     ///<Time invalid flag does not generate an interrupt.
             v1=0x00000001,     ///<Time invalid flag does generate an interrupt.
         };
-        namespace tiieValC{
-            constexpr MPL::Value<tiieVal,tiieVal::v0> v0{};
-            constexpr MPL::Value<tiieVal,tiieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TiieVal> tiie{}; 
+        namespace TiieValC{
+            constexpr Register::FieldValue<decltype(tiie),TiieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tiie),TiieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tiieVal> tiie{}; 
         ///Time Overflow Interrupt Enable
-        enum class toieVal {
+        enum class ToieVal {
             v0=0x00000000,     ///<Time overflow flag does not generate an interrupt.
             v1=0x00000001,     ///<Time overflow flag does generate an interrupt.
         };
-        namespace toieValC{
-            constexpr MPL::Value<toieVal,toieVal::v0> v0{};
-            constexpr MPL::Value<toieVal,toieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ToieVal> toie{}; 
+        namespace ToieValC{
+            constexpr Register::FieldValue<decltype(toie),ToieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(toie),ToieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,toieVal> toie{}; 
         ///Time Alarm Interrupt Enable
-        enum class taieVal {
+        enum class TaieVal {
             v0=0x00000000,     ///<Time alarm flag does not generate an interrupt.
             v1=0x00000001,     ///<Time alarm flag does generate an interrupt.
         };
-        namespace taieValC{
-            constexpr MPL::Value<taieVal,taieVal::v0> v0{};
-            constexpr MPL::Value<taieVal,taieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TaieVal> taie{}; 
+        namespace TaieValC{
+            constexpr Register::FieldValue<decltype(taie),TaieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(taie),TaieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,taieVal> taie{}; 
         ///Monotonic Overflow Interrupt Enable
-        enum class moieVal {
+        enum class MoieVal {
             v0=0x00000000,     ///<Monotonic overflow flag does not generate an interrupt.
             v1=0x00000001,     ///<Monotonic overflow flag does generate an interrupt.
         };
-        namespace moieValC{
-            constexpr MPL::Value<moieVal,moieVal::v0> v0{};
-            constexpr MPL::Value<moieVal,moieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,MoieVal> moie{}; 
+        namespace MoieValC{
+            constexpr Register::FieldValue<decltype(moie),MoieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(moie),MoieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,moieVal> moie{}; 
         ///Time Seconds Interrupt Enable
-        enum class tsieVal {
+        enum class TsieVal {
             v0=0x00000000,     ///<Seconds interrupt is disabled.
             v1=0x00000001,     ///<Seconds interrupt is enabled.
         };
-        namespace tsieValC{
-            constexpr MPL::Value<tsieVal,tsieVal::v0> v0{};
-            constexpr MPL::Value<tsieVal,tsieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TsieVal> tsie{}; 
+        namespace TsieValC{
+            constexpr Register::FieldValue<decltype(tsie),TsieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tsie),TsieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tsieVal> tsie{}; 
     }
     namespace RtcTtsr{    ///<RTC Tamper Time Seconds Register
         using Addr = Register::Address<0x4003d020,0x00000000,0,unsigned>;
         ///Tamper Time Seconds
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tts{}; 
+        namespace TtsValC{
+        }
     }
     namespace RtcMer{    ///<RTC Monotonic Enable Register
         using Addr = Register::Address<0x4003d024,0xffffffef,0,unsigned>;
         ///Monotonic Counter Enable
-        enum class mceVal {
+        enum class MceVal {
             v0=0x00000000,     ///<Writes to the monotonic counter load the counter with the value written.
             v1=0x00000001,     ///<Writes to the monotonic counter increment the counter.
         };
-        namespace mceValC{
-            constexpr MPL::Value<mceVal,mceVal::v0> v0{};
-            constexpr MPL::Value<mceVal,mceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MceVal> mce{}; 
+        namespace MceValC{
+            constexpr Register::FieldValue<decltype(mce),MceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mce),MceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,mceVal> mce{}; 
     }
     namespace RtcMclr{    ///<RTC Monotonic Counter Low Register
         using Addr = Register::Address<0x4003d028,0x00000000,0,unsigned>;
         ///Monotonic Counter Low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mcl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mcl{}; 
+        namespace MclValC{
+        }
     }
     namespace RtcMchr{    ///<RTC Monotonic Counter High Register
         using Addr = Register::Address<0x4003d02c,0x00000000,0,unsigned>;
         ///Monotonic Counter High
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mch{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> mch{}; 
+        namespace MchValC{
+        }
     }
     namespace RtcWar{    ///<RTC Write Access Register
         using Addr = Register::Address<0x4003d800,0xfffff000,0,unsigned>;
         ///Time Seconds Register Write
-        enum class tsrwVal {
+        enum class TsrwVal {
             v0=0x00000000,     ///<Writes to the time seconds register are ignored.
             v1=0x00000001,     ///<Writes to the time seconds register complete as normal.
         };
-        namespace tsrwValC{
-            constexpr MPL::Value<tsrwVal,tsrwVal::v0> v0{};
-            constexpr MPL::Value<tsrwVal,tsrwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TsrwVal> tsrw{}; 
+        namespace TsrwValC{
+            constexpr Register::FieldValue<decltype(tsrw),TsrwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tsrw),TsrwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tsrwVal> tsrw{}; 
         ///Time Prescaler Register Write
-        enum class tprwVal {
+        enum class TprwVal {
             v0=0x00000000,     ///<Writes to the time prescaler register are ignored.
             v1=0x00000001,     ///<Writes to the time prescaler register complete as normal.
         };
-        namespace tprwValC{
-            constexpr MPL::Value<tprwVal,tprwVal::v0> v0{};
-            constexpr MPL::Value<tprwVal,tprwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TprwVal> tprw{}; 
+        namespace TprwValC{
+            constexpr Register::FieldValue<decltype(tprw),TprwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tprw),TprwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tprwVal> tprw{}; 
         ///Time Alarm Register Write
-        enum class tarwVal {
+        enum class TarwVal {
             v0=0x00000000,     ///<Writes to the time alarm register are ignored.
             v1=0x00000001,     ///<Writes to the time alarm register complete as normal.
         };
-        namespace tarwValC{
-            constexpr MPL::Value<tarwVal,tarwVal::v0> v0{};
-            constexpr MPL::Value<tarwVal,tarwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TarwVal> tarw{}; 
+        namespace TarwValC{
+            constexpr Register::FieldValue<decltype(tarw),TarwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tarw),TarwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,tarwVal> tarw{}; 
         ///Time Compensation Register Write
-        enum class tcrwVal {
+        enum class TcrwVal {
             v0=0x00000000,     ///<Writes to the time compensation register are ignored.
             v1=0x00000001,     ///<Writes to the time compensation register complete as normal.
         };
-        namespace tcrwValC{
-            constexpr MPL::Value<tcrwVal,tcrwVal::v0> v0{};
-            constexpr MPL::Value<tcrwVal,tcrwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TcrwVal> tcrw{}; 
+        namespace TcrwValC{
+            constexpr Register::FieldValue<decltype(tcrw),TcrwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcrw),TcrwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,tcrwVal> tcrw{}; 
         ///Control Register Write
-        enum class crwVal {
+        enum class CrwVal {
             v0=0x00000000,     ///<Writes to the control register are ignored.
             v1=0x00000001,     ///<Writes to the control register complete as normal.
         };
-        namespace crwValC{
-            constexpr MPL::Value<crwVal,crwVal::v0> v0{};
-            constexpr MPL::Value<crwVal,crwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CrwVal> crw{}; 
+        namespace CrwValC{
+            constexpr Register::FieldValue<decltype(crw),CrwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(crw),CrwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,crwVal> crw{}; 
         ///Status Register Write
-        enum class srwVal {
+        enum class SrwVal {
             v0=0x00000000,     ///<Writes to the status register are ignored.
             v1=0x00000001,     ///<Writes to the status register complete as normal.
         };
-        namespace srwValC{
-            constexpr MPL::Value<srwVal,srwVal::v0> v0{};
-            constexpr MPL::Value<srwVal,srwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SrwVal> srw{}; 
+        namespace SrwValC{
+            constexpr Register::FieldValue<decltype(srw),SrwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(srw),SrwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,srwVal> srw{}; 
         ///Lock Register Write
-        enum class lrwVal {
+        enum class LrwVal {
             v0=0x00000000,     ///<Writes to the lock register are ignored.
             v1=0x00000001,     ///<Writes to the lock register complete as normal.
         };
-        namespace lrwValC{
-            constexpr MPL::Value<lrwVal,lrwVal::v0> v0{};
-            constexpr MPL::Value<lrwVal,lrwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LrwVal> lrw{}; 
+        namespace LrwValC{
+            constexpr Register::FieldValue<decltype(lrw),LrwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lrw),LrwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,lrwVal> lrw{}; 
         ///Interrupt Enable Register Write
-        enum class ierwVal {
+        enum class IerwVal {
             v0=0x00000000,     ///<Writes to the interupt enable register are ignored.
             v1=0x00000001,     ///<Writes to the interrupt enable register complete as normal.
         };
-        namespace ierwValC{
-            constexpr MPL::Value<ierwVal,ierwVal::v0> v0{};
-            constexpr MPL::Value<ierwVal,ierwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,IerwVal> ierw{}; 
+        namespace IerwValC{
+            constexpr Register::FieldValue<decltype(ierw),IerwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ierw),IerwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ierwVal> ierw{}; 
         ///Tamper Time Seconds Write
-        enum class ttswVal {
+        enum class TtswVal {
             v0=0x00000000,     ///<Writes to the tamper time seconds register are ignored.
             v1=0x00000001,     ///<Writes to the tamper time seconds register complete as normal.
         };
-        namespace ttswValC{
-            constexpr MPL::Value<ttswVal,ttswVal::v0> v0{};
-            constexpr MPL::Value<ttswVal,ttswVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TtswVal> ttsw{}; 
+        namespace TtswValC{
+            constexpr Register::FieldValue<decltype(ttsw),TtswVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ttsw),TtswVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ttswVal> ttsw{}; 
         ///Monotonic Enable Register Write
-        enum class merwVal {
+        enum class MerwVal {
             v0=0x00000000,     ///<Writes to the monotonic enable register are ignored.
             v1=0x00000001,     ///<Writes to the monotonic enable register complete as normal.
         };
-        namespace merwValC{
-            constexpr MPL::Value<merwVal,merwVal::v0> v0{};
-            constexpr MPL::Value<merwVal,merwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,MerwVal> merw{}; 
+        namespace MerwValC{
+            constexpr Register::FieldValue<decltype(merw),MerwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(merw),MerwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,merwVal> merw{}; 
         ///Monotonic Counter Low Write
-        enum class mclwVal {
+        enum class MclwVal {
             v0=0x00000000,     ///<Writes to the monotonic counter low register are ignored.
             v1=0x00000001,     ///<Writes to the monotonic counter low register complete as normal.
         };
-        namespace mclwValC{
-            constexpr MPL::Value<mclwVal,mclwVal::v0> v0{};
-            constexpr MPL::Value<mclwVal,mclwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,MclwVal> mclw{}; 
+        namespace MclwValC{
+            constexpr Register::FieldValue<decltype(mclw),MclwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mclw),MclwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,mclwVal> mclw{}; 
         ///Monotonic Counter High Write
-        enum class mchwVal {
+        enum class MchwVal {
             v0=0x00000000,     ///<Writes to the monotonic counter high register are ignored.
             v1=0x00000001,     ///<Writes to the monotonic counter high register complete as normal.
         };
-        namespace mchwValC{
-            constexpr MPL::Value<mchwVal,mchwVal::v0> v0{};
-            constexpr MPL::Value<mchwVal,mchwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,MchwVal> mchw{}; 
+        namespace MchwValC{
+            constexpr Register::FieldValue<decltype(mchw),MchwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mchw),MchwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,mchwVal> mchw{}; 
     }
     namespace RtcRar{    ///<RTC Read Access Register
         using Addr = Register::Address<0x4003d804,0xfffff000,0,unsigned>;
         ///Time Seconds Register Read
-        enum class tsrrVal {
+        enum class TsrrVal {
             v0=0x00000000,     ///<Reads to the time seconds register are ignored.
             v1=0x00000001,     ///<Reads to the time seconds register complete as normal.
         };
-        namespace tsrrValC{
-            constexpr MPL::Value<tsrrVal,tsrrVal::v0> v0{};
-            constexpr MPL::Value<tsrrVal,tsrrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TsrrVal> tsrr{}; 
+        namespace TsrrValC{
+            constexpr Register::FieldValue<decltype(tsrr),TsrrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tsrr),TsrrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tsrrVal> tsrr{}; 
         ///Time Prescaler Register Read
-        enum class tprrVal {
+        enum class TprrVal {
             v0=0x00000000,     ///<Reads to the time prescaler register are ignored.
             v1=0x00000001,     ///<Reads to the time prescaler register complete as normal.
         };
-        namespace tprrValC{
-            constexpr MPL::Value<tprrVal,tprrVal::v0> v0{};
-            constexpr MPL::Value<tprrVal,tprrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TprrVal> tprr{}; 
+        namespace TprrValC{
+            constexpr Register::FieldValue<decltype(tprr),TprrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tprr),TprrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tprrVal> tprr{}; 
         ///Time Alarm Register Read
-        enum class tarrVal {
+        enum class TarrVal {
             v0=0x00000000,     ///<Reads to the time alarm register are ignored.
             v1=0x00000001,     ///<Reads to the time alarm register complete as normal.
         };
-        namespace tarrValC{
-            constexpr MPL::Value<tarrVal,tarrVal::v0> v0{};
-            constexpr MPL::Value<tarrVal,tarrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TarrVal> tarr{}; 
+        namespace TarrValC{
+            constexpr Register::FieldValue<decltype(tarr),TarrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tarr),TarrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,tarrVal> tarr{}; 
         ///Time Compensation Register Read
-        enum class tcrrVal {
+        enum class TcrrVal {
             v0=0x00000000,     ///<Reads to the time compensation register are ignored.
             v1=0x00000001,     ///<Reads to the time compensation register complete as normal.
         };
-        namespace tcrrValC{
-            constexpr MPL::Value<tcrrVal,tcrrVal::v0> v0{};
-            constexpr MPL::Value<tcrrVal,tcrrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TcrrVal> tcrr{}; 
+        namespace TcrrValC{
+            constexpr Register::FieldValue<decltype(tcrr),TcrrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcrr),TcrrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,tcrrVal> tcrr{}; 
         ///Control Register Read
-        enum class crrVal {
+        enum class CrrVal {
             v0=0x00000000,     ///<Reads to the control register are ignored.
             v1=0x00000001,     ///<Reads to the control register complete as normal.
         };
-        namespace crrValC{
-            constexpr MPL::Value<crrVal,crrVal::v0> v0{};
-            constexpr MPL::Value<crrVal,crrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CrrVal> crr{}; 
+        namespace CrrValC{
+            constexpr Register::FieldValue<decltype(crr),CrrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(crr),CrrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,crrVal> crr{}; 
         ///Status Register Read
-        enum class srrVal {
+        enum class SrrVal {
             v0=0x00000000,     ///<Reads to the status register are ignored.
             v1=0x00000001,     ///<Reads to the status register complete as normal.
         };
-        namespace srrValC{
-            constexpr MPL::Value<srrVal,srrVal::v0> v0{};
-            constexpr MPL::Value<srrVal,srrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SrrVal> srr{}; 
+        namespace SrrValC{
+            constexpr Register::FieldValue<decltype(srr),SrrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(srr),SrrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,srrVal> srr{}; 
         ///Lock Register Read
-        enum class lrrVal {
+        enum class LrrVal {
             v0=0x00000000,     ///<Reads to the lock register are ignored.
             v1=0x00000001,     ///<Reads to the lock register complete as normal.
         };
-        namespace lrrValC{
-            constexpr MPL::Value<lrrVal,lrrVal::v0> v0{};
-            constexpr MPL::Value<lrrVal,lrrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LrrVal> lrr{}; 
+        namespace LrrValC{
+            constexpr Register::FieldValue<decltype(lrr),LrrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lrr),LrrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,lrrVal> lrr{}; 
         ///Interrupt Enable Register Read
-        enum class ierrVal {
+        enum class IerrVal {
             v0=0x00000000,     ///<Reads to the interrupt enable register are ignored.
             v1=0x00000001,     ///<Reads to the interrupt enable register complete as normal.
         };
-        namespace ierrValC{
-            constexpr MPL::Value<ierrVal,ierrVal::v0> v0{};
-            constexpr MPL::Value<ierrVal,ierrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,IerrVal> ierr{}; 
+        namespace IerrValC{
+            constexpr Register::FieldValue<decltype(ierr),IerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ierr),IerrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ierrVal> ierr{}; 
         ///Tamper Time Seconds Read
-        enum class ttsrVal {
+        enum class TtsrVal {
             v0=0x00000000,     ///<Reads to the tamper time seconds register are ignored.
             v1=0x00000001,     ///<Reads to the tamper time seconds register complete as normal.
         };
-        namespace ttsrValC{
-            constexpr MPL::Value<ttsrVal,ttsrVal::v0> v0{};
-            constexpr MPL::Value<ttsrVal,ttsrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TtsrVal> ttsr{}; 
+        namespace TtsrValC{
+            constexpr Register::FieldValue<decltype(ttsr),TtsrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ttsr),TtsrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ttsrVal> ttsr{}; 
         ///Monotonic Enable Register Read
-        enum class merrVal {
+        enum class MerrVal {
             v0=0x00000000,     ///<Reads to the monotonic enable register are ignored.
             v1=0x00000001,     ///<Reads to the monotonic enable register complete as normal.
         };
-        namespace merrValC{
-            constexpr MPL::Value<merrVal,merrVal::v0> v0{};
-            constexpr MPL::Value<merrVal,merrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,MerrVal> merr{}; 
+        namespace MerrValC{
+            constexpr Register::FieldValue<decltype(merr),MerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(merr),MerrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,merrVal> merr{}; 
         ///Monotonic Counter Low Read
-        enum class mclrVal {
+        enum class MclrVal {
             v0=0x00000000,     ///<Reads to the monotonic counter low register are ignored.
             v1=0x00000001,     ///<Reads to the monotonic counter low register complete as normal.
         };
-        namespace mclrValC{
-            constexpr MPL::Value<mclrVal,mclrVal::v0> v0{};
-            constexpr MPL::Value<mclrVal,mclrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,MclrVal> mclr{}; 
+        namespace MclrValC{
+            constexpr Register::FieldValue<decltype(mclr),MclrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mclr),MclrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,mclrVal> mclr{}; 
         ///Monotonic Counter High Read
-        enum class mchrVal {
+        enum class MchrVal {
             v0=0x00000000,     ///<Reads to the monotonic counter high register are ignored.
             v1=0x00000001,     ///<Reads to the monotonic counter high register complete as normal.
         };
-        namespace mchrValC{
-            constexpr MPL::Value<mchrVal,mchrVal::v0> v0{};
-            constexpr MPL::Value<mchrVal,mchrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,MchrVal> mchr{}; 
+        namespace MchrValC{
+            constexpr Register::FieldValue<decltype(mchr),MchrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mchr),MchrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,mchrVal> mchr{}; 
     }
 }

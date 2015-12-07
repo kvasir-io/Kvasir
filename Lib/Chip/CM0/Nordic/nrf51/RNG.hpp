@@ -14,75 +14,77 @@ namespace Kvasir {
     namespace Noneshorts{    ///<Shortcuts for the RNG.
         using Addr = Register::Address<0x4000d200,0xfffffffe,0,unsigned>;
         ///Shortcut between VALRDY event and STOP task.
-        enum class valrdyStopVal {
+        enum class ValrdystopVal {
             disabled=0x00000000,     ///<Shortcut disabled.
             enabled=0x00000001,     ///<Shortcut enabled.
         };
-        namespace valrdyStopValC{
-            constexpr MPL::Value<valrdyStopVal,valrdyStopVal::disabled> disabled{};
-            constexpr MPL::Value<valrdyStopVal,valrdyStopVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValrdystopVal> valrdyStop{}; 
+        namespace ValrdystopValC{
+            constexpr Register::FieldValue<decltype(valrdyStop),ValrdystopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(valrdyStop),ValrdystopVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,valrdyStopVal> valrdyStop{}; 
     }
     namespace Noneintenset{    ///<Interrupt enable set register
         using Addr = Register::Address<0x4000d304,0xfffffffe,0,unsigned>;
         ///Enable interrupt on VALRDY event.
-        enum class valrdyVal {
+        enum class ValrdyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
             enabled=0x00000001,     ///<Interrupt enabled.
             set=0x00000001,     ///<Enable interrupt on write.
         };
-        namespace valrdyValC{
-            constexpr MPL::Value<valrdyVal,valrdyVal::disabled> disabled{};
-            constexpr MPL::Value<valrdyVal,valrdyVal::enabled> enabled{};
-            constexpr MPL::Value<valrdyVal,valrdyVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValrdyVal> valrdy{}; 
+        namespace ValrdyValC{
+            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,valrdyVal> valrdy{}; 
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register
         using Addr = Register::Address<0x4000d308,0xfffffffe,0,unsigned>;
         ///Disable interrupt on VALRDY event.
-        enum class valrdyVal {
+        enum class ValrdyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
             enabled=0x00000001,     ///<Interrupt enabled.
             clear=0x00000001,     ///<Disable interrupt on write.
         };
-        namespace valrdyValC{
-            constexpr MPL::Value<valrdyVal,valrdyVal::disabled> disabled{};
-            constexpr MPL::Value<valrdyVal,valrdyVal::enabled> enabled{};
-            constexpr MPL::Value<valrdyVal,valrdyVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValrdyVal> valrdy{}; 
+        namespace ValrdyValC{
+            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,valrdyVal> valrdy{}; 
     }
     namespace Noneconfig{    ///<Configuration register.
         using Addr = Register::Address<0x4000d504,0xfffffffe,0,unsigned>;
         ///Digital error correction enable.
-        enum class dercenVal {
+        enum class DercenVal {
             disabled=0x00000000,     ///<Digital error correction disabled.
             enabled=0x00000001,     ///<Digital error correction enabled.
         };
-        namespace dercenValC{
-            constexpr MPL::Value<dercenVal,dercenVal::disabled> disabled{};
-            constexpr MPL::Value<dercenVal,dercenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DercenVal> dercen{}; 
+        namespace DercenValC{
+            constexpr Register::FieldValue<decltype(dercen),DercenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dercen),DercenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,dercenVal> dercen{}; 
     }
     namespace Nonevalue{    ///<RNG random number.
         using Addr = Register::Address<0x4000d508,0xffffff00,0,unsigned>;
         ///Generated random number.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> value{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> value{}; 
+        namespace ValueValC{
+        }
     }
     namespace Nonepower{    ///<Peripheral power control.
         using Addr = Register::Address<0x4000dffc,0xfffffffe,0,unsigned>;
         ///Peripheral power control.
-        enum class powerVal {
+        enum class PowerVal {
             disabled=0x00000000,     ///<Module power disabled.
             enabled=0x00000001,     ///<Module power enabled.
         };
-        namespace powerValC{
-            constexpr MPL::Value<powerVal,powerVal::disabled> disabled{};
-            constexpr MPL::Value<powerVal,powerVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
+        namespace PowerValC{
+            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,powerVal> power{}; 
     }
 }

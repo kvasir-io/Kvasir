@@ -104,551 +104,567 @@ namespace Kvasir {
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40006304,0x7fffff00,0,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_IN[0] event
-        enum class in0Val {
+        enum class In0Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace in0ValC{
-            constexpr MPL::Value<in0Val,in0Val::disabled> disabled{};
-            constexpr MPL::Value<in0Val,in0Val::enabled> enabled{};
-            constexpr MPL::Value<in0Val,in0Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,In0Val> in0{}; 
+        namespace In0ValC{
+            constexpr Register::FieldValue<decltype(in0),In0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in0),In0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in0),In0Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,in0Val> in0{}; 
         ///Write '1' to Enable interrupt on EVENTS_IN[1] event
-        enum class in1Val {
+        enum class In1Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace in1ValC{
-            constexpr MPL::Value<in1Val,in1Val::disabled> disabled{};
-            constexpr MPL::Value<in1Val,in1Val::enabled> enabled{};
-            constexpr MPL::Value<in1Val,in1Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,In1Val> in1{}; 
+        namespace In1ValC{
+            constexpr Register::FieldValue<decltype(in1),In1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in1),In1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in1),In1Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,in1Val> in1{}; 
         ///Write '1' to Enable interrupt on EVENTS_IN[2] event
-        enum class in2Val {
+        enum class In2Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace in2ValC{
-            constexpr MPL::Value<in2Val,in2Val::disabled> disabled{};
-            constexpr MPL::Value<in2Val,in2Val::enabled> enabled{};
-            constexpr MPL::Value<in2Val,in2Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,In2Val> in2{}; 
+        namespace In2ValC{
+            constexpr Register::FieldValue<decltype(in2),In2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in2),In2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in2),In2Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,in2Val> in2{}; 
         ///Write '1' to Enable interrupt on EVENTS_IN[3] event
-        enum class in3Val {
+        enum class In3Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace in3ValC{
-            constexpr MPL::Value<in3Val,in3Val::disabled> disabled{};
-            constexpr MPL::Value<in3Val,in3Val::enabled> enabled{};
-            constexpr MPL::Value<in3Val,in3Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,In3Val> in3{}; 
+        namespace In3ValC{
+            constexpr Register::FieldValue<decltype(in3),In3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in3),In3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in3),In3Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,in3Val> in3{}; 
         ///Write '1' to Enable interrupt on EVENTS_IN[4] event
-        enum class in4Val {
+        enum class In4Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace in4ValC{
-            constexpr MPL::Value<in4Val,in4Val::disabled> disabled{};
-            constexpr MPL::Value<in4Val,in4Val::enabled> enabled{};
-            constexpr MPL::Value<in4Val,in4Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,In4Val> in4{}; 
+        namespace In4ValC{
+            constexpr Register::FieldValue<decltype(in4),In4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in4),In4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in4),In4Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,in4Val> in4{}; 
         ///Write '1' to Enable interrupt on EVENTS_IN[5] event
-        enum class in5Val {
+        enum class In5Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace in5ValC{
-            constexpr MPL::Value<in5Val,in5Val::disabled> disabled{};
-            constexpr MPL::Value<in5Val,in5Val::enabled> enabled{};
-            constexpr MPL::Value<in5Val,in5Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,In5Val> in5{}; 
+        namespace In5ValC{
+            constexpr Register::FieldValue<decltype(in5),In5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in5),In5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in5),In5Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,in5Val> in5{}; 
         ///Write '1' to Enable interrupt on EVENTS_IN[6] event
-        enum class in6Val {
+        enum class In6Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace in6ValC{
-            constexpr MPL::Value<in6Val,in6Val::disabled> disabled{};
-            constexpr MPL::Value<in6Val,in6Val::enabled> enabled{};
-            constexpr MPL::Value<in6Val,in6Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,In6Val> in6{}; 
+        namespace In6ValC{
+            constexpr Register::FieldValue<decltype(in6),In6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in6),In6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in6),In6Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,in6Val> in6{}; 
         ///Write '1' to Enable interrupt on EVENTS_IN[7] event
-        enum class in7Val {
+        enum class In7Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace in7ValC{
-            constexpr MPL::Value<in7Val,in7Val::disabled> disabled{};
-            constexpr MPL::Value<in7Val,in7Val::enabled> enabled{};
-            constexpr MPL::Value<in7Val,in7Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,In7Val> in7{}; 
+        namespace In7ValC{
+            constexpr Register::FieldValue<decltype(in7),In7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in7),In7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in7),In7Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,in7Val> in7{}; 
         ///Write '1' to Enable interrupt on EVENTS_PORT event
-        enum class portVal {
+        enum class PortVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace portValC{
-            constexpr MPL::Value<portVal,portVal::disabled> disabled{};
-            constexpr MPL::Value<portVal,portVal::enabled> enabled{};
-            constexpr MPL::Value<portVal,portVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,PortVal> port{}; 
+        namespace PortValC{
+            constexpr Register::FieldValue<decltype(port),PortVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(port),PortVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(port),PortVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,portVal> port{}; 
     }
     namespace Noneintenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40006308,0x7fffff00,0,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_IN[0] event
-        enum class in0Val {
+        enum class In0Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace in0ValC{
-            constexpr MPL::Value<in0Val,in0Val::disabled> disabled{};
-            constexpr MPL::Value<in0Val,in0Val::enabled> enabled{};
-            constexpr MPL::Value<in0Val,in0Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,In0Val> in0{}; 
+        namespace In0ValC{
+            constexpr Register::FieldValue<decltype(in0),In0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in0),In0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in0),In0Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,in0Val> in0{}; 
         ///Write '1' to Clear interrupt on EVENTS_IN[1] event
-        enum class in1Val {
+        enum class In1Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace in1ValC{
-            constexpr MPL::Value<in1Val,in1Val::disabled> disabled{};
-            constexpr MPL::Value<in1Val,in1Val::enabled> enabled{};
-            constexpr MPL::Value<in1Val,in1Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,In1Val> in1{}; 
+        namespace In1ValC{
+            constexpr Register::FieldValue<decltype(in1),In1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in1),In1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in1),In1Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,in1Val> in1{}; 
         ///Write '1' to Clear interrupt on EVENTS_IN[2] event
-        enum class in2Val {
+        enum class In2Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace in2ValC{
-            constexpr MPL::Value<in2Val,in2Val::disabled> disabled{};
-            constexpr MPL::Value<in2Val,in2Val::enabled> enabled{};
-            constexpr MPL::Value<in2Val,in2Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,In2Val> in2{}; 
+        namespace In2ValC{
+            constexpr Register::FieldValue<decltype(in2),In2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in2),In2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in2),In2Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,in2Val> in2{}; 
         ///Write '1' to Clear interrupt on EVENTS_IN[3] event
-        enum class in3Val {
+        enum class In3Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace in3ValC{
-            constexpr MPL::Value<in3Val,in3Val::disabled> disabled{};
-            constexpr MPL::Value<in3Val,in3Val::enabled> enabled{};
-            constexpr MPL::Value<in3Val,in3Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,In3Val> in3{}; 
+        namespace In3ValC{
+            constexpr Register::FieldValue<decltype(in3),In3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in3),In3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in3),In3Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,in3Val> in3{}; 
         ///Write '1' to Clear interrupt on EVENTS_IN[4] event
-        enum class in4Val {
+        enum class In4Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace in4ValC{
-            constexpr MPL::Value<in4Val,in4Val::disabled> disabled{};
-            constexpr MPL::Value<in4Val,in4Val::enabled> enabled{};
-            constexpr MPL::Value<in4Val,in4Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,In4Val> in4{}; 
+        namespace In4ValC{
+            constexpr Register::FieldValue<decltype(in4),In4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in4),In4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in4),In4Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,in4Val> in4{}; 
         ///Write '1' to Clear interrupt on EVENTS_IN[5] event
-        enum class in5Val {
+        enum class In5Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace in5ValC{
-            constexpr MPL::Value<in5Val,in5Val::disabled> disabled{};
-            constexpr MPL::Value<in5Val,in5Val::enabled> enabled{};
-            constexpr MPL::Value<in5Val,in5Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,In5Val> in5{}; 
+        namespace In5ValC{
+            constexpr Register::FieldValue<decltype(in5),In5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in5),In5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in5),In5Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,in5Val> in5{}; 
         ///Write '1' to Clear interrupt on EVENTS_IN[6] event
-        enum class in6Val {
+        enum class In6Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace in6ValC{
-            constexpr MPL::Value<in6Val,in6Val::disabled> disabled{};
-            constexpr MPL::Value<in6Val,in6Val::enabled> enabled{};
-            constexpr MPL::Value<in6Val,in6Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,In6Val> in6{}; 
+        namespace In6ValC{
+            constexpr Register::FieldValue<decltype(in6),In6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in6),In6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in6),In6Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,in6Val> in6{}; 
         ///Write '1' to Clear interrupt on EVENTS_IN[7] event
-        enum class in7Val {
+        enum class In7Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace in7ValC{
-            constexpr MPL::Value<in7Val,in7Val::disabled> disabled{};
-            constexpr MPL::Value<in7Val,in7Val::enabled> enabled{};
-            constexpr MPL::Value<in7Val,in7Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,In7Val> in7{}; 
+        namespace In7ValC{
+            constexpr Register::FieldValue<decltype(in7),In7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in7),In7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in7),In7Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,in7Val> in7{}; 
         ///Write '1' to Clear interrupt on EVENTS_PORT event
-        enum class portVal {
+        enum class PortVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace portValC{
-            constexpr MPL::Value<portVal,portVal::disabled> disabled{};
-            constexpr MPL::Value<portVal,portVal::enabled> enabled{};
-            constexpr MPL::Value<portVal,portVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,PortVal> port{}; 
+        namespace PortValC{
+            constexpr Register::FieldValue<decltype(port),PortVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(port),PortVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(port),PortVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,portVal> port{}; 
     }
     namespace Noneconfig0{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
         using Addr = Register::Address<0x40006510,0xffece0fc,0,unsigned>;
         ///Mode
-        enum class modeVal {
+        enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
             event=0x00000001,     ///<Event mode
             task=0x00000003,     ///<Task mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::disabled> disabled{};
-            constexpr MPL::Value<modeVal,modeVal::event> event{};
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        namespace PselValC{
+        }
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
-        enum class polarityVal {
+        enum class PolarityVal {
             none=0x00000000,     ///<Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity.
             lotohi=0x00000001,     ///<Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin.
             hitolo=0x00000002,     ///<Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin.
             toggle=0x00000003,     ///<Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin.
         };
-        namespace polarityValC{
-            constexpr MPL::Value<polarityVal,polarityVal::none> none{};
-            constexpr MPL::Value<polarityVal,polarityVal::lotohi> lotohi{};
-            constexpr MPL::Value<polarityVal,polarityVal::hitolo> hitolo{};
-            constexpr MPL::Value<polarityVal,polarityVal::toggle> toggle{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
+        namespace PolarityValC{
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,polarityVal> polarity{}; 
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
-        enum class outinitVal {
+        enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
             high=0x00000001,     ///<Task mode: Initial value of pin before task triggering is high
         };
-        namespace outinitValC{
-            constexpr MPL::Value<outinitVal,outinitVal::low> low{};
-            constexpr MPL::Value<outinitVal,outinitVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
+        namespace OutinitValC{
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,outinitVal> outinit{}; 
     }
     namespace Noneconfig1{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
         using Addr = Register::Address<0x40006514,0xffece0fc,0,unsigned>;
         ///Mode
-        enum class modeVal {
+        enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
             event=0x00000001,     ///<Event mode
             task=0x00000003,     ///<Task mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::disabled> disabled{};
-            constexpr MPL::Value<modeVal,modeVal::event> event{};
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        namespace PselValC{
+        }
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
-        enum class polarityVal {
+        enum class PolarityVal {
             none=0x00000000,     ///<Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity.
             lotohi=0x00000001,     ///<Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin.
             hitolo=0x00000002,     ///<Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin.
             toggle=0x00000003,     ///<Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin.
         };
-        namespace polarityValC{
-            constexpr MPL::Value<polarityVal,polarityVal::none> none{};
-            constexpr MPL::Value<polarityVal,polarityVal::lotohi> lotohi{};
-            constexpr MPL::Value<polarityVal,polarityVal::hitolo> hitolo{};
-            constexpr MPL::Value<polarityVal,polarityVal::toggle> toggle{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
+        namespace PolarityValC{
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,polarityVal> polarity{}; 
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
-        enum class outinitVal {
+        enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
             high=0x00000001,     ///<Task mode: Initial value of pin before task triggering is high
         };
-        namespace outinitValC{
-            constexpr MPL::Value<outinitVal,outinitVal::low> low{};
-            constexpr MPL::Value<outinitVal,outinitVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
+        namespace OutinitValC{
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,outinitVal> outinit{}; 
     }
     namespace Noneconfig2{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
         using Addr = Register::Address<0x40006518,0xffece0fc,0,unsigned>;
         ///Mode
-        enum class modeVal {
+        enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
             event=0x00000001,     ///<Event mode
             task=0x00000003,     ///<Task mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::disabled> disabled{};
-            constexpr MPL::Value<modeVal,modeVal::event> event{};
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        namespace PselValC{
+        }
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
-        enum class polarityVal {
+        enum class PolarityVal {
             none=0x00000000,     ///<Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity.
             lotohi=0x00000001,     ///<Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin.
             hitolo=0x00000002,     ///<Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin.
             toggle=0x00000003,     ///<Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin.
         };
-        namespace polarityValC{
-            constexpr MPL::Value<polarityVal,polarityVal::none> none{};
-            constexpr MPL::Value<polarityVal,polarityVal::lotohi> lotohi{};
-            constexpr MPL::Value<polarityVal,polarityVal::hitolo> hitolo{};
-            constexpr MPL::Value<polarityVal,polarityVal::toggle> toggle{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
+        namespace PolarityValC{
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,polarityVal> polarity{}; 
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
-        enum class outinitVal {
+        enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
             high=0x00000001,     ///<Task mode: Initial value of pin before task triggering is high
         };
-        namespace outinitValC{
-            constexpr MPL::Value<outinitVal,outinitVal::low> low{};
-            constexpr MPL::Value<outinitVal,outinitVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
+        namespace OutinitValC{
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,outinitVal> outinit{}; 
     }
     namespace Noneconfig3{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
         using Addr = Register::Address<0x4000651c,0xffece0fc,0,unsigned>;
         ///Mode
-        enum class modeVal {
+        enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
             event=0x00000001,     ///<Event mode
             task=0x00000003,     ///<Task mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::disabled> disabled{};
-            constexpr MPL::Value<modeVal,modeVal::event> event{};
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        namespace PselValC{
+        }
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
-        enum class polarityVal {
+        enum class PolarityVal {
             none=0x00000000,     ///<Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity.
             lotohi=0x00000001,     ///<Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin.
             hitolo=0x00000002,     ///<Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin.
             toggle=0x00000003,     ///<Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin.
         };
-        namespace polarityValC{
-            constexpr MPL::Value<polarityVal,polarityVal::none> none{};
-            constexpr MPL::Value<polarityVal,polarityVal::lotohi> lotohi{};
-            constexpr MPL::Value<polarityVal,polarityVal::hitolo> hitolo{};
-            constexpr MPL::Value<polarityVal,polarityVal::toggle> toggle{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
+        namespace PolarityValC{
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,polarityVal> polarity{}; 
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
-        enum class outinitVal {
+        enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
             high=0x00000001,     ///<Task mode: Initial value of pin before task triggering is high
         };
-        namespace outinitValC{
-            constexpr MPL::Value<outinitVal,outinitVal::low> low{};
-            constexpr MPL::Value<outinitVal,outinitVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
+        namespace OutinitValC{
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,outinitVal> outinit{}; 
     }
     namespace Noneconfig4{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
         using Addr = Register::Address<0x40006520,0xffece0fc,0,unsigned>;
         ///Mode
-        enum class modeVal {
+        enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
             event=0x00000001,     ///<Event mode
             task=0x00000003,     ///<Task mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::disabled> disabled{};
-            constexpr MPL::Value<modeVal,modeVal::event> event{};
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        namespace PselValC{
+        }
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
-        enum class polarityVal {
+        enum class PolarityVal {
             none=0x00000000,     ///<Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity.
             lotohi=0x00000001,     ///<Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin.
             hitolo=0x00000002,     ///<Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin.
             toggle=0x00000003,     ///<Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin.
         };
-        namespace polarityValC{
-            constexpr MPL::Value<polarityVal,polarityVal::none> none{};
-            constexpr MPL::Value<polarityVal,polarityVal::lotohi> lotohi{};
-            constexpr MPL::Value<polarityVal,polarityVal::hitolo> hitolo{};
-            constexpr MPL::Value<polarityVal,polarityVal::toggle> toggle{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
+        namespace PolarityValC{
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,polarityVal> polarity{}; 
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
-        enum class outinitVal {
+        enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
             high=0x00000001,     ///<Task mode: Initial value of pin before task triggering is high
         };
-        namespace outinitValC{
-            constexpr MPL::Value<outinitVal,outinitVal::low> low{};
-            constexpr MPL::Value<outinitVal,outinitVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
+        namespace OutinitValC{
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,outinitVal> outinit{}; 
     }
     namespace Noneconfig5{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
         using Addr = Register::Address<0x40006524,0xffece0fc,0,unsigned>;
         ///Mode
-        enum class modeVal {
+        enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
             event=0x00000001,     ///<Event mode
             task=0x00000003,     ///<Task mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::disabled> disabled{};
-            constexpr MPL::Value<modeVal,modeVal::event> event{};
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        namespace PselValC{
+        }
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
-        enum class polarityVal {
+        enum class PolarityVal {
             none=0x00000000,     ///<Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity.
             lotohi=0x00000001,     ///<Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin.
             hitolo=0x00000002,     ///<Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin.
             toggle=0x00000003,     ///<Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin.
         };
-        namespace polarityValC{
-            constexpr MPL::Value<polarityVal,polarityVal::none> none{};
-            constexpr MPL::Value<polarityVal,polarityVal::lotohi> lotohi{};
-            constexpr MPL::Value<polarityVal,polarityVal::hitolo> hitolo{};
-            constexpr MPL::Value<polarityVal,polarityVal::toggle> toggle{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
+        namespace PolarityValC{
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,polarityVal> polarity{}; 
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
-        enum class outinitVal {
+        enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
             high=0x00000001,     ///<Task mode: Initial value of pin before task triggering is high
         };
-        namespace outinitValC{
-            constexpr MPL::Value<outinitVal,outinitVal::low> low{};
-            constexpr MPL::Value<outinitVal,outinitVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
+        namespace OutinitValC{
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,outinitVal> outinit{}; 
     }
     namespace Noneconfig6{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
         using Addr = Register::Address<0x40006528,0xffece0fc,0,unsigned>;
         ///Mode
-        enum class modeVal {
+        enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
             event=0x00000001,     ///<Event mode
             task=0x00000003,     ///<Task mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::disabled> disabled{};
-            constexpr MPL::Value<modeVal,modeVal::event> event{};
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        namespace PselValC{
+        }
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
-        enum class polarityVal {
+        enum class PolarityVal {
             none=0x00000000,     ///<Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity.
             lotohi=0x00000001,     ///<Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin.
             hitolo=0x00000002,     ///<Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin.
             toggle=0x00000003,     ///<Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin.
         };
-        namespace polarityValC{
-            constexpr MPL::Value<polarityVal,polarityVal::none> none{};
-            constexpr MPL::Value<polarityVal,polarityVal::lotohi> lotohi{};
-            constexpr MPL::Value<polarityVal,polarityVal::hitolo> hitolo{};
-            constexpr MPL::Value<polarityVal,polarityVal::toggle> toggle{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
+        namespace PolarityValC{
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,polarityVal> polarity{}; 
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
-        enum class outinitVal {
+        enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
             high=0x00000001,     ///<Task mode: Initial value of pin before task triggering is high
         };
-        namespace outinitValC{
-            constexpr MPL::Value<outinitVal,outinitVal::low> low{};
-            constexpr MPL::Value<outinitVal,outinitVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
+        namespace OutinitValC{
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,outinitVal> outinit{}; 
     }
     namespace Noneconfig7{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
         using Addr = Register::Address<0x4000652c,0xffece0fc,0,unsigned>;
         ///Mode
-        enum class modeVal {
+        enum class ModeVal {
             disabled=0x00000000,     ///<Disabled. Pin specified by PSEL will not be acquired by the GPIOTE module.
             event=0x00000001,     ///<Event mode
             task=0x00000003,     ///<Task mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::disabled> disabled{};
-            constexpr MPL::Value<modeVal,modeVal::event> event{};
-            constexpr MPL::Value<modeVal,modeVal::task> task{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
+        namespace PselValC{
+        }
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
-        enum class polarityVal {
+        enum class PolarityVal {
             none=0x00000000,     ///<Task mode: No effect on pin from OUT[n] task. Event mode: no IN[n] event generated on pin activity.
             lotohi=0x00000001,     ///<Task mode: Set pin from OUT[n] task. Event mode: Generate IN[n] event when rising edge on pin.
             hitolo=0x00000002,     ///<Task mode: Clear pin from OUT[n] task. Event mode: Generate IN[n] event when falling edge on pin.
             toggle=0x00000003,     ///<Task mode: Toggle pin from OUT[n]. Event mode: Generate IN[n] when any change on pin.
         };
-        namespace polarityValC{
-            constexpr MPL::Value<polarityVal,polarityVal::none> none{};
-            constexpr MPL::Value<polarityVal,polarityVal::lotohi> lotohi{};
-            constexpr MPL::Value<polarityVal,polarityVal::hitolo> hitolo{};
-            constexpr MPL::Value<polarityVal,polarityVal::toggle> toggle{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
+        namespace PolarityValC{
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,polarityVal> polarity{}; 
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
-        enum class outinitVal {
+        enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
             high=0x00000001,     ///<Task mode: Initial value of pin before task triggering is high
         };
-        namespace outinitValC{
-            constexpr MPL::Value<outinitVal,outinitVal::low> low{};
-            constexpr MPL::Value<outinitVal,outinitVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
+        namespace OutinitValC{
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,outinitVal> outinit{}; 
     }
 }

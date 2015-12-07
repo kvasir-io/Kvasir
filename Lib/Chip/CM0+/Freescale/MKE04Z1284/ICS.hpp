@@ -5,66 +5,68 @@ namespace Kvasir {
     namespace IcsC1{    ///<ICS Control Register 1
         using Addr = Register::Address<0x40064000,0xffffff00,0,unsigned char>;
         ///Internal Reference Stop Enable
-        enum class irefstenVal {
+        enum class IrefstenVal {
             v0=0x00000000,     ///<Internal reference clock is disabled in Stop mode.
             v1=0x00000001,     ///<Internal reference clock stays enabled in Stop mode if IRCLKEN is set, or if ICS is in FEI, FBI, or FBILP mode before entering Stop.
         };
-        namespace irefstenValC{
-            constexpr MPL::Value<irefstenVal,irefstenVal::v0> v0{};
-            constexpr MPL::Value<irefstenVal,irefstenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrefstenVal> irefsten{}; 
+        namespace IrefstenValC{
+            constexpr Register::FieldValue<decltype(irefsten),IrefstenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irefsten),IrefstenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,irefstenVal> irefsten{}; 
         ///Internal Reference Clock Enable
-        enum class irclkenVal {
+        enum class IrclkenVal {
             v0=0x00000000,     ///<ICSIRCLK is inactive.
             v1=0x00000001,     ///<ICSIRCLK is active.
         };
-        namespace irclkenValC{
-            constexpr MPL::Value<irclkenVal,irclkenVal::v0> v0{};
-            constexpr MPL::Value<irclkenVal,irclkenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrclkenVal> irclken{}; 
+        namespace IrclkenValC{
+            constexpr Register::FieldValue<decltype(irclken),IrclkenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irclken),IrclkenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,irclkenVal> irclken{}; 
         ///Internal Reference Select
-        enum class irefsVal {
+        enum class IrefsVal {
             v0=0x00000000,     ///<External reference clock is selected.
             v1=0x00000001,     ///<Internal reference clock is selected.
         };
-        namespace irefsValC{
-            constexpr MPL::Value<irefsVal,irefsVal::v0> v0{};
-            constexpr MPL::Value<irefsVal,irefsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,IrefsVal> irefs{}; 
+        namespace IrefsValC{
+            constexpr Register::FieldValue<decltype(irefs),IrefsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irefs),IrefsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,irefsVal> irefs{}; 
         ///Reference Divider
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> rdiv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> rdiv{}; 
+        namespace RdivValC{
+        }
         ///Clock Source Select
-        enum class clksVal {
+        enum class ClksVal {
             v00=0x00000000,     ///<Output of FLL is selected.
             v01=0x00000001,     ///<Internal reference clock is selected.
             v10=0x00000002,     ///<External reference clock is selected.
             v11=0x00000003,     ///<Reserved, defaults to 00.
         };
-        namespace clksValC{
-            constexpr MPL::Value<clksVal,clksVal::v00> v00{};
-            constexpr MPL::Value<clksVal,clksVal::v01> v01{};
-            constexpr MPL::Value<clksVal,clksVal::v10> v10{};
-            constexpr MPL::Value<clksVal,clksVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,ClksVal> clks{}; 
+        namespace ClksValC{
+            constexpr Register::FieldValue<decltype(clks),ClksVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(clks),ClksVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(clks),ClksVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(clks),ClksVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,clksVal> clks{}; 
     }
     namespace IcsC2{    ///<ICS Control Register 2
         using Addr = Register::Address<0x40064001,0xffffff0f,0,unsigned char>;
         ///Low Power Select
-        enum class lpVal {
+        enum class LpVal {
             v0=0x00000000,     ///<FLL is not disabled in bypass mode.
             v1=0x00000001,     ///<FLL is disabled in bypass modes unless debug is active.
         };
-        namespace lpValC{
-            constexpr MPL::Value<lpVal,lpVal::v0> v0{};
-            constexpr MPL::Value<lpVal,lpVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,LpVal> lp{}; 
+        namespace LpValC{
+            constexpr Register::FieldValue<decltype(lp),LpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lp),LpVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,lpVal> lp{}; 
         ///Bus Frequency Divider
-        enum class bdivVal {
+        enum class BdivVal {
             v000=0x00000000,     ///<Encoding 0-Divides the selected clock by 1.
             v001=0x00000001,     ///<Encoding 1-Divides the selected clock by 2 (reset default).
             v010=0x00000002,     ///<Encoding 2-Divides the selected clock by 4.
@@ -74,91 +76,95 @@ namespace Kvasir {
             v110=0x00000006,     ///<Encoding 6-Divides the selected clock by 64.
             v111=0x00000007,     ///<Encoding 7-Divides the selected clock by 128.
         };
-        namespace bdivValC{
-            constexpr MPL::Value<bdivVal,bdivVal::v000> v000{};
-            constexpr MPL::Value<bdivVal,bdivVal::v001> v001{};
-            constexpr MPL::Value<bdivVal,bdivVal::v010> v010{};
-            constexpr MPL::Value<bdivVal,bdivVal::v011> v011{};
-            constexpr MPL::Value<bdivVal,bdivVal::v100> v100{};
-            constexpr MPL::Value<bdivVal,bdivVal::v101> v101{};
-            constexpr MPL::Value<bdivVal,bdivVal::v110> v110{};
-            constexpr MPL::Value<bdivVal,bdivVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,BdivVal> bdiv{}; 
+        namespace BdivValC{
+            constexpr Register::FieldValue<decltype(bdiv),BdivVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(bdiv),BdivVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(bdiv),BdivVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(bdiv),BdivVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(bdiv),BdivVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(bdiv),BdivVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(bdiv),BdivVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(bdiv),BdivVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,bdivVal> bdiv{}; 
     }
     namespace IcsC3{    ///<ICS Control Register 3
         using Addr = Register::Address<0x40064002,0xffffff00,0,unsigned char>;
         ///Slow Internal Reference Clock Trim Setting
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sctrim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sctrim{}; 
+        namespace SctrimValC{
+        }
     }
     namespace IcsC4{    ///<ICS Control Register 4
         using Addr = Register::Address<0x40064003,0xffffff5e,0,unsigned char>;
         ///Slow Internal Reference Clock Fine Trim
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> scftrim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> scftrim{}; 
+        namespace ScftrimValC{
+        }
         ///Clock Monitor Enable
-        enum class cmeVal {
+        enum class CmeVal {
             v0=0x00000000,     ///<Clock monitor is disabled.
             v1=0x00000001,     ///<Generates a reset request on loss of external clock.
         };
-        namespace cmeValC{
-            constexpr MPL::Value<cmeVal,cmeVal::v0> v0{};
-            constexpr MPL::Value<cmeVal,cmeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,CmeVal> cme{}; 
+        namespace CmeValC{
+            constexpr Register::FieldValue<decltype(cme),CmeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cme),CmeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,cmeVal> cme{}; 
         ///Loss of Lock Interrupt
-        enum class lolieVal {
+        enum class LolieVal {
             v0=0x00000000,     ///<No request on loss of lock.
             v1=0x00000001,     ///<Generates an interrupt request on loss of lock.
         };
-        namespace lolieValC{
-            constexpr MPL::Value<lolieVal,lolieVal::v0> v0{};
-            constexpr MPL::Value<lolieVal,lolieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LolieVal> lolie{}; 
+        namespace LolieValC{
+            constexpr Register::FieldValue<decltype(lolie),LolieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lolie),LolieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,lolieVal> lolie{}; 
     }
     namespace IcsS{    ///<ICS Status Register
         using Addr = Register::Address<0x40064004,0xffffff23,0,unsigned char>;
         ///Clock Mode Status
-        enum class clkstVal {
+        enum class ClkstVal {
             v00=0x00000000,     ///<Output of FLL is selected.
             v01=0x00000001,     ///<FLL Bypassed, internal reference clock is selected.
             v10=0x00000002,     ///<FLL Bypassed, external reference clock is selected.
         };
-        namespace clkstValC{
-            constexpr MPL::Value<clkstVal,clkstVal::v00> v00{};
-            constexpr MPL::Value<clkstVal,clkstVal::v01> v01{};
-            constexpr MPL::Value<clkstVal,clkstVal::v10> v10{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,ClkstVal> clkst{}; 
+        namespace ClkstValC{
+            constexpr Register::FieldValue<decltype(clkst),ClkstVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(clkst),ClkstVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(clkst),ClkstVal::v10> v10{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,clkstVal> clkst{}; 
         ///Internal Reference Status
-        enum class irefstVal {
+        enum class IrefstVal {
             v0=0x00000000,     ///<Source of reference clock is external clock.
             v1=0x00000001,     ///<Source of reference clock is internal clock.
         };
-        namespace irefstValC{
-            constexpr MPL::Value<irefstVal,irefstVal::v0> v0{};
-            constexpr MPL::Value<irefstVal,irefstVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IrefstVal> irefst{}; 
+        namespace IrefstValC{
+            constexpr Register::FieldValue<decltype(irefst),IrefstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irefst),IrefstVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,irefstVal> irefst{}; 
         ///Lock Status
-        enum class lockVal {
+        enum class LockVal {
             v0=0x00000000,     ///<FLL is currently unlocked.
             v1=0x00000001,     ///<FLL is currently locked.
         };
-        namespace lockValC{
-            constexpr MPL::Value<lockVal,lockVal::v0> v0{};
-            constexpr MPL::Value<lockVal,lockVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LockVal> lock{}; 
+        namespace LockValC{
+            constexpr Register::FieldValue<decltype(lock),LockVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lock),LockVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,lockVal> lock{}; 
         ///Loss of Lock Status
-        enum class lolsVal {
+        enum class LolsVal {
             v0=0x00000000,     ///<FLL has not lost lock since LOLS was last cleared.
             v1=0x00000001,     ///<FLL has lost lock since LOLS was last cleared.
         };
-        namespace lolsValC{
-            constexpr MPL::Value<lolsVal,lolsVal::v0> v0{};
-            constexpr MPL::Value<lolsVal,lolsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LolsVal> lols{}; 
+        namespace LolsValC{
+            constexpr Register::FieldValue<decltype(lols),LolsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lols),LolsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,lolsVal> lols{}; 
     }
 }

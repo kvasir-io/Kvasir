@@ -5,5743 +5,5895 @@ namespace Kvasir {
     namespace LcdGcr{    ///<LCD General Control Register
         using Addr = Register::Address<0x40053000,0x704d0000,0,unsigned>;
         ///LCD duty select
-        enum class dutyVal {
+        enum class DutyVal {
             v000=0x00000000,     ///<Use 1 BP (1/1 duty cycle).
             v001=0x00000001,     ///<Use 2 BP (1/2 duty cycle).
             v010=0x00000002,     ///<Use 3 BP (1/3 duty cycle).
             v011=0x00000003,     ///<Use 4 BP (1/4 duty cycle). (Default)
             v111=0x00000007,     ///<Use 8 BP (1/8 duty cycle).
         };
-        namespace dutyValC{
-            constexpr MPL::Value<dutyVal,dutyVal::v000> v000{};
-            constexpr MPL::Value<dutyVal,dutyVal::v001> v001{};
-            constexpr MPL::Value<dutyVal,dutyVal::v010> v010{};
-            constexpr MPL::Value<dutyVal,dutyVal::v011> v011{};
-            constexpr MPL::Value<dutyVal,dutyVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,DutyVal> duty{}; 
+        namespace DutyValC{
+            constexpr Register::FieldValue<decltype(duty),DutyVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(duty),DutyVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(duty),DutyVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(duty),DutyVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(duty),DutyVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,dutyVal> duty{}; 
         ///LCD Clock Prescaler
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> lclk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> lclk{}; 
+        namespace LclkValC{
+        }
         ///LCD Clock Source Select
-        enum class sourceVal {
+        enum class SourceVal {
             v0=0x00000000,     ///<Selects the default clock as the LCD clock source.
             v1=0x00000001,     ///<Selects output of the alternate clock source selection (see ALTSOURCE) as the LCD clock source.
         };
-        namespace sourceValC{
-            constexpr MPL::Value<sourceVal,sourceVal::v0> v0{};
-            constexpr MPL::Value<sourceVal,sourceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SourceVal> source{}; 
+        namespace SourceValC{
+            constexpr Register::FieldValue<decltype(source),SourceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(source),SourceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,sourceVal> source{}; 
         ///LCD Driver Enable
-        enum class lcdenVal {
+        enum class LcdenVal {
             v0=0x00000000,     ///<All front plane and back plane pins are disabled. The LCD controller system is also disabled, and all LCD waveform generation clocks are stopped. V LL3 is connected to V DD internally. All LCD pins, LCD_Pn, enabled using the LCD Pin Enable register, output a low value.
             v1=0x00000001,     ///<LCD controller driver system is enabled, and front plane and back plane waveforms are generated. All LCD pins, LCD_Pn, enabled if PAD_SAFE is clearusing the LCD Pin Enable register, output an LCD driver waveform. The back plane pins output an LCD driver back plane waveform based on the settings of DUTY[2:0]. Charge pump or resistor bias is enabled.
         };
-        namespace lcdenValC{
-            constexpr MPL::Value<lcdenVal,lcdenVal::v0> v0{};
-            constexpr MPL::Value<lcdenVal,lcdenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LcdenVal> lcden{}; 
+        namespace LcdenValC{
+            constexpr Register::FieldValue<decltype(lcden),LcdenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lcden),LcdenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,lcdenVal> lcden{}; 
         ///LCD Stop
-        enum class lcdstpVal {
+        enum class LcdstpVal {
             v0=0x00000000,     ///<Allows the LCD driver, charge pump, resistor bias network, and voltage regulator to continue running during Stop mode.
             v1=0x00000001,     ///<Disables the LCD driver, charge pump, resistor bias network, and voltage regulator when MCU enters Stop mode.
         };
-        namespace lcdstpValC{
-            constexpr MPL::Value<lcdstpVal,lcdstpVal::v0> v0{};
-            constexpr MPL::Value<lcdstpVal,lcdstpVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,LcdstpVal> lcdstp{}; 
+        namespace LcdstpValC{
+            constexpr Register::FieldValue<decltype(lcdstp),LcdstpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lcdstp),LcdstpVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,lcdstpVal> lcdstp{}; 
         ///LCD Doze enable
-        enum class lcddozeVal {
+        enum class LcddozeVal {
             v0=0x00000000,     ///<Allows the LCD driver, charge pump, resistor bias network, and voltage regulator to continue running during Doze mode.
             v1=0x00000001,     ///<Disables the LCD driver, charge pump, resistor bias network, and voltage regulator when MCU enters Doze mode.
         };
-        namespace lcddozeValC{
-            constexpr MPL::Value<lcddozeVal,lcddozeVal::v0> v0{};
-            constexpr MPL::Value<lcddozeVal,lcddozeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,LcddozeVal> lcddoze{}; 
+        namespace LcddozeValC{
+            constexpr Register::FieldValue<decltype(lcddoze),LcddozeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lcddoze),LcddozeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,lcddozeVal> lcddoze{}; 
         ///Fast Frame Rate Select
-        enum class ffrVal {
+        enum class FfrVal {
             v0=0x00000000,     ///<Standard Frame Rate LCD Frame Freq: 23.3 (min) 73.1 (max)
             v1=0x00000001,     ///<Fast Frame Rate (Standard Frame Rate x2) LCD Frame Freq: 46.6 (min) 146.2 (max)
         };
-        namespace ffrValC{
-            constexpr MPL::Value<ffrVal,ffrVal::v0> v0{};
-            constexpr MPL::Value<ffrVal,ffrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,FfrVal> ffr{}; 
+        namespace FfrValC{
+            constexpr Register::FieldValue<decltype(ffr),FfrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ffr),FfrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ffrVal> ffr{}; 
         ///Selects the alternate clock source
-        enum class altsourceVal {
+        enum class AltsourceVal {
             v0=0x00000000,     ///<Select Alternate Clock Source 1 (default)
             v1=0x00000001,     ///<Select Alternate Clock Source 2
         };
-        namespace altsourceValC{
-            constexpr MPL::Value<altsourceVal,altsourceVal::v0> v0{};
-            constexpr MPL::Value<altsourceVal,altsourceVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,AltsourceVal> altsource{}; 
+        namespace AltsourceValC{
+            constexpr Register::FieldValue<decltype(altsource),AltsourceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(altsource),AltsourceVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,altsourceVal> altsource{}; 
         ///LCD AlternateClock Divider
-        enum class altdivVal {
+        enum class AltdivVal {
             v0=0x00000000,     ///<Divide factor = 1 (No divide)
             v1=0x00000001,     ///<Divide factor = 8
         };
-        namespace altdivValC{
-            constexpr MPL::Value<altdivVal,altdivVal::v0> v0{};
-            constexpr MPL::Value<altdivVal,altdivVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,AltdivVal> altdiv{}; 
+        namespace AltdivValC{
+            constexpr Register::FieldValue<decltype(altdiv),AltdivVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(altdiv),AltdivVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,altdivVal> altdiv{}; 
         ///LCD Fault Detection Complete Interrupt Enable
-        enum class fdcienVal {
+        enum class FdcienVal {
             v0=0x00000000,     ///<No interrupt request is generated by this event.
             v1=0x00000001,     ///<When a fault is detected and FDCF bit is set, this event causes an interrupt request.
         };
-        namespace fdcienValC{
-            constexpr MPL::Value<fdcienVal,fdcienVal::v0> v0{};
-            constexpr MPL::Value<fdcienVal,fdcienVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,FdcienVal> fdcien{}; 
+        namespace FdcienValC{
+            constexpr Register::FieldValue<decltype(fdcien),FdcienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fdcien),FdcienVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,fdcienVal> fdcien{}; 
         ///Pad Safe State Enable
-        enum class padsafeVal {
+        enum class PadsafeVal {
             v0=0x00000000,     ///<LCD frontplane and backplane functions enabled according to other LCD control bits
             v1=0x00000001,     ///<LCD frontplane and backplane functions disabled
         };
-        namespace padsafeValC{
-            constexpr MPL::Value<padsafeVal,padsafeVal::v0> v0{};
-            constexpr MPL::Value<padsafeVal,padsafeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,PadsafeVal> padsafe{}; 
+        namespace PadsafeValC{
+            constexpr Register::FieldValue<decltype(padsafe),PadsafeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(padsafe),PadsafeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,padsafeVal> padsafe{}; 
         ///Voltage Supply Control
-        enum class vsupplyVal {
+        enum class VsupplyVal {
             v0=0x00000000,     ///<Drive VLL3 internally from VDD
             v1=0x00000001,     ///<Drive VLL3 externally from VDD or drive VLL internally from vIREG
         };
-        namespace vsupplyValC{
-            constexpr MPL::Value<vsupplyVal,vsupplyVal::v0> v0{};
-            constexpr MPL::Value<vsupplyVal,vsupplyVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,VsupplyVal> vsupply{}; 
+        namespace VsupplyValC{
+            constexpr Register::FieldValue<decltype(vsupply),VsupplyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vsupply),VsupplyVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,vsupplyVal> vsupply{}; 
         ///Load Adjust
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> ladj{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> ladj{}; 
+        namespace LadjValC{
+        }
         ///Charge Pump or Resistor Bias Select
-        enum class cpselVal {
+        enum class CpselVal {
             v0=0x00000000,     ///<LCD charge pump is disabled. Resistor network selected. (The internal 1/3-bias is forced.)
             v1=0x00000001,     ///<LCD charge pump is selected. Resistor network disabled. (The internal 1/3-bias is forced.)
         };
-        namespace cpselValC{
-            constexpr MPL::Value<cpselVal,cpselVal::v0> v0{};
-            constexpr MPL::Value<cpselVal,cpselVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,CpselVal> cpsel{}; 
+        namespace CpselValC{
+            constexpr Register::FieldValue<decltype(cpsel),CpselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpsel),CpselVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,cpselVal> cpsel{}; 
         ///Regulated Voltage Trim
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> rvtrim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> rvtrim{}; 
+        namespace RvtrimValC{
+        }
         ///Regulated Voltage Enable
-        enum class rvenVal {
+        enum class RvenVal {
             v0=0x00000000,     ///<Regulated voltage disabled.
             v1=0x00000001,     ///<Regulated voltage enabled.
         };
-        namespace rvenValC{
-            constexpr MPL::Value<rvenVal,rvenVal::v0> v0{};
-            constexpr MPL::Value<rvenVal,rvenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RvenVal> rven{}; 
+        namespace RvenValC{
+            constexpr Register::FieldValue<decltype(rven),RvenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rven),RvenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,rvenVal> rven{}; 
     }
     namespace LcdAr{    ///<LCD Auxiliary Register
         using Addr = Register::Address<0x40053004,0xffffff10,0,unsigned>;
         ///Blink-rate configuration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> brate{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> brate{}; 
+        namespace BrateValC{
+        }
         ///Blink mode
-        enum class bmodeVal {
+        enum class BmodeVal {
             v0=0x00000000,     ///<Display blank during the blink period.
             v1=0x00000001,     ///<Display alternate display during blink period (Ignored if duty is 5 or greater).
         };
-        namespace bmodeValC{
-            constexpr MPL::Value<bmodeVal,bmodeVal::v0> v0{};
-            constexpr MPL::Value<bmodeVal,bmodeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BmodeVal> bmode{}; 
+        namespace BmodeValC{
+            constexpr Register::FieldValue<decltype(bmode),BmodeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bmode),BmodeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bmodeVal> bmode{}; 
         ///Blank display mode
-        enum class blankVal {
+        enum class BlankVal {
             v0=0x00000000,     ///<Normal or alternate display mode.
             v1=0x00000001,     ///<Blank display mode.
         };
-        namespace blankValC{
-            constexpr MPL::Value<blankVal,blankVal::v0> v0{};
-            constexpr MPL::Value<blankVal,blankVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,BlankVal> blank{}; 
+        namespace BlankValC{
+            constexpr Register::FieldValue<decltype(blank),BlankVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(blank),BlankVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,blankVal> blank{}; 
         ///Alternate display mode
-        enum class altVal {
+        enum class AltVal {
             v0=0x00000000,     ///<Normal display mode.
             v1=0x00000001,     ///<Alternate display mode.
         };
-        namespace altValC{
-            constexpr MPL::Value<altVal,altVal::v0> v0{};
-            constexpr MPL::Value<altVal,altVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AltVal> alt{}; 
+        namespace AltValC{
+            constexpr Register::FieldValue<decltype(alt),AltVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(alt),AltVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,altVal> alt{}; 
         ///Blink command
-        enum class blinkVal {
+        enum class BlinkVal {
             v0=0x00000000,     ///<Disables blinking.
             v1=0x00000001,     ///<Starts blinking at blinking frequency specified by LCD blink rate calculation.
         };
-        namespace blinkValC{
-            constexpr MPL::Value<blinkVal,blinkVal::v0> v0{};
-            constexpr MPL::Value<blinkVal,blinkVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,BlinkVal> blink{}; 
+        namespace BlinkValC{
+            constexpr Register::FieldValue<decltype(blink),BlinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(blink),BlinkVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,blinkVal> blink{}; 
     }
     namespace LcdFdcr{    ///<LCD Fault Detect Control Register
         using Addr = Register::Address<0x40053008,0xffff8100,0,unsigned>;
         ///Fault Detect Pin ID
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> fdpinid{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> fdpinid{}; 
+        namespace FdpinidValC{
+        }
         ///Fault Detect Back Plane Enable
-        enum class fdbpenVal {
+        enum class FdbpenVal {
             v0=0x00000000,     ///<Type of the selected pin under fault detect test is front plane.
             v1=0x00000001,     ///<Type of the selected pin under fault detect test is back plane.
         };
-        namespace fdbpenValC{
-            constexpr MPL::Value<fdbpenVal,fdbpenVal::v0> v0{};
-            constexpr MPL::Value<fdbpenVal,fdbpenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,FdbpenVal> fdbpen{}; 
+        namespace FdbpenValC{
+            constexpr Register::FieldValue<decltype(fdbpen),FdbpenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fdbpen),FdbpenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,fdbpenVal> fdbpen{}; 
         ///Fault Detect Enable
-        enum class fdenVal {
+        enum class FdenVal {
             v0=0x00000000,     ///<Disable fault detection.
             v1=0x00000001,     ///<Enable fault detection.
         };
-        namespace fdenValC{
-            constexpr MPL::Value<fdenVal,fdenVal::v0> v0{};
-            constexpr MPL::Value<fdenVal,fdenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FdenVal> fden{}; 
+        namespace FdenValC{
+            constexpr Register::FieldValue<decltype(fden),FdenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fden),FdenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,fdenVal> fden{}; 
         ///Fault Detect Sample Window Width
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> fdsww{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> fdsww{}; 
+        namespace FdswwValC{
+        }
         ///Fault Detect Clock Prescaler
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> fdprs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> fdprs{}; 
+        namespace FdprsValC{
+        }
     }
     namespace LcdFdsr{    ///<LCD Fault Detect Status Register
         using Addr = Register::Address<0x4005300c,0xffff7f00,0,unsigned>;
         ///Fault Detect Counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> fdcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> fdcnt{}; 
+        namespace FdcntValC{
+        }
         ///Fault Detection Complete Flag
-        enum class fdcfVal {
+        enum class FdcfVal {
             v0=0x00000000,     ///<Fault detection is not completed.
             v1=0x00000001,     ///<Fault detection is completed.
         };
-        namespace fdcfValC{
-            constexpr MPL::Value<fdcfVal,fdcfVal::v0> v0{};
-            constexpr MPL::Value<fdcfVal,fdcfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,FdcfVal> fdcf{}; 
+        namespace FdcfValC{
+            constexpr Register::FieldValue<decltype(fdcf),FdcfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fdcf),FdcfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,fdcfVal> fdcf{}; 
     }
     namespace LcdPenl{    ///<LCD Pin Enable register
         using Addr = Register::Address<0x40053010,0x00000000,0,unsigned>;
         ///LCD Pin Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pen{}; 
+        namespace PenValC{
+        }
     }
     namespace LcdPenh{    ///<LCD Pin Enable register
         using Addr = Register::Address<0x40053014,0x00000000,0,unsigned>;
         ///LCD Pin Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pen{}; 
+        namespace PenValC{
+        }
     }
     namespace LcdBpenl{    ///<LCD Back Plane Enable register
         using Addr = Register::Address<0x40053018,0x00000000,0,unsigned>;
         ///Back Plane Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bpen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bpen{}; 
+        namespace BpenValC{
+        }
     }
     namespace LcdBpenh{    ///<LCD Back Plane Enable register
         using Addr = Register::Address<0x4005301c,0x00000000,0,unsigned>;
         ///Back Plane Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bpen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bpen{}; 
+        namespace BpenValC{
+        }
     }
     namespace LcdWf3to0{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053020,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf0{}; 
+        namespace Wf0ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf1{}; 
+        namespace Wf1ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf2{}; 
+        namespace Wf2ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf3{}; 
+        namespace Wf3ValC{
+        }
     }
     namespace LcdWf0{    ///<LCD Waveform Register 0.
         using Addr = Register::Address<0x40053020,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd0Val {
+        enum class Bpalcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd0ValC{
-            constexpr MPL::Value<bpalcd0Val,bpalcd0Val::v0> v0{};
-            constexpr MPL::Value<bpalcd0Val,bpalcd0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd0Val> bpalcd0{}; 
+        namespace Bpalcd0ValC{
+            constexpr Register::FieldValue<decltype(bpalcd0),Bpalcd0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd0),Bpalcd0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd0Val> bpalcd0{}; 
         ///no description available
-        enum class bpblcd0Val {
+        enum class Bpblcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd0ValC{
-            constexpr MPL::Value<bpblcd0Val,bpblcd0Val::v0> v0{};
-            constexpr MPL::Value<bpblcd0Val,bpblcd0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd0Val> bpblcd0{}; 
+        namespace Bpblcd0ValC{
+            constexpr Register::FieldValue<decltype(bpblcd0),Bpblcd0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd0),Bpblcd0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd0Val> bpblcd0{}; 
         ///no description available
-        enum class bpclcd0Val {
+        enum class Bpclcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd0ValC{
-            constexpr MPL::Value<bpclcd0Val,bpclcd0Val::v0> v0{};
-            constexpr MPL::Value<bpclcd0Val,bpclcd0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd0Val> bpclcd0{}; 
+        namespace Bpclcd0ValC{
+            constexpr Register::FieldValue<decltype(bpclcd0),Bpclcd0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd0),Bpclcd0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd0Val> bpclcd0{}; 
         ///no description available
-        enum class bpdlcd0Val {
+        enum class Bpdlcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd0ValC{
-            constexpr MPL::Value<bpdlcd0Val,bpdlcd0Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd0Val,bpdlcd0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd0Val> bpdlcd0{}; 
+        namespace Bpdlcd0ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd0),Bpdlcd0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd0),Bpdlcd0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd0Val> bpdlcd0{}; 
         ///no description available
-        enum class bpelcd0Val {
+        enum class Bpelcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd0ValC{
-            constexpr MPL::Value<bpelcd0Val,bpelcd0Val::v0> v0{};
-            constexpr MPL::Value<bpelcd0Val,bpelcd0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd0Val> bpelcd0{}; 
+        namespace Bpelcd0ValC{
+            constexpr Register::FieldValue<decltype(bpelcd0),Bpelcd0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd0),Bpelcd0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd0Val> bpelcd0{}; 
         ///no description available
-        enum class bpflcd0Val {
+        enum class Bpflcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd0ValC{
-            constexpr MPL::Value<bpflcd0Val,bpflcd0Val::v0> v0{};
-            constexpr MPL::Value<bpflcd0Val,bpflcd0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd0Val> bpflcd0{}; 
+        namespace Bpflcd0ValC{
+            constexpr Register::FieldValue<decltype(bpflcd0),Bpflcd0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd0),Bpflcd0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd0Val> bpflcd0{}; 
         ///no description available
-        enum class bpglcd0Val {
+        enum class Bpglcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd0ValC{
-            constexpr MPL::Value<bpglcd0Val,bpglcd0Val::v0> v0{};
-            constexpr MPL::Value<bpglcd0Val,bpglcd0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd0Val> bpglcd0{}; 
+        namespace Bpglcd0ValC{
+            constexpr Register::FieldValue<decltype(bpglcd0),Bpglcd0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd0),Bpglcd0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd0Val> bpglcd0{}; 
         ///no description available
-        enum class bphlcd0Val {
+        enum class Bphlcd0Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd0ValC{
-            constexpr MPL::Value<bphlcd0Val,bphlcd0Val::v0> v0{};
-            constexpr MPL::Value<bphlcd0Val,bphlcd0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd0Val> bphlcd0{}; 
+        namespace Bphlcd0ValC{
+            constexpr Register::FieldValue<decltype(bphlcd0),Bphlcd0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd0),Bphlcd0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd0Val> bphlcd0{}; 
     }
     namespace LcdWf1{    ///<LCD Waveform Register 1.
         using Addr = Register::Address<0x40053021,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd1Val {
+        enum class Bpalcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd1ValC{
-            constexpr MPL::Value<bpalcd1Val,bpalcd1Val::v0> v0{};
-            constexpr MPL::Value<bpalcd1Val,bpalcd1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd1Val> bpalcd1{}; 
+        namespace Bpalcd1ValC{
+            constexpr Register::FieldValue<decltype(bpalcd1),Bpalcd1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd1),Bpalcd1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd1Val> bpalcd1{}; 
         ///no description available
-        enum class bpblcd1Val {
+        enum class Bpblcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd1ValC{
-            constexpr MPL::Value<bpblcd1Val,bpblcd1Val::v0> v0{};
-            constexpr MPL::Value<bpblcd1Val,bpblcd1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd1Val> bpblcd1{}; 
+        namespace Bpblcd1ValC{
+            constexpr Register::FieldValue<decltype(bpblcd1),Bpblcd1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd1),Bpblcd1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd1Val> bpblcd1{}; 
         ///no description available
-        enum class bpclcd1Val {
+        enum class Bpclcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd1ValC{
-            constexpr MPL::Value<bpclcd1Val,bpclcd1Val::v0> v0{};
-            constexpr MPL::Value<bpclcd1Val,bpclcd1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd1Val> bpclcd1{}; 
+        namespace Bpclcd1ValC{
+            constexpr Register::FieldValue<decltype(bpclcd1),Bpclcd1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd1),Bpclcd1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd1Val> bpclcd1{}; 
         ///no description available
-        enum class bpdlcd1Val {
+        enum class Bpdlcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd1ValC{
-            constexpr MPL::Value<bpdlcd1Val,bpdlcd1Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd1Val,bpdlcd1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd1Val> bpdlcd1{}; 
+        namespace Bpdlcd1ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd1),Bpdlcd1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd1),Bpdlcd1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd1Val> bpdlcd1{}; 
         ///no description available
-        enum class bpelcd1Val {
+        enum class Bpelcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd1ValC{
-            constexpr MPL::Value<bpelcd1Val,bpelcd1Val::v0> v0{};
-            constexpr MPL::Value<bpelcd1Val,bpelcd1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd1Val> bpelcd1{}; 
+        namespace Bpelcd1ValC{
+            constexpr Register::FieldValue<decltype(bpelcd1),Bpelcd1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd1),Bpelcd1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd1Val> bpelcd1{}; 
         ///no description available
-        enum class bpflcd1Val {
+        enum class Bpflcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd1ValC{
-            constexpr MPL::Value<bpflcd1Val,bpflcd1Val::v0> v0{};
-            constexpr MPL::Value<bpflcd1Val,bpflcd1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd1Val> bpflcd1{}; 
+        namespace Bpflcd1ValC{
+            constexpr Register::FieldValue<decltype(bpflcd1),Bpflcd1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd1),Bpflcd1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd1Val> bpflcd1{}; 
         ///no description available
-        enum class bpglcd1Val {
+        enum class Bpglcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd1ValC{
-            constexpr MPL::Value<bpglcd1Val,bpglcd1Val::v0> v0{};
-            constexpr MPL::Value<bpglcd1Val,bpglcd1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd1Val> bpglcd1{}; 
+        namespace Bpglcd1ValC{
+            constexpr Register::FieldValue<decltype(bpglcd1),Bpglcd1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd1),Bpglcd1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd1Val> bpglcd1{}; 
         ///no description available
-        enum class bphlcd1Val {
+        enum class Bphlcd1Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd1ValC{
-            constexpr MPL::Value<bphlcd1Val,bphlcd1Val::v0> v0{};
-            constexpr MPL::Value<bphlcd1Val,bphlcd1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd1Val> bphlcd1{}; 
+        namespace Bphlcd1ValC{
+            constexpr Register::FieldValue<decltype(bphlcd1),Bphlcd1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd1),Bphlcd1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd1Val> bphlcd1{}; 
     }
     namespace LcdWf2{    ///<LCD Waveform Register 2.
         using Addr = Register::Address<0x40053022,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd2Val {
+        enum class Bpalcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd2ValC{
-            constexpr MPL::Value<bpalcd2Val,bpalcd2Val::v0> v0{};
-            constexpr MPL::Value<bpalcd2Val,bpalcd2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd2Val> bpalcd2{}; 
+        namespace Bpalcd2ValC{
+            constexpr Register::FieldValue<decltype(bpalcd2),Bpalcd2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd2),Bpalcd2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd2Val> bpalcd2{}; 
         ///no description available
-        enum class bpblcd2Val {
+        enum class Bpblcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd2ValC{
-            constexpr MPL::Value<bpblcd2Val,bpblcd2Val::v0> v0{};
-            constexpr MPL::Value<bpblcd2Val,bpblcd2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd2Val> bpblcd2{}; 
+        namespace Bpblcd2ValC{
+            constexpr Register::FieldValue<decltype(bpblcd2),Bpblcd2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd2),Bpblcd2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd2Val> bpblcd2{}; 
         ///no description available
-        enum class bpclcd2Val {
+        enum class Bpclcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd2ValC{
-            constexpr MPL::Value<bpclcd2Val,bpclcd2Val::v0> v0{};
-            constexpr MPL::Value<bpclcd2Val,bpclcd2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd2Val> bpclcd2{}; 
+        namespace Bpclcd2ValC{
+            constexpr Register::FieldValue<decltype(bpclcd2),Bpclcd2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd2),Bpclcd2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd2Val> bpclcd2{}; 
         ///no description available
-        enum class bpdlcd2Val {
+        enum class Bpdlcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd2ValC{
-            constexpr MPL::Value<bpdlcd2Val,bpdlcd2Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd2Val,bpdlcd2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd2Val> bpdlcd2{}; 
+        namespace Bpdlcd2ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd2),Bpdlcd2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd2),Bpdlcd2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd2Val> bpdlcd2{}; 
         ///no description available
-        enum class bpelcd2Val {
+        enum class Bpelcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd2ValC{
-            constexpr MPL::Value<bpelcd2Val,bpelcd2Val::v0> v0{};
-            constexpr MPL::Value<bpelcd2Val,bpelcd2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd2Val> bpelcd2{}; 
+        namespace Bpelcd2ValC{
+            constexpr Register::FieldValue<decltype(bpelcd2),Bpelcd2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd2),Bpelcd2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd2Val> bpelcd2{}; 
         ///no description available
-        enum class bpflcd2Val {
+        enum class Bpflcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd2ValC{
-            constexpr MPL::Value<bpflcd2Val,bpflcd2Val::v0> v0{};
-            constexpr MPL::Value<bpflcd2Val,bpflcd2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd2Val> bpflcd2{}; 
+        namespace Bpflcd2ValC{
+            constexpr Register::FieldValue<decltype(bpflcd2),Bpflcd2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd2),Bpflcd2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd2Val> bpflcd2{}; 
         ///no description available
-        enum class bpglcd2Val {
+        enum class Bpglcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd2ValC{
-            constexpr MPL::Value<bpglcd2Val,bpglcd2Val::v0> v0{};
-            constexpr MPL::Value<bpglcd2Val,bpglcd2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd2Val> bpglcd2{}; 
+        namespace Bpglcd2ValC{
+            constexpr Register::FieldValue<decltype(bpglcd2),Bpglcd2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd2),Bpglcd2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd2Val> bpglcd2{}; 
         ///no description available
-        enum class bphlcd2Val {
+        enum class Bphlcd2Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd2ValC{
-            constexpr MPL::Value<bphlcd2Val,bphlcd2Val::v0> v0{};
-            constexpr MPL::Value<bphlcd2Val,bphlcd2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd2Val> bphlcd2{}; 
+        namespace Bphlcd2ValC{
+            constexpr Register::FieldValue<decltype(bphlcd2),Bphlcd2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd2),Bphlcd2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd2Val> bphlcd2{}; 
     }
     namespace LcdWf3{    ///<LCD Waveform Register 3.
         using Addr = Register::Address<0x40053023,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd3Val {
+        enum class Bpalcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd3ValC{
-            constexpr MPL::Value<bpalcd3Val,bpalcd3Val::v0> v0{};
-            constexpr MPL::Value<bpalcd3Val,bpalcd3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd3Val> bpalcd3{}; 
+        namespace Bpalcd3ValC{
+            constexpr Register::FieldValue<decltype(bpalcd3),Bpalcd3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd3),Bpalcd3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd3Val> bpalcd3{}; 
         ///no description available
-        enum class bpblcd3Val {
+        enum class Bpblcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd3ValC{
-            constexpr MPL::Value<bpblcd3Val,bpblcd3Val::v0> v0{};
-            constexpr MPL::Value<bpblcd3Val,bpblcd3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd3Val> bpblcd3{}; 
+        namespace Bpblcd3ValC{
+            constexpr Register::FieldValue<decltype(bpblcd3),Bpblcd3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd3),Bpblcd3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd3Val> bpblcd3{}; 
         ///no description available
-        enum class bpclcd3Val {
+        enum class Bpclcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd3ValC{
-            constexpr MPL::Value<bpclcd3Val,bpclcd3Val::v0> v0{};
-            constexpr MPL::Value<bpclcd3Val,bpclcd3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd3Val> bpclcd3{}; 
+        namespace Bpclcd3ValC{
+            constexpr Register::FieldValue<decltype(bpclcd3),Bpclcd3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd3),Bpclcd3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd3Val> bpclcd3{}; 
         ///no description available
-        enum class bpdlcd3Val {
+        enum class Bpdlcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd3ValC{
-            constexpr MPL::Value<bpdlcd3Val,bpdlcd3Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd3Val,bpdlcd3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd3Val> bpdlcd3{}; 
+        namespace Bpdlcd3ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd3),Bpdlcd3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd3),Bpdlcd3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd3Val> bpdlcd3{}; 
         ///no description available
-        enum class bpelcd3Val {
+        enum class Bpelcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd3ValC{
-            constexpr MPL::Value<bpelcd3Val,bpelcd3Val::v0> v0{};
-            constexpr MPL::Value<bpelcd3Val,bpelcd3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd3Val> bpelcd3{}; 
+        namespace Bpelcd3ValC{
+            constexpr Register::FieldValue<decltype(bpelcd3),Bpelcd3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd3),Bpelcd3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd3Val> bpelcd3{}; 
         ///no description available
-        enum class bpflcd3Val {
+        enum class Bpflcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd3ValC{
-            constexpr MPL::Value<bpflcd3Val,bpflcd3Val::v0> v0{};
-            constexpr MPL::Value<bpflcd3Val,bpflcd3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd3Val> bpflcd3{}; 
+        namespace Bpflcd3ValC{
+            constexpr Register::FieldValue<decltype(bpflcd3),Bpflcd3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd3),Bpflcd3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd3Val> bpflcd3{}; 
         ///no description available
-        enum class bpglcd3Val {
+        enum class Bpglcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd3ValC{
-            constexpr MPL::Value<bpglcd3Val,bpglcd3Val::v0> v0{};
-            constexpr MPL::Value<bpglcd3Val,bpglcd3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd3Val> bpglcd3{}; 
+        namespace Bpglcd3ValC{
+            constexpr Register::FieldValue<decltype(bpglcd3),Bpglcd3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd3),Bpglcd3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd3Val> bpglcd3{}; 
         ///no description available
-        enum class bphlcd3Val {
+        enum class Bphlcd3Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd3ValC{
-            constexpr MPL::Value<bphlcd3Val,bphlcd3Val::v0> v0{};
-            constexpr MPL::Value<bphlcd3Val,bphlcd3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd3Val> bphlcd3{}; 
+        namespace Bphlcd3ValC{
+            constexpr Register::FieldValue<decltype(bphlcd3),Bphlcd3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd3),Bphlcd3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd3Val> bphlcd3{}; 
     }
     namespace LcdWf7to4{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053024,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf4{}; 
+        namespace Wf4ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf5{}; 
+        namespace Wf5ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf6{}; 
+        namespace Wf6ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf7{}; 
+        namespace Wf7ValC{
+        }
     }
     namespace LcdWf4{    ///<LCD Waveform Register 4.
         using Addr = Register::Address<0x40053024,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd4Val {
+        enum class Bpalcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd4ValC{
-            constexpr MPL::Value<bpalcd4Val,bpalcd4Val::v0> v0{};
-            constexpr MPL::Value<bpalcd4Val,bpalcd4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd4Val> bpalcd4{}; 
+        namespace Bpalcd4ValC{
+            constexpr Register::FieldValue<decltype(bpalcd4),Bpalcd4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd4),Bpalcd4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd4Val> bpalcd4{}; 
         ///no description available
-        enum class bpblcd4Val {
+        enum class Bpblcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd4ValC{
-            constexpr MPL::Value<bpblcd4Val,bpblcd4Val::v0> v0{};
-            constexpr MPL::Value<bpblcd4Val,bpblcd4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd4Val> bpblcd4{}; 
+        namespace Bpblcd4ValC{
+            constexpr Register::FieldValue<decltype(bpblcd4),Bpblcd4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd4),Bpblcd4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd4Val> bpblcd4{}; 
         ///no description available
-        enum class bpclcd4Val {
+        enum class Bpclcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd4ValC{
-            constexpr MPL::Value<bpclcd4Val,bpclcd4Val::v0> v0{};
-            constexpr MPL::Value<bpclcd4Val,bpclcd4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd4Val> bpclcd4{}; 
+        namespace Bpclcd4ValC{
+            constexpr Register::FieldValue<decltype(bpclcd4),Bpclcd4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd4),Bpclcd4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd4Val> bpclcd4{}; 
         ///no description available
-        enum class bpdlcd4Val {
+        enum class Bpdlcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd4ValC{
-            constexpr MPL::Value<bpdlcd4Val,bpdlcd4Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd4Val,bpdlcd4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd4Val> bpdlcd4{}; 
+        namespace Bpdlcd4ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd4),Bpdlcd4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd4),Bpdlcd4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd4Val> bpdlcd4{}; 
         ///no description available
-        enum class bpelcd4Val {
+        enum class Bpelcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd4ValC{
-            constexpr MPL::Value<bpelcd4Val,bpelcd4Val::v0> v0{};
-            constexpr MPL::Value<bpelcd4Val,bpelcd4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd4Val> bpelcd4{}; 
+        namespace Bpelcd4ValC{
+            constexpr Register::FieldValue<decltype(bpelcd4),Bpelcd4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd4),Bpelcd4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd4Val> bpelcd4{}; 
         ///no description available
-        enum class bpflcd4Val {
+        enum class Bpflcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd4ValC{
-            constexpr MPL::Value<bpflcd4Val,bpflcd4Val::v0> v0{};
-            constexpr MPL::Value<bpflcd4Val,bpflcd4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd4Val> bpflcd4{}; 
+        namespace Bpflcd4ValC{
+            constexpr Register::FieldValue<decltype(bpflcd4),Bpflcd4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd4),Bpflcd4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd4Val> bpflcd4{}; 
         ///no description available
-        enum class bpglcd4Val {
+        enum class Bpglcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd4ValC{
-            constexpr MPL::Value<bpglcd4Val,bpglcd4Val::v0> v0{};
-            constexpr MPL::Value<bpglcd4Val,bpglcd4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd4Val> bpglcd4{}; 
+        namespace Bpglcd4ValC{
+            constexpr Register::FieldValue<decltype(bpglcd4),Bpglcd4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd4),Bpglcd4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd4Val> bpglcd4{}; 
         ///no description available
-        enum class bphlcd4Val {
+        enum class Bphlcd4Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd4ValC{
-            constexpr MPL::Value<bphlcd4Val,bphlcd4Val::v0> v0{};
-            constexpr MPL::Value<bphlcd4Val,bphlcd4Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd4Val> bphlcd4{}; 
+        namespace Bphlcd4ValC{
+            constexpr Register::FieldValue<decltype(bphlcd4),Bphlcd4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd4),Bphlcd4Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd4Val> bphlcd4{}; 
     }
     namespace LcdWf5{    ///<LCD Waveform Register 5.
         using Addr = Register::Address<0x40053025,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd5Val {
+        enum class Bpalcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd5ValC{
-            constexpr MPL::Value<bpalcd5Val,bpalcd5Val::v0> v0{};
-            constexpr MPL::Value<bpalcd5Val,bpalcd5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd5Val> bpalcd5{}; 
+        namespace Bpalcd5ValC{
+            constexpr Register::FieldValue<decltype(bpalcd5),Bpalcd5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd5),Bpalcd5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd5Val> bpalcd5{}; 
         ///no description available
-        enum class bpblcd5Val {
+        enum class Bpblcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd5ValC{
-            constexpr MPL::Value<bpblcd5Val,bpblcd5Val::v0> v0{};
-            constexpr MPL::Value<bpblcd5Val,bpblcd5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd5Val> bpblcd5{}; 
+        namespace Bpblcd5ValC{
+            constexpr Register::FieldValue<decltype(bpblcd5),Bpblcd5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd5),Bpblcd5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd5Val> bpblcd5{}; 
         ///no description available
-        enum class bpclcd5Val {
+        enum class Bpclcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd5ValC{
-            constexpr MPL::Value<bpclcd5Val,bpclcd5Val::v0> v0{};
-            constexpr MPL::Value<bpclcd5Val,bpclcd5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd5Val> bpclcd5{}; 
+        namespace Bpclcd5ValC{
+            constexpr Register::FieldValue<decltype(bpclcd5),Bpclcd5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd5),Bpclcd5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd5Val> bpclcd5{}; 
         ///no description available
-        enum class bpdlcd5Val {
+        enum class Bpdlcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd5ValC{
-            constexpr MPL::Value<bpdlcd5Val,bpdlcd5Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd5Val,bpdlcd5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd5Val> bpdlcd5{}; 
+        namespace Bpdlcd5ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd5),Bpdlcd5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd5),Bpdlcd5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd5Val> bpdlcd5{}; 
         ///no description available
-        enum class bpelcd5Val {
+        enum class Bpelcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd5ValC{
-            constexpr MPL::Value<bpelcd5Val,bpelcd5Val::v0> v0{};
-            constexpr MPL::Value<bpelcd5Val,bpelcd5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd5Val> bpelcd5{}; 
+        namespace Bpelcd5ValC{
+            constexpr Register::FieldValue<decltype(bpelcd5),Bpelcd5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd5),Bpelcd5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd5Val> bpelcd5{}; 
         ///no description available
-        enum class bpflcd5Val {
+        enum class Bpflcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd5ValC{
-            constexpr MPL::Value<bpflcd5Val,bpflcd5Val::v0> v0{};
-            constexpr MPL::Value<bpflcd5Val,bpflcd5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd5Val> bpflcd5{}; 
+        namespace Bpflcd5ValC{
+            constexpr Register::FieldValue<decltype(bpflcd5),Bpflcd5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd5),Bpflcd5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd5Val> bpflcd5{}; 
         ///no description available
-        enum class bpglcd5Val {
+        enum class Bpglcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd5ValC{
-            constexpr MPL::Value<bpglcd5Val,bpglcd5Val::v0> v0{};
-            constexpr MPL::Value<bpglcd5Val,bpglcd5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd5Val> bpglcd5{}; 
+        namespace Bpglcd5ValC{
+            constexpr Register::FieldValue<decltype(bpglcd5),Bpglcd5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd5),Bpglcd5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd5Val> bpglcd5{}; 
         ///no description available
-        enum class bphlcd5Val {
+        enum class Bphlcd5Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd5ValC{
-            constexpr MPL::Value<bphlcd5Val,bphlcd5Val::v0> v0{};
-            constexpr MPL::Value<bphlcd5Val,bphlcd5Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd5Val> bphlcd5{}; 
+        namespace Bphlcd5ValC{
+            constexpr Register::FieldValue<decltype(bphlcd5),Bphlcd5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd5),Bphlcd5Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd5Val> bphlcd5{}; 
     }
     namespace LcdWf6{    ///<LCD Waveform Register 6.
         using Addr = Register::Address<0x40053026,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd6Val {
+        enum class Bpalcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd6ValC{
-            constexpr MPL::Value<bpalcd6Val,bpalcd6Val::v0> v0{};
-            constexpr MPL::Value<bpalcd6Val,bpalcd6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd6Val> bpalcd6{}; 
+        namespace Bpalcd6ValC{
+            constexpr Register::FieldValue<decltype(bpalcd6),Bpalcd6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd6),Bpalcd6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd6Val> bpalcd6{}; 
         ///no description available
-        enum class bpblcd6Val {
+        enum class Bpblcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd6ValC{
-            constexpr MPL::Value<bpblcd6Val,bpblcd6Val::v0> v0{};
-            constexpr MPL::Value<bpblcd6Val,bpblcd6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd6Val> bpblcd6{}; 
+        namespace Bpblcd6ValC{
+            constexpr Register::FieldValue<decltype(bpblcd6),Bpblcd6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd6),Bpblcd6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd6Val> bpblcd6{}; 
         ///no description available
-        enum class bpclcd6Val {
+        enum class Bpclcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd6ValC{
-            constexpr MPL::Value<bpclcd6Val,bpclcd6Val::v0> v0{};
-            constexpr MPL::Value<bpclcd6Val,bpclcd6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd6Val> bpclcd6{}; 
+        namespace Bpclcd6ValC{
+            constexpr Register::FieldValue<decltype(bpclcd6),Bpclcd6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd6),Bpclcd6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd6Val> bpclcd6{}; 
         ///no description available
-        enum class bpdlcd6Val {
+        enum class Bpdlcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd6ValC{
-            constexpr MPL::Value<bpdlcd6Val,bpdlcd6Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd6Val,bpdlcd6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd6Val> bpdlcd6{}; 
+        namespace Bpdlcd6ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd6),Bpdlcd6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd6),Bpdlcd6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd6Val> bpdlcd6{}; 
         ///no description available
-        enum class bpelcd6Val {
+        enum class Bpelcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd6ValC{
-            constexpr MPL::Value<bpelcd6Val,bpelcd6Val::v0> v0{};
-            constexpr MPL::Value<bpelcd6Val,bpelcd6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd6Val> bpelcd6{}; 
+        namespace Bpelcd6ValC{
+            constexpr Register::FieldValue<decltype(bpelcd6),Bpelcd6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd6),Bpelcd6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd6Val> bpelcd6{}; 
         ///no description available
-        enum class bpflcd6Val {
+        enum class Bpflcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd6ValC{
-            constexpr MPL::Value<bpflcd6Val,bpflcd6Val::v0> v0{};
-            constexpr MPL::Value<bpflcd6Val,bpflcd6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd6Val> bpflcd6{}; 
+        namespace Bpflcd6ValC{
+            constexpr Register::FieldValue<decltype(bpflcd6),Bpflcd6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd6),Bpflcd6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd6Val> bpflcd6{}; 
         ///no description available
-        enum class bpglcd6Val {
+        enum class Bpglcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd6ValC{
-            constexpr MPL::Value<bpglcd6Val,bpglcd6Val::v0> v0{};
-            constexpr MPL::Value<bpglcd6Val,bpglcd6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd6Val> bpglcd6{}; 
+        namespace Bpglcd6ValC{
+            constexpr Register::FieldValue<decltype(bpglcd6),Bpglcd6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd6),Bpglcd6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd6Val> bpglcd6{}; 
         ///no description available
-        enum class bphlcd6Val {
+        enum class Bphlcd6Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd6ValC{
-            constexpr MPL::Value<bphlcd6Val,bphlcd6Val::v0> v0{};
-            constexpr MPL::Value<bphlcd6Val,bphlcd6Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd6Val> bphlcd6{}; 
+        namespace Bphlcd6ValC{
+            constexpr Register::FieldValue<decltype(bphlcd6),Bphlcd6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd6),Bphlcd6Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd6Val> bphlcd6{}; 
     }
     namespace LcdWf7{    ///<LCD Waveform Register 7.
         using Addr = Register::Address<0x40053027,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd7Val {
+        enum class Bpalcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd7ValC{
-            constexpr MPL::Value<bpalcd7Val,bpalcd7Val::v0> v0{};
-            constexpr MPL::Value<bpalcd7Val,bpalcd7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd7Val> bpalcd7{}; 
+        namespace Bpalcd7ValC{
+            constexpr Register::FieldValue<decltype(bpalcd7),Bpalcd7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd7),Bpalcd7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd7Val> bpalcd7{}; 
         ///no description available
-        enum class bpblcd7Val {
+        enum class Bpblcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd7ValC{
-            constexpr MPL::Value<bpblcd7Val,bpblcd7Val::v0> v0{};
-            constexpr MPL::Value<bpblcd7Val,bpblcd7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd7Val> bpblcd7{}; 
+        namespace Bpblcd7ValC{
+            constexpr Register::FieldValue<decltype(bpblcd7),Bpblcd7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd7),Bpblcd7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd7Val> bpblcd7{}; 
         ///no description available
-        enum class bpclcd7Val {
+        enum class Bpclcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd7ValC{
-            constexpr MPL::Value<bpclcd7Val,bpclcd7Val::v0> v0{};
-            constexpr MPL::Value<bpclcd7Val,bpclcd7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd7Val> bpclcd7{}; 
+        namespace Bpclcd7ValC{
+            constexpr Register::FieldValue<decltype(bpclcd7),Bpclcd7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd7),Bpclcd7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd7Val> bpclcd7{}; 
         ///no description available
-        enum class bpdlcd7Val {
+        enum class Bpdlcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd7ValC{
-            constexpr MPL::Value<bpdlcd7Val,bpdlcd7Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd7Val,bpdlcd7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd7Val> bpdlcd7{}; 
+        namespace Bpdlcd7ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd7),Bpdlcd7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd7),Bpdlcd7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd7Val> bpdlcd7{}; 
         ///no description available
-        enum class bpelcd7Val {
+        enum class Bpelcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd7ValC{
-            constexpr MPL::Value<bpelcd7Val,bpelcd7Val::v0> v0{};
-            constexpr MPL::Value<bpelcd7Val,bpelcd7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd7Val> bpelcd7{}; 
+        namespace Bpelcd7ValC{
+            constexpr Register::FieldValue<decltype(bpelcd7),Bpelcd7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd7),Bpelcd7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd7Val> bpelcd7{}; 
         ///no description available
-        enum class bpflcd7Val {
+        enum class Bpflcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd7ValC{
-            constexpr MPL::Value<bpflcd7Val,bpflcd7Val::v0> v0{};
-            constexpr MPL::Value<bpflcd7Val,bpflcd7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd7Val> bpflcd7{}; 
+        namespace Bpflcd7ValC{
+            constexpr Register::FieldValue<decltype(bpflcd7),Bpflcd7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd7),Bpflcd7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd7Val> bpflcd7{}; 
         ///no description available
-        enum class bpglcd7Val {
+        enum class Bpglcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd7ValC{
-            constexpr MPL::Value<bpglcd7Val,bpglcd7Val::v0> v0{};
-            constexpr MPL::Value<bpglcd7Val,bpglcd7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd7Val> bpglcd7{}; 
+        namespace Bpglcd7ValC{
+            constexpr Register::FieldValue<decltype(bpglcd7),Bpglcd7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd7),Bpglcd7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd7Val> bpglcd7{}; 
         ///no description available
-        enum class bphlcd7Val {
+        enum class Bphlcd7Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd7ValC{
-            constexpr MPL::Value<bphlcd7Val,bphlcd7Val::v0> v0{};
-            constexpr MPL::Value<bphlcd7Val,bphlcd7Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd7Val> bphlcd7{}; 
+        namespace Bphlcd7ValC{
+            constexpr Register::FieldValue<decltype(bphlcd7),Bphlcd7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd7),Bphlcd7Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd7Val> bphlcd7{}; 
     }
     namespace LcdWf11to8{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053028,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf8{}; 
+        namespace Wf8ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf9{}; 
+        namespace Wf9ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf10{}; 
+        namespace Wf10ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf11{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf11{}; 
+        namespace Wf11ValC{
+        }
     }
     namespace LcdWf8{    ///<LCD Waveform Register 8.
         using Addr = Register::Address<0x40053028,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd8Val {
+        enum class Bpalcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd8ValC{
-            constexpr MPL::Value<bpalcd8Val,bpalcd8Val::v0> v0{};
-            constexpr MPL::Value<bpalcd8Val,bpalcd8Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd8Val> bpalcd8{}; 
+        namespace Bpalcd8ValC{
+            constexpr Register::FieldValue<decltype(bpalcd8),Bpalcd8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd8),Bpalcd8Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd8Val> bpalcd8{}; 
         ///no description available
-        enum class bpblcd8Val {
+        enum class Bpblcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd8ValC{
-            constexpr MPL::Value<bpblcd8Val,bpblcd8Val::v0> v0{};
-            constexpr MPL::Value<bpblcd8Val,bpblcd8Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd8Val> bpblcd8{}; 
+        namespace Bpblcd8ValC{
+            constexpr Register::FieldValue<decltype(bpblcd8),Bpblcd8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd8),Bpblcd8Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd8Val> bpblcd8{}; 
         ///no description available
-        enum class bpclcd8Val {
+        enum class Bpclcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd8ValC{
-            constexpr MPL::Value<bpclcd8Val,bpclcd8Val::v0> v0{};
-            constexpr MPL::Value<bpclcd8Val,bpclcd8Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd8Val> bpclcd8{}; 
+        namespace Bpclcd8ValC{
+            constexpr Register::FieldValue<decltype(bpclcd8),Bpclcd8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd8),Bpclcd8Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd8Val> bpclcd8{}; 
         ///no description available
-        enum class bpdlcd8Val {
+        enum class Bpdlcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd8ValC{
-            constexpr MPL::Value<bpdlcd8Val,bpdlcd8Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd8Val,bpdlcd8Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd8Val> bpdlcd8{}; 
+        namespace Bpdlcd8ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd8),Bpdlcd8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd8),Bpdlcd8Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd8Val> bpdlcd8{}; 
         ///no description available
-        enum class bpelcd8Val {
+        enum class Bpelcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd8ValC{
-            constexpr MPL::Value<bpelcd8Val,bpelcd8Val::v0> v0{};
-            constexpr MPL::Value<bpelcd8Val,bpelcd8Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd8Val> bpelcd8{}; 
+        namespace Bpelcd8ValC{
+            constexpr Register::FieldValue<decltype(bpelcd8),Bpelcd8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd8),Bpelcd8Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd8Val> bpelcd8{}; 
         ///no description available
-        enum class bpflcd8Val {
+        enum class Bpflcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd8ValC{
-            constexpr MPL::Value<bpflcd8Val,bpflcd8Val::v0> v0{};
-            constexpr MPL::Value<bpflcd8Val,bpflcd8Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd8Val> bpflcd8{}; 
+        namespace Bpflcd8ValC{
+            constexpr Register::FieldValue<decltype(bpflcd8),Bpflcd8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd8),Bpflcd8Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd8Val> bpflcd8{}; 
         ///no description available
-        enum class bpglcd8Val {
+        enum class Bpglcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd8ValC{
-            constexpr MPL::Value<bpglcd8Val,bpglcd8Val::v0> v0{};
-            constexpr MPL::Value<bpglcd8Val,bpglcd8Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd8Val> bpglcd8{}; 
+        namespace Bpglcd8ValC{
+            constexpr Register::FieldValue<decltype(bpglcd8),Bpglcd8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd8),Bpglcd8Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd8Val> bpglcd8{}; 
         ///no description available
-        enum class bphlcd8Val {
+        enum class Bphlcd8Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd8ValC{
-            constexpr MPL::Value<bphlcd8Val,bphlcd8Val::v0> v0{};
-            constexpr MPL::Value<bphlcd8Val,bphlcd8Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd8Val> bphlcd8{}; 
+        namespace Bphlcd8ValC{
+            constexpr Register::FieldValue<decltype(bphlcd8),Bphlcd8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd8),Bphlcd8Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd8Val> bphlcd8{}; 
     }
     namespace LcdWf9{    ///<LCD Waveform Register 9.
         using Addr = Register::Address<0x40053029,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd9Val {
+        enum class Bpalcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd9ValC{
-            constexpr MPL::Value<bpalcd9Val,bpalcd9Val::v0> v0{};
-            constexpr MPL::Value<bpalcd9Val,bpalcd9Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd9Val> bpalcd9{}; 
+        namespace Bpalcd9ValC{
+            constexpr Register::FieldValue<decltype(bpalcd9),Bpalcd9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd9),Bpalcd9Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd9Val> bpalcd9{}; 
         ///no description available
-        enum class bpblcd9Val {
+        enum class Bpblcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd9ValC{
-            constexpr MPL::Value<bpblcd9Val,bpblcd9Val::v0> v0{};
-            constexpr MPL::Value<bpblcd9Val,bpblcd9Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd9Val> bpblcd9{}; 
+        namespace Bpblcd9ValC{
+            constexpr Register::FieldValue<decltype(bpblcd9),Bpblcd9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd9),Bpblcd9Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd9Val> bpblcd9{}; 
         ///no description available
-        enum class bpclcd9Val {
+        enum class Bpclcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd9ValC{
-            constexpr MPL::Value<bpclcd9Val,bpclcd9Val::v0> v0{};
-            constexpr MPL::Value<bpclcd9Val,bpclcd9Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd9Val> bpclcd9{}; 
+        namespace Bpclcd9ValC{
+            constexpr Register::FieldValue<decltype(bpclcd9),Bpclcd9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd9),Bpclcd9Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd9Val> bpclcd9{}; 
         ///no description available
-        enum class bpdlcd9Val {
+        enum class Bpdlcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd9ValC{
-            constexpr MPL::Value<bpdlcd9Val,bpdlcd9Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd9Val,bpdlcd9Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd9Val> bpdlcd9{}; 
+        namespace Bpdlcd9ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd9),Bpdlcd9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd9),Bpdlcd9Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd9Val> bpdlcd9{}; 
         ///no description available
-        enum class bpelcd9Val {
+        enum class Bpelcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd9ValC{
-            constexpr MPL::Value<bpelcd9Val,bpelcd9Val::v0> v0{};
-            constexpr MPL::Value<bpelcd9Val,bpelcd9Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd9Val> bpelcd9{}; 
+        namespace Bpelcd9ValC{
+            constexpr Register::FieldValue<decltype(bpelcd9),Bpelcd9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd9),Bpelcd9Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd9Val> bpelcd9{}; 
         ///no description available
-        enum class bpflcd9Val {
+        enum class Bpflcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd9ValC{
-            constexpr MPL::Value<bpflcd9Val,bpflcd9Val::v0> v0{};
-            constexpr MPL::Value<bpflcd9Val,bpflcd9Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd9Val> bpflcd9{}; 
+        namespace Bpflcd9ValC{
+            constexpr Register::FieldValue<decltype(bpflcd9),Bpflcd9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd9),Bpflcd9Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd9Val> bpflcd9{}; 
         ///no description available
-        enum class bpglcd9Val {
+        enum class Bpglcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd9ValC{
-            constexpr MPL::Value<bpglcd9Val,bpglcd9Val::v0> v0{};
-            constexpr MPL::Value<bpglcd9Val,bpglcd9Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd9Val> bpglcd9{}; 
+        namespace Bpglcd9ValC{
+            constexpr Register::FieldValue<decltype(bpglcd9),Bpglcd9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd9),Bpglcd9Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd9Val> bpglcd9{}; 
         ///no description available
-        enum class bphlcd9Val {
+        enum class Bphlcd9Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd9ValC{
-            constexpr MPL::Value<bphlcd9Val,bphlcd9Val::v0> v0{};
-            constexpr MPL::Value<bphlcd9Val,bphlcd9Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd9Val> bphlcd9{}; 
+        namespace Bphlcd9ValC{
+            constexpr Register::FieldValue<decltype(bphlcd9),Bphlcd9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd9),Bphlcd9Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd9Val> bphlcd9{}; 
     }
     namespace LcdWf10{    ///<LCD Waveform Register 10.
         using Addr = Register::Address<0x4005302a,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd10Val {
+        enum class Bpalcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd10ValC{
-            constexpr MPL::Value<bpalcd10Val,bpalcd10Val::v0> v0{};
-            constexpr MPL::Value<bpalcd10Val,bpalcd10Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd10Val> bpalcd10{}; 
+        namespace Bpalcd10ValC{
+            constexpr Register::FieldValue<decltype(bpalcd10),Bpalcd10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd10),Bpalcd10Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd10Val> bpalcd10{}; 
         ///no description available
-        enum class bpblcd10Val {
+        enum class Bpblcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd10ValC{
-            constexpr MPL::Value<bpblcd10Val,bpblcd10Val::v0> v0{};
-            constexpr MPL::Value<bpblcd10Val,bpblcd10Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd10Val> bpblcd10{}; 
+        namespace Bpblcd10ValC{
+            constexpr Register::FieldValue<decltype(bpblcd10),Bpblcd10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd10),Bpblcd10Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd10Val> bpblcd10{}; 
         ///no description available
-        enum class bpclcd10Val {
+        enum class Bpclcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd10ValC{
-            constexpr MPL::Value<bpclcd10Val,bpclcd10Val::v0> v0{};
-            constexpr MPL::Value<bpclcd10Val,bpclcd10Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd10Val> bpclcd10{}; 
+        namespace Bpclcd10ValC{
+            constexpr Register::FieldValue<decltype(bpclcd10),Bpclcd10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd10),Bpclcd10Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd10Val> bpclcd10{}; 
         ///no description available
-        enum class bpdlcd10Val {
+        enum class Bpdlcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd10ValC{
-            constexpr MPL::Value<bpdlcd10Val,bpdlcd10Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd10Val,bpdlcd10Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd10Val> bpdlcd10{}; 
+        namespace Bpdlcd10ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd10),Bpdlcd10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd10),Bpdlcd10Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd10Val> bpdlcd10{}; 
         ///no description available
-        enum class bpelcd10Val {
+        enum class Bpelcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd10ValC{
-            constexpr MPL::Value<bpelcd10Val,bpelcd10Val::v0> v0{};
-            constexpr MPL::Value<bpelcd10Val,bpelcd10Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd10Val> bpelcd10{}; 
+        namespace Bpelcd10ValC{
+            constexpr Register::FieldValue<decltype(bpelcd10),Bpelcd10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd10),Bpelcd10Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd10Val> bpelcd10{}; 
         ///no description available
-        enum class bpflcd10Val {
+        enum class Bpflcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd10ValC{
-            constexpr MPL::Value<bpflcd10Val,bpflcd10Val::v0> v0{};
-            constexpr MPL::Value<bpflcd10Val,bpflcd10Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd10Val> bpflcd10{}; 
+        namespace Bpflcd10ValC{
+            constexpr Register::FieldValue<decltype(bpflcd10),Bpflcd10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd10),Bpflcd10Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd10Val> bpflcd10{}; 
         ///no description available
-        enum class bpglcd10Val {
+        enum class Bpglcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd10ValC{
-            constexpr MPL::Value<bpglcd10Val,bpglcd10Val::v0> v0{};
-            constexpr MPL::Value<bpglcd10Val,bpglcd10Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd10Val> bpglcd10{}; 
+        namespace Bpglcd10ValC{
+            constexpr Register::FieldValue<decltype(bpglcd10),Bpglcd10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd10),Bpglcd10Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd10Val> bpglcd10{}; 
         ///no description available
-        enum class bphlcd10Val {
+        enum class Bphlcd10Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd10ValC{
-            constexpr MPL::Value<bphlcd10Val,bphlcd10Val::v0> v0{};
-            constexpr MPL::Value<bphlcd10Val,bphlcd10Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd10Val> bphlcd10{}; 
+        namespace Bphlcd10ValC{
+            constexpr Register::FieldValue<decltype(bphlcd10),Bphlcd10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd10),Bphlcd10Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd10Val> bphlcd10{}; 
     }
     namespace LcdWf11{    ///<LCD Waveform Register 11.
         using Addr = Register::Address<0x4005302b,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd11Val {
+        enum class Bpalcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd11ValC{
-            constexpr MPL::Value<bpalcd11Val,bpalcd11Val::v0> v0{};
-            constexpr MPL::Value<bpalcd11Val,bpalcd11Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd11Val> bpalcd11{}; 
+        namespace Bpalcd11ValC{
+            constexpr Register::FieldValue<decltype(bpalcd11),Bpalcd11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd11),Bpalcd11Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd11Val> bpalcd11{}; 
         ///no description available
-        enum class bpblcd11Val {
+        enum class Bpblcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd11ValC{
-            constexpr MPL::Value<bpblcd11Val,bpblcd11Val::v0> v0{};
-            constexpr MPL::Value<bpblcd11Val,bpblcd11Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd11Val> bpblcd11{}; 
+        namespace Bpblcd11ValC{
+            constexpr Register::FieldValue<decltype(bpblcd11),Bpblcd11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd11),Bpblcd11Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd11Val> bpblcd11{}; 
         ///no description available
-        enum class bpclcd11Val {
+        enum class Bpclcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd11ValC{
-            constexpr MPL::Value<bpclcd11Val,bpclcd11Val::v0> v0{};
-            constexpr MPL::Value<bpclcd11Val,bpclcd11Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd11Val> bpclcd11{}; 
+        namespace Bpclcd11ValC{
+            constexpr Register::FieldValue<decltype(bpclcd11),Bpclcd11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd11),Bpclcd11Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd11Val> bpclcd11{}; 
         ///no description available
-        enum class bpdlcd11Val {
+        enum class Bpdlcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd11ValC{
-            constexpr MPL::Value<bpdlcd11Val,bpdlcd11Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd11Val,bpdlcd11Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd11Val> bpdlcd11{}; 
+        namespace Bpdlcd11ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd11),Bpdlcd11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd11),Bpdlcd11Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd11Val> bpdlcd11{}; 
         ///no description available
-        enum class bpelcd11Val {
+        enum class Bpelcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd11ValC{
-            constexpr MPL::Value<bpelcd11Val,bpelcd11Val::v0> v0{};
-            constexpr MPL::Value<bpelcd11Val,bpelcd11Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd11Val> bpelcd11{}; 
+        namespace Bpelcd11ValC{
+            constexpr Register::FieldValue<decltype(bpelcd11),Bpelcd11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd11),Bpelcd11Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd11Val> bpelcd11{}; 
         ///no description available
-        enum class bpflcd11Val {
+        enum class Bpflcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd11ValC{
-            constexpr MPL::Value<bpflcd11Val,bpflcd11Val::v0> v0{};
-            constexpr MPL::Value<bpflcd11Val,bpflcd11Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd11Val> bpflcd11{}; 
+        namespace Bpflcd11ValC{
+            constexpr Register::FieldValue<decltype(bpflcd11),Bpflcd11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd11),Bpflcd11Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd11Val> bpflcd11{}; 
         ///no description available
-        enum class bpglcd11Val {
+        enum class Bpglcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd11ValC{
-            constexpr MPL::Value<bpglcd11Val,bpglcd11Val::v0> v0{};
-            constexpr MPL::Value<bpglcd11Val,bpglcd11Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd11Val> bpglcd11{}; 
+        namespace Bpglcd11ValC{
+            constexpr Register::FieldValue<decltype(bpglcd11),Bpglcd11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd11),Bpglcd11Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd11Val> bpglcd11{}; 
         ///no description available
-        enum class bphlcd11Val {
+        enum class Bphlcd11Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd11ValC{
-            constexpr MPL::Value<bphlcd11Val,bphlcd11Val::v0> v0{};
-            constexpr MPL::Value<bphlcd11Val,bphlcd11Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd11Val> bphlcd11{}; 
+        namespace Bphlcd11ValC{
+            constexpr Register::FieldValue<decltype(bphlcd11),Bphlcd11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd11),Bphlcd11Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd11Val> bphlcd11{}; 
     }
     namespace LcdWf15to12{    ///<LCD Waveform register
         using Addr = Register::Address<0x4005302c,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf12{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf12{}; 
+        namespace Wf12ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf13{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf13{}; 
+        namespace Wf13ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf14{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf14{}; 
+        namespace Wf14ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf15{}; 
+        namespace Wf15ValC{
+        }
     }
     namespace LcdWf12{    ///<LCD Waveform Register 12.
         using Addr = Register::Address<0x4005302c,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd12Val {
+        enum class Bpalcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd12ValC{
-            constexpr MPL::Value<bpalcd12Val,bpalcd12Val::v0> v0{};
-            constexpr MPL::Value<bpalcd12Val,bpalcd12Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd12Val> bpalcd12{}; 
+        namespace Bpalcd12ValC{
+            constexpr Register::FieldValue<decltype(bpalcd12),Bpalcd12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd12),Bpalcd12Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd12Val> bpalcd12{}; 
         ///no description available
-        enum class bpblcd12Val {
+        enum class Bpblcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd12ValC{
-            constexpr MPL::Value<bpblcd12Val,bpblcd12Val::v0> v0{};
-            constexpr MPL::Value<bpblcd12Val,bpblcd12Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd12Val> bpblcd12{}; 
+        namespace Bpblcd12ValC{
+            constexpr Register::FieldValue<decltype(bpblcd12),Bpblcd12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd12),Bpblcd12Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd12Val> bpblcd12{}; 
         ///no description available
-        enum class bpclcd12Val {
+        enum class Bpclcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd12ValC{
-            constexpr MPL::Value<bpclcd12Val,bpclcd12Val::v0> v0{};
-            constexpr MPL::Value<bpclcd12Val,bpclcd12Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd12Val> bpclcd12{}; 
+        namespace Bpclcd12ValC{
+            constexpr Register::FieldValue<decltype(bpclcd12),Bpclcd12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd12),Bpclcd12Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd12Val> bpclcd12{}; 
         ///no description available
-        enum class bpdlcd12Val {
+        enum class Bpdlcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd12ValC{
-            constexpr MPL::Value<bpdlcd12Val,bpdlcd12Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd12Val,bpdlcd12Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd12Val> bpdlcd12{}; 
+        namespace Bpdlcd12ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd12),Bpdlcd12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd12),Bpdlcd12Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd12Val> bpdlcd12{}; 
         ///no description available
-        enum class bpelcd12Val {
+        enum class Bpelcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd12ValC{
-            constexpr MPL::Value<bpelcd12Val,bpelcd12Val::v0> v0{};
-            constexpr MPL::Value<bpelcd12Val,bpelcd12Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd12Val> bpelcd12{}; 
+        namespace Bpelcd12ValC{
+            constexpr Register::FieldValue<decltype(bpelcd12),Bpelcd12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd12),Bpelcd12Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd12Val> bpelcd12{}; 
         ///no description available
-        enum class bpflcd12Val {
+        enum class Bpflcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd12ValC{
-            constexpr MPL::Value<bpflcd12Val,bpflcd12Val::v0> v0{};
-            constexpr MPL::Value<bpflcd12Val,bpflcd12Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd12Val> bpflcd12{}; 
+        namespace Bpflcd12ValC{
+            constexpr Register::FieldValue<decltype(bpflcd12),Bpflcd12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd12),Bpflcd12Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd12Val> bpflcd12{}; 
         ///no description available
-        enum class bpglcd12Val {
+        enum class Bpglcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd12ValC{
-            constexpr MPL::Value<bpglcd12Val,bpglcd12Val::v0> v0{};
-            constexpr MPL::Value<bpglcd12Val,bpglcd12Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd12Val> bpglcd12{}; 
+        namespace Bpglcd12ValC{
+            constexpr Register::FieldValue<decltype(bpglcd12),Bpglcd12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd12),Bpglcd12Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd12Val> bpglcd12{}; 
         ///no description available
-        enum class bphlcd12Val {
+        enum class Bphlcd12Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd12ValC{
-            constexpr MPL::Value<bphlcd12Val,bphlcd12Val::v0> v0{};
-            constexpr MPL::Value<bphlcd12Val,bphlcd12Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd12Val> bphlcd12{}; 
+        namespace Bphlcd12ValC{
+            constexpr Register::FieldValue<decltype(bphlcd12),Bphlcd12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd12),Bphlcd12Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd12Val> bphlcd12{}; 
     }
     namespace LcdWf13{    ///<LCD Waveform Register 13.
         using Addr = Register::Address<0x4005302d,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd13Val {
+        enum class Bpalcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd13ValC{
-            constexpr MPL::Value<bpalcd13Val,bpalcd13Val::v0> v0{};
-            constexpr MPL::Value<bpalcd13Val,bpalcd13Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd13Val> bpalcd13{}; 
+        namespace Bpalcd13ValC{
+            constexpr Register::FieldValue<decltype(bpalcd13),Bpalcd13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd13),Bpalcd13Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd13Val> bpalcd13{}; 
         ///no description available
-        enum class bpblcd13Val {
+        enum class Bpblcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd13ValC{
-            constexpr MPL::Value<bpblcd13Val,bpblcd13Val::v0> v0{};
-            constexpr MPL::Value<bpblcd13Val,bpblcd13Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd13Val> bpblcd13{}; 
+        namespace Bpblcd13ValC{
+            constexpr Register::FieldValue<decltype(bpblcd13),Bpblcd13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd13),Bpblcd13Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd13Val> bpblcd13{}; 
         ///no description available
-        enum class bpclcd13Val {
+        enum class Bpclcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd13ValC{
-            constexpr MPL::Value<bpclcd13Val,bpclcd13Val::v0> v0{};
-            constexpr MPL::Value<bpclcd13Val,bpclcd13Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd13Val> bpclcd13{}; 
+        namespace Bpclcd13ValC{
+            constexpr Register::FieldValue<decltype(bpclcd13),Bpclcd13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd13),Bpclcd13Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd13Val> bpclcd13{}; 
         ///no description available
-        enum class bpdlcd13Val {
+        enum class Bpdlcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd13ValC{
-            constexpr MPL::Value<bpdlcd13Val,bpdlcd13Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd13Val,bpdlcd13Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd13Val> bpdlcd13{}; 
+        namespace Bpdlcd13ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd13),Bpdlcd13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd13),Bpdlcd13Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd13Val> bpdlcd13{}; 
         ///no description available
-        enum class bpelcd13Val {
+        enum class Bpelcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd13ValC{
-            constexpr MPL::Value<bpelcd13Val,bpelcd13Val::v0> v0{};
-            constexpr MPL::Value<bpelcd13Val,bpelcd13Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd13Val> bpelcd13{}; 
+        namespace Bpelcd13ValC{
+            constexpr Register::FieldValue<decltype(bpelcd13),Bpelcd13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd13),Bpelcd13Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd13Val> bpelcd13{}; 
         ///no description available
-        enum class bpflcd13Val {
+        enum class Bpflcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd13ValC{
-            constexpr MPL::Value<bpflcd13Val,bpflcd13Val::v0> v0{};
-            constexpr MPL::Value<bpflcd13Val,bpflcd13Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd13Val> bpflcd13{}; 
+        namespace Bpflcd13ValC{
+            constexpr Register::FieldValue<decltype(bpflcd13),Bpflcd13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd13),Bpflcd13Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd13Val> bpflcd13{}; 
         ///no description available
-        enum class bpglcd13Val {
+        enum class Bpglcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd13ValC{
-            constexpr MPL::Value<bpglcd13Val,bpglcd13Val::v0> v0{};
-            constexpr MPL::Value<bpglcd13Val,bpglcd13Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd13Val> bpglcd13{}; 
+        namespace Bpglcd13ValC{
+            constexpr Register::FieldValue<decltype(bpglcd13),Bpglcd13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd13),Bpglcd13Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd13Val> bpglcd13{}; 
         ///no description available
-        enum class bphlcd13Val {
+        enum class Bphlcd13Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd13ValC{
-            constexpr MPL::Value<bphlcd13Val,bphlcd13Val::v0> v0{};
-            constexpr MPL::Value<bphlcd13Val,bphlcd13Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd13Val> bphlcd13{}; 
+        namespace Bphlcd13ValC{
+            constexpr Register::FieldValue<decltype(bphlcd13),Bphlcd13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd13),Bphlcd13Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd13Val> bphlcd13{}; 
     }
     namespace LcdWf14{    ///<LCD Waveform Register 14.
         using Addr = Register::Address<0x4005302e,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd14Val {
+        enum class Bpalcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd14ValC{
-            constexpr MPL::Value<bpalcd14Val,bpalcd14Val::v0> v0{};
-            constexpr MPL::Value<bpalcd14Val,bpalcd14Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd14Val> bpalcd14{}; 
+        namespace Bpalcd14ValC{
+            constexpr Register::FieldValue<decltype(bpalcd14),Bpalcd14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd14),Bpalcd14Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd14Val> bpalcd14{}; 
         ///no description available
-        enum class bpblcd14Val {
+        enum class Bpblcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd14ValC{
-            constexpr MPL::Value<bpblcd14Val,bpblcd14Val::v0> v0{};
-            constexpr MPL::Value<bpblcd14Val,bpblcd14Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd14Val> bpblcd14{}; 
+        namespace Bpblcd14ValC{
+            constexpr Register::FieldValue<decltype(bpblcd14),Bpblcd14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd14),Bpblcd14Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd14Val> bpblcd14{}; 
         ///no description available
-        enum class bpclcd14Val {
+        enum class Bpclcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd14ValC{
-            constexpr MPL::Value<bpclcd14Val,bpclcd14Val::v0> v0{};
-            constexpr MPL::Value<bpclcd14Val,bpclcd14Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd14Val> bpclcd14{}; 
+        namespace Bpclcd14ValC{
+            constexpr Register::FieldValue<decltype(bpclcd14),Bpclcd14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd14),Bpclcd14Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd14Val> bpclcd14{}; 
         ///no description available
-        enum class bpdlcd14Val {
+        enum class Bpdlcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd14ValC{
-            constexpr MPL::Value<bpdlcd14Val,bpdlcd14Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd14Val,bpdlcd14Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd14Val> bpdlcd14{}; 
+        namespace Bpdlcd14ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd14),Bpdlcd14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd14),Bpdlcd14Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd14Val> bpdlcd14{}; 
         ///no description available
-        enum class bpelcd14Val {
+        enum class Bpelcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd14ValC{
-            constexpr MPL::Value<bpelcd14Val,bpelcd14Val::v0> v0{};
-            constexpr MPL::Value<bpelcd14Val,bpelcd14Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd14Val> bpelcd14{}; 
+        namespace Bpelcd14ValC{
+            constexpr Register::FieldValue<decltype(bpelcd14),Bpelcd14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd14),Bpelcd14Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd14Val> bpelcd14{}; 
         ///no description available
-        enum class bpflcd14Val {
+        enum class Bpflcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd14ValC{
-            constexpr MPL::Value<bpflcd14Val,bpflcd14Val::v0> v0{};
-            constexpr MPL::Value<bpflcd14Val,bpflcd14Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd14Val> bpflcd14{}; 
+        namespace Bpflcd14ValC{
+            constexpr Register::FieldValue<decltype(bpflcd14),Bpflcd14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd14),Bpflcd14Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd14Val> bpflcd14{}; 
         ///no description available
-        enum class bpglcd14Val {
+        enum class Bpglcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd14ValC{
-            constexpr MPL::Value<bpglcd14Val,bpglcd14Val::v0> v0{};
-            constexpr MPL::Value<bpglcd14Val,bpglcd14Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd14Val> bpglcd14{}; 
+        namespace Bpglcd14ValC{
+            constexpr Register::FieldValue<decltype(bpglcd14),Bpglcd14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd14),Bpglcd14Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd14Val> bpglcd14{}; 
         ///no description available
-        enum class bphlcd14Val {
+        enum class Bphlcd14Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd14ValC{
-            constexpr MPL::Value<bphlcd14Val,bphlcd14Val::v0> v0{};
-            constexpr MPL::Value<bphlcd14Val,bphlcd14Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd14Val> bphlcd14{}; 
+        namespace Bphlcd14ValC{
+            constexpr Register::FieldValue<decltype(bphlcd14),Bphlcd14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd14),Bphlcd14Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd14Val> bphlcd14{}; 
     }
     namespace LcdWf15{    ///<LCD Waveform Register 15.
         using Addr = Register::Address<0x4005302f,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd15Val {
+        enum class Bpalcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd15ValC{
-            constexpr MPL::Value<bpalcd15Val,bpalcd15Val::v0> v0{};
-            constexpr MPL::Value<bpalcd15Val,bpalcd15Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd15Val> bpalcd15{}; 
+        namespace Bpalcd15ValC{
+            constexpr Register::FieldValue<decltype(bpalcd15),Bpalcd15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd15),Bpalcd15Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd15Val> bpalcd15{}; 
         ///no description available
-        enum class bpblcd15Val {
+        enum class Bpblcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd15ValC{
-            constexpr MPL::Value<bpblcd15Val,bpblcd15Val::v0> v0{};
-            constexpr MPL::Value<bpblcd15Val,bpblcd15Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd15Val> bpblcd15{}; 
+        namespace Bpblcd15ValC{
+            constexpr Register::FieldValue<decltype(bpblcd15),Bpblcd15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd15),Bpblcd15Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd15Val> bpblcd15{}; 
         ///no description available
-        enum class bpclcd15Val {
+        enum class Bpclcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd15ValC{
-            constexpr MPL::Value<bpclcd15Val,bpclcd15Val::v0> v0{};
-            constexpr MPL::Value<bpclcd15Val,bpclcd15Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd15Val> bpclcd15{}; 
+        namespace Bpclcd15ValC{
+            constexpr Register::FieldValue<decltype(bpclcd15),Bpclcd15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd15),Bpclcd15Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd15Val> bpclcd15{}; 
         ///no description available
-        enum class bpdlcd15Val {
+        enum class Bpdlcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd15ValC{
-            constexpr MPL::Value<bpdlcd15Val,bpdlcd15Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd15Val,bpdlcd15Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd15Val> bpdlcd15{}; 
+        namespace Bpdlcd15ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd15),Bpdlcd15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd15),Bpdlcd15Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd15Val> bpdlcd15{}; 
         ///no description available
-        enum class bpelcd15Val {
+        enum class Bpelcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd15ValC{
-            constexpr MPL::Value<bpelcd15Val,bpelcd15Val::v0> v0{};
-            constexpr MPL::Value<bpelcd15Val,bpelcd15Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd15Val> bpelcd15{}; 
+        namespace Bpelcd15ValC{
+            constexpr Register::FieldValue<decltype(bpelcd15),Bpelcd15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd15),Bpelcd15Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd15Val> bpelcd15{}; 
         ///no description available
-        enum class bpflcd15Val {
+        enum class Bpflcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd15ValC{
-            constexpr MPL::Value<bpflcd15Val,bpflcd15Val::v0> v0{};
-            constexpr MPL::Value<bpflcd15Val,bpflcd15Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd15Val> bpflcd15{}; 
+        namespace Bpflcd15ValC{
+            constexpr Register::FieldValue<decltype(bpflcd15),Bpflcd15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd15),Bpflcd15Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd15Val> bpflcd15{}; 
         ///no description available
-        enum class bpglcd15Val {
+        enum class Bpglcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd15ValC{
-            constexpr MPL::Value<bpglcd15Val,bpglcd15Val::v0> v0{};
-            constexpr MPL::Value<bpglcd15Val,bpglcd15Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd15Val> bpglcd15{}; 
+        namespace Bpglcd15ValC{
+            constexpr Register::FieldValue<decltype(bpglcd15),Bpglcd15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd15),Bpglcd15Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd15Val> bpglcd15{}; 
         ///no description available
-        enum class bphlcd15Val {
+        enum class Bphlcd15Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd15ValC{
-            constexpr MPL::Value<bphlcd15Val,bphlcd15Val::v0> v0{};
-            constexpr MPL::Value<bphlcd15Val,bphlcd15Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd15Val> bphlcd15{}; 
+        namespace Bphlcd15ValC{
+            constexpr Register::FieldValue<decltype(bphlcd15),Bphlcd15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd15),Bphlcd15Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd15Val> bphlcd15{}; 
     }
     namespace LcdWf19to16{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053030,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf16{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf16{}; 
+        namespace Wf16ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf17{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf17{}; 
+        namespace Wf17ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf18{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf18{}; 
+        namespace Wf18ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf19{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf19{}; 
+        namespace Wf19ValC{
+        }
     }
     namespace LcdWf16{    ///<LCD Waveform Register 16.
         using Addr = Register::Address<0x40053030,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd16Val {
+        enum class Bpalcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd16ValC{
-            constexpr MPL::Value<bpalcd16Val,bpalcd16Val::v0> v0{};
-            constexpr MPL::Value<bpalcd16Val,bpalcd16Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd16Val> bpalcd16{}; 
+        namespace Bpalcd16ValC{
+            constexpr Register::FieldValue<decltype(bpalcd16),Bpalcd16Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd16),Bpalcd16Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd16Val> bpalcd16{}; 
         ///no description available
-        enum class bpblcd16Val {
+        enum class Bpblcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd16ValC{
-            constexpr MPL::Value<bpblcd16Val,bpblcd16Val::v0> v0{};
-            constexpr MPL::Value<bpblcd16Val,bpblcd16Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd16Val> bpblcd16{}; 
+        namespace Bpblcd16ValC{
+            constexpr Register::FieldValue<decltype(bpblcd16),Bpblcd16Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd16),Bpblcd16Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd16Val> bpblcd16{}; 
         ///no description available
-        enum class bpclcd16Val {
+        enum class Bpclcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd16ValC{
-            constexpr MPL::Value<bpclcd16Val,bpclcd16Val::v0> v0{};
-            constexpr MPL::Value<bpclcd16Val,bpclcd16Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd16Val> bpclcd16{}; 
+        namespace Bpclcd16ValC{
+            constexpr Register::FieldValue<decltype(bpclcd16),Bpclcd16Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd16),Bpclcd16Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd16Val> bpclcd16{}; 
         ///no description available
-        enum class bpdlcd16Val {
+        enum class Bpdlcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd16ValC{
-            constexpr MPL::Value<bpdlcd16Val,bpdlcd16Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd16Val,bpdlcd16Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd16Val> bpdlcd16{}; 
+        namespace Bpdlcd16ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd16),Bpdlcd16Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd16),Bpdlcd16Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd16Val> bpdlcd16{}; 
         ///no description available
-        enum class bpelcd16Val {
+        enum class Bpelcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd16ValC{
-            constexpr MPL::Value<bpelcd16Val,bpelcd16Val::v0> v0{};
-            constexpr MPL::Value<bpelcd16Val,bpelcd16Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd16Val> bpelcd16{}; 
+        namespace Bpelcd16ValC{
+            constexpr Register::FieldValue<decltype(bpelcd16),Bpelcd16Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd16),Bpelcd16Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd16Val> bpelcd16{}; 
         ///no description available
-        enum class bpflcd16Val {
+        enum class Bpflcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd16ValC{
-            constexpr MPL::Value<bpflcd16Val,bpflcd16Val::v0> v0{};
-            constexpr MPL::Value<bpflcd16Val,bpflcd16Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd16Val> bpflcd16{}; 
+        namespace Bpflcd16ValC{
+            constexpr Register::FieldValue<decltype(bpflcd16),Bpflcd16Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd16),Bpflcd16Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd16Val> bpflcd16{}; 
         ///no description available
-        enum class bpglcd16Val {
+        enum class Bpglcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd16ValC{
-            constexpr MPL::Value<bpglcd16Val,bpglcd16Val::v0> v0{};
-            constexpr MPL::Value<bpglcd16Val,bpglcd16Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd16Val> bpglcd16{}; 
+        namespace Bpglcd16ValC{
+            constexpr Register::FieldValue<decltype(bpglcd16),Bpglcd16Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd16),Bpglcd16Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd16Val> bpglcd16{}; 
         ///no description available
-        enum class bphlcd16Val {
+        enum class Bphlcd16Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd16ValC{
-            constexpr MPL::Value<bphlcd16Val,bphlcd16Val::v0> v0{};
-            constexpr MPL::Value<bphlcd16Val,bphlcd16Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd16Val> bphlcd16{}; 
+        namespace Bphlcd16ValC{
+            constexpr Register::FieldValue<decltype(bphlcd16),Bphlcd16Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd16),Bphlcd16Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd16Val> bphlcd16{}; 
     }
     namespace LcdWf17{    ///<LCD Waveform Register 17.
         using Addr = Register::Address<0x40053031,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd17Val {
+        enum class Bpalcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd17ValC{
-            constexpr MPL::Value<bpalcd17Val,bpalcd17Val::v0> v0{};
-            constexpr MPL::Value<bpalcd17Val,bpalcd17Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd17Val> bpalcd17{}; 
+        namespace Bpalcd17ValC{
+            constexpr Register::FieldValue<decltype(bpalcd17),Bpalcd17Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd17),Bpalcd17Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd17Val> bpalcd17{}; 
         ///no description available
-        enum class bpblcd17Val {
+        enum class Bpblcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd17ValC{
-            constexpr MPL::Value<bpblcd17Val,bpblcd17Val::v0> v0{};
-            constexpr MPL::Value<bpblcd17Val,bpblcd17Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd17Val> bpblcd17{}; 
+        namespace Bpblcd17ValC{
+            constexpr Register::FieldValue<decltype(bpblcd17),Bpblcd17Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd17),Bpblcd17Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd17Val> bpblcd17{}; 
         ///no description available
-        enum class bpclcd17Val {
+        enum class Bpclcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd17ValC{
-            constexpr MPL::Value<bpclcd17Val,bpclcd17Val::v0> v0{};
-            constexpr MPL::Value<bpclcd17Val,bpclcd17Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd17Val> bpclcd17{}; 
+        namespace Bpclcd17ValC{
+            constexpr Register::FieldValue<decltype(bpclcd17),Bpclcd17Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd17),Bpclcd17Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd17Val> bpclcd17{}; 
         ///no description available
-        enum class bpdlcd17Val {
+        enum class Bpdlcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd17ValC{
-            constexpr MPL::Value<bpdlcd17Val,bpdlcd17Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd17Val,bpdlcd17Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd17Val> bpdlcd17{}; 
+        namespace Bpdlcd17ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd17),Bpdlcd17Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd17),Bpdlcd17Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd17Val> bpdlcd17{}; 
         ///no description available
-        enum class bpelcd17Val {
+        enum class Bpelcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd17ValC{
-            constexpr MPL::Value<bpelcd17Val,bpelcd17Val::v0> v0{};
-            constexpr MPL::Value<bpelcd17Val,bpelcd17Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd17Val> bpelcd17{}; 
+        namespace Bpelcd17ValC{
+            constexpr Register::FieldValue<decltype(bpelcd17),Bpelcd17Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd17),Bpelcd17Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd17Val> bpelcd17{}; 
         ///no description available
-        enum class bpflcd17Val {
+        enum class Bpflcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd17ValC{
-            constexpr MPL::Value<bpflcd17Val,bpflcd17Val::v0> v0{};
-            constexpr MPL::Value<bpflcd17Val,bpflcd17Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd17Val> bpflcd17{}; 
+        namespace Bpflcd17ValC{
+            constexpr Register::FieldValue<decltype(bpflcd17),Bpflcd17Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd17),Bpflcd17Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd17Val> bpflcd17{}; 
         ///no description available
-        enum class bpglcd17Val {
+        enum class Bpglcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd17ValC{
-            constexpr MPL::Value<bpglcd17Val,bpglcd17Val::v0> v0{};
-            constexpr MPL::Value<bpglcd17Val,bpglcd17Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd17Val> bpglcd17{}; 
+        namespace Bpglcd17ValC{
+            constexpr Register::FieldValue<decltype(bpglcd17),Bpglcd17Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd17),Bpglcd17Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd17Val> bpglcd17{}; 
         ///no description available
-        enum class bphlcd17Val {
+        enum class Bphlcd17Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd17ValC{
-            constexpr MPL::Value<bphlcd17Val,bphlcd17Val::v0> v0{};
-            constexpr MPL::Value<bphlcd17Val,bphlcd17Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd17Val> bphlcd17{}; 
+        namespace Bphlcd17ValC{
+            constexpr Register::FieldValue<decltype(bphlcd17),Bphlcd17Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd17),Bphlcd17Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd17Val> bphlcd17{}; 
     }
     namespace LcdWf18{    ///<LCD Waveform Register 18.
         using Addr = Register::Address<0x40053032,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd18Val {
+        enum class Bpalcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd18ValC{
-            constexpr MPL::Value<bpalcd18Val,bpalcd18Val::v0> v0{};
-            constexpr MPL::Value<bpalcd18Val,bpalcd18Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd18Val> bpalcd18{}; 
+        namespace Bpalcd18ValC{
+            constexpr Register::FieldValue<decltype(bpalcd18),Bpalcd18Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd18),Bpalcd18Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd18Val> bpalcd18{}; 
         ///no description available
-        enum class bpblcd18Val {
+        enum class Bpblcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd18ValC{
-            constexpr MPL::Value<bpblcd18Val,bpblcd18Val::v0> v0{};
-            constexpr MPL::Value<bpblcd18Val,bpblcd18Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd18Val> bpblcd18{}; 
+        namespace Bpblcd18ValC{
+            constexpr Register::FieldValue<decltype(bpblcd18),Bpblcd18Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd18),Bpblcd18Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd18Val> bpblcd18{}; 
         ///no description available
-        enum class bpclcd18Val {
+        enum class Bpclcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd18ValC{
-            constexpr MPL::Value<bpclcd18Val,bpclcd18Val::v0> v0{};
-            constexpr MPL::Value<bpclcd18Val,bpclcd18Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd18Val> bpclcd18{}; 
+        namespace Bpclcd18ValC{
+            constexpr Register::FieldValue<decltype(bpclcd18),Bpclcd18Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd18),Bpclcd18Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd18Val> bpclcd18{}; 
         ///no description available
-        enum class bpdlcd18Val {
+        enum class Bpdlcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd18ValC{
-            constexpr MPL::Value<bpdlcd18Val,bpdlcd18Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd18Val,bpdlcd18Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd18Val> bpdlcd18{}; 
+        namespace Bpdlcd18ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd18),Bpdlcd18Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd18),Bpdlcd18Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd18Val> bpdlcd18{}; 
         ///no description available
-        enum class bpelcd18Val {
+        enum class Bpelcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd18ValC{
-            constexpr MPL::Value<bpelcd18Val,bpelcd18Val::v0> v0{};
-            constexpr MPL::Value<bpelcd18Val,bpelcd18Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd18Val> bpelcd18{}; 
+        namespace Bpelcd18ValC{
+            constexpr Register::FieldValue<decltype(bpelcd18),Bpelcd18Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd18),Bpelcd18Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd18Val> bpelcd18{}; 
         ///no description available
-        enum class bpflcd18Val {
+        enum class Bpflcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd18ValC{
-            constexpr MPL::Value<bpflcd18Val,bpflcd18Val::v0> v0{};
-            constexpr MPL::Value<bpflcd18Val,bpflcd18Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd18Val> bpflcd18{}; 
+        namespace Bpflcd18ValC{
+            constexpr Register::FieldValue<decltype(bpflcd18),Bpflcd18Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd18),Bpflcd18Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd18Val> bpflcd18{}; 
         ///no description available
-        enum class bpglcd18Val {
+        enum class Bpglcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd18ValC{
-            constexpr MPL::Value<bpglcd18Val,bpglcd18Val::v0> v0{};
-            constexpr MPL::Value<bpglcd18Val,bpglcd18Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd18Val> bpglcd18{}; 
+        namespace Bpglcd18ValC{
+            constexpr Register::FieldValue<decltype(bpglcd18),Bpglcd18Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd18),Bpglcd18Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd18Val> bpglcd18{}; 
         ///no description available
-        enum class bphlcd18Val {
+        enum class Bphlcd18Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd18ValC{
-            constexpr MPL::Value<bphlcd18Val,bphlcd18Val::v0> v0{};
-            constexpr MPL::Value<bphlcd18Val,bphlcd18Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd18Val> bphlcd18{}; 
+        namespace Bphlcd18ValC{
+            constexpr Register::FieldValue<decltype(bphlcd18),Bphlcd18Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd18),Bphlcd18Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd18Val> bphlcd18{}; 
     }
     namespace LcdWf19{    ///<LCD Waveform Register 19.
         using Addr = Register::Address<0x40053033,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd19Val {
+        enum class Bpalcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd19ValC{
-            constexpr MPL::Value<bpalcd19Val,bpalcd19Val::v0> v0{};
-            constexpr MPL::Value<bpalcd19Val,bpalcd19Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd19Val> bpalcd19{}; 
+        namespace Bpalcd19ValC{
+            constexpr Register::FieldValue<decltype(bpalcd19),Bpalcd19Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd19),Bpalcd19Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd19Val> bpalcd19{}; 
         ///no description available
-        enum class bpblcd19Val {
+        enum class Bpblcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd19ValC{
-            constexpr MPL::Value<bpblcd19Val,bpblcd19Val::v0> v0{};
-            constexpr MPL::Value<bpblcd19Val,bpblcd19Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd19Val> bpblcd19{}; 
+        namespace Bpblcd19ValC{
+            constexpr Register::FieldValue<decltype(bpblcd19),Bpblcd19Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd19),Bpblcd19Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd19Val> bpblcd19{}; 
         ///no description available
-        enum class bpclcd19Val {
+        enum class Bpclcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd19ValC{
-            constexpr MPL::Value<bpclcd19Val,bpclcd19Val::v0> v0{};
-            constexpr MPL::Value<bpclcd19Val,bpclcd19Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd19Val> bpclcd19{}; 
+        namespace Bpclcd19ValC{
+            constexpr Register::FieldValue<decltype(bpclcd19),Bpclcd19Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd19),Bpclcd19Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd19Val> bpclcd19{}; 
         ///no description available
-        enum class bpdlcd19Val {
+        enum class Bpdlcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd19ValC{
-            constexpr MPL::Value<bpdlcd19Val,bpdlcd19Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd19Val,bpdlcd19Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd19Val> bpdlcd19{}; 
+        namespace Bpdlcd19ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd19),Bpdlcd19Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd19),Bpdlcd19Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd19Val> bpdlcd19{}; 
         ///no description available
-        enum class bpelcd19Val {
+        enum class Bpelcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd19ValC{
-            constexpr MPL::Value<bpelcd19Val,bpelcd19Val::v0> v0{};
-            constexpr MPL::Value<bpelcd19Val,bpelcd19Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd19Val> bpelcd19{}; 
+        namespace Bpelcd19ValC{
+            constexpr Register::FieldValue<decltype(bpelcd19),Bpelcd19Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd19),Bpelcd19Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd19Val> bpelcd19{}; 
         ///no description available
-        enum class bpflcd19Val {
+        enum class Bpflcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd19ValC{
-            constexpr MPL::Value<bpflcd19Val,bpflcd19Val::v0> v0{};
-            constexpr MPL::Value<bpflcd19Val,bpflcd19Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd19Val> bpflcd19{}; 
+        namespace Bpflcd19ValC{
+            constexpr Register::FieldValue<decltype(bpflcd19),Bpflcd19Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd19),Bpflcd19Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd19Val> bpflcd19{}; 
         ///no description available
-        enum class bpglcd19Val {
+        enum class Bpglcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd19ValC{
-            constexpr MPL::Value<bpglcd19Val,bpglcd19Val::v0> v0{};
-            constexpr MPL::Value<bpglcd19Val,bpglcd19Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd19Val> bpglcd19{}; 
+        namespace Bpglcd19ValC{
+            constexpr Register::FieldValue<decltype(bpglcd19),Bpglcd19Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd19),Bpglcd19Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd19Val> bpglcd19{}; 
         ///no description available
-        enum class bphlcd19Val {
+        enum class Bphlcd19Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd19ValC{
-            constexpr MPL::Value<bphlcd19Val,bphlcd19Val::v0> v0{};
-            constexpr MPL::Value<bphlcd19Val,bphlcd19Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd19Val> bphlcd19{}; 
+        namespace Bphlcd19ValC{
+            constexpr Register::FieldValue<decltype(bphlcd19),Bphlcd19Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd19),Bphlcd19Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd19Val> bphlcd19{}; 
     }
     namespace LcdWf23to20{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053034,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf20{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf20{}; 
+        namespace Wf20ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf21{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf21{}; 
+        namespace Wf21ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf22{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf22{}; 
+        namespace Wf22ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf23{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf23{}; 
+        namespace Wf23ValC{
+        }
     }
     namespace LcdWf20{    ///<LCD Waveform Register 20.
         using Addr = Register::Address<0x40053034,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd20Val {
+        enum class Bpalcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd20ValC{
-            constexpr MPL::Value<bpalcd20Val,bpalcd20Val::v0> v0{};
-            constexpr MPL::Value<bpalcd20Val,bpalcd20Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd20Val> bpalcd20{}; 
+        namespace Bpalcd20ValC{
+            constexpr Register::FieldValue<decltype(bpalcd20),Bpalcd20Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd20),Bpalcd20Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd20Val> bpalcd20{}; 
         ///no description available
-        enum class bpblcd20Val {
+        enum class Bpblcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd20ValC{
-            constexpr MPL::Value<bpblcd20Val,bpblcd20Val::v0> v0{};
-            constexpr MPL::Value<bpblcd20Val,bpblcd20Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd20Val> bpblcd20{}; 
+        namespace Bpblcd20ValC{
+            constexpr Register::FieldValue<decltype(bpblcd20),Bpblcd20Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd20),Bpblcd20Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd20Val> bpblcd20{}; 
         ///no description available
-        enum class bpclcd20Val {
+        enum class Bpclcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd20ValC{
-            constexpr MPL::Value<bpclcd20Val,bpclcd20Val::v0> v0{};
-            constexpr MPL::Value<bpclcd20Val,bpclcd20Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd20Val> bpclcd20{}; 
+        namespace Bpclcd20ValC{
+            constexpr Register::FieldValue<decltype(bpclcd20),Bpclcd20Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd20),Bpclcd20Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd20Val> bpclcd20{}; 
         ///no description available
-        enum class bpdlcd20Val {
+        enum class Bpdlcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd20ValC{
-            constexpr MPL::Value<bpdlcd20Val,bpdlcd20Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd20Val,bpdlcd20Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd20Val> bpdlcd20{}; 
+        namespace Bpdlcd20ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd20),Bpdlcd20Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd20),Bpdlcd20Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd20Val> bpdlcd20{}; 
         ///no description available
-        enum class bpelcd20Val {
+        enum class Bpelcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd20ValC{
-            constexpr MPL::Value<bpelcd20Val,bpelcd20Val::v0> v0{};
-            constexpr MPL::Value<bpelcd20Val,bpelcd20Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd20Val> bpelcd20{}; 
+        namespace Bpelcd20ValC{
+            constexpr Register::FieldValue<decltype(bpelcd20),Bpelcd20Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd20),Bpelcd20Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd20Val> bpelcd20{}; 
         ///no description available
-        enum class bpflcd20Val {
+        enum class Bpflcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd20ValC{
-            constexpr MPL::Value<bpflcd20Val,bpflcd20Val::v0> v0{};
-            constexpr MPL::Value<bpflcd20Val,bpflcd20Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd20Val> bpflcd20{}; 
+        namespace Bpflcd20ValC{
+            constexpr Register::FieldValue<decltype(bpflcd20),Bpflcd20Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd20),Bpflcd20Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd20Val> bpflcd20{}; 
         ///no description available
-        enum class bpglcd20Val {
+        enum class Bpglcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd20ValC{
-            constexpr MPL::Value<bpglcd20Val,bpglcd20Val::v0> v0{};
-            constexpr MPL::Value<bpglcd20Val,bpglcd20Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd20Val> bpglcd20{}; 
+        namespace Bpglcd20ValC{
+            constexpr Register::FieldValue<decltype(bpglcd20),Bpglcd20Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd20),Bpglcd20Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd20Val> bpglcd20{}; 
         ///no description available
-        enum class bphlcd20Val {
+        enum class Bphlcd20Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd20ValC{
-            constexpr MPL::Value<bphlcd20Val,bphlcd20Val::v0> v0{};
-            constexpr MPL::Value<bphlcd20Val,bphlcd20Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd20Val> bphlcd20{}; 
+        namespace Bphlcd20ValC{
+            constexpr Register::FieldValue<decltype(bphlcd20),Bphlcd20Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd20),Bphlcd20Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd20Val> bphlcd20{}; 
     }
     namespace LcdWf21{    ///<LCD Waveform Register 21.
         using Addr = Register::Address<0x40053035,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd21Val {
+        enum class Bpalcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd21ValC{
-            constexpr MPL::Value<bpalcd21Val,bpalcd21Val::v0> v0{};
-            constexpr MPL::Value<bpalcd21Val,bpalcd21Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd21Val> bpalcd21{}; 
+        namespace Bpalcd21ValC{
+            constexpr Register::FieldValue<decltype(bpalcd21),Bpalcd21Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd21),Bpalcd21Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd21Val> bpalcd21{}; 
         ///no description available
-        enum class bpblcd21Val {
+        enum class Bpblcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd21ValC{
-            constexpr MPL::Value<bpblcd21Val,bpblcd21Val::v0> v0{};
-            constexpr MPL::Value<bpblcd21Val,bpblcd21Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd21Val> bpblcd21{}; 
+        namespace Bpblcd21ValC{
+            constexpr Register::FieldValue<decltype(bpblcd21),Bpblcd21Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd21),Bpblcd21Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd21Val> bpblcd21{}; 
         ///no description available
-        enum class bpclcd21Val {
+        enum class Bpclcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd21ValC{
-            constexpr MPL::Value<bpclcd21Val,bpclcd21Val::v0> v0{};
-            constexpr MPL::Value<bpclcd21Val,bpclcd21Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd21Val> bpclcd21{}; 
+        namespace Bpclcd21ValC{
+            constexpr Register::FieldValue<decltype(bpclcd21),Bpclcd21Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd21),Bpclcd21Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd21Val> bpclcd21{}; 
         ///no description available
-        enum class bpdlcd21Val {
+        enum class Bpdlcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd21ValC{
-            constexpr MPL::Value<bpdlcd21Val,bpdlcd21Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd21Val,bpdlcd21Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd21Val> bpdlcd21{}; 
+        namespace Bpdlcd21ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd21),Bpdlcd21Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd21),Bpdlcd21Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd21Val> bpdlcd21{}; 
         ///no description available
-        enum class bpelcd21Val {
+        enum class Bpelcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd21ValC{
-            constexpr MPL::Value<bpelcd21Val,bpelcd21Val::v0> v0{};
-            constexpr MPL::Value<bpelcd21Val,bpelcd21Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd21Val> bpelcd21{}; 
+        namespace Bpelcd21ValC{
+            constexpr Register::FieldValue<decltype(bpelcd21),Bpelcd21Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd21),Bpelcd21Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd21Val> bpelcd21{}; 
         ///no description available
-        enum class bpflcd21Val {
+        enum class Bpflcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd21ValC{
-            constexpr MPL::Value<bpflcd21Val,bpflcd21Val::v0> v0{};
-            constexpr MPL::Value<bpflcd21Val,bpflcd21Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd21Val> bpflcd21{}; 
+        namespace Bpflcd21ValC{
+            constexpr Register::FieldValue<decltype(bpflcd21),Bpflcd21Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd21),Bpflcd21Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd21Val> bpflcd21{}; 
         ///no description available
-        enum class bpglcd21Val {
+        enum class Bpglcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd21ValC{
-            constexpr MPL::Value<bpglcd21Val,bpglcd21Val::v0> v0{};
-            constexpr MPL::Value<bpglcd21Val,bpglcd21Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd21Val> bpglcd21{}; 
+        namespace Bpglcd21ValC{
+            constexpr Register::FieldValue<decltype(bpglcd21),Bpglcd21Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd21),Bpglcd21Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd21Val> bpglcd21{}; 
         ///no description available
-        enum class bphlcd21Val {
+        enum class Bphlcd21Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd21ValC{
-            constexpr MPL::Value<bphlcd21Val,bphlcd21Val::v0> v0{};
-            constexpr MPL::Value<bphlcd21Val,bphlcd21Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd21Val> bphlcd21{}; 
+        namespace Bphlcd21ValC{
+            constexpr Register::FieldValue<decltype(bphlcd21),Bphlcd21Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd21),Bphlcd21Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd21Val> bphlcd21{}; 
     }
     namespace LcdWf22{    ///<LCD Waveform Register 22.
         using Addr = Register::Address<0x40053036,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd22Val {
+        enum class Bpalcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd22ValC{
-            constexpr MPL::Value<bpalcd22Val,bpalcd22Val::v0> v0{};
-            constexpr MPL::Value<bpalcd22Val,bpalcd22Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd22Val> bpalcd22{}; 
+        namespace Bpalcd22ValC{
+            constexpr Register::FieldValue<decltype(bpalcd22),Bpalcd22Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd22),Bpalcd22Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd22Val> bpalcd22{}; 
         ///no description available
-        enum class bpblcd22Val {
+        enum class Bpblcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd22ValC{
-            constexpr MPL::Value<bpblcd22Val,bpblcd22Val::v0> v0{};
-            constexpr MPL::Value<bpblcd22Val,bpblcd22Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd22Val> bpblcd22{}; 
+        namespace Bpblcd22ValC{
+            constexpr Register::FieldValue<decltype(bpblcd22),Bpblcd22Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd22),Bpblcd22Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd22Val> bpblcd22{}; 
         ///no description available
-        enum class bpclcd22Val {
+        enum class Bpclcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd22ValC{
-            constexpr MPL::Value<bpclcd22Val,bpclcd22Val::v0> v0{};
-            constexpr MPL::Value<bpclcd22Val,bpclcd22Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd22Val> bpclcd22{}; 
+        namespace Bpclcd22ValC{
+            constexpr Register::FieldValue<decltype(bpclcd22),Bpclcd22Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd22),Bpclcd22Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd22Val> bpclcd22{}; 
         ///no description available
-        enum class bpdlcd22Val {
+        enum class Bpdlcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd22ValC{
-            constexpr MPL::Value<bpdlcd22Val,bpdlcd22Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd22Val,bpdlcd22Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd22Val> bpdlcd22{}; 
+        namespace Bpdlcd22ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd22),Bpdlcd22Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd22),Bpdlcd22Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd22Val> bpdlcd22{}; 
         ///no description available
-        enum class bpelcd22Val {
+        enum class Bpelcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd22ValC{
-            constexpr MPL::Value<bpelcd22Val,bpelcd22Val::v0> v0{};
-            constexpr MPL::Value<bpelcd22Val,bpelcd22Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd22Val> bpelcd22{}; 
+        namespace Bpelcd22ValC{
+            constexpr Register::FieldValue<decltype(bpelcd22),Bpelcd22Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd22),Bpelcd22Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd22Val> bpelcd22{}; 
         ///no description available
-        enum class bpflcd22Val {
+        enum class Bpflcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd22ValC{
-            constexpr MPL::Value<bpflcd22Val,bpflcd22Val::v0> v0{};
-            constexpr MPL::Value<bpflcd22Val,bpflcd22Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd22Val> bpflcd22{}; 
+        namespace Bpflcd22ValC{
+            constexpr Register::FieldValue<decltype(bpflcd22),Bpflcd22Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd22),Bpflcd22Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd22Val> bpflcd22{}; 
         ///no description available
-        enum class bpglcd22Val {
+        enum class Bpglcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd22ValC{
-            constexpr MPL::Value<bpglcd22Val,bpglcd22Val::v0> v0{};
-            constexpr MPL::Value<bpglcd22Val,bpglcd22Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd22Val> bpglcd22{}; 
+        namespace Bpglcd22ValC{
+            constexpr Register::FieldValue<decltype(bpglcd22),Bpglcd22Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd22),Bpglcd22Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd22Val> bpglcd22{}; 
         ///no description available
-        enum class bphlcd22Val {
+        enum class Bphlcd22Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd22ValC{
-            constexpr MPL::Value<bphlcd22Val,bphlcd22Val::v0> v0{};
-            constexpr MPL::Value<bphlcd22Val,bphlcd22Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd22Val> bphlcd22{}; 
+        namespace Bphlcd22ValC{
+            constexpr Register::FieldValue<decltype(bphlcd22),Bphlcd22Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd22),Bphlcd22Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd22Val> bphlcd22{}; 
     }
     namespace LcdWf23{    ///<LCD Waveform Register 23.
         using Addr = Register::Address<0x40053037,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd23Val {
+        enum class Bpalcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd23ValC{
-            constexpr MPL::Value<bpalcd23Val,bpalcd23Val::v0> v0{};
-            constexpr MPL::Value<bpalcd23Val,bpalcd23Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd23Val> bpalcd23{}; 
+        namespace Bpalcd23ValC{
+            constexpr Register::FieldValue<decltype(bpalcd23),Bpalcd23Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd23),Bpalcd23Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd23Val> bpalcd23{}; 
         ///no description available
-        enum class bpblcd23Val {
+        enum class Bpblcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd23ValC{
-            constexpr MPL::Value<bpblcd23Val,bpblcd23Val::v0> v0{};
-            constexpr MPL::Value<bpblcd23Val,bpblcd23Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd23Val> bpblcd23{}; 
+        namespace Bpblcd23ValC{
+            constexpr Register::FieldValue<decltype(bpblcd23),Bpblcd23Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd23),Bpblcd23Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd23Val> bpblcd23{}; 
         ///no description available
-        enum class bpclcd23Val {
+        enum class Bpclcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd23ValC{
-            constexpr MPL::Value<bpclcd23Val,bpclcd23Val::v0> v0{};
-            constexpr MPL::Value<bpclcd23Val,bpclcd23Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd23Val> bpclcd23{}; 
+        namespace Bpclcd23ValC{
+            constexpr Register::FieldValue<decltype(bpclcd23),Bpclcd23Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd23),Bpclcd23Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd23Val> bpclcd23{}; 
         ///no description available
-        enum class bpdlcd23Val {
+        enum class Bpdlcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd23ValC{
-            constexpr MPL::Value<bpdlcd23Val,bpdlcd23Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd23Val,bpdlcd23Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd23Val> bpdlcd23{}; 
+        namespace Bpdlcd23ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd23),Bpdlcd23Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd23),Bpdlcd23Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd23Val> bpdlcd23{}; 
         ///no description available
-        enum class bpelcd23Val {
+        enum class Bpelcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd23ValC{
-            constexpr MPL::Value<bpelcd23Val,bpelcd23Val::v0> v0{};
-            constexpr MPL::Value<bpelcd23Val,bpelcd23Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd23Val> bpelcd23{}; 
+        namespace Bpelcd23ValC{
+            constexpr Register::FieldValue<decltype(bpelcd23),Bpelcd23Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd23),Bpelcd23Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd23Val> bpelcd23{}; 
         ///no description available
-        enum class bpflcd23Val {
+        enum class Bpflcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd23ValC{
-            constexpr MPL::Value<bpflcd23Val,bpflcd23Val::v0> v0{};
-            constexpr MPL::Value<bpflcd23Val,bpflcd23Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd23Val> bpflcd23{}; 
+        namespace Bpflcd23ValC{
+            constexpr Register::FieldValue<decltype(bpflcd23),Bpflcd23Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd23),Bpflcd23Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd23Val> bpflcd23{}; 
         ///no description available
-        enum class bpglcd23Val {
+        enum class Bpglcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd23ValC{
-            constexpr MPL::Value<bpglcd23Val,bpglcd23Val::v0> v0{};
-            constexpr MPL::Value<bpglcd23Val,bpglcd23Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd23Val> bpglcd23{}; 
+        namespace Bpglcd23ValC{
+            constexpr Register::FieldValue<decltype(bpglcd23),Bpglcd23Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd23),Bpglcd23Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd23Val> bpglcd23{}; 
         ///no description available
-        enum class bphlcd23Val {
+        enum class Bphlcd23Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd23ValC{
-            constexpr MPL::Value<bphlcd23Val,bphlcd23Val::v0> v0{};
-            constexpr MPL::Value<bphlcd23Val,bphlcd23Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd23Val> bphlcd23{}; 
+        namespace Bphlcd23ValC{
+            constexpr Register::FieldValue<decltype(bphlcd23),Bphlcd23Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd23),Bphlcd23Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd23Val> bphlcd23{}; 
     }
     namespace LcdWf27to24{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053038,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf24{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf24{}; 
+        namespace Wf24ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf25{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf25{}; 
+        namespace Wf25ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf26{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf26{}; 
+        namespace Wf26ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf27{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf27{}; 
+        namespace Wf27ValC{
+        }
     }
     namespace LcdWf24{    ///<LCD Waveform Register 24.
         using Addr = Register::Address<0x40053038,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd24Val {
+        enum class Bpalcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd24ValC{
-            constexpr MPL::Value<bpalcd24Val,bpalcd24Val::v0> v0{};
-            constexpr MPL::Value<bpalcd24Val,bpalcd24Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd24Val> bpalcd24{}; 
+        namespace Bpalcd24ValC{
+            constexpr Register::FieldValue<decltype(bpalcd24),Bpalcd24Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd24),Bpalcd24Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd24Val> bpalcd24{}; 
         ///no description available
-        enum class bpblcd24Val {
+        enum class Bpblcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd24ValC{
-            constexpr MPL::Value<bpblcd24Val,bpblcd24Val::v0> v0{};
-            constexpr MPL::Value<bpblcd24Val,bpblcd24Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd24Val> bpblcd24{}; 
+        namespace Bpblcd24ValC{
+            constexpr Register::FieldValue<decltype(bpblcd24),Bpblcd24Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd24),Bpblcd24Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd24Val> bpblcd24{}; 
         ///no description available
-        enum class bpclcd24Val {
+        enum class Bpclcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd24ValC{
-            constexpr MPL::Value<bpclcd24Val,bpclcd24Val::v0> v0{};
-            constexpr MPL::Value<bpclcd24Val,bpclcd24Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd24Val> bpclcd24{}; 
+        namespace Bpclcd24ValC{
+            constexpr Register::FieldValue<decltype(bpclcd24),Bpclcd24Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd24),Bpclcd24Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd24Val> bpclcd24{}; 
         ///no description available
-        enum class bpdlcd24Val {
+        enum class Bpdlcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd24ValC{
-            constexpr MPL::Value<bpdlcd24Val,bpdlcd24Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd24Val,bpdlcd24Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd24Val> bpdlcd24{}; 
+        namespace Bpdlcd24ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd24),Bpdlcd24Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd24),Bpdlcd24Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd24Val> bpdlcd24{}; 
         ///no description available
-        enum class bpelcd24Val {
+        enum class Bpelcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd24ValC{
-            constexpr MPL::Value<bpelcd24Val,bpelcd24Val::v0> v0{};
-            constexpr MPL::Value<bpelcd24Val,bpelcd24Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd24Val> bpelcd24{}; 
+        namespace Bpelcd24ValC{
+            constexpr Register::FieldValue<decltype(bpelcd24),Bpelcd24Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd24),Bpelcd24Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd24Val> bpelcd24{}; 
         ///no description available
-        enum class bpflcd24Val {
+        enum class Bpflcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd24ValC{
-            constexpr MPL::Value<bpflcd24Val,bpflcd24Val::v0> v0{};
-            constexpr MPL::Value<bpflcd24Val,bpflcd24Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd24Val> bpflcd24{}; 
+        namespace Bpflcd24ValC{
+            constexpr Register::FieldValue<decltype(bpflcd24),Bpflcd24Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd24),Bpflcd24Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd24Val> bpflcd24{}; 
         ///no description available
-        enum class bpglcd24Val {
+        enum class Bpglcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd24ValC{
-            constexpr MPL::Value<bpglcd24Val,bpglcd24Val::v0> v0{};
-            constexpr MPL::Value<bpglcd24Val,bpglcd24Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd24Val> bpglcd24{}; 
+        namespace Bpglcd24ValC{
+            constexpr Register::FieldValue<decltype(bpglcd24),Bpglcd24Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd24),Bpglcd24Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd24Val> bpglcd24{}; 
         ///no description available
-        enum class bphlcd24Val {
+        enum class Bphlcd24Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd24ValC{
-            constexpr MPL::Value<bphlcd24Val,bphlcd24Val::v0> v0{};
-            constexpr MPL::Value<bphlcd24Val,bphlcd24Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd24Val> bphlcd24{}; 
+        namespace Bphlcd24ValC{
+            constexpr Register::FieldValue<decltype(bphlcd24),Bphlcd24Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd24),Bphlcd24Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd24Val> bphlcd24{}; 
     }
     namespace LcdWf25{    ///<LCD Waveform Register 25.
         using Addr = Register::Address<0x40053039,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd25Val {
+        enum class Bpalcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd25ValC{
-            constexpr MPL::Value<bpalcd25Val,bpalcd25Val::v0> v0{};
-            constexpr MPL::Value<bpalcd25Val,bpalcd25Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd25Val> bpalcd25{}; 
+        namespace Bpalcd25ValC{
+            constexpr Register::FieldValue<decltype(bpalcd25),Bpalcd25Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd25),Bpalcd25Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd25Val> bpalcd25{}; 
         ///no description available
-        enum class bpblcd25Val {
+        enum class Bpblcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd25ValC{
-            constexpr MPL::Value<bpblcd25Val,bpblcd25Val::v0> v0{};
-            constexpr MPL::Value<bpblcd25Val,bpblcd25Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd25Val> bpblcd25{}; 
+        namespace Bpblcd25ValC{
+            constexpr Register::FieldValue<decltype(bpblcd25),Bpblcd25Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd25),Bpblcd25Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd25Val> bpblcd25{}; 
         ///no description available
-        enum class bpclcd25Val {
+        enum class Bpclcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd25ValC{
-            constexpr MPL::Value<bpclcd25Val,bpclcd25Val::v0> v0{};
-            constexpr MPL::Value<bpclcd25Val,bpclcd25Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd25Val> bpclcd25{}; 
+        namespace Bpclcd25ValC{
+            constexpr Register::FieldValue<decltype(bpclcd25),Bpclcd25Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd25),Bpclcd25Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd25Val> bpclcd25{}; 
         ///no description available
-        enum class bpdlcd25Val {
+        enum class Bpdlcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd25ValC{
-            constexpr MPL::Value<bpdlcd25Val,bpdlcd25Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd25Val,bpdlcd25Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd25Val> bpdlcd25{}; 
+        namespace Bpdlcd25ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd25),Bpdlcd25Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd25),Bpdlcd25Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd25Val> bpdlcd25{}; 
         ///no description available
-        enum class bpelcd25Val {
+        enum class Bpelcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd25ValC{
-            constexpr MPL::Value<bpelcd25Val,bpelcd25Val::v0> v0{};
-            constexpr MPL::Value<bpelcd25Val,bpelcd25Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd25Val> bpelcd25{}; 
+        namespace Bpelcd25ValC{
+            constexpr Register::FieldValue<decltype(bpelcd25),Bpelcd25Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd25),Bpelcd25Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd25Val> bpelcd25{}; 
         ///no description available
-        enum class bpflcd25Val {
+        enum class Bpflcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd25ValC{
-            constexpr MPL::Value<bpflcd25Val,bpflcd25Val::v0> v0{};
-            constexpr MPL::Value<bpflcd25Val,bpflcd25Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd25Val> bpflcd25{}; 
+        namespace Bpflcd25ValC{
+            constexpr Register::FieldValue<decltype(bpflcd25),Bpflcd25Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd25),Bpflcd25Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd25Val> bpflcd25{}; 
         ///no description available
-        enum class bpglcd25Val {
+        enum class Bpglcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd25ValC{
-            constexpr MPL::Value<bpglcd25Val,bpglcd25Val::v0> v0{};
-            constexpr MPL::Value<bpglcd25Val,bpglcd25Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd25Val> bpglcd25{}; 
+        namespace Bpglcd25ValC{
+            constexpr Register::FieldValue<decltype(bpglcd25),Bpglcd25Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd25),Bpglcd25Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd25Val> bpglcd25{}; 
         ///no description available
-        enum class bphlcd25Val {
+        enum class Bphlcd25Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd25ValC{
-            constexpr MPL::Value<bphlcd25Val,bphlcd25Val::v0> v0{};
-            constexpr MPL::Value<bphlcd25Val,bphlcd25Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd25Val> bphlcd25{}; 
+        namespace Bphlcd25ValC{
+            constexpr Register::FieldValue<decltype(bphlcd25),Bphlcd25Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd25),Bphlcd25Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd25Val> bphlcd25{}; 
     }
     namespace LcdWf26{    ///<LCD Waveform Register 26.
         using Addr = Register::Address<0x4005303a,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd26Val {
+        enum class Bpalcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd26ValC{
-            constexpr MPL::Value<bpalcd26Val,bpalcd26Val::v0> v0{};
-            constexpr MPL::Value<bpalcd26Val,bpalcd26Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd26Val> bpalcd26{}; 
+        namespace Bpalcd26ValC{
+            constexpr Register::FieldValue<decltype(bpalcd26),Bpalcd26Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd26),Bpalcd26Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd26Val> bpalcd26{}; 
         ///no description available
-        enum class bpblcd26Val {
+        enum class Bpblcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd26ValC{
-            constexpr MPL::Value<bpblcd26Val,bpblcd26Val::v0> v0{};
-            constexpr MPL::Value<bpblcd26Val,bpblcd26Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd26Val> bpblcd26{}; 
+        namespace Bpblcd26ValC{
+            constexpr Register::FieldValue<decltype(bpblcd26),Bpblcd26Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd26),Bpblcd26Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd26Val> bpblcd26{}; 
         ///no description available
-        enum class bpclcd26Val {
+        enum class Bpclcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd26ValC{
-            constexpr MPL::Value<bpclcd26Val,bpclcd26Val::v0> v0{};
-            constexpr MPL::Value<bpclcd26Val,bpclcd26Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd26Val> bpclcd26{}; 
+        namespace Bpclcd26ValC{
+            constexpr Register::FieldValue<decltype(bpclcd26),Bpclcd26Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd26),Bpclcd26Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd26Val> bpclcd26{}; 
         ///no description available
-        enum class bpdlcd26Val {
+        enum class Bpdlcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd26ValC{
-            constexpr MPL::Value<bpdlcd26Val,bpdlcd26Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd26Val,bpdlcd26Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd26Val> bpdlcd26{}; 
+        namespace Bpdlcd26ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd26),Bpdlcd26Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd26),Bpdlcd26Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd26Val> bpdlcd26{}; 
         ///no description available
-        enum class bpelcd26Val {
+        enum class Bpelcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd26ValC{
-            constexpr MPL::Value<bpelcd26Val,bpelcd26Val::v0> v0{};
-            constexpr MPL::Value<bpelcd26Val,bpelcd26Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd26Val> bpelcd26{}; 
+        namespace Bpelcd26ValC{
+            constexpr Register::FieldValue<decltype(bpelcd26),Bpelcd26Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd26),Bpelcd26Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd26Val> bpelcd26{}; 
         ///no description available
-        enum class bpflcd26Val {
+        enum class Bpflcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd26ValC{
-            constexpr MPL::Value<bpflcd26Val,bpflcd26Val::v0> v0{};
-            constexpr MPL::Value<bpflcd26Val,bpflcd26Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd26Val> bpflcd26{}; 
+        namespace Bpflcd26ValC{
+            constexpr Register::FieldValue<decltype(bpflcd26),Bpflcd26Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd26),Bpflcd26Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd26Val> bpflcd26{}; 
         ///no description available
-        enum class bpglcd26Val {
+        enum class Bpglcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd26ValC{
-            constexpr MPL::Value<bpglcd26Val,bpglcd26Val::v0> v0{};
-            constexpr MPL::Value<bpglcd26Val,bpglcd26Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd26Val> bpglcd26{}; 
+        namespace Bpglcd26ValC{
+            constexpr Register::FieldValue<decltype(bpglcd26),Bpglcd26Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd26),Bpglcd26Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd26Val> bpglcd26{}; 
         ///no description available
-        enum class bphlcd26Val {
+        enum class Bphlcd26Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd26ValC{
-            constexpr MPL::Value<bphlcd26Val,bphlcd26Val::v0> v0{};
-            constexpr MPL::Value<bphlcd26Val,bphlcd26Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd26Val> bphlcd26{}; 
+        namespace Bphlcd26ValC{
+            constexpr Register::FieldValue<decltype(bphlcd26),Bphlcd26Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd26),Bphlcd26Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd26Val> bphlcd26{}; 
     }
     namespace LcdWf27{    ///<LCD Waveform Register 27.
         using Addr = Register::Address<0x4005303b,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd27Val {
+        enum class Bpalcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd27ValC{
-            constexpr MPL::Value<bpalcd27Val,bpalcd27Val::v0> v0{};
-            constexpr MPL::Value<bpalcd27Val,bpalcd27Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd27Val> bpalcd27{}; 
+        namespace Bpalcd27ValC{
+            constexpr Register::FieldValue<decltype(bpalcd27),Bpalcd27Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd27),Bpalcd27Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd27Val> bpalcd27{}; 
         ///no description available
-        enum class bpblcd27Val {
+        enum class Bpblcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd27ValC{
-            constexpr MPL::Value<bpblcd27Val,bpblcd27Val::v0> v0{};
-            constexpr MPL::Value<bpblcd27Val,bpblcd27Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd27Val> bpblcd27{}; 
+        namespace Bpblcd27ValC{
+            constexpr Register::FieldValue<decltype(bpblcd27),Bpblcd27Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd27),Bpblcd27Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd27Val> bpblcd27{}; 
         ///no description available
-        enum class bpclcd27Val {
+        enum class Bpclcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd27ValC{
-            constexpr MPL::Value<bpclcd27Val,bpclcd27Val::v0> v0{};
-            constexpr MPL::Value<bpclcd27Val,bpclcd27Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd27Val> bpclcd27{}; 
+        namespace Bpclcd27ValC{
+            constexpr Register::FieldValue<decltype(bpclcd27),Bpclcd27Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd27),Bpclcd27Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd27Val> bpclcd27{}; 
         ///no description available
-        enum class bpdlcd27Val {
+        enum class Bpdlcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd27ValC{
-            constexpr MPL::Value<bpdlcd27Val,bpdlcd27Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd27Val,bpdlcd27Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd27Val> bpdlcd27{}; 
+        namespace Bpdlcd27ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd27),Bpdlcd27Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd27),Bpdlcd27Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd27Val> bpdlcd27{}; 
         ///no description available
-        enum class bpelcd27Val {
+        enum class Bpelcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd27ValC{
-            constexpr MPL::Value<bpelcd27Val,bpelcd27Val::v0> v0{};
-            constexpr MPL::Value<bpelcd27Val,bpelcd27Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd27Val> bpelcd27{}; 
+        namespace Bpelcd27ValC{
+            constexpr Register::FieldValue<decltype(bpelcd27),Bpelcd27Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd27),Bpelcd27Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd27Val> bpelcd27{}; 
         ///no description available
-        enum class bpflcd27Val {
+        enum class Bpflcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd27ValC{
-            constexpr MPL::Value<bpflcd27Val,bpflcd27Val::v0> v0{};
-            constexpr MPL::Value<bpflcd27Val,bpflcd27Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd27Val> bpflcd27{}; 
+        namespace Bpflcd27ValC{
+            constexpr Register::FieldValue<decltype(bpflcd27),Bpflcd27Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd27),Bpflcd27Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd27Val> bpflcd27{}; 
         ///no description available
-        enum class bpglcd27Val {
+        enum class Bpglcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd27ValC{
-            constexpr MPL::Value<bpglcd27Val,bpglcd27Val::v0> v0{};
-            constexpr MPL::Value<bpglcd27Val,bpglcd27Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd27Val> bpglcd27{}; 
+        namespace Bpglcd27ValC{
+            constexpr Register::FieldValue<decltype(bpglcd27),Bpglcd27Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd27),Bpglcd27Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd27Val> bpglcd27{}; 
         ///no description available
-        enum class bphlcd27Val {
+        enum class Bphlcd27Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd27ValC{
-            constexpr MPL::Value<bphlcd27Val,bphlcd27Val::v0> v0{};
-            constexpr MPL::Value<bphlcd27Val,bphlcd27Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd27Val> bphlcd27{}; 
+        namespace Bphlcd27ValC{
+            constexpr Register::FieldValue<decltype(bphlcd27),Bphlcd27Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd27),Bphlcd27Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd27Val> bphlcd27{}; 
     }
     namespace LcdWf31to28{    ///<LCD Waveform register
         using Addr = Register::Address<0x4005303c,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf28{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf28{}; 
+        namespace Wf28ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf29{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf29{}; 
+        namespace Wf29ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf30{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf30{}; 
+        namespace Wf30ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf31{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf31{}; 
+        namespace Wf31ValC{
+        }
     }
     namespace LcdWf28{    ///<LCD Waveform Register 28.
         using Addr = Register::Address<0x4005303c,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd28Val {
+        enum class Bpalcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd28ValC{
-            constexpr MPL::Value<bpalcd28Val,bpalcd28Val::v0> v0{};
-            constexpr MPL::Value<bpalcd28Val,bpalcd28Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd28Val> bpalcd28{}; 
+        namespace Bpalcd28ValC{
+            constexpr Register::FieldValue<decltype(bpalcd28),Bpalcd28Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd28),Bpalcd28Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd28Val> bpalcd28{}; 
         ///no description available
-        enum class bpblcd28Val {
+        enum class Bpblcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd28ValC{
-            constexpr MPL::Value<bpblcd28Val,bpblcd28Val::v0> v0{};
-            constexpr MPL::Value<bpblcd28Val,bpblcd28Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd28Val> bpblcd28{}; 
+        namespace Bpblcd28ValC{
+            constexpr Register::FieldValue<decltype(bpblcd28),Bpblcd28Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd28),Bpblcd28Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd28Val> bpblcd28{}; 
         ///no description available
-        enum class bpclcd28Val {
+        enum class Bpclcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd28ValC{
-            constexpr MPL::Value<bpclcd28Val,bpclcd28Val::v0> v0{};
-            constexpr MPL::Value<bpclcd28Val,bpclcd28Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd28Val> bpclcd28{}; 
+        namespace Bpclcd28ValC{
+            constexpr Register::FieldValue<decltype(bpclcd28),Bpclcd28Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd28),Bpclcd28Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd28Val> bpclcd28{}; 
         ///no description available
-        enum class bpdlcd28Val {
+        enum class Bpdlcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd28ValC{
-            constexpr MPL::Value<bpdlcd28Val,bpdlcd28Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd28Val,bpdlcd28Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd28Val> bpdlcd28{}; 
+        namespace Bpdlcd28ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd28),Bpdlcd28Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd28),Bpdlcd28Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd28Val> bpdlcd28{}; 
         ///no description available
-        enum class bpelcd28Val {
+        enum class Bpelcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd28ValC{
-            constexpr MPL::Value<bpelcd28Val,bpelcd28Val::v0> v0{};
-            constexpr MPL::Value<bpelcd28Val,bpelcd28Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd28Val> bpelcd28{}; 
+        namespace Bpelcd28ValC{
+            constexpr Register::FieldValue<decltype(bpelcd28),Bpelcd28Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd28),Bpelcd28Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd28Val> bpelcd28{}; 
         ///no description available
-        enum class bpflcd28Val {
+        enum class Bpflcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd28ValC{
-            constexpr MPL::Value<bpflcd28Val,bpflcd28Val::v0> v0{};
-            constexpr MPL::Value<bpflcd28Val,bpflcd28Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd28Val> bpflcd28{}; 
+        namespace Bpflcd28ValC{
+            constexpr Register::FieldValue<decltype(bpflcd28),Bpflcd28Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd28),Bpflcd28Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd28Val> bpflcd28{}; 
         ///no description available
-        enum class bpglcd28Val {
+        enum class Bpglcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd28ValC{
-            constexpr MPL::Value<bpglcd28Val,bpglcd28Val::v0> v0{};
-            constexpr MPL::Value<bpglcd28Val,bpglcd28Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd28Val> bpglcd28{}; 
+        namespace Bpglcd28ValC{
+            constexpr Register::FieldValue<decltype(bpglcd28),Bpglcd28Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd28),Bpglcd28Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd28Val> bpglcd28{}; 
         ///no description available
-        enum class bphlcd28Val {
+        enum class Bphlcd28Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd28ValC{
-            constexpr MPL::Value<bphlcd28Val,bphlcd28Val::v0> v0{};
-            constexpr MPL::Value<bphlcd28Val,bphlcd28Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd28Val> bphlcd28{}; 
+        namespace Bphlcd28ValC{
+            constexpr Register::FieldValue<decltype(bphlcd28),Bphlcd28Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd28),Bphlcd28Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd28Val> bphlcd28{}; 
     }
     namespace LcdWf29{    ///<LCD Waveform Register 29.
         using Addr = Register::Address<0x4005303d,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd29Val {
+        enum class Bpalcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd29ValC{
-            constexpr MPL::Value<bpalcd29Val,bpalcd29Val::v0> v0{};
-            constexpr MPL::Value<bpalcd29Val,bpalcd29Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd29Val> bpalcd29{}; 
+        namespace Bpalcd29ValC{
+            constexpr Register::FieldValue<decltype(bpalcd29),Bpalcd29Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd29),Bpalcd29Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd29Val> bpalcd29{}; 
         ///no description available
-        enum class bpblcd29Val {
+        enum class Bpblcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd29ValC{
-            constexpr MPL::Value<bpblcd29Val,bpblcd29Val::v0> v0{};
-            constexpr MPL::Value<bpblcd29Val,bpblcd29Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd29Val> bpblcd29{}; 
+        namespace Bpblcd29ValC{
+            constexpr Register::FieldValue<decltype(bpblcd29),Bpblcd29Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd29),Bpblcd29Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd29Val> bpblcd29{}; 
         ///no description available
-        enum class bpclcd29Val {
+        enum class Bpclcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd29ValC{
-            constexpr MPL::Value<bpclcd29Val,bpclcd29Val::v0> v0{};
-            constexpr MPL::Value<bpclcd29Val,bpclcd29Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd29Val> bpclcd29{}; 
+        namespace Bpclcd29ValC{
+            constexpr Register::FieldValue<decltype(bpclcd29),Bpclcd29Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd29),Bpclcd29Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd29Val> bpclcd29{}; 
         ///no description available
-        enum class bpdlcd29Val {
+        enum class Bpdlcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd29ValC{
-            constexpr MPL::Value<bpdlcd29Val,bpdlcd29Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd29Val,bpdlcd29Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd29Val> bpdlcd29{}; 
+        namespace Bpdlcd29ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd29),Bpdlcd29Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd29),Bpdlcd29Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd29Val> bpdlcd29{}; 
         ///no description available
-        enum class bpelcd29Val {
+        enum class Bpelcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd29ValC{
-            constexpr MPL::Value<bpelcd29Val,bpelcd29Val::v0> v0{};
-            constexpr MPL::Value<bpelcd29Val,bpelcd29Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd29Val> bpelcd29{}; 
+        namespace Bpelcd29ValC{
+            constexpr Register::FieldValue<decltype(bpelcd29),Bpelcd29Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd29),Bpelcd29Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd29Val> bpelcd29{}; 
         ///no description available
-        enum class bpflcd29Val {
+        enum class Bpflcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd29ValC{
-            constexpr MPL::Value<bpflcd29Val,bpflcd29Val::v0> v0{};
-            constexpr MPL::Value<bpflcd29Val,bpflcd29Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd29Val> bpflcd29{}; 
+        namespace Bpflcd29ValC{
+            constexpr Register::FieldValue<decltype(bpflcd29),Bpflcd29Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd29),Bpflcd29Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd29Val> bpflcd29{}; 
         ///no description available
-        enum class bpglcd29Val {
+        enum class Bpglcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd29ValC{
-            constexpr MPL::Value<bpglcd29Val,bpglcd29Val::v0> v0{};
-            constexpr MPL::Value<bpglcd29Val,bpglcd29Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd29Val> bpglcd29{}; 
+        namespace Bpglcd29ValC{
+            constexpr Register::FieldValue<decltype(bpglcd29),Bpglcd29Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd29),Bpglcd29Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd29Val> bpglcd29{}; 
         ///no description available
-        enum class bphlcd29Val {
+        enum class Bphlcd29Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd29ValC{
-            constexpr MPL::Value<bphlcd29Val,bphlcd29Val::v0> v0{};
-            constexpr MPL::Value<bphlcd29Val,bphlcd29Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd29Val> bphlcd29{}; 
+        namespace Bphlcd29ValC{
+            constexpr Register::FieldValue<decltype(bphlcd29),Bphlcd29Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd29),Bphlcd29Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd29Val> bphlcd29{}; 
     }
     namespace LcdWf30{    ///<LCD Waveform Register 30.
         using Addr = Register::Address<0x4005303e,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd30Val {
+        enum class Bpalcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd30ValC{
-            constexpr MPL::Value<bpalcd30Val,bpalcd30Val::v0> v0{};
-            constexpr MPL::Value<bpalcd30Val,bpalcd30Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd30Val> bpalcd30{}; 
+        namespace Bpalcd30ValC{
+            constexpr Register::FieldValue<decltype(bpalcd30),Bpalcd30Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd30),Bpalcd30Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd30Val> bpalcd30{}; 
         ///no description available
-        enum class bpblcd30Val {
+        enum class Bpblcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd30ValC{
-            constexpr MPL::Value<bpblcd30Val,bpblcd30Val::v0> v0{};
-            constexpr MPL::Value<bpblcd30Val,bpblcd30Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd30Val> bpblcd30{}; 
+        namespace Bpblcd30ValC{
+            constexpr Register::FieldValue<decltype(bpblcd30),Bpblcd30Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd30),Bpblcd30Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd30Val> bpblcd30{}; 
         ///no description available
-        enum class bpclcd30Val {
+        enum class Bpclcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd30ValC{
-            constexpr MPL::Value<bpclcd30Val,bpclcd30Val::v0> v0{};
-            constexpr MPL::Value<bpclcd30Val,bpclcd30Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd30Val> bpclcd30{}; 
+        namespace Bpclcd30ValC{
+            constexpr Register::FieldValue<decltype(bpclcd30),Bpclcd30Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd30),Bpclcd30Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd30Val> bpclcd30{}; 
         ///no description available
-        enum class bpdlcd30Val {
+        enum class Bpdlcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd30ValC{
-            constexpr MPL::Value<bpdlcd30Val,bpdlcd30Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd30Val,bpdlcd30Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd30Val> bpdlcd30{}; 
+        namespace Bpdlcd30ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd30),Bpdlcd30Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd30),Bpdlcd30Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd30Val> bpdlcd30{}; 
         ///no description available
-        enum class bpelcd30Val {
+        enum class Bpelcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd30ValC{
-            constexpr MPL::Value<bpelcd30Val,bpelcd30Val::v0> v0{};
-            constexpr MPL::Value<bpelcd30Val,bpelcd30Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd30Val> bpelcd30{}; 
+        namespace Bpelcd30ValC{
+            constexpr Register::FieldValue<decltype(bpelcd30),Bpelcd30Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd30),Bpelcd30Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd30Val> bpelcd30{}; 
         ///no description available
-        enum class bpflcd30Val {
+        enum class Bpflcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd30ValC{
-            constexpr MPL::Value<bpflcd30Val,bpflcd30Val::v0> v0{};
-            constexpr MPL::Value<bpflcd30Val,bpflcd30Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd30Val> bpflcd30{}; 
+        namespace Bpflcd30ValC{
+            constexpr Register::FieldValue<decltype(bpflcd30),Bpflcd30Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd30),Bpflcd30Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd30Val> bpflcd30{}; 
         ///no description available
-        enum class bpglcd30Val {
+        enum class Bpglcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd30ValC{
-            constexpr MPL::Value<bpglcd30Val,bpglcd30Val::v0> v0{};
-            constexpr MPL::Value<bpglcd30Val,bpglcd30Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd30Val> bpglcd30{}; 
+        namespace Bpglcd30ValC{
+            constexpr Register::FieldValue<decltype(bpglcd30),Bpglcd30Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd30),Bpglcd30Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd30Val> bpglcd30{}; 
         ///no description available
-        enum class bphlcd30Val {
+        enum class Bphlcd30Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd30ValC{
-            constexpr MPL::Value<bphlcd30Val,bphlcd30Val::v0> v0{};
-            constexpr MPL::Value<bphlcd30Val,bphlcd30Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd30Val> bphlcd30{}; 
+        namespace Bphlcd30ValC{
+            constexpr Register::FieldValue<decltype(bphlcd30),Bphlcd30Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd30),Bphlcd30Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd30Val> bphlcd30{}; 
     }
     namespace LcdWf31{    ///<LCD Waveform Register 31.
         using Addr = Register::Address<0x4005303f,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd31Val {
+        enum class Bpalcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd31ValC{
-            constexpr MPL::Value<bpalcd31Val,bpalcd31Val::v0> v0{};
-            constexpr MPL::Value<bpalcd31Val,bpalcd31Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd31Val> bpalcd31{}; 
+        namespace Bpalcd31ValC{
+            constexpr Register::FieldValue<decltype(bpalcd31),Bpalcd31Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd31),Bpalcd31Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd31Val> bpalcd31{}; 
         ///no description available
-        enum class bpblcd31Val {
+        enum class Bpblcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd31ValC{
-            constexpr MPL::Value<bpblcd31Val,bpblcd31Val::v0> v0{};
-            constexpr MPL::Value<bpblcd31Val,bpblcd31Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd31Val> bpblcd31{}; 
+        namespace Bpblcd31ValC{
+            constexpr Register::FieldValue<decltype(bpblcd31),Bpblcd31Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd31),Bpblcd31Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd31Val> bpblcd31{}; 
         ///no description available
-        enum class bpclcd31Val {
+        enum class Bpclcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd31ValC{
-            constexpr MPL::Value<bpclcd31Val,bpclcd31Val::v0> v0{};
-            constexpr MPL::Value<bpclcd31Val,bpclcd31Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd31Val> bpclcd31{}; 
+        namespace Bpclcd31ValC{
+            constexpr Register::FieldValue<decltype(bpclcd31),Bpclcd31Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd31),Bpclcd31Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd31Val> bpclcd31{}; 
         ///no description available
-        enum class bpdlcd31Val {
+        enum class Bpdlcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd31ValC{
-            constexpr MPL::Value<bpdlcd31Val,bpdlcd31Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd31Val,bpdlcd31Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd31Val> bpdlcd31{}; 
+        namespace Bpdlcd31ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd31),Bpdlcd31Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd31),Bpdlcd31Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd31Val> bpdlcd31{}; 
         ///no description available
-        enum class bpelcd31Val {
+        enum class Bpelcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd31ValC{
-            constexpr MPL::Value<bpelcd31Val,bpelcd31Val::v0> v0{};
-            constexpr MPL::Value<bpelcd31Val,bpelcd31Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd31Val> bpelcd31{}; 
+        namespace Bpelcd31ValC{
+            constexpr Register::FieldValue<decltype(bpelcd31),Bpelcd31Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd31),Bpelcd31Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd31Val> bpelcd31{}; 
         ///no description available
-        enum class bpflcd31Val {
+        enum class Bpflcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd31ValC{
-            constexpr MPL::Value<bpflcd31Val,bpflcd31Val::v0> v0{};
-            constexpr MPL::Value<bpflcd31Val,bpflcd31Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd31Val> bpflcd31{}; 
+        namespace Bpflcd31ValC{
+            constexpr Register::FieldValue<decltype(bpflcd31),Bpflcd31Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd31),Bpflcd31Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd31Val> bpflcd31{}; 
         ///no description available
-        enum class bpglcd31Val {
+        enum class Bpglcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd31ValC{
-            constexpr MPL::Value<bpglcd31Val,bpglcd31Val::v0> v0{};
-            constexpr MPL::Value<bpglcd31Val,bpglcd31Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd31Val> bpglcd31{}; 
+        namespace Bpglcd31ValC{
+            constexpr Register::FieldValue<decltype(bpglcd31),Bpglcd31Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd31),Bpglcd31Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd31Val> bpglcd31{}; 
         ///no description available
-        enum class bphlcd31Val {
+        enum class Bphlcd31Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd31ValC{
-            constexpr MPL::Value<bphlcd31Val,bphlcd31Val::v0> v0{};
-            constexpr MPL::Value<bphlcd31Val,bphlcd31Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd31Val> bphlcd31{}; 
+        namespace Bphlcd31ValC{
+            constexpr Register::FieldValue<decltype(bphlcd31),Bphlcd31Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd31),Bphlcd31Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd31Val> bphlcd31{}; 
     }
     namespace LcdWf35to32{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053040,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf32{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf32{}; 
+        namespace Wf32ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf33{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf33{}; 
+        namespace Wf33ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf34{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf34{}; 
+        namespace Wf34ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf35{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf35{}; 
+        namespace Wf35ValC{
+        }
     }
     namespace LcdWf32{    ///<LCD Waveform Register 32.
         using Addr = Register::Address<0x40053040,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd32Val {
+        enum class Bpalcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd32ValC{
-            constexpr MPL::Value<bpalcd32Val,bpalcd32Val::v0> v0{};
-            constexpr MPL::Value<bpalcd32Val,bpalcd32Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd32Val> bpalcd32{}; 
+        namespace Bpalcd32ValC{
+            constexpr Register::FieldValue<decltype(bpalcd32),Bpalcd32Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd32),Bpalcd32Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd32Val> bpalcd32{}; 
         ///no description available
-        enum class bpblcd32Val {
+        enum class Bpblcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd32ValC{
-            constexpr MPL::Value<bpblcd32Val,bpblcd32Val::v0> v0{};
-            constexpr MPL::Value<bpblcd32Val,bpblcd32Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd32Val> bpblcd32{}; 
+        namespace Bpblcd32ValC{
+            constexpr Register::FieldValue<decltype(bpblcd32),Bpblcd32Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd32),Bpblcd32Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd32Val> bpblcd32{}; 
         ///no description available
-        enum class bpclcd32Val {
+        enum class Bpclcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd32ValC{
-            constexpr MPL::Value<bpclcd32Val,bpclcd32Val::v0> v0{};
-            constexpr MPL::Value<bpclcd32Val,bpclcd32Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd32Val> bpclcd32{}; 
+        namespace Bpclcd32ValC{
+            constexpr Register::FieldValue<decltype(bpclcd32),Bpclcd32Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd32),Bpclcd32Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd32Val> bpclcd32{}; 
         ///no description available
-        enum class bpdlcd32Val {
+        enum class Bpdlcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd32ValC{
-            constexpr MPL::Value<bpdlcd32Val,bpdlcd32Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd32Val,bpdlcd32Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd32Val> bpdlcd32{}; 
+        namespace Bpdlcd32ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd32),Bpdlcd32Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd32),Bpdlcd32Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd32Val> bpdlcd32{}; 
         ///no description available
-        enum class bpelcd32Val {
+        enum class Bpelcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd32ValC{
-            constexpr MPL::Value<bpelcd32Val,bpelcd32Val::v0> v0{};
-            constexpr MPL::Value<bpelcd32Val,bpelcd32Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd32Val> bpelcd32{}; 
+        namespace Bpelcd32ValC{
+            constexpr Register::FieldValue<decltype(bpelcd32),Bpelcd32Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd32),Bpelcd32Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd32Val> bpelcd32{}; 
         ///no description available
-        enum class bpflcd32Val {
+        enum class Bpflcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd32ValC{
-            constexpr MPL::Value<bpflcd32Val,bpflcd32Val::v0> v0{};
-            constexpr MPL::Value<bpflcd32Val,bpflcd32Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd32Val> bpflcd32{}; 
+        namespace Bpflcd32ValC{
+            constexpr Register::FieldValue<decltype(bpflcd32),Bpflcd32Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd32),Bpflcd32Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd32Val> bpflcd32{}; 
         ///no description available
-        enum class bpglcd32Val {
+        enum class Bpglcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd32ValC{
-            constexpr MPL::Value<bpglcd32Val,bpglcd32Val::v0> v0{};
-            constexpr MPL::Value<bpglcd32Val,bpglcd32Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd32Val> bpglcd32{}; 
+        namespace Bpglcd32ValC{
+            constexpr Register::FieldValue<decltype(bpglcd32),Bpglcd32Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd32),Bpglcd32Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd32Val> bpglcd32{}; 
         ///no description available
-        enum class bphlcd32Val {
+        enum class Bphlcd32Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd32ValC{
-            constexpr MPL::Value<bphlcd32Val,bphlcd32Val::v0> v0{};
-            constexpr MPL::Value<bphlcd32Val,bphlcd32Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd32Val> bphlcd32{}; 
+        namespace Bphlcd32ValC{
+            constexpr Register::FieldValue<decltype(bphlcd32),Bphlcd32Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd32),Bphlcd32Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd32Val> bphlcd32{}; 
     }
     namespace LcdWf33{    ///<LCD Waveform Register 33.
         using Addr = Register::Address<0x40053041,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd33Val {
+        enum class Bpalcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd33ValC{
-            constexpr MPL::Value<bpalcd33Val,bpalcd33Val::v0> v0{};
-            constexpr MPL::Value<bpalcd33Val,bpalcd33Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd33Val> bpalcd33{}; 
+        namespace Bpalcd33ValC{
+            constexpr Register::FieldValue<decltype(bpalcd33),Bpalcd33Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd33),Bpalcd33Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd33Val> bpalcd33{}; 
         ///no description available
-        enum class bpblcd33Val {
+        enum class Bpblcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd33ValC{
-            constexpr MPL::Value<bpblcd33Val,bpblcd33Val::v0> v0{};
-            constexpr MPL::Value<bpblcd33Val,bpblcd33Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd33Val> bpblcd33{}; 
+        namespace Bpblcd33ValC{
+            constexpr Register::FieldValue<decltype(bpblcd33),Bpblcd33Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd33),Bpblcd33Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd33Val> bpblcd33{}; 
         ///no description available
-        enum class bpclcd33Val {
+        enum class Bpclcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd33ValC{
-            constexpr MPL::Value<bpclcd33Val,bpclcd33Val::v0> v0{};
-            constexpr MPL::Value<bpclcd33Val,bpclcd33Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd33Val> bpclcd33{}; 
+        namespace Bpclcd33ValC{
+            constexpr Register::FieldValue<decltype(bpclcd33),Bpclcd33Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd33),Bpclcd33Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd33Val> bpclcd33{}; 
         ///no description available
-        enum class bpdlcd33Val {
+        enum class Bpdlcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd33ValC{
-            constexpr MPL::Value<bpdlcd33Val,bpdlcd33Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd33Val,bpdlcd33Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd33Val> bpdlcd33{}; 
+        namespace Bpdlcd33ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd33),Bpdlcd33Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd33),Bpdlcd33Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd33Val> bpdlcd33{}; 
         ///no description available
-        enum class bpelcd33Val {
+        enum class Bpelcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd33ValC{
-            constexpr MPL::Value<bpelcd33Val,bpelcd33Val::v0> v0{};
-            constexpr MPL::Value<bpelcd33Val,bpelcd33Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd33Val> bpelcd33{}; 
+        namespace Bpelcd33ValC{
+            constexpr Register::FieldValue<decltype(bpelcd33),Bpelcd33Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd33),Bpelcd33Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd33Val> bpelcd33{}; 
         ///no description available
-        enum class bpflcd33Val {
+        enum class Bpflcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd33ValC{
-            constexpr MPL::Value<bpflcd33Val,bpflcd33Val::v0> v0{};
-            constexpr MPL::Value<bpflcd33Val,bpflcd33Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd33Val> bpflcd33{}; 
+        namespace Bpflcd33ValC{
+            constexpr Register::FieldValue<decltype(bpflcd33),Bpflcd33Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd33),Bpflcd33Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd33Val> bpflcd33{}; 
         ///no description available
-        enum class bpglcd33Val {
+        enum class Bpglcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd33ValC{
-            constexpr MPL::Value<bpglcd33Val,bpglcd33Val::v0> v0{};
-            constexpr MPL::Value<bpglcd33Val,bpglcd33Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd33Val> bpglcd33{}; 
+        namespace Bpglcd33ValC{
+            constexpr Register::FieldValue<decltype(bpglcd33),Bpglcd33Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd33),Bpglcd33Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd33Val> bpglcd33{}; 
         ///no description available
-        enum class bphlcd33Val {
+        enum class Bphlcd33Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd33ValC{
-            constexpr MPL::Value<bphlcd33Val,bphlcd33Val::v0> v0{};
-            constexpr MPL::Value<bphlcd33Val,bphlcd33Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd33Val> bphlcd33{}; 
+        namespace Bphlcd33ValC{
+            constexpr Register::FieldValue<decltype(bphlcd33),Bphlcd33Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd33),Bphlcd33Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd33Val> bphlcd33{}; 
     }
     namespace LcdWf34{    ///<LCD Waveform Register 34.
         using Addr = Register::Address<0x40053042,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd34Val {
+        enum class Bpalcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd34ValC{
-            constexpr MPL::Value<bpalcd34Val,bpalcd34Val::v0> v0{};
-            constexpr MPL::Value<bpalcd34Val,bpalcd34Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd34Val> bpalcd34{}; 
+        namespace Bpalcd34ValC{
+            constexpr Register::FieldValue<decltype(bpalcd34),Bpalcd34Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd34),Bpalcd34Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd34Val> bpalcd34{}; 
         ///no description available
-        enum class bpblcd34Val {
+        enum class Bpblcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd34ValC{
-            constexpr MPL::Value<bpblcd34Val,bpblcd34Val::v0> v0{};
-            constexpr MPL::Value<bpblcd34Val,bpblcd34Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd34Val> bpblcd34{}; 
+        namespace Bpblcd34ValC{
+            constexpr Register::FieldValue<decltype(bpblcd34),Bpblcd34Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd34),Bpblcd34Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd34Val> bpblcd34{}; 
         ///no description available
-        enum class bpclcd34Val {
+        enum class Bpclcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd34ValC{
-            constexpr MPL::Value<bpclcd34Val,bpclcd34Val::v0> v0{};
-            constexpr MPL::Value<bpclcd34Val,bpclcd34Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd34Val> bpclcd34{}; 
+        namespace Bpclcd34ValC{
+            constexpr Register::FieldValue<decltype(bpclcd34),Bpclcd34Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd34),Bpclcd34Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd34Val> bpclcd34{}; 
         ///no description available
-        enum class bpdlcd34Val {
+        enum class Bpdlcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd34ValC{
-            constexpr MPL::Value<bpdlcd34Val,bpdlcd34Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd34Val,bpdlcd34Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd34Val> bpdlcd34{}; 
+        namespace Bpdlcd34ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd34),Bpdlcd34Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd34),Bpdlcd34Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd34Val> bpdlcd34{}; 
         ///no description available
-        enum class bpelcd34Val {
+        enum class Bpelcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd34ValC{
-            constexpr MPL::Value<bpelcd34Val,bpelcd34Val::v0> v0{};
-            constexpr MPL::Value<bpelcd34Val,bpelcd34Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd34Val> bpelcd34{}; 
+        namespace Bpelcd34ValC{
+            constexpr Register::FieldValue<decltype(bpelcd34),Bpelcd34Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd34),Bpelcd34Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd34Val> bpelcd34{}; 
         ///no description available
-        enum class bpflcd34Val {
+        enum class Bpflcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd34ValC{
-            constexpr MPL::Value<bpflcd34Val,bpflcd34Val::v0> v0{};
-            constexpr MPL::Value<bpflcd34Val,bpflcd34Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd34Val> bpflcd34{}; 
+        namespace Bpflcd34ValC{
+            constexpr Register::FieldValue<decltype(bpflcd34),Bpflcd34Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd34),Bpflcd34Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd34Val> bpflcd34{}; 
         ///no description available
-        enum class bpglcd34Val {
+        enum class Bpglcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd34ValC{
-            constexpr MPL::Value<bpglcd34Val,bpglcd34Val::v0> v0{};
-            constexpr MPL::Value<bpglcd34Val,bpglcd34Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd34Val> bpglcd34{}; 
+        namespace Bpglcd34ValC{
+            constexpr Register::FieldValue<decltype(bpglcd34),Bpglcd34Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd34),Bpglcd34Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd34Val> bpglcd34{}; 
         ///no description available
-        enum class bphlcd34Val {
+        enum class Bphlcd34Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd34ValC{
-            constexpr MPL::Value<bphlcd34Val,bphlcd34Val::v0> v0{};
-            constexpr MPL::Value<bphlcd34Val,bphlcd34Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd34Val> bphlcd34{}; 
+        namespace Bphlcd34ValC{
+            constexpr Register::FieldValue<decltype(bphlcd34),Bphlcd34Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd34),Bphlcd34Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd34Val> bphlcd34{}; 
     }
     namespace LcdWf35{    ///<LCD Waveform Register 35.
         using Addr = Register::Address<0x40053043,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd35Val {
+        enum class Bpalcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd35ValC{
-            constexpr MPL::Value<bpalcd35Val,bpalcd35Val::v0> v0{};
-            constexpr MPL::Value<bpalcd35Val,bpalcd35Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd35Val> bpalcd35{}; 
+        namespace Bpalcd35ValC{
+            constexpr Register::FieldValue<decltype(bpalcd35),Bpalcd35Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd35),Bpalcd35Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd35Val> bpalcd35{}; 
         ///no description available
-        enum class bpblcd35Val {
+        enum class Bpblcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd35ValC{
-            constexpr MPL::Value<bpblcd35Val,bpblcd35Val::v0> v0{};
-            constexpr MPL::Value<bpblcd35Val,bpblcd35Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd35Val> bpblcd35{}; 
+        namespace Bpblcd35ValC{
+            constexpr Register::FieldValue<decltype(bpblcd35),Bpblcd35Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd35),Bpblcd35Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd35Val> bpblcd35{}; 
         ///no description available
-        enum class bpclcd35Val {
+        enum class Bpclcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd35ValC{
-            constexpr MPL::Value<bpclcd35Val,bpclcd35Val::v0> v0{};
-            constexpr MPL::Value<bpclcd35Val,bpclcd35Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd35Val> bpclcd35{}; 
+        namespace Bpclcd35ValC{
+            constexpr Register::FieldValue<decltype(bpclcd35),Bpclcd35Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd35),Bpclcd35Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd35Val> bpclcd35{}; 
         ///no description available
-        enum class bpdlcd35Val {
+        enum class Bpdlcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd35ValC{
-            constexpr MPL::Value<bpdlcd35Val,bpdlcd35Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd35Val,bpdlcd35Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd35Val> bpdlcd35{}; 
+        namespace Bpdlcd35ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd35),Bpdlcd35Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd35),Bpdlcd35Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd35Val> bpdlcd35{}; 
         ///no description available
-        enum class bpelcd35Val {
+        enum class Bpelcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd35ValC{
-            constexpr MPL::Value<bpelcd35Val,bpelcd35Val::v0> v0{};
-            constexpr MPL::Value<bpelcd35Val,bpelcd35Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd35Val> bpelcd35{}; 
+        namespace Bpelcd35ValC{
+            constexpr Register::FieldValue<decltype(bpelcd35),Bpelcd35Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd35),Bpelcd35Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd35Val> bpelcd35{}; 
         ///no description available
-        enum class bpflcd35Val {
+        enum class Bpflcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd35ValC{
-            constexpr MPL::Value<bpflcd35Val,bpflcd35Val::v0> v0{};
-            constexpr MPL::Value<bpflcd35Val,bpflcd35Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd35Val> bpflcd35{}; 
+        namespace Bpflcd35ValC{
+            constexpr Register::FieldValue<decltype(bpflcd35),Bpflcd35Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd35),Bpflcd35Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd35Val> bpflcd35{}; 
         ///no description available
-        enum class bpglcd35Val {
+        enum class Bpglcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd35ValC{
-            constexpr MPL::Value<bpglcd35Val,bpglcd35Val::v0> v0{};
-            constexpr MPL::Value<bpglcd35Val,bpglcd35Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd35Val> bpglcd35{}; 
+        namespace Bpglcd35ValC{
+            constexpr Register::FieldValue<decltype(bpglcd35),Bpglcd35Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd35),Bpglcd35Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd35Val> bpglcd35{}; 
         ///no description available
-        enum class bphlcd35Val {
+        enum class Bphlcd35Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd35ValC{
-            constexpr MPL::Value<bphlcd35Val,bphlcd35Val::v0> v0{};
-            constexpr MPL::Value<bphlcd35Val,bphlcd35Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd35Val> bphlcd35{}; 
+        namespace Bphlcd35ValC{
+            constexpr Register::FieldValue<decltype(bphlcd35),Bphlcd35Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd35),Bphlcd35Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd35Val> bphlcd35{}; 
     }
     namespace LcdWf39to36{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053044,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf36{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf36{}; 
+        namespace Wf36ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf37{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf37{}; 
+        namespace Wf37ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf38{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf38{}; 
+        namespace Wf38ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf39{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf39{}; 
+        namespace Wf39ValC{
+        }
     }
     namespace LcdWf36{    ///<LCD Waveform Register 36.
         using Addr = Register::Address<0x40053044,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd36Val {
+        enum class Bpalcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd36ValC{
-            constexpr MPL::Value<bpalcd36Val,bpalcd36Val::v0> v0{};
-            constexpr MPL::Value<bpalcd36Val,bpalcd36Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd36Val> bpalcd36{}; 
+        namespace Bpalcd36ValC{
+            constexpr Register::FieldValue<decltype(bpalcd36),Bpalcd36Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd36),Bpalcd36Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd36Val> bpalcd36{}; 
         ///no description available
-        enum class bpblcd36Val {
+        enum class Bpblcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd36ValC{
-            constexpr MPL::Value<bpblcd36Val,bpblcd36Val::v0> v0{};
-            constexpr MPL::Value<bpblcd36Val,bpblcd36Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd36Val> bpblcd36{}; 
+        namespace Bpblcd36ValC{
+            constexpr Register::FieldValue<decltype(bpblcd36),Bpblcd36Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd36),Bpblcd36Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd36Val> bpblcd36{}; 
         ///no description available
-        enum class bpclcd36Val {
+        enum class Bpclcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd36ValC{
-            constexpr MPL::Value<bpclcd36Val,bpclcd36Val::v0> v0{};
-            constexpr MPL::Value<bpclcd36Val,bpclcd36Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd36Val> bpclcd36{}; 
+        namespace Bpclcd36ValC{
+            constexpr Register::FieldValue<decltype(bpclcd36),Bpclcd36Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd36),Bpclcd36Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd36Val> bpclcd36{}; 
         ///no description available
-        enum class bpdlcd36Val {
+        enum class Bpdlcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd36ValC{
-            constexpr MPL::Value<bpdlcd36Val,bpdlcd36Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd36Val,bpdlcd36Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd36Val> bpdlcd36{}; 
+        namespace Bpdlcd36ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd36),Bpdlcd36Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd36),Bpdlcd36Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd36Val> bpdlcd36{}; 
         ///no description available
-        enum class bpelcd36Val {
+        enum class Bpelcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd36ValC{
-            constexpr MPL::Value<bpelcd36Val,bpelcd36Val::v0> v0{};
-            constexpr MPL::Value<bpelcd36Val,bpelcd36Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd36Val> bpelcd36{}; 
+        namespace Bpelcd36ValC{
+            constexpr Register::FieldValue<decltype(bpelcd36),Bpelcd36Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd36),Bpelcd36Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd36Val> bpelcd36{}; 
         ///no description available
-        enum class bpflcd36Val {
+        enum class Bpflcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd36ValC{
-            constexpr MPL::Value<bpflcd36Val,bpflcd36Val::v0> v0{};
-            constexpr MPL::Value<bpflcd36Val,bpflcd36Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd36Val> bpflcd36{}; 
+        namespace Bpflcd36ValC{
+            constexpr Register::FieldValue<decltype(bpflcd36),Bpflcd36Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd36),Bpflcd36Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd36Val> bpflcd36{}; 
         ///no description available
-        enum class bpglcd36Val {
+        enum class Bpglcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd36ValC{
-            constexpr MPL::Value<bpglcd36Val,bpglcd36Val::v0> v0{};
-            constexpr MPL::Value<bpglcd36Val,bpglcd36Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd36Val> bpglcd36{}; 
+        namespace Bpglcd36ValC{
+            constexpr Register::FieldValue<decltype(bpglcd36),Bpglcd36Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd36),Bpglcd36Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd36Val> bpglcd36{}; 
         ///no description available
-        enum class bphlcd36Val {
+        enum class Bphlcd36Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd36ValC{
-            constexpr MPL::Value<bphlcd36Val,bphlcd36Val::v0> v0{};
-            constexpr MPL::Value<bphlcd36Val,bphlcd36Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd36Val> bphlcd36{}; 
+        namespace Bphlcd36ValC{
+            constexpr Register::FieldValue<decltype(bphlcd36),Bphlcd36Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd36),Bphlcd36Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd36Val> bphlcd36{}; 
     }
     namespace LcdWf37{    ///<LCD Waveform Register 37.
         using Addr = Register::Address<0x40053045,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd37Val {
+        enum class Bpalcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd37ValC{
-            constexpr MPL::Value<bpalcd37Val,bpalcd37Val::v0> v0{};
-            constexpr MPL::Value<bpalcd37Val,bpalcd37Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd37Val> bpalcd37{}; 
+        namespace Bpalcd37ValC{
+            constexpr Register::FieldValue<decltype(bpalcd37),Bpalcd37Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd37),Bpalcd37Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd37Val> bpalcd37{}; 
         ///no description available
-        enum class bpblcd37Val {
+        enum class Bpblcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd37ValC{
-            constexpr MPL::Value<bpblcd37Val,bpblcd37Val::v0> v0{};
-            constexpr MPL::Value<bpblcd37Val,bpblcd37Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd37Val> bpblcd37{}; 
+        namespace Bpblcd37ValC{
+            constexpr Register::FieldValue<decltype(bpblcd37),Bpblcd37Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd37),Bpblcd37Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd37Val> bpblcd37{}; 
         ///no description available
-        enum class bpclcd37Val {
+        enum class Bpclcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd37ValC{
-            constexpr MPL::Value<bpclcd37Val,bpclcd37Val::v0> v0{};
-            constexpr MPL::Value<bpclcd37Val,bpclcd37Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd37Val> bpclcd37{}; 
+        namespace Bpclcd37ValC{
+            constexpr Register::FieldValue<decltype(bpclcd37),Bpclcd37Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd37),Bpclcd37Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd37Val> bpclcd37{}; 
         ///no description available
-        enum class bpdlcd37Val {
+        enum class Bpdlcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd37ValC{
-            constexpr MPL::Value<bpdlcd37Val,bpdlcd37Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd37Val,bpdlcd37Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd37Val> bpdlcd37{}; 
+        namespace Bpdlcd37ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd37),Bpdlcd37Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd37),Bpdlcd37Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd37Val> bpdlcd37{}; 
         ///no description available
-        enum class bpelcd37Val {
+        enum class Bpelcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd37ValC{
-            constexpr MPL::Value<bpelcd37Val,bpelcd37Val::v0> v0{};
-            constexpr MPL::Value<bpelcd37Val,bpelcd37Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd37Val> bpelcd37{}; 
+        namespace Bpelcd37ValC{
+            constexpr Register::FieldValue<decltype(bpelcd37),Bpelcd37Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd37),Bpelcd37Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd37Val> bpelcd37{}; 
         ///no description available
-        enum class bpflcd37Val {
+        enum class Bpflcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd37ValC{
-            constexpr MPL::Value<bpflcd37Val,bpflcd37Val::v0> v0{};
-            constexpr MPL::Value<bpflcd37Val,bpflcd37Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd37Val> bpflcd37{}; 
+        namespace Bpflcd37ValC{
+            constexpr Register::FieldValue<decltype(bpflcd37),Bpflcd37Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd37),Bpflcd37Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd37Val> bpflcd37{}; 
         ///no description available
-        enum class bpglcd37Val {
+        enum class Bpglcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd37ValC{
-            constexpr MPL::Value<bpglcd37Val,bpglcd37Val::v0> v0{};
-            constexpr MPL::Value<bpglcd37Val,bpglcd37Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd37Val> bpglcd37{}; 
+        namespace Bpglcd37ValC{
+            constexpr Register::FieldValue<decltype(bpglcd37),Bpglcd37Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd37),Bpglcd37Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd37Val> bpglcd37{}; 
         ///no description available
-        enum class bphlcd37Val {
+        enum class Bphlcd37Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd37ValC{
-            constexpr MPL::Value<bphlcd37Val,bphlcd37Val::v0> v0{};
-            constexpr MPL::Value<bphlcd37Val,bphlcd37Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd37Val> bphlcd37{}; 
+        namespace Bphlcd37ValC{
+            constexpr Register::FieldValue<decltype(bphlcd37),Bphlcd37Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd37),Bphlcd37Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd37Val> bphlcd37{}; 
     }
     namespace LcdWf38{    ///<LCD Waveform Register 38.
         using Addr = Register::Address<0x40053046,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd38Val {
+        enum class Bpalcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd38ValC{
-            constexpr MPL::Value<bpalcd38Val,bpalcd38Val::v0> v0{};
-            constexpr MPL::Value<bpalcd38Val,bpalcd38Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd38Val> bpalcd38{}; 
+        namespace Bpalcd38ValC{
+            constexpr Register::FieldValue<decltype(bpalcd38),Bpalcd38Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd38),Bpalcd38Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd38Val> bpalcd38{}; 
         ///no description available
-        enum class bpblcd38Val {
+        enum class Bpblcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd38ValC{
-            constexpr MPL::Value<bpblcd38Val,bpblcd38Val::v0> v0{};
-            constexpr MPL::Value<bpblcd38Val,bpblcd38Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd38Val> bpblcd38{}; 
+        namespace Bpblcd38ValC{
+            constexpr Register::FieldValue<decltype(bpblcd38),Bpblcd38Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd38),Bpblcd38Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd38Val> bpblcd38{}; 
         ///no description available
-        enum class bpclcd38Val {
+        enum class Bpclcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd38ValC{
-            constexpr MPL::Value<bpclcd38Val,bpclcd38Val::v0> v0{};
-            constexpr MPL::Value<bpclcd38Val,bpclcd38Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd38Val> bpclcd38{}; 
+        namespace Bpclcd38ValC{
+            constexpr Register::FieldValue<decltype(bpclcd38),Bpclcd38Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd38),Bpclcd38Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd38Val> bpclcd38{}; 
         ///no description available
-        enum class bpdlcd38Val {
+        enum class Bpdlcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd38ValC{
-            constexpr MPL::Value<bpdlcd38Val,bpdlcd38Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd38Val,bpdlcd38Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd38Val> bpdlcd38{}; 
+        namespace Bpdlcd38ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd38),Bpdlcd38Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd38),Bpdlcd38Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd38Val> bpdlcd38{}; 
         ///no description available
-        enum class bpelcd38Val {
+        enum class Bpelcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd38ValC{
-            constexpr MPL::Value<bpelcd38Val,bpelcd38Val::v0> v0{};
-            constexpr MPL::Value<bpelcd38Val,bpelcd38Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd38Val> bpelcd38{}; 
+        namespace Bpelcd38ValC{
+            constexpr Register::FieldValue<decltype(bpelcd38),Bpelcd38Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd38),Bpelcd38Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd38Val> bpelcd38{}; 
         ///no description available
-        enum class bpflcd38Val {
+        enum class Bpflcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd38ValC{
-            constexpr MPL::Value<bpflcd38Val,bpflcd38Val::v0> v0{};
-            constexpr MPL::Value<bpflcd38Val,bpflcd38Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd38Val> bpflcd38{}; 
+        namespace Bpflcd38ValC{
+            constexpr Register::FieldValue<decltype(bpflcd38),Bpflcd38Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd38),Bpflcd38Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd38Val> bpflcd38{}; 
         ///no description available
-        enum class bpglcd38Val {
+        enum class Bpglcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd38ValC{
-            constexpr MPL::Value<bpglcd38Val,bpglcd38Val::v0> v0{};
-            constexpr MPL::Value<bpglcd38Val,bpglcd38Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd38Val> bpglcd38{}; 
+        namespace Bpglcd38ValC{
+            constexpr Register::FieldValue<decltype(bpglcd38),Bpglcd38Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd38),Bpglcd38Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd38Val> bpglcd38{}; 
         ///no description available
-        enum class bphlcd38Val {
+        enum class Bphlcd38Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd38ValC{
-            constexpr MPL::Value<bphlcd38Val,bphlcd38Val::v0> v0{};
-            constexpr MPL::Value<bphlcd38Val,bphlcd38Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd38Val> bphlcd38{}; 
+        namespace Bphlcd38ValC{
+            constexpr Register::FieldValue<decltype(bphlcd38),Bphlcd38Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd38),Bphlcd38Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd38Val> bphlcd38{}; 
     }
     namespace LcdWf39{    ///<LCD Waveform Register 39.
         using Addr = Register::Address<0x40053047,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd39Val {
+        enum class Bpalcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd39ValC{
-            constexpr MPL::Value<bpalcd39Val,bpalcd39Val::v0> v0{};
-            constexpr MPL::Value<bpalcd39Val,bpalcd39Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd39Val> bpalcd39{}; 
+        namespace Bpalcd39ValC{
+            constexpr Register::FieldValue<decltype(bpalcd39),Bpalcd39Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd39),Bpalcd39Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd39Val> bpalcd39{}; 
         ///no description available
-        enum class bpblcd39Val {
+        enum class Bpblcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd39ValC{
-            constexpr MPL::Value<bpblcd39Val,bpblcd39Val::v0> v0{};
-            constexpr MPL::Value<bpblcd39Val,bpblcd39Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd39Val> bpblcd39{}; 
+        namespace Bpblcd39ValC{
+            constexpr Register::FieldValue<decltype(bpblcd39),Bpblcd39Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd39),Bpblcd39Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd39Val> bpblcd39{}; 
         ///no description available
-        enum class bpclcd39Val {
+        enum class Bpclcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd39ValC{
-            constexpr MPL::Value<bpclcd39Val,bpclcd39Val::v0> v0{};
-            constexpr MPL::Value<bpclcd39Val,bpclcd39Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd39Val> bpclcd39{}; 
+        namespace Bpclcd39ValC{
+            constexpr Register::FieldValue<decltype(bpclcd39),Bpclcd39Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd39),Bpclcd39Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd39Val> bpclcd39{}; 
         ///no description available
-        enum class bpdlcd39Val {
+        enum class Bpdlcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd39ValC{
-            constexpr MPL::Value<bpdlcd39Val,bpdlcd39Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd39Val,bpdlcd39Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd39Val> bpdlcd39{}; 
+        namespace Bpdlcd39ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd39),Bpdlcd39Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd39),Bpdlcd39Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd39Val> bpdlcd39{}; 
         ///no description available
-        enum class bpelcd39Val {
+        enum class Bpelcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd39ValC{
-            constexpr MPL::Value<bpelcd39Val,bpelcd39Val::v0> v0{};
-            constexpr MPL::Value<bpelcd39Val,bpelcd39Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd39Val> bpelcd39{}; 
+        namespace Bpelcd39ValC{
+            constexpr Register::FieldValue<decltype(bpelcd39),Bpelcd39Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd39),Bpelcd39Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd39Val> bpelcd39{}; 
         ///no description available
-        enum class bpflcd39Val {
+        enum class Bpflcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd39ValC{
-            constexpr MPL::Value<bpflcd39Val,bpflcd39Val::v0> v0{};
-            constexpr MPL::Value<bpflcd39Val,bpflcd39Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd39Val> bpflcd39{}; 
+        namespace Bpflcd39ValC{
+            constexpr Register::FieldValue<decltype(bpflcd39),Bpflcd39Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd39),Bpflcd39Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd39Val> bpflcd39{}; 
         ///no description available
-        enum class bpglcd39Val {
+        enum class Bpglcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd39ValC{
-            constexpr MPL::Value<bpglcd39Val,bpglcd39Val::v0> v0{};
-            constexpr MPL::Value<bpglcd39Val,bpglcd39Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd39Val> bpglcd39{}; 
+        namespace Bpglcd39ValC{
+            constexpr Register::FieldValue<decltype(bpglcd39),Bpglcd39Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd39),Bpglcd39Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd39Val> bpglcd39{}; 
         ///no description available
-        enum class bphlcd39Val {
+        enum class Bphlcd39Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd39ValC{
-            constexpr MPL::Value<bphlcd39Val,bphlcd39Val::v0> v0{};
-            constexpr MPL::Value<bphlcd39Val,bphlcd39Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd39Val> bphlcd39{}; 
+        namespace Bphlcd39ValC{
+            constexpr Register::FieldValue<decltype(bphlcd39),Bphlcd39Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd39),Bphlcd39Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd39Val> bphlcd39{}; 
     }
     namespace LcdWf43to40{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053048,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf40{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf40{}; 
+        namespace Wf40ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf41{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf41{}; 
+        namespace Wf41ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf42{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf42{}; 
+        namespace Wf42ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf43{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf43{}; 
+        namespace Wf43ValC{
+        }
     }
     namespace LcdWf40{    ///<LCD Waveform Register 40.
         using Addr = Register::Address<0x40053048,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd40Val {
+        enum class Bpalcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd40ValC{
-            constexpr MPL::Value<bpalcd40Val,bpalcd40Val::v0> v0{};
-            constexpr MPL::Value<bpalcd40Val,bpalcd40Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd40Val> bpalcd40{}; 
+        namespace Bpalcd40ValC{
+            constexpr Register::FieldValue<decltype(bpalcd40),Bpalcd40Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd40),Bpalcd40Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd40Val> bpalcd40{}; 
         ///no description available
-        enum class bpblcd40Val {
+        enum class Bpblcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd40ValC{
-            constexpr MPL::Value<bpblcd40Val,bpblcd40Val::v0> v0{};
-            constexpr MPL::Value<bpblcd40Val,bpblcd40Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd40Val> bpblcd40{}; 
+        namespace Bpblcd40ValC{
+            constexpr Register::FieldValue<decltype(bpblcd40),Bpblcd40Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd40),Bpblcd40Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd40Val> bpblcd40{}; 
         ///no description available
-        enum class bpclcd40Val {
+        enum class Bpclcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd40ValC{
-            constexpr MPL::Value<bpclcd40Val,bpclcd40Val::v0> v0{};
-            constexpr MPL::Value<bpclcd40Val,bpclcd40Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd40Val> bpclcd40{}; 
+        namespace Bpclcd40ValC{
+            constexpr Register::FieldValue<decltype(bpclcd40),Bpclcd40Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd40),Bpclcd40Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd40Val> bpclcd40{}; 
         ///no description available
-        enum class bpdlcd40Val {
+        enum class Bpdlcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd40ValC{
-            constexpr MPL::Value<bpdlcd40Val,bpdlcd40Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd40Val,bpdlcd40Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd40Val> bpdlcd40{}; 
+        namespace Bpdlcd40ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd40),Bpdlcd40Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd40),Bpdlcd40Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd40Val> bpdlcd40{}; 
         ///no description available
-        enum class bpelcd40Val {
+        enum class Bpelcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd40ValC{
-            constexpr MPL::Value<bpelcd40Val,bpelcd40Val::v0> v0{};
-            constexpr MPL::Value<bpelcd40Val,bpelcd40Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd40Val> bpelcd40{}; 
+        namespace Bpelcd40ValC{
+            constexpr Register::FieldValue<decltype(bpelcd40),Bpelcd40Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd40),Bpelcd40Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd40Val> bpelcd40{}; 
         ///no description available
-        enum class bpflcd40Val {
+        enum class Bpflcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd40ValC{
-            constexpr MPL::Value<bpflcd40Val,bpflcd40Val::v0> v0{};
-            constexpr MPL::Value<bpflcd40Val,bpflcd40Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd40Val> bpflcd40{}; 
+        namespace Bpflcd40ValC{
+            constexpr Register::FieldValue<decltype(bpflcd40),Bpflcd40Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd40),Bpflcd40Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd40Val> bpflcd40{}; 
         ///no description available
-        enum class bpglcd40Val {
+        enum class Bpglcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd40ValC{
-            constexpr MPL::Value<bpglcd40Val,bpglcd40Val::v0> v0{};
-            constexpr MPL::Value<bpglcd40Val,bpglcd40Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd40Val> bpglcd40{}; 
+        namespace Bpglcd40ValC{
+            constexpr Register::FieldValue<decltype(bpglcd40),Bpglcd40Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd40),Bpglcd40Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd40Val> bpglcd40{}; 
         ///no description available
-        enum class bphlcd40Val {
+        enum class Bphlcd40Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd40ValC{
-            constexpr MPL::Value<bphlcd40Val,bphlcd40Val::v0> v0{};
-            constexpr MPL::Value<bphlcd40Val,bphlcd40Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd40Val> bphlcd40{}; 
+        namespace Bphlcd40ValC{
+            constexpr Register::FieldValue<decltype(bphlcd40),Bphlcd40Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd40),Bphlcd40Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd40Val> bphlcd40{}; 
     }
     namespace LcdWf41{    ///<LCD Waveform Register 41.
         using Addr = Register::Address<0x40053049,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd41Val {
+        enum class Bpalcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd41ValC{
-            constexpr MPL::Value<bpalcd41Val,bpalcd41Val::v0> v0{};
-            constexpr MPL::Value<bpalcd41Val,bpalcd41Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd41Val> bpalcd41{}; 
+        namespace Bpalcd41ValC{
+            constexpr Register::FieldValue<decltype(bpalcd41),Bpalcd41Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd41),Bpalcd41Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd41Val> bpalcd41{}; 
         ///no description available
-        enum class bpblcd41Val {
+        enum class Bpblcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd41ValC{
-            constexpr MPL::Value<bpblcd41Val,bpblcd41Val::v0> v0{};
-            constexpr MPL::Value<bpblcd41Val,bpblcd41Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd41Val> bpblcd41{}; 
+        namespace Bpblcd41ValC{
+            constexpr Register::FieldValue<decltype(bpblcd41),Bpblcd41Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd41),Bpblcd41Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd41Val> bpblcd41{}; 
         ///no description available
-        enum class bpclcd41Val {
+        enum class Bpclcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd41ValC{
-            constexpr MPL::Value<bpclcd41Val,bpclcd41Val::v0> v0{};
-            constexpr MPL::Value<bpclcd41Val,bpclcd41Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd41Val> bpclcd41{}; 
+        namespace Bpclcd41ValC{
+            constexpr Register::FieldValue<decltype(bpclcd41),Bpclcd41Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd41),Bpclcd41Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd41Val> bpclcd41{}; 
         ///no description available
-        enum class bpdlcd41Val {
+        enum class Bpdlcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd41ValC{
-            constexpr MPL::Value<bpdlcd41Val,bpdlcd41Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd41Val,bpdlcd41Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd41Val> bpdlcd41{}; 
+        namespace Bpdlcd41ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd41),Bpdlcd41Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd41),Bpdlcd41Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd41Val> bpdlcd41{}; 
         ///no description available
-        enum class bpelcd41Val {
+        enum class Bpelcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd41ValC{
-            constexpr MPL::Value<bpelcd41Val,bpelcd41Val::v0> v0{};
-            constexpr MPL::Value<bpelcd41Val,bpelcd41Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd41Val> bpelcd41{}; 
+        namespace Bpelcd41ValC{
+            constexpr Register::FieldValue<decltype(bpelcd41),Bpelcd41Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd41),Bpelcd41Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd41Val> bpelcd41{}; 
         ///no description available
-        enum class bpflcd41Val {
+        enum class Bpflcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd41ValC{
-            constexpr MPL::Value<bpflcd41Val,bpflcd41Val::v0> v0{};
-            constexpr MPL::Value<bpflcd41Val,bpflcd41Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd41Val> bpflcd41{}; 
+        namespace Bpflcd41ValC{
+            constexpr Register::FieldValue<decltype(bpflcd41),Bpflcd41Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd41),Bpflcd41Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd41Val> bpflcd41{}; 
         ///no description available
-        enum class bpglcd41Val {
+        enum class Bpglcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd41ValC{
-            constexpr MPL::Value<bpglcd41Val,bpglcd41Val::v0> v0{};
-            constexpr MPL::Value<bpglcd41Val,bpglcd41Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd41Val> bpglcd41{}; 
+        namespace Bpglcd41ValC{
+            constexpr Register::FieldValue<decltype(bpglcd41),Bpglcd41Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd41),Bpglcd41Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd41Val> bpglcd41{}; 
         ///no description available
-        enum class bphlcd41Val {
+        enum class Bphlcd41Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd41ValC{
-            constexpr MPL::Value<bphlcd41Val,bphlcd41Val::v0> v0{};
-            constexpr MPL::Value<bphlcd41Val,bphlcd41Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd41Val> bphlcd41{}; 
+        namespace Bphlcd41ValC{
+            constexpr Register::FieldValue<decltype(bphlcd41),Bphlcd41Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd41),Bphlcd41Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd41Val> bphlcd41{}; 
     }
     namespace LcdWf42{    ///<LCD Waveform Register 42.
         using Addr = Register::Address<0x4005304a,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd42Val {
+        enum class Bpalcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd42ValC{
-            constexpr MPL::Value<bpalcd42Val,bpalcd42Val::v0> v0{};
-            constexpr MPL::Value<bpalcd42Val,bpalcd42Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd42Val> bpalcd42{}; 
+        namespace Bpalcd42ValC{
+            constexpr Register::FieldValue<decltype(bpalcd42),Bpalcd42Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd42),Bpalcd42Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd42Val> bpalcd42{}; 
         ///no description available
-        enum class bpblcd42Val {
+        enum class Bpblcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd42ValC{
-            constexpr MPL::Value<bpblcd42Val,bpblcd42Val::v0> v0{};
-            constexpr MPL::Value<bpblcd42Val,bpblcd42Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd42Val> bpblcd42{}; 
+        namespace Bpblcd42ValC{
+            constexpr Register::FieldValue<decltype(bpblcd42),Bpblcd42Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd42),Bpblcd42Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd42Val> bpblcd42{}; 
         ///no description available
-        enum class bpclcd42Val {
+        enum class Bpclcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd42ValC{
-            constexpr MPL::Value<bpclcd42Val,bpclcd42Val::v0> v0{};
-            constexpr MPL::Value<bpclcd42Val,bpclcd42Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd42Val> bpclcd42{}; 
+        namespace Bpclcd42ValC{
+            constexpr Register::FieldValue<decltype(bpclcd42),Bpclcd42Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd42),Bpclcd42Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd42Val> bpclcd42{}; 
         ///no description available
-        enum class bpdlcd42Val {
+        enum class Bpdlcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd42ValC{
-            constexpr MPL::Value<bpdlcd42Val,bpdlcd42Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd42Val,bpdlcd42Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd42Val> bpdlcd42{}; 
+        namespace Bpdlcd42ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd42),Bpdlcd42Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd42),Bpdlcd42Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd42Val> bpdlcd42{}; 
         ///no description available
-        enum class bpelcd42Val {
+        enum class Bpelcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd42ValC{
-            constexpr MPL::Value<bpelcd42Val,bpelcd42Val::v0> v0{};
-            constexpr MPL::Value<bpelcd42Val,bpelcd42Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd42Val> bpelcd42{}; 
+        namespace Bpelcd42ValC{
+            constexpr Register::FieldValue<decltype(bpelcd42),Bpelcd42Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd42),Bpelcd42Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd42Val> bpelcd42{}; 
         ///no description available
-        enum class bpflcd42Val {
+        enum class Bpflcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd42ValC{
-            constexpr MPL::Value<bpflcd42Val,bpflcd42Val::v0> v0{};
-            constexpr MPL::Value<bpflcd42Val,bpflcd42Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd42Val> bpflcd42{}; 
+        namespace Bpflcd42ValC{
+            constexpr Register::FieldValue<decltype(bpflcd42),Bpflcd42Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd42),Bpflcd42Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd42Val> bpflcd42{}; 
         ///no description available
-        enum class bpglcd42Val {
+        enum class Bpglcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd42ValC{
-            constexpr MPL::Value<bpglcd42Val,bpglcd42Val::v0> v0{};
-            constexpr MPL::Value<bpglcd42Val,bpglcd42Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd42Val> bpglcd42{}; 
+        namespace Bpglcd42ValC{
+            constexpr Register::FieldValue<decltype(bpglcd42),Bpglcd42Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd42),Bpglcd42Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd42Val> bpglcd42{}; 
         ///no description available
-        enum class bphlcd42Val {
+        enum class Bphlcd42Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd42ValC{
-            constexpr MPL::Value<bphlcd42Val,bphlcd42Val::v0> v0{};
-            constexpr MPL::Value<bphlcd42Val,bphlcd42Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd42Val> bphlcd42{}; 
+        namespace Bphlcd42ValC{
+            constexpr Register::FieldValue<decltype(bphlcd42),Bphlcd42Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd42),Bphlcd42Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd42Val> bphlcd42{}; 
     }
     namespace LcdWf43{    ///<LCD Waveform Register 43.
         using Addr = Register::Address<0x4005304b,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd43Val {
+        enum class Bpalcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd43ValC{
-            constexpr MPL::Value<bpalcd43Val,bpalcd43Val::v0> v0{};
-            constexpr MPL::Value<bpalcd43Val,bpalcd43Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd43Val> bpalcd43{}; 
+        namespace Bpalcd43ValC{
+            constexpr Register::FieldValue<decltype(bpalcd43),Bpalcd43Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd43),Bpalcd43Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd43Val> bpalcd43{}; 
         ///no description available
-        enum class bpblcd43Val {
+        enum class Bpblcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd43ValC{
-            constexpr MPL::Value<bpblcd43Val,bpblcd43Val::v0> v0{};
-            constexpr MPL::Value<bpblcd43Val,bpblcd43Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd43Val> bpblcd43{}; 
+        namespace Bpblcd43ValC{
+            constexpr Register::FieldValue<decltype(bpblcd43),Bpblcd43Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd43),Bpblcd43Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd43Val> bpblcd43{}; 
         ///no description available
-        enum class bpclcd43Val {
+        enum class Bpclcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd43ValC{
-            constexpr MPL::Value<bpclcd43Val,bpclcd43Val::v0> v0{};
-            constexpr MPL::Value<bpclcd43Val,bpclcd43Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd43Val> bpclcd43{}; 
+        namespace Bpclcd43ValC{
+            constexpr Register::FieldValue<decltype(bpclcd43),Bpclcd43Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd43),Bpclcd43Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd43Val> bpclcd43{}; 
         ///no description available
-        enum class bpdlcd43Val {
+        enum class Bpdlcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd43ValC{
-            constexpr MPL::Value<bpdlcd43Val,bpdlcd43Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd43Val,bpdlcd43Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd43Val> bpdlcd43{}; 
+        namespace Bpdlcd43ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd43),Bpdlcd43Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd43),Bpdlcd43Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd43Val> bpdlcd43{}; 
         ///no description available
-        enum class bpelcd43Val {
+        enum class Bpelcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd43ValC{
-            constexpr MPL::Value<bpelcd43Val,bpelcd43Val::v0> v0{};
-            constexpr MPL::Value<bpelcd43Val,bpelcd43Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd43Val> bpelcd43{}; 
+        namespace Bpelcd43ValC{
+            constexpr Register::FieldValue<decltype(bpelcd43),Bpelcd43Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd43),Bpelcd43Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd43Val> bpelcd43{}; 
         ///no description available
-        enum class bpflcd43Val {
+        enum class Bpflcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd43ValC{
-            constexpr MPL::Value<bpflcd43Val,bpflcd43Val::v0> v0{};
-            constexpr MPL::Value<bpflcd43Val,bpflcd43Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd43Val> bpflcd43{}; 
+        namespace Bpflcd43ValC{
+            constexpr Register::FieldValue<decltype(bpflcd43),Bpflcd43Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd43),Bpflcd43Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd43Val> bpflcd43{}; 
         ///no description available
-        enum class bpglcd43Val {
+        enum class Bpglcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd43ValC{
-            constexpr MPL::Value<bpglcd43Val,bpglcd43Val::v0> v0{};
-            constexpr MPL::Value<bpglcd43Val,bpglcd43Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd43Val> bpglcd43{}; 
+        namespace Bpglcd43ValC{
+            constexpr Register::FieldValue<decltype(bpglcd43),Bpglcd43Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd43),Bpglcd43Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd43Val> bpglcd43{}; 
         ///no description available
-        enum class bphlcd43Val {
+        enum class Bphlcd43Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd43ValC{
-            constexpr MPL::Value<bphlcd43Val,bphlcd43Val::v0> v0{};
-            constexpr MPL::Value<bphlcd43Val,bphlcd43Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd43Val> bphlcd43{}; 
+        namespace Bphlcd43ValC{
+            constexpr Register::FieldValue<decltype(bphlcd43),Bphlcd43Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd43),Bphlcd43Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd43Val> bphlcd43{}; 
     }
     namespace LcdWf47to44{    ///<LCD Waveform register
         using Addr = Register::Address<0x4005304c,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf44{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf44{}; 
+        namespace Wf44ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf45{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf45{}; 
+        namespace Wf45ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf46{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf46{}; 
+        namespace Wf46ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf47{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf47{}; 
+        namespace Wf47ValC{
+        }
     }
     namespace LcdWf44{    ///<LCD Waveform Register 44.
         using Addr = Register::Address<0x4005304c,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd44Val {
+        enum class Bpalcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd44ValC{
-            constexpr MPL::Value<bpalcd44Val,bpalcd44Val::v0> v0{};
-            constexpr MPL::Value<bpalcd44Val,bpalcd44Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd44Val> bpalcd44{}; 
+        namespace Bpalcd44ValC{
+            constexpr Register::FieldValue<decltype(bpalcd44),Bpalcd44Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd44),Bpalcd44Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd44Val> bpalcd44{}; 
         ///no description available
-        enum class bpblcd44Val {
+        enum class Bpblcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd44ValC{
-            constexpr MPL::Value<bpblcd44Val,bpblcd44Val::v0> v0{};
-            constexpr MPL::Value<bpblcd44Val,bpblcd44Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd44Val> bpblcd44{}; 
+        namespace Bpblcd44ValC{
+            constexpr Register::FieldValue<decltype(bpblcd44),Bpblcd44Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd44),Bpblcd44Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd44Val> bpblcd44{}; 
         ///no description available
-        enum class bpclcd44Val {
+        enum class Bpclcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd44ValC{
-            constexpr MPL::Value<bpclcd44Val,bpclcd44Val::v0> v0{};
-            constexpr MPL::Value<bpclcd44Val,bpclcd44Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd44Val> bpclcd44{}; 
+        namespace Bpclcd44ValC{
+            constexpr Register::FieldValue<decltype(bpclcd44),Bpclcd44Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd44),Bpclcd44Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd44Val> bpclcd44{}; 
         ///no description available
-        enum class bpdlcd44Val {
+        enum class Bpdlcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd44ValC{
-            constexpr MPL::Value<bpdlcd44Val,bpdlcd44Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd44Val,bpdlcd44Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd44Val> bpdlcd44{}; 
+        namespace Bpdlcd44ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd44),Bpdlcd44Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd44),Bpdlcd44Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd44Val> bpdlcd44{}; 
         ///no description available
-        enum class bpelcd44Val {
+        enum class Bpelcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd44ValC{
-            constexpr MPL::Value<bpelcd44Val,bpelcd44Val::v0> v0{};
-            constexpr MPL::Value<bpelcd44Val,bpelcd44Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd44Val> bpelcd44{}; 
+        namespace Bpelcd44ValC{
+            constexpr Register::FieldValue<decltype(bpelcd44),Bpelcd44Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd44),Bpelcd44Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd44Val> bpelcd44{}; 
         ///no description available
-        enum class bpflcd44Val {
+        enum class Bpflcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd44ValC{
-            constexpr MPL::Value<bpflcd44Val,bpflcd44Val::v0> v0{};
-            constexpr MPL::Value<bpflcd44Val,bpflcd44Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd44Val> bpflcd44{}; 
+        namespace Bpflcd44ValC{
+            constexpr Register::FieldValue<decltype(bpflcd44),Bpflcd44Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd44),Bpflcd44Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd44Val> bpflcd44{}; 
         ///no description available
-        enum class bpglcd44Val {
+        enum class Bpglcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd44ValC{
-            constexpr MPL::Value<bpglcd44Val,bpglcd44Val::v0> v0{};
-            constexpr MPL::Value<bpglcd44Val,bpglcd44Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd44Val> bpglcd44{}; 
+        namespace Bpglcd44ValC{
+            constexpr Register::FieldValue<decltype(bpglcd44),Bpglcd44Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd44),Bpglcd44Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd44Val> bpglcd44{}; 
         ///no description available
-        enum class bphlcd44Val {
+        enum class Bphlcd44Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd44ValC{
-            constexpr MPL::Value<bphlcd44Val,bphlcd44Val::v0> v0{};
-            constexpr MPL::Value<bphlcd44Val,bphlcd44Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd44Val> bphlcd44{}; 
+        namespace Bphlcd44ValC{
+            constexpr Register::FieldValue<decltype(bphlcd44),Bphlcd44Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd44),Bphlcd44Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd44Val> bphlcd44{}; 
     }
     namespace LcdWf45{    ///<LCD Waveform Register 45.
         using Addr = Register::Address<0x4005304d,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd45Val {
+        enum class Bpalcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd45ValC{
-            constexpr MPL::Value<bpalcd45Val,bpalcd45Val::v0> v0{};
-            constexpr MPL::Value<bpalcd45Val,bpalcd45Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd45Val> bpalcd45{}; 
+        namespace Bpalcd45ValC{
+            constexpr Register::FieldValue<decltype(bpalcd45),Bpalcd45Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd45),Bpalcd45Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd45Val> bpalcd45{}; 
         ///no description available
-        enum class bpblcd45Val {
+        enum class Bpblcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd45ValC{
-            constexpr MPL::Value<bpblcd45Val,bpblcd45Val::v0> v0{};
-            constexpr MPL::Value<bpblcd45Val,bpblcd45Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd45Val> bpblcd45{}; 
+        namespace Bpblcd45ValC{
+            constexpr Register::FieldValue<decltype(bpblcd45),Bpblcd45Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd45),Bpblcd45Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd45Val> bpblcd45{}; 
         ///no description available
-        enum class bpclcd45Val {
+        enum class Bpclcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd45ValC{
-            constexpr MPL::Value<bpclcd45Val,bpclcd45Val::v0> v0{};
-            constexpr MPL::Value<bpclcd45Val,bpclcd45Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd45Val> bpclcd45{}; 
+        namespace Bpclcd45ValC{
+            constexpr Register::FieldValue<decltype(bpclcd45),Bpclcd45Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd45),Bpclcd45Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd45Val> bpclcd45{}; 
         ///no description available
-        enum class bpdlcd45Val {
+        enum class Bpdlcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd45ValC{
-            constexpr MPL::Value<bpdlcd45Val,bpdlcd45Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd45Val,bpdlcd45Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd45Val> bpdlcd45{}; 
+        namespace Bpdlcd45ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd45),Bpdlcd45Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd45),Bpdlcd45Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd45Val> bpdlcd45{}; 
         ///no description available
-        enum class bpelcd45Val {
+        enum class Bpelcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd45ValC{
-            constexpr MPL::Value<bpelcd45Val,bpelcd45Val::v0> v0{};
-            constexpr MPL::Value<bpelcd45Val,bpelcd45Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd45Val> bpelcd45{}; 
+        namespace Bpelcd45ValC{
+            constexpr Register::FieldValue<decltype(bpelcd45),Bpelcd45Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd45),Bpelcd45Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd45Val> bpelcd45{}; 
         ///no description available
-        enum class bpflcd45Val {
+        enum class Bpflcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd45ValC{
-            constexpr MPL::Value<bpflcd45Val,bpflcd45Val::v0> v0{};
-            constexpr MPL::Value<bpflcd45Val,bpflcd45Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd45Val> bpflcd45{}; 
+        namespace Bpflcd45ValC{
+            constexpr Register::FieldValue<decltype(bpflcd45),Bpflcd45Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd45),Bpflcd45Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd45Val> bpflcd45{}; 
         ///no description available
-        enum class bpglcd45Val {
+        enum class Bpglcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd45ValC{
-            constexpr MPL::Value<bpglcd45Val,bpglcd45Val::v0> v0{};
-            constexpr MPL::Value<bpglcd45Val,bpglcd45Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd45Val> bpglcd45{}; 
+        namespace Bpglcd45ValC{
+            constexpr Register::FieldValue<decltype(bpglcd45),Bpglcd45Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd45),Bpglcd45Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd45Val> bpglcd45{}; 
         ///no description available
-        enum class bphlcd45Val {
+        enum class Bphlcd45Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd45ValC{
-            constexpr MPL::Value<bphlcd45Val,bphlcd45Val::v0> v0{};
-            constexpr MPL::Value<bphlcd45Val,bphlcd45Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd45Val> bphlcd45{}; 
+        namespace Bphlcd45ValC{
+            constexpr Register::FieldValue<decltype(bphlcd45),Bphlcd45Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd45),Bphlcd45Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd45Val> bphlcd45{}; 
     }
     namespace LcdWf46{    ///<LCD Waveform Register 46.
         using Addr = Register::Address<0x4005304e,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd46Val {
+        enum class Bpalcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd46ValC{
-            constexpr MPL::Value<bpalcd46Val,bpalcd46Val::v0> v0{};
-            constexpr MPL::Value<bpalcd46Val,bpalcd46Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd46Val> bpalcd46{}; 
+        namespace Bpalcd46ValC{
+            constexpr Register::FieldValue<decltype(bpalcd46),Bpalcd46Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd46),Bpalcd46Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd46Val> bpalcd46{}; 
         ///no description available
-        enum class bpblcd46Val {
+        enum class Bpblcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd46ValC{
-            constexpr MPL::Value<bpblcd46Val,bpblcd46Val::v0> v0{};
-            constexpr MPL::Value<bpblcd46Val,bpblcd46Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd46Val> bpblcd46{}; 
+        namespace Bpblcd46ValC{
+            constexpr Register::FieldValue<decltype(bpblcd46),Bpblcd46Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd46),Bpblcd46Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd46Val> bpblcd46{}; 
         ///no description available
-        enum class bpclcd46Val {
+        enum class Bpclcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd46ValC{
-            constexpr MPL::Value<bpclcd46Val,bpclcd46Val::v0> v0{};
-            constexpr MPL::Value<bpclcd46Val,bpclcd46Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd46Val> bpclcd46{}; 
+        namespace Bpclcd46ValC{
+            constexpr Register::FieldValue<decltype(bpclcd46),Bpclcd46Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd46),Bpclcd46Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd46Val> bpclcd46{}; 
         ///no description available
-        enum class bpdlcd46Val {
+        enum class Bpdlcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd46ValC{
-            constexpr MPL::Value<bpdlcd46Val,bpdlcd46Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd46Val,bpdlcd46Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd46Val> bpdlcd46{}; 
+        namespace Bpdlcd46ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd46),Bpdlcd46Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd46),Bpdlcd46Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd46Val> bpdlcd46{}; 
         ///no description available
-        enum class bpelcd46Val {
+        enum class Bpelcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd46ValC{
-            constexpr MPL::Value<bpelcd46Val,bpelcd46Val::v0> v0{};
-            constexpr MPL::Value<bpelcd46Val,bpelcd46Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd46Val> bpelcd46{}; 
+        namespace Bpelcd46ValC{
+            constexpr Register::FieldValue<decltype(bpelcd46),Bpelcd46Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd46),Bpelcd46Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd46Val> bpelcd46{}; 
         ///no description available
-        enum class bpflcd46Val {
+        enum class Bpflcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd46ValC{
-            constexpr MPL::Value<bpflcd46Val,bpflcd46Val::v0> v0{};
-            constexpr MPL::Value<bpflcd46Val,bpflcd46Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd46Val> bpflcd46{}; 
+        namespace Bpflcd46ValC{
+            constexpr Register::FieldValue<decltype(bpflcd46),Bpflcd46Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd46),Bpflcd46Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd46Val> bpflcd46{}; 
         ///no description available
-        enum class bpglcd46Val {
+        enum class Bpglcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd46ValC{
-            constexpr MPL::Value<bpglcd46Val,bpglcd46Val::v0> v0{};
-            constexpr MPL::Value<bpglcd46Val,bpglcd46Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd46Val> bpglcd46{}; 
+        namespace Bpglcd46ValC{
+            constexpr Register::FieldValue<decltype(bpglcd46),Bpglcd46Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd46),Bpglcd46Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd46Val> bpglcd46{}; 
         ///no description available
-        enum class bphlcd46Val {
+        enum class Bphlcd46Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd46ValC{
-            constexpr MPL::Value<bphlcd46Val,bphlcd46Val::v0> v0{};
-            constexpr MPL::Value<bphlcd46Val,bphlcd46Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd46Val> bphlcd46{}; 
+        namespace Bphlcd46ValC{
+            constexpr Register::FieldValue<decltype(bphlcd46),Bphlcd46Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd46),Bphlcd46Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd46Val> bphlcd46{}; 
     }
     namespace LcdWf47{    ///<LCD Waveform Register 47.
         using Addr = Register::Address<0x4005304f,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd47Val {
+        enum class Bpalcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd47ValC{
-            constexpr MPL::Value<bpalcd47Val,bpalcd47Val::v0> v0{};
-            constexpr MPL::Value<bpalcd47Val,bpalcd47Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd47Val> bpalcd47{}; 
+        namespace Bpalcd47ValC{
+            constexpr Register::FieldValue<decltype(bpalcd47),Bpalcd47Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd47),Bpalcd47Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd47Val> bpalcd47{}; 
         ///no description available
-        enum class bpblcd47Val {
+        enum class Bpblcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd47ValC{
-            constexpr MPL::Value<bpblcd47Val,bpblcd47Val::v0> v0{};
-            constexpr MPL::Value<bpblcd47Val,bpblcd47Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd47Val> bpblcd47{}; 
+        namespace Bpblcd47ValC{
+            constexpr Register::FieldValue<decltype(bpblcd47),Bpblcd47Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd47),Bpblcd47Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd47Val> bpblcd47{}; 
         ///no description available
-        enum class bpclcd47Val {
+        enum class Bpclcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd47ValC{
-            constexpr MPL::Value<bpclcd47Val,bpclcd47Val::v0> v0{};
-            constexpr MPL::Value<bpclcd47Val,bpclcd47Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd47Val> bpclcd47{}; 
+        namespace Bpclcd47ValC{
+            constexpr Register::FieldValue<decltype(bpclcd47),Bpclcd47Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd47),Bpclcd47Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd47Val> bpclcd47{}; 
         ///no description available
-        enum class bpdlcd47Val {
+        enum class Bpdlcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd47ValC{
-            constexpr MPL::Value<bpdlcd47Val,bpdlcd47Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd47Val,bpdlcd47Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd47Val> bpdlcd47{}; 
+        namespace Bpdlcd47ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd47),Bpdlcd47Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd47),Bpdlcd47Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd47Val> bpdlcd47{}; 
         ///no description available
-        enum class bpelcd47Val {
+        enum class Bpelcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd47ValC{
-            constexpr MPL::Value<bpelcd47Val,bpelcd47Val::v0> v0{};
-            constexpr MPL::Value<bpelcd47Val,bpelcd47Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd47Val> bpelcd47{}; 
+        namespace Bpelcd47ValC{
+            constexpr Register::FieldValue<decltype(bpelcd47),Bpelcd47Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd47),Bpelcd47Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd47Val> bpelcd47{}; 
         ///no description available
-        enum class bpflcd47Val {
+        enum class Bpflcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd47ValC{
-            constexpr MPL::Value<bpflcd47Val,bpflcd47Val::v0> v0{};
-            constexpr MPL::Value<bpflcd47Val,bpflcd47Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd47Val> bpflcd47{}; 
+        namespace Bpflcd47ValC{
+            constexpr Register::FieldValue<decltype(bpflcd47),Bpflcd47Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd47),Bpflcd47Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd47Val> bpflcd47{}; 
         ///no description available
-        enum class bpglcd47Val {
+        enum class Bpglcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd47ValC{
-            constexpr MPL::Value<bpglcd47Val,bpglcd47Val::v0> v0{};
-            constexpr MPL::Value<bpglcd47Val,bpglcd47Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd47Val> bpglcd47{}; 
+        namespace Bpglcd47ValC{
+            constexpr Register::FieldValue<decltype(bpglcd47),Bpglcd47Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd47),Bpglcd47Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd47Val> bpglcd47{}; 
         ///no description available
-        enum class bphlcd47Val {
+        enum class Bphlcd47Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd47ValC{
-            constexpr MPL::Value<bphlcd47Val,bphlcd47Val::v0> v0{};
-            constexpr MPL::Value<bphlcd47Val,bphlcd47Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd47Val> bphlcd47{}; 
+        namespace Bphlcd47ValC{
+            constexpr Register::FieldValue<decltype(bphlcd47),Bphlcd47Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd47),Bphlcd47Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd47Val> bphlcd47{}; 
     }
     namespace LcdWf51to48{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053050,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf48{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf48{}; 
+        namespace Wf48ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf49{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf49{}; 
+        namespace Wf49ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf50{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf50{}; 
+        namespace Wf50ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf51{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf51{}; 
+        namespace Wf51ValC{
+        }
     }
     namespace LcdWf48{    ///<LCD Waveform Register 48.
         using Addr = Register::Address<0x40053050,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd48Val {
+        enum class Bpalcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd48ValC{
-            constexpr MPL::Value<bpalcd48Val,bpalcd48Val::v0> v0{};
-            constexpr MPL::Value<bpalcd48Val,bpalcd48Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd48Val> bpalcd48{}; 
+        namespace Bpalcd48ValC{
+            constexpr Register::FieldValue<decltype(bpalcd48),Bpalcd48Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd48),Bpalcd48Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd48Val> bpalcd48{}; 
         ///no description available
-        enum class bpblcd48Val {
+        enum class Bpblcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd48ValC{
-            constexpr MPL::Value<bpblcd48Val,bpblcd48Val::v0> v0{};
-            constexpr MPL::Value<bpblcd48Val,bpblcd48Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd48Val> bpblcd48{}; 
+        namespace Bpblcd48ValC{
+            constexpr Register::FieldValue<decltype(bpblcd48),Bpblcd48Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd48),Bpblcd48Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd48Val> bpblcd48{}; 
         ///no description available
-        enum class bpclcd48Val {
+        enum class Bpclcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd48ValC{
-            constexpr MPL::Value<bpclcd48Val,bpclcd48Val::v0> v0{};
-            constexpr MPL::Value<bpclcd48Val,bpclcd48Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd48Val> bpclcd48{}; 
+        namespace Bpclcd48ValC{
+            constexpr Register::FieldValue<decltype(bpclcd48),Bpclcd48Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd48),Bpclcd48Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd48Val> bpclcd48{}; 
         ///no description available
-        enum class bpdlcd48Val {
+        enum class Bpdlcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd48ValC{
-            constexpr MPL::Value<bpdlcd48Val,bpdlcd48Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd48Val,bpdlcd48Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd48Val> bpdlcd48{}; 
+        namespace Bpdlcd48ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd48),Bpdlcd48Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd48),Bpdlcd48Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd48Val> bpdlcd48{}; 
         ///no description available
-        enum class bpelcd48Val {
+        enum class Bpelcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd48ValC{
-            constexpr MPL::Value<bpelcd48Val,bpelcd48Val::v0> v0{};
-            constexpr MPL::Value<bpelcd48Val,bpelcd48Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd48Val> bpelcd48{}; 
+        namespace Bpelcd48ValC{
+            constexpr Register::FieldValue<decltype(bpelcd48),Bpelcd48Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd48),Bpelcd48Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd48Val> bpelcd48{}; 
         ///no description available
-        enum class bpflcd48Val {
+        enum class Bpflcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd48ValC{
-            constexpr MPL::Value<bpflcd48Val,bpflcd48Val::v0> v0{};
-            constexpr MPL::Value<bpflcd48Val,bpflcd48Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd48Val> bpflcd48{}; 
+        namespace Bpflcd48ValC{
+            constexpr Register::FieldValue<decltype(bpflcd48),Bpflcd48Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd48),Bpflcd48Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd48Val> bpflcd48{}; 
         ///no description available
-        enum class bpglcd48Val {
+        enum class Bpglcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd48ValC{
-            constexpr MPL::Value<bpglcd48Val,bpglcd48Val::v0> v0{};
-            constexpr MPL::Value<bpglcd48Val,bpglcd48Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd48Val> bpglcd48{}; 
+        namespace Bpglcd48ValC{
+            constexpr Register::FieldValue<decltype(bpglcd48),Bpglcd48Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd48),Bpglcd48Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd48Val> bpglcd48{}; 
         ///no description available
-        enum class bphlcd48Val {
+        enum class Bphlcd48Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd48ValC{
-            constexpr MPL::Value<bphlcd48Val,bphlcd48Val::v0> v0{};
-            constexpr MPL::Value<bphlcd48Val,bphlcd48Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd48Val> bphlcd48{}; 
+        namespace Bphlcd48ValC{
+            constexpr Register::FieldValue<decltype(bphlcd48),Bphlcd48Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd48),Bphlcd48Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd48Val> bphlcd48{}; 
     }
     namespace LcdWf49{    ///<LCD Waveform Register 49.
         using Addr = Register::Address<0x40053051,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd49Val {
+        enum class Bpalcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd49ValC{
-            constexpr MPL::Value<bpalcd49Val,bpalcd49Val::v0> v0{};
-            constexpr MPL::Value<bpalcd49Val,bpalcd49Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd49Val> bpalcd49{}; 
+        namespace Bpalcd49ValC{
+            constexpr Register::FieldValue<decltype(bpalcd49),Bpalcd49Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd49),Bpalcd49Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd49Val> bpalcd49{}; 
         ///no description available
-        enum class bpblcd49Val {
+        enum class Bpblcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd49ValC{
-            constexpr MPL::Value<bpblcd49Val,bpblcd49Val::v0> v0{};
-            constexpr MPL::Value<bpblcd49Val,bpblcd49Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd49Val> bpblcd49{}; 
+        namespace Bpblcd49ValC{
+            constexpr Register::FieldValue<decltype(bpblcd49),Bpblcd49Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd49),Bpblcd49Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd49Val> bpblcd49{}; 
         ///no description available
-        enum class bpclcd49Val {
+        enum class Bpclcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd49ValC{
-            constexpr MPL::Value<bpclcd49Val,bpclcd49Val::v0> v0{};
-            constexpr MPL::Value<bpclcd49Val,bpclcd49Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd49Val> bpclcd49{}; 
+        namespace Bpclcd49ValC{
+            constexpr Register::FieldValue<decltype(bpclcd49),Bpclcd49Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd49),Bpclcd49Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd49Val> bpclcd49{}; 
         ///no description available
-        enum class bpdlcd49Val {
+        enum class Bpdlcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd49ValC{
-            constexpr MPL::Value<bpdlcd49Val,bpdlcd49Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd49Val,bpdlcd49Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd49Val> bpdlcd49{}; 
+        namespace Bpdlcd49ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd49),Bpdlcd49Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd49),Bpdlcd49Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd49Val> bpdlcd49{}; 
         ///no description available
-        enum class bpelcd49Val {
+        enum class Bpelcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd49ValC{
-            constexpr MPL::Value<bpelcd49Val,bpelcd49Val::v0> v0{};
-            constexpr MPL::Value<bpelcd49Val,bpelcd49Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd49Val> bpelcd49{}; 
+        namespace Bpelcd49ValC{
+            constexpr Register::FieldValue<decltype(bpelcd49),Bpelcd49Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd49),Bpelcd49Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd49Val> bpelcd49{}; 
         ///no description available
-        enum class bpflcd49Val {
+        enum class Bpflcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd49ValC{
-            constexpr MPL::Value<bpflcd49Val,bpflcd49Val::v0> v0{};
-            constexpr MPL::Value<bpflcd49Val,bpflcd49Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd49Val> bpflcd49{}; 
+        namespace Bpflcd49ValC{
+            constexpr Register::FieldValue<decltype(bpflcd49),Bpflcd49Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd49),Bpflcd49Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd49Val> bpflcd49{}; 
         ///no description available
-        enum class bpglcd49Val {
+        enum class Bpglcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd49ValC{
-            constexpr MPL::Value<bpglcd49Val,bpglcd49Val::v0> v0{};
-            constexpr MPL::Value<bpglcd49Val,bpglcd49Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd49Val> bpglcd49{}; 
+        namespace Bpglcd49ValC{
+            constexpr Register::FieldValue<decltype(bpglcd49),Bpglcd49Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd49),Bpglcd49Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd49Val> bpglcd49{}; 
         ///no description available
-        enum class bphlcd49Val {
+        enum class Bphlcd49Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd49ValC{
-            constexpr MPL::Value<bphlcd49Val,bphlcd49Val::v0> v0{};
-            constexpr MPL::Value<bphlcd49Val,bphlcd49Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd49Val> bphlcd49{}; 
+        namespace Bphlcd49ValC{
+            constexpr Register::FieldValue<decltype(bphlcd49),Bphlcd49Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd49),Bphlcd49Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd49Val> bphlcd49{}; 
     }
     namespace LcdWf50{    ///<LCD Waveform Register 50.
         using Addr = Register::Address<0x40053052,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd50Val {
+        enum class Bpalcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd50ValC{
-            constexpr MPL::Value<bpalcd50Val,bpalcd50Val::v0> v0{};
-            constexpr MPL::Value<bpalcd50Val,bpalcd50Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd50Val> bpalcd50{}; 
+        namespace Bpalcd50ValC{
+            constexpr Register::FieldValue<decltype(bpalcd50),Bpalcd50Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd50),Bpalcd50Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd50Val> bpalcd50{}; 
         ///no description available
-        enum class bpblcd50Val {
+        enum class Bpblcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd50ValC{
-            constexpr MPL::Value<bpblcd50Val,bpblcd50Val::v0> v0{};
-            constexpr MPL::Value<bpblcd50Val,bpblcd50Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd50Val> bpblcd50{}; 
+        namespace Bpblcd50ValC{
+            constexpr Register::FieldValue<decltype(bpblcd50),Bpblcd50Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd50),Bpblcd50Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd50Val> bpblcd50{}; 
         ///no description available
-        enum class bpclcd50Val {
+        enum class Bpclcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd50ValC{
-            constexpr MPL::Value<bpclcd50Val,bpclcd50Val::v0> v0{};
-            constexpr MPL::Value<bpclcd50Val,bpclcd50Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd50Val> bpclcd50{}; 
+        namespace Bpclcd50ValC{
+            constexpr Register::FieldValue<decltype(bpclcd50),Bpclcd50Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd50),Bpclcd50Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd50Val> bpclcd50{}; 
         ///no description available
-        enum class bpdlcd50Val {
+        enum class Bpdlcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd50ValC{
-            constexpr MPL::Value<bpdlcd50Val,bpdlcd50Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd50Val,bpdlcd50Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd50Val> bpdlcd50{}; 
+        namespace Bpdlcd50ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd50),Bpdlcd50Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd50),Bpdlcd50Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd50Val> bpdlcd50{}; 
         ///no description available
-        enum class bpelcd50Val {
+        enum class Bpelcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd50ValC{
-            constexpr MPL::Value<bpelcd50Val,bpelcd50Val::v0> v0{};
-            constexpr MPL::Value<bpelcd50Val,bpelcd50Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd50Val> bpelcd50{}; 
+        namespace Bpelcd50ValC{
+            constexpr Register::FieldValue<decltype(bpelcd50),Bpelcd50Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd50),Bpelcd50Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd50Val> bpelcd50{}; 
         ///no description available
-        enum class bpflcd50Val {
+        enum class Bpflcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd50ValC{
-            constexpr MPL::Value<bpflcd50Val,bpflcd50Val::v0> v0{};
-            constexpr MPL::Value<bpflcd50Val,bpflcd50Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd50Val> bpflcd50{}; 
+        namespace Bpflcd50ValC{
+            constexpr Register::FieldValue<decltype(bpflcd50),Bpflcd50Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd50),Bpflcd50Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd50Val> bpflcd50{}; 
         ///no description available
-        enum class bpglcd50Val {
+        enum class Bpglcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd50ValC{
-            constexpr MPL::Value<bpglcd50Val,bpglcd50Val::v0> v0{};
-            constexpr MPL::Value<bpglcd50Val,bpglcd50Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd50Val> bpglcd50{}; 
+        namespace Bpglcd50ValC{
+            constexpr Register::FieldValue<decltype(bpglcd50),Bpglcd50Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd50),Bpglcd50Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd50Val> bpglcd50{}; 
         ///no description available
-        enum class bphlcd50Val {
+        enum class Bphlcd50Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd50ValC{
-            constexpr MPL::Value<bphlcd50Val,bphlcd50Val::v0> v0{};
-            constexpr MPL::Value<bphlcd50Val,bphlcd50Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd50Val> bphlcd50{}; 
+        namespace Bphlcd50ValC{
+            constexpr Register::FieldValue<decltype(bphlcd50),Bphlcd50Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd50),Bphlcd50Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd50Val> bphlcd50{}; 
     }
     namespace LcdWf51{    ///<LCD Waveform Register 51.
         using Addr = Register::Address<0x40053053,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd51Val {
+        enum class Bpalcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd51ValC{
-            constexpr MPL::Value<bpalcd51Val,bpalcd51Val::v0> v0{};
-            constexpr MPL::Value<bpalcd51Val,bpalcd51Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd51Val> bpalcd51{}; 
+        namespace Bpalcd51ValC{
+            constexpr Register::FieldValue<decltype(bpalcd51),Bpalcd51Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd51),Bpalcd51Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd51Val> bpalcd51{}; 
         ///no description available
-        enum class bpblcd51Val {
+        enum class Bpblcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd51ValC{
-            constexpr MPL::Value<bpblcd51Val,bpblcd51Val::v0> v0{};
-            constexpr MPL::Value<bpblcd51Val,bpblcd51Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd51Val> bpblcd51{}; 
+        namespace Bpblcd51ValC{
+            constexpr Register::FieldValue<decltype(bpblcd51),Bpblcd51Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd51),Bpblcd51Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd51Val> bpblcd51{}; 
         ///no description available
-        enum class bpclcd51Val {
+        enum class Bpclcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd51ValC{
-            constexpr MPL::Value<bpclcd51Val,bpclcd51Val::v0> v0{};
-            constexpr MPL::Value<bpclcd51Val,bpclcd51Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd51Val> bpclcd51{}; 
+        namespace Bpclcd51ValC{
+            constexpr Register::FieldValue<decltype(bpclcd51),Bpclcd51Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd51),Bpclcd51Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd51Val> bpclcd51{}; 
         ///no description available
-        enum class bpdlcd51Val {
+        enum class Bpdlcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd51ValC{
-            constexpr MPL::Value<bpdlcd51Val,bpdlcd51Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd51Val,bpdlcd51Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd51Val> bpdlcd51{}; 
+        namespace Bpdlcd51ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd51),Bpdlcd51Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd51),Bpdlcd51Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd51Val> bpdlcd51{}; 
         ///no description available
-        enum class bpelcd51Val {
+        enum class Bpelcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd51ValC{
-            constexpr MPL::Value<bpelcd51Val,bpelcd51Val::v0> v0{};
-            constexpr MPL::Value<bpelcd51Val,bpelcd51Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd51Val> bpelcd51{}; 
+        namespace Bpelcd51ValC{
+            constexpr Register::FieldValue<decltype(bpelcd51),Bpelcd51Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd51),Bpelcd51Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd51Val> bpelcd51{}; 
         ///no description available
-        enum class bpflcd51Val {
+        enum class Bpflcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd51ValC{
-            constexpr MPL::Value<bpflcd51Val,bpflcd51Val::v0> v0{};
-            constexpr MPL::Value<bpflcd51Val,bpflcd51Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd51Val> bpflcd51{}; 
+        namespace Bpflcd51ValC{
+            constexpr Register::FieldValue<decltype(bpflcd51),Bpflcd51Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd51),Bpflcd51Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd51Val> bpflcd51{}; 
         ///no description available
-        enum class bpglcd51Val {
+        enum class Bpglcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd51ValC{
-            constexpr MPL::Value<bpglcd51Val,bpglcd51Val::v0> v0{};
-            constexpr MPL::Value<bpglcd51Val,bpglcd51Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd51Val> bpglcd51{}; 
+        namespace Bpglcd51ValC{
+            constexpr Register::FieldValue<decltype(bpglcd51),Bpglcd51Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd51),Bpglcd51Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd51Val> bpglcd51{}; 
         ///no description available
-        enum class bphlcd51Val {
+        enum class Bphlcd51Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd51ValC{
-            constexpr MPL::Value<bphlcd51Val,bphlcd51Val::v0> v0{};
-            constexpr MPL::Value<bphlcd51Val,bphlcd51Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd51Val> bphlcd51{}; 
+        namespace Bphlcd51ValC{
+            constexpr Register::FieldValue<decltype(bphlcd51),Bphlcd51Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd51),Bphlcd51Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd51Val> bphlcd51{}; 
     }
     namespace LcdWf55to52{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053054,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf52{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf52{}; 
+        namespace Wf52ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf53{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf53{}; 
+        namespace Wf53ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf54{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf54{}; 
+        namespace Wf54ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf55{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf55{}; 
+        namespace Wf55ValC{
+        }
     }
     namespace LcdWf52{    ///<LCD Waveform Register 52.
         using Addr = Register::Address<0x40053054,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd52Val {
+        enum class Bpalcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd52ValC{
-            constexpr MPL::Value<bpalcd52Val,bpalcd52Val::v0> v0{};
-            constexpr MPL::Value<bpalcd52Val,bpalcd52Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd52Val> bpalcd52{}; 
+        namespace Bpalcd52ValC{
+            constexpr Register::FieldValue<decltype(bpalcd52),Bpalcd52Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd52),Bpalcd52Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd52Val> bpalcd52{}; 
         ///no description available
-        enum class bpblcd52Val {
+        enum class Bpblcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd52ValC{
-            constexpr MPL::Value<bpblcd52Val,bpblcd52Val::v0> v0{};
-            constexpr MPL::Value<bpblcd52Val,bpblcd52Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd52Val> bpblcd52{}; 
+        namespace Bpblcd52ValC{
+            constexpr Register::FieldValue<decltype(bpblcd52),Bpblcd52Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd52),Bpblcd52Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd52Val> bpblcd52{}; 
         ///no description available
-        enum class bpclcd52Val {
+        enum class Bpclcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd52ValC{
-            constexpr MPL::Value<bpclcd52Val,bpclcd52Val::v0> v0{};
-            constexpr MPL::Value<bpclcd52Val,bpclcd52Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd52Val> bpclcd52{}; 
+        namespace Bpclcd52ValC{
+            constexpr Register::FieldValue<decltype(bpclcd52),Bpclcd52Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd52),Bpclcd52Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd52Val> bpclcd52{}; 
         ///no description available
-        enum class bpdlcd52Val {
+        enum class Bpdlcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd52ValC{
-            constexpr MPL::Value<bpdlcd52Val,bpdlcd52Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd52Val,bpdlcd52Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd52Val> bpdlcd52{}; 
+        namespace Bpdlcd52ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd52),Bpdlcd52Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd52),Bpdlcd52Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd52Val> bpdlcd52{}; 
         ///no description available
-        enum class bpelcd52Val {
+        enum class Bpelcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd52ValC{
-            constexpr MPL::Value<bpelcd52Val,bpelcd52Val::v0> v0{};
-            constexpr MPL::Value<bpelcd52Val,bpelcd52Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd52Val> bpelcd52{}; 
+        namespace Bpelcd52ValC{
+            constexpr Register::FieldValue<decltype(bpelcd52),Bpelcd52Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd52),Bpelcd52Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd52Val> bpelcd52{}; 
         ///no description available
-        enum class bpflcd52Val {
+        enum class Bpflcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd52ValC{
-            constexpr MPL::Value<bpflcd52Val,bpflcd52Val::v0> v0{};
-            constexpr MPL::Value<bpflcd52Val,bpflcd52Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd52Val> bpflcd52{}; 
+        namespace Bpflcd52ValC{
+            constexpr Register::FieldValue<decltype(bpflcd52),Bpflcd52Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd52),Bpflcd52Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd52Val> bpflcd52{}; 
         ///no description available
-        enum class bpglcd52Val {
+        enum class Bpglcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd52ValC{
-            constexpr MPL::Value<bpglcd52Val,bpglcd52Val::v0> v0{};
-            constexpr MPL::Value<bpglcd52Val,bpglcd52Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd52Val> bpglcd52{}; 
+        namespace Bpglcd52ValC{
+            constexpr Register::FieldValue<decltype(bpglcd52),Bpglcd52Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd52),Bpglcd52Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd52Val> bpglcd52{}; 
         ///no description available
-        enum class bphlcd52Val {
+        enum class Bphlcd52Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd52ValC{
-            constexpr MPL::Value<bphlcd52Val,bphlcd52Val::v0> v0{};
-            constexpr MPL::Value<bphlcd52Val,bphlcd52Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd52Val> bphlcd52{}; 
+        namespace Bphlcd52ValC{
+            constexpr Register::FieldValue<decltype(bphlcd52),Bphlcd52Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd52),Bphlcd52Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd52Val> bphlcd52{}; 
     }
     namespace LcdWf53{    ///<LCD Waveform Register 53.
         using Addr = Register::Address<0x40053055,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd53Val {
+        enum class Bpalcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd53ValC{
-            constexpr MPL::Value<bpalcd53Val,bpalcd53Val::v0> v0{};
-            constexpr MPL::Value<bpalcd53Val,bpalcd53Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd53Val> bpalcd53{}; 
+        namespace Bpalcd53ValC{
+            constexpr Register::FieldValue<decltype(bpalcd53),Bpalcd53Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd53),Bpalcd53Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd53Val> bpalcd53{}; 
         ///no description available
-        enum class bpblcd53Val {
+        enum class Bpblcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd53ValC{
-            constexpr MPL::Value<bpblcd53Val,bpblcd53Val::v0> v0{};
-            constexpr MPL::Value<bpblcd53Val,bpblcd53Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd53Val> bpblcd53{}; 
+        namespace Bpblcd53ValC{
+            constexpr Register::FieldValue<decltype(bpblcd53),Bpblcd53Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd53),Bpblcd53Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd53Val> bpblcd53{}; 
         ///no description available
-        enum class bpclcd53Val {
+        enum class Bpclcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd53ValC{
-            constexpr MPL::Value<bpclcd53Val,bpclcd53Val::v0> v0{};
-            constexpr MPL::Value<bpclcd53Val,bpclcd53Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd53Val> bpclcd53{}; 
+        namespace Bpclcd53ValC{
+            constexpr Register::FieldValue<decltype(bpclcd53),Bpclcd53Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd53),Bpclcd53Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd53Val> bpclcd53{}; 
         ///no description available
-        enum class bpdlcd53Val {
+        enum class Bpdlcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd53ValC{
-            constexpr MPL::Value<bpdlcd53Val,bpdlcd53Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd53Val,bpdlcd53Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd53Val> bpdlcd53{}; 
+        namespace Bpdlcd53ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd53),Bpdlcd53Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd53),Bpdlcd53Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd53Val> bpdlcd53{}; 
         ///no description available
-        enum class bpelcd53Val {
+        enum class Bpelcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd53ValC{
-            constexpr MPL::Value<bpelcd53Val,bpelcd53Val::v0> v0{};
-            constexpr MPL::Value<bpelcd53Val,bpelcd53Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd53Val> bpelcd53{}; 
+        namespace Bpelcd53ValC{
+            constexpr Register::FieldValue<decltype(bpelcd53),Bpelcd53Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd53),Bpelcd53Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd53Val> bpelcd53{}; 
         ///no description available
-        enum class bpflcd53Val {
+        enum class Bpflcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd53ValC{
-            constexpr MPL::Value<bpflcd53Val,bpflcd53Val::v0> v0{};
-            constexpr MPL::Value<bpflcd53Val,bpflcd53Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd53Val> bpflcd53{}; 
+        namespace Bpflcd53ValC{
+            constexpr Register::FieldValue<decltype(bpflcd53),Bpflcd53Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd53),Bpflcd53Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd53Val> bpflcd53{}; 
         ///no description available
-        enum class bpglcd53Val {
+        enum class Bpglcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd53ValC{
-            constexpr MPL::Value<bpglcd53Val,bpglcd53Val::v0> v0{};
-            constexpr MPL::Value<bpglcd53Val,bpglcd53Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd53Val> bpglcd53{}; 
+        namespace Bpglcd53ValC{
+            constexpr Register::FieldValue<decltype(bpglcd53),Bpglcd53Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd53),Bpglcd53Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd53Val> bpglcd53{}; 
         ///no description available
-        enum class bphlcd53Val {
+        enum class Bphlcd53Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd53ValC{
-            constexpr MPL::Value<bphlcd53Val,bphlcd53Val::v0> v0{};
-            constexpr MPL::Value<bphlcd53Val,bphlcd53Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd53Val> bphlcd53{}; 
+        namespace Bphlcd53ValC{
+            constexpr Register::FieldValue<decltype(bphlcd53),Bphlcd53Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd53),Bphlcd53Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd53Val> bphlcd53{}; 
     }
     namespace LcdWf54{    ///<LCD Waveform Register 54.
         using Addr = Register::Address<0x40053056,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd54Val {
+        enum class Bpalcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd54ValC{
-            constexpr MPL::Value<bpalcd54Val,bpalcd54Val::v0> v0{};
-            constexpr MPL::Value<bpalcd54Val,bpalcd54Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd54Val> bpalcd54{}; 
+        namespace Bpalcd54ValC{
+            constexpr Register::FieldValue<decltype(bpalcd54),Bpalcd54Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd54),Bpalcd54Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd54Val> bpalcd54{}; 
         ///no description available
-        enum class bpblcd54Val {
+        enum class Bpblcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd54ValC{
-            constexpr MPL::Value<bpblcd54Val,bpblcd54Val::v0> v0{};
-            constexpr MPL::Value<bpblcd54Val,bpblcd54Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd54Val> bpblcd54{}; 
+        namespace Bpblcd54ValC{
+            constexpr Register::FieldValue<decltype(bpblcd54),Bpblcd54Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd54),Bpblcd54Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd54Val> bpblcd54{}; 
         ///no description available
-        enum class bpclcd54Val {
+        enum class Bpclcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd54ValC{
-            constexpr MPL::Value<bpclcd54Val,bpclcd54Val::v0> v0{};
-            constexpr MPL::Value<bpclcd54Val,bpclcd54Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd54Val> bpclcd54{}; 
+        namespace Bpclcd54ValC{
+            constexpr Register::FieldValue<decltype(bpclcd54),Bpclcd54Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd54),Bpclcd54Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd54Val> bpclcd54{}; 
         ///no description available
-        enum class bpdlcd54Val {
+        enum class Bpdlcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd54ValC{
-            constexpr MPL::Value<bpdlcd54Val,bpdlcd54Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd54Val,bpdlcd54Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd54Val> bpdlcd54{}; 
+        namespace Bpdlcd54ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd54),Bpdlcd54Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd54),Bpdlcd54Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd54Val> bpdlcd54{}; 
         ///no description available
-        enum class bpelcd54Val {
+        enum class Bpelcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd54ValC{
-            constexpr MPL::Value<bpelcd54Val,bpelcd54Val::v0> v0{};
-            constexpr MPL::Value<bpelcd54Val,bpelcd54Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd54Val> bpelcd54{}; 
+        namespace Bpelcd54ValC{
+            constexpr Register::FieldValue<decltype(bpelcd54),Bpelcd54Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd54),Bpelcd54Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd54Val> bpelcd54{}; 
         ///no description available
-        enum class bpflcd54Val {
+        enum class Bpflcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd54ValC{
-            constexpr MPL::Value<bpflcd54Val,bpflcd54Val::v0> v0{};
-            constexpr MPL::Value<bpflcd54Val,bpflcd54Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd54Val> bpflcd54{}; 
+        namespace Bpflcd54ValC{
+            constexpr Register::FieldValue<decltype(bpflcd54),Bpflcd54Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd54),Bpflcd54Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd54Val> bpflcd54{}; 
         ///no description available
-        enum class bpglcd54Val {
+        enum class Bpglcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd54ValC{
-            constexpr MPL::Value<bpglcd54Val,bpglcd54Val::v0> v0{};
-            constexpr MPL::Value<bpglcd54Val,bpglcd54Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd54Val> bpglcd54{}; 
+        namespace Bpglcd54ValC{
+            constexpr Register::FieldValue<decltype(bpglcd54),Bpglcd54Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd54),Bpglcd54Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd54Val> bpglcd54{}; 
         ///no description available
-        enum class bphlcd54Val {
+        enum class Bphlcd54Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd54ValC{
-            constexpr MPL::Value<bphlcd54Val,bphlcd54Val::v0> v0{};
-            constexpr MPL::Value<bphlcd54Val,bphlcd54Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd54Val> bphlcd54{}; 
+        namespace Bphlcd54ValC{
+            constexpr Register::FieldValue<decltype(bphlcd54),Bphlcd54Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd54),Bphlcd54Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd54Val> bphlcd54{}; 
     }
     namespace LcdWf55{    ///<LCD Waveform Register 55.
         using Addr = Register::Address<0x40053057,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd55Val {
+        enum class Bpalcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd55ValC{
-            constexpr MPL::Value<bpalcd55Val,bpalcd55Val::v0> v0{};
-            constexpr MPL::Value<bpalcd55Val,bpalcd55Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd55Val> bpalcd55{}; 
+        namespace Bpalcd55ValC{
+            constexpr Register::FieldValue<decltype(bpalcd55),Bpalcd55Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd55),Bpalcd55Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd55Val> bpalcd55{}; 
         ///no description available
-        enum class bpblcd55Val {
+        enum class Bpblcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd55ValC{
-            constexpr MPL::Value<bpblcd55Val,bpblcd55Val::v0> v0{};
-            constexpr MPL::Value<bpblcd55Val,bpblcd55Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd55Val> bpblcd55{}; 
+        namespace Bpblcd55ValC{
+            constexpr Register::FieldValue<decltype(bpblcd55),Bpblcd55Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd55),Bpblcd55Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd55Val> bpblcd55{}; 
         ///no description available
-        enum class bpclcd55Val {
+        enum class Bpclcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd55ValC{
-            constexpr MPL::Value<bpclcd55Val,bpclcd55Val::v0> v0{};
-            constexpr MPL::Value<bpclcd55Val,bpclcd55Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd55Val> bpclcd55{}; 
+        namespace Bpclcd55ValC{
+            constexpr Register::FieldValue<decltype(bpclcd55),Bpclcd55Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd55),Bpclcd55Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd55Val> bpclcd55{}; 
         ///no description available
-        enum class bpdlcd55Val {
+        enum class Bpdlcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd55ValC{
-            constexpr MPL::Value<bpdlcd55Val,bpdlcd55Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd55Val,bpdlcd55Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd55Val> bpdlcd55{}; 
+        namespace Bpdlcd55ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd55),Bpdlcd55Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd55),Bpdlcd55Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd55Val> bpdlcd55{}; 
         ///no description available
-        enum class bpelcd55Val {
+        enum class Bpelcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd55ValC{
-            constexpr MPL::Value<bpelcd55Val,bpelcd55Val::v0> v0{};
-            constexpr MPL::Value<bpelcd55Val,bpelcd55Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd55Val> bpelcd55{}; 
+        namespace Bpelcd55ValC{
+            constexpr Register::FieldValue<decltype(bpelcd55),Bpelcd55Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd55),Bpelcd55Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd55Val> bpelcd55{}; 
         ///no description available
-        enum class bpflcd55Val {
+        enum class Bpflcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd55ValC{
-            constexpr MPL::Value<bpflcd55Val,bpflcd55Val::v0> v0{};
-            constexpr MPL::Value<bpflcd55Val,bpflcd55Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd55Val> bpflcd55{}; 
+        namespace Bpflcd55ValC{
+            constexpr Register::FieldValue<decltype(bpflcd55),Bpflcd55Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd55),Bpflcd55Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd55Val> bpflcd55{}; 
         ///no description available
-        enum class bpglcd55Val {
+        enum class Bpglcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd55ValC{
-            constexpr MPL::Value<bpglcd55Val,bpglcd55Val::v0> v0{};
-            constexpr MPL::Value<bpglcd55Val,bpglcd55Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd55Val> bpglcd55{}; 
+        namespace Bpglcd55ValC{
+            constexpr Register::FieldValue<decltype(bpglcd55),Bpglcd55Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd55),Bpglcd55Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd55Val> bpglcd55{}; 
         ///no description available
-        enum class bphlcd55Val {
+        enum class Bphlcd55Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd55ValC{
-            constexpr MPL::Value<bphlcd55Val,bphlcd55Val::v0> v0{};
-            constexpr MPL::Value<bphlcd55Val,bphlcd55Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd55Val> bphlcd55{}; 
+        namespace Bphlcd55ValC{
+            constexpr Register::FieldValue<decltype(bphlcd55),Bphlcd55Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd55),Bphlcd55Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd55Val> bphlcd55{}; 
     }
     namespace LcdWf59to56{    ///<LCD Waveform register
         using Addr = Register::Address<0x40053058,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf56{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf56{}; 
+        namespace Wf56ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf57{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf57{}; 
+        namespace Wf57ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf58{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf58{}; 
+        namespace Wf58ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf59{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf59{}; 
+        namespace Wf59ValC{
+        }
     }
     namespace LcdWf56{    ///<LCD Waveform Register 56.
         using Addr = Register::Address<0x40053058,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd56Val {
+        enum class Bpalcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd56ValC{
-            constexpr MPL::Value<bpalcd56Val,bpalcd56Val::v0> v0{};
-            constexpr MPL::Value<bpalcd56Val,bpalcd56Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd56Val> bpalcd56{}; 
+        namespace Bpalcd56ValC{
+            constexpr Register::FieldValue<decltype(bpalcd56),Bpalcd56Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd56),Bpalcd56Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd56Val> bpalcd56{}; 
         ///no description available
-        enum class bpblcd56Val {
+        enum class Bpblcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd56ValC{
-            constexpr MPL::Value<bpblcd56Val,bpblcd56Val::v0> v0{};
-            constexpr MPL::Value<bpblcd56Val,bpblcd56Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd56Val> bpblcd56{}; 
+        namespace Bpblcd56ValC{
+            constexpr Register::FieldValue<decltype(bpblcd56),Bpblcd56Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd56),Bpblcd56Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd56Val> bpblcd56{}; 
         ///no description available
-        enum class bpclcd56Val {
+        enum class Bpclcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd56ValC{
-            constexpr MPL::Value<bpclcd56Val,bpclcd56Val::v0> v0{};
-            constexpr MPL::Value<bpclcd56Val,bpclcd56Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd56Val> bpclcd56{}; 
+        namespace Bpclcd56ValC{
+            constexpr Register::FieldValue<decltype(bpclcd56),Bpclcd56Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd56),Bpclcd56Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd56Val> bpclcd56{}; 
         ///no description available
-        enum class bpdlcd56Val {
+        enum class Bpdlcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd56ValC{
-            constexpr MPL::Value<bpdlcd56Val,bpdlcd56Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd56Val,bpdlcd56Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd56Val> bpdlcd56{}; 
+        namespace Bpdlcd56ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd56),Bpdlcd56Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd56),Bpdlcd56Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd56Val> bpdlcd56{}; 
         ///no description available
-        enum class bpelcd56Val {
+        enum class Bpelcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd56ValC{
-            constexpr MPL::Value<bpelcd56Val,bpelcd56Val::v0> v0{};
-            constexpr MPL::Value<bpelcd56Val,bpelcd56Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd56Val> bpelcd56{}; 
+        namespace Bpelcd56ValC{
+            constexpr Register::FieldValue<decltype(bpelcd56),Bpelcd56Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd56),Bpelcd56Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd56Val> bpelcd56{}; 
         ///no description available
-        enum class bpflcd56Val {
+        enum class Bpflcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd56ValC{
-            constexpr MPL::Value<bpflcd56Val,bpflcd56Val::v0> v0{};
-            constexpr MPL::Value<bpflcd56Val,bpflcd56Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd56Val> bpflcd56{}; 
+        namespace Bpflcd56ValC{
+            constexpr Register::FieldValue<decltype(bpflcd56),Bpflcd56Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd56),Bpflcd56Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd56Val> bpflcd56{}; 
         ///no description available
-        enum class bpglcd56Val {
+        enum class Bpglcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd56ValC{
-            constexpr MPL::Value<bpglcd56Val,bpglcd56Val::v0> v0{};
-            constexpr MPL::Value<bpglcd56Val,bpglcd56Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd56Val> bpglcd56{}; 
+        namespace Bpglcd56ValC{
+            constexpr Register::FieldValue<decltype(bpglcd56),Bpglcd56Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd56),Bpglcd56Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd56Val> bpglcd56{}; 
         ///no description available
-        enum class bphlcd56Val {
+        enum class Bphlcd56Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd56ValC{
-            constexpr MPL::Value<bphlcd56Val,bphlcd56Val::v0> v0{};
-            constexpr MPL::Value<bphlcd56Val,bphlcd56Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd56Val> bphlcd56{}; 
+        namespace Bphlcd56ValC{
+            constexpr Register::FieldValue<decltype(bphlcd56),Bphlcd56Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd56),Bphlcd56Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd56Val> bphlcd56{}; 
     }
     namespace LcdWf57{    ///<LCD Waveform Register 57.
         using Addr = Register::Address<0x40053059,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd57Val {
+        enum class Bpalcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd57ValC{
-            constexpr MPL::Value<bpalcd57Val,bpalcd57Val::v0> v0{};
-            constexpr MPL::Value<bpalcd57Val,bpalcd57Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd57Val> bpalcd57{}; 
+        namespace Bpalcd57ValC{
+            constexpr Register::FieldValue<decltype(bpalcd57),Bpalcd57Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd57),Bpalcd57Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd57Val> bpalcd57{}; 
         ///no description available
-        enum class bpblcd57Val {
+        enum class Bpblcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd57ValC{
-            constexpr MPL::Value<bpblcd57Val,bpblcd57Val::v0> v0{};
-            constexpr MPL::Value<bpblcd57Val,bpblcd57Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd57Val> bpblcd57{}; 
+        namespace Bpblcd57ValC{
+            constexpr Register::FieldValue<decltype(bpblcd57),Bpblcd57Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd57),Bpblcd57Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd57Val> bpblcd57{}; 
         ///no description available
-        enum class bpclcd57Val {
+        enum class Bpclcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd57ValC{
-            constexpr MPL::Value<bpclcd57Val,bpclcd57Val::v0> v0{};
-            constexpr MPL::Value<bpclcd57Val,bpclcd57Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd57Val> bpclcd57{}; 
+        namespace Bpclcd57ValC{
+            constexpr Register::FieldValue<decltype(bpclcd57),Bpclcd57Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd57),Bpclcd57Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd57Val> bpclcd57{}; 
         ///no description available
-        enum class bpdlcd57Val {
+        enum class Bpdlcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd57ValC{
-            constexpr MPL::Value<bpdlcd57Val,bpdlcd57Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd57Val,bpdlcd57Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd57Val> bpdlcd57{}; 
+        namespace Bpdlcd57ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd57),Bpdlcd57Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd57),Bpdlcd57Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd57Val> bpdlcd57{}; 
         ///no description available
-        enum class bpelcd57Val {
+        enum class Bpelcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd57ValC{
-            constexpr MPL::Value<bpelcd57Val,bpelcd57Val::v0> v0{};
-            constexpr MPL::Value<bpelcd57Val,bpelcd57Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd57Val> bpelcd57{}; 
+        namespace Bpelcd57ValC{
+            constexpr Register::FieldValue<decltype(bpelcd57),Bpelcd57Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd57),Bpelcd57Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd57Val> bpelcd57{}; 
         ///no description available
-        enum class bpflcd57Val {
+        enum class Bpflcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd57ValC{
-            constexpr MPL::Value<bpflcd57Val,bpflcd57Val::v0> v0{};
-            constexpr MPL::Value<bpflcd57Val,bpflcd57Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd57Val> bpflcd57{}; 
+        namespace Bpflcd57ValC{
+            constexpr Register::FieldValue<decltype(bpflcd57),Bpflcd57Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd57),Bpflcd57Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd57Val> bpflcd57{}; 
         ///no description available
-        enum class bpglcd57Val {
+        enum class Bpglcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd57ValC{
-            constexpr MPL::Value<bpglcd57Val,bpglcd57Val::v0> v0{};
-            constexpr MPL::Value<bpglcd57Val,bpglcd57Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd57Val> bpglcd57{}; 
+        namespace Bpglcd57ValC{
+            constexpr Register::FieldValue<decltype(bpglcd57),Bpglcd57Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd57),Bpglcd57Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd57Val> bpglcd57{}; 
         ///no description available
-        enum class bphlcd57Val {
+        enum class Bphlcd57Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd57ValC{
-            constexpr MPL::Value<bphlcd57Val,bphlcd57Val::v0> v0{};
-            constexpr MPL::Value<bphlcd57Val,bphlcd57Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd57Val> bphlcd57{}; 
+        namespace Bphlcd57ValC{
+            constexpr Register::FieldValue<decltype(bphlcd57),Bphlcd57Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd57),Bphlcd57Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd57Val> bphlcd57{}; 
     }
     namespace LcdWf58{    ///<LCD Waveform Register 58.
         using Addr = Register::Address<0x4005305a,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd58Val {
+        enum class Bpalcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd58ValC{
-            constexpr MPL::Value<bpalcd58Val,bpalcd58Val::v0> v0{};
-            constexpr MPL::Value<bpalcd58Val,bpalcd58Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd58Val> bpalcd58{}; 
+        namespace Bpalcd58ValC{
+            constexpr Register::FieldValue<decltype(bpalcd58),Bpalcd58Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd58),Bpalcd58Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd58Val> bpalcd58{}; 
         ///no description available
-        enum class bpblcd58Val {
+        enum class Bpblcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd58ValC{
-            constexpr MPL::Value<bpblcd58Val,bpblcd58Val::v0> v0{};
-            constexpr MPL::Value<bpblcd58Val,bpblcd58Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd58Val> bpblcd58{}; 
+        namespace Bpblcd58ValC{
+            constexpr Register::FieldValue<decltype(bpblcd58),Bpblcd58Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd58),Bpblcd58Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd58Val> bpblcd58{}; 
         ///no description available
-        enum class bpclcd58Val {
+        enum class Bpclcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd58ValC{
-            constexpr MPL::Value<bpclcd58Val,bpclcd58Val::v0> v0{};
-            constexpr MPL::Value<bpclcd58Val,bpclcd58Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd58Val> bpclcd58{}; 
+        namespace Bpclcd58ValC{
+            constexpr Register::FieldValue<decltype(bpclcd58),Bpclcd58Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd58),Bpclcd58Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd58Val> bpclcd58{}; 
         ///no description available
-        enum class bpdlcd58Val {
+        enum class Bpdlcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd58ValC{
-            constexpr MPL::Value<bpdlcd58Val,bpdlcd58Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd58Val,bpdlcd58Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd58Val> bpdlcd58{}; 
+        namespace Bpdlcd58ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd58),Bpdlcd58Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd58),Bpdlcd58Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd58Val> bpdlcd58{}; 
         ///no description available
-        enum class bpelcd58Val {
+        enum class Bpelcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd58ValC{
-            constexpr MPL::Value<bpelcd58Val,bpelcd58Val::v0> v0{};
-            constexpr MPL::Value<bpelcd58Val,bpelcd58Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd58Val> bpelcd58{}; 
+        namespace Bpelcd58ValC{
+            constexpr Register::FieldValue<decltype(bpelcd58),Bpelcd58Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd58),Bpelcd58Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd58Val> bpelcd58{}; 
         ///no description available
-        enum class bpflcd58Val {
+        enum class Bpflcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd58ValC{
-            constexpr MPL::Value<bpflcd58Val,bpflcd58Val::v0> v0{};
-            constexpr MPL::Value<bpflcd58Val,bpflcd58Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd58Val> bpflcd58{}; 
+        namespace Bpflcd58ValC{
+            constexpr Register::FieldValue<decltype(bpflcd58),Bpflcd58Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd58),Bpflcd58Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd58Val> bpflcd58{}; 
         ///no description available
-        enum class bpglcd58Val {
+        enum class Bpglcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd58ValC{
-            constexpr MPL::Value<bpglcd58Val,bpglcd58Val::v0> v0{};
-            constexpr MPL::Value<bpglcd58Val,bpglcd58Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd58Val> bpglcd58{}; 
+        namespace Bpglcd58ValC{
+            constexpr Register::FieldValue<decltype(bpglcd58),Bpglcd58Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd58),Bpglcd58Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd58Val> bpglcd58{}; 
         ///no description available
-        enum class bphlcd58Val {
+        enum class Bphlcd58Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd58ValC{
-            constexpr MPL::Value<bphlcd58Val,bphlcd58Val::v0> v0{};
-            constexpr MPL::Value<bphlcd58Val,bphlcd58Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd58Val> bphlcd58{}; 
+        namespace Bphlcd58ValC{
+            constexpr Register::FieldValue<decltype(bphlcd58),Bphlcd58Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd58),Bphlcd58Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd58Val> bphlcd58{}; 
     }
     namespace LcdWf59{    ///<LCD Waveform Register 59.
         using Addr = Register::Address<0x4005305b,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd59Val {
+        enum class Bpalcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd59ValC{
-            constexpr MPL::Value<bpalcd59Val,bpalcd59Val::v0> v0{};
-            constexpr MPL::Value<bpalcd59Val,bpalcd59Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd59Val> bpalcd59{}; 
+        namespace Bpalcd59ValC{
+            constexpr Register::FieldValue<decltype(bpalcd59),Bpalcd59Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd59),Bpalcd59Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd59Val> bpalcd59{}; 
         ///no description available
-        enum class bpblcd59Val {
+        enum class Bpblcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd59ValC{
-            constexpr MPL::Value<bpblcd59Val,bpblcd59Val::v0> v0{};
-            constexpr MPL::Value<bpblcd59Val,bpblcd59Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd59Val> bpblcd59{}; 
+        namespace Bpblcd59ValC{
+            constexpr Register::FieldValue<decltype(bpblcd59),Bpblcd59Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd59),Bpblcd59Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd59Val> bpblcd59{}; 
         ///no description available
-        enum class bpclcd59Val {
+        enum class Bpclcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd59ValC{
-            constexpr MPL::Value<bpclcd59Val,bpclcd59Val::v0> v0{};
-            constexpr MPL::Value<bpclcd59Val,bpclcd59Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd59Val> bpclcd59{}; 
+        namespace Bpclcd59ValC{
+            constexpr Register::FieldValue<decltype(bpclcd59),Bpclcd59Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd59),Bpclcd59Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd59Val> bpclcd59{}; 
         ///no description available
-        enum class bpdlcd59Val {
+        enum class Bpdlcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd59ValC{
-            constexpr MPL::Value<bpdlcd59Val,bpdlcd59Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd59Val,bpdlcd59Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd59Val> bpdlcd59{}; 
+        namespace Bpdlcd59ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd59),Bpdlcd59Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd59),Bpdlcd59Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd59Val> bpdlcd59{}; 
         ///no description available
-        enum class bpelcd59Val {
+        enum class Bpelcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd59ValC{
-            constexpr MPL::Value<bpelcd59Val,bpelcd59Val::v0> v0{};
-            constexpr MPL::Value<bpelcd59Val,bpelcd59Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd59Val> bpelcd59{}; 
+        namespace Bpelcd59ValC{
+            constexpr Register::FieldValue<decltype(bpelcd59),Bpelcd59Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd59),Bpelcd59Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd59Val> bpelcd59{}; 
         ///no description available
-        enum class bpflcd59Val {
+        enum class Bpflcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd59ValC{
-            constexpr MPL::Value<bpflcd59Val,bpflcd59Val::v0> v0{};
-            constexpr MPL::Value<bpflcd59Val,bpflcd59Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd59Val> bpflcd59{}; 
+        namespace Bpflcd59ValC{
+            constexpr Register::FieldValue<decltype(bpflcd59),Bpflcd59Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd59),Bpflcd59Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd59Val> bpflcd59{}; 
         ///no description available
-        enum class bpglcd59Val {
+        enum class Bpglcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd59ValC{
-            constexpr MPL::Value<bpglcd59Val,bpglcd59Val::v0> v0{};
-            constexpr MPL::Value<bpglcd59Val,bpglcd59Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd59Val> bpglcd59{}; 
+        namespace Bpglcd59ValC{
+            constexpr Register::FieldValue<decltype(bpglcd59),Bpglcd59Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd59),Bpglcd59Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd59Val> bpglcd59{}; 
         ///no description available
-        enum class bphlcd59Val {
+        enum class Bphlcd59Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd59ValC{
-            constexpr MPL::Value<bphlcd59Val,bphlcd59Val::v0> v0{};
-            constexpr MPL::Value<bphlcd59Val,bphlcd59Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd59Val> bphlcd59{}; 
+        namespace Bphlcd59ValC{
+            constexpr Register::FieldValue<decltype(bphlcd59),Bphlcd59Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd59),Bphlcd59Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd59Val> bphlcd59{}; 
     }
     namespace LcdWf63to60{    ///<LCD Waveform register
         using Addr = Register::Address<0x4005305c,0x00000000,0,unsigned>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf60{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wf60{}; 
+        namespace Wf60ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf61{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wf61{}; 
+        namespace Wf61ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf62{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> wf62{}; 
+        namespace Wf62ValC{
+        }
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf63{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> wf63{}; 
+        namespace Wf63ValC{
+        }
     }
     namespace LcdWf60{    ///<LCD Waveform Register 60.
         using Addr = Register::Address<0x4005305c,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd60Val {
+        enum class Bpalcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd60ValC{
-            constexpr MPL::Value<bpalcd60Val,bpalcd60Val::v0> v0{};
-            constexpr MPL::Value<bpalcd60Val,bpalcd60Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd60Val> bpalcd60{}; 
+        namespace Bpalcd60ValC{
+            constexpr Register::FieldValue<decltype(bpalcd60),Bpalcd60Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd60),Bpalcd60Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd60Val> bpalcd60{}; 
         ///no description available
-        enum class bpblcd60Val {
+        enum class Bpblcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd60ValC{
-            constexpr MPL::Value<bpblcd60Val,bpblcd60Val::v0> v0{};
-            constexpr MPL::Value<bpblcd60Val,bpblcd60Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd60Val> bpblcd60{}; 
+        namespace Bpblcd60ValC{
+            constexpr Register::FieldValue<decltype(bpblcd60),Bpblcd60Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd60),Bpblcd60Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd60Val> bpblcd60{}; 
         ///no description available
-        enum class bpclcd60Val {
+        enum class Bpclcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd60ValC{
-            constexpr MPL::Value<bpclcd60Val,bpclcd60Val::v0> v0{};
-            constexpr MPL::Value<bpclcd60Val,bpclcd60Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd60Val> bpclcd60{}; 
+        namespace Bpclcd60ValC{
+            constexpr Register::FieldValue<decltype(bpclcd60),Bpclcd60Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd60),Bpclcd60Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd60Val> bpclcd60{}; 
         ///no description available
-        enum class bpdlcd60Val {
+        enum class Bpdlcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd60ValC{
-            constexpr MPL::Value<bpdlcd60Val,bpdlcd60Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd60Val,bpdlcd60Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd60Val> bpdlcd60{}; 
+        namespace Bpdlcd60ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd60),Bpdlcd60Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd60),Bpdlcd60Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd60Val> bpdlcd60{}; 
         ///no description available
-        enum class bpelcd60Val {
+        enum class Bpelcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd60ValC{
-            constexpr MPL::Value<bpelcd60Val,bpelcd60Val::v0> v0{};
-            constexpr MPL::Value<bpelcd60Val,bpelcd60Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd60Val> bpelcd60{}; 
+        namespace Bpelcd60ValC{
+            constexpr Register::FieldValue<decltype(bpelcd60),Bpelcd60Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd60),Bpelcd60Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd60Val> bpelcd60{}; 
         ///no description available
-        enum class bpflcd60Val {
+        enum class Bpflcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd60ValC{
-            constexpr MPL::Value<bpflcd60Val,bpflcd60Val::v0> v0{};
-            constexpr MPL::Value<bpflcd60Val,bpflcd60Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd60Val> bpflcd60{}; 
+        namespace Bpflcd60ValC{
+            constexpr Register::FieldValue<decltype(bpflcd60),Bpflcd60Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd60),Bpflcd60Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd60Val> bpflcd60{}; 
         ///no description available
-        enum class bpglcd60Val {
+        enum class Bpglcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd60ValC{
-            constexpr MPL::Value<bpglcd60Val,bpglcd60Val::v0> v0{};
-            constexpr MPL::Value<bpglcd60Val,bpglcd60Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd60Val> bpglcd60{}; 
+        namespace Bpglcd60ValC{
+            constexpr Register::FieldValue<decltype(bpglcd60),Bpglcd60Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd60),Bpglcd60Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd60Val> bpglcd60{}; 
         ///no description available
-        enum class bphlcd60Val {
+        enum class Bphlcd60Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd60ValC{
-            constexpr MPL::Value<bphlcd60Val,bphlcd60Val::v0> v0{};
-            constexpr MPL::Value<bphlcd60Val,bphlcd60Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd60Val> bphlcd60{}; 
+        namespace Bphlcd60ValC{
+            constexpr Register::FieldValue<decltype(bphlcd60),Bphlcd60Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd60),Bphlcd60Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd60Val> bphlcd60{}; 
     }
     namespace LcdWf61{    ///<LCD Waveform Register 61.
         using Addr = Register::Address<0x4005305d,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd61Val {
+        enum class Bpalcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd61ValC{
-            constexpr MPL::Value<bpalcd61Val,bpalcd61Val::v0> v0{};
-            constexpr MPL::Value<bpalcd61Val,bpalcd61Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd61Val> bpalcd61{}; 
+        namespace Bpalcd61ValC{
+            constexpr Register::FieldValue<decltype(bpalcd61),Bpalcd61Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd61),Bpalcd61Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd61Val> bpalcd61{}; 
         ///no description available
-        enum class bpblcd61Val {
+        enum class Bpblcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd61ValC{
-            constexpr MPL::Value<bpblcd61Val,bpblcd61Val::v0> v0{};
-            constexpr MPL::Value<bpblcd61Val,bpblcd61Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd61Val> bpblcd61{}; 
+        namespace Bpblcd61ValC{
+            constexpr Register::FieldValue<decltype(bpblcd61),Bpblcd61Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd61),Bpblcd61Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd61Val> bpblcd61{}; 
         ///no description available
-        enum class bpclcd61Val {
+        enum class Bpclcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd61ValC{
-            constexpr MPL::Value<bpclcd61Val,bpclcd61Val::v0> v0{};
-            constexpr MPL::Value<bpclcd61Val,bpclcd61Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd61Val> bpclcd61{}; 
+        namespace Bpclcd61ValC{
+            constexpr Register::FieldValue<decltype(bpclcd61),Bpclcd61Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd61),Bpclcd61Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd61Val> bpclcd61{}; 
         ///no description available
-        enum class bpdlcd61Val {
+        enum class Bpdlcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd61ValC{
-            constexpr MPL::Value<bpdlcd61Val,bpdlcd61Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd61Val,bpdlcd61Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd61Val> bpdlcd61{}; 
+        namespace Bpdlcd61ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd61),Bpdlcd61Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd61),Bpdlcd61Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd61Val> bpdlcd61{}; 
         ///no description available
-        enum class bpelcd61Val {
+        enum class Bpelcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd61ValC{
-            constexpr MPL::Value<bpelcd61Val,bpelcd61Val::v0> v0{};
-            constexpr MPL::Value<bpelcd61Val,bpelcd61Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd61Val> bpelcd61{}; 
+        namespace Bpelcd61ValC{
+            constexpr Register::FieldValue<decltype(bpelcd61),Bpelcd61Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd61),Bpelcd61Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd61Val> bpelcd61{}; 
         ///no description available
-        enum class bpflcd61Val {
+        enum class Bpflcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd61ValC{
-            constexpr MPL::Value<bpflcd61Val,bpflcd61Val::v0> v0{};
-            constexpr MPL::Value<bpflcd61Val,bpflcd61Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd61Val> bpflcd61{}; 
+        namespace Bpflcd61ValC{
+            constexpr Register::FieldValue<decltype(bpflcd61),Bpflcd61Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd61),Bpflcd61Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd61Val> bpflcd61{}; 
         ///no description available
-        enum class bpglcd61Val {
+        enum class Bpglcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd61ValC{
-            constexpr MPL::Value<bpglcd61Val,bpglcd61Val::v0> v0{};
-            constexpr MPL::Value<bpglcd61Val,bpglcd61Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd61Val> bpglcd61{}; 
+        namespace Bpglcd61ValC{
+            constexpr Register::FieldValue<decltype(bpglcd61),Bpglcd61Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd61),Bpglcd61Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd61Val> bpglcd61{}; 
         ///no description available
-        enum class bphlcd61Val {
+        enum class Bphlcd61Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd61ValC{
-            constexpr MPL::Value<bphlcd61Val,bphlcd61Val::v0> v0{};
-            constexpr MPL::Value<bphlcd61Val,bphlcd61Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd61Val> bphlcd61{}; 
+        namespace Bphlcd61ValC{
+            constexpr Register::FieldValue<decltype(bphlcd61),Bphlcd61Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd61),Bphlcd61Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd61Val> bphlcd61{}; 
     }
     namespace LcdWf62{    ///<LCD Waveform Register 62.
         using Addr = Register::Address<0x4005305e,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd62Val {
+        enum class Bpalcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd62ValC{
-            constexpr MPL::Value<bpalcd62Val,bpalcd62Val::v0> v0{};
-            constexpr MPL::Value<bpalcd62Val,bpalcd62Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd62Val> bpalcd62{}; 
+        namespace Bpalcd62ValC{
+            constexpr Register::FieldValue<decltype(bpalcd62),Bpalcd62Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd62),Bpalcd62Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd62Val> bpalcd62{}; 
         ///no description available
-        enum class bpblcd62Val {
+        enum class Bpblcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd62ValC{
-            constexpr MPL::Value<bpblcd62Val,bpblcd62Val::v0> v0{};
-            constexpr MPL::Value<bpblcd62Val,bpblcd62Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd62Val> bpblcd62{}; 
+        namespace Bpblcd62ValC{
+            constexpr Register::FieldValue<decltype(bpblcd62),Bpblcd62Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd62),Bpblcd62Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd62Val> bpblcd62{}; 
         ///no description available
-        enum class bpclcd62Val {
+        enum class Bpclcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd62ValC{
-            constexpr MPL::Value<bpclcd62Val,bpclcd62Val::v0> v0{};
-            constexpr MPL::Value<bpclcd62Val,bpclcd62Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd62Val> bpclcd62{}; 
+        namespace Bpclcd62ValC{
+            constexpr Register::FieldValue<decltype(bpclcd62),Bpclcd62Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd62),Bpclcd62Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd62Val> bpclcd62{}; 
         ///no description available
-        enum class bpdlcd62Val {
+        enum class Bpdlcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd62ValC{
-            constexpr MPL::Value<bpdlcd62Val,bpdlcd62Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd62Val,bpdlcd62Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd62Val> bpdlcd62{}; 
+        namespace Bpdlcd62ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd62),Bpdlcd62Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd62),Bpdlcd62Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd62Val> bpdlcd62{}; 
         ///no description available
-        enum class bpelcd62Val {
+        enum class Bpelcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd62ValC{
-            constexpr MPL::Value<bpelcd62Val,bpelcd62Val::v0> v0{};
-            constexpr MPL::Value<bpelcd62Val,bpelcd62Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd62Val> bpelcd62{}; 
+        namespace Bpelcd62ValC{
+            constexpr Register::FieldValue<decltype(bpelcd62),Bpelcd62Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd62),Bpelcd62Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd62Val> bpelcd62{}; 
         ///no description available
-        enum class bpflcd62Val {
+        enum class Bpflcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd62ValC{
-            constexpr MPL::Value<bpflcd62Val,bpflcd62Val::v0> v0{};
-            constexpr MPL::Value<bpflcd62Val,bpflcd62Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd62Val> bpflcd62{}; 
+        namespace Bpflcd62ValC{
+            constexpr Register::FieldValue<decltype(bpflcd62),Bpflcd62Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd62),Bpflcd62Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd62Val> bpflcd62{}; 
         ///no description available
-        enum class bpglcd62Val {
+        enum class Bpglcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd62ValC{
-            constexpr MPL::Value<bpglcd62Val,bpglcd62Val::v0> v0{};
-            constexpr MPL::Value<bpglcd62Val,bpglcd62Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd62Val> bpglcd62{}; 
+        namespace Bpglcd62ValC{
+            constexpr Register::FieldValue<decltype(bpglcd62),Bpglcd62Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd62),Bpglcd62Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd62Val> bpglcd62{}; 
         ///no description available
-        enum class bphlcd62Val {
+        enum class Bphlcd62Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd62ValC{
-            constexpr MPL::Value<bphlcd62Val,bphlcd62Val::v0> v0{};
-            constexpr MPL::Value<bphlcd62Val,bphlcd62Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd62Val> bphlcd62{}; 
+        namespace Bphlcd62ValC{
+            constexpr Register::FieldValue<decltype(bphlcd62),Bphlcd62Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd62),Bphlcd62Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd62Val> bphlcd62{}; 
     }
     namespace LcdWf63{    ///<LCD Waveform Register 63.
         using Addr = Register::Address<0x4005305f,0xffffff00,0,unsigned char>;
         ///no description available
-        enum class bpalcd63Val {
+        enum class Bpalcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase A
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase A
         };
-        namespace bpalcd63ValC{
-            constexpr MPL::Value<bpalcd63Val,bpalcd63Val::v0> v0{};
-            constexpr MPL::Value<bpalcd63Val,bpalcd63Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Bpalcd63Val> bpalcd63{}; 
+        namespace Bpalcd63ValC{
+            constexpr Register::FieldValue<decltype(bpalcd63),Bpalcd63Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpalcd63),Bpalcd63Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bpalcd63Val> bpalcd63{}; 
         ///no description available
-        enum class bpblcd63Val {
+        enum class Bpblcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase B
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase B
         };
-        namespace bpblcd63ValC{
-            constexpr MPL::Value<bpblcd63Val,bpblcd63Val::v0> v0{};
-            constexpr MPL::Value<bpblcd63Val,bpblcd63Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Bpblcd63Val> bpblcd63{}; 
+        namespace Bpblcd63ValC{
+            constexpr Register::FieldValue<decltype(bpblcd63),Bpblcd63Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpblcd63),Bpblcd63Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,bpblcd63Val> bpblcd63{}; 
         ///no description available
-        enum class bpclcd63Val {
+        enum class Bpclcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase C
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase C
         };
-        namespace bpclcd63ValC{
-            constexpr MPL::Value<bpclcd63Val,bpclcd63Val::v0> v0{};
-            constexpr MPL::Value<bpclcd63Val,bpclcd63Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Bpclcd63Val> bpclcd63{}; 
+        namespace Bpclcd63ValC{
+            constexpr Register::FieldValue<decltype(bpclcd63),Bpclcd63Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpclcd63),Bpclcd63Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,bpclcd63Val> bpclcd63{}; 
         ///no description available
-        enum class bpdlcd63Val {
+        enum class Bpdlcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase D
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase D
         };
-        namespace bpdlcd63ValC{
-            constexpr MPL::Value<bpdlcd63Val,bpdlcd63Val::v0> v0{};
-            constexpr MPL::Value<bpdlcd63Val,bpdlcd63Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Bpdlcd63Val> bpdlcd63{}; 
+        namespace Bpdlcd63ValC{
+            constexpr Register::FieldValue<decltype(bpdlcd63),Bpdlcd63Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpdlcd63),Bpdlcd63Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bpdlcd63Val> bpdlcd63{}; 
         ///no description available
-        enum class bpelcd63Val {
+        enum class Bpelcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase E
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase E
         };
-        namespace bpelcd63ValC{
-            constexpr MPL::Value<bpelcd63Val,bpelcd63Val::v0> v0{};
-            constexpr MPL::Value<bpelcd63Val,bpelcd63Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Bpelcd63Val> bpelcd63{}; 
+        namespace Bpelcd63ValC{
+            constexpr Register::FieldValue<decltype(bpelcd63),Bpelcd63Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpelcd63),Bpelcd63Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,bpelcd63Val> bpelcd63{}; 
         ///no description available
-        enum class bpflcd63Val {
+        enum class Bpflcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase F
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase F
         };
-        namespace bpflcd63ValC{
-            constexpr MPL::Value<bpflcd63Val,bpflcd63Val::v0> v0{};
-            constexpr MPL::Value<bpflcd63Val,bpflcd63Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Bpflcd63Val> bpflcd63{}; 
+        namespace Bpflcd63ValC{
+            constexpr Register::FieldValue<decltype(bpflcd63),Bpflcd63Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpflcd63),Bpflcd63Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,bpflcd63Val> bpflcd63{}; 
         ///no description available
-        enum class bpglcd63Val {
+        enum class Bpglcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase G
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase G
         };
-        namespace bpglcd63ValC{
-            constexpr MPL::Value<bpglcd63Val,bpglcd63Val::v0> v0{};
-            constexpr MPL::Value<bpglcd63Val,bpglcd63Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Bpglcd63Val> bpglcd63{}; 
+        namespace Bpglcd63ValC{
+            constexpr Register::FieldValue<decltype(bpglcd63),Bpglcd63Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bpglcd63),Bpglcd63Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,bpglcd63Val> bpglcd63{}; 
         ///no description available
-        enum class bphlcd63Val {
+        enum class Bphlcd63Val {
             v0=0x00000000,     ///<LCD segment off or LCD backplane inactive for phase H
             v1=0x00000001,     ///<LCD segment on or LCD backplane active for phase H
         };
-        namespace bphlcd63ValC{
-            constexpr MPL::Value<bphlcd63Val,bphlcd63Val::v0> v0{};
-            constexpr MPL::Value<bphlcd63Val,bphlcd63Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Bphlcd63Val> bphlcd63{}; 
+        namespace Bphlcd63ValC{
+            constexpr Register::FieldValue<decltype(bphlcd63),Bphlcd63Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(bphlcd63),Bphlcd63Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,bphlcd63Val> bphlcd63{}; 
     }
 }

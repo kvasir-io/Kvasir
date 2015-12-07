@@ -30,7 +30,7 @@ namespace Io{
 		//make sure we actually got a PinLocation as a parameter
 		template<typename TAction, typename TPortPin>
 		struct MakeActionIfPinLocation{
-			static_assert(MPL::AlwaysFalse<TAction>::value,"parameter is not a PinLocation");	
+			//static_assert(MPL::AlwaysFalse<TAction>::value,"parameter is not a PinLocation");	
 		};
 		template<typename TAction, int Port, int Pin>
 		struct MakeActionIfPinLocation<TAction, PinLocation<Port,Pin>>{
@@ -76,13 +76,10 @@ namespace Io{
 		return  { };
 	};
 	
-	template<typename TPP1, typename TPP2, typename... TPortPins>
-	constexpr MPL::List<Detail::MakeActionIfPinLocationT<Action::Set, TPP1>,
-		Detail::MakeActionIfPinLocationT<Action::Set, TPP2>,
-		Detail::MakeActionIfPinLocationT<Action::Set, TPortPins>...>
-	set(TPP1,TPP2,TPortPins...) {
-		return  { };
-	};
+	template<typename T, typename U, typename... Ts>
+	constexpr decltype(MPL::list(set(T { }), set(U { }), set(Ts { })...)) set(T, U, Ts...) {
+		return { };
+	}
 
 	template<typename TPortPin>
 	constexpr Detail::MakeActionIfPinLocationT<Action::Clear,TPortPin>

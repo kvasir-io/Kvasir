@@ -5,302 +5,304 @@ namespace Kvasir {
     namespace Nonekey{    ///<Security Key
         using Addr = Register::Address<0x40049000,0xffffff00,0,unsigned>;
         ///Peripheral Lock Mask Key. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
+        namespace KeyValC{
+        }
     }
     namespace Noneperiphlock0{    ///<Peripheral Lock Control 0
         using Addr = Register::Address<0x40049020,0xe8000000,0,unsigned>;
         ///USART/UART Module Lock Enable. 
-        enum class usartlVal {
+        enum class UsartlVal {
             unlocked=0x00000000,     ///<Unlock the USART0, USART1, UART0, and UART1 Module registers.
             locked=0x00000001,     ///<Lock the USART0, USART1, UART0, and UART1 Module registers (bits can still be read).
         };
-        namespace usartlValC{
-            constexpr MPL::Value<usartlVal,usartlVal::unlocked> unlocked{};
-            constexpr MPL::Value<usartlVal,usartlVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,UsartlVal> usartl{}; 
+        namespace UsartlValC{
+            constexpr Register::FieldValue<decltype(usartl),UsartlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(usartl),UsartlVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,usartlVal> usartl{}; 
         ///SPI Module Lock Enable. 
-        enum class spilVal {
+        enum class SpilVal {
             unlocked=0x00000000,     ///<Unlock the SPI0, SPI1, and SPI2 Module registers.
             locked=0x00000001,     ///<Lock the SPI0, SPI1, and SPI2 Module registers (bits can still be read).
         };
-        namespace spilValC{
-            constexpr MPL::Value<spilVal,spilVal::unlocked> unlocked{};
-            constexpr MPL::Value<spilVal,spilVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SpilVal> spil{}; 
+        namespace SpilValC{
+            constexpr Register::FieldValue<decltype(spil),SpilVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(spil),SpilVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,spilVal> spil{}; 
         ///I2C Module Lock Enable. 
-        enum class i2clVal {
+        enum class I2clVal {
             unlocked=0x00000000,     ///<Unlock the I2C0 and I2C1 Module registers.
             locked=0x00000001,     ///<Lock the I2C0 and I2C1 Module registers (bits can still be read).
         };
-        namespace i2clValC{
-            constexpr MPL::Value<i2clVal,i2clVal::unlocked> unlocked{};
-            constexpr MPL::Value<i2clVal,i2clVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,I2clVal> i2cl{}; 
+        namespace I2clValC{
+            constexpr Register::FieldValue<decltype(i2cl),I2clVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(i2cl),I2clVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,i2clVal> i2cl{}; 
         ///PCA Module Lock Enable. 
-        enum class pcalVal {
+        enum class PcalVal {
             unlocked=0x00000000,     ///<Unlock the EPCA0, PCA0, and PCA1 Module registers.
             locked=0x00000001,     ///<Lock the EPCA0, PCA0, and PCA1 Module registers (bits can still be read).
         };
-        namespace pcalValC{
-            constexpr MPL::Value<pcalVal,pcalVal::unlocked> unlocked{};
-            constexpr MPL::Value<pcalVal,pcalVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PcalVal> pcal{}; 
+        namespace PcalValC{
+            constexpr Register::FieldValue<decltype(pcal),PcalVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(pcal),PcalVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,pcalVal> pcal{}; 
         ///Timer Module Lock Enable. 
-        enum class timerlVal {
+        enum class TimerlVal {
             unlocked=0x00000000,     ///<Unlock the TIMER0 and TIMER1 Module registers.
             locked=0x00000001,     ///<Lock the TIMER0 and TIMER1 Module registers (bits can still be read).
         };
-        namespace timerlValC{
-            constexpr MPL::Value<timerlVal,timerlVal::unlocked> unlocked{};
-            constexpr MPL::Value<timerlVal,timerlVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TimerlVal> timerl{}; 
+        namespace TimerlValC{
+            constexpr Register::FieldValue<decltype(timerl),TimerlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(timerl),TimerlVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,timerlVal> timerl{}; 
         ///USB Module Lock Enable. 
-        enum class usblVal {
+        enum class UsblVal {
             unlocked=0x00000000,     ///<Unlock the USB0 Module registers.
             locked=0x00000001,     ///<Lock the USB0 Module registers (bits can still be read).
         };
-        namespace usblValC{
-            constexpr MPL::Value<usblVal,usblVal::unlocked> unlocked{};
-            constexpr MPL::Value<usblVal,usblVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,UsblVal> usbl{}; 
+        namespace UsblValC{
+            constexpr Register::FieldValue<decltype(usbl),UsblVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(usbl),UsblVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,usblVal> usbl{}; 
         ///SARADC Module Lock Enable. 
-        enum class saradclVal {
+        enum class SaradclVal {
             unlocked=0x00000000,     ///<Unlock the SARADC0 and SARADC1 Module registers.
             locked=0x00000001,     ///<Lock the SARADC0 and SARADC1 Module registers (bits can still be read).
         };
-        namespace saradclValC{
-            constexpr MPL::Value<saradclVal,saradclVal::unlocked> unlocked{};
-            constexpr MPL::Value<saradclVal,saradclVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SaradclVal> saradcl{}; 
+        namespace SaradclValC{
+            constexpr Register::FieldValue<decltype(saradcl),SaradclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(saradcl),SaradclVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,saradclVal> saradcl{}; 
         ///SSG Module Lock Enable. 
-        enum class ssglVal {
+        enum class SsglVal {
             unlocked=0x00000000,     ///<Unlock the SSG0 Module registers.
             locked=0x00000001,     ///<Lock the SSG0 Module registers (bits can still be read).
         };
-        namespace ssglValC{
-            constexpr MPL::Value<ssglVal,ssglVal::unlocked> unlocked{};
-            constexpr MPL::Value<ssglVal,ssglVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SsglVal> ssgl{}; 
+        namespace SsglValC{
+            constexpr Register::FieldValue<decltype(ssgl),SsglVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(ssgl),SsglVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ssglVal> ssgl{}; 
         ///Comparator Module Lock Enable. 
-        enum class cmplVal {
+        enum class CmplVal {
             unlocked=0x00000000,     ///<Unlock the Comparator 0 and Comparator 1 Module registers.
             locked=0x00000001,     ///<Lock the Comparator 0 and Comparator 1 Module registers (bits can still be read).
         };
-        namespace cmplValC{
-            constexpr MPL::Value<cmplVal,cmplVal::unlocked> unlocked{};
-            constexpr MPL::Value<cmplVal,cmplVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CmplVal> cmpl{}; 
+        namespace CmplValC{
+            constexpr Register::FieldValue<decltype(cmpl),CmplVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(cmpl),CmplVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,cmplVal> cmpl{}; 
         ///Capacitive Sensing Module Lock Enable. 
-        enum class cslVal {
+        enum class CslVal {
             unlocked=0x00000000,     ///<Unlock the Capacitive Sensing (CAPSENSE0) Module registers.
             locked=0x00000001,     ///<Lock the Capacitive Sensing (CAPSENSE0) Module registers (bits can still be read).
         };
-        namespace cslValC{
-            constexpr MPL::Value<cslVal,cslVal::unlocked> unlocked{};
-            constexpr MPL::Value<cslVal,cslVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,CslVal> csl{}; 
+        namespace CslValC{
+            constexpr Register::FieldValue<decltype(csl),CslVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(csl),CslVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,cslVal> csl{}; 
         ///EMIF Module Lock Enable. 
-        enum class emiflVal {
+        enum class EmiflVal {
             unlocked=0x00000000,     ///<Unlock the External Memory Interface (EMIF0) Module registers.
             locked=0x00000001,     ///<Lock the External Memory Interface (EMIF0) Module registers (bits can still be read).
         };
-        namespace emiflValC{
-            constexpr MPL::Value<emiflVal,emiflVal::unlocked> unlocked{};
-            constexpr MPL::Value<emiflVal,emiflVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,EmiflVal> emifl{}; 
+        namespace EmiflValC{
+            constexpr Register::FieldValue<decltype(emifl),EmiflVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(emifl),EmiflVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,emiflVal> emifl{}; 
         ///AES Module Lock Enable. 
-        enum class aeslVal {
+        enum class AeslVal {
             unlocked=0x00000000,     ///<Unlock the AES0 Module registers.
             locked=0x00000001,     ///<Lock the AES0 Module registers (bits can still be read).
         };
-        namespace aeslValC{
-            constexpr MPL::Value<aeslVal,aeslVal::unlocked> unlocked{};
-            constexpr MPL::Value<aeslVal,aeslVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,AeslVal> aesl{}; 
+        namespace AeslValC{
+            constexpr Register::FieldValue<decltype(aesl),AeslVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(aesl),AeslVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,aeslVal> aesl{}; 
         ///CRC Module Lock Enable. 
-        enum class crclVal {
+        enum class CrclVal {
             unlocked=0x00000000,     ///<Unlock the CRC0 Module registers.
             locked=0x00000001,     ///<Lock the CRC0 Module registers (bits can still be read).
         };
-        namespace crclValC{
-            constexpr MPL::Value<crclVal,crclVal::unlocked> unlocked{};
-            constexpr MPL::Value<crclVal,crclVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,CrclVal> crcl{}; 
+        namespace CrclValC{
+            constexpr Register::FieldValue<decltype(crcl),CrclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(crcl),CrclVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,crclVal> crcl{}; 
         ///RTC Module Lock Enable. 
-        enum class rtclVal {
+        enum class RtclVal {
             unlocked=0x00000000,     ///<Unlock the RTC0 Module registers.
             locked=0x00000001,     ///<Lock the RTC0 Module registers (bits can still be read).
         };
-        namespace rtclValC{
-            constexpr MPL::Value<rtclVal,rtclVal::unlocked> unlocked{};
-            constexpr MPL::Value<rtclVal,rtclVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,RtclVal> rtcl{}; 
+        namespace RtclValC{
+            constexpr Register::FieldValue<decltype(rtcl),RtclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(rtcl),RtclVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,rtclVal> rtcl{}; 
         ///Clock Control and Reset Sources Lock Enable. 
-        enum class clkrstlVal {
+        enum class ClkrstlVal {
             unlocked=0x00000000,     ///<Unlock the Clock Control (CLKCTRL) and Reset Sources (RSTSRC) Module registers.
             locked=0x00000001,     ///<Lock the Clock Control (CLKCTRL) and Reset Sources (RSTSRC) Module registers (bits can still be read).
         };
-        namespace clkrstlValC{
-            constexpr MPL::Value<clkrstlVal,clkrstlVal::unlocked> unlocked{};
-            constexpr MPL::Value<clkrstlVal,clkrstlVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ClkrstlVal> clkrstl{}; 
+        namespace ClkrstlValC{
+            constexpr Register::FieldValue<decltype(clkrstl),ClkrstlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(clkrstl),ClkrstlVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,clkrstlVal> clkrstl{}; 
         ///Voltage Supply Monitor Module Lock Enable. 
-        enum class vmonlVal {
+        enum class VmonlVal {
             unlocked=0x00000000,     ///<Unlock the Voltage Supply Monitor (VMON0) Module registers.
             locked=0x00000001,     ///<Lock the Voltage Supply Monitor (VMON0) Module registers (bits can still be read).
         };
-        namespace vmonlValC{
-            constexpr MPL::Value<vmonlVal,vmonlVal::unlocked> unlocked{};
-            constexpr MPL::Value<vmonlVal,vmonlVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,VmonlVal> vmonl{}; 
+        namespace VmonlValC{
+            constexpr Register::FieldValue<decltype(vmonl),VmonlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(vmonl),VmonlVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,vmonlVal> vmonl{}; 
         ///IDAC Module Lock Enable. 
-        enum class idaclVal {
+        enum class IdaclVal {
             unlocked=0x00000000,     ///<Unlock the IDAC0 and IDAC1 Module registers.
             locked=0x00000001,     ///<Lock the IDAC0 and IDAC1 Module registers (bits can still be read).
         };
-        namespace idaclValC{
-            constexpr MPL::Value<idaclVal,idaclVal::unlocked> unlocked{};
-            constexpr MPL::Value<idaclVal,idaclVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,IdaclVal> idacl{}; 
+        namespace IdaclValC{
+            constexpr Register::FieldValue<decltype(idacl),IdaclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(idacl),IdaclVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,idaclVal> idacl{}; 
         ///DMA Controller Module Lock Enable. 
-        enum class dmactrllVal {
+        enum class DmactrllVal {
             unlocked=0x00000000,     ///<Unlock the DMA Controller (DMACTRL0) Module registers.
             locked=0x00000001,     ///<Lock the DMA Controller (DMACTRL0) Module registers (bits can still be read).
         };
-        namespace dmactrllValC{
-            constexpr MPL::Value<dmactrllVal,dmactrllVal::unlocked> unlocked{};
-            constexpr MPL::Value<dmactrllVal,dmactrllVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,DmactrllVal> dmactrll{}; 
+        namespace DmactrllValC{
+            constexpr Register::FieldValue<decltype(dmactrll),DmactrllVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(dmactrll),DmactrllVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,dmactrllVal> dmactrll{}; 
         ///DMA Crossbar Module Lock Enable. 
-        enum class dmaxbarlVal {
+        enum class DmaxbarlVal {
             unlocked=0x00000000,     ///<Unlock the DMA Crossbar (DMAXBAR0) Module registers.
             locked=0x00000001,     ///<Lock the DMA Crossbar (DMAXBAR0) Module registers (bits can still be read).
         };
-        namespace dmaxbarlValC{
-            constexpr MPL::Value<dmaxbarlVal,dmaxbarlVal::unlocked> unlocked{};
-            constexpr MPL::Value<dmaxbarlVal,dmaxbarlVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,DmaxbarlVal> dmaxbarl{}; 
+        namespace DmaxbarlValC{
+            constexpr Register::FieldValue<decltype(dmaxbarl),DmaxbarlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(dmaxbarl),DmaxbarlVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,dmaxbarlVal> dmaxbarl{}; 
         ///Low Power Timer Module Lock Enable. 
-        enum class lptlVal {
+        enum class LptlVal {
             unlocked=0x00000000,     ///<Unlock the Low Power Timer (LPTIMER0) Module registers.
             locked=0x00000001,     ///<Lock the Low Power Timer (LPTIMER0) Module registers (bits can still be read).
         };
-        namespace lptlValC{
-            constexpr MPL::Value<lptlVal,lptlVal::unlocked> unlocked{};
-            constexpr MPL::Value<lptlVal,lptlVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,LptlVal> lptl{}; 
+        namespace LptlValC{
+            constexpr Register::FieldValue<decltype(lptl),LptlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(lptl),LptlVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,lptlVal> lptl{}; 
         ///Voltage Reference Module Lock Enable. 
-        enum class vreflVal {
+        enum class VreflVal {
             unlocked=0x00000000,     ///<Unlock the Voltage Reference (VREF0) Module registers.
             locked=0x00000001,     ///<Lock the Voltage Reference (VREF0) Module registers (bits can still be read).
         };
-        namespace vreflValC{
-            constexpr MPL::Value<vreflVal,vreflVal::unlocked> unlocked{};
-            constexpr MPL::Value<vreflVal,vreflVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,VreflVal> vrefl{}; 
+        namespace VreflValC{
+            constexpr Register::FieldValue<decltype(vrefl),VreflVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(vrefl),VreflVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,vreflVal> vrefl{}; 
         ///I2S Module Lock Enable. 
-        enum class i2slVal {
+        enum class I2slVal {
             unlocked=0x00000000,     ///<Unlock the I2S0 Module registers.
             locked=0x00000001,     ///<Lock the I2S0 Module registers (bits can still be read).
         };
-        namespace i2slValC{
-            constexpr MPL::Value<i2slVal,i2slVal::unlocked> unlocked{};
-            constexpr MPL::Value<i2slVal,i2slVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,I2slVal> i2sl{}; 
+        namespace I2slValC{
+            constexpr Register::FieldValue<decltype(i2sl),I2slVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(i2sl),I2slVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,i2slVal> i2sl{}; 
         ///PLL Module Lock Enable. 
-        enum class plllVal {
+        enum class PlllVal {
             unlocked=0x00000000,     ///<Unlock the PLL0 Module registers.
             locked=0x00000001,     ///<Lock the PLL0 Module registers (bits can still be read).
         };
-        namespace plllValC{
-            constexpr MPL::Value<plllVal,plllVal::unlocked> unlocked{};
-            constexpr MPL::Value<plllVal,plllVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,PlllVal> plll{}; 
+        namespace PlllValC{
+            constexpr Register::FieldValue<decltype(plll),PlllVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(plll),PlllVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,plllVal> plll{}; 
         ///External Oscillator Module Lock Enable. 
-        enum class extosclVal {
+        enum class ExtosclVal {
             unlocked=0x00000000,     ///<Unlock the External Oscillator (EXTOSC0) Module registers.
             locked=0x00000001,     ///<Lock the External Oscillator (EXTOSC0) Module registers (bits can still be read).
         };
-        namespace extosclValC{
-            constexpr MPL::Value<extosclVal,extosclVal::unlocked> unlocked{};
-            constexpr MPL::Value<extosclVal,extosclVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,ExtosclVal> extoscl{}; 
+        namespace ExtosclValC{
+            constexpr Register::FieldValue<decltype(extoscl),ExtosclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(extoscl),ExtosclVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,extosclVal> extoscl{}; 
         ///Voltage Regulator Module Lock Enable. 
-        enum class vreglVal {
+        enum class VreglVal {
             unlocked=0x00000000,     ///<Unlock the Voltage Regulator (VREG0) Module registers.
             locked=0x00000001,     ///<Lock the Voltage Regulator (VREG0) Module registers (bits can still be read).
         };
-        namespace vreglValC{
-            constexpr MPL::Value<vreglVal,vreglVal::unlocked> unlocked{};
-            constexpr MPL::Value<vreglVal,vreglVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,VreglVal> vregl{}; 
+        namespace VreglValC{
+            constexpr Register::FieldValue<decltype(vregl),VreglVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(vregl),VreglVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,vreglVal> vregl{}; 
         ///Low Power Oscillator Lock Enable. 
-        enum class lposclVal {
+        enum class LposclVal {
             unlocked=0x00000000,     ///<Unlock the Low Power Oscillator (LPOSC0) Module registers.
             locked=0x00000001,     ///<Lock the Low Power Oscillator (LPOSC0) Module registers (bits can still be read).
         };
-        namespace lposclValC{
-            constexpr MPL::Value<lposclVal,lposclVal::unlocked> unlocked{};
-            constexpr MPL::Value<lposclVal,lposclVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,LposclVal> lposcl{}; 
+        namespace LposclValC{
+            constexpr Register::FieldValue<decltype(lposcl),LposclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(lposcl),LposclVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,lposclVal> lposcl{}; 
         ///External Regulator Module Lock Enable. 
-        enum class evreglVal {
+        enum class EvreglVal {
             unlocked=0x00000000,     ///<Unlock the External Regulator (EXTVREG0) Module registers.
             locked=0x00000001,     ///<Lock the External Regulator (EXTVREG0) Module registers (bits can still be read).
         };
-        namespace evreglValC{
-            constexpr MPL::Value<evreglVal,evreglVal::unlocked> unlocked{};
-            constexpr MPL::Value<evreglVal,evreglVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,EvreglVal> evregl{}; 
+        namespace EvreglValC{
+            constexpr Register::FieldValue<decltype(evregl),EvreglVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(evregl),EvreglVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,evreglVal> evregl{}; 
         ///IVC Module Lock Enable. 
-        enum class ivclVal {
+        enum class IvclVal {
             unlocked=0x00000000,     ///<Unlock the IVC0 Module registers.
             locked=0x00000001,     ///<Lock the IVC0 Module registers (bits can still be read).
         };
-        namespace ivclValC{
-            constexpr MPL::Value<ivclVal,ivclVal::unlocked> unlocked{};
-            constexpr MPL::Value<ivclVal,ivclVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,IvclVal> ivcl{}; 
+        namespace IvclValC{
+            constexpr Register::FieldValue<decltype(ivcl),IvclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(ivcl),IvclVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,ivclVal> ivcl{}; 
     }
     namespace Noneperiphlock1{    ///<Peripheral Lock Control 1
         using Addr = Register::Address<0x40049040,0xfffffffe,0,unsigned>;
         ///PMU Module Lock Enable. 
-        enum class pmulVal {
+        enum class PmulVal {
             unlocked=0x00000000,     ///<Unlock the PMU Module registers.
             locked=0x00000001,     ///<Lock the PMU Module registers (bits can still be read).
         };
-        namespace pmulValC{
-            constexpr MPL::Value<pmulVal,pmulVal::unlocked> unlocked{};
-            constexpr MPL::Value<pmulVal,pmulVal::locked> locked{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PmulVal> pmul{}; 
+        namespace PmulValC{
+            constexpr Register::FieldValue<decltype(pmul),PmulVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(pmul),PmulVal::locked> locked{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,pmulVal> pmul{}; 
     }
 }

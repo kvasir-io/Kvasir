@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace Nonedmaxbar0{    ///<Channel 0-7 Trigger Select
         using Addr = Register::Address<0x40037000,0x00000000,0,unsigned>;
         ///DMA Channel 0 Peripheral Select. 
-        enum class ch0selVal {
+        enum class Ch0selVal {
             usb0Ep4Out=0x00000000,     ///<Service USB0 EP4 OUT data requests.
             spi1Rx=0x00000001,     ///<Service SPI1 RX data requests.
             usart0Rx=0x00000002,     ///<Service USART0 RX data requests.
@@ -19,23 +19,23 @@ namespace Kvasir {
             timer1l=0x0000000a,     ///<Service TIMER1L overflow data requests.
             timer1h=0x0000000b,     ///<Service TIMER1H overflow data requests.
         };
-        namespace ch0selValC{
-            constexpr MPL::Value<ch0selVal,ch0selVal::usb0Ep4Out> usb0Ep4Out{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::spi1Rx> spi1Rx{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::usart0Rx> usart0Rx{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::i2c0Tx> i2c0Tx{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::timer0l> timer0l{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::timer0h> timer0h{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::timer1l> timer1l{};
-            constexpr MPL::Value<ch0selVal,ch0selVal::timer1h> timer1h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,Ch0selVal> ch0sel{}; 
+        namespace Ch0selValC{
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::usb0Ep4Out> usb0Ep4Out{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::spi1Rx> spi1Rx{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::usart0Rx> usart0Rx{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::i2c0Tx> i2c0Tx{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::timer0l> timer0l{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::timer0h> timer0h{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::timer1l> timer1l{};
+            constexpr Register::FieldValue<decltype(ch0sel),Ch0selVal::timer1h> timer1h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,ch0selVal> ch0sel{}; 
         ///DMA Channel 1 Peripheral Select. 
-        enum class ch1selVal {
+        enum class Ch1selVal {
             usb0Ep3Out=0x00000000,     ///<Service USB0 EP3 OUT data requests.
             spi0Rx=0x00000001,     ///<Service SPI0 RX data requests.
             usart1Rx=0x00000002,     ///<Service USART1 RX data requests.
@@ -50,24 +50,24 @@ namespace Kvasir {
             timer1l=0x0000000b,     ///<Service TIMER1L overflow data requests.
             timer1h=0x0000000c,     ///<Service TIMER1H overflow data requests.
         };
-        namespace ch1selValC{
-            constexpr MPL::Value<ch1selVal,ch1selVal::usb0Ep3Out> usb0Ep3Out{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::spi0Rx> spi0Rx{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::usart1Rx> usart1Rx{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::i2c0Rx> i2c0Rx{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::idac1> idac1{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::epca0Control> epca0Control{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::timer0l> timer0l{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::timer1l> timer1l{};
-            constexpr MPL::Value<ch1selVal,ch1selVal::timer1h> timer1h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,Ch1selVal> ch1sel{}; 
+        namespace Ch1selValC{
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::usb0Ep3Out> usb0Ep3Out{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::spi0Rx> spi0Rx{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::usart1Rx> usart1Rx{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::i2c0Rx> i2c0Rx{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::idac1> idac1{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::epca0Control> epca0Control{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::timer0l> timer0l{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::timer1l> timer1l{};
+            constexpr Register::FieldValue<decltype(ch1sel),Ch1selVal::timer1h> timer1h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,ch1selVal> ch1sel{}; 
         ///DMA Channel 2 Peripheral Select. 
-        enum class ch2selVal {
+        enum class Ch2selVal {
             usb0Ep2Out=0x00000000,     ///<Service USB0 EP2 OUT data requests.
             spi0Tx=0x00000001,     ///<Service SPI0 TX data requests.
             usart0Tx=0x00000002,     ///<Service USART0 TX data requests.
@@ -80,22 +80,22 @@ namespace Kvasir {
             dma0t1Rise=0x00000009,     ///<Service DMAXT1 (PB0.11) rising edge data requests.
             dma0t1Fall=0x0000000a,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
         };
-        namespace ch2selValC{
-            constexpr MPL::Value<ch2selVal,ch2selVal::usb0Ep2Out> usb0Ep2Out{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::spi0Tx> spi0Tx{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::usart0Tx> usart0Tx{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::saradc0> saradc0{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::idac1> idac1{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::i2s0Tx> i2s0Tx{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::epca0Control> epca0Control{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch2selVal,ch2selVal::dma0t1Fall> dma0t1Fall{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,Ch2selVal> ch2sel{}; 
+        namespace Ch2selValC{
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::usb0Ep2Out> usb0Ep2Out{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::spi0Tx> spi0Tx{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::usart0Tx> usart0Tx{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::saradc0> saradc0{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::idac1> idac1{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::i2s0Tx> i2s0Tx{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::epca0Control> epca0Control{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch2sel),Ch2selVal::dma0t1Fall> dma0t1Fall{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,ch2selVal> ch2sel{}; 
         ///DMA Channel 3 Peripheral Select. 
-        enum class ch3selVal {
+        enum class Ch3selVal {
             usb0Ep1Out=0x00000000,     ///<Service USB0 EP1 OUT data requests.
             saradc1=0x00000001,     ///<Service SARADC1 data requests.
             idac0=0x00000002,     ///<Service IDAC0 data requests.
@@ -107,21 +107,21 @@ namespace Kvasir {
             dma0t1Fall=0x00000008,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
             timer1h=0x00000009,     ///<Service TIMER1H overflow data requests.
         };
-        namespace ch3selValC{
-            constexpr MPL::Value<ch3selVal,ch3selVal::usb0Ep1Out> usb0Ep1Out{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::saradc1> saradc1{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::idac0> idac0{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::i2s0Tx> i2s0Tx{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::epca0Capture> epca0Capture{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch3selVal,ch3selVal::timer1h> timer1h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,Ch3selVal> ch3sel{}; 
+        namespace Ch3selValC{
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::usb0Ep1Out> usb0Ep1Out{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::saradc1> saradc1{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::idac0> idac0{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::i2s0Tx> i2s0Tx{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::epca0Capture> epca0Capture{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch3sel),Ch3selVal::timer1h> timer1h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,ch3selVal> ch3sel{}; 
         ///DMA Channel 4 Peripheral Select. 
-        enum class ch4selVal {
+        enum class Ch4selVal {
             usb0Ep4In=0x00000000,     ///<Service USB0 EP4 IN data requests.
             spi1Tx=0x00000001,     ///<Service SPI1 TX data requests.
             usart0Tx=0x00000002,     ///<Service USART0 TX data requests.
@@ -134,22 +134,22 @@ namespace Kvasir {
             dma0t1Fall=0x00000009,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
             timer0h=0x0000000a,     ///<Service TIMER0H overflow data requests.
         };
-        namespace ch4selValC{
-            constexpr MPL::Value<ch4selVal,ch4selVal::usb0Ep4In> usb0Ep4In{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::spi1Tx> spi1Tx{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::usart0Tx> usart0Tx{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::saradc0> saradc0{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::i2s0Rx> i2s0Rx{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::epca0Capture> epca0Capture{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch4selVal,ch4selVal::timer0h> timer0h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,Ch4selVal> ch4sel{}; 
+        namespace Ch4selValC{
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::usb0Ep4In> usb0Ep4In{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::spi1Tx> spi1Tx{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::usart0Tx> usart0Tx{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::saradc0> saradc0{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::i2s0Rx> i2s0Rx{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::epca0Capture> epca0Capture{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch4sel),Ch4selVal::timer0h> timer0h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,ch4selVal> ch4sel{}; 
         ///DMA Channel 5 Peripheral Select. 
-        enum class ch5selVal {
+        enum class Ch5selVal {
             usb0Ep3In=0x00000000,     ///<Service USB0 EP3 IN data requests.
             aes0Tx=0x00000001,     ///<Service AES0 TX data requests.
             usart1Tx=0x00000002,     ///<Service USART1 TX data requests.
@@ -160,20 +160,20 @@ namespace Kvasir {
             dma0t1Rise=0x00000007,     ///<Service DMAXT1 (PB0.11) rising edge data requests.
             dma0t1Fall=0x00000008,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
         };
-        namespace ch5selValC{
-            constexpr MPL::Value<ch5selVal,ch5selVal::usb0Ep3In> usb0Ep3In{};
-            constexpr MPL::Value<ch5selVal,ch5selVal::aes0Tx> aes0Tx{};
-            constexpr MPL::Value<ch5selVal,ch5selVal::usart1Tx> usart1Tx{};
-            constexpr MPL::Value<ch5selVal,ch5selVal::saradc0> saradc0{};
-            constexpr MPL::Value<ch5selVal,ch5selVal::i2s0Rx> i2s0Rx{};
-            constexpr MPL::Value<ch5selVal,ch5selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch5selVal,ch5selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch5selVal,ch5selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch5selVal,ch5selVal::dma0t1Fall> dma0t1Fall{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,Ch5selVal> ch5sel{}; 
+        namespace Ch5selValC{
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::usb0Ep3In> usb0Ep3In{};
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::aes0Tx> aes0Tx{};
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::usart1Tx> usart1Tx{};
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::saradc0> saradc0{};
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::i2s0Rx> i2s0Rx{};
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch5sel),Ch5selVal::dma0t1Fall> dma0t1Fall{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,ch5selVal> ch5sel{}; 
         ///DMA Channel 6 Peripheral Select. 
-        enum class ch6selVal {
+        enum class Ch6selVal {
             usb0Ep2In=0x00000000,     ///<Service USB0 EP2 IN data requests.
             aes0Rx=0x00000001,     ///<Service AES0 RX data requests.
             usart0Rx=0x00000002,     ///<Service USART0 RX data requests.
@@ -185,21 +185,21 @@ namespace Kvasir {
             dma0t1Fall=0x00000008,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
             timer0h=0x00000009,     ///<Service TIMER0H overflow data requests.
         };
-        namespace ch6selValC{
-            constexpr MPL::Value<ch6selVal,ch6selVal::usb0Ep2In> usb0Ep2In{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::aes0Rx> aes0Rx{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::usart0Rx> usart0Rx{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::i2c0Rx> i2c0Rx{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::idac0> idac0{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch6selVal,ch6selVal::timer0h> timer0h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,Ch6selVal> ch6sel{}; 
+        namespace Ch6selValC{
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::usb0Ep2In> usb0Ep2In{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::aes0Rx> aes0Rx{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::usart0Rx> usart0Rx{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::i2c0Rx> i2c0Rx{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::idac0> idac0{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch6sel),Ch6selVal::timer0h> timer0h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,ch6selVal> ch6sel{}; 
         ///DMA Channel 7 Peripheral Select. 
-        enum class ch7selVal {
+        enum class Ch7selVal {
             usb0Ep1In=0x00000000,     ///<Service USB0 EP1 IN data requests.
             aes0Xor=0x00000001,     ///<Service AES0 XOR data requests.
             spi1Tx=0x00000002,     ///<Service SPI1 TX data requests.
@@ -212,25 +212,25 @@ namespace Kvasir {
             timer1l=0x00000009,     ///<Service TIMER1L overflow data requests.
             timer1h=0x0000000a,     ///<Service TIMER1H overflow data requests.
         };
-        namespace ch7selValC{
-            constexpr MPL::Value<ch7selVal,ch7selVal::usb0Ep1In> usb0Ep1In{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::aes0Xor> aes0Xor{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::spi1Tx> spi1Tx{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::usart0Tx> usart0Tx{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::timer0l> timer0l{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::timer1l> timer1l{};
-            constexpr MPL::Value<ch7selVal,ch7selVal::timer1h> timer1h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,Ch7selVal> ch7sel{}; 
+        namespace Ch7selValC{
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::usb0Ep1In> usb0Ep1In{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::aes0Xor> aes0Xor{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::spi1Tx> spi1Tx{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::usart0Tx> usart0Tx{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::timer0l> timer0l{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::timer1l> timer1l{};
+            constexpr Register::FieldValue<decltype(ch7sel),Ch7selVal::timer1h> timer1h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,ch7selVal> ch7sel{}; 
     }
     namespace Nonedmaxbar1{    ///<Channel 8-15 Trigger Select
         using Addr = Register::Address<0x40037010,0x00000000,0,unsigned>;
         ///DMA Channel 8 Peripheral Select. 
-        enum class ch8selVal {
+        enum class Ch8selVal {
             usb0Ep4Out=0x00000000,     ///<Service USB0 EP4 OUT data requests.
             usart1Rx=0x00000001,     ///<Service USART1 RX data requests.
             spi1Rx=0x00000002,     ///<Service SPI1 RX data requests.
@@ -241,20 +241,20 @@ namespace Kvasir {
             dma0t1Rise=0x00000007,     ///<Service DMAXT1 (PB0.11) rising edge data requests.
             dma0t1Fall=0x00000008,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
         };
-        namespace ch8selValC{
-            constexpr MPL::Value<ch8selVal,ch8selVal::usb0Ep4Out> usb0Ep4Out{};
-            constexpr MPL::Value<ch8selVal,ch8selVal::usart1Rx> usart1Rx{};
-            constexpr MPL::Value<ch8selVal,ch8selVal::spi1Rx> spi1Rx{};
-            constexpr MPL::Value<ch8selVal,ch8selVal::usart0Rx> usart0Rx{};
-            constexpr MPL::Value<ch8selVal,ch8selVal::epca0Capture> epca0Capture{};
-            constexpr MPL::Value<ch8selVal,ch8selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch8selVal,ch8selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch8selVal,ch8selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch8selVal,ch8selVal::dma0t1Fall> dma0t1Fall{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,Ch8selVal> ch8sel{}; 
+        namespace Ch8selValC{
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::usb0Ep4Out> usb0Ep4Out{};
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::usart1Rx> usart1Rx{};
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::spi1Rx> spi1Rx{};
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::usart0Rx> usart0Rx{};
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::epca0Capture> epca0Capture{};
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch8sel),Ch8selVal::dma0t1Fall> dma0t1Fall{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,ch8selVal> ch8sel{}; 
         ///DMA Channel 9 Peripheral Select. 
-        enum class ch9selVal {
+        enum class Ch9selVal {
             usb0Ep3Out=0x00000000,     ///<Service USB0 EP3 OUT data requests.
             usart1Tx=0x00000001,     ///<Service USART1 TX data requests.
             i2c0Tx=0x00000002,     ///<Service I2C0 TX data requests.
@@ -265,20 +265,20 @@ namespace Kvasir {
             dma0t1Fall=0x00000007,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
             timer0h=0x00000008,     ///<Service TIMER0H overflow data requests.
         };
-        namespace ch9selValC{
-            constexpr MPL::Value<ch9selVal,ch9selVal::usb0Ep3Out> usb0Ep3Out{};
-            constexpr MPL::Value<ch9selVal,ch9selVal::usart1Tx> usart1Tx{};
-            constexpr MPL::Value<ch9selVal,ch9selVal::i2c0Tx> i2c0Tx{};
-            constexpr MPL::Value<ch9selVal,ch9selVal::epca0Capture> epca0Capture{};
-            constexpr MPL::Value<ch9selVal,ch9selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch9selVal,ch9selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch9selVal,ch9selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch9selVal,ch9selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch9selVal,ch9selVal::timer0h> timer0h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,Ch9selVal> ch9sel{}; 
+        namespace Ch9selValC{
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::usb0Ep3Out> usb0Ep3Out{};
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::usart1Tx> usart1Tx{};
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::i2c0Tx> i2c0Tx{};
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::epca0Capture> epca0Capture{};
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch9sel),Ch9selVal::timer0h> timer0h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,ch9selVal> ch9sel{}; 
         ///DMA Channel 10 Peripheral Select. 
-        enum class ch10selVal {
+        enum class Ch10selVal {
             usb0Ep2Out=0x00000000,     ///<Service USB0 EP2 OUT data requests.
             aes0Tx=0x00000001,     ///<Service AES0 TX data requests.
             saradc1=0x00000002,     ///<Service SARADC1 data requests.
@@ -289,20 +289,20 @@ namespace Kvasir {
             dma0t1Fall=0x00000007,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
             timer1h=0x00000008,     ///<Service TIMER1H overflow data requests.
         };
-        namespace ch10selValC{
-            constexpr MPL::Value<ch10selVal,ch10selVal::usb0Ep2Out> usb0Ep2Out{};
-            constexpr MPL::Value<ch10selVal,ch10selVal::aes0Tx> aes0Tx{};
-            constexpr MPL::Value<ch10selVal,ch10selVal::saradc1> saradc1{};
-            constexpr MPL::Value<ch10selVal,ch10selVal::i2s0Rx> i2s0Rx{};
-            constexpr MPL::Value<ch10selVal,ch10selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch10selVal,ch10selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch10selVal,ch10selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch10selVal,ch10selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch10selVal,ch10selVal::timer1h> timer1h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,Ch10selVal> ch10sel{}; 
+        namespace Ch10selValC{
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::usb0Ep2Out> usb0Ep2Out{};
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::aes0Tx> aes0Tx{};
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::saradc1> saradc1{};
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::i2s0Rx> i2s0Rx{};
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch10sel),Ch10selVal::timer1h> timer1h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,ch10selVal> ch10sel{}; 
         ///DMA Channel 11 Peripheral Select. 
-        enum class ch11selVal {
+        enum class Ch11selVal {
             usb0Ep1Out=0x00000000,     ///<Service USB0 EP1 OUT data requests.
             aes0Rx=0x00000001,     ///<Service AES0 RX data requests.
             usart1Rx=0x00000002,     ///<Service USART1 RX data requests.
@@ -315,22 +315,22 @@ namespace Kvasir {
             dma0t1Fall=0x00000009,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
             timer0h=0x0000000a,     ///<Service TIMER0H overflow data requests.
         };
-        namespace ch11selValC{
-            constexpr MPL::Value<ch11selVal,ch11selVal::usb0Ep1Out> usb0Ep1Out{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::aes0Rx> aes0Rx{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::usart1Rx> usart1Rx{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::usart0Rx> usart0Rx{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::i2c0Rx> i2c0Rx{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::i2s0Rx> i2s0Rx{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch11selVal,ch11selVal::timer0h> timer0h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,Ch11selVal> ch11sel{}; 
+        namespace Ch11selValC{
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::usb0Ep1Out> usb0Ep1Out{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::aes0Rx> aes0Rx{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::usart1Rx> usart1Rx{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::usart0Rx> usart0Rx{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::i2c0Rx> i2c0Rx{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::i2s0Rx> i2s0Rx{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch11sel),Ch11selVal::timer0h> timer0h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,ch11selVal> ch11sel{}; 
         ///DMA Channel 12 Peripheral Select. 
-        enum class ch12selVal {
+        enum class Ch12selVal {
             usb0Ep4In=0x00000000,     ///<Service USB0 EP4 IN data requests.
             aes0Xor=0x00000001,     ///<Service AES0 XOR data requests.
             usart1Tx=0x00000002,     ///<Service USART1 TX data requests.
@@ -345,24 +345,24 @@ namespace Kvasir {
             timer1l=0x0000000b,     ///<Service TIMER1L overflow data requests.
             timer1h=0x0000000c,     ///<Service TIMER1H overflow data requests.
         };
-        namespace ch12selValC{
-            constexpr MPL::Value<ch12selVal,ch12selVal::usb0Ep4In> usb0Ep4In{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::aes0Xor> aes0Xor{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::usart1Tx> usart1Tx{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::spi1Tx> spi1Tx{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::idac1> idac1{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::i2s0Tx> i2s0Tx{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::timer0l> timer0l{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::timer1l> timer1l{};
-            constexpr MPL::Value<ch12selVal,ch12selVal::timer1h> timer1h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,Ch12selVal> ch12sel{}; 
+        namespace Ch12selValC{
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::usb0Ep4In> usb0Ep4In{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::aes0Xor> aes0Xor{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::usart1Tx> usart1Tx{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::spi1Tx> spi1Tx{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::idac1> idac1{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::i2s0Tx> i2s0Tx{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::timer0l> timer0l{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::timer1l> timer1l{};
+            constexpr Register::FieldValue<decltype(ch12sel),Ch12selVal::timer1h> timer1h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,ch12selVal> ch12sel{}; 
         ///DMA Channel 13 Peripheral Select. 
-        enum class ch13selVal {
+        enum class Ch13selVal {
             usb0Ep3In=0x00000000,     ///<Service USB0 EP3 IN data requests.
             spi0Rx=0x00000001,     ///<Service SPI0 RX data requests.
             usart0Rx=0x00000002,     ///<Service USART0 RX data requests.
@@ -374,21 +374,21 @@ namespace Kvasir {
             dma0t1Fall=0x00000008,     ///<Service DMAXT1 (PB0.11) falling edge data requests.
             timer0h=0x00000009,     ///<Service TIMER0H overflow data requests.
         };
-        namespace ch13selValC{
-            constexpr MPL::Value<ch13selVal,ch13selVal::usb0Ep3In> usb0Ep3In{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::spi0Rx> spi0Rx{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::usart0Rx> usart0Rx{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::idac1> idac1{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::i2s0Tx> i2s0Tx{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch13selVal,ch13selVal::timer0h> timer0h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,Ch13selVal> ch13sel{}; 
+        namespace Ch13selValC{
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::usb0Ep3In> usb0Ep3In{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::spi0Rx> spi0Rx{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::usart0Rx> usart0Rx{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::idac1> idac1{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::i2s0Tx> i2s0Tx{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch13sel),Ch13selVal::timer0h> timer0h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,ch13selVal> ch13sel{}; 
         ///DMA Channel 14 Peripheral Select. 
-        enum class ch14selVal {
+        enum class Ch14selVal {
             usb0Ep2In=0x00000000,     ///<Service USB0 EP2 IN data requests.
             spi0Tx=0x00000001,     ///<Service SPI0 TX data requests.
             usart0Tx=0x00000002,     ///<Service USART0 TX data requests.
@@ -401,22 +401,22 @@ namespace Kvasir {
             timer0l=0x00000009,     ///<Service TIMER0L overflow data requests.
             timer1l=0x0000000a,     ///<Service TIMER1L overflow data requests.
         };
-        namespace ch14selValC{
-            constexpr MPL::Value<ch14selVal,ch14selVal::usb0Ep2In> usb0Ep2In{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::spi0Tx> spi0Tx{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::usart0Tx> usart0Tx{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::idac0> idac0{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::epca0Control> epca0Control{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::timer0l> timer0l{};
-            constexpr MPL::Value<ch14selVal,ch14selVal::timer1l> timer1l{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,Ch14selVal> ch14sel{}; 
+        namespace Ch14selValC{
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::usb0Ep2In> usb0Ep2In{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::spi0Tx> spi0Tx{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::usart0Tx> usart0Tx{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::idac0> idac0{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::epca0Control> epca0Control{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::timer0l> timer0l{};
+            constexpr Register::FieldValue<decltype(ch14sel),Ch14selVal::timer1l> timer1l{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,ch14selVal> ch14sel{}; 
         ///DMA Channel 15 Peripheral Select. 
-        enum class ch15selVal {
+        enum class Ch15selVal {
             usb0Ep1In=0x00000000,     ///<Service USB0 EP1 IN data requests.
             saradc1=0x00000001,     ///<Service SARADC1 data requests.
             idac0=0x00000002,     ///<Service IDAC0 data requests.
@@ -428,18 +428,18 @@ namespace Kvasir {
             timer0h=0x00000008,     ///<Service TIMER0H overflow data requests.
             timer1h=0x00000009,     ///<Service TIMER1H overflow data requests.
         };
-        namespace ch15selValC{
-            constexpr MPL::Value<ch15selVal,ch15selVal::usb0Ep1In> usb0Ep1In{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::saradc1> saradc1{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::idac0> idac0{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::epca0Control> epca0Control{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::dma0t0Rise> dma0t0Rise{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::dma0t0Fall> dma0t0Fall{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::dma0t1Rise> dma0t1Rise{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::dma0t1Fall> dma0t1Fall{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::timer0h> timer0h{};
-            constexpr MPL::Value<ch15selVal,ch15selVal::timer1h> timer1h{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,Ch15selVal> ch15sel{}; 
+        namespace Ch15selValC{
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::usb0Ep1In> usb0Ep1In{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::saradc1> saradc1{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::idac0> idac0{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::epca0Control> epca0Control{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::dma0t0Rise> dma0t0Rise{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::dma0t0Fall> dma0t0Fall{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::dma0t1Rise> dma0t1Rise{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::dma0t1Fall> dma0t1Fall{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::timer0h> timer0h{};
+            constexpr Register::FieldValue<decltype(ch15sel),Ch15selVal::timer1h> timer1h{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,ch15selVal> ch15sel{}; 
     }
 }

@@ -5,51 +5,55 @@ namespace Kvasir {
     namespace Opamp1C0{    ///<Control Register 0
         using Addr = Register::Address<0x400f5800,0xffffff3c,0,unsigned char>;
         ///OPAMP Mode Select
-        enum class modeVal {
+        enum class ModeVal {
             v00=0x00000000,     ///<Buffer
             v10=0x00000002,     ///<General purpose
             v01=0x00000001,     ///<Inverting PGA
             v11=0x00000003,     ///<Non-inverting PGA
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::v00> v00{};
-            constexpr MPL::Value<modeVal,modeVal::v10> v10{};
-            constexpr MPL::Value<modeVal,modeVal::v01> v01{};
-            constexpr MPL::Value<modeVal,modeVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
         ///Low-Power Mode Enable
-        enum class lpenVal {
+        enum class LpenVal {
             v0=0x00000000,     ///<High-speed mode selected. In this mode, OPAMP has faster slew rate and unity gain bandwidth performance with higher current consumption.
             v1=0x00000001,     ///<Low-power mode selected. In this mode, OPAMP has lower current consumption with slower slew rate and unity gain bandwidth performance.
         };
-        namespace lpenValC{
-            constexpr MPL::Value<lpenVal,lpenVal::v0> v0{};
-            constexpr MPL::Value<lpenVal,lpenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LpenVal> lpen{}; 
+        namespace LpenValC{
+            constexpr Register::FieldValue<decltype(lpen),LpenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lpen),LpenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,lpenVal> lpen{}; 
         ///OPAMP Enable
-        enum class enVal {
+        enum class EnVal {
             v0=0x00000000,     ///<OPAMP is disabled and not powered
             v1=0x00000001,     ///<OPAMP is enabled and powered
         };
-        namespace enValC{
-            constexpr MPL::Value<enVal,enVal::v0> v0{};
-            constexpr MPL::Value<enVal,enVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EnVal> en{}; 
+        namespace EnValC{
+            constexpr Register::FieldValue<decltype(en),EnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(en),EnVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,enVal> en{}; 
     }
     namespace Opamp1C1{    ///<Control Register 1
         using Addr = Register::Address<0x400f5801,0xffffffe0,0,unsigned char>;
         ///Gains Selector
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ampri{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ampri{}; 
+        namespace AmpriValC{
+        }
         ///Gains Selector
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> amprf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> amprf{}; 
+        namespace AmprfValC{
+        }
     }
     namespace Opamp1C2{    ///<Control Register 2
         using Addr = Register::Address<0x400f5802,0xffffff88,0,unsigned char>;
         ///Amplifier Negative Input Terminal Selector.
-        enum class ampnselVal {
+        enum class AmpnselVal {
             v000=0x00000000,     ///<Negative input 0
             v001=0x00000001,     ///<Negative input 1
             v010=0x00000002,     ///<Negative input 2
@@ -59,19 +63,19 @@ namespace Kvasir {
             v110=0x00000006,     ///<Negative input 6
             v111=0x00000007,     ///<Negative input 7
         };
-        namespace ampnselValC{
-            constexpr MPL::Value<ampnselVal,ampnselVal::v000> v000{};
-            constexpr MPL::Value<ampnselVal,ampnselVal::v001> v001{};
-            constexpr MPL::Value<ampnselVal,ampnselVal::v010> v010{};
-            constexpr MPL::Value<ampnselVal,ampnselVal::v011> v011{};
-            constexpr MPL::Value<ampnselVal,ampnselVal::v100> v100{};
-            constexpr MPL::Value<ampnselVal,ampnselVal::v101> v101{};
-            constexpr MPL::Value<ampnselVal,ampnselVal::v110> v110{};
-            constexpr MPL::Value<ampnselVal,ampnselVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,AmpnselVal> ampnsel{}; 
+        namespace AmpnselValC{
+            constexpr Register::FieldValue<decltype(ampnsel),AmpnselVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(ampnsel),AmpnselVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(ampnsel),AmpnselVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(ampnsel),AmpnselVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(ampnsel),AmpnselVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(ampnsel),AmpnselVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(ampnsel),AmpnselVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(ampnsel),AmpnselVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,ampnselVal> ampnsel{}; 
         ///Amplifier Positive Input Terminal Selector
-        enum class amppselVal {
+        enum class AmppselVal {
             v000=0x00000000,     ///<Positive input 0
             v001=0x00000001,     ///<Positive input 1
             v010=0x00000002,     ///<Positive input 2
@@ -81,16 +85,16 @@ namespace Kvasir {
             v110=0x00000006,     ///<Positive input 6
             v111=0x00000007,     ///<Positive input 7
         };
-        namespace amppselValC{
-            constexpr MPL::Value<amppselVal,amppselVal::v000> v000{};
-            constexpr MPL::Value<amppselVal,amppselVal::v001> v001{};
-            constexpr MPL::Value<amppselVal,amppselVal::v010> v010{};
-            constexpr MPL::Value<amppselVal,amppselVal::v011> v011{};
-            constexpr MPL::Value<amppselVal,amppselVal::v100> v100{};
-            constexpr MPL::Value<amppselVal,amppselVal::v101> v101{};
-            constexpr MPL::Value<amppselVal,amppselVal::v110> v110{};
-            constexpr MPL::Value<amppselVal,amppselVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,AmppselVal> amppsel{}; 
+        namespace AmppselValC{
+            constexpr Register::FieldValue<decltype(amppsel),AmppselVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(amppsel),AmppselVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(amppsel),AmppselVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(amppsel),AmppselVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(amppsel),AmppselVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(amppsel),AmppselVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(amppsel),AmppselVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(amppsel),AmppselVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,amppselVal> amppsel{}; 
     }
 }

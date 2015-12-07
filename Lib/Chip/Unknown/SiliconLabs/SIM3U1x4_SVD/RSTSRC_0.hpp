@@ -5,228 +5,228 @@ namespace Kvasir {
     namespace Nonereseten{    ///<System Reset Source Enable
         using Addr = Register::Address<0x4002d060,0xfffff00b,0,unsigned>;
         ///Voltage Supply Monitor VDD Reset Enable. 
-        enum class vmonrenVal {
+        enum class VmonrenVal {
             disabled=0x00000000,     ///<Disable the Voltage Supply Monitor VDD event as a reset source.
             enabled=0x00000001,     ///<Enable the Voltage Supply Monitor VDD event as a reset source.
         };
-        namespace vmonrenValC{
-            constexpr MPL::Value<vmonrenVal,vmonrenVal::disabled> disabled{};
-            constexpr MPL::Value<vmonrenVal,vmonrenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VmonrenVal> vmonren{}; 
+        namespace VmonrenValC{
+            constexpr Register::FieldValue<decltype(vmonren),VmonrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vmonren),VmonrenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,vmonrenVal> vmonren{}; 
         ///Missing Clock Detector Reset Enable. 
-        enum class mcdrenVal {
+        enum class McdrenVal {
             disabled=0x00000000,     ///<Disable the Missing Clock Detector event as a reset source.
             enabled=0x00000001,     ///<Enable the Missing Clock Detector event as a reset source.
         };
-        namespace mcdrenValC{
-            constexpr MPL::Value<mcdrenVal,mcdrenVal::disabled> disabled{};
-            constexpr MPL::Value<mcdrenVal,mcdrenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,McdrenVal> mcdren{}; 
+        namespace McdrenValC{
+            constexpr Register::FieldValue<decltype(mcdren),McdrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mcdren),McdrenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,mcdrenVal> mcdren{}; 
         ///Watchdog Timer Reset Enable. 
-        enum class wdtrenVal {
+        enum class WdtrenVal {
             disabled=0x00000000,     ///<Disable the Watchdog Timer event as a reset source.
             enabled=0x00000001,     ///<Enable the Watchdog Timer event as a reset source.
         };
-        namespace wdtrenValC{
-            constexpr MPL::Value<wdtrenVal,wdtrenVal::disabled> disabled{};
-            constexpr MPL::Value<wdtrenVal,wdtrenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WdtrenVal> wdtren{}; 
+        namespace WdtrenValC{
+            constexpr Register::FieldValue<decltype(wdtren),WdtrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(wdtren),WdtrenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wdtrenVal> wdtren{}; 
         ///Software Reset. 
-        enum class swrenVal {
+        enum class SwrenVal {
             disabled=0x00000000,     ///<Do not generate a Software Reset.
             enabled=0x00000001,     ///<Generate a Software Reset.
         };
-        namespace swrenValC{
-            constexpr MPL::Value<swrenVal,swrenVal::disabled> disabled{};
-            constexpr MPL::Value<swrenVal,swrenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SwrenVal> swren{}; 
+        namespace SwrenValC{
+            constexpr Register::FieldValue<decltype(swren),SwrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(swren),SwrenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,swrenVal> swren{}; 
         ///Comparator 0 Reset Enable. 
-        enum class cmp0renVal {
+        enum class Cmp0renVal {
             disabled=0x00000000,     ///<Disable the Comparator 0 event as a reset source.
             enabled=0x00000001,     ///<Enable the Comparator 0 event as a reset source.
         };
-        namespace cmp0renValC{
-            constexpr MPL::Value<cmp0renVal,cmp0renVal::disabled> disabled{};
-            constexpr MPL::Value<cmp0renVal,cmp0renVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Cmp0renVal> cmp0ren{}; 
+        namespace Cmp0renValC{
+            constexpr Register::FieldValue<decltype(cmp0ren),Cmp0renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmp0ren),Cmp0renVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,cmp0renVal> cmp0ren{}; 
         ///Comparator 1 Reset Enable. 
-        enum class cmp1renVal {
+        enum class Cmp1renVal {
             disabled=0x00000000,     ///<Disable the Comparator 1 event as a reset source.
             enabled=0x00000001,     ///<Enable the Comparator 1 event as a reset source.
         };
-        namespace cmp1renValC{
-            constexpr MPL::Value<cmp1renVal,cmp1renVal::disabled> disabled{};
-            constexpr MPL::Value<cmp1renVal,cmp1renVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Cmp1renVal> cmp1ren{}; 
+        namespace Cmp1renValC{
+            constexpr Register::FieldValue<decltype(cmp1ren),Cmp1renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmp1ren),Cmp1renVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,cmp1renVal> cmp1ren{}; 
         ///USB0 Reset Enable. 
-        enum class usb0renVal {
+        enum class Usb0renVal {
             disabled=0x00000000,     ///<Disable the USB0 reset event as a reset source.
             enabled=0x00000001,     ///<Enable the USB0 reset event as a reset source.
         };
-        namespace usb0renValC{
-            constexpr MPL::Value<usb0renVal,usb0renVal::disabled> disabled{};
-            constexpr MPL::Value<usb0renVal,usb0renVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Usb0renVal> usb0ren{}; 
+        namespace Usb0renValC{
+            constexpr Register::FieldValue<decltype(usb0ren),Usb0renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(usb0ren),Usb0renVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,usb0renVal> usb0ren{}; 
         ///RTC0 Reset Enable. 
-        enum class rtc0renVal {
+        enum class Rtc0renVal {
             disabled=0x00000000,     ///<Disable the RTC0 event as a reset source.
             enabled=0x00000001,     ///<Enable the RTC0 event as a reset source.
         };
-        namespace rtc0renValC{
-            constexpr MPL::Value<rtc0renVal,rtc0renVal::disabled> disabled{};
-            constexpr MPL::Value<rtc0renVal,rtc0renVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Rtc0renVal> rtc0ren{}; 
+        namespace Rtc0renValC{
+            constexpr Register::FieldValue<decltype(rtc0ren),Rtc0renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rtc0ren),Rtc0renVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,rtc0renVal> rtc0ren{}; 
         ///PMU Wakeup Reset Enable. 
-        enum class wakerenVal {
+        enum class WakerenVal {
             enabled=0x00000001,     ///<Enable the PMU Wakeup event as a reset source.
         };
-        namespace wakerenValC{
-            constexpr MPL::Value<wakerenVal,wakerenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WakerenVal> wakeren{}; 
+        namespace WakerenValC{
+            constexpr Register::FieldValue<decltype(wakeren),WakerenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,wakerenVal> wakeren{}; 
     }
     namespace Noneresetflag{    ///<System Reset Flags
         using Addr = Register::Address<0x4002d070,0xfffff000,0,unsigned>;
         ///Pin Reset Flag. 
-        enum class pinrfVal {
+        enum class PinrfVal {
             notSet=0x00000000,     ///<A /RESET pin event did not cause the last system reset.
             set=0x00000001,     ///<A /RESET pin event caused the last system reset.
         };
-        namespace pinrfValC{
-            constexpr MPL::Value<pinrfVal,pinrfVal::notSet> notSet{};
-            constexpr MPL::Value<pinrfVal,pinrfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PinrfVal> pinrf{}; 
+        namespace PinrfValC{
+            constexpr Register::FieldValue<decltype(pinrf),PinrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(pinrf),PinrfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,pinrfVal> pinrf{}; 
         ///Power-On Reset Flag. 
-        enum class porrfVal {
+        enum class PorrfVal {
             notSet=0x00000000,     ///<A Power-On Reset event did not cause the last system reset.
             set=0x00000001,     ///<A Power-On Reset event caused the last system reset.
         };
-        namespace porrfValC{
-            constexpr MPL::Value<porrfVal,porrfVal::notSet> notSet{};
-            constexpr MPL::Value<porrfVal,porrfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PorrfVal> porrf{}; 
+        namespace PorrfValC{
+            constexpr Register::FieldValue<decltype(porrf),PorrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(porrf),PorrfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,porrfVal> porrf{}; 
         ///Voltage Supply Monitor VDD Reset Flag. 
-        enum class vmonrfVal {
+        enum class VmonrfVal {
             notSet=0x00000000,     ///<A Voltage Supply Monitor VDD Reset event did not cause the last system reset.
             set=0x00000001,     ///<A Voltage Supply Monitor VDD Reset event caused the last system reset.
         };
-        namespace vmonrfValC{
-            constexpr MPL::Value<vmonrfVal,vmonrfVal::notSet> notSet{};
-            constexpr MPL::Value<vmonrfVal,vmonrfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VmonrfVal> vmonrf{}; 
+        namespace VmonrfValC{
+            constexpr Register::FieldValue<decltype(vmonrf),VmonrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(vmonrf),VmonrfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,vmonrfVal> vmonrf{}; 
         ///Core Reset Flag. 
-        enum class corerfVal {
+        enum class CorerfVal {
             notSet=0x00000000,     ///<A Core Reset event did not cause the last system reset.
             set=0x00000001,     ///<A Core Reset event caused the last system reset.
         };
-        namespace corerfValC{
-            constexpr MPL::Value<corerfVal,corerfVal::notSet> notSet{};
-            constexpr MPL::Value<corerfVal,corerfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CorerfVal> corerf{}; 
+        namespace CorerfValC{
+            constexpr Register::FieldValue<decltype(corerf),CorerfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(corerf),CorerfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,corerfVal> corerf{}; 
         ///Missing Clock Detector Reset Flag. 
-        enum class mcdrfVal {
+        enum class McdrfVal {
             notSet=0x00000000,     ///<A Missing Clock Detector event did not cause the last system reset.
             set=0x00000001,     ///<A Missing Clock Detector event caused the last system reset.
         };
-        namespace mcdrfValC{
-            constexpr MPL::Value<mcdrfVal,mcdrfVal::notSet> notSet{};
-            constexpr MPL::Value<mcdrfVal,mcdrfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,McdrfVal> mcdrf{}; 
+        namespace McdrfValC{
+            constexpr Register::FieldValue<decltype(mcdrf),McdrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(mcdrf),McdrfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,mcdrfVal> mcdrf{}; 
         ///Watchdog Timer Reset Flag. 
-        enum class wdtrfVal {
+        enum class WdtrfVal {
             notSet=0x00000000,     ///<A Watchdog Timer event did not cause the last system reset.
             set=0x00000001,     ///<A Watchdog Timer event caused the last system reset.
         };
-        namespace wdtrfValC{
-            constexpr MPL::Value<wdtrfVal,wdtrfVal::notSet> notSet{};
-            constexpr MPL::Value<wdtrfVal,wdtrfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WdtrfVal> wdtrf{}; 
+        namespace WdtrfValC{
+            constexpr Register::FieldValue<decltype(wdtrf),WdtrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(wdtrf),WdtrfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,wdtrfVal> wdtrf{}; 
         ///Software Reset Flag. 
-        enum class swrfVal {
+        enum class SwrfVal {
             notSet=0x00000000,     ///<A Software Reset event did not cause the last system reset.
             set=0x00000001,     ///<A Software Reset event caused the last system reset.
         };
-        namespace swrfValC{
-            constexpr MPL::Value<swrfVal,swrfVal::notSet> notSet{};
-            constexpr MPL::Value<swrfVal,swrfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SwrfVal> swrf{}; 
+        namespace SwrfValC{
+            constexpr Register::FieldValue<decltype(swrf),SwrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swrf),SwrfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,swrfVal> swrf{}; 
         ///Comparator 0 Reset Flag. 
-        enum class cmp0rfVal {
+        enum class Cmp0rfVal {
             notSet=0x00000000,     ///<A Comparator 0 event did not cause the last system reset.
             set=0x00000001,     ///<A Comparator 0 event caused the last system reset.
         };
-        namespace cmp0rfValC{
-            constexpr MPL::Value<cmp0rfVal,cmp0rfVal::notSet> notSet{};
-            constexpr MPL::Value<cmp0rfVal,cmp0rfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Cmp0rfVal> cmp0rf{}; 
+        namespace Cmp0rfValC{
+            constexpr Register::FieldValue<decltype(cmp0rf),Cmp0rfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(cmp0rf),Cmp0rfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,cmp0rfVal> cmp0rf{}; 
         ///Comparator 1 Reset Flag. 
-        enum class cmp1rfVal {
+        enum class Cmp1rfVal {
             notSet=0x00000000,     ///<A Comparator 1 event did not cause the last system reset.
             set=0x00000001,     ///<A Comparator 1 event caused the last system reset.
         };
-        namespace cmp1rfValC{
-            constexpr MPL::Value<cmp1rfVal,cmp1rfVal::notSet> notSet{};
-            constexpr MPL::Value<cmp1rfVal,cmp1rfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Cmp1rfVal> cmp1rf{}; 
+        namespace Cmp1rfValC{
+            constexpr Register::FieldValue<decltype(cmp1rf),Cmp1rfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(cmp1rf),Cmp1rfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,cmp1rfVal> cmp1rf{}; 
         ///USB0 Reset Flag. 
-        enum class usb0rfVal {
+        enum class Usb0rfVal {
             notSet=0x00000000,     ///<A USB0 Reset event did not cause the last system reset.
             set=0x00000001,     ///<A USB0 Reset event caused the last system reset.
         };
-        namespace usb0rfValC{
-            constexpr MPL::Value<usb0rfVal,usb0rfVal::notSet> notSet{};
-            constexpr MPL::Value<usb0rfVal,usb0rfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Usb0rfVal> usb0rf{}; 
+        namespace Usb0rfValC{
+            constexpr Register::FieldValue<decltype(usb0rf),Usb0rfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(usb0rf),Usb0rfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,usb0rfVal> usb0rf{}; 
         ///RTC0 Reset Flag. 
-        enum class rtc0rfVal {
+        enum class Rtc0rfVal {
             notSet=0x00000000,     ///<An RTC0 event did not cause the last system reset.
             set=0x00000001,     ///<An RTC0 event caused the last system reset.
         };
-        namespace rtc0rfValC{
-            constexpr MPL::Value<rtc0rfVal,rtc0rfVal::notSet> notSet{};
-            constexpr MPL::Value<rtc0rfVal,rtc0rfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Rtc0rfVal> rtc0rf{}; 
+        namespace Rtc0rfValC{
+            constexpr Register::FieldValue<decltype(rtc0rf),Rtc0rfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rtc0rf),Rtc0rfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,rtc0rfVal> rtc0rf{}; 
         ///PMU Wakeup Reset Flag. 
-        enum class wakerfVal {
+        enum class WakerfVal {
             notSet=0x00000000,     ///<A PMU Wakeup event did not cause the last system reset.
             set=0x00000001,     ///<A PMU Wakeup event caused the last system reset.
         };
-        namespace wakerfValC{
-            constexpr MPL::Value<wakerfVal,wakerfVal::notSet> notSet{};
-            constexpr MPL::Value<wakerfVal,wakerfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WakerfVal> wakerf{}; 
+        namespace WakerfValC{
+            constexpr Register::FieldValue<decltype(wakerf),WakerfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(wakerf),WakerfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,wakerfVal> wakerf{}; 
     }
     namespace Noneconfig{    ///<Configuration Options
         using Addr = Register::Address<0x4002d080,0xfffffffe,0,unsigned>;
         ///Power Mode Select. 
-        enum class pmselVal {
+        enum class PmselVal {
             pm9Dis=0x00000000,     ///<Power Mode < PM9.
             pm9En=0x00000001,     ///<Power Mode = PM9.
         };
-        namespace pmselValC{
-            constexpr MPL::Value<pmselVal,pmselVal::pm9Dis> pm9Dis{};
-            constexpr MPL::Value<pmselVal,pmselVal::pm9En> pm9En{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PmselVal> pmsel{}; 
+        namespace PmselValC{
+            constexpr Register::FieldValue<decltype(pmsel),PmselVal::pm9Dis> pm9Dis{};
+            constexpr Register::FieldValue<decltype(pmsel),PmselVal::pm9En> pm9En{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,pmselVal> pmsel{}; 
     }
 }

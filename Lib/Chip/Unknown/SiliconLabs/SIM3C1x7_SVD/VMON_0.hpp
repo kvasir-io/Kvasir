@@ -5,84 +5,84 @@ namespace Kvasir {
     namespace Nonecontrol{    ///<Module Control
         using Addr = Register::Address<0x4002f000,0x7fffff20,0,unsigned>;
         ///VREGIN Supply Monitor Enable. 
-        enum class vreginsenVal {
+        enum class VreginsenVal {
             disabled=0x00000000,     ///<Disable the VREGIN supply monitor.
             enabled=0x00000001,     ///<Enable the VREGIN supply monitor.
         };
-        namespace vreginsenValC{
-            constexpr MPL::Value<vreginsenVal,vreginsenVal::disabled> disabled{};
-            constexpr MPL::Value<vreginsenVal,vreginsenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,VreginsenVal> vreginsen{}; 
+        namespace VreginsenValC{
+            constexpr Register::FieldValue<decltype(vreginsen),VreginsenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vreginsen),VreginsenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,vreginsenVal> vreginsen{}; 
         ///VREGIN Low Interrupt Flag. 
-        enum class vreginliVal {
+        enum class VreginliVal {
             vreginIsLow=0x00000000,     ///<VREGIN is not above the interrupt threshold.
             vreginIsOk=0x00000001,     ///<VREGIN is above the interrupt threshold.
         };
-        namespace vreginliValC{
-            constexpr MPL::Value<vreginliVal,vreginliVal::vreginIsLow> vreginIsLow{};
-            constexpr MPL::Value<vreginliVal,vreginliVal::vreginIsOk> vreginIsOk{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,VreginliVal> vreginli{}; 
+        namespace VreginliValC{
+            constexpr Register::FieldValue<decltype(vreginli),VreginliVal::vreginIsLow> vreginIsLow{};
+            constexpr Register::FieldValue<decltype(vreginli),VreginliVal::vreginIsOk> vreginIsOk{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,vreginliVal> vreginli{}; 
         ///VDD Reset Threshold Status Flag. 
-        enum class vddrstfVal {
+        enum class VddrstfVal {
             vddIsBelowReset=0x00000000,     ///<The VDD voltage is below the VDD reset threshold.
             vddIsAboveReset=0x00000001,     ///<The VDD voltage is above the VDD reset threshold.
         };
-        namespace vddrstfValC{
-            constexpr MPL::Value<vddrstfVal,vddrstfVal::vddIsBelowReset> vddIsBelowReset{};
-            constexpr MPL::Value<vddrstfVal,vddrstfVal::vddIsAboveReset> vddIsAboveReset{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VddrstfVal> vddrstf{}; 
+        namespace VddrstfValC{
+            constexpr Register::FieldValue<decltype(vddrstf),VddrstfVal::vddIsBelowReset> vddIsBelowReset{};
+            constexpr Register::FieldValue<decltype(vddrstf),VddrstfVal::vddIsAboveReset> vddIsAboveReset{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,vddrstfVal> vddrstf{}; 
         ///VDD Low Interrupt Flag. 
-        enum class vddliVal {
+        enum class VddliVal {
             vddIsLow=0x00000000,     ///<The VDD voltage is below the early warning threshold.
             vddIsOk=0x00000001,     ///<The VDD voltage is above the early warning threshold.
         };
-        namespace vddliValC{
-            constexpr MPL::Value<vddliVal,vddliVal::vddIsLow> vddIsLow{};
-            constexpr MPL::Value<vddliVal,vddliVal::vddIsOk> vddIsOk{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,VddliVal> vddli{}; 
+        namespace VddliValC{
+            constexpr Register::FieldValue<decltype(vddli),VddliVal::vddIsLow> vddIsLow{};
+            constexpr Register::FieldValue<decltype(vddli),VddliVal::vddIsOk> vddIsOk{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,vddliVal> vddli{}; 
         ///VDD High Threshold Enable. 
-        enum class vddhithenVal {
+        enum class VddhithenVal {
             disabled=0x00000000,     ///<Use the standard VDD thresholds.
             enabled=0x00000001,     ///<Use the high VDD thresholds.
         };
-        namespace vddhithenValC{
-            constexpr MPL::Value<vddhithenVal,vddhithenVal::disabled> disabled{};
-            constexpr MPL::Value<vddhithenVal,vddhithenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,VddhithenVal> vddhithen{}; 
+        namespace VddhithenValC{
+            constexpr Register::FieldValue<decltype(vddhithen),VddhithenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vddhithen),VddhithenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,vddhithenVal> vddhithen{}; 
         ///VDD Low Interrupt Enable. 
-        enum class vddlienVal {
+        enum class VddlienVal {
             disabled=0x00000000,     ///<Disable the VDD low interrupt.
             enabled=0x00000001,     ///<Enable the VDD low interrupt.
         };
-        namespace vddlienValC{
-            constexpr MPL::Value<vddlienVal,vddlienVal::disabled> disabled{};
-            constexpr MPL::Value<vddlienVal,vddlienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,VddlienVal> vddlien{}; 
+        namespace VddlienValC{
+            constexpr Register::FieldValue<decltype(vddlien),VddlienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vddlien),VddlienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,vddlienVal> vddlien{}; 
         ///VREGIN Low Interrupt Enable. 
-        enum class vreginlienVal {
+        enum class VreginlienVal {
             disabled=0x00000000,     ///<Disable the VREGIN low interrupt.
             enabled=0x00000001,     ///<Enable the VREGIN low interrupt.
         };
-        namespace vreginlienValC{
-            constexpr MPL::Value<vreginlienVal,vreginlienVal::disabled> disabled{};
-            constexpr MPL::Value<vreginlienVal,vreginlienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,VreginlienVal> vreginlien{}; 
+        namespace VreginlienValC{
+            constexpr Register::FieldValue<decltype(vreginlien),VreginlienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vreginlien),VreginlienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,vreginlienVal> vreginlien{}; 
         ///VDD Supply Monitor Enable. 
-        enum class vmonenVal {
+        enum class VmonenVal {
             disabled=0x00000000,     ///<Disable the VDD supply monitor.
             enabled=0x00000001,     ///<Enable the VDD supply monitor.
         };
-        namespace vmonenValC{
-            constexpr MPL::Value<vmonenVal,vmonenVal::disabled> disabled{};
-            constexpr MPL::Value<vmonenVal,vmonenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,VmonenVal> vmonen{}; 
+        namespace VmonenValC{
+            constexpr Register::FieldValue<decltype(vmonen),VmonenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vmonen),VmonenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,vmonenVal> vmonen{}; 
     }
 }

@@ -53,27 +53,29 @@ namespace Kvasir {
     namespace NonecauLdrCasr{    ///<Status register  - Load Register command
         using Addr = Register::Address<0xe0081840,0x0ffffffc,0,unsigned>;
         ///no description available
-        enum class icVal {
+        enum class IcVal {
             v0=0x00000000,     ///<No illegal commands issued
             v1=0x00000001,     ///<Illegal command issued
         };
-        namespace icValC{
-            constexpr MPL::Value<icVal,icVal::v0> v0{};
-            constexpr MPL::Value<icVal,icVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
+        namespace IcValC{
+            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,icVal> ic{}; 
         ///no description available
-        enum class dpeVal {
+        enum class DpeVal {
             v0=0x00000000,     ///<No error detected
             v1=0x00000001,     ///<DES key parity error detected
         };
-        namespace dpeValC{
-            constexpr MPL::Value<dpeVal,dpeVal::v0> v0{};
-            constexpr MPL::Value<dpeVal,dpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
+        namespace DpeValC{
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dpeVal> dpe{}; 
         ///CAU version
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        namespace VerValC{
+        }
     }
     namespace NonecauLdrCaa{    ///<Accumulator register - Load Register command
         using Addr = Register::Address<0xe0081844,0xffffffff,0,unsigned>;
@@ -108,27 +110,29 @@ namespace Kvasir {
     namespace NonecauStrCasr{    ///<Status register  - Store Register command
         using Addr = Register::Address<0xe0081880,0x0ffffffc,0,unsigned>;
         ///no description available
-        enum class icVal {
+        enum class IcVal {
             v0=0x00000000,     ///<No illegal commands issued
             v1=0x00000001,     ///<Illegal command issued
         };
-        namespace icValC{
-            constexpr MPL::Value<icVal,icVal::v0> v0{};
-            constexpr MPL::Value<icVal,icVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
+        namespace IcValC{
+            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,icVal> ic{}; 
         ///no description available
-        enum class dpeVal {
+        enum class DpeVal {
             v0=0x00000000,     ///<No error detected
             v1=0x00000001,     ///<DES key parity error detected
         };
-        namespace dpeValC{
-            constexpr MPL::Value<dpeVal,dpeVal::v0> v0{};
-            constexpr MPL::Value<dpeVal,dpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
+        namespace DpeValC{
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dpeVal> dpe{}; 
         ///CAU version
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        namespace VerValC{
+        }
     }
     namespace NonecauStrCaa{    ///<Accumulator register - Store Register command
         using Addr = Register::Address<0xe0081884,0xffffffff,0,unsigned>;
@@ -163,27 +167,29 @@ namespace Kvasir {
     namespace NonecauAdrCasr{    ///<Status register  - Add Register command
         using Addr = Register::Address<0xe00818c0,0x0ffffffc,0,unsigned>;
         ///no description available
-        enum class icVal {
+        enum class IcVal {
             v0=0x00000000,     ///<No illegal commands issued
             v1=0x00000001,     ///<Illegal command issued
         };
-        namespace icValC{
-            constexpr MPL::Value<icVal,icVal::v0> v0{};
-            constexpr MPL::Value<icVal,icVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
+        namespace IcValC{
+            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,icVal> ic{}; 
         ///no description available
-        enum class dpeVal {
+        enum class DpeVal {
             v0=0x00000000,     ///<No error detected
             v1=0x00000001,     ///<DES key parity error detected
         };
-        namespace dpeValC{
-            constexpr MPL::Value<dpeVal,dpeVal::v0> v0{};
-            constexpr MPL::Value<dpeVal,dpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
+        namespace DpeValC{
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dpeVal> dpe{}; 
         ///CAU version
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        namespace VerValC{
+        }
     }
     namespace NonecauAdrCaa{    ///<Accumulator register - Add to register command
         using Addr = Register::Address<0xe00818c4,0xffffffff,0,unsigned>;
@@ -218,27 +224,29 @@ namespace Kvasir {
     namespace NonecauRadrCasr{    ///<Status register  - Reverse and Add to Register command
         using Addr = Register::Address<0xe0081900,0x0ffffffc,0,unsigned>;
         ///no description available
-        enum class icVal {
+        enum class IcVal {
             v0=0x00000000,     ///<No illegal commands issued
             v1=0x00000001,     ///<Illegal command issued
         };
-        namespace icValC{
-            constexpr MPL::Value<icVal,icVal::v0> v0{};
-            constexpr MPL::Value<icVal,icVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
+        namespace IcValC{
+            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,icVal> ic{}; 
         ///no description available
-        enum class dpeVal {
+        enum class DpeVal {
             v0=0x00000000,     ///<No error detected
             v1=0x00000001,     ///<DES key parity error detected
         };
-        namespace dpeValC{
-            constexpr MPL::Value<dpeVal,dpeVal::v0> v0{};
-            constexpr MPL::Value<dpeVal,dpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
+        namespace DpeValC{
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dpeVal> dpe{}; 
         ///CAU version
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        namespace VerValC{
+        }
     }
     namespace NonecauRadrCaa{    ///<Accumulator register - Reverse and Add to Register command
         using Addr = Register::Address<0xe0081904,0xffffffff,0,unsigned>;
@@ -273,27 +281,29 @@ namespace Kvasir {
     namespace NonecauXorCasr{    ///<Status register  - Exclusive Or command
         using Addr = Register::Address<0xe0081980,0x0ffffffc,0,unsigned>;
         ///no description available
-        enum class icVal {
+        enum class IcVal {
             v0=0x00000000,     ///<No illegal commands issued
             v1=0x00000001,     ///<Illegal command issued
         };
-        namespace icValC{
-            constexpr MPL::Value<icVal,icVal::v0> v0{};
-            constexpr MPL::Value<icVal,icVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
+        namespace IcValC{
+            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,icVal> ic{}; 
         ///no description available
-        enum class dpeVal {
+        enum class DpeVal {
             v0=0x00000000,     ///<No error detected
             v1=0x00000001,     ///<DES key parity error detected
         };
-        namespace dpeValC{
-            constexpr MPL::Value<dpeVal,dpeVal::v0> v0{};
-            constexpr MPL::Value<dpeVal,dpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
+        namespace DpeValC{
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dpeVal> dpe{}; 
         ///CAU version
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        namespace VerValC{
+        }
     }
     namespace NonecauXorCaa{    ///<Accumulator register - Exclusive Or command
         using Addr = Register::Address<0xe0081984,0xffffffff,0,unsigned>;
@@ -328,27 +338,29 @@ namespace Kvasir {
     namespace NonecauRotlCasr{    ///<Status register  - Rotate Left command
         using Addr = Register::Address<0xe00819c0,0x0ffffffc,0,unsigned>;
         ///no description available
-        enum class icVal {
+        enum class IcVal {
             v0=0x00000000,     ///<No illegal commands issued
             v1=0x00000001,     ///<Illegal command issued
         };
-        namespace icValC{
-            constexpr MPL::Value<icVal,icVal::v0> v0{};
-            constexpr MPL::Value<icVal,icVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
+        namespace IcValC{
+            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,icVal> ic{}; 
         ///no description available
-        enum class dpeVal {
+        enum class DpeVal {
             v0=0x00000000,     ///<No error detected
             v1=0x00000001,     ///<DES key parity error detected
         };
-        namespace dpeValC{
-            constexpr MPL::Value<dpeVal,dpeVal::v0> v0{};
-            constexpr MPL::Value<dpeVal,dpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
+        namespace DpeValC{
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dpeVal> dpe{}; 
         ///CAU version
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        namespace VerValC{
+        }
     }
     namespace NonecauRotlCaa{    ///<Accumulator register - Rotate Left command
         using Addr = Register::Address<0xe00819c4,0xffffffff,0,unsigned>;
@@ -383,27 +395,29 @@ namespace Kvasir {
     namespace NonecauAescCasr{    ///<Status register  - AES Column Operation command
         using Addr = Register::Address<0xe0081b00,0x0ffffffc,0,unsigned>;
         ///no description available
-        enum class icVal {
+        enum class IcVal {
             v0=0x00000000,     ///<No illegal commands issued
             v1=0x00000001,     ///<Illegal command issued
         };
-        namespace icValC{
-            constexpr MPL::Value<icVal,icVal::v0> v0{};
-            constexpr MPL::Value<icVal,icVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
+        namespace IcValC{
+            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,icVal> ic{}; 
         ///no description available
-        enum class dpeVal {
+        enum class DpeVal {
             v0=0x00000000,     ///<No error detected
             v1=0x00000001,     ///<DES key parity error detected
         };
-        namespace dpeValC{
-            constexpr MPL::Value<dpeVal,dpeVal::v0> v0{};
-            constexpr MPL::Value<dpeVal,dpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
+        namespace DpeValC{
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dpeVal> dpe{}; 
         ///CAU version
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        namespace VerValC{
+        }
     }
     namespace NonecauAescCaa{    ///<Accumulator register - AES Column Operation command
         using Addr = Register::Address<0xe0081b04,0xffffffff,0,unsigned>;
@@ -438,27 +452,29 @@ namespace Kvasir {
     namespace NonecauAesicCasr{    ///<Status register  - AES Inverse Column Operation command
         using Addr = Register::Address<0xe0081b40,0x0ffffffc,0,unsigned>;
         ///no description available
-        enum class icVal {
+        enum class IcVal {
             v0=0x00000000,     ///<No illegal commands issued
             v1=0x00000001,     ///<Illegal command issued
         };
-        namespace icValC{
-            constexpr MPL::Value<icVal,icVal::v0> v0{};
-            constexpr MPL::Value<icVal,icVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
+        namespace IcValC{
+            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,icVal> ic{}; 
         ///no description available
-        enum class dpeVal {
+        enum class DpeVal {
             v0=0x00000000,     ///<No error detected
             v1=0x00000001,     ///<DES key parity error detected
         };
-        namespace dpeValC{
-            constexpr MPL::Value<dpeVal,dpeVal::v0> v0{};
-            constexpr MPL::Value<dpeVal,dpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
+        namespace DpeValC{
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,dpeVal> dpe{}; 
         ///CAU version
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
+        namespace VerValC{
+        }
     }
     namespace NonecauAesicCaa{    ///<Accumulator register - AES Inverse Column Operation command
         using Addr = Register::Address<0xe0081b44,0xffffffff,0,unsigned>;

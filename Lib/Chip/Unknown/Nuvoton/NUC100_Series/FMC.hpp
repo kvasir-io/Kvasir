@@ -8,22 +8,30 @@ namespace Kvasir {
 ISP function enable bit. Set this bit to enable ISP function.
 1 = Enable ISP function
 0 = Disable ISP function
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ispen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ispen{}; 
+        namespace IspenValC{
+        }
         ///Boot Select 
 Set/clear this bit to select next booting from LDROM/APROM, respectively. This bit also functions as chip booting status flag, which can be used to check where chip booted from. This bit is initiated with the inversed value of CBS in Config0 after power-on reset; It keeps the same value at other reset.
 1 = boot from LDROM
 0 = boot from APROM
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> bs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> bs{}; 
+        namespace BsValC{
+        }
         ///Enable Config-bits Update by ISP
 LDROM update enable bit. 
 1 = Enable ISP can update config-bits.
 0 = Disable ISP can update config-bits.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cfguen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cfguen{}; 
+        namespace CfguenValC{
+        }
         ///LDROM Update Enable
 LDROM update enable bit. 
 1 = LDROM can be updated when the MCU runs in APROM.
 0 = LDROM can not be updated
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lduen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lduen{}; 
+        namespace LduenValC{
+        }
         ///ISP Fail Flag
 This bit is set by hardware when a triggered ISP meets any of the following conditions:
 (1) APROM writes to itself.
@@ -31,7 +39,9 @@ This bit is set by hardware when a triggered ISP meets any of the following cond
 (3) CONFIG is erased/programmed if CFGUEN is set to 0.
 (4) Destination address is illegal, such as over an available range.
 Write 1 to clear.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ispff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ispff{}; 
+        namespace IspffValC{
+        }
         ///Flash Program Time
 PT[2]	PT[1]	PT[0]	Program Time (us)	
 0	0	0	40	
@@ -42,7 +52,9 @@ PT[2]	PT[1]	PT[0]	Program Time (us)
 1	0	1	25	
 1	1	0	30	
 1	1	1	35	
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pt{}; 
+        namespace PtValC{
+        }
         ///Flash Erase Time
 ET[2]	ET[1]	ET[0]	Erase Time (ms)	
 0	0	0	20 (default)	
@@ -53,20 +65,26 @@ ET[2]	ET[1]	ET[0]	Erase Time (ms)
 1	0	1	5	
 1	1	0	10	
 1	1	1	15	
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> et{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> et{}; 
+        namespace EtValC{
+        }
     }
     namespace Noneispadr{    ///<ISP Address Register
         using Addr = Register::Address<0x5000c004,0x00000000,0,unsigned>;
         ///ISP Address 
 NuMicro(TM) NUC100 Series equips with a maximum 32Kx32 embedded flash, it supports word program only. ISPARD[1:0] must be kept 00b for ISP operation.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ispadr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ispadr{}; 
+        namespace IspadrValC{
+        }
     }
     namespace Noneispdat{    ///<ISP Data Register
         using Addr = Register::Address<0x5000c008,0x00000000,0,unsigned>;
         ///ISP Data 
 Write data to this register before ISP program operation
 Read data from this register after ISP read operation
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ispdat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ispdat{}; 
+        namespace IspdatValC{
+        }
     }
     namespace Noneispcmd{    ///<ISP Command Register
         using Addr = Register::Address<0x5000c00c,0xffffffc0,0,unsigned>;
@@ -76,21 +94,27 @@ Operation Mode	FOEN	FCEN	FCTRL[3:0]
 Read	0	0	0	0	0	0	
 Program	1	0	0	0	0	1	
 Page Erase	1	0	0	0	1	0	
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> fctrl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> fctrl{}; 
+        namespace FctrlValC{
+        }
         ///ISP Command 
 ISP command table is showed below:
 Operation Mode	FOEN	FCEN	FCTRL[3:0]	
 Read	0	0	0	0	0	0	
 Program	1	0	0	0	0	1	
 Page Erase	1	0	0	0	1	0	
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> fcen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> fcen{}; 
+        namespace FcenValC{
+        }
         ///ISP Command 
 ISP command table is showed below:
 Operation Mode	FOEN	FCEN	FCTRL[3:0]	
 Read	0	0	0	0	0	0	
 Program	1	0	0	0	0	1	
 Page Erase	1	0	0	0	1	0	
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> foen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> foen{}; 
+        namespace FoenValC{
+        }
     }
     namespace Noneisptrg{    ///<ISP Trigger Control Register
         using Addr = Register::Address<0x5000c010,0xfffffffe,0,unsigned>;
@@ -98,14 +122,18 @@ Page Erase	1	0	0	0	1	0
 Write 1 to start ISP operation and this bit will be cleared to 0 by hardware automatically when ISP operation is finished.
 1 = ISP is on going
 0 = ISP is operation is finished
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ispgo{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ispgo{}; 
+        namespace IspgoValC{
+        }
     }
     namespace Nonedfbadr{    ///<Data Flash Base Address Register
         using Addr = Register::Address<0x5000c014,0x00000000,0,unsigned>;
         ///Data Flash Base Address
 This register indicates data flash start address. It is a read only register.
 For 128kB flash memory device, the data flash size is defined by user configuration, register content is loaded from Config1 when chip power on but for 64/32kB device, it is fixed at 0x01_f000 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dfbadr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dfbadr{}; 
+        namespace DfbadrValC{
+        }
     }
     namespace Nonefatcon{    ///<Flash Access Time Control Register
         using Addr = Register::Address<0x5000c018,0xfffffff0,0,unsigned>;
@@ -113,7 +141,9 @@ For 128kB flash memory device, the data flash size is defined by user configurat
 If CPU clock is slower than 24 MHz, then s/w can enable flash power saving function. 
 1 = Enable flash power saving
 0 = Disable flash power saving
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fpsen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fpsen{}; 
+        namespace FpsenValC{
+        }
         ///Flash Access Time Window Select
 These bits are used to decide flash sense amplifier active duration.
 
@@ -128,6 +158,8 @@ FATS	Access Time window (ns)
 101	90	
 110	100	
 111	reserved	
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> fats{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> fats{}; 
+        namespace FatsValC{
+        }
     }
 }
