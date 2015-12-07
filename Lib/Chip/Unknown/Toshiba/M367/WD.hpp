@@ -5,13 +5,21 @@ namespace Kvasir {
     namespace Nonemod{    ///<WD Mode Register
         using Addr = Register::Address<0x400f2000,0xffffff09,0,unsigned>;
         ///RESCR
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rescr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rescr{}; 
+        namespace RescrValC{
+        }
         ///I2WDT
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> i2wdt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> i2wdt{}; 
+        namespace I2wdtValC{
+        }
         ///WDTP
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> wdtp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> wdtp{}; 
+        namespace WdtpValC{
+        }
         ///WDTE
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wdte{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wdte{}; 
+        namespace WdteValC{
+        }
     }
     namespace Nonecr{    ///<WD Control Register
         using Addr = Register::Address<0x400f2004,0xffffffff,0,unsigned>;

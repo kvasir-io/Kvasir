@@ -5,13 +5,19 @@ namespace Kvasir {
     namespace Noneen{    ///<TEMP Enable Register
         using Addr = Register::Address<0x4005d000,0xfffffffc,0,unsigned>;
         ///EN0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> en0{}; 
+        namespace En0ValC{
+        }
         ///EN1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> en1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> en1{}; 
+        namespace En1ValC{
+        }
     }
     namespace Nonecr{    ///<TEMP Control Registe
         using Addr = Register::Address<0x4005d004,0xfffffffe,0,unsigned>;
         ///CR0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cr0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cr0{}; 
+        namespace Cr0ValC{
+        }
     }
 }

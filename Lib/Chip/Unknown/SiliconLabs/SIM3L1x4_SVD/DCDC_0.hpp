@@ -5,196 +5,198 @@ namespace Kvasir {
     namespace Nonecontrol{    ///<Module Control
         using Addr = Register::Address<0x4004e000,0x00a000f0,0,unsigned>;
         ///DC-DC Converter Ready Low Flag. 
-        enum class rdylowfVal {
+        enum class RdylowfVal {
             notSet=0x00000000,     ///<The output voltage (VDC) is below the threshold set in the RDYLOWTH threshold field (RDYLOWTH).
             set=0x00000001,     ///<The output voltage (VDC) is above the threshold set in the RDYLOWTH threshold field (RDYLOWTH).
         };
-        namespace rdylowfValC{
-            constexpr MPL::Value<rdylowfVal,rdylowfVal::notSet> notSet{};
-            constexpr MPL::Value<rdylowfVal,rdylowfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RdylowfVal> rdylowf{}; 
+        namespace RdylowfValC{
+            constexpr Register::FieldValue<decltype(rdylowf),RdylowfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rdylowf),RdylowfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,rdylowfVal> rdylowf{}; 
         ///DC-DC Converter Ready High Flag. 
-        enum class rdyhighfVal {
+        enum class RdyhighfVal {
             notSet=0x00000000,     ///<The output voltage (VDC) has not exceeded 105% of the programmed output value.
             set=0x00000001,     ///<The output voltage (VDC) has exceeded 105% of the programmed output value.
         };
-        namespace rdyhighfValC{
-            constexpr MPL::Value<rdyhighfVal,rdyhighfVal::notSet> notSet{};
-            constexpr MPL::Value<rdyhighfVal,rdyhighfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RdyhighfVal> rdyhighf{}; 
+        namespace RdyhighfValC{
+            constexpr Register::FieldValue<decltype(rdyhighf),RdyhighfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rdyhighf),RdyhighfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,rdyhighfVal> rdyhighf{}; 
         ///DC-DC Converter Dropout Flag. 
-        enum class dropoutfVal {
+        enum class DropoutfVal {
             notSet=0x00000000,     ///<The input voltage (VBATDC) is more than 0.4 V above the output voltage (VDC). The DC-DC converter is not in dropout.
             set=0x00000001,     ///<The input voltage (VBATDC) is less than 0.4 V above the output voltage (VDC). The DC-DC converter is in dropout, and firmware should enable the bypass switch (BEN=1).
         };
-        namespace dropoutfValC{
-            constexpr MPL::Value<dropoutfVal,dropoutfVal::notSet> notSet{};
-            constexpr MPL::Value<dropoutfVal,dropoutfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DropoutfVal> dropoutf{}; 
+        namespace DropoutfValC{
+            constexpr Register::FieldValue<decltype(dropoutf),DropoutfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(dropoutf),DropoutfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,dropoutfVal> dropoutf{}; 
         ///Bandgap Ready Flag. 
-        enum class bgrdyfVal {
+        enum class BgrdyfVal {
             notSet=0x00000000,     ///<The bandgap voltage is not above the threshold.
             set=0x00000001,     ///<The bandgap voltage is above the threshold.
         };
-        namespace bgrdyfValC{
-            constexpr MPL::Value<bgrdyfVal,bgrdyfVal::notSet> notSet{};
-            constexpr MPL::Value<bgrdyfVal,bgrdyfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BgrdyfVal> bgrdyf{}; 
+        namespace BgrdyfValC{
+            constexpr Register::FieldValue<decltype(bgrdyf),BgrdyfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(bgrdyf),BgrdyfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bgrdyfVal> bgrdyf{}; 
         ///Oscillator Disable. 
-        enum class oscdisVal {
+        enum class OscdisVal {
             inactive=0x00000000,     ///<Enable the DC-DC local oscillator.
             active=0x00000001,     ///<Disable the DC-DC local oscillator.
         };
-        namespace oscdisValC{
-            constexpr MPL::Value<oscdisVal,oscdisVal::inactive> inactive{};
-            constexpr MPL::Value<oscdisVal,oscdisVal::active> active{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,OscdisVal> oscdis{}; 
+        namespace OscdisValC{
+            constexpr Register::FieldValue<decltype(oscdis),OscdisVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(oscdis),OscdisVal::active> active{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,oscdisVal> oscdis{}; 
         ///Clock Source Select. 
-        enum class clkselVal {
+        enum class ClkselVal {
             dcdcosc=0x00000000,     ///<Select the local DC-DC oscillator as the clock source.
             apb=0x00000001,     ///<Select the APB clock as the clock source.
         };
-        namespace clkselValC{
-            constexpr MPL::Value<clkselVal,clkselVal::dcdcosc> dcdcosc{};
-            constexpr MPL::Value<clkselVal,clkselVal::apb> apb{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ClkselVal> clksel{}; 
+        namespace ClkselValC{
+            constexpr Register::FieldValue<decltype(clksel),ClkselVal::dcdcosc> dcdcosc{};
+            constexpr Register::FieldValue<decltype(clksel),ClkselVal::apb> apb{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,clkselVal> clksel{}; 
         ///Clock Divider. 
-        enum class clkdivVal {
+        enum class ClkdivVal {
             div1=0x00000000,     ///<Use the APB clock divided by 1 as the converter switching frequency.
             div2=0x00000001,     ///<Use the APB clock divided by 2 as the converter switching frequency.
             div4=0x00000002,     ///<Use the APB clock divided by 4 as the converter switching frequency.
             div8=0x00000003,     ///<Use the APB clock divided by 8 as the converter switching frequency.
             div16=0x00000004,     ///<Use the APB clock divided by 16 as the converter switching frequency.
         };
-        namespace clkdivValC{
-            constexpr MPL::Value<clkdivVal,clkdivVal::div1> div1{};
-            constexpr MPL::Value<clkdivVal,clkdivVal::div2> div2{};
-            constexpr MPL::Value<clkdivVal,clkdivVal::div4> div4{};
-            constexpr MPL::Value<clkdivVal,clkdivVal::div8> div8{};
-            constexpr MPL::Value<clkdivVal,clkdivVal::div16> div16{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,10),Register::ReadWriteAccess,ClkdivVal> clkdiv{}; 
+        namespace ClkdivValC{
+            constexpr Register::FieldValue<decltype(clkdiv),ClkdivVal::div1> div1{};
+            constexpr Register::FieldValue<decltype(clkdiv),ClkdivVal::div2> div2{};
+            constexpr Register::FieldValue<decltype(clkdiv),ClkdivVal::div4> div4{};
+            constexpr Register::FieldValue<decltype(clkdiv),ClkdivVal::div8> div8{};
+            constexpr Register::FieldValue<decltype(clkdiv),ClkdivVal::div16> div16{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,10),Register::ReadWriteAccess,clkdivVal> clkdiv{}; 
         ///ADC Synchronization Enable. 
-        enum class adcsyncenVal {
+        enum class AdcsyncenVal {
             disabled=0x00000000,     ///<Do not synchronize the ADC to the DC-DC converter.
             enabled=0x00000001,     ///<Synchronize the ADC to the DC-DC converter.
         };
-        namespace adcsyncenValC{
-            constexpr MPL::Value<adcsyncenVal,adcsyncenVal::disabled> disabled{};
-            constexpr MPL::Value<adcsyncenVal,adcsyncenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,AdcsyncenVal> adcsyncen{}; 
+        namespace AdcsyncenValC{
+            constexpr Register::FieldValue<decltype(adcsyncen),AdcsyncenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(adcsyncen),AdcsyncenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,adcsyncenVal> adcsyncen{}; 
         ///Clock Inversion Enable. 
-        enum class clkinvenVal {
+        enum class ClkinvenVal {
             disabled=0x00000000,     ///<Do not invert the APB clock input.
             enabled=0x00000001,     ///<Invert the APB clock input.
         };
-        namespace clkinvenValC{
-            constexpr MPL::Value<clkinvenVal,clkinvenVal::disabled> disabled{};
-            constexpr MPL::Value<clkinvenVal,clkinvenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ClkinvenVal> clkinven{}; 
+        namespace ClkinvenValC{
+            constexpr Register::FieldValue<decltype(clkinven),ClkinvenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(clkinven),ClkinvenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,clkinvenVal> clkinven{}; 
         ///ADC Clock Inversion Enable. 
-        enum class adcclkinvenVal {
+        enum class AdcclkinvenVal {
             disabled=0x00000000,     ///<Do not invert the ADC clock derived from the DC-DC switching frequency.
             enabled=0x00000001,     ///<Invert the ADC clock derived from the DC-DC switching frequency.
         };
-        namespace adcclkinvenValC{
-            constexpr MPL::Value<adcclkinvenVal,adcclkinvenVal::disabled> disabled{};
-            constexpr MPL::Value<adcclkinvenVal,adcclkinvenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,AdcclkinvenVal> adcclkinven{}; 
+        namespace AdcclkinvenValC{
+            constexpr Register::FieldValue<decltype(adcclkinven),AdcclkinvenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(adcclkinven),AdcclkinvenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,adcclkinvenVal> adcclkinven{}; 
         ///Output Voltage Select. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> outvsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> outvsel{}; 
+        namespace OutvselValC{
+        }
         ///Module Interrupt Enable. 
-        enum class mienVal {
+        enum class MienVal {
             disabled=0x00000000,     ///<Disable DC-DC module interrupts.
             enabled=0x00000001,     ///<Enable DC-DC module interrupts.
         };
-        namespace mienValC{
-            constexpr MPL::Value<mienVal,mienVal::disabled> disabled{};
-            constexpr MPL::Value<mienVal,mienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,MienVal> mien{}; 
+        namespace MienValC{
+            constexpr Register::FieldValue<decltype(mien),MienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mien),MienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,mienVal> mien{}; 
         ///Minimum Pulse Width Select. 
-        enum class minpwselVal {
+        enum class MinpwselVal {
             disabled=0x00000000,     ///<Disable pulse skipping.
             v10Ns=0x00000001,     ///<Set the minimum pulse width to 10 ns.
             v20Ns=0x00000002,     ///<Set the minimum pulse width to 20 ns.
             v40Ns=0x00000003,     ///<Set the minimum pulse width to 40 ns.
         };
-        namespace minpwselValC{
-            constexpr MPL::Value<minpwselVal,minpwselVal::disabled> disabled{};
-            constexpr MPL::Value<minpwselVal,minpwselVal::v10Ns> v10Ns{};
-            constexpr MPL::Value<minpwselVal,minpwselVal::v20Ns> v20Ns{};
-            constexpr MPL::Value<minpwselVal,minpwselVal::v40Ns> v40Ns{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,MinpwselVal> minpwsel{}; 
+        namespace MinpwselValC{
+            constexpr Register::FieldValue<decltype(minpwsel),MinpwselVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(minpwsel),MinpwselVal::v10Ns> v10Ns{};
+            constexpr Register::FieldValue<decltype(minpwsel),MinpwselVal::v20Ns> v20Ns{};
+            constexpr Register::FieldValue<decltype(minpwsel),MinpwselVal::v40Ns> v40Ns{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,minpwselVal> minpwsel{}; 
         ///Power Switch Mode. 
-        enum class psmdVal {
+        enum class PsmdVal {
             swsel0=0x00000000,     ///<Mode 0. Set the M1 and M2 power switches to each use one MOSFET only.
             swsel1=0x00000001,     ///<Mode 1. Set the M1 and M2 power switches to each use 2 MOSFETS in parallel.
             swsel2=0x00000002,     ///<Mode 2. Set the M1 and M2 power switches to each use 3 MOSFETS in parallel.
             swsel3=0x00000003,     ///<Mode 3. Set the M1 and M2 power switches to each use 4 MOSFETS in parallel.
         };
-        namespace psmdValC{
-            constexpr MPL::Value<psmdVal,psmdVal::swsel0> swsel0{};
-            constexpr MPL::Value<psmdVal,psmdVal::swsel1> swsel1{};
-            constexpr MPL::Value<psmdVal,psmdVal::swsel2> swsel2{};
-            constexpr MPL::Value<psmdVal,psmdVal::swsel3> swsel3{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,PsmdVal> psmd{}; 
+        namespace PsmdValC{
+            constexpr Register::FieldValue<decltype(psmd),PsmdVal::swsel0> swsel0{};
+            constexpr Register::FieldValue<decltype(psmd),PsmdVal::swsel1> swsel1{};
+            constexpr Register::FieldValue<decltype(psmd),PsmdVal::swsel2> swsel2{};
+            constexpr Register::FieldValue<decltype(psmd),PsmdVal::swsel3> swsel3{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,psmdVal> psmd{}; 
         ///Asynchronous Mode Enable. 
-        enum class asyncenVal {
+        enum class AsyncenVal {
             disabled=0x00000000,     ///<Enable DC-DC synchronous mode.
             enabled=0x00000001,     ///<Enable DC-DC asynchronous mode.  This mode is more efficient for very light output loads.
         };
-        namespace asyncenValC{
-            constexpr MPL::Value<asyncenVal,asyncenVal::disabled> disabled{};
-            constexpr MPL::Value<asyncenVal,asyncenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,AsyncenVal> asyncen{}; 
+        namespace AsyncenValC{
+            constexpr Register::FieldValue<decltype(asyncen),AsyncenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(asyncen),AsyncenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,asyncenVal> asyncen{}; 
         ///Automatic Bypass Enable. 
-        enum class abenVal {
+        enum class AbenVal {
             disabled=0x00000000,     ///<Disable automatic bypass.
             enabled=0x00000001,     ///<Enable automatic bypass.
         };
-        namespace abenValC{
-            constexpr MPL::Value<abenVal,abenVal::disabled> disabled{};
-            constexpr MPL::Value<abenVal,abenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,AbenVal> aben{}; 
+        namespace AbenValC{
+            constexpr Register::FieldValue<decltype(aben),AbenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(aben),AbenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,abenVal> aben{}; 
         ///Bypass Enable. 
-        enum class benVal {
+        enum class BenVal {
             disabled=0x00000000,     ///<Disable the MBYP bypass switch.
             enabled=0x00000001,     ///<Enable the MBYP bypass switch.
         };
-        namespace benValC{
-            constexpr MPL::Value<benVal,benVal::disabled> disabled{};
-            constexpr MPL::Value<benVal,benVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,BenVal> ben{}; 
+        namespace BenValC{
+            constexpr Register::FieldValue<decltype(ben),BenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ben),BenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,benVal> ben{}; 
         ///DC-DC Converter Enable. 
-        enum class dcdcenVal {
+        enum class DcdcenVal {
             disabled=0x00000000,     ///<Disable the DC-DC converter.
             enabled=0x00000001,     ///<Enable the DC-DC converter.
         };
-        namespace dcdcenValC{
-            constexpr MPL::Value<dcdcenVal,dcdcenVal::disabled> disabled{};
-            constexpr MPL::Value<dcdcenVal,dcdcenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,DcdcenVal> dcdcen{}; 
+        namespace DcdcenValC{
+            constexpr Register::FieldValue<decltype(dcdcen),DcdcenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dcdcen),DcdcenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,dcdcenVal> dcdcen{}; 
     }
     namespace Noneconfig{    ///<Module Configuration
         using Addr = Register::Address<0x4004e010,0xffccff8f,0,unsigned>;
         ///Inductor Peak Current Limit. 
-        enum class ilimitVal {
+        enum class IlimitVal {
             limit1=0x00000001,     ///<Limit the peak inductor current to 200 mA.
             limit2=0x00000002,     ///<Limit the peak inductor current to 300 mA.
             limit3=0x00000003,     ///<Limit the peak inductor current to 400 mA.
@@ -203,43 +205,43 @@ namespace Kvasir {
             limit6=0x00000006,     ///<Limit the peak inductor current to 700 mA.
             limit7=0x00000007,     ///<Limit the peak inductor current to 800 mA.
         };
-        namespace ilimitValC{
-            constexpr MPL::Value<ilimitVal,ilimitVal::limit1> limit1{};
-            constexpr MPL::Value<ilimitVal,ilimitVal::limit2> limit2{};
-            constexpr MPL::Value<ilimitVal,ilimitVal::limit3> limit3{};
-            constexpr MPL::Value<ilimitVal,ilimitVal::limit4> limit4{};
-            constexpr MPL::Value<ilimitVal,ilimitVal::limit5> limit5{};
-            constexpr MPL::Value<ilimitVal,ilimitVal::limit6> limit6{};
-            constexpr MPL::Value<ilimitVal,ilimitVal::limit7> limit7{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,IlimitVal> ilimit{}; 
+        namespace IlimitValC{
+            constexpr Register::FieldValue<decltype(ilimit),IlimitVal::limit1> limit1{};
+            constexpr Register::FieldValue<decltype(ilimit),IlimitVal::limit2> limit2{};
+            constexpr Register::FieldValue<decltype(ilimit),IlimitVal::limit3> limit3{};
+            constexpr Register::FieldValue<decltype(ilimit),IlimitVal::limit4> limit4{};
+            constexpr Register::FieldValue<decltype(ilimit),IlimitVal::limit5> limit5{};
+            constexpr Register::FieldValue<decltype(ilimit),IlimitVal::limit6> limit6{};
+            constexpr Register::FieldValue<decltype(ilimit),IlimitVal::limit7> limit7{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,ilimitVal> ilimit{}; 
         ///Interrupt Mode. 
-        enum class intmdVal {
+        enum class IntmdVal {
             outputTooLow=0x00000000,     ///<Generate an interrupt when the regulated converter output voltage is too low, according to the RDYLOWF flag.
             outputNotTooLow=0x00000001,     ///<Generate an interrupt when the regulated converter output voltage is not too low according to the RDYLOWF flag.
             outOfReg=0x00000002,     ///<Generate an interrupt when the output voltage is out of regulation. The converter output can be either too high or too low, according to the RDYLOWF and RDYHIGHF flags.
             inReg=0x00000003,     ///<Generate an interrupt when the output voltage is in regulation.
         };
-        namespace intmdValC{
-            constexpr MPL::Value<intmdVal,intmdVal::outputTooLow> outputTooLow{};
-            constexpr MPL::Value<intmdVal,intmdVal::outputNotTooLow> outputNotTooLow{};
-            constexpr MPL::Value<intmdVal,intmdVal::outOfReg> outOfReg{};
-            constexpr MPL::Value<intmdVal,intmdVal::inReg> inReg{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,IntmdVal> intmd{}; 
+        namespace IntmdValC{
+            constexpr Register::FieldValue<decltype(intmd),IntmdVal::outputTooLow> outputTooLow{};
+            constexpr Register::FieldValue<decltype(intmd),IntmdVal::outputNotTooLow> outputNotTooLow{};
+            constexpr Register::FieldValue<decltype(intmd),IntmdVal::outOfReg> outOfReg{};
+            constexpr Register::FieldValue<decltype(intmd),IntmdVal::inReg> inReg{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,intmdVal> intmd{}; 
         ///Converter Ready Low Threshold. 
-        enum class rdylowthVal {
+        enum class RdylowthVal {
             v95Percent=0x00000000,     ///<Hardware sets the RDYLOWF flag if the regulated output voltage is greater than 95% of the programmed output voltage.
             v90Percent=0x00000001,     ///<Hardware sets the RDYLOWF flag if the regulated output voltage is greater than 90% of the programmed output voltage.
             v85Percent=0x00000002,     ///<Hardware sets the RDYLOWF flag if the regulated output voltage is greater than 85% of the programmed output voltage.
             v80Percent=0x00000003,     ///<Hardware sets the RDYLOWF flag if the regulated output voltage is greater than 80% of the programmed output voltage.
         };
-        namespace rdylowthValC{
-            constexpr MPL::Value<rdylowthVal,rdylowthVal::v95Percent> v95Percent{};
-            constexpr MPL::Value<rdylowthVal,rdylowthVal::v90Percent> v90Percent{};
-            constexpr MPL::Value<rdylowthVal,rdylowthVal::v85Percent> v85Percent{};
-            constexpr MPL::Value<rdylowthVal,rdylowthVal::v80Percent> v80Percent{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,RdylowthVal> rdylowth{}; 
+        namespace RdylowthValC{
+            constexpr Register::FieldValue<decltype(rdylowth),RdylowthVal::v95Percent> v95Percent{};
+            constexpr Register::FieldValue<decltype(rdylowth),RdylowthVal::v90Percent> v90Percent{};
+            constexpr Register::FieldValue<decltype(rdylowth),RdylowthVal::v85Percent> v85Percent{};
+            constexpr Register::FieldValue<decltype(rdylowth),RdylowthVal::v80Percent> v80Percent{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,rdylowthVal> rdylowth{}; 
     }
 }

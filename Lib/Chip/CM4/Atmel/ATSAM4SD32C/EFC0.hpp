@@ -5,20 +5,30 @@ namespace Kvasir {
     namespace Efc0Fmr{    ///<EEFC Flash Mode Register
         using Addr = Register::Address<0x400e0a00,0xfafef0fe,0,unsigned>;
         ///Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frdy{}; 
+        namespace FrdyValC{
+        }
         ///Flash Wait State
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> fws{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> fws{}; 
+        namespace FwsValC{
+        }
         ///Sequential Code Optimization Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> scod{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> scod{}; 
+        namespace ScodValC{
+        }
         ///Flash Access Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fam{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> fam{}; 
+        namespace FamValC{
+        }
         ///Code Loops Optimization Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> cloe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> cloe{}; 
+        namespace CloeValC{
+        }
     }
     namespace Efc0Fcr{    ///<EEFC Flash Command Register
         using Addr = Register::Address<0x400e0a04,0x00000000,0,unsigned>;
         ///Flash Command
-        enum class fcmdVal {
+        enum class FcmdVal {
             getd=0x00000000,     ///<Get Flash Descriptor
             wp=0x00000001,     ///<Write page
             wpl=0x00000002,     ///<Write page and lock
@@ -41,49 +51,63 @@ namespace Kvasir {
             stus=0x00000014,     ///<Start Read User Signature
             spus=0x00000015,     ///<Stop Read User Signature
         };
-        namespace fcmdValC{
-            constexpr MPL::Value<fcmdVal,fcmdVal::getd> getd{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::wp> wp{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::wpl> wpl{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::ewp> ewp{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::ewpl> ewpl{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::ea> ea{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::epa> epa{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::slb> slb{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::clb> clb{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::glb> glb{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::sgpb> sgpb{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::cgpb> cgpb{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::ggpb> ggpb{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::stui> stui{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::spui> spui{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::gcalb> gcalb{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::es> es{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::wus> wus{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::eus> eus{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::stus> stus{};
-            constexpr MPL::Value<fcmdVal,fcmdVal::spus> spus{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,FcmdVal> fcmd{}; 
+        namespace FcmdValC{
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::getd> getd{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::wp> wp{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::wpl> wpl{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::ewp> ewp{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::ewpl> ewpl{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::ea> ea{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::epa> epa{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::slb> slb{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::clb> clb{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::glb> glb{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::sgpb> sgpb{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::cgpb> cgpb{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::ggpb> ggpb{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::stui> stui{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::spui> spui{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::gcalb> gcalb{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::es> es{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::wus> wus{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::eus> eus{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::stus> stus{};
+            constexpr Register::FieldValue<decltype(fcmd),FcmdVal::spus> spus{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,fcmdVal> fcmd{}; 
         ///Flash Command Argument
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> farg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> farg{}; 
+        namespace FargValC{
+        }
         ///Flash Writing Protection Key
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> fkey{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> fkey{}; 
+        namespace FkeyValC{
+        }
     }
     namespace Efc0Fsr{    ///<EEFC Flash Status Register
         using Addr = Register::Address<0x400e0a08,0xfffffff0,0,unsigned>;
         ///Flash Ready Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frdy{}; 
+        namespace FrdyValC{
+        }
         ///Flash Command Error Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fcmde{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fcmde{}; 
+        namespace FcmdeValC{
+        }
         ///Flash Lock Error Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> flocke{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> flocke{}; 
+        namespace FlockeValC{
+        }
         ///Flash Error Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> flerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> flerr{}; 
+        namespace FlerrValC{
+        }
     }
     namespace Efc0Frr{    ///<EEFC Flash Result Register
         using Addr = Register::Address<0x400e0a0c,0x00000000,0,unsigned>;
         ///Flash Result Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fvalue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fvalue{}; 
+        namespace FvalueValC{
+        }
     }
 }

@@ -5,37 +5,37 @@ namespace Kvasir {
     namespace RtcSc{    ///<RTC Status and Control Register
         using Addr = Register::Address<0x4003d000,0xffff382f,0,unsigned>;
         ///Real-Time Counter Output
-        enum class rtcoVal {
+        enum class RtcoVal {
             v0=0x00000000,     ///<Real-time counter output disabled.
             v1=0x00000001,     ///<Real-time counter output enabled.
         };
-        namespace rtcoValC{
-            constexpr MPL::Value<rtcoVal,rtcoVal::v0> v0{};
-            constexpr MPL::Value<rtcoVal,rtcoVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RtcoVal> rtco{}; 
+        namespace RtcoValC{
+            constexpr Register::FieldValue<decltype(rtco),RtcoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rtco),RtcoVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,rtcoVal> rtco{}; 
         ///Real-Time Interrupt Enable
-        enum class rtieVal {
+        enum class RtieVal {
             v0=0x00000000,     ///<Real-time interrupt requests are disabled. Use software polling.
             v1=0x00000001,     ///<Real-time interrupt requests are enabled.
         };
-        namespace rtieValC{
-            constexpr MPL::Value<rtieVal,rtieVal::v0> v0{};
-            constexpr MPL::Value<rtieVal,rtieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,RtieVal> rtie{}; 
+        namespace RtieValC{
+            constexpr Register::FieldValue<decltype(rtie),RtieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rtie),RtieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,rtieVal> rtie{}; 
         ///Real-Time Interrupt Flag
-        enum class rtifVal {
+        enum class RtifVal {
             v0=0x00000000,     ///<RTC counter has not reached the value in the RTC modulo register.
             v1=0x00000001,     ///<RTC counter has reached the value in the RTC modulo register.
         };
-        namespace rtifValC{
-            constexpr MPL::Value<rtifVal,rtifVal::v0> v0{};
-            constexpr MPL::Value<rtifVal,rtifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RtifVal> rtif{}; 
+        namespace RtifValC{
+            constexpr Register::FieldValue<decltype(rtif),RtifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rtif),RtifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,rtifVal> rtif{}; 
         ///Real-Time Clock Prescaler Select
-        enum class rtcpsVal {
+        enum class RtcpsVal {
             v000=0x00000000,     ///<Off
             v001=0x00000001,     ///<If RTCLKS = x0, it is 1; if RTCLKS = x1, it is 128.
             v010=0x00000002,     ///<If RTCLKS = x0, it is 2; if RTCLKS = x1, it is 256.
@@ -45,40 +45,44 @@ namespace Kvasir {
             v110=0x00000006,     ///<If RTCLKS = x0, it is 32; if RTCLKS = x1, it is 100.
             v111=0x00000007,     ///<If RTCLKS = x0, it is 64; if RTCLKS = x1, it is 1000.
         };
-        namespace rtcpsValC{
-            constexpr MPL::Value<rtcpsVal,rtcpsVal::v000> v000{};
-            constexpr MPL::Value<rtcpsVal,rtcpsVal::v001> v001{};
-            constexpr MPL::Value<rtcpsVal,rtcpsVal::v010> v010{};
-            constexpr MPL::Value<rtcpsVal,rtcpsVal::v011> v011{};
-            constexpr MPL::Value<rtcpsVal,rtcpsVal::v100> v100{};
-            constexpr MPL::Value<rtcpsVal,rtcpsVal::v101> v101{};
-            constexpr MPL::Value<rtcpsVal,rtcpsVal::v110> v110{};
-            constexpr MPL::Value<rtcpsVal,rtcpsVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,RtcpsVal> rtcps{}; 
+        namespace RtcpsValC{
+            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,rtcpsVal> rtcps{}; 
         ///Real-Time Clock Source Select
-        enum class rtclksVal {
+        enum class RtclksVal {
             v00=0x00000000,     ///<External clock source.
             v01=0x00000001,     ///<Real-time clock source is 1 kHz (LPOCLK).
             v10=0x00000002,     ///<Internal reference clock (ICSIRCLK).
             v11=0x00000003,     ///<Bus clock.
         };
-        namespace rtclksValC{
-            constexpr MPL::Value<rtclksVal,rtclksVal::v00> v00{};
-            constexpr MPL::Value<rtclksVal,rtclksVal::v01> v01{};
-            constexpr MPL::Value<rtclksVal,rtclksVal::v10> v10{};
-            constexpr MPL::Value<rtclksVal,rtclksVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,RtclksVal> rtclks{}; 
+        namespace RtclksValC{
+            constexpr Register::FieldValue<decltype(rtclks),RtclksVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rtclks),RtclksVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rtclks),RtclksVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(rtclks),RtclksVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,rtclksVal> rtclks{}; 
     }
     namespace RtcMod{    ///<RTC Modulo Register
         using Addr = Register::Address<0x4003d004,0xffff0000,0,unsigned>;
         ///RTC Modulo
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
+        namespace ModValC{
+        }
     }
     namespace RtcCnt{    ///<RTC Counter Register
         using Addr = Register::Address<0x4003d008,0xffff0000,0,unsigned>;
         ///RTC Count
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
+        namespace CntValC{
+        }
     }
 }

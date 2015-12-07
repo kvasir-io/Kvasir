@@ -5,385 +5,501 @@ namespace Kvasir {
     namespace Nonecfg{    ///<USART Configuration register. Basic USART configuration settings that typically are not changed during operation.
         using Addr = Register::Address<0x4004c000,0xff032502,0,unsigned>;
         ///USART Enable.
-        enum class enableVal {
+        enum class EnableVal {
             disabled=0x00000000,     ///<Disabled. The USART is disabled and the internal state machine and counters are reset. While Enable = 0, all USART interrupts and DMA transfers are disabled. When Enable is set again, CFG and most other control bits remain unchanged. For instance, when re-enabled, the USART will immediately generate a TxRdy interrupt (if  enabled in the INTENSET register) or a DMA transfer request because the transmitter has been reset and is therefore available.
             enabled=0x00000001,     ///<Enabled. The USART is enabled for operation.
         };
-        namespace enableValC{
-            constexpr MPL::Value<enableVal,enableVal::disabled> disabled{};
-            constexpr MPL::Value<enableVal,enableVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnableVal> enable{}; 
+        namespace EnableValC{
+            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,enableVal> enable{}; 
         ///Selects the data size for the USART.
-        enum class datalenVal {
+        enum class DatalenVal {
             v7BitDataLength=0x00000000,     ///<7 bit Data length.
             v8BitDataLength=0x00000001,     ///<8 bit Data length.
             v9BitDataLength=0x00000002,     ///<9 bit data length. The 9th bit is commonly used for addressing in multidrop mode. See the ADDRDET bit in the CTL register.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace datalenValC{
-            constexpr MPL::Value<datalenVal,datalenVal::v7BitDataLength> v7BitDataLength{};
-            constexpr MPL::Value<datalenVal,datalenVal::v8BitDataLength> v8BitDataLength{};
-            constexpr MPL::Value<datalenVal,datalenVal::v9BitDataLength> v9BitDataLength{};
-            constexpr MPL::Value<datalenVal,datalenVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,DatalenVal> datalen{}; 
+        namespace DatalenValC{
+            constexpr Register::FieldValue<decltype(datalen),DatalenVal::v7BitDataLength> v7BitDataLength{};
+            constexpr Register::FieldValue<decltype(datalen),DatalenVal::v8BitDataLength> v8BitDataLength{};
+            constexpr Register::FieldValue<decltype(datalen),DatalenVal::v9BitDataLength> v9BitDataLength{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,datalenVal> datalen{}; 
         ///Selects what type of parity is used by the USART.
-        enum class parityselVal {
+        enum class ParityselVal {
             noParity=0x00000000,     ///<No parity.
-            reserved=0x00000001,     ///<Reserved.
             evenParity=0x00000002,     ///<Even parity. Adds a bit to each character such that the number of 1s in a transmitted character is even, and the number of 1s in a received character is expected to be even.
             oddParity=0x00000003,     ///<Odd parity. Adds a bit to each character such that the number of 1s in a transmitted character is odd, and the number of 1s in a received character is expected to be odd.
         };
-        namespace parityselValC{
-            constexpr MPL::Value<parityselVal,parityselVal::noParity> noParity{};
-            constexpr MPL::Value<parityselVal,parityselVal::reserved> reserved{};
-            constexpr MPL::Value<parityselVal,parityselVal::evenParity> evenParity{};
-            constexpr MPL::Value<parityselVal,parityselVal::oddParity> oddParity{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,ParityselVal> paritysel{}; 
+        namespace ParityselValC{
+            constexpr Register::FieldValue<decltype(paritysel),ParityselVal::noParity> noParity{};
+            constexpr Register::FieldValue<decltype(paritysel),ParityselVal::evenParity> evenParity{};
+            constexpr Register::FieldValue<decltype(paritysel),ParityselVal::oddParity> oddParity{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,parityselVal> paritysel{}; 
         ///Number of stop bits appended to transmitted data. Only a single stop bit is required for received data.
-        enum class stoplenVal {
+        enum class StoplenVal {
             v1StopBit=0x00000000,     ///<1 stop bit.
             v2StopBits=0x00000001,     ///<2 stop bits. This setting should only be used for asynchronous communication.
         };
-        namespace stoplenValC{
-            constexpr MPL::Value<stoplenVal,stoplenVal::v1StopBit> v1StopBit{};
-            constexpr MPL::Value<stoplenVal,stoplenVal::v2StopBits> v2StopBits{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,StoplenVal> stoplen{}; 
+        namespace StoplenValC{
+            constexpr Register::FieldValue<decltype(stoplen),StoplenVal::v1StopBit> v1StopBit{};
+            constexpr Register::FieldValue<decltype(stoplen),StoplenVal::v2StopBits> v2StopBits{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,stoplenVal> stoplen{}; 
         ///Selects standard or 32 kHz clocking mode.
-        enum class mode32kVal {
+        enum class Mode32kVal {
             standard=0x00000000,     ///<UART uses standard clocking.
             v32khz=0x00000001,     ///<UART uses the 32 kHz clock from the RTC oscillator as the clock source to the BRG, and uses a special bit clocking scheme.
         };
-        namespace mode32kValC{
-            constexpr MPL::Value<mode32kVal,mode32kVal::standard> standard{};
-            constexpr MPL::Value<mode32kVal,mode32kVal::v32khz> v32khz{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Mode32kVal> mode32k{}; 
+        namespace Mode32kValC{
+            constexpr Register::FieldValue<decltype(mode32k),Mode32kVal::standard> standard{};
+            constexpr Register::FieldValue<decltype(mode32k),Mode32kVal::v32khz> v32khz{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,mode32kVal> mode32k{}; 
         ///CTS Enable. Determines whether CTS is used for flow control. CTS can be from the input pin, or from the USART's own RTS if loopback mode is enabled. See Section 11.8.4 for more information.
-        enum class ctsenVal {
+        enum class CtsenVal {
             noFlowControl=0x00000000,     ///<No flow control. The transmitter does not receive any automatic flow control signal.
             flowControlEnabled=0x00000001,     ///<Flow control enabled. The transmitter uses  the CTS input (or RTS output in loopback mode) for flow control purposes.
         };
-        namespace ctsenValC{
-            constexpr MPL::Value<ctsenVal,ctsenVal::noFlowControl> noFlowControl{};
-            constexpr MPL::Value<ctsenVal,ctsenVal::flowControlEnabled> flowControlEnabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,CtsenVal> ctsen{}; 
+        namespace CtsenValC{
+            constexpr Register::FieldValue<decltype(ctsen),CtsenVal::noFlowControl> noFlowControl{};
+            constexpr Register::FieldValue<decltype(ctsen),CtsenVal::flowControlEnabled> flowControlEnabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ctsenVal> ctsen{}; 
         ///Selects synchronous or asynchronous operation.
-        enum class syncenVal {
+        enum class SyncenVal {
             asynchronous=0x00000000,     ///<Asynchronous mode is selected.
             synchronous=0x00000001,     ///<Synchronous mode is selected.
         };
-        namespace syncenValC{
-            constexpr MPL::Value<syncenVal,syncenVal::asynchronous> asynchronous{};
-            constexpr MPL::Value<syncenVal,syncenVal::synchronous> synchronous{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,SyncenVal> syncen{}; 
+        namespace SyncenValC{
+            constexpr Register::FieldValue<decltype(syncen),SyncenVal::asynchronous> asynchronous{};
+            constexpr Register::FieldValue<decltype(syncen),SyncenVal::synchronous> synchronous{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,syncenVal> syncen{}; 
         ///Selects the clock polarity and sampling edge of received data in synchronous mode.
-        enum class clkpolVal {
+        enum class ClkpolVal {
             fallingEdge=0x00000000,     ///<Falling edge. Un_RXD is sampled on the falling edge of SCLK.
             risingEdge=0x00000001,     ///<Rising edge. Un_RXD is sampled on the rising edge of SCLK.
         };
-        namespace clkpolValC{
-            constexpr MPL::Value<clkpolVal,clkpolVal::fallingEdge> fallingEdge{};
-            constexpr MPL::Value<clkpolVal,clkpolVal::risingEdge> risingEdge{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,ClkpolVal> clkpol{}; 
+        namespace ClkpolValC{
+            constexpr Register::FieldValue<decltype(clkpol),ClkpolVal::fallingEdge> fallingEdge{};
+            constexpr Register::FieldValue<decltype(clkpol),ClkpolVal::risingEdge> risingEdge{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,clkpolVal> clkpol{}; 
         ///Synchronous mode Master select.
-        enum class syncmstVal {
+        enum class SyncmstVal {
             slave=0x00000000,     ///<Slave. When synchronous mode is enabled, the USART is a slave.
             master=0x00000001,     ///<Master. When synchronous mode is enabled, the USART is a master.
         };
-        namespace syncmstValC{
-            constexpr MPL::Value<syncmstVal,syncmstVal::slave> slave{};
-            constexpr MPL::Value<syncmstVal,syncmstVal::master> master{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SyncmstVal> syncmst{}; 
+        namespace SyncmstValC{
+            constexpr Register::FieldValue<decltype(syncmst),SyncmstVal::slave> slave{};
+            constexpr Register::FieldValue<decltype(syncmst),SyncmstVal::master> master{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,syncmstVal> syncmst{}; 
         ///Selects data loopback mode.
-        enum class loopVal {
+        enum class LoopVal {
             normalOperation=0x00000000,     ///<Normal operation.
             loopbackMode=0x00000001,     ///<Loopback mode. This provides a mechanism to perform diagnostic loopback testing for USART data. Serial data from the transmitter (Un_TXD) is connected internally to serial input of the receive (Un_RXD). Un_TXD and Un_RTS activity will also appear on external pins if these functions are configured to appear on device pins. The receiver RTS signal is also looped back to CTS and performs flow control if enabled by CTSEN.
         };
-        namespace loopValC{
-            constexpr MPL::Value<loopVal,loopVal::normalOperation> normalOperation{};
-            constexpr MPL::Value<loopVal,loopVal::loopbackMode> loopbackMode{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,LoopVal> loop{}; 
+        namespace LoopValC{
+            constexpr Register::FieldValue<decltype(loop),LoopVal::normalOperation> normalOperation{};
+            constexpr Register::FieldValue<decltype(loop),LoopVal::loopbackMode> loopbackMode{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,loopVal> loop{}; 
         ///Output Enable Turnaround time enable for RS-485 operation.
-        enum class oetaVal {
+        enum class OetaVal {
             deasserted=0x00000000,     ///<Deasserted. If selected by OESEL, the Output Enable signal deasserted at the end of the last stop bit of a transmission.
             asserted=0x00000001,     ///<Asserted. If selected by OESEL, the Output Enable signal remains asserted for 1 character time after then end the last stop bit of a transmission. OE will also remain asserted if another transmit begins before it is deasserted.
         };
-        namespace oetaValC{
-            constexpr MPL::Value<oetaVal,oetaVal::deasserted> deasserted{};
-            constexpr MPL::Value<oetaVal,oetaVal::asserted> asserted{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,OetaVal> oeta{}; 
+        namespace OetaValC{
+            constexpr Register::FieldValue<decltype(oeta),OetaVal::deasserted> deasserted{};
+            constexpr Register::FieldValue<decltype(oeta),OetaVal::asserted> asserted{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,oetaVal> oeta{}; 
         ///Automatic Address matching enable.
-        enum class autoaddrVal {
+        enum class AutoaddrVal {
             disabled=0x00000000,     ///<Disabled. When addressing is enabled by ADDRDET, address matching is done by software. This provides the possibility of versatile addressing (e.g. respond to more than one address).
             enabled=0x00000001,     ///<Enabled. When addressing is enabled by ADDRDET, address matching is done by hardware, using the value in the ADDR register as the address to match.
         };
-        namespace autoaddrValC{
-            constexpr MPL::Value<autoaddrVal,autoaddrVal::disabled> disabled{};
-            constexpr MPL::Value<autoaddrVal,autoaddrVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,AutoaddrVal> autoaddr{}; 
+        namespace AutoaddrValC{
+            constexpr Register::FieldValue<decltype(autoaddr),AutoaddrVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(autoaddr),AutoaddrVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,autoaddrVal> autoaddr{}; 
         ///Output Enable Select.
-        enum class oeselVal {
+        enum class OeselVal {
             flowControl=0x00000000,     ///<Flow control. The RTS signal is used as the standard flow control function.
             outputEnable=0x00000001,     ///<Output enable. The RTS signal is taken over in order to provide an output enable signal to control an RS-485 transceiver.
         };
-        namespace oeselValC{
-            constexpr MPL::Value<oeselVal,oeselVal::flowControl> flowControl{};
-            constexpr MPL::Value<oeselVal,oeselVal::outputEnable> outputEnable{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OeselVal> oesel{}; 
+        namespace OeselValC{
+            constexpr Register::FieldValue<decltype(oesel),OeselVal::flowControl> flowControl{};
+            constexpr Register::FieldValue<decltype(oesel),OeselVal::outputEnable> outputEnable{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,oeselVal> oesel{}; 
         ///Output Enable Polarity.
-        enum class oepolVal {
+        enum class OepolVal {
             low=0x00000000,     ///<Low. If selected by OESEL, the output enable is active low.
             high=0x00000001,     ///<High. If selected by OESEL, the output enable is active high.
         };
-        namespace oepolValC{
-            constexpr MPL::Value<oepolVal,oepolVal::low> low{};
-            constexpr MPL::Value<oepolVal,oepolVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,OepolVal> oepol{}; 
+        namespace OepolValC{
+            constexpr Register::FieldValue<decltype(oepol),OepolVal::low> low{};
+            constexpr Register::FieldValue<decltype(oepol),OepolVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,oepolVal> oepol{}; 
         ///Receive data polarity.
-        enum class rxpolVal {
+        enum class RxpolVal {
             notChanged=0x00000000,     ///<Not changed. The RX signal is used as it arrives from the pin. This means that the RX rest value is 1, start bit is 0, data is not inverted, and the stop bit is 1.
             inverted=0x00000001,     ///<Inverted. The RX signal is inverted before being used by the UART. This means that the RX rest value is 0, start bit is 1, data is inverted, and the stop bit is 0.
         };
-        namespace rxpolValC{
-            constexpr MPL::Value<rxpolVal,rxpolVal::notChanged> notChanged{};
-            constexpr MPL::Value<rxpolVal,rxpolVal::inverted> inverted{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,RxpolVal> rxpol{}; 
+        namespace RxpolValC{
+            constexpr Register::FieldValue<decltype(rxpol),RxpolVal::notChanged> notChanged{};
+            constexpr Register::FieldValue<decltype(rxpol),RxpolVal::inverted> inverted{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,rxpolVal> rxpol{}; 
         ///Transmit data polarity.
-        enum class txpolVal {
+        enum class TxpolVal {
             notChanged=0x00000000,     ///<Not changed. The TX signal is sent out without change. This means that the TX rest value is 1, start bit is 0, data is not inverted, and the stop bit is 1.
             inverted=0x00000001,     ///<Inverted. The TX signal is inverted by the UART before being sent out. This means that the TX rest value is 0, start bit is 1, data is inverted, and the stop bit is 0.
         };
-        namespace txpolValC{
-            constexpr MPL::Value<txpolVal,txpolVal::notChanged> notChanged{};
-            constexpr MPL::Value<txpolVal,txpolVal::inverted> inverted{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TxpolVal> txpol{}; 
+        namespace TxpolValC{
+            constexpr Register::FieldValue<decltype(txpol),TxpolVal::notChanged> notChanged{};
+            constexpr Register::FieldValue<decltype(txpol),TxpolVal::inverted> inverted{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,txpolVal> txpol{}; 
     }
     namespace Nonectl{    ///<USART Control register. USART control settings that are more likely to change during operation.
         using Addr = Register::Address<0x4004c004,0xfffefcb9,0,unsigned>;
         ///Break Enable.
-        enum class txbrkenVal {
+        enum class TxbrkenVal {
             normalOperation=0x00000000,     ///<Normal operation.
             continuousBreakIs=0x00000001,     ///<Continuous break is sent immediately when this bit is set, and remains until this bit is cleared. A break may be sent without danger of corrupting any currently transmitting character if the transmitter is first disabled (TXDIS in CTL is set) and then waiting for the transmitter to be disabled (TXDISINT in STAT = 1) before writing 1 to TXBRKEN.
         };
-        namespace txbrkenValC{
-            constexpr MPL::Value<txbrkenVal,txbrkenVal::normalOperation> normalOperation{};
-            constexpr MPL::Value<txbrkenVal,txbrkenVal::continuousBreakIs> continuousBreakIs{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TxbrkenVal> txbrken{}; 
+        namespace TxbrkenValC{
+            constexpr Register::FieldValue<decltype(txbrken),TxbrkenVal::normalOperation> normalOperation{};
+            constexpr Register::FieldValue<decltype(txbrken),TxbrkenVal::continuousBreakIs> continuousBreakIs{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,txbrkenVal> txbrken{}; 
         ///Enable address detect mode.
-        enum class addrdetVal {
+        enum class AddrdetVal {
             disabled=0x00000000,     ///<Disabled. The USART presents all incoming data.
             enabled=0x00000001,     ///<Enabled. The USART receiver ignores incoming data that does not have the most significant bit of the data (typically the 9th bit) = 1. When the data MSB bit = 1, the receiver treats the incoming data normally, generating a received data interrupt. Software can then check the data to see if this is an address that should be handled. If it is, the ADDRDET bit is cleared by software and further incoming data is handled normally.
         };
-        namespace addrdetValC{
-            constexpr MPL::Value<addrdetVal,addrdetVal::disabled> disabled{};
-            constexpr MPL::Value<addrdetVal,addrdetVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,AddrdetVal> addrdet{}; 
+        namespace AddrdetValC{
+            constexpr Register::FieldValue<decltype(addrdet),AddrdetVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addrdet),AddrdetVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,addrdetVal> addrdet{}; 
         ///Transmit Disable.
-        enum class txdisVal {
+        enum class TxdisVal {
             notDisabled=0x00000000,     ///<Not disabled. USART transmitter is not disabled.
             disabled=0x00000001,     ///<Disabled. USART transmitter is disabled after any character currently being transmitted is complete. This feature can be used to facilitate software flow control.
         };
-        namespace txdisValC{
-            constexpr MPL::Value<txdisVal,txdisVal::notDisabled> notDisabled{};
-            constexpr MPL::Value<txdisVal,txdisVal::disabled> disabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TxdisVal> txdis{}; 
+        namespace TxdisValC{
+            constexpr Register::FieldValue<decltype(txdis),TxdisVal::notDisabled> notDisabled{};
+            constexpr Register::FieldValue<decltype(txdis),TxdisVal::disabled> disabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,txdisVal> txdis{}; 
         ///Continuous Clock generation. By default, SCLK is only output while data is being transmitted in synchronous mode.
-        enum class ccVal {
+        enum class CcVal {
             clockOnCharacter=0x00000000,     ///<Clock on character. In synchronous mode, SCLK cycles only when characters are being sent on Un_TXD or to complete a character that is being received.
             continuousClock=0x00000001,     ///<Continuous clock. SCLK runs continuously in synchronous mode, allowing characters to be received on Un_RxD independently from transmission on Un_TXD).
         };
-        namespace ccValC{
-            constexpr MPL::Value<ccVal,ccVal::clockOnCharacter> clockOnCharacter{};
-            constexpr MPL::Value<ccVal,ccVal::continuousClock> continuousClock{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CcVal> cc{}; 
+        namespace CcValC{
+            constexpr Register::FieldValue<decltype(cc),CcVal::clockOnCharacter> clockOnCharacter{};
+            constexpr Register::FieldValue<decltype(cc),CcVal::continuousClock> continuousClock{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ccVal> cc{}; 
         ///Clear Continuous Clock.
-        enum class clrcconrxVal {
+        enum class ClrcconrxVal {
             noEffect=0x00000000,     ///<No effect on the CC bit.
             autoClear=0x00000001,     ///<Auto-clear. The CC bit is automatically cleared when a complete character has been received. This bit is cleared at the same time.
         };
-        namespace clrcconrxValC{
-            constexpr MPL::Value<clrcconrxVal,clrcconrxVal::noEffect> noEffect{};
-            constexpr MPL::Value<clrcconrxVal,clrcconrxVal::autoClear> autoClear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ClrcconrxVal> clrcconrx{}; 
+        namespace ClrcconrxValC{
+            constexpr Register::FieldValue<decltype(clrcconrx),ClrcconrxVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(clrcconrx),ClrcconrxVal::autoClear> autoClear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,clrcconrxVal> clrcconrx{}; 
         ///Autobaud enable.
-        enum class autobaudVal {
+        enum class AutobaudVal {
             disabled=0x00000000,     ///<Disabled. UART is in normal operating mode.
             enabled=0x00000001,     ///<Enabled. UART is in autobaud mode. This bit should only be set when the UART receiver is idle. The first start bit of RX is measured and used the update the BRG register to match the received data rate. AUTOBAUD is cleared once this process is complete, or if there is an AERR. This bit can be cleared by software when set, but only when the UART receiver is idle.
         };
-        namespace autobaudValC{
-            constexpr MPL::Value<autobaudVal,autobaudVal::disabled> disabled{};
-            constexpr MPL::Value<autobaudVal,autobaudVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,AutobaudVal> autobaud{}; 
+        namespace AutobaudValC{
+            constexpr Register::FieldValue<decltype(autobaud),AutobaudVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(autobaud),AutobaudVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,autobaudVal> autobaud{}; 
     }
     namespace Nonestat{    ///<USART Status register. The complete status value can be read here. Writing ones clears some bits in the register. Some bits can be cleared by writing a 1 to them.
         using Addr = Register::Address<0x4004c008,0xfffe0280,0,unsigned>;
         ///Receiver Ready flag. When 1, indicates that data is available to be read from the receiver buffer. Cleared after a read of the RXDAT or RXDATSTAT registers.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///Receiver Idle. When 0, indicates that the receiver is currently in the process of receiving data. When 1, indicates that the receiver is not currently in the process of receiving data.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxidle{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxidle{}; 
+        namespace RxidleValC{
+        }
         ///Transmitter Ready flag. When 1, this bit indicates that data may be written to the transmit buffer. Previous data may still be in the process of being transmitted. Cleared when data is written to TXDAT. Set when  the data is moved from the transmit buffer to the transmit shift register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Transmitter Idle. When 0, indicates that the transmitter is currently in the process of sending data.When 1, indicate that the transmitter is not currently in the process of sending data.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidle{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidle{}; 
+        namespace TxidleValC{
+        }
         ///This bit reflects the current state of the CTS signal, regardless of the setting of the CTSEN bit in the CFG register. This will be the value of the CTS input pin unless loopback mode is enabled.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cts{}; 
+        namespace CtsValC{
+        }
         ///This bit is set when a change in the state is detected for the CTS flag above. This bit is cleared by software.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltacts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltacts{}; 
+        namespace DeltactsValC{
+        }
         ///Transmitter Disabled Interrupt flag. When 1, this bit indicates that the USART transmitter is fully idle after being disabled via the TXDIS in the CFG register (TXDIS = 1).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisstat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisstat{}; 
+        namespace TxdisstatValC{
+        }
         ///Overrun Error interrupt flag. This flag is set when a new character is received while the receiver buffer is still in use. If this occurs, the newly received character in the shift register is lost.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunint{}; 
+        namespace OverrunintValC{
+        }
         ///Received Break. This bit reflects the current state of the receiver break detection logic. It is set when the Un_RXD pin remains low for 16 bit times. Note that FRAMERRINT will also be set when this condition occurs because the stop bit(s) for the character would be missing. RXBRK is cleared when the Un_RXD pin goes high.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        namespace RxbrkValC{
+        }
         ///This bit is set when a change in the state of receiver break detection occurs. Cleared by software.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrk{}; 
+        namespace DeltarxbrkValC{
+        }
         ///This bit is set when a start is detected on the receiver input. Its purpose is primarily to allow wake-up from Deep-sleep or Power-down mode immediately when a start is detected. Cleared by software.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> start{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> start{}; 
+        namespace StartValC{
+        }
         ///Framing Error interrupt flag. This flag is set when a character is received with a missing stop bit at the expected location. This could be an indication of a baud rate or configuration mismatch with the transmitting source.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerrint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerrint{}; 
+        namespace FramerrintValC{
+        }
         ///Parity Error interrupt flag. This flag is set when a parity error is detected in a received character..
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerrint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerrint{}; 
+        namespace ParityerrintValC{
+        }
         ///Received Noise interrupt flag. Three samples of received data are taken in order to determine the value of each received data bit, except in synchronous mode. This acts as a noise filter if one sample disagrees. This flag is set when a received data bit contains one disagreeing sample. This could indicate line noise, a baud rate or character format mismatch, or loss of synchronization during data reception.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseint{}; 
+        namespace RxnoiseintValC{
+        }
         ///Auto-baud Error. An auto-baud error can occur if the BRG counts to its limit before the end of the start bit that is being measured, essentially an auto-baud time-out.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberr{}; 
+        namespace AberrValC{
+        }
     }
     namespace Noneintenset{    ///<Interrupt Enable read and Set register. Contains an individual interrupt enable bit for each potential USART interrupt. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set.
         using Addr = Register::Address<0x4004c00c,0xfffe0692,0,unsigned>;
         ///When 1, enables an interrupt when there is a received character available to be read from the RXDAT register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdyen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdyen{}; 
+        namespace RxrdyenValC{
+        }
         ///When 1, enables an interrupt when the TXDAT register is available to take another character to transmit.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdyen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdyen{}; 
+        namespace TxrdyenValC{
+        }
         ///When 1, enables an interrupt when the transmitter becomes idle (TXIDLE = 1).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidleen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidleen{}; 
+        namespace TxidleenValC{
+        }
         ///When 1, enables an interrupt when there is a change in the state of the CTS input.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltactsen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltactsen{}; 
+        namespace DeltactsenValC{
+        }
         ///When 1, enables an interrupt when the transmitter is fully disabled as indicated by the TXDISINT flag in STAT. See description of the TXDISINT bit for details.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisen{}; 
+        namespace TxdisenValC{
+        }
         ///When 1, enables an interrupt when an overrun error occurred.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunen{}; 
+        namespace OverrunenValC{
+        }
         ///When 1, enables an interrupt when a change of state has occurred in the detection of a received break condition (break condition asserted or deasserted).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrken{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrken{}; 
+        namespace DeltarxbrkenValC{
+        }
         ///When 1, enables an interrupt when a received start bit has been detected.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> starten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> starten{}; 
+        namespace StartenValC{
+        }
         ///When 1, enables an interrupt when a framing error has been detected.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerren{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerren{}; 
+        namespace FramerrenValC{
+        }
         ///When 1, enables an interrupt when a parity error has been detected.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerren{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerren{}; 
+        namespace ParityerrenValC{
+        }
         ///When 1, enables an interrupt when noise is detected.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseen{}; 
+        namespace RxnoiseenValC{
+        }
         ///When 1, enables an interrupt when an auto-baud error occurs.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberren{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberren{}; 
+        namespace AberrenValC{
+        }
     }
     namespace Noneintenclr{    ///<Interrupt Enable Clear register. Allows clearing any combination of bits in the INTENSET register. Writing a 1 to any implemented bit position causes the corresponding bit to be cleared.
         using Addr = Register::Address<0x4004c010,0xfffe0692,0,unsigned>;
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdyclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdyclr{}; 
+        namespace RxrdyclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdyclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdyclr{}; 
+        namespace TxrdyclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidleclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidleclr{}; 
+        namespace TxidleclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltactsclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltactsclr{}; 
+        namespace DeltactsclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisintclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisintclr{}; 
+        namespace TxdisintclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunclr{}; 
+        namespace OverrunclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrkclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrkclr{}; 
+        namespace DeltarxbrkclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> startclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> startclr{}; 
+        namespace StartclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerrclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerrclr{}; 
+        namespace FramerrclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerrclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerrclr{}; 
+        namespace ParityerrclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseclr{}; 
+        namespace RxnoiseclrValC{
+        }
         ///Writing 1 clears the corresponding bit in the INTENSET register.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberrclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberrclr{}; 
+        namespace AberrclrValC{
+        }
     }
     namespace Nonerxdat{    ///<Receiver Data register. Contains the last character received.
         using Addr = Register::Address<0x4004c014,0xfffffe00,0,unsigned>;
         ///The USART Receiver Data register contains the next received character. The number of bits that are relevant depends on the USART configuration settings.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rxdat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rxdat{}; 
+        namespace RxdatValC{
+        }
     }
     namespace Nonerxdatstat{    ///<Receiver Data with Status register. Combines the last character received with the current USART receive status. Allows DMA or software to recover incoming data and status together.
         using Addr = Register::Address<0x4004c018,0xffff1e00,0,unsigned>;
         ///The USART Receiver Data register contains the next received character. The number of bits that are relevant depends on the USART configuration settings.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rxdat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rxdat{}; 
+        namespace RxdatValC{
+        }
         ///Framing Error status flag. This bit is valid when there is a character to be read in the RXDAT register and reflects the status of that character. This bit will set when the character in RXDAT was received with a missing stop bit at the expected location. This could be an indication of a baud rate or configuration mismatch with the transmitting source.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerr{}; 
+        namespace FramerrValC{
+        }
         ///Parity Error status flag. This bit is valid when there is a character to be read in the RXDAT register and reflects the status of that character. This bit will be set when a parity error is detected in a received character.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerr{}; 
+        namespace ParityerrValC{
+        }
         ///Received Noise flag. See description of the RXNOISEINT bit in Table 133.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoise{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoise{}; 
+        namespace RxnoiseValC{
+        }
     }
     namespace Nonetxdat{    ///<Transmit Data register. Data to be transmitted is written here.
         using Addr = Register::Address<0x4004c01c,0xfffffe00,0,unsigned>;
         ///Writing to the USART Transmit Data Register causes the data to be transmitted as soon as the transmit shift register is available and any conditions for transmitting data are met: CTS low (if CTSEN bit = 1), TXDIS bit = 0.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> txdat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> txdat{}; 
+        namespace TxdatValC{
+        }
     }
     namespace Nonebrg{    ///<Baud Rate Generator register. 16-bit integer baud rate divisor value.
         using Addr = Register::Address<0x4004c020,0xffff0000,0,unsigned>;
         ///This value is used to divide the USART input clock to determine the baud rate, based on the input clock from the FRG. 0 = The FRG clock is used directly by the USART function. 1 = The FRG clock is divided by 2 before use by the USART function. 2 = The FRG clock is divided by 3 before use by the USART function. ... 0xFFFF = The FRG clock is divided by 65,536 before use by the USART function.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> brgval{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> brgval{}; 
+        namespace BrgvalValC{
+        }
     }
     namespace Noneintstat{    ///<Interrupt status register. Reflects interrupts that are currently enabled.
         using Addr = Register::Address<0x4004c024,0xfffe0692,0,unsigned>;
         ///Receiver Ready flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///Transmitter Ready flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Transmitter idle status.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidle{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txidle{}; 
+        namespace TxidleValC{
+        }
         ///This bit is set when a change in the state of the CTS input is detected.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltacts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> deltacts{}; 
+        namespace DeltactsValC{
+        }
         ///Transmitter Disabled Interrupt flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txdisint{}; 
+        namespace TxdisintValC{
+        }
         ///Overrun Error interrupt flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> overrunint{}; 
+        namespace OverrunintValC{
+        }
         ///This bit is set when a change in the state of receiver break detection occurs.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> deltarxbrk{}; 
+        namespace DeltarxbrkValC{
+        }
         ///This bit is set when a start is detected on the receiver input.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> start{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> start{}; 
+        namespace StartValC{
+        }
         ///Framing Error interrupt flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerrint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> framerrint{}; 
+        namespace FramerrintValC{
+        }
         ///Parity Error interrupt flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerrint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> parityerrint{}; 
+        namespace ParityerrintValC{
+        }
         ///Received Noise interrupt flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseint{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxnoiseint{}; 
+        namespace RxnoiseintValC{
+        }
         ///Auto-baud Error flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> aberr{}; 
+        namespace AberrValC{
+        }
     }
     namespace Noneosr{    ///<Oversample selection register for asynchronous communication.
         using Addr = Register::Address<0x4004c028,0xfffffff0,0,unsigned>;
         ///Oversample Selection Value. 0 to 3 = not supported 0x4 = 5 peripheral clocks are used to transmit and receive each data bit. 0x5 = 6 peripheral clocks are used to transmit and receive each data bit.  ... 0xF= 16 peripheral clocks are used to transmit and receive each data bit.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> osrval{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> osrval{}; 
+        namespace OsrvalValC{
+        }
     }
     namespace Noneaddr{    ///<Address register for automatic address matching.
         using Addr = Register::Address<0x4004c02c,0xffffff00,0,unsigned>;
         ///8-bit address used with automatic address matching. Used when address detection is enabled (ADDRDET in CTL = 1) and automatic address matching is enabled (AUTOADDR in CFG = 1).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> address{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> address{}; 
+        namespace AddressValC{
+        }
     }
 }

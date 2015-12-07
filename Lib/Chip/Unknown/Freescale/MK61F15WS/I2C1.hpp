@@ -5,351 +5,371 @@ namespace Kvasir {
     namespace I2c1A1{    ///<I2C Address Register 1
         using Addr = Register::Address<0x40067000,0xffffff01,0,unsigned char>;
         ///Address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> ad{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> ad{}; 
+        namespace AdValC{
+        }
     }
     namespace I2c1F{    ///<I2C Frequency Divider register
         using Addr = Register::Address<0x40067001,0xffffff00,0,unsigned char>;
         ///Clock rate
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> icr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> icr{}; 
+        namespace IcrValC{
+        }
         ///no description available
-        enum class multVal {
+        enum class MultVal {
             v00=0x00000000,     ///<mul = 1
             v01=0x00000001,     ///<mul = 2
             v10=0x00000002,     ///<mul = 4
             v11=0x00000003,     ///<Reserved
         };
-        namespace multValC{
-            constexpr MPL::Value<multVal,multVal::v00> v00{};
-            constexpr MPL::Value<multVal,multVal::v01> v01{};
-            constexpr MPL::Value<multVal,multVal::v10> v10{};
-            constexpr MPL::Value<multVal,multVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,MultVal> mult{}; 
+        namespace MultValC{
+            constexpr Register::FieldValue<decltype(mult),MultVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(mult),MultVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(mult),MultVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(mult),MultVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,multVal> mult{}; 
     }
     namespace I2c1C1{    ///<I2C Control Register 1
         using Addr = Register::Address<0x40067002,0xffffff00,0,unsigned char>;
         ///DMA enable
-        enum class dmaenVal {
+        enum class DmaenVal {
             v0=0x00000000,     ///<All DMA signalling disabled.
             v1=0x00000001,     ///<DMA transfer is enabled and the following conditions trigger the DMA request: While FACK = 0, a data byte is received, either address or data is transmitted. (ACK/NACK automatic) While FACK = 0, the first byte received matches the A1 register or is general call address. If any address matching occurs, IAAS and TCF are set. If the direction of transfer is known from master to slave, then it is not required to check the SRW. With this assumption, DMA can also be used in this case. In other cases, if the master reads data from the slave, then it is required to rewrite the C1 register operation. With this assumption, DMA cannot be used. When FACK = 1, an address or a data byte is transmitted.
         };
-        namespace dmaenValC{
-            constexpr MPL::Value<dmaenVal,dmaenVal::v0> v0{};
-            constexpr MPL::Value<dmaenVal,dmaenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
+        namespace DmaenValC{
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,dmaenVal> dmaen{}; 
         ///Wakeup enable
-        enum class wuenVal {
+        enum class WuenVal {
             v0=0x00000000,     ///<Normal operation. No interrupt generated when address matching in low power mode.
             v1=0x00000001,     ///<Enables the wakeup function in low power mode.
         };
-        namespace wuenValC{
-            constexpr MPL::Value<wuenVal,wuenVal::v0> v0{};
-            constexpr MPL::Value<wuenVal,wuenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,WuenVal> wuen{}; 
+        namespace WuenValC{
+            constexpr Register::FieldValue<decltype(wuen),WuenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wuen),WuenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,wuenVal> wuen{}; 
         ///Repeat START
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rsta{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rsta{}; 
+        namespace RstaValC{
+        }
         ///Transmit acknowledge enable
-        enum class txakVal {
+        enum class TxakVal {
             v0=0x00000000,     ///<An acknowledge signal is sent to the bus on the following (if FACK is cleared) or current (if FACK is set) receiving byte.
             v1=0x00000001,     ///<No acknowledge signal is sent to the bus on the following (if FACK is cleared) or current (if FACK is set) receiving data byte.SCL is held low until TXAK is written.
         };
-        namespace txakValC{
-            constexpr MPL::Value<txakVal,txakVal::v0> v0{};
-            constexpr MPL::Value<txakVal,txakVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TxakVal> txak{}; 
+        namespace TxakValC{
+            constexpr Register::FieldValue<decltype(txak),TxakVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txak),TxakVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,txakVal> txak{}; 
         ///Transmit mode select
-        enum class txVal {
+        enum class TxVal {
             v0=0x00000000,     ///<Receive
             v1=0x00000001,     ///<Transmit
         };
-        namespace txValC{
-            constexpr MPL::Value<txVal,txVal::v0> v0{};
-            constexpr MPL::Value<txVal,txVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TxVal> tx{}; 
+        namespace TxValC{
+            constexpr Register::FieldValue<decltype(tx),TxVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tx),TxVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,txVal> tx{}; 
         ///Master mode select
-        enum class mstVal {
+        enum class MstVal {
             v0=0x00000000,     ///<Slave mode
             v1=0x00000001,     ///<Master mode
         };
-        namespace mstValC{
-            constexpr MPL::Value<mstVal,mstVal::v0> v0{};
-            constexpr MPL::Value<mstVal,mstVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MstVal> mst{}; 
+        namespace MstValC{
+            constexpr Register::FieldValue<decltype(mst),MstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mst),MstVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,mstVal> mst{}; 
         ///I2C interrupt enable
-        enum class iicieVal {
+        enum class IicieVal {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        namespace iicieValC{
-            constexpr MPL::Value<iicieVal,iicieVal::v0> v0{};
-            constexpr MPL::Value<iicieVal,iicieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,IicieVal> iicie{}; 
+        namespace IicieValC{
+            constexpr Register::FieldValue<decltype(iicie),IicieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(iicie),IicieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,iicieVal> iicie{}; 
         ///I2C enable
-        enum class iicenVal {
+        enum class IicenVal {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        namespace iicenValC{
-            constexpr MPL::Value<iicenVal,iicenVal::v0> v0{};
-            constexpr MPL::Value<iicenVal,iicenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,IicenVal> iicen{}; 
+        namespace IicenValC{
+            constexpr Register::FieldValue<decltype(iicen),IicenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(iicen),IicenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,iicenVal> iicen{}; 
     }
     namespace I2c1S{    ///<I2C Status Register
         using Addr = Register::Address<0x40067003,0xffffff00,0,unsigned char>;
         ///Receive acknowledge
-        enum class rxakVal {
+        enum class RxakVal {
             v0=0x00000000,     ///<Acknowledge signal was received after the completion of one byte of data transmission on the bus
             v1=0x00000001,     ///<No acknowledge signal detected
         };
-        namespace rxakValC{
-            constexpr MPL::Value<rxakVal,rxakVal::v0> v0{};
-            constexpr MPL::Value<rxakVal,rxakVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxakVal> rxak{}; 
+        namespace RxakValC{
+            constexpr Register::FieldValue<decltype(rxak),RxakVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxak),RxakVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,rxakVal> rxak{}; 
         ///Interrupt flag
-        enum class iicifVal {
+        enum class IicifVal {
             v0=0x00000000,     ///<No interrupt pending
             v1=0x00000001,     ///<Interrupt pending
         };
-        namespace iicifValC{
-            constexpr MPL::Value<iicifVal,iicifVal::v0> v0{};
-            constexpr MPL::Value<iicifVal,iicifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IicifVal> iicif{}; 
+        namespace IicifValC{
+            constexpr Register::FieldValue<decltype(iicif),IicifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(iicif),IicifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,iicifVal> iicif{}; 
         ///Slave read/write
-        enum class srwVal {
+        enum class SrwVal {
             v0=0x00000000,     ///<Slave receive, master writing to slave
             v1=0x00000001,     ///<Slave transmit, master reading from slave
         };
-        namespace srwValC{
-            constexpr MPL::Value<srwVal,srwVal::v0> v0{};
-            constexpr MPL::Value<srwVal,srwVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SrwVal> srw{}; 
+        namespace SrwValC{
+            constexpr Register::FieldValue<decltype(srw),SrwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(srw),SrwVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,srwVal> srw{}; 
         ///Range address match
-        enum class ramVal {
+        enum class RamVal {
             v0=0x00000000,     ///<Not addressed
             v1=0x00000001,     ///<Addressed as a slave
         };
-        namespace ramValC{
-            constexpr MPL::Value<ramVal,ramVal::v0> v0{};
-            constexpr MPL::Value<ramVal,ramVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RamVal> ram{}; 
+        namespace RamValC{
+            constexpr Register::FieldValue<decltype(ram),RamVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ram),RamVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ramVal> ram{}; 
         ///Arbitration lost
-        enum class arblVal {
+        enum class ArblVal {
             v0=0x00000000,     ///<Standard bus operation.
             v1=0x00000001,     ///<Loss of arbitration.
         };
-        namespace arblValC{
-            constexpr MPL::Value<arblVal,arblVal::v0> v0{};
-            constexpr MPL::Value<arblVal,arblVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ArblVal> arbl{}; 
+        namespace ArblValC{
+            constexpr Register::FieldValue<decltype(arbl),ArblVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(arbl),ArblVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,arblVal> arbl{}; 
         ///Bus busy
-        enum class busyVal {
+        enum class BusyVal {
             v0=0x00000000,     ///<Bus is idle
             v1=0x00000001,     ///<Bus is busy
         };
-        namespace busyValC{
-            constexpr MPL::Value<busyVal,busyVal::v0> v0{};
-            constexpr MPL::Value<busyVal,busyVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,BusyVal> busy{}; 
+        namespace BusyValC{
+            constexpr Register::FieldValue<decltype(busy),BusyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(busy),BusyVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,busyVal> busy{}; 
         ///Addressed as a slave
-        enum class iaasVal {
+        enum class IaasVal {
             v0=0x00000000,     ///<Not addressed
             v1=0x00000001,     ///<Addressed as a slave
         };
-        namespace iaasValC{
-            constexpr MPL::Value<iaasVal,iaasVal::v0> v0{};
-            constexpr MPL::Value<iaasVal,iaasVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,IaasVal> iaas{}; 
+        namespace IaasValC{
+            constexpr Register::FieldValue<decltype(iaas),IaasVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(iaas),IaasVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,iaasVal> iaas{}; 
         ///Transfer complete flag
-        enum class tcfVal {
+        enum class TcfVal {
             v0=0x00000000,     ///<Transfer in progress
             v1=0x00000001,     ///<Transfer complete
         };
-        namespace tcfValC{
-            constexpr MPL::Value<tcfVal,tcfVal::v0> v0{};
-            constexpr MPL::Value<tcfVal,tcfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TcfVal> tcf{}; 
+        namespace TcfValC{
+            constexpr Register::FieldValue<decltype(tcf),TcfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcf),TcfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,tcfVal> tcf{}; 
     }
     namespace I2c1D{    ///<I2C Data I/O register
         using Addr = Register::Address<0x40067004,0xffffff00,0,unsigned char>;
         ///Data
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data{}; 
+        namespace DataValC{
+        }
     }
     namespace I2c1C2{    ///<I2C Control Register 2
         using Addr = Register::Address<0x40067005,0xffffff00,0,unsigned char>;
         ///Slave address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ad{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ad{}; 
+        namespace AdValC{
+        }
         ///Range address matching enable
-        enum class rmenVal {
+        enum class RmenVal {
             v0=0x00000000,     ///<Range mode disabled. No address match occurs for an address within the range of values of the A1 and RA registers.
             v1=0x00000001,     ///<Range mode enabled. Address matching occurs when a slave receives an address within the range of values of the A1 and RA registers.
         };
-        namespace rmenValC{
-            constexpr MPL::Value<rmenVal,rmenVal::v0> v0{};
-            constexpr MPL::Value<rmenVal,rmenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RmenVal> rmen{}; 
+        namespace RmenValC{
+            constexpr Register::FieldValue<decltype(rmen),RmenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rmen),RmenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,rmenVal> rmen{}; 
         ///Slave baud rate control
-        enum class sbrcVal {
+        enum class SbrcVal {
             v0=0x00000000,     ///<The slave baud rate follows the master baud rate and clock stretching may occur
             v1=0x00000001,     ///<Slave baud rate is independent of the master baud rate
         };
-        namespace sbrcValC{
-            constexpr MPL::Value<sbrcVal,sbrcVal::v0> v0{};
-            constexpr MPL::Value<sbrcVal,sbrcVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SbrcVal> sbrc{}; 
+        namespace SbrcValC{
+            constexpr Register::FieldValue<decltype(sbrc),SbrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sbrc),SbrcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,sbrcVal> sbrc{}; 
         ///High drive select
-        enum class hdrsVal {
+        enum class HdrsVal {
             v0=0x00000000,     ///<Normal drive mode
             v1=0x00000001,     ///<High drive mode
         };
-        namespace hdrsValC{
-            constexpr MPL::Value<hdrsVal,hdrsVal::v0> v0{};
-            constexpr MPL::Value<hdrsVal,hdrsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HdrsVal> hdrs{}; 
+        namespace HdrsValC{
+            constexpr Register::FieldValue<decltype(hdrs),HdrsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hdrs),HdrsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,hdrsVal> hdrs{}; 
         ///Address extension
-        enum class adextVal {
+        enum class AdextVal {
             v0=0x00000000,     ///<7-bit address scheme
             v1=0x00000001,     ///<10-bit address scheme
         };
-        namespace adextValC{
-            constexpr MPL::Value<adextVal,adextVal::v0> v0{};
-            constexpr MPL::Value<adextVal,adextVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AdextVal> adext{}; 
+        namespace AdextValC{
+            constexpr Register::FieldValue<decltype(adext),AdextVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(adext),AdextVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,adextVal> adext{}; 
         ///General call address enable
-        enum class gcaenVal {
+        enum class GcaenVal {
             v0=0x00000000,     ///<Disabled
             v1=0x00000001,     ///<Enabled
         };
-        namespace gcaenValC{
-            constexpr MPL::Value<gcaenVal,gcaenVal::v0> v0{};
-            constexpr MPL::Value<gcaenVal,gcaenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,GcaenVal> gcaen{}; 
+        namespace GcaenValC{
+            constexpr Register::FieldValue<decltype(gcaen),GcaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gcaen),GcaenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,gcaenVal> gcaen{}; 
     }
     namespace I2c1Flt{    ///<I2C Programmable Input Glitch Filter register
         using Addr = Register::Address<0x40067006,0xffffffe0,0,unsigned char>;
         ///I2C programmable filter factor
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> flt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> flt{}; 
+        namespace FltValC{
+        }
     }
     namespace I2c1Ra{    ///<I2C Range Address register
         using Addr = Register::Address<0x40067007,0xffffff01,0,unsigned char>;
         ///Range slave address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> rad{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> rad{}; 
+        namespace RadValC{
+        }
     }
     namespace I2c1Smb{    ///<I2C SMBus Control and Status register
         using Addr = Register::Address<0x40067008,0xffffff00,0,unsigned char>;
         ///SHTF2 interrupt enable
-        enum class shtf2ieVal {
+        enum class Shtf2ieVal {
             v0=0x00000000,     ///<SHTF2 interrupt is disabled
             v1=0x00000001,     ///<SHTF2 interrupt is enabled
         };
-        namespace shtf2ieValC{
-            constexpr MPL::Value<shtf2ieVal,shtf2ieVal::v0> v0{};
-            constexpr MPL::Value<shtf2ieVal,shtf2ieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Shtf2ieVal> shtf2ie{}; 
+        namespace Shtf2ieValC{
+            constexpr Register::FieldValue<decltype(shtf2ie),Shtf2ieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(shtf2ie),Shtf2ieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,shtf2ieVal> shtf2ie{}; 
         ///SCL high timeout flag 2
-        enum class shtf2Val {
+        enum class Shtf2Val {
             v0=0x00000000,     ///<No SCL high and SDA low timeout occurs
             v1=0x00000001,     ///<SCL high and SDA low timeout occurs
         };
-        namespace shtf2ValC{
-            constexpr MPL::Value<shtf2Val,shtf2Val::v0> v0{};
-            constexpr MPL::Value<shtf2Val,shtf2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Shtf2Val> shtf2{}; 
+        namespace Shtf2ValC{
+            constexpr Register::FieldValue<decltype(shtf2),Shtf2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(shtf2),Shtf2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,shtf2Val> shtf2{}; 
         ///SCL high timeout flag 1
-        enum class shtf1Val {
+        enum class Shtf1Val {
             v0=0x00000000,     ///<No SCL high and SDA high timeout occurs
             v1=0x00000001,     ///<SCL high and SDA high timeout occurs
         };
-        namespace shtf1ValC{
-            constexpr MPL::Value<shtf1Val,shtf1Val::v0> v0{};
-            constexpr MPL::Value<shtf1Val,shtf1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Shtf1Val> shtf1{}; 
+        namespace Shtf1ValC{
+            constexpr Register::FieldValue<decltype(shtf1),Shtf1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(shtf1),Shtf1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,shtf1Val> shtf1{}; 
         ///SCL low timeout flag
-        enum class sltfVal {
+        enum class SltfVal {
             v0=0x00000000,     ///<No low timeout occurs
             v1=0x00000001,     ///<Low timeout occurs
         };
-        namespace sltfValC{
-            constexpr MPL::Value<sltfVal,sltfVal::v0> v0{};
-            constexpr MPL::Value<sltfVal,sltfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,SltfVal> sltf{}; 
+        namespace SltfValC{
+            constexpr Register::FieldValue<decltype(sltf),SltfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sltf),SltfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,sltfVal> sltf{}; 
         ///Timeout counter clock select
-        enum class tckselVal {
+        enum class TckselVal {
             v0=0x00000000,     ///<Timeout counter counts at the frequency of the bus clock / 64
             v1=0x00000001,     ///<Timeout counter counts at the frequency of the bus clock
         };
-        namespace tckselValC{
-            constexpr MPL::Value<tckselVal,tckselVal::v0> v0{};
-            constexpr MPL::Value<tckselVal,tckselVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TckselVal> tcksel{}; 
+        namespace TckselValC{
+            constexpr Register::FieldValue<decltype(tcksel),TckselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcksel),TckselVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tckselVal> tcksel{}; 
         ///Second I2C address enable
-        enum class siicaenVal {
+        enum class SiicaenVal {
             v0=0x00000000,     ///<I2C address register 2 matching is disabled
             v1=0x00000001,     ///<I2C address register 2 matching is enabled
         };
-        namespace siicaenValC{
-            constexpr MPL::Value<siicaenVal,siicaenVal::v0> v0{};
-            constexpr MPL::Value<siicaenVal,siicaenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SiicaenVal> siicaen{}; 
+        namespace SiicaenValC{
+            constexpr Register::FieldValue<decltype(siicaen),SiicaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(siicaen),SiicaenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,siicaenVal> siicaen{}; 
         ///SMBus alert response address enable
-        enum class alertenVal {
+        enum class AlertenVal {
             v0=0x00000000,     ///<SMBus alert response address matching is disabled
             v1=0x00000001,     ///<SMBus alert response address matching is enabled
         };
-        namespace alertenValC{
-            constexpr MPL::Value<alertenVal,alertenVal::v0> v0{};
-            constexpr MPL::Value<alertenVal,alertenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AlertenVal> alerten{}; 
+        namespace AlertenValC{
+            constexpr Register::FieldValue<decltype(alerten),AlertenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(alerten),AlertenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,alertenVal> alerten{}; 
         ///Fast NACK/ACK enable
-        enum class fackVal {
+        enum class FackVal {
             v0=0x00000000,     ///<An ACK or NACK is sent on the following receiving data byte
             v1=0x00000001,     ///<Writing 0 to TXAK after receiving a data byte generates an ACK. Writing 1 to TXAK after receiving a data byte generates a NACK.
         };
-        namespace fackValC{
-            constexpr MPL::Value<fackVal,fackVal::v0> v0{};
-            constexpr MPL::Value<fackVal,fackVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FackVal> fack{}; 
+        namespace FackValC{
+            constexpr Register::FieldValue<decltype(fack),FackVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fack),FackVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,fackVal> fack{}; 
     }
     namespace I2c1A2{    ///<I2C Address Register 2
         using Addr = Register::Address<0x40067009,0xffffff01,0,unsigned char>;
         ///SMBus address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> sad{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> sad{}; 
+        namespace SadValC{
+        }
     }
     namespace I2c1Slth{    ///<I2C SCL Low Timeout Register High
         using Addr = Register::Address<0x4006700a,0xffffff00,0,unsigned char>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sslt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sslt{}; 
+        namespace SsltValC{
+        }
     }
     namespace I2c1Sltl{    ///<I2C SCL Low Timeout Register Low
         using Addr = Register::Address<0x4006700b,0xffffff00,0,unsigned char>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sslt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> sslt{}; 
+        namespace SsltValC{
+        }
     }
 }

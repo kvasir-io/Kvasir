@@ -5,17 +5,27 @@ namespace Kvasir {
     namespace Nonedacr{    ///< register DACR 
         using Addr = Register::Address<0x40033000,0xffffffcc,0,unsigned char>;
         /// bitfield DDAS 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ddas{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ddas{}; 
+        namespace DdasValC{
+        }
         /// bitfield DAC10 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dac10{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dac10{}; 
+        namespace Dac10ValC{
+        }
         /// bitfield DRDY 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> drdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> drdy{}; 
+        namespace DrdyValC{
+        }
         /// bitfield DAE 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dae{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dae{}; 
+        namespace DaeValC{
+        }
     }
     namespace Nonedadr{    ///< register DADR 
         using Addr = Register::Address<0x40033004,0xfffffc00,0,unsigned>;
         /// bitfield DA 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> da{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> da{}; 
+        namespace DaValC{
+        }
     }
 }

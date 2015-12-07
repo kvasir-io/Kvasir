@@ -5,955 +5,1013 @@ namespace Kvasir {
     namespace Nonecontrol{    ///<Controls operation of the memory controller.
         using Addr = Register::Address<0x40005000,0xfffffff8,0,unsigned>;
         ///EMC Enable. Indicates if the EMC is enabled or disabled.Disabling the EMC reduces power consumption. When the memory controller is disabled the memory is not refreshed. The memory controller is enabled by setting the enable bit, or by reset. This bit must only be modified when the EMC is in idle state.[1]
-        enum class eVal {
+        enum class EVal {
             disabled=0x00000000,     ///<Disabled
             enabledPorAndWar=0x00000001,     ///<Enabled (POR and warm reset value).
         };
-        namespace eValC{
-            constexpr MPL::Value<eVal,eVal::disabled> disabled{};
-            constexpr MPL::Value<eVal,eVal::enabledPorAndWar> enabledPorAndWar{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EVal> e{}; 
+        namespace EValC{
+            constexpr Register::FieldValue<decltype(e),EVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(e),EVal::enabledPorAndWar> enabledPorAndWar{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,eVal> e{}; 
         ///Address mirror. Indicates normal or reset memory map. On POR, CS1 is mirrored to both CS0 and DYCS0 memory areas. Clearing the M bit enables CS0 and DYCS0 memory to be accessed.
-        enum class mVal {
+        enum class MVal {
             normalMemoryMap=0x00000000,     ///<Normal memory map.
             resetMemoryMapSt=0x00000001,     ///<Reset memory map. Static memory CS1 is mirrored onto CS0 and DYCS0 (POR reset value).
         };
-        namespace mValC{
-            constexpr MPL::Value<mVal,mVal::normalMemoryMap> normalMemoryMap{};
-            constexpr MPL::Value<mVal,mVal::resetMemoryMapSt> resetMemoryMapSt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,MVal> m{}; 
+        namespace MValC{
+            constexpr Register::FieldValue<decltype(m),MVal::normalMemoryMap> normalMemoryMap{};
+            constexpr Register::FieldValue<decltype(m),MVal::resetMemoryMapSt> resetMemoryMapSt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,mVal> m{}; 
         ///Low-power mode. Indicates normal, or low-power mode. Entering low-power mode reduces memory controller power consumption. Dynamic memory is refreshed as necessary. The memory controller returns to normal functional mode by clearing the low-power mode bit (L), or by POR. This bit must only be modified when the EMC is in idle state.[1]
-        enum class lVal {
+        enum class LVal {
             normalModeWarmRe=0x00000000,     ///<Normal mode (warm reset value).
             lowPowerMode=0x00000001,     ///<Low-power mode.
         };
-        namespace lValC{
-            constexpr MPL::Value<lVal,lVal::normalModeWarmRe> normalModeWarmRe{};
-            constexpr MPL::Value<lVal,lVal::lowPowerMode> lowPowerMode{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,LVal> l{}; 
+        namespace LValC{
+            constexpr Register::FieldValue<decltype(l),LVal::normalModeWarmRe> normalModeWarmRe{};
+            constexpr Register::FieldValue<decltype(l),LVal::lowPowerMode> lowPowerMode{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,lVal> l{}; 
     }
     namespace Nonestatus{    ///<Provides EMC status information.
         using Addr = Register::Address<0x40005004,0xfffffff8,0,unsigned>;
         ///Busy. This bit is used to ensure that the memory controller enters the low-power or disabled mode cleanly by determining if the memory controller is busy or not:
-        enum class bVal {
+        enum class BVal {
             emcIsIdleWarmRe=0x00000000,     ///<EMC is idle (warm reset value).
             emcIsBusyPerformi=0x00000001,     ///<EMC is busy performing memory transactions, commands, auto-refresh cycles, or is in self-refresh mode (POR reset value).
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::emcIsIdleWarmRe> emcIsIdleWarmRe{};
-            constexpr MPL::Value<bVal,bVal::emcIsBusyPerformi> emcIsBusyPerformi{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::emcIsIdleWarmRe> emcIsIdleWarmRe{};
+            constexpr Register::FieldValue<decltype(b),BVal::emcIsBusyPerformi> emcIsBusyPerformi{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,bVal> b{}; 
         ///Write buffer status. This bit enables the EMC to enter low-power mode or disabled mode cleanly:
-        enum class sVal {
+        enum class SVal {
             writeBuffersEmpty=0x00000000,     ///<Write buffers empty (POR reset value)
             writeBuffersContai=0x00000001,     ///<Write buffers contain data.
         };
-        namespace sValC{
-            constexpr MPL::Value<sVal,sVal::writeBuffersEmpty> writeBuffersEmpty{};
-            constexpr MPL::Value<sVal,sVal::writeBuffersContai> writeBuffersContai{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SVal> s{}; 
+        namespace SValC{
+            constexpr Register::FieldValue<decltype(s),SVal::writeBuffersEmpty> writeBuffersEmpty{};
+            constexpr Register::FieldValue<decltype(s),SVal::writeBuffersContai> writeBuffersContai{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,sVal> s{}; 
         ///Self-refresh acknowledge. This bit indicates the operating mode of the EMC:
-        enum class saVal {
+        enum class SaVal {
             normalMode=0x00000000,     ///<Normal mode
             selfRefreshModeP=0x00000001,     ///<Self-refresh mode (POR reset value).
         };
-        namespace saValC{
-            constexpr MPL::Value<saVal,saVal::normalMode> normalMode{};
-            constexpr MPL::Value<saVal,saVal::selfRefreshModeP> selfRefreshModeP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SaVal> sa{}; 
+        namespace SaValC{
+            constexpr Register::FieldValue<decltype(sa),SaVal::normalMode> normalMode{};
+            constexpr Register::FieldValue<decltype(sa),SaVal::selfRefreshModeP> selfRefreshModeP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,saVal> sa{}; 
     }
     namespace Noneconfig{    ///<Configures operation of the memory controller.
         using Addr = Register::Address<0x40005008,0xfffffefe,0,unsigned>;
         ///Endian mode.
-        enum class emVal {
+        enum class EmVal {
             littleEndianMode=0x00000000,     ///<Little-endian mode (POR reset value).
             bigEndianMode=0x00000001,     ///<Big-endian mode.
         };
-        namespace emValC{
-            constexpr MPL::Value<emVal,emVal::littleEndianMode> littleEndianMode{};
-            constexpr MPL::Value<emVal,emVal::bigEndianMode> bigEndianMode{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EmVal> em{}; 
+        namespace EmValC{
+            constexpr Register::FieldValue<decltype(em),EmVal::littleEndianMode> littleEndianMode{};
+            constexpr Register::FieldValue<decltype(em),EmVal::bigEndianMode> bigEndianMode{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,emVal> em{}; 
         ///Clock Ratio. CCLK: CLKOUT[1:0] ratio:
-        enum class crVal {
+        enum class CrVal {
             v1to1PorResetValue=0x00000000,     ///<1:1 (POR reset value)
             v1to2=0x00000001,     ///<1:2
         };
-        namespace crValC{
-            constexpr MPL::Value<crVal,crVal::v1to1PorResetValue> v1to1PorResetValue{};
-            constexpr MPL::Value<crVal,crVal::v1to2> v1to2{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CrVal> cr{}; 
+        namespace CrValC{
+            constexpr Register::FieldValue<decltype(cr),CrVal::v1to1PorResetValue> v1to1PorResetValue{};
+            constexpr Register::FieldValue<decltype(cr),CrVal::v1to2> v1to2{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,crVal> cr{}; 
     }
     namespace Nonedynamiccontrol{    ///<Controls dynamic memory operation.
         using Addr = Register::Address<0x40005020,0xffffde58,0,unsigned>;
         ///Dynamic memory clock enable.
-        enum class ceVal {
+        enum class CeVal {
             clockEnableOfIdle=0x00000000,     ///<Clock enable of idle devices are deasserted to save power (POR reset value).
             allClockEnablesAr=0x00000001,     ///<All clock enables are driven HIGH continuously.[1]
         };
-        namespace ceValC{
-            constexpr MPL::Value<ceVal,ceVal::clockEnableOfIdle> clockEnableOfIdle{};
-            constexpr MPL::Value<ceVal,ceVal::allClockEnablesAr> allClockEnablesAr{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CeVal> ce{}; 
+        namespace CeValC{
+            constexpr Register::FieldValue<decltype(ce),CeVal::clockEnableOfIdle> clockEnableOfIdle{};
+            constexpr Register::FieldValue<decltype(ce),CeVal::allClockEnablesAr> allClockEnablesAr{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ceVal> ce{}; 
         ///Dynamic memory clock control. When clock control is LOW the output clock CLKOUT is stopped when there are no SDRAM transactions. The clock is also stopped during self-refresh mode.
-        enum class csVal {
+        enum class CsVal {
             clkoutStopsWhenAl=0x00000000,     ///<CLKOUT stops when all SDRAMs are idle and during self-refresh mode.
             clkoutRunsContinuo=0x00000001,     ///<CLKOUT runs continuously (POR reset value).
         };
-        namespace csValC{
-            constexpr MPL::Value<csVal,csVal::clkoutStopsWhenAl> clkoutStopsWhenAl{};
-            constexpr MPL::Value<csVal,csVal::clkoutRunsContinuo> clkoutRunsContinuo{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CsVal> cs{}; 
+        namespace CsValC{
+            constexpr Register::FieldValue<decltype(cs),CsVal::clkoutStopsWhenAl> clkoutStopsWhenAl{};
+            constexpr Register::FieldValue<decltype(cs),CsVal::clkoutRunsContinuo> clkoutRunsContinuo{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,csVal> cs{}; 
         ///Self-refresh request, EMCSREFREQ. By writing 1 to this bit self-refresh can be entered under software control. Writing 0 to this bit returns the EMC to normal mode. The self-refresh acknowledge bit in the Status register must be polled to discover the current operating mode of the EMC.[2]
-        enum class srVal {
+        enum class SrVal {
             normalMode=0x00000000,     ///<Normal mode.
             enterSelfRefreshM=0x00000001,     ///<Enter self-refresh mode (POR reset value).
         };
-        namespace srValC{
-            constexpr MPL::Value<srVal,srVal::normalMode> normalMode{};
-            constexpr MPL::Value<srVal,srVal::enterSelfRefreshM> enterSelfRefreshM{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SrVal> sr{}; 
+        namespace SrValC{
+            constexpr Register::FieldValue<decltype(sr),SrVal::normalMode> normalMode{};
+            constexpr Register::FieldValue<decltype(sr),SrVal::enterSelfRefreshM> enterSelfRefreshM{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,srVal> sr{}; 
         ///Memory clock control.
-        enum class mmcVal {
+        enum class MmcVal {
             clkoutEnabledPor=0x00000000,     ///<CLKOUT enabled (POR reset value).
             clkoutDisabled3=0x00000001,     ///<CLKOUT disabled.[3]
         };
-        namespace mmcValC{
-            constexpr MPL::Value<mmcVal,mmcVal::clkoutEnabledPor> clkoutEnabledPor{};
-            constexpr MPL::Value<mmcVal,mmcVal::clkoutDisabled3> clkoutDisabled3{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MmcVal> mmc{}; 
+        namespace MmcValC{
+            constexpr Register::FieldValue<decltype(mmc),MmcVal::clkoutEnabledPor> clkoutEnabledPor{};
+            constexpr Register::FieldValue<decltype(mmc),MmcVal::clkoutDisabled3> clkoutDisabled3{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,mmcVal> mmc{}; 
         ///SDRAM initialization.
-        enum class iVal {
+        enum class IVal {
             issueSdramNormalO=0x00000000,     ///<Issue SDRAM NORMAL operation command (POR reset value).
             issueSdramModeCom=0x00000001,     ///<Issue SDRAM MODE command.
             issueSdramPallPr=0x00000002,     ///<Issue SDRAM PALL (precharge all) command.
             issueSdramNopNo=0x00000003,     ///<Issue SDRAM NOP (no operation) command)
         };
-        namespace iValC{
-            constexpr MPL::Value<iVal,iVal::issueSdramNormalO> issueSdramNormalO{};
-            constexpr MPL::Value<iVal,iVal::issueSdramModeCom> issueSdramModeCom{};
-            constexpr MPL::Value<iVal,iVal::issueSdramPallPr> issueSdramPallPr{};
-            constexpr MPL::Value<iVal,iVal::issueSdramNopNo> issueSdramNopNo{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,7),Register::ReadWriteAccess,IVal> i{}; 
+        namespace IValC{
+            constexpr Register::FieldValue<decltype(i),IVal::issueSdramNormalO> issueSdramNormalO{};
+            constexpr Register::FieldValue<decltype(i),IVal::issueSdramModeCom> issueSdramModeCom{};
+            constexpr Register::FieldValue<decltype(i),IVal::issueSdramPallPr> issueSdramPallPr{};
+            constexpr Register::FieldValue<decltype(i),IVal::issueSdramNopNo> issueSdramNopNo{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,7),Register::ReadWriteAccess,iVal> i{}; 
         ///Low-power SDRAM deep-sleep mode.
-        enum class dpVal {
+        enum class DpVal {
             normalOperationPo=0x00000000,     ///<Normal operation (POR reset value).
             enterDeepSleepMod=0x00000001,     ///<Enter Deep-sleep mode.
         };
-        namespace dpValC{
-            constexpr MPL::Value<dpVal,dpVal::normalOperationPo> normalOperationPo{};
-            constexpr MPL::Value<dpVal,dpVal::enterDeepSleepMod> enterDeepSleepMod{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DpVal> dp{}; 
+        namespace DpValC{
+            constexpr Register::FieldValue<decltype(dp),DpVal::normalOperationPo> normalOperationPo{};
+            constexpr Register::FieldValue<decltype(dp),DpVal::enterDeepSleepMod> enterDeepSleepMod{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,dpVal> dp{}; 
     }
     namespace Nonedynamicrefresh{    ///<Configures dynamic memory refresh operation.
         using Addr = Register::Address<0x40005024,0xfffff800,0,unsigned>;
         ///Refresh timer. Indicates the multiple of 16 CCLKs between SDRAM refresh cycles. 0x0 = Refresh disabled (POR reset value). 0x1 - 0x7FF = n x16 = 16n CCLKs between SDRAM refresh cycles. For example: 0x1 = 1 x 16 = 16 CCLKs between SDRAM refresh cycles. 0x8 = 8 x 16 = 128 CCLKs between SDRAM refresh cycles
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> refresh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> refresh{}; 
+        namespace RefreshValC{
+        }
     }
     namespace Nonedynamicreadconfig{    ///<Configures the dynamic memory read strategy.
         using Addr = Register::Address<0x40005028,0xfffffffc,0,unsigned>;
         ///Read data strategy.
-        enum class rdVal {
+        enum class RdVal {
             clockOutDelayedSt=0x00000000,     ///<Clock out delayed strategy, using CLKOUT (command not delayed, clock out delayed). POR reset value.
             commandDelayed=0x00000001,     ///<Command delayed strategy, using CCLKDELAY (command delayed, clock out not delayed).
             commandDelayedPlus1=0x00000002,     ///<Command delayed strategy plus one clock cycle, using CCLKDELAY (command delayed, clock out not delayed).
             commandDelayedPlus2=0x00000003,     ///<Command delayed strategy plus two clock cycles, using CCLKDELAY (command delayed, clock out not delayed).
         };
-        namespace rdValC{
-            constexpr MPL::Value<rdVal,rdVal::clockOutDelayedSt> clockOutDelayedSt{};
-            constexpr MPL::Value<rdVal,rdVal::commandDelayed> commandDelayed{};
-            constexpr MPL::Value<rdVal,rdVal::commandDelayedPlus1> commandDelayedPlus1{};
-            constexpr MPL::Value<rdVal,rdVal::commandDelayedPlus2> commandDelayedPlus2{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RdVal> rd{}; 
+        namespace RdValC{
+            constexpr Register::FieldValue<decltype(rd),RdVal::clockOutDelayedSt> clockOutDelayedSt{};
+            constexpr Register::FieldValue<decltype(rd),RdVal::commandDelayed> commandDelayed{};
+            constexpr Register::FieldValue<decltype(rd),RdVal::commandDelayedPlus1> commandDelayedPlus1{};
+            constexpr Register::FieldValue<decltype(rd),RdVal::commandDelayedPlus2> commandDelayedPlus2{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,rdVal> rd{}; 
     }
     namespace Nonedynamicrp{    ///<Selects the precharge command period.
         using Addr = Register::Address<0x40005030,0xfffffff0,0,unsigned>;
         ///Precharge command period. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> trp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> trp{}; 
+        namespace TrpValC{
+        }
     }
     namespace Nonedynamicras{    ///<Selects the active to precharge command period.
         using Addr = Register::Address<0x40005034,0xfffffff0,0,unsigned>;
         ///Active to precharge command period. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tras{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tras{}; 
+        namespace TrasValC{
+        }
     }
     namespace Nonedynamicsrex{    ///<Selects the self-refresh exit time.
         using Addr = Register::Address<0x40005038,0xfffffff0,0,unsigned>;
         ///Self-refresh exit time . 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tsrex{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tsrex{}; 
+        namespace TsrexValC{
+        }
     }
     namespace Nonedynamicapr{    ///<Selects the last-data-out to active command time.
         using Addr = Register::Address<0x4000503c,0xfffffff0,0,unsigned>;
         ///Last-data-out to active command time. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tapr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tapr{}; 
+        namespace TaprValC{
+        }
     }
     namespace Nonedynamicdal{    ///<Selects the data-in to active command time.
         using Addr = Register::Address<0x40005040,0xfffffff0,0,unsigned>;
         ///Data-in to active command. 0x0 - 0xE = n clock cycles. The delay is in CCLK cycles. 0xF = 15 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tdal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tdal{}; 
+        namespace TdalValC{
+        }
     }
     namespace Nonedynamicwr{    ///<Selects the write recovery time.
         using Addr = Register::Address<0x40005044,0xfffffff0,0,unsigned>;
         ///Write recovery time. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> twr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> twr{}; 
+        namespace TwrValC{
+        }
     }
     namespace Nonedynamicrc{    ///<Selects the active to active command period.
         using Addr = Register::Address<0x40005048,0xffffffe0,0,unsigned>;
         ///Active to active command period. 0x0 - 0x1E = n + 1 clock cycles. The delay is in CCLK cycles. 0x1F = 32 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trc{}; 
+        namespace TrcValC{
+        }
     }
     namespace Nonedynamicrfc{    ///<Selects the auto-refresh period.
         using Addr = Register::Address<0x4000504c,0xffffffe0,0,unsigned>;
         ///Auto-refresh period and auto-refresh to active command period. 0x0 - 0x1E = n + 1 clock cycles. The delay is in CCLK cycles. 0x1F = 32 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trfc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trfc{}; 
+        namespace TrfcValC{
+        }
     }
     namespace Nonedynamicxsr{    ///<Selects the exit self-refresh to active command time.
         using Addr = Register::Address<0x40005050,0xffffffe0,0,unsigned>;
         ///Exit self-refresh to active command time. 0x0 - 0x1E = n + 1 clock cycles. The delay is in CCLK cycles. 0x1F = 32 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> txsr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> txsr{}; 
+        namespace TxsrValC{
+        }
     }
     namespace Nonedynamicrrd{    ///<Selects the active bank A to active bank B latency.
         using Addr = Register::Address<0x40005054,0xfffffff0,0,unsigned>;
         ///Active bank A to active bank B latency 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> trrd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> trrd{}; 
+        namespace TrrdValC{
+        }
     }
     namespace Nonedynamicmrd{    ///<Selects the load mode register to active command time.
         using Addr = Register::Address<0x40005058,0xfffffff0,0,unsigned>;
         ///Load mode register to active command time. 0x0 - 0xE = n + 1 clock cycles. The delay is in CCLK cycles. 0xF = 16 clock cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tmrd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tmrd{}; 
+        namespace TmrdValC{
+        }
     }
     namespace Nonestaticextendedwait{    ///<Selects time for long static memory read and write transfers.
         using Addr = Register::Address<0x40005080,0xfffffc00,0,unsigned>;
         ///Extended wait time out. 16 clock cycles (POR reset value). The delay is in CCLK cycles. 0x0 = 16 clock cycles. 0x1 - 0x3FF = (n+1) x16 clock cycles.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> extendedwait{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> extendedwait{}; 
+        namespace ExtendedwaitValC{
+        }
     }
     namespace Nonedynamicconfig0{    ///<Selects the configuration information for dynamic memory chip select n.
         using Addr = Register::Address<0x40005100,0xffe7a067,0,unsigned>;
         ///Memory device.
-        enum class mdVal {
+        enum class MdVal {
             sdramPorResetVal=0x00000000,     ///<SDRAM (POR reset value).
             lowPowerSdram=0x00000001,     ///<Low-power SDRAM.
             micronSyncflash=0x00000002,     ///<Micron SyncFlash.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace mdValC{
-            constexpr MPL::Value<mdVal,mdVal::sdramPorResetVal> sdramPorResetVal{};
-            constexpr MPL::Value<mdVal,mdVal::lowPowerSdram> lowPowerSdram{};
-            constexpr MPL::Value<mdVal,mdVal::micronSyncflash> micronSyncflash{};
-            constexpr MPL::Value<mdVal,mdVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,MdVal> md{}; 
+        namespace MdValC{
+            constexpr Register::FieldValue<decltype(md),MdVal::sdramPorResetVal> sdramPorResetVal{};
+            constexpr Register::FieldValue<decltype(md),MdVal::lowPowerSdram> lowPowerSdram{};
+            constexpr Register::FieldValue<decltype(md),MdVal::micronSyncflash> micronSyncflash{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,mdVal> md{}; 
         ///Address mapping. See Table 197. 000000 = reset value.[1]
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        namespace Am0ValC{
+        }
         ///Address mapping See Table 197. 0 = reset value.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        namespace Am1ValC{
+        }
         ///Buffer enable.
-        enum class bVal {
+        enum class BVal {
             bufferDisabledFor=0x00000000,     ///<Buffer disabled for accesses to this chip select (POR reset value).
             bufferEnabledForA=0x00000001,     ///<Buffer enabled for accesses to this chip select. After configuration of the dynamic memory, the buffer must be enabled for normal operation.  [2]
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::bufferDisabledFor> bufferDisabledFor{};
-            constexpr MPL::Value<bVal,bVal::bufferEnabledForA> bufferEnabledForA{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::bufferDisabledFor> bufferDisabledFor{};
+            constexpr Register::FieldValue<decltype(b),BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,bVal> b{}; 
         ///Write protect.
-        enum class pVal {
+        enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
             writesProtected=0x00000001,     ///<Writes protected.
         };
-        namespace pValC{
-            constexpr MPL::Value<pVal,pVal::writesNotProtected> writesNotProtected{};
-            constexpr MPL::Value<pVal,pVal::writesProtected> writesProtected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,PVal> p{}; 
+        namespace PValC{
+            constexpr Register::FieldValue<decltype(p),PVal::writesNotProtected> writesNotProtected{};
+            constexpr Register::FieldValue<decltype(p),PVal::writesProtected> writesProtected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,pVal> p{}; 
     }
     namespace Nonedynamicconfig1{    ///<Selects the configuration information for dynamic memory chip select n.
         using Addr = Register::Address<0x40005120,0xffe7a067,0,unsigned>;
         ///Memory device.
-        enum class mdVal {
+        enum class MdVal {
             sdramPorResetVal=0x00000000,     ///<SDRAM (POR reset value).
             lowPowerSdram=0x00000001,     ///<Low-power SDRAM.
             micronSyncflash=0x00000002,     ///<Micron SyncFlash.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace mdValC{
-            constexpr MPL::Value<mdVal,mdVal::sdramPorResetVal> sdramPorResetVal{};
-            constexpr MPL::Value<mdVal,mdVal::lowPowerSdram> lowPowerSdram{};
-            constexpr MPL::Value<mdVal,mdVal::micronSyncflash> micronSyncflash{};
-            constexpr MPL::Value<mdVal,mdVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,MdVal> md{}; 
+        namespace MdValC{
+            constexpr Register::FieldValue<decltype(md),MdVal::sdramPorResetVal> sdramPorResetVal{};
+            constexpr Register::FieldValue<decltype(md),MdVal::lowPowerSdram> lowPowerSdram{};
+            constexpr Register::FieldValue<decltype(md),MdVal::micronSyncflash> micronSyncflash{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,mdVal> md{}; 
         ///Address mapping. See Table 197. 000000 = reset value.[1]
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        namespace Am0ValC{
+        }
         ///Address mapping See Table 197. 0 = reset value.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        namespace Am1ValC{
+        }
         ///Buffer enable.
-        enum class bVal {
+        enum class BVal {
             bufferDisabledFor=0x00000000,     ///<Buffer disabled for accesses to this chip select (POR reset value).
             bufferEnabledForA=0x00000001,     ///<Buffer enabled for accesses to this chip select. After configuration of the dynamic memory, the buffer must be enabled for normal operation.  [2]
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::bufferDisabledFor> bufferDisabledFor{};
-            constexpr MPL::Value<bVal,bVal::bufferEnabledForA> bufferEnabledForA{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::bufferDisabledFor> bufferDisabledFor{};
+            constexpr Register::FieldValue<decltype(b),BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,bVal> b{}; 
         ///Write protect.
-        enum class pVal {
+        enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
             writesProtected=0x00000001,     ///<Writes protected.
         };
-        namespace pValC{
-            constexpr MPL::Value<pVal,pVal::writesNotProtected> writesNotProtected{};
-            constexpr MPL::Value<pVal,pVal::writesProtected> writesProtected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,PVal> p{}; 
+        namespace PValC{
+            constexpr Register::FieldValue<decltype(p),PVal::writesNotProtected> writesNotProtected{};
+            constexpr Register::FieldValue<decltype(p),PVal::writesProtected> writesProtected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,pVal> p{}; 
     }
     namespace Nonedynamicconfig2{    ///<Selects the configuration information for dynamic memory chip select n.
         using Addr = Register::Address<0x40005140,0xffe7a067,0,unsigned>;
         ///Memory device.
-        enum class mdVal {
+        enum class MdVal {
             sdramPorResetVal=0x00000000,     ///<SDRAM (POR reset value).
             lowPowerSdram=0x00000001,     ///<Low-power SDRAM.
             micronSyncflash=0x00000002,     ///<Micron SyncFlash.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace mdValC{
-            constexpr MPL::Value<mdVal,mdVal::sdramPorResetVal> sdramPorResetVal{};
-            constexpr MPL::Value<mdVal,mdVal::lowPowerSdram> lowPowerSdram{};
-            constexpr MPL::Value<mdVal,mdVal::micronSyncflash> micronSyncflash{};
-            constexpr MPL::Value<mdVal,mdVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,MdVal> md{}; 
+        namespace MdValC{
+            constexpr Register::FieldValue<decltype(md),MdVal::sdramPorResetVal> sdramPorResetVal{};
+            constexpr Register::FieldValue<decltype(md),MdVal::lowPowerSdram> lowPowerSdram{};
+            constexpr Register::FieldValue<decltype(md),MdVal::micronSyncflash> micronSyncflash{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,mdVal> md{}; 
         ///Address mapping. See Table 197. 000000 = reset value.[1]
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        namespace Am0ValC{
+        }
         ///Address mapping See Table 197. 0 = reset value.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        namespace Am1ValC{
+        }
         ///Buffer enable.
-        enum class bVal {
+        enum class BVal {
             bufferDisabledFor=0x00000000,     ///<Buffer disabled for accesses to this chip select (POR reset value).
             bufferEnabledForA=0x00000001,     ///<Buffer enabled for accesses to this chip select. After configuration of the dynamic memory, the buffer must be enabled for normal operation.  [2]
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::bufferDisabledFor> bufferDisabledFor{};
-            constexpr MPL::Value<bVal,bVal::bufferEnabledForA> bufferEnabledForA{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::bufferDisabledFor> bufferDisabledFor{};
+            constexpr Register::FieldValue<decltype(b),BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,bVal> b{}; 
         ///Write protect.
-        enum class pVal {
+        enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
             writesProtected=0x00000001,     ///<Writes protected.
         };
-        namespace pValC{
-            constexpr MPL::Value<pVal,pVal::writesNotProtected> writesNotProtected{};
-            constexpr MPL::Value<pVal,pVal::writesProtected> writesProtected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,PVal> p{}; 
+        namespace PValC{
+            constexpr Register::FieldValue<decltype(p),PVal::writesNotProtected> writesNotProtected{};
+            constexpr Register::FieldValue<decltype(p),PVal::writesProtected> writesProtected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,pVal> p{}; 
     }
     namespace Nonedynamicconfig3{    ///<Selects the configuration information for dynamic memory chip select n.
         using Addr = Register::Address<0x40005160,0xffe7a067,0,unsigned>;
         ///Memory device.
-        enum class mdVal {
+        enum class MdVal {
             sdramPorResetVal=0x00000000,     ///<SDRAM (POR reset value).
             lowPowerSdram=0x00000001,     ///<Low-power SDRAM.
             micronSyncflash=0x00000002,     ///<Micron SyncFlash.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace mdValC{
-            constexpr MPL::Value<mdVal,mdVal::sdramPorResetVal> sdramPorResetVal{};
-            constexpr MPL::Value<mdVal,mdVal::lowPowerSdram> lowPowerSdram{};
-            constexpr MPL::Value<mdVal,mdVal::micronSyncflash> micronSyncflash{};
-            constexpr MPL::Value<mdVal,mdVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,MdVal> md{}; 
+        namespace MdValC{
+            constexpr Register::FieldValue<decltype(md),MdVal::sdramPorResetVal> sdramPorResetVal{};
+            constexpr Register::FieldValue<decltype(md),MdVal::lowPowerSdram> lowPowerSdram{};
+            constexpr Register::FieldValue<decltype(md),MdVal::micronSyncflash> micronSyncflash{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,mdVal> md{}; 
         ///Address mapping. See Table 197. 000000 = reset value.[1]
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
+        namespace Am0ValC{
+        }
         ///Address mapping See Table 197. 0 = reset value.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> am1{}; 
+        namespace Am1ValC{
+        }
         ///Buffer enable.
-        enum class bVal {
+        enum class BVal {
             bufferDisabledFor=0x00000000,     ///<Buffer disabled for accesses to this chip select (POR reset value).
             bufferEnabledForA=0x00000001,     ///<Buffer enabled for accesses to this chip select. After configuration of the dynamic memory, the buffer must be enabled for normal operation.  [2]
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::bufferDisabledFor> bufferDisabledFor{};
-            constexpr MPL::Value<bVal,bVal::bufferEnabledForA> bufferEnabledForA{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::bufferDisabledFor> bufferDisabledFor{};
+            constexpr Register::FieldValue<decltype(b),BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,bVal> b{}; 
         ///Write protect.
-        enum class pVal {
+        enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
             writesProtected=0x00000001,     ///<Writes protected.
         };
-        namespace pValC{
-            constexpr MPL::Value<pVal,pVal::writesNotProtected> writesNotProtected{};
-            constexpr MPL::Value<pVal,pVal::writesProtected> writesProtected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,PVal> p{}; 
+        namespace PValC{
+            constexpr Register::FieldValue<decltype(p),PVal::writesNotProtected> writesNotProtected{};
+            constexpr Register::FieldValue<decltype(p),PVal::writesProtected> writesProtected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,pVal> p{}; 
     }
     namespace Nonedynamicrascas0{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
         using Addr = Register::Address<0x40005104,0xfffffcfc,0,unsigned>;
         ///RAS latency (active to read/write delay).
-        enum class rasVal {
-            reserved=0x00000000,     ///<Reserved.
+        enum class RasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
             twoCclkCycles=0x00000002,     ///<Two CCLK cycles.
             threeCclkCyclesP=0x00000003,     ///<Three CCLK cycles (POR reset value).
         };
-        namespace rasValC{
-            constexpr MPL::Value<rasVal,rasVal::reserved> reserved{};
-            constexpr MPL::Value<rasVal,rasVal::oneCclkCycle> oneCclkCycle{};
-            constexpr MPL::Value<rasVal,rasVal::twoCclkCycles> twoCclkCycles{};
-            constexpr MPL::Value<rasVal,rasVal::threeCclkCyclesP> threeCclkCyclesP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RasVal> ras{}; 
+        namespace RasValC{
+            constexpr Register::FieldValue<decltype(ras),RasVal::oneCclkCycle> oneCclkCycle{};
+            constexpr Register::FieldValue<decltype(ras),RasVal::twoCclkCycles> twoCclkCycles{};
+            constexpr Register::FieldValue<decltype(ras),RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,rasVal> ras{}; 
         ///CAS latency.
-        enum class casVal {
-            reserved=0x00000000,     ///<Reserved.
+        enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
             twoCclkCycles=0x00000002,     ///<Two CCLK cycles.
             threeCclkCyclesP=0x00000003,     ///<Three CCLK cycles (POR reset value).
         };
-        namespace casValC{
-            constexpr MPL::Value<casVal,casVal::reserved> reserved{};
-            constexpr MPL::Value<casVal,casVal::oneCclkCycle> oneCclkCycle{};
-            constexpr MPL::Value<casVal,casVal::twoCclkCycles> twoCclkCycles{};
-            constexpr MPL::Value<casVal,casVal::threeCclkCyclesP> threeCclkCyclesP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,CasVal> cas{}; 
+        namespace CasValC{
+            constexpr Register::FieldValue<decltype(cas),CasVal::oneCclkCycle> oneCclkCycle{};
+            constexpr Register::FieldValue<decltype(cas),CasVal::twoCclkCycles> twoCclkCycles{};
+            constexpr Register::FieldValue<decltype(cas),CasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,casVal> cas{}; 
     }
     namespace Nonedynamicrascas1{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
         using Addr = Register::Address<0x40005124,0xfffffcfc,0,unsigned>;
         ///RAS latency (active to read/write delay).
-        enum class rasVal {
-            reserved=0x00000000,     ///<Reserved.
+        enum class RasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
             twoCclkCycles=0x00000002,     ///<Two CCLK cycles.
             threeCclkCyclesP=0x00000003,     ///<Three CCLK cycles (POR reset value).
         };
-        namespace rasValC{
-            constexpr MPL::Value<rasVal,rasVal::reserved> reserved{};
-            constexpr MPL::Value<rasVal,rasVal::oneCclkCycle> oneCclkCycle{};
-            constexpr MPL::Value<rasVal,rasVal::twoCclkCycles> twoCclkCycles{};
-            constexpr MPL::Value<rasVal,rasVal::threeCclkCyclesP> threeCclkCyclesP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RasVal> ras{}; 
+        namespace RasValC{
+            constexpr Register::FieldValue<decltype(ras),RasVal::oneCclkCycle> oneCclkCycle{};
+            constexpr Register::FieldValue<decltype(ras),RasVal::twoCclkCycles> twoCclkCycles{};
+            constexpr Register::FieldValue<decltype(ras),RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,rasVal> ras{}; 
         ///CAS latency.
-        enum class casVal {
-            reserved=0x00000000,     ///<Reserved.
+        enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
             twoCclkCycles=0x00000002,     ///<Two CCLK cycles.
             threeCclkCyclesP=0x00000003,     ///<Three CCLK cycles (POR reset value).
         };
-        namespace casValC{
-            constexpr MPL::Value<casVal,casVal::reserved> reserved{};
-            constexpr MPL::Value<casVal,casVal::oneCclkCycle> oneCclkCycle{};
-            constexpr MPL::Value<casVal,casVal::twoCclkCycles> twoCclkCycles{};
-            constexpr MPL::Value<casVal,casVal::threeCclkCyclesP> threeCclkCyclesP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,CasVal> cas{}; 
+        namespace CasValC{
+            constexpr Register::FieldValue<decltype(cas),CasVal::oneCclkCycle> oneCclkCycle{};
+            constexpr Register::FieldValue<decltype(cas),CasVal::twoCclkCycles> twoCclkCycles{};
+            constexpr Register::FieldValue<decltype(cas),CasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,casVal> cas{}; 
     }
     namespace Nonedynamicrascas2{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
         using Addr = Register::Address<0x40005144,0xfffffcfc,0,unsigned>;
         ///RAS latency (active to read/write delay).
-        enum class rasVal {
-            reserved=0x00000000,     ///<Reserved.
+        enum class RasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
             twoCclkCycles=0x00000002,     ///<Two CCLK cycles.
             threeCclkCyclesP=0x00000003,     ///<Three CCLK cycles (POR reset value).
         };
-        namespace rasValC{
-            constexpr MPL::Value<rasVal,rasVal::reserved> reserved{};
-            constexpr MPL::Value<rasVal,rasVal::oneCclkCycle> oneCclkCycle{};
-            constexpr MPL::Value<rasVal,rasVal::twoCclkCycles> twoCclkCycles{};
-            constexpr MPL::Value<rasVal,rasVal::threeCclkCyclesP> threeCclkCyclesP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RasVal> ras{}; 
+        namespace RasValC{
+            constexpr Register::FieldValue<decltype(ras),RasVal::oneCclkCycle> oneCclkCycle{};
+            constexpr Register::FieldValue<decltype(ras),RasVal::twoCclkCycles> twoCclkCycles{};
+            constexpr Register::FieldValue<decltype(ras),RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,rasVal> ras{}; 
         ///CAS latency.
-        enum class casVal {
-            reserved=0x00000000,     ///<Reserved.
+        enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
             twoCclkCycles=0x00000002,     ///<Two CCLK cycles.
             threeCclkCyclesP=0x00000003,     ///<Three CCLK cycles (POR reset value).
         };
-        namespace casValC{
-            constexpr MPL::Value<casVal,casVal::reserved> reserved{};
-            constexpr MPL::Value<casVal,casVal::oneCclkCycle> oneCclkCycle{};
-            constexpr MPL::Value<casVal,casVal::twoCclkCycles> twoCclkCycles{};
-            constexpr MPL::Value<casVal,casVal::threeCclkCyclesP> threeCclkCyclesP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,CasVal> cas{}; 
+        namespace CasValC{
+            constexpr Register::FieldValue<decltype(cas),CasVal::oneCclkCycle> oneCclkCycle{};
+            constexpr Register::FieldValue<decltype(cas),CasVal::twoCclkCycles> twoCclkCycles{};
+            constexpr Register::FieldValue<decltype(cas),CasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,casVal> cas{}; 
     }
     namespace Nonedynamicrascas3{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
         using Addr = Register::Address<0x40005164,0xfffffcfc,0,unsigned>;
         ///RAS latency (active to read/write delay).
-        enum class rasVal {
-            reserved=0x00000000,     ///<Reserved.
+        enum class RasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
             twoCclkCycles=0x00000002,     ///<Two CCLK cycles.
             threeCclkCyclesP=0x00000003,     ///<Three CCLK cycles (POR reset value).
         };
-        namespace rasValC{
-            constexpr MPL::Value<rasVal,rasVal::reserved> reserved{};
-            constexpr MPL::Value<rasVal,rasVal::oneCclkCycle> oneCclkCycle{};
-            constexpr MPL::Value<rasVal,rasVal::twoCclkCycles> twoCclkCycles{};
-            constexpr MPL::Value<rasVal,rasVal::threeCclkCyclesP> threeCclkCyclesP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RasVal> ras{}; 
+        namespace RasValC{
+            constexpr Register::FieldValue<decltype(ras),RasVal::oneCclkCycle> oneCclkCycle{};
+            constexpr Register::FieldValue<decltype(ras),RasVal::twoCclkCycles> twoCclkCycles{};
+            constexpr Register::FieldValue<decltype(ras),RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,rasVal> ras{}; 
         ///CAS latency.
-        enum class casVal {
-            reserved=0x00000000,     ///<Reserved.
+        enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
             twoCclkCycles=0x00000002,     ///<Two CCLK cycles.
             threeCclkCyclesP=0x00000003,     ///<Three CCLK cycles (POR reset value).
         };
-        namespace casValC{
-            constexpr MPL::Value<casVal,casVal::reserved> reserved{};
-            constexpr MPL::Value<casVal,casVal::oneCclkCycle> oneCclkCycle{};
-            constexpr MPL::Value<casVal,casVal::twoCclkCycles> twoCclkCycles{};
-            constexpr MPL::Value<casVal,casVal::threeCclkCyclesP> threeCclkCyclesP{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,CasVal> cas{}; 
+        namespace CasValC{
+            constexpr Register::FieldValue<decltype(cas),CasVal::oneCclkCycle> oneCclkCycle{};
+            constexpr Register::FieldValue<decltype(cas),CasVal::twoCclkCycles> twoCclkCycles{};
+            constexpr Register::FieldValue<decltype(cas),CasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,casVal> cas{}; 
     }
     namespace Nonestaticconfig0{    ///<Selects the memory configuration for static chip select n.
         using Addr = Register::Address<0x40005200,0xffe7fe34,0,unsigned>;
         ///Memory width.
-        enum class mwVal {
+        enum class MwVal {
             v8BitPorResetVal=0x00000000,     ///<8 bit (POR reset value).
             v16Bit=0x00000001,     ///<16 bit.
             v32Bit=0x00000002,     ///<32 bit.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace mwValC{
-            constexpr MPL::Value<mwVal,mwVal::v8BitPorResetVal> v8BitPorResetVal{};
-            constexpr MPL::Value<mwVal,mwVal::v16Bit> v16Bit{};
-            constexpr MPL::Value<mwVal,mwVal::v32Bit> v32Bit{};
-            constexpr MPL::Value<mwVal,mwVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,MwVal> mw{}; 
+        namespace MwValC{
+            constexpr Register::FieldValue<decltype(mw),MwVal::v8BitPorResetVal> v8BitPorResetVal{};
+            constexpr Register::FieldValue<decltype(mw),MwVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(mw),MwVal::v32Bit> v32Bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,mwVal> mw{}; 
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
-        enum class pmVal {
+        enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
             asyncPageModeEnab=0x00000001,     ///<Async page mode enabled (page length four).
         };
-        namespace pmValC{
-            constexpr MPL::Value<pmVal,pmVal::disabledPorReset> disabledPorReset{};
-            constexpr MPL::Value<pmVal,pmVal::asyncPageModeEnab> asyncPageModeEnab{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PmVal> pm{}; 
+        namespace PmValC{
+            constexpr Register::FieldValue<decltype(pm),PmVal::disabledPorReset> disabledPorReset{};
+            constexpr Register::FieldValue<decltype(pm),PmVal::asyncPageModeEnab> asyncPageModeEnab{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,pmVal> pm{}; 
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
-        enum class pcVal {
+        enum class PcVal {
             activeLowChipSele=0x00000000,     ///<Active LOW chip select.
             activeHighChipSel=0x00000001,     ///<Active HIGH chip select.
         };
-        namespace pcValC{
-            constexpr MPL::Value<pcVal,pcVal::activeLowChipSele> activeLowChipSele{};
-            constexpr MPL::Value<pcVal,pcVal::activeHighChipSel> activeHighChipSel{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PcVal> pc{}; 
+        namespace PcValC{
+            constexpr Register::FieldValue<decltype(pc),PcVal::activeLowChipSele> activeLowChipSele{};
+            constexpr Register::FieldValue<decltype(pc),PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,pcVal> pc{}; 
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLSn[3:0] signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLSn[3:0] bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLSn[3:0] signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH. When PB is set to 0, the WE signal is undefined or 0. You must set PB to 1, to use the WE signal.
-        enum class pbVal {
+        enum class PbVal {
             high=0x00000000,     ///<For reads all the bits in BLSn[3:0] are HIGH. For writes the respective active bits in BLSn[3:0] are LOW (POR reset value).
             low=0x00000001,     ///<For reads the respective active bits in BLSn[3:0] are LOW. For writes the respective active bits in BLSn[3:0] are LOW.
         };
-        namespace pbValC{
-            constexpr MPL::Value<pbVal,pbVal::high> high{};
-            constexpr MPL::Value<pbVal,pbVal::low> low{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PbVal> pb{}; 
+        namespace PbValC{
+            constexpr Register::FieldValue<decltype(pb),PbVal::high> high{};
+            constexpr Register::FieldValue<decltype(pb),PbVal::low> low{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,pbVal> pb{}; 
         ///Extended wait. Extended wait (EW) uses the StaticExtendedWait register to time both the read and write transfers rather than the StaticWaitRd and StaticWaitWr registers. This enables much longer transactions.[1]
-        enum class ewVal {
+        enum class EwVal {
             extendedWaitDisabl=0x00000000,     ///<Extended wait disabled (POR reset value).
             extendedWaitEnable=0x00000001,     ///<Extended wait enabled.
         };
-        namespace ewValC{
-            constexpr MPL::Value<ewVal,ewVal::extendedWaitDisabl> extendedWaitDisabl{};
-            constexpr MPL::Value<ewVal,ewVal::extendedWaitEnable> extendedWaitEnable{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,EwVal> ew{}; 
+        namespace EwValC{
+            constexpr Register::FieldValue<decltype(ew),EwVal::extendedWaitDisabl> extendedWaitDisabl{};
+            constexpr Register::FieldValue<decltype(ew),EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ewVal> ew{}; 
         ///Buffer enable[2].
-        enum class bVal {
+        enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
             bufferEnabled=0x00000001,     ///<Buffer enabled.
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::bufferDisabledPor> bufferDisabledPor{};
-            constexpr MPL::Value<bVal,bVal::bufferEnabled> bufferEnabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::bufferDisabledPor> bufferDisabledPor{};
+            constexpr Register::FieldValue<decltype(b),BVal::bufferEnabled> bufferEnabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,bVal> b{}; 
         ///Write protect.
-        enum class pVal {
+        enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
             writeProtected=0x00000001,     ///<Write protected.
         };
-        namespace pValC{
-            constexpr MPL::Value<pVal,pVal::writesNotProtected> writesNotProtected{};
-            constexpr MPL::Value<pVal,pVal::writeProtected> writeProtected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,PVal> p{}; 
+        namespace PValC{
+            constexpr Register::FieldValue<decltype(p),PVal::writesNotProtected> writesNotProtected{};
+            constexpr Register::FieldValue<decltype(p),PVal::writeProtected> writeProtected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,pVal> p{}; 
     }
     namespace Nonestaticconfig1{    ///<Selects the memory configuration for static chip select n.
         using Addr = Register::Address<0x40005220,0xffe7fe34,0,unsigned>;
         ///Memory width.
-        enum class mwVal {
+        enum class MwVal {
             v8BitPorResetVal=0x00000000,     ///<8 bit (POR reset value).
             v16Bit=0x00000001,     ///<16 bit.
             v32Bit=0x00000002,     ///<32 bit.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace mwValC{
-            constexpr MPL::Value<mwVal,mwVal::v8BitPorResetVal> v8BitPorResetVal{};
-            constexpr MPL::Value<mwVal,mwVal::v16Bit> v16Bit{};
-            constexpr MPL::Value<mwVal,mwVal::v32Bit> v32Bit{};
-            constexpr MPL::Value<mwVal,mwVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,MwVal> mw{}; 
+        namespace MwValC{
+            constexpr Register::FieldValue<decltype(mw),MwVal::v8BitPorResetVal> v8BitPorResetVal{};
+            constexpr Register::FieldValue<decltype(mw),MwVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(mw),MwVal::v32Bit> v32Bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,mwVal> mw{}; 
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
-        enum class pmVal {
+        enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
             asyncPageModeEnab=0x00000001,     ///<Async page mode enabled (page length four).
         };
-        namespace pmValC{
-            constexpr MPL::Value<pmVal,pmVal::disabledPorReset> disabledPorReset{};
-            constexpr MPL::Value<pmVal,pmVal::asyncPageModeEnab> asyncPageModeEnab{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PmVal> pm{}; 
+        namespace PmValC{
+            constexpr Register::FieldValue<decltype(pm),PmVal::disabledPorReset> disabledPorReset{};
+            constexpr Register::FieldValue<decltype(pm),PmVal::asyncPageModeEnab> asyncPageModeEnab{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,pmVal> pm{}; 
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
-        enum class pcVal {
+        enum class PcVal {
             activeLowChipSele=0x00000000,     ///<Active LOW chip select.
             activeHighChipSel=0x00000001,     ///<Active HIGH chip select.
         };
-        namespace pcValC{
-            constexpr MPL::Value<pcVal,pcVal::activeLowChipSele> activeLowChipSele{};
-            constexpr MPL::Value<pcVal,pcVal::activeHighChipSel> activeHighChipSel{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PcVal> pc{}; 
+        namespace PcValC{
+            constexpr Register::FieldValue<decltype(pc),PcVal::activeLowChipSele> activeLowChipSele{};
+            constexpr Register::FieldValue<decltype(pc),PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,pcVal> pc{}; 
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLSn[3:0] signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLSn[3:0] bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLSn[3:0] signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH. When PB is set to 0, the WE signal is undefined or 0. You must set PB to 1, to use the WE signal.
-        enum class pbVal {
+        enum class PbVal {
             high=0x00000000,     ///<For reads all the bits in BLSn[3:0] are HIGH. For writes the respective active bits in BLSn[3:0] are LOW (POR reset value).
             low=0x00000001,     ///<For reads the respective active bits in BLSn[3:0] are LOW. For writes the respective active bits in BLSn[3:0] are LOW.
         };
-        namespace pbValC{
-            constexpr MPL::Value<pbVal,pbVal::high> high{};
-            constexpr MPL::Value<pbVal,pbVal::low> low{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PbVal> pb{}; 
+        namespace PbValC{
+            constexpr Register::FieldValue<decltype(pb),PbVal::high> high{};
+            constexpr Register::FieldValue<decltype(pb),PbVal::low> low{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,pbVal> pb{}; 
         ///Extended wait. Extended wait (EW) uses the StaticExtendedWait register to time both the read and write transfers rather than the StaticWaitRd and StaticWaitWr registers. This enables much longer transactions.[1]
-        enum class ewVal {
+        enum class EwVal {
             extendedWaitDisabl=0x00000000,     ///<Extended wait disabled (POR reset value).
             extendedWaitEnable=0x00000001,     ///<Extended wait enabled.
         };
-        namespace ewValC{
-            constexpr MPL::Value<ewVal,ewVal::extendedWaitDisabl> extendedWaitDisabl{};
-            constexpr MPL::Value<ewVal,ewVal::extendedWaitEnable> extendedWaitEnable{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,EwVal> ew{}; 
+        namespace EwValC{
+            constexpr Register::FieldValue<decltype(ew),EwVal::extendedWaitDisabl> extendedWaitDisabl{};
+            constexpr Register::FieldValue<decltype(ew),EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ewVal> ew{}; 
         ///Buffer enable[2].
-        enum class bVal {
+        enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
             bufferEnabled=0x00000001,     ///<Buffer enabled.
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::bufferDisabledPor> bufferDisabledPor{};
-            constexpr MPL::Value<bVal,bVal::bufferEnabled> bufferEnabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::bufferDisabledPor> bufferDisabledPor{};
+            constexpr Register::FieldValue<decltype(b),BVal::bufferEnabled> bufferEnabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,bVal> b{}; 
         ///Write protect.
-        enum class pVal {
+        enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
             writeProtected=0x00000001,     ///<Write protected.
         };
-        namespace pValC{
-            constexpr MPL::Value<pVal,pVal::writesNotProtected> writesNotProtected{};
-            constexpr MPL::Value<pVal,pVal::writeProtected> writeProtected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,PVal> p{}; 
+        namespace PValC{
+            constexpr Register::FieldValue<decltype(p),PVal::writesNotProtected> writesNotProtected{};
+            constexpr Register::FieldValue<decltype(p),PVal::writeProtected> writeProtected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,pVal> p{}; 
     }
     namespace Nonestaticconfig2{    ///<Selects the memory configuration for static chip select n.
         using Addr = Register::Address<0x40005240,0xffe7fe34,0,unsigned>;
         ///Memory width.
-        enum class mwVal {
+        enum class MwVal {
             v8BitPorResetVal=0x00000000,     ///<8 bit (POR reset value).
             v16Bit=0x00000001,     ///<16 bit.
             v32Bit=0x00000002,     ///<32 bit.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace mwValC{
-            constexpr MPL::Value<mwVal,mwVal::v8BitPorResetVal> v8BitPorResetVal{};
-            constexpr MPL::Value<mwVal,mwVal::v16Bit> v16Bit{};
-            constexpr MPL::Value<mwVal,mwVal::v32Bit> v32Bit{};
-            constexpr MPL::Value<mwVal,mwVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,MwVal> mw{}; 
+        namespace MwValC{
+            constexpr Register::FieldValue<decltype(mw),MwVal::v8BitPorResetVal> v8BitPorResetVal{};
+            constexpr Register::FieldValue<decltype(mw),MwVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(mw),MwVal::v32Bit> v32Bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,mwVal> mw{}; 
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
-        enum class pmVal {
+        enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
             asyncPageModeEnab=0x00000001,     ///<Async page mode enabled (page length four).
         };
-        namespace pmValC{
-            constexpr MPL::Value<pmVal,pmVal::disabledPorReset> disabledPorReset{};
-            constexpr MPL::Value<pmVal,pmVal::asyncPageModeEnab> asyncPageModeEnab{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PmVal> pm{}; 
+        namespace PmValC{
+            constexpr Register::FieldValue<decltype(pm),PmVal::disabledPorReset> disabledPorReset{};
+            constexpr Register::FieldValue<decltype(pm),PmVal::asyncPageModeEnab> asyncPageModeEnab{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,pmVal> pm{}; 
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
-        enum class pcVal {
+        enum class PcVal {
             activeLowChipSele=0x00000000,     ///<Active LOW chip select.
             activeHighChipSel=0x00000001,     ///<Active HIGH chip select.
         };
-        namespace pcValC{
-            constexpr MPL::Value<pcVal,pcVal::activeLowChipSele> activeLowChipSele{};
-            constexpr MPL::Value<pcVal,pcVal::activeHighChipSel> activeHighChipSel{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PcVal> pc{}; 
+        namespace PcValC{
+            constexpr Register::FieldValue<decltype(pc),PcVal::activeLowChipSele> activeLowChipSele{};
+            constexpr Register::FieldValue<decltype(pc),PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,pcVal> pc{}; 
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLSn[3:0] signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLSn[3:0] bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLSn[3:0] signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH. When PB is set to 0, the WE signal is undefined or 0. You must set PB to 1, to use the WE signal.
-        enum class pbVal {
+        enum class PbVal {
             high=0x00000000,     ///<For reads all the bits in BLSn[3:0] are HIGH. For writes the respective active bits in BLSn[3:0] are LOW (POR reset value).
             low=0x00000001,     ///<For reads the respective active bits in BLSn[3:0] are LOW. For writes the respective active bits in BLSn[3:0] are LOW.
         };
-        namespace pbValC{
-            constexpr MPL::Value<pbVal,pbVal::high> high{};
-            constexpr MPL::Value<pbVal,pbVal::low> low{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PbVal> pb{}; 
+        namespace PbValC{
+            constexpr Register::FieldValue<decltype(pb),PbVal::high> high{};
+            constexpr Register::FieldValue<decltype(pb),PbVal::low> low{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,pbVal> pb{}; 
         ///Extended wait. Extended wait (EW) uses the StaticExtendedWait register to time both the read and write transfers rather than the StaticWaitRd and StaticWaitWr registers. This enables much longer transactions.[1]
-        enum class ewVal {
+        enum class EwVal {
             extendedWaitDisabl=0x00000000,     ///<Extended wait disabled (POR reset value).
             extendedWaitEnable=0x00000001,     ///<Extended wait enabled.
         };
-        namespace ewValC{
-            constexpr MPL::Value<ewVal,ewVal::extendedWaitDisabl> extendedWaitDisabl{};
-            constexpr MPL::Value<ewVal,ewVal::extendedWaitEnable> extendedWaitEnable{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,EwVal> ew{}; 
+        namespace EwValC{
+            constexpr Register::FieldValue<decltype(ew),EwVal::extendedWaitDisabl> extendedWaitDisabl{};
+            constexpr Register::FieldValue<decltype(ew),EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ewVal> ew{}; 
         ///Buffer enable[2].
-        enum class bVal {
+        enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
             bufferEnabled=0x00000001,     ///<Buffer enabled.
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::bufferDisabledPor> bufferDisabledPor{};
-            constexpr MPL::Value<bVal,bVal::bufferEnabled> bufferEnabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::bufferDisabledPor> bufferDisabledPor{};
+            constexpr Register::FieldValue<decltype(b),BVal::bufferEnabled> bufferEnabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,bVal> b{}; 
         ///Write protect.
-        enum class pVal {
+        enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
             writeProtected=0x00000001,     ///<Write protected.
         };
-        namespace pValC{
-            constexpr MPL::Value<pVal,pVal::writesNotProtected> writesNotProtected{};
-            constexpr MPL::Value<pVal,pVal::writeProtected> writeProtected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,PVal> p{}; 
+        namespace PValC{
+            constexpr Register::FieldValue<decltype(p),PVal::writesNotProtected> writesNotProtected{};
+            constexpr Register::FieldValue<decltype(p),PVal::writeProtected> writeProtected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,pVal> p{}; 
     }
     namespace Nonestaticconfig3{    ///<Selects the memory configuration for static chip select n.
         using Addr = Register::Address<0x40005260,0xffe7fe34,0,unsigned>;
         ///Memory width.
-        enum class mwVal {
+        enum class MwVal {
             v8BitPorResetVal=0x00000000,     ///<8 bit (POR reset value).
             v16Bit=0x00000001,     ///<16 bit.
             v32Bit=0x00000002,     ///<32 bit.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace mwValC{
-            constexpr MPL::Value<mwVal,mwVal::v8BitPorResetVal> v8BitPorResetVal{};
-            constexpr MPL::Value<mwVal,mwVal::v16Bit> v16Bit{};
-            constexpr MPL::Value<mwVal,mwVal::v32Bit> v32Bit{};
-            constexpr MPL::Value<mwVal,mwVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,MwVal> mw{}; 
+        namespace MwValC{
+            constexpr Register::FieldValue<decltype(mw),MwVal::v8BitPorResetVal> v8BitPorResetVal{};
+            constexpr Register::FieldValue<decltype(mw),MwVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(mw),MwVal::v32Bit> v32Bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,mwVal> mw{}; 
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
-        enum class pmVal {
+        enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
             asyncPageModeEnab=0x00000001,     ///<Async page mode enabled (page length four).
         };
-        namespace pmValC{
-            constexpr MPL::Value<pmVal,pmVal::disabledPorReset> disabledPorReset{};
-            constexpr MPL::Value<pmVal,pmVal::asyncPageModeEnab> asyncPageModeEnab{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PmVal> pm{}; 
+        namespace PmValC{
+            constexpr Register::FieldValue<decltype(pm),PmVal::disabledPorReset> disabledPorReset{};
+            constexpr Register::FieldValue<decltype(pm),PmVal::asyncPageModeEnab> asyncPageModeEnab{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,pmVal> pm{}; 
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
-        enum class pcVal {
+        enum class PcVal {
             activeLowChipSele=0x00000000,     ///<Active LOW chip select.
             activeHighChipSel=0x00000001,     ///<Active HIGH chip select.
         };
-        namespace pcValC{
-            constexpr MPL::Value<pcVal,pcVal::activeLowChipSele> activeLowChipSele{};
-            constexpr MPL::Value<pcVal,pcVal::activeHighChipSel> activeHighChipSel{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PcVal> pc{}; 
+        namespace PcValC{
+            constexpr Register::FieldValue<decltype(pc),PcVal::activeLowChipSele> activeLowChipSele{};
+            constexpr Register::FieldValue<decltype(pc),PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,pcVal> pc{}; 
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLSn[3:0] signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLSn[3:0] bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLSn[3:0] signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH. When PB is set to 0, the WE signal is undefined or 0. You must set PB to 1, to use the WE signal.
-        enum class pbVal {
+        enum class PbVal {
             high=0x00000000,     ///<For reads all the bits in BLSn[3:0] are HIGH. For writes the respective active bits in BLSn[3:0] are LOW (POR reset value).
             low=0x00000001,     ///<For reads the respective active bits in BLSn[3:0] are LOW. For writes the respective active bits in BLSn[3:0] are LOW.
         };
-        namespace pbValC{
-            constexpr MPL::Value<pbVal,pbVal::high> high{};
-            constexpr MPL::Value<pbVal,pbVal::low> low{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PbVal> pb{}; 
+        namespace PbValC{
+            constexpr Register::FieldValue<decltype(pb),PbVal::high> high{};
+            constexpr Register::FieldValue<decltype(pb),PbVal::low> low{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,pbVal> pb{}; 
         ///Extended wait. Extended wait (EW) uses the StaticExtendedWait register to time both the read and write transfers rather than the StaticWaitRd and StaticWaitWr registers. This enables much longer transactions.[1]
-        enum class ewVal {
+        enum class EwVal {
             extendedWaitDisabl=0x00000000,     ///<Extended wait disabled (POR reset value).
             extendedWaitEnable=0x00000001,     ///<Extended wait enabled.
         };
-        namespace ewValC{
-            constexpr MPL::Value<ewVal,ewVal::extendedWaitDisabl> extendedWaitDisabl{};
-            constexpr MPL::Value<ewVal,ewVal::extendedWaitEnable> extendedWaitEnable{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,EwVal> ew{}; 
+        namespace EwValC{
+            constexpr Register::FieldValue<decltype(ew),EwVal::extendedWaitDisabl> extendedWaitDisabl{};
+            constexpr Register::FieldValue<decltype(ew),EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ewVal> ew{}; 
         ///Buffer enable[2].
-        enum class bVal {
+        enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
             bufferEnabled=0x00000001,     ///<Buffer enabled.
         };
-        namespace bValC{
-            constexpr MPL::Value<bVal,bVal::bufferDisabledPor> bufferDisabledPor{};
-            constexpr MPL::Value<bVal,bVal::bufferEnabled> bufferEnabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BVal> b{}; 
+        namespace BValC{
+            constexpr Register::FieldValue<decltype(b),BVal::bufferDisabledPor> bufferDisabledPor{};
+            constexpr Register::FieldValue<decltype(b),BVal::bufferEnabled> bufferEnabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,bVal> b{}; 
         ///Write protect.
-        enum class pVal {
+        enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
             writeProtected=0x00000001,     ///<Write protected.
         };
-        namespace pValC{
-            constexpr MPL::Value<pVal,pVal::writesNotProtected> writesNotProtected{};
-            constexpr MPL::Value<pVal,pVal::writeProtected> writeProtected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,PVal> p{}; 
+        namespace PValC{
+            constexpr Register::FieldValue<decltype(p),PVal::writesNotProtected> writesNotProtected{};
+            constexpr Register::FieldValue<decltype(p),PVal::writeProtected> writeProtected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,pVal> p{}; 
     }
     namespace Nonestaticwaitwen0{    ///<Selects the delay from chip select n to write enable.
         using Addr = Register::Address<0x40005204,0xfffffff0,0,unsigned>;
         ///Wait write enable. Delay from chip select assertion to write enable. 0x0 = One CCLK cycle delay between assertion of chip select and write enable (POR reset value). 0x1 - 0xF = (n + 1) CCLK cycle delay. The delay is (WAITWEN +1) x tCCLK.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        namespace WaitwenValC{
+        }
     }
     namespace Nonestaticwaitwen1{    ///<Selects the delay from chip select n to write enable.
         using Addr = Register::Address<0x40005224,0xfffffff0,0,unsigned>;
         ///Wait write enable. Delay from chip select assertion to write enable. 0x0 = One CCLK cycle delay between assertion of chip select and write enable (POR reset value). 0x1 - 0xF = (n + 1) CCLK cycle delay. The delay is (WAITWEN +1) x tCCLK.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        namespace WaitwenValC{
+        }
     }
     namespace Nonestaticwaitwen2{    ///<Selects the delay from chip select n to write enable.
         using Addr = Register::Address<0x40005244,0xfffffff0,0,unsigned>;
         ///Wait write enable. Delay from chip select assertion to write enable. 0x0 = One CCLK cycle delay between assertion of chip select and write enable (POR reset value). 0x1 - 0xF = (n + 1) CCLK cycle delay. The delay is (WAITWEN +1) x tCCLK.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        namespace WaitwenValC{
+        }
     }
     namespace Nonestaticwaitwen3{    ///<Selects the delay from chip select n to write enable.
         using Addr = Register::Address<0x40005264,0xfffffff0,0,unsigned>;
         ///Wait write enable. Delay from chip select assertion to write enable. 0x0 = One CCLK cycle delay between assertion of chip select and write enable (POR reset value). 0x1 - 0xF = (n + 1) CCLK cycle delay. The delay is (WAITWEN +1) x tCCLK.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitwen{}; 
+        namespace WaitwenValC{
+        }
     }
     namespace Nonestaticwaitoen0{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
         using Addr = Register::Address<0x40005208,0xfffffff0,0,unsigned>;
         ///Wait output enable. Delay from chip select assertion to output enable. 0x0 = No delay (POR reset value). 0x1 - 0xF = n cycle delay. The delay is WAITOEN x tCCLK.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        namespace WaitoenValC{
+        }
     }
     namespace Nonestaticwaitoen1{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
         using Addr = Register::Address<0x40005228,0xfffffff0,0,unsigned>;
         ///Wait output enable. Delay from chip select assertion to output enable. 0x0 = No delay (POR reset value). 0x1 - 0xF = n cycle delay. The delay is WAITOEN x tCCLK.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        namespace WaitoenValC{
+        }
     }
     namespace Nonestaticwaitoen2{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
         using Addr = Register::Address<0x40005248,0xfffffff0,0,unsigned>;
         ///Wait output enable. Delay from chip select assertion to output enable. 0x0 = No delay (POR reset value). 0x1 - 0xF = n cycle delay. The delay is WAITOEN x tCCLK.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        namespace WaitoenValC{
+        }
     }
     namespace Nonestaticwaitoen3{    ///<Selects the delay from chip select n or address change, whichever is later, to output enable.
         using Addr = Register::Address<0x40005268,0xfffffff0,0,unsigned>;
         ///Wait output enable. Delay from chip select assertion to output enable. 0x0 = No delay (POR reset value). 0x1 - 0xF = n cycle delay. The delay is WAITOEN x tCCLK.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitoen{}; 
+        namespace WaitoenValC{
+        }
     }
     namespace Nonestaticwaitrd0{    ///<Selects the delay from chip select n to a read access.
         using Addr = Register::Address<0x4000520c,0xffffffe0,0,unsigned>;
         ///Non-page mode read wait states or asynchronous page mode read first access wait state. Non-page mode read or asynchronous page mode read, first read only: 0x0 - 0x1E = (n + 1) CCLK cycles for read accesses. For non-sequential reads, the wait state time is (WAITRD + 1) x tCCLK. 0x1F = 32 CCLK cycles for read accesses (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        namespace WaitrdValC{
+        }
     }
     namespace Nonestaticwaitrd1{    ///<Selects the delay from chip select n to a read access.
         using Addr = Register::Address<0x4000522c,0xffffffe0,0,unsigned>;
         ///Non-page mode read wait states or asynchronous page mode read first access wait state. Non-page mode read or asynchronous page mode read, first read only: 0x0 - 0x1E = (n + 1) CCLK cycles for read accesses. For non-sequential reads, the wait state time is (WAITRD + 1) x tCCLK. 0x1F = 32 CCLK cycles for read accesses (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        namespace WaitrdValC{
+        }
     }
     namespace Nonestaticwaitrd2{    ///<Selects the delay from chip select n to a read access.
         using Addr = Register::Address<0x4000524c,0xffffffe0,0,unsigned>;
         ///Non-page mode read wait states or asynchronous page mode read first access wait state. Non-page mode read or asynchronous page mode read, first read only: 0x0 - 0x1E = (n + 1) CCLK cycles for read accesses. For non-sequential reads, the wait state time is (WAITRD + 1) x tCCLK. 0x1F = 32 CCLK cycles for read accesses (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        namespace WaitrdValC{
+        }
     }
     namespace Nonestaticwaitrd3{    ///<Selects the delay from chip select n to a read access.
         using Addr = Register::Address<0x4000526c,0xffffffe0,0,unsigned>;
         ///Non-page mode read wait states or asynchronous page mode read first access wait state. Non-page mode read or asynchronous page mode read, first read only: 0x0 - 0x1E = (n + 1) CCLK cycles for read accesses. For non-sequential reads, the wait state time is (WAITRD + 1) x tCCLK. 0x1F = 32 CCLK cycles for read accesses (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitrd{}; 
+        namespace WaitrdValC{
+        }
     }
     namespace Nonestaticwaitpag0{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
         using Addr = Register::Address<0x40005210,0xffffffe0,0,unsigned>;
         ///Asynchronous page mode read after the first read wait states. Number of wait states for asynchronous page mode read accesses after the first read: 0x0 - 0x1E = (n+ 1) CCLK cycle read access time. For asynchronous page mode read for sequential reads, the wait state time for page mode accesses after the first read is (WAITPAGE + 1) x tCCLK. 0x1F = 32 CCLK cycle read access time (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        namespace WaitpageValC{
+        }
     }
     namespace Nonestaticwaitpag1{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
         using Addr = Register::Address<0x40005230,0xffffffe0,0,unsigned>;
         ///Asynchronous page mode read after the first read wait states. Number of wait states for asynchronous page mode read accesses after the first read: 0x0 - 0x1E = (n+ 1) CCLK cycle read access time. For asynchronous page mode read for sequential reads, the wait state time for page mode accesses after the first read is (WAITPAGE + 1) x tCCLK. 0x1F = 32 CCLK cycle read access time (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        namespace WaitpageValC{
+        }
     }
     namespace Nonestaticwaitpag2{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
         using Addr = Register::Address<0x40005250,0xffffffe0,0,unsigned>;
         ///Asynchronous page mode read after the first read wait states. Number of wait states for asynchronous page mode read accesses after the first read: 0x0 - 0x1E = (n+ 1) CCLK cycle read access time. For asynchronous page mode read for sequential reads, the wait state time for page mode accesses after the first read is (WAITPAGE + 1) x tCCLK. 0x1F = 32 CCLK cycle read access time (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        namespace WaitpageValC{
+        }
     }
     namespace Nonestaticwaitpag3{    ///<Selects the delay for asynchronous page mode sequential accesses for chip select n.
         using Addr = Register::Address<0x40005270,0xffffffe0,0,unsigned>;
         ///Asynchronous page mode read after the first read wait states. Number of wait states for asynchronous page mode read accesses after the first read: 0x0 - 0x1E = (n+ 1) CCLK cycle read access time. For asynchronous page mode read for sequential reads, the wait state time for page mode accesses after the first read is (WAITPAGE + 1) x tCCLK. 0x1F = 32 CCLK cycle read access time (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitpage{}; 
+        namespace WaitpageValC{
+        }
     }
     namespace Nonestaticwaitwr0{    ///<Selects the delay from chip select n to a write access.
         using Addr = Register::Address<0x40005214,0xffffffe0,0,unsigned>;
         ///Write wait states. SRAM wait state time for write accesses after the first read: 0x0 - 0x1E = (n + 2) CCLK cycle write access time. The wait state time for write accesses after the first read is WAITWR (n + 2) x tCCLK. 0x1F = 33 CCLK cycle write access time (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        namespace WaitwrValC{
+        }
     }
     namespace Nonestaticwaitwr1{    ///<Selects the delay from chip select n to a write access.
         using Addr = Register::Address<0x40005234,0xffffffe0,0,unsigned>;
         ///Write wait states. SRAM wait state time for write accesses after the first read: 0x0 - 0x1E = (n + 2) CCLK cycle write access time. The wait state time for write accesses after the first read is WAITWR (n + 2) x tCCLK. 0x1F = 33 CCLK cycle write access time (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        namespace WaitwrValC{
+        }
     }
     namespace Nonestaticwaitwr2{    ///<Selects the delay from chip select n to a write access.
         using Addr = Register::Address<0x40005254,0xffffffe0,0,unsigned>;
         ///Write wait states. SRAM wait state time for write accesses after the first read: 0x0 - 0x1E = (n + 2) CCLK cycle write access time. The wait state time for write accesses after the first read is WAITWR (n + 2) x tCCLK. 0x1F = 33 CCLK cycle write access time (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        namespace WaitwrValC{
+        }
     }
     namespace Nonestaticwaitwr3{    ///<Selects the delay from chip select n to a write access.
         using Addr = Register::Address<0x40005274,0xffffffe0,0,unsigned>;
         ///Write wait states. SRAM wait state time for write accesses after the first read: 0x0 - 0x1E = (n + 2) CCLK cycle write access time. The wait state time for write accesses after the first read is WAITWR (n + 2) x tCCLK. 0x1F = 33 CCLK cycle write access time (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> waitwr{}; 
+        namespace WaitwrValC{
+        }
     }
     namespace Nonestaticwaitturn0{    ///<Selects bus turnaround cycles
         using Addr = Register::Address<0x40005218,0xfffffff0,0,unsigned>;
         ///Bus turnaround cycles. 0x0 - 0xE = (n + 1) CCLK turnaround cycles. Bus turnaround time is (WAITTURN + 1) x tCCLK. 0xF = 16 CCLK turnaround cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        namespace WaitturnValC{
+        }
     }
     namespace Nonestaticwaitturn1{    ///<Selects bus turnaround cycles
         using Addr = Register::Address<0x40005238,0xfffffff0,0,unsigned>;
         ///Bus turnaround cycles. 0x0 - 0xE = (n + 1) CCLK turnaround cycles. Bus turnaround time is (WAITTURN + 1) x tCCLK. 0xF = 16 CCLK turnaround cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        namespace WaitturnValC{
+        }
     }
     namespace Nonestaticwaitturn2{    ///<Selects bus turnaround cycles
         using Addr = Register::Address<0x40005258,0xfffffff0,0,unsigned>;
         ///Bus turnaround cycles. 0x0 - 0xE = (n + 1) CCLK turnaround cycles. Bus turnaround time is (WAITTURN + 1) x tCCLK. 0xF = 16 CCLK turnaround cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        namespace WaitturnValC{
+        }
     }
     namespace Nonestaticwaitturn3{    ///<Selects bus turnaround cycles
         using Addr = Register::Address<0x40005278,0xfffffff0,0,unsigned>;
         ///Bus turnaround cycles. 0x0 - 0xE = (n + 1) CCLK turnaround cycles. Bus turnaround time is (WAITTURN + 1) x tCCLK. 0xF = 16 CCLK turnaround cycles (POR reset value).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waitturn{}; 
+        namespace WaitturnValC{
+        }
     }
 }

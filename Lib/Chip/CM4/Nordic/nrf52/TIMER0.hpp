@@ -56,341 +56,355 @@ namespace Kvasir {
     namespace Noneshorts{    ///<Shortcut register
         using Addr = Register::Address<0x40008200,0xffffc0c0,0,unsigned>;
         ///Shortcut between EVENTS_COMPARE[0] event and TASKS_CLEAR task
-        enum class compare0ClearVal {
+        enum class Compare0clearVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare0ClearValC{
-            constexpr MPL::Value<compare0ClearVal,compare0ClearVal::disabled> disabled{};
-            constexpr MPL::Value<compare0ClearVal,compare0ClearVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Compare0clearVal> compare0Clear{}; 
+        namespace Compare0clearValC{
+            constexpr Register::FieldValue<decltype(compare0Clear),Compare0clearVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare0Clear),Compare0clearVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,compare0ClearVal> compare0Clear{}; 
         ///Shortcut between EVENTS_COMPARE[1] event and TASKS_CLEAR task
-        enum class compare1ClearVal {
+        enum class Compare1clearVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare1ClearValC{
-            constexpr MPL::Value<compare1ClearVal,compare1ClearVal::disabled> disabled{};
-            constexpr MPL::Value<compare1ClearVal,compare1ClearVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Compare1clearVal> compare1Clear{}; 
+        namespace Compare1clearValC{
+            constexpr Register::FieldValue<decltype(compare1Clear),Compare1clearVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare1Clear),Compare1clearVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,compare1ClearVal> compare1Clear{}; 
         ///Shortcut between EVENTS_COMPARE[2] event and TASKS_CLEAR task
-        enum class compare2ClearVal {
+        enum class Compare2clearVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare2ClearValC{
-            constexpr MPL::Value<compare2ClearVal,compare2ClearVal::disabled> disabled{};
-            constexpr MPL::Value<compare2ClearVal,compare2ClearVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Compare2clearVal> compare2Clear{}; 
+        namespace Compare2clearValC{
+            constexpr Register::FieldValue<decltype(compare2Clear),Compare2clearVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare2Clear),Compare2clearVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,compare2ClearVal> compare2Clear{}; 
         ///Shortcut between EVENTS_COMPARE[3] event and TASKS_CLEAR task
-        enum class compare3ClearVal {
+        enum class Compare3clearVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare3ClearValC{
-            constexpr MPL::Value<compare3ClearVal,compare3ClearVal::disabled> disabled{};
-            constexpr MPL::Value<compare3ClearVal,compare3ClearVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Compare3clearVal> compare3Clear{}; 
+        namespace Compare3clearValC{
+            constexpr Register::FieldValue<decltype(compare3Clear),Compare3clearVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare3Clear),Compare3clearVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,compare3ClearVal> compare3Clear{}; 
         ///Shortcut between EVENTS_COMPARE[4] event and TASKS_CLEAR task
-        enum class compare4ClearVal {
+        enum class Compare4clearVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare4ClearValC{
-            constexpr MPL::Value<compare4ClearVal,compare4ClearVal::disabled> disabled{};
-            constexpr MPL::Value<compare4ClearVal,compare4ClearVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Compare4clearVal> compare4Clear{}; 
+        namespace Compare4clearValC{
+            constexpr Register::FieldValue<decltype(compare4Clear),Compare4clearVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare4Clear),Compare4clearVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,compare4ClearVal> compare4Clear{}; 
         ///Shortcut between EVENTS_COMPARE[5] event and TASKS_CLEAR task
-        enum class compare5ClearVal {
+        enum class Compare5clearVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare5ClearValC{
-            constexpr MPL::Value<compare5ClearVal,compare5ClearVal::disabled> disabled{};
-            constexpr MPL::Value<compare5ClearVal,compare5ClearVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Compare5clearVal> compare5Clear{}; 
+        namespace Compare5clearValC{
+            constexpr Register::FieldValue<decltype(compare5Clear),Compare5clearVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare5Clear),Compare5clearVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,compare5ClearVal> compare5Clear{}; 
         ///Shortcut between EVENTS_COMPARE[0] event and TASKS_STOP task
-        enum class compare0StopVal {
+        enum class Compare0stopVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare0StopValC{
-            constexpr MPL::Value<compare0StopVal,compare0StopVal::disabled> disabled{};
-            constexpr MPL::Value<compare0StopVal,compare0StopVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Compare0stopVal> compare0Stop{}; 
+        namespace Compare0stopValC{
+            constexpr Register::FieldValue<decltype(compare0Stop),Compare0stopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare0Stop),Compare0stopVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,compare0StopVal> compare0Stop{}; 
         ///Shortcut between EVENTS_COMPARE[1] event and TASKS_STOP task
-        enum class compare1StopVal {
+        enum class Compare1stopVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare1StopValC{
-            constexpr MPL::Value<compare1StopVal,compare1StopVal::disabled> disabled{};
-            constexpr MPL::Value<compare1StopVal,compare1StopVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Compare1stopVal> compare1Stop{}; 
+        namespace Compare1stopValC{
+            constexpr Register::FieldValue<decltype(compare1Stop),Compare1stopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare1Stop),Compare1stopVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,compare1StopVal> compare1Stop{}; 
         ///Shortcut between EVENTS_COMPARE[2] event and TASKS_STOP task
-        enum class compare2StopVal {
+        enum class Compare2stopVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare2StopValC{
-            constexpr MPL::Value<compare2StopVal,compare2StopVal::disabled> disabled{};
-            constexpr MPL::Value<compare2StopVal,compare2StopVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Compare2stopVal> compare2Stop{}; 
+        namespace Compare2stopValC{
+            constexpr Register::FieldValue<decltype(compare2Stop),Compare2stopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare2Stop),Compare2stopVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,compare2StopVal> compare2Stop{}; 
         ///Shortcut between EVENTS_COMPARE[3] event and TASKS_STOP task
-        enum class compare3StopVal {
+        enum class Compare3stopVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare3StopValC{
-            constexpr MPL::Value<compare3StopVal,compare3StopVal::disabled> disabled{};
-            constexpr MPL::Value<compare3StopVal,compare3StopVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Compare3stopVal> compare3Stop{}; 
+        namespace Compare3stopValC{
+            constexpr Register::FieldValue<decltype(compare3Stop),Compare3stopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare3Stop),Compare3stopVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,compare3StopVal> compare3Stop{}; 
         ///Shortcut between EVENTS_COMPARE[4] event and TASKS_STOP task
-        enum class compare4StopVal {
+        enum class Compare4stopVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare4StopValC{
-            constexpr MPL::Value<compare4StopVal,compare4StopVal::disabled> disabled{};
-            constexpr MPL::Value<compare4StopVal,compare4StopVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Compare4stopVal> compare4Stop{}; 
+        namespace Compare4stopValC{
+            constexpr Register::FieldValue<decltype(compare4Stop),Compare4stopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare4Stop),Compare4stopVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,compare4StopVal> compare4Stop{}; 
         ///Shortcut between EVENTS_COMPARE[5] event and TASKS_STOP task
-        enum class compare5StopVal {
+        enum class Compare5stopVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace compare5StopValC{
-            constexpr MPL::Value<compare5StopVal,compare5StopVal::disabled> disabled{};
-            constexpr MPL::Value<compare5StopVal,compare5StopVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Compare5stopVal> compare5Stop{}; 
+        namespace Compare5stopValC{
+            constexpr Register::FieldValue<decltype(compare5Stop),Compare5stopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare5Stop),Compare5stopVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,compare5StopVal> compare5Stop{}; 
     }
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40008304,0xffc0ffff,0,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[0] event
-        enum class compare0Val {
+        enum class Compare0Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace compare0ValC{
-            constexpr MPL::Value<compare0Val,compare0Val::disabled> disabled{};
-            constexpr MPL::Value<compare0Val,compare0Val::enabled> enabled{};
-            constexpr MPL::Value<compare0Val,compare0Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Compare0Val> compare0{}; 
+        namespace Compare0ValC{
+            constexpr Register::FieldValue<decltype(compare0),Compare0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare0),Compare0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare0),Compare0Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,compare0Val> compare0{}; 
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[1] event
-        enum class compare1Val {
+        enum class Compare1Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace compare1ValC{
-            constexpr MPL::Value<compare1Val,compare1Val::disabled> disabled{};
-            constexpr MPL::Value<compare1Val,compare1Val::enabled> enabled{};
-            constexpr MPL::Value<compare1Val,compare1Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Compare1Val> compare1{}; 
+        namespace Compare1ValC{
+            constexpr Register::FieldValue<decltype(compare1),Compare1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare1),Compare1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare1),Compare1Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,compare1Val> compare1{}; 
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[2] event
-        enum class compare2Val {
+        enum class Compare2Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace compare2ValC{
-            constexpr MPL::Value<compare2Val,compare2Val::disabled> disabled{};
-            constexpr MPL::Value<compare2Val,compare2Val::enabled> enabled{};
-            constexpr MPL::Value<compare2Val,compare2Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Compare2Val> compare2{}; 
+        namespace Compare2ValC{
+            constexpr Register::FieldValue<decltype(compare2),Compare2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare2),Compare2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare2),Compare2Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,compare2Val> compare2{}; 
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[3] event
-        enum class compare3Val {
+        enum class Compare3Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace compare3ValC{
-            constexpr MPL::Value<compare3Val,compare3Val::disabled> disabled{};
-            constexpr MPL::Value<compare3Val,compare3Val::enabled> enabled{};
-            constexpr MPL::Value<compare3Val,compare3Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Compare3Val> compare3{}; 
+        namespace Compare3ValC{
+            constexpr Register::FieldValue<decltype(compare3),Compare3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare3),Compare3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare3),Compare3Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,compare3Val> compare3{}; 
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[4] event
-        enum class compare4Val {
+        enum class Compare4Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace compare4ValC{
-            constexpr MPL::Value<compare4Val,compare4Val::disabled> disabled{};
-            constexpr MPL::Value<compare4Val,compare4Val::enabled> enabled{};
-            constexpr MPL::Value<compare4Val,compare4Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Compare4Val> compare4{}; 
+        namespace Compare4ValC{
+            constexpr Register::FieldValue<decltype(compare4),Compare4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare4),Compare4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare4),Compare4Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,compare4Val> compare4{}; 
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[5] event
-        enum class compare5Val {
+        enum class Compare5Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace compare5ValC{
-            constexpr MPL::Value<compare5Val,compare5Val::disabled> disabled{};
-            constexpr MPL::Value<compare5Val,compare5Val::enabled> enabled{};
-            constexpr MPL::Value<compare5Val,compare5Val::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Compare5Val> compare5{}; 
+        namespace Compare5ValC{
+            constexpr Register::FieldValue<decltype(compare5),Compare5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare5),Compare5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare5),Compare5Val::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,compare5Val> compare5{}; 
     }
     namespace Noneintenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40008308,0xffc0ffff,0,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[0] event
-        enum class compare0Val {
+        enum class Compare0Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace compare0ValC{
-            constexpr MPL::Value<compare0Val,compare0Val::disabled> disabled{};
-            constexpr MPL::Value<compare0Val,compare0Val::enabled> enabled{};
-            constexpr MPL::Value<compare0Val,compare0Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Compare0Val> compare0{}; 
+        namespace Compare0ValC{
+            constexpr Register::FieldValue<decltype(compare0),Compare0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare0),Compare0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare0),Compare0Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,compare0Val> compare0{}; 
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[1] event
-        enum class compare1Val {
+        enum class Compare1Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace compare1ValC{
-            constexpr MPL::Value<compare1Val,compare1Val::disabled> disabled{};
-            constexpr MPL::Value<compare1Val,compare1Val::enabled> enabled{};
-            constexpr MPL::Value<compare1Val,compare1Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Compare1Val> compare1{}; 
+        namespace Compare1ValC{
+            constexpr Register::FieldValue<decltype(compare1),Compare1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare1),Compare1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare1),Compare1Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,compare1Val> compare1{}; 
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[2] event
-        enum class compare2Val {
+        enum class Compare2Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace compare2ValC{
-            constexpr MPL::Value<compare2Val,compare2Val::disabled> disabled{};
-            constexpr MPL::Value<compare2Val,compare2Val::enabled> enabled{};
-            constexpr MPL::Value<compare2Val,compare2Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Compare2Val> compare2{}; 
+        namespace Compare2ValC{
+            constexpr Register::FieldValue<decltype(compare2),Compare2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare2),Compare2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare2),Compare2Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,compare2Val> compare2{}; 
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[3] event
-        enum class compare3Val {
+        enum class Compare3Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace compare3ValC{
-            constexpr MPL::Value<compare3Val,compare3Val::disabled> disabled{};
-            constexpr MPL::Value<compare3Val,compare3Val::enabled> enabled{};
-            constexpr MPL::Value<compare3Val,compare3Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Compare3Val> compare3{}; 
+        namespace Compare3ValC{
+            constexpr Register::FieldValue<decltype(compare3),Compare3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare3),Compare3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare3),Compare3Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,compare3Val> compare3{}; 
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[4] event
-        enum class compare4Val {
+        enum class Compare4Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace compare4ValC{
-            constexpr MPL::Value<compare4Val,compare4Val::disabled> disabled{};
-            constexpr MPL::Value<compare4Val,compare4Val::enabled> enabled{};
-            constexpr MPL::Value<compare4Val,compare4Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Compare4Val> compare4{}; 
+        namespace Compare4ValC{
+            constexpr Register::FieldValue<decltype(compare4),Compare4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare4),Compare4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare4),Compare4Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,compare4Val> compare4{}; 
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[5] event
-        enum class compare5Val {
+        enum class Compare5Val {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace compare5ValC{
-            constexpr MPL::Value<compare5Val,compare5Val::disabled> disabled{};
-            constexpr MPL::Value<compare5Val,compare5Val::enabled> enabled{};
-            constexpr MPL::Value<compare5Val,compare5Val::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Compare5Val> compare5{}; 
+        namespace Compare5ValC{
+            constexpr Register::FieldValue<decltype(compare5),Compare5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(compare5),Compare5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(compare5),Compare5Val::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,compare5Val> compare5{}; 
     }
     namespace Nonemode{    ///<Timer mode selection
         using Addr = Register::Address<0x40008504,0xfffffffc,0,unsigned>;
         ///Timer mode
-        enum class modeVal {
+        enum class ModeVal {
             timer=0x00000000,     ///<Select Timer mode
             counter=0x00000001,     ///<Select Counter mode
             lowpowercounter=0x00000002,     ///<Select Low Power Counter mode
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::timer> timer{};
-            constexpr MPL::Value<modeVal,modeVal::counter> counter{};
-            constexpr MPL::Value<modeVal,modeVal::lowpowercounter> lowpowercounter{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::timer> timer{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::counter> counter{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::lowpowercounter> lowpowercounter{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,modeVal> mode{}; 
     }
     namespace Nonebitmode{    ///<Configure the number of bits used by the TIMER
         using Addr = Register::Address<0x40008508,0xfffffffc,0,unsigned>;
         ///Timer bit width
-        enum class bitmodeVal {
+        enum class BitmodeVal {
             v16bit=0x00000000,     ///<16 bit timer bit width
             v08bit=0x00000001,     ///<8 bit timer bit width
             v24bit=0x00000002,     ///<24 bit timer bit width
             v32bit=0x00000003,     ///<32 bit timer bit width
         };
-        namespace bitmodeValC{
-            constexpr MPL::Value<bitmodeVal,bitmodeVal::v16bit> v16bit{};
-            constexpr MPL::Value<bitmodeVal,bitmodeVal::v08bit> v08bit{};
-            constexpr MPL::Value<bitmodeVal,bitmodeVal::v24bit> v24bit{};
-            constexpr MPL::Value<bitmodeVal,bitmodeVal::v32bit> v32bit{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,BitmodeVal> bitmode{}; 
+        namespace BitmodeValC{
+            constexpr Register::FieldValue<decltype(bitmode),BitmodeVal::v16bit> v16bit{};
+            constexpr Register::FieldValue<decltype(bitmode),BitmodeVal::v08bit> v08bit{};
+            constexpr Register::FieldValue<decltype(bitmode),BitmodeVal::v24bit> v24bit{};
+            constexpr Register::FieldValue<decltype(bitmode),BitmodeVal::v32bit> v32bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,bitmodeVal> bitmode{}; 
     }
     namespace Noneprescaler{    ///<Timer prescaler register
         using Addr = Register::Address<0x40008510,0xfffffff0,0,unsigned>;
         ///Prescaler value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> prescaler{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> prescaler{}; 
+        namespace PrescalerValC{
+        }
     }
     namespace Nonecc0{    ///<Description collection[0]:  Capture/Compare register 0
         using Addr = Register::Address<0x40008540,0x00000000,0,unsigned>;
         ///Capture/Compare value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        namespace CcValC{
+        }
     }
     namespace Nonecc1{    ///<Description collection[0]:  Capture/Compare register 0
         using Addr = Register::Address<0x40008544,0x00000000,0,unsigned>;
         ///Capture/Compare value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        namespace CcValC{
+        }
     }
     namespace Nonecc2{    ///<Description collection[0]:  Capture/Compare register 0
         using Addr = Register::Address<0x40008548,0x00000000,0,unsigned>;
         ///Capture/Compare value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        namespace CcValC{
+        }
     }
     namespace Nonecc3{    ///<Description collection[0]:  Capture/Compare register 0
         using Addr = Register::Address<0x4000854c,0x00000000,0,unsigned>;
         ///Capture/Compare value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        namespace CcValC{
+        }
     }
     namespace Nonecc4{    ///<Description collection[0]:  Capture/Compare register 0
         using Addr = Register::Address<0x40008550,0x00000000,0,unsigned>;
         ///Capture/Compare value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        namespace CcValC{
+        }
     }
     namespace Nonecc5{    ///<Description collection[0]:  Capture/Compare register 0
         using Addr = Register::Address<0x40008554,0x00000000,0,unsigned>;
         ///Capture/Compare value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cc{}; 
+        namespace CcValC{
+        }
     }
 }

@@ -5,334 +5,540 @@ namespace Kvasir {
     namespace Nonewtcr10{    ///<Control Register 10
         using Addr = Register::Address<0x4003b100,0xffffff02,0,unsigned char>;
         ///Transfer flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> trans{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> trans{}; 
+        namespace TransValC{
+        }
         ///Busy bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> busy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> busy{}; 
+        namespace BusyValC{
+        }
         ///Sub second generation/1-second generation counter reset bit 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> scrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> scrst{}; 
+        namespace ScrstValC{
+        }
         ///1-second clock output stop bit 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> scst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> scst{}; 
+        namespace ScstValC{
+        }
         ///RTC reset bit 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> srst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> srst{}; 
+        namespace SrstValC{
+        }
         ///RTC count block operation bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> run{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> run{}; 
+        namespace RunValC{
+        }
         ///Start bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> st{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> st{}; 
+        namespace StValC{
+        }
     }
     namespace Nonewtcr11{    ///<Control Register 11
         using Addr = Register::Address<0x4003b104,0xffffffe0,0,unsigned char>;
         ///Alarm year register enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> yen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> yen{}; 
+        namespace YenValC{
+        }
         ///Alarm month register enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> moen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> moen{}; 
+        namespace MoenValC{
+        }
         ///Alarm day register enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> den{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> den{}; 
+        namespace DenValC{
+        }
         ///Alarm hour register enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> hen{}; 
+        namespace HenValC{
+        }
         ///Alarm minute register enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mien{}; 
+        namespace MienValC{
+        }
     }
     namespace Nonewtcr12{    ///<Control Register 12
         using Addr = Register::Address<0x4003b108,0xffffff00,0,unsigned char>;
         ///Year/month/date/hour/minute/second/day of the week counter value read completion interrupt flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> intcri{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> intcri{}; 
+        namespace IntcriValC{
+        }
         ///Time rewrite error interrupt flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> interi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> interi{}; 
+        namespace InteriValC{
+        }
         ///Alarm coincidence flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> intali{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> intali{}; 
+        namespace IntaliValC{
+        }
         ///Timer underflow detection flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> inttmi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> inttmi{}; 
+        namespace InttmiValC{
+        }
         ///Every hour flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> inthi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> inthi{}; 
+        namespace InthiValC{
+        }
         ///Every minute flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> intmi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> intmi{}; 
+        namespace IntmiValC{
+        }
         ///Every second flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> intsi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> intsi{}; 
+        namespace IntsiValC{
+        }
         ///Every 0.5-second flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> intssi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> intssi{}; 
+        namespace IntssiValC{
+        }
     }
     namespace Nonewtcr13{    ///<Control Register 13
         using Addr = Register::Address<0x4003b10c,0xffffff00,0,unsigned char>;
         ///Year/month/date/hour/minute/second/day of the week counter value read completion interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> intcrie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> intcrie{}; 
+        namespace IntcrieValC{
+        }
         ///Time rewrite error interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> interie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> interie{}; 
+        namespace InterieValC{
+        }
         ///Alarm coincidence interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> intalie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> intalie{}; 
+        namespace IntalieValC{
+        }
         ///Timer underflow interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> inttmie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> inttmie{}; 
+        namespace InttmieValC{
+        }
         ///Every hour interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> inthie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> inthie{}; 
+        namespace InthieValC{
+        }
         ///Every minute interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> intmie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> intmie{}; 
+        namespace IntmieValC{
+        }
         ///Every second interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> intsie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> intsie{}; 
+        namespace IntsieValC{
+        }
         ///Every 0.5-second interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> intssie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> intssie{}; 
+        namespace IntssieValC{
+        }
     }
     namespace Nonewtcr20{    ///<Control Register 20
         using Addr = Register::Address<0x4003b110,0xffffffc0,0,unsigned>;
         ///VBAT PORT save control bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pwrite{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pwrite{}; 
+        namespace PwriteValC{
+        }
         ///VBAT PORT recall control bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pread{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pread{}; 
+        namespace PreadValC{
+        }
         ///Back up register save control bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> bwrite{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> bwrite{}; 
+        namespace BwriteValC{
+        }
         ///Back up register recall control bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> bread{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> bread{}; 
+        namespace BreadValC{
+        }
         ///RTC setting save control bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cwrite{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cwrite{}; 
+        namespace CwriteValC{
+        }
         ///RTC setting recall control bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cread{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cread{}; 
+        namespace CreadValC{
+        }
     }
     namespace Nonewtcr21{    ///<Control Register 21
         using Addr = Register::Address<0x4003b114,0xfffffff8,0,unsigned>;
         ///Timer counter operation bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tmrun{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tmrun{}; 
+        namespace TmrunValC{
+        }
         ///Timer counter control bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tmen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tmen{}; 
+        namespace TmenValC{
+        }
         ///Timer counter start bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tmst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tmst{}; 
+        namespace TmstValC{
+        }
     }
     namespace Nonewtsr{    ///<Second Register
         using Addr = Register::Address<0x4003b11c,0xffffff80,0,unsigned char>;
         ///2nd digit of the second information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> ts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> ts{}; 
+        namespace TsValC{
+        }
         ///1st digit of the second information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> s{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> s{}; 
+        namespace SValC{
+        }
     }
     namespace Nonewtmir{    ///<Minute Register
         using Addr = Register::Address<0x4003b120,0xffffff80,0,unsigned char>;
         ///2nd digit of the minute information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tmi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tmi{}; 
+        namespace TmiValC{
+        }
         ///1st digit of the minute information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mi{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mi{}; 
+        namespace MiValC{
+        }
     }
     namespace Nonewthr{    ///<Hour register
         using Addr = Register::Address<0x4003b124,0xffffffc0,0,unsigned char>;
         ///2nd digit of the hour information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> th{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> th{}; 
+        namespace ThValC{
+        }
         ///1st digit of the hour information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> h{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> h{}; 
+        namespace HValC{
+        }
     }
     namespace Nonewtdr{    ///<Day Register
         using Addr = Register::Address<0x4003b128,0xffffffc0,0,unsigned char>;
         ///2nd digit of the day information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> td{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> td{}; 
+        namespace TdValC{
+        }
         ///1st digit of the day information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> d{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> d{}; 
+        namespace DValC{
+        }
     }
     namespace Nonewtdw{    ///<Day of the Week Register
         using Addr = Register::Address<0x4003b12c,0xfffffff8,0,unsigned char>;
         ///Day of the week information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dw{}; 
+        namespace DwValC{
+        }
     }
     namespace Nonewtmor{    ///<Month Register
         using Addr = Register::Address<0x4003b130,0xffffffe0,0,unsigned char>;
         ///2nd digit of the month information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tmo0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tmo0{}; 
+        namespace Tmo0ValC{
+        }
         ///1st digit of the month information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mo{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mo{}; 
+        namespace MoValC{
+        }
     }
     namespace Nonewtyr{    ///<Year Register
         using Addr = Register::Address<0x4003b134,0xffffff00,0,unsigned char>;
         ///2nd digit of the year information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> ty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> ty{}; 
+        namespace TyValC{
+        }
         ///1st digit of the year information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> y{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> y{}; 
+        namespace YValC{
+        }
     }
     namespace Nonealmir{    ///<Alarm Minute Register
         using Addr = Register::Address<0x4003b138,0xffffff80,0,unsigned char>;
         ///2nd digit of the alarm-set minute information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tami{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tami{}; 
+        namespace TamiValC{
+        }
         ///1st digit of the alarm-set minute information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ami{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ami{}; 
+        namespace AmiValC{
+        }
     }
     namespace Nonealhr{    ///<Alarm Hour Register
         using Addr = Register::Address<0x4003b13c,0xffffffc0,0,unsigned char>;
         ///2nd digit of the alarm-set hour information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tah{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tah{}; 
+        namespace TahValC{
+        }
         ///1st digit of the alarm-set hour information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ah{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ah{}; 
+        namespace AhValC{
+        }
     }
     namespace Nonealdr{    ///<Alarm Date Register
         using Addr = Register::Address<0x4003b140,0xffffffc0,0,unsigned char>;
         ///2nd digit of the alarm-set date information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tad{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> tad{}; 
+        namespace TadValC{
+        }
         ///1st digit of the alarm-set date information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ad{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ad{}; 
+        namespace AdValC{
+        }
     }
     namespace Nonealmor{    ///<Alarm Month Register
         using Addr = Register::Address<0x4003b144,0xffffffe0,0,unsigned char>;
         ///2nd digit of the alarm-set month information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tamo0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tamo0{}; 
+        namespace Tamo0ValC{
+        }
         ///1st digit of the alarm-set month information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> amo{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> amo{}; 
+        namespace AmoValC{
+        }
     }
     namespace Nonealyr{    ///<Alarm Years Register
         using Addr = Register::Address<0x4003b148,0xffffff00,0,unsigned char>;
         ///2nd digit of the alarm-set year information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> tay{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> tay{}; 
+        namespace TayValC{
+        }
         ///1st digit of the alarm-set year information
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ay{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ay{}; 
+        namespace AyValC{
+        }
     }
     namespace Nonewttr0{    ///<Timer Setting Register 0
         using Addr = Register::Address<0x4003b14c,0xffffff00,0,unsigned char>;
         ///Timer Setting Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tm{}; 
+        namespace TmValC{
+        }
     }
     namespace Nonewttr1{    ///<Timer Setting Register 1
         using Addr = Register::Address<0x4003b150,0xffffff00,0,unsigned char>;
         ///Timer Setting Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tm{}; 
+        namespace TmValC{
+        }
     }
     namespace Nonewttr2{    ///<Timer Setting Register 2
         using Addr = Register::Address<0x4003b154,0xfffffffc,0,unsigned char>;
         ///Timer Setting Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> tm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> tm{}; 
+        namespace TmValC{
+        }
     }
     namespace Nonewtcal0{    ///<Frequency Correction Value Setting Register 0
         using Addr = Register::Address<0x4003b158,0xffffff00,0,unsigned char>;
         ///Frequency correction value setting bits 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wtcal0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> wtcal0{}; 
+        namespace Wtcal0ValC{
+        }
     }
     namespace Nonewtcal1{    ///<Frequency Correction Value Setting Register 1
         using Addr = Register::Address<0x4003b15c,0xfffffffc,0,unsigned char>;
         ///Frequency correction value setting bits 1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wtcal1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wtcal1{}; 
+        namespace Wtcal1ValC{
+        }
     }
     namespace Nonewtcalen{    ///<Frequency Correction Enable Register
         using Addr = Register::Address<0x4003b160,0xfffffffe,0,unsigned char>;
         ///Frequency correction enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtcalen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtcalen{}; 
+        namespace WtcalenValC{
+        }
     }
     namespace Nonewtdiv{    ///<Division Ratio Setting Register
         using Addr = Register::Address<0x4003b164,0xfffffff0,0,unsigned char>;
         ///Division ration setting bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wtdiv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wtdiv{}; 
+        namespace WtdivValC{
+        }
     }
     namespace Nonewtdiven{    ///<Divider Output Enable Register
         using Addr = Register::Address<0x4003b168,0xfffffffc,0,unsigned char>;
         ///Divider state bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wtdivrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> wtdivrdy{}; 
+        namespace WtdivrdyValC{
+        }
         ///Divider enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtdiven{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtdiven{}; 
+        namespace WtdivenValC{
+        }
     }
     namespace Nonewtcalprd{    ///<Frequency Correction Period Setting Register
         using Addr = Register::Address<0x4003b16c,0xffffffc0,0,unsigned char>;
         ///Frequency correction value setting bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> wtcalprd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> wtcalprd{}; 
+        namespace WtcalprdValC{
+        }
     }
     namespace Nonewtcosel{    ///<RTCCO Output Selection Register
         using Addr = Register::Address<0x4003b170,0xfffffffe,0,unsigned char>;
         ///RTCCO output selection bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtcosel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wtcosel{}; 
+        namespace WtcoselValC{
+        }
     }
     namespace NonevbClkdiv{    ///<VB_CLKDIV Register
         using Addr = Register::Address<0x4003b174,0xffffff00,0,unsigned char>;
         ///Transfer clock set bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
+        namespace DivValC{
+        }
     }
     namespace Nonewtosccnt{    ///<WTOSCCNT Register
         using Addr = Register::Address<0x4003b178,0xfffffffc,0,unsigned char>;
         ///Cooperative operation control bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> soscntl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> soscntl{}; 
+        namespace SoscntlValC{
+        }
         ///Oscillation enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> soscex{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> soscex{}; 
+        namespace SoscexValC{
+        }
     }
     namespace Noneccs{    ///<CCS Register
         using Addr = Register::Address<0x4003b17c,0xffffff00,0,unsigned char>;
         ///Oscillation sustain current set bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ccs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ccs{}; 
+        namespace CcsValC{
+        }
     }
     namespace Noneccb{    ///<CCB Register
         using Addr = Register::Address<0x4003b180,0xffffff00,0,unsigned char>;
         ///Oscillation boost current set bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ccb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ccb{}; 
+        namespace CcbValC{
+        }
     }
     namespace Noneboost{    ///<BOOST Register
         using Addr = Register::Address<0x4003b188,0xfffffffc,0,unsigned char>;
         ///Oscillation boost time set bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> boost{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> boost{}; 
+        namespace BoostValC{
+        }
     }
     namespace Noneewkup{    ///<EWKUP Register
         using Addr = Register::Address<0x4003b18c,0xfffffffe,0,unsigned char>;
         ///Wakeup request bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wup0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wup0{}; 
+        namespace Wup0ValC{
+        }
     }
     namespace Nonevdet{    ///<VDET Register
         using Addr = Register::Address<0x4003b190,0xffffff7f,0,unsigned char>;
         ///Power-on bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pon{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pon{}; 
+        namespace PonValC{
+        }
     }
     namespace Nonehibrst{    ///<HIBRST Register
         using Addr = Register::Address<0x4003b198,0xfffffffe,0,unsigned char>;
         ///Hibernation start bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> hibrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> hibrst{}; 
+        namespace HibrstValC{
+        }
     }
     namespace Nonevbpfr{    ///<Port Function Set Register
         using Addr = Register::Address<0x4003b19c,0xffffffc0,0,unsigned char>;
         ///Oscillation pin function set bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> spsr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> spsr{}; 
+        namespace SpsrValC{
+        }
         ///Port function of P46/X0A pin set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vpfr3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vpfr3{}; 
+        namespace Vpfr3ValC{
+        }
         ///Port function of P47/X1A pin set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vpfr2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vpfr2{}; 
+        namespace Vpfr2ValC{
+        }
         ///Port function of P49/VWAKEUP pin set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vpfr1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vpfr1{}; 
+        namespace Vpfr1ValC{
+        }
         ///Port function of P48/VREGCTL pin set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vpfr0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vpfr0{}; 
+        namespace Vpfr0ValC{
+        }
     }
     namespace Nonevbpcr{    ///<Pull-up Set Register
         using Addr = Register::Address<0x4003b1a0,0xfffffff0,0,unsigned char>;
         ///P46/X0A pin pull-up set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vpcr3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vpcr3{}; 
+        namespace Vpcr3ValC{
+        }
         ///P47/X1A pin pull-up set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vpcr2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vpcr2{}; 
+        namespace Vpcr2ValC{
+        }
         ///P49/VWAKEUP pin pull-up set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vpcr1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vpcr1{}; 
+        namespace Vpcr1ValC{
+        }
         ///P48/VREGCTL pin pull-up set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vpcr0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vpcr0{}; 
+        namespace Vpcr0ValC{
+        }
     }
     namespace Nonevbddr{    ///<Port I/O Direction Set Register
         using Addr = Register::Address<0x4003b1a4,0xfffffff0,0,unsigned char>;
         ///Port direction of P46/X0A pin set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vddr3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vddr3{}; 
+        namespace Vddr3ValC{
+        }
         ///Port direction of P47/X1A pin set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vddr2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vddr2{}; 
+        namespace Vddr2ValC{
+        }
         ///Port direction of P49/VWAKEUP pin set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vddr1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vddr1{}; 
+        namespace Vddr1ValC{
+        }
         ///Port direction of P48/VREGCTL pin set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vddr0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vddr0{}; 
+        namespace Vddr0ValC{
+        }
     }
     namespace Nonevbdir{    ///<Port Input Data Register
         using Addr = Register::Address<0x4003b1a8,0xfffffff0,0,unsigned char>;
         ///Port input data of P46/X0A pin bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vdir3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vdir3{}; 
+        namespace Vdir3ValC{
+        }
         ///Port input data of P47/X1A pin bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vdir2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vdir2{}; 
+        namespace Vdir2ValC{
+        }
         ///Port input data of P49/VWAKEUP pin bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vdir1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vdir1{}; 
+        namespace Vdir1ValC{
+        }
         ///Port input data of P48/VREGCTL pin bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vdir0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vdir0{}; 
+        namespace Vdir0ValC{
+        }
     }
     namespace Nonevbdor{    ///<Port Output Data Register
         using Addr = Register::Address<0x4003b1ac,0xfffffff0,0,unsigned char>;
         ///Port output data of P46/X0A pin bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vdor3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vdor3{}; 
+        namespace Vdor3ValC{
+        }
         ///Port output data of P47/X1A pin bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vdor2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vdor2{}; 
+        namespace Vdor2ValC{
+        }
         ///Port output data of P49/VWAKEUP pin bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vdor1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vdor1{}; 
+        namespace Vdor1ValC{
+        }
         ///Port output data of P48/VREGCTL pin bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vdor0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vdor0{}; 
+        namespace Vdor0ValC{
+        }
     }
     namespace Nonevbpzr{    ///<Port Pseudo-Open Drain Set Register
         using Addr = Register::Address<0x4003b1b0,0xfffffffc,0,unsigned char>;
         ///P49/VWAKEUP pin pseudo-open drain set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vpzr1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vpzr1{}; 
+        namespace Vpzr1ValC{
+        }
         ///P48/VREGCTL pin pseudo-open drain set bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vpzr0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> vpzr0{}; 
+        namespace Vpzr0ValC{
+        }
     }
     namespace Nonebreg00{    ///<Backup Register
         using Addr = Register::Address<0x4003b200,0xffffffff,0,unsigned char>;

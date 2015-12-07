@@ -5,382 +5,400 @@ namespace Kvasir {
     namespace Nonedata{    ///<Input/Output Data
         using Addr = Register::Address<0x40004000,0x00000000,0,unsigned>;
         ///Input/Output Data. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
+        namespace DataValC{
+        }
     }
     namespace Nonecontrol{    ///<Module Control
         using Addr = Register::Address<0x40004010,0xfe003c00,0,unsigned>;
         ///Receive FIFO Read Request Interrupt Flag. 
-        enum class rfrqiVal {
+        enum class RfrqiVal {
             notSet=0x00000000,     ///<The RX FIFO has fewer bytes than the level defined by RFTH.
             set=0x00000001,     ///<The RX FIFO has equal or more bytes than the level defined by RFTH.
         };
-        namespace rfrqiValC{
-            constexpr MPL::Value<rfrqiVal,rfrqiVal::notSet> notSet{};
-            constexpr MPL::Value<rfrqiVal,rfrqiVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RfrqiVal> rfrqi{}; 
+        namespace RfrqiValC{
+            constexpr Register::FieldValue<decltype(rfrqi),RfrqiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rfrqi),RfrqiVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,rfrqiVal> rfrqi{}; 
         ///Receive FIFO Overrun Interrupt Flag. 
-        enum class rforiVal {
+        enum class RforiVal {
             notSet=0x00000000,     ///<Read: A receive FIFO overrun has not occurred. Write: Clear the flag.
             set=0x00000001,     ///<Read: A receive FIFO overrun  occurred. Write: Force a receive overrun interrupt.
         };
-        namespace rforiValC{
-            constexpr MPL::Value<rforiVal,rforiVal::notSet> notSet{};
-            constexpr MPL::Value<rforiVal,rforiVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RforiVal> rfori{}; 
+        namespace RforiValC{
+            constexpr Register::FieldValue<decltype(rfori),RforiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rfori),RforiVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,rforiVal> rfori{}; 
         ///Transmit FIFO Write Request Interrupt Flag. 
-        enum class tfrqiVal {
+        enum class TfrqiVal {
             notSet=0x00000000,     ///<The TX FIFO has fewer bytes than the level defined by TFTH.
             set=0x00000001,     ///<The TX FIFO has equal or more bytes than the level defined by TFTH.
         };
-        namespace tfrqiValC{
-            constexpr MPL::Value<tfrqiVal,tfrqiVal::notSet> notSet{};
-            constexpr MPL::Value<tfrqiVal,tfrqiVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TfrqiVal> tfrqi{}; 
+        namespace TfrqiValC{
+            constexpr Register::FieldValue<decltype(tfrqi),TfrqiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(tfrqi),TfrqiVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,tfrqiVal> tfrqi{}; 
         ///Transmit FIFO Overrun Interrupt Flag. 
-        enum class tforiVal {
+        enum class TforiVal {
             notSet=0x00000000,     ///<Read: A transmit FIFO overrun has not occurred. Write: Clear the flag.
             set=0x00000001,     ///<Read: A transmit FIFO overrun  occurred. Write: Force a transmit overrun interrupt.
         };
-        namespace tforiValC{
-            constexpr MPL::Value<tforiVal,tforiVal::notSet> notSet{};
-            constexpr MPL::Value<tforiVal,tforiVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TforiVal> tfori{}; 
+        namespace TforiValC{
+            constexpr Register::FieldValue<decltype(tfori),TforiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(tfori),TforiVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,tforiVal> tfori{}; 
         ///Slave Selected Interrupt Flag. 
-        enum class slvseliVal {
+        enum class SlvseliVal {
             notSet=0x00000000,     ///<The slave select signal (NSS) is not active.
             set=0x00000001,     ///<The slave select signal (NSS) is active.
         };
-        namespace slvseliValC{
-            constexpr MPL::Value<slvseliVal,slvseliVal::notSet> notSet{};
-            constexpr MPL::Value<slvseliVal,slvseliVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SlvseliVal> slvseli{}; 
+        namespace SlvseliValC{
+            constexpr Register::FieldValue<decltype(slvseli),SlvseliVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(slvseli),SlvseliVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,slvseliVal> slvseli{}; 
         ///Mode Fault Interrupt Flag. 
-        enum class mdfiVal {
+        enum class MdfiVal {
             notSet=0x00000000,     ///<Read: A master mode collision is not detected. Write: Clear the flag.
             set=0x00000001,     ///<Read: A master mode collision occurred. Write: Force a mode fault interrupt.
         };
-        namespace mdfiValC{
-            constexpr MPL::Value<mdfiVal,mdfiVal::notSet> notSet{};
-            constexpr MPL::Value<mdfiVal,mdfiVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MdfiVal> mdfi{}; 
+        namespace MdfiValC{
+            constexpr Register::FieldValue<decltype(mdfi),MdfiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(mdfi),MdfiVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,mdfiVal> mdfi{}; 
         ///Underrun Interrupt Flag. 
-        enum class uriVal {
+        enum class UriVal {
             notSet=0x00000000,     ///<Read: A data transfer is still in progress. Write: Clear the flag.
             set=0x00000001,     ///<Read: The transmit FIFO and shift register are empty and the data transfer has ended. Write: Force an underrun interrupt.
         };
-        namespace uriValC{
-            constexpr MPL::Value<uriVal,uriVal::notSet> notSet{};
-            constexpr MPL::Value<uriVal,uriVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,UriVal> uri{}; 
+        namespace UriValC{
+            constexpr Register::FieldValue<decltype(uri),UriVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(uri),UriVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,uriVal> uri{}; 
         ///Shift Register Empty Interrupt Flag. 
-        enum class sreiVal {
+        enum class SreiVal {
             notSet=0x00000000,     ///<There is data still present in the transmit FIFO.
             set=0x00000001,     ///<All data has been transferred out of the shift register and there is no data waiting in the transmit FIFO.
         };
-        namespace sreiValC{
-            constexpr MPL::Value<sreiVal,sreiVal::notSet> notSet{};
-            constexpr MPL::Value<sreiVal,sreiVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SreiVal> srei{}; 
+        namespace SreiValC{
+            constexpr Register::FieldValue<decltype(srei),SreiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(srei),SreiVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,sreiVal> srei{}; 
         ///Illegal Receive FIFO Access Interrupt Flag. 
-        enum class rfiliVal {
+        enum class RfiliVal {
             notSet=0x00000000,     ///<Read: An illegal write or read of the receive FIFO has not occurred. Write: Clear the flag.
             set=0x00000001,     ///<Read: An illegal write or read of the receive FIFO occurred. Write: Force an illegal receive access interrupt.
         };
-        namespace rfiliValC{
-            constexpr MPL::Value<rfiliVal,rfiliVal::notSet> notSet{};
-            constexpr MPL::Value<rfiliVal,rfiliVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,RfiliVal> rfili{}; 
+        namespace RfiliValC{
+            constexpr Register::FieldValue<decltype(rfili),RfiliVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rfili),RfiliVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,rfiliVal> rfili{}; 
         ///Illegal Transmit FIFO Access Interrupt Flag. 
-        enum class tfiliVal {
+        enum class TfiliVal {
             notSet=0x00000000,     ///<Read: An illegal write or read of the transmit FIFO has not occurred. Write: Clear the flag.
             set=0x00000001,     ///<Read: An illegal write or read of the transmit FIFO occurred. Write: Force an illegal transmit access interrupt.
         };
-        namespace tfiliValC{
-            constexpr MPL::Value<tfiliVal,tfiliVal::notSet> notSet{};
-            constexpr MPL::Value<tfiliVal,tfiliVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,TfiliVal> tfili{}; 
+        namespace TfiliValC{
+            constexpr Register::FieldValue<decltype(tfili),TfiliVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(tfili),TfiliVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,tfiliVal> tfili{}; 
         ///NSS Instantaneous Pin Status. 
-        enum class nssstsVal {
+        enum class NssstsVal {
             low=0x00000000,     ///<NSS is currently a logic low.
             high=0x00000001,     ///<NSS is currently a logic high.
         };
-        namespace nssstsValC{
-            constexpr MPL::Value<nssstsVal,nssstsVal::low> low{};
-            constexpr MPL::Value<nssstsVal,nssstsVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,NssstsVal> nsssts{}; 
+        namespace NssstsValC{
+            constexpr Register::FieldValue<decltype(nsssts),NssstsVal::low> low{};
+            constexpr Register::FieldValue<decltype(nsssts),NssstsVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,nssstsVal> nsssts{}; 
         ///SPI Busy. 
-        enum class busyfVal {
+        enum class BusyfVal {
             notSet=0x00000000,     ///<The SPI is not busy and a transfer is not in progress.
             set=0x00000001,     ///<The SPI is currently busy and a transfer is in progress.
         };
-        namespace busyfValC{
-            constexpr MPL::Value<busyfVal,busyfVal::notSet> notSet{};
-            constexpr MPL::Value<busyfVal,busyfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,BusyfVal> busyf{}; 
+        namespace BusyfValC{
+            constexpr Register::FieldValue<decltype(busyf),BusyfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(busyf),BusyfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,busyfVal> busyf{}; 
         ///Receive FIFO Counter. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> rfcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> rfcnt{}; 
+        namespace RfcntValC{
+        }
         ///Transmit FIFO Counter. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> tfcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> tfcnt{}; 
+        namespace TfcntValC{
+        }
         ///SPI Debug Mode. 
-        enum class dbgmdVal {
+        enum class DbgmdVal {
             run=0x00000000,     ///<The SPI module will continue to operate while the core is halted in debug mode.
             halt=0x00000001,     ///<A debug breakpoint will cause the SPI module to halt.
         };
-        namespace dbgmdValC{
-            constexpr MPL::Value<dbgmdVal,dbgmdVal::run> run{};
-            constexpr MPL::Value<dbgmdVal,dbgmdVal::halt> halt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,DbgmdVal> dbgmd{}; 
+        namespace DbgmdValC{
+            constexpr Register::FieldValue<decltype(dbgmd),DbgmdVal::run> run{};
+            constexpr Register::FieldValue<decltype(dbgmd),DbgmdVal::halt> halt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,dbgmdVal> dbgmd{}; 
     }
     namespace Noneconfig{    ///<Module Configuration
         using Addr = Register::Address<0x40004020,0x1e000000,0,unsigned>;
         ///Receive FIFO Read Request Interrupt Enable. 
-        enum class rfrqienVal {
+        enum class RfrqienVal {
             disabled=0x00000000,     ///<Disable the receive FIFO request interrupt.
             enabled=0x00000001,     ///<Enable the receive FIFO request interrupt.
         };
-        namespace rfrqienValC{
-            constexpr MPL::Value<rfrqienVal,rfrqienVal::disabled> disabled{};
-            constexpr MPL::Value<rfrqienVal,rfrqienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RfrqienVal> rfrqien{}; 
+        namespace RfrqienValC{
+            constexpr Register::FieldValue<decltype(rfrqien),RfrqienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rfrqien),RfrqienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,rfrqienVal> rfrqien{}; 
         ///Receive FIFO Overrun Interrupt Enable. 
-        enum class rforienVal {
+        enum class RforienVal {
             disabled=0x00000000,     ///<Disable the receive FIFO overrun interrupt.
             enabled=0x00000001,     ///<Enable the receive FIFO overrun interrupt.
         };
-        namespace rforienValC{
-            constexpr MPL::Value<rforienVal,rforienVal::disabled> disabled{};
-            constexpr MPL::Value<rforienVal,rforienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RforienVal> rforien{}; 
+        namespace RforienValC{
+            constexpr Register::FieldValue<decltype(rforien),RforienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rforien),RforienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,rforienVal> rforien{}; 
         ///Transmit FIFO Write Request Interrupt Enable. 
-        enum class tfrqienVal {
+        enum class TfrqienVal {
             disabled=0x00000000,     ///<Disable the transmit FIFO data request interrupt.
             enabled=0x00000001,     ///<Enable the transmit FIFO data request interrupt.
         };
-        namespace tfrqienValC{
-            constexpr MPL::Value<tfrqienVal,tfrqienVal::disabled> disabled{};
-            constexpr MPL::Value<tfrqienVal,tfrqienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TfrqienVal> tfrqien{}; 
+        namespace TfrqienValC{
+            constexpr Register::FieldValue<decltype(tfrqien),TfrqienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(tfrqien),TfrqienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,tfrqienVal> tfrqien{}; 
         ///Transmit FIFO Overrun Interrupt Enable. 
-        enum class tforienVal {
+        enum class TforienVal {
             disabled=0x00000000,     ///<Disable the transmit FIFO overrun interrupt.
             enabled=0x00000001,     ///<Enable the transmit FIFO overrun interrupt.
         };
-        namespace tforienValC{
-            constexpr MPL::Value<tforienVal,tforienVal::disabled> disabled{};
-            constexpr MPL::Value<tforienVal,tforienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TforienVal> tforien{}; 
+        namespace TforienValC{
+            constexpr Register::FieldValue<decltype(tforien),TforienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(tforien),TforienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,tforienVal> tforien{}; 
         ///Slave Selected Interrupt Enable. 
-        enum class slvselienVal {
+        enum class SlvselienVal {
             disabled=0x00000000,     ///<Disable the slave select interrupt.
             enabled=0x00000001,     ///<Enable the slave select interrupt.
         };
-        namespace slvselienValC{
-            constexpr MPL::Value<slvselienVal,slvselienVal::disabled> disabled{};
-            constexpr MPL::Value<slvselienVal,slvselienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SlvselienVal> slvselien{}; 
+        namespace SlvselienValC{
+            constexpr Register::FieldValue<decltype(slvselien),SlvselienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(slvselien),SlvselienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,slvselienVal> slvselien{}; 
         ///Mode Fault Interrupt Enable. 
-        enum class mdfienVal {
+        enum class MdfienVal {
             disabled=0x00000000,     ///<Disable the mode fault interrupt.
             enabled=0x00000001,     ///<Enable the mode fault interrupt.
         };
-        namespace mdfienValC{
-            constexpr MPL::Value<mdfienVal,mdfienVal::disabled> disabled{};
-            constexpr MPL::Value<mdfienVal,mdfienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MdfienVal> mdfien{}; 
+        namespace MdfienValC{
+            constexpr Register::FieldValue<decltype(mdfien),MdfienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mdfien),MdfienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,mdfienVal> mdfien{}; 
         ///Underrun Interrupt Enable. 
-        enum class urienVal {
+        enum class UrienVal {
             disabled=0x00000000,     ///<Disable the underrun interrupt.
             enabled=0x00000001,     ///<Enable the underrun interrupt.
         };
-        namespace urienValC{
-            constexpr MPL::Value<urienVal,urienVal::disabled> disabled{};
-            constexpr MPL::Value<urienVal,urienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,UrienVal> urien{}; 
+        namespace UrienValC{
+            constexpr Register::FieldValue<decltype(urien),UrienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(urien),UrienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,urienVal> urien{}; 
         ///Shift Register Empty Interrupt Enable. 
-        enum class sreienVal {
+        enum class SreienVal {
             disabled=0x00000000,     ///<Disable the shift register empty interrupt.
             enabled=0x00000001,     ///<Enable the shift register empty interrupt.
         };
-        namespace sreienValC{
-            constexpr MPL::Value<sreienVal,sreienVal::disabled> disabled{};
-            constexpr MPL::Value<sreienVal,sreienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SreienVal> sreien{}; 
+        namespace SreienValC{
+            constexpr Register::FieldValue<decltype(sreien),SreienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(sreien),SreienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,sreienVal> sreien{}; 
         ///SPI Enable. 
-        enum class spienVal {
+        enum class SpienVal {
             disabled=0x00000000,     ///<Disable the SPI.
             enabled=0x00000001,     ///<Enable the SPI.
         };
-        namespace spienValC{
-            constexpr MPL::Value<spienVal,spienVal::disabled> disabled{};
-            constexpr MPL::Value<spienVal,spienVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,SpienVal> spien{}; 
+        namespace SpienValC{
+            constexpr Register::FieldValue<decltype(spien),SpienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(spien),SpienVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,spienVal> spien{}; 
         ///Master Mode Enable. 
-        enum class mstenVal {
+        enum class MstenVal {
             disabled=0x00000000,     ///<Operate in slave mode.
             enabled=0x00000001,     ///<Operate in master mode.
         };
-        namespace mstenValC{
-            constexpr MPL::Value<mstenVal,mstenVal::disabled> disabled{};
-            constexpr MPL::Value<mstenVal,mstenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,MstenVal> msten{}; 
+        namespace MstenValC{
+            constexpr Register::FieldValue<decltype(msten),MstenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(msten),MstenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,mstenVal> msten{}; 
         ///SPI Clock Polarity. 
-        enum class clkpolVal {
+        enum class ClkpolVal {
             low=0x00000000,     ///<The SCK line is low in the idle state.
             high=0x00000001,     ///<The SCK line is high in the idle state.
         };
-        namespace clkpolValC{
-            constexpr MPL::Value<clkpolVal,clkpolVal::low> low{};
-            constexpr MPL::Value<clkpolVal,clkpolVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ClkpolVal> clkpol{}; 
+        namespace ClkpolValC{
+            constexpr Register::FieldValue<decltype(clkpol),ClkpolVal::low> low{};
+            constexpr Register::FieldValue<decltype(clkpol),ClkpolVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,clkpolVal> clkpol{}; 
         ///SPI Clock Phase. 
-        enum class clkphaVal {
+        enum class ClkphaVal {
             center=0x00000000,     ///<The first edge of SCK is the sample edge (center of data bit).
             edge=0x00000001,     ///<The first edge of SCK is the shift edge (edge of data bit).
         };
-        namespace clkphaValC{
-            constexpr MPL::Value<clkphaVal,clkphaVal::center> center{};
-            constexpr MPL::Value<clkphaVal,clkphaVal::edge> edge{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,ClkphaVal> clkpha{}; 
+        namespace ClkphaValC{
+            constexpr Register::FieldValue<decltype(clkpha),ClkphaVal::center> center{};
+            constexpr Register::FieldValue<decltype(clkpha),ClkphaVal::edge> edge{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,clkphaVal> clkpha{}; 
         ///Slave Select Polarity Select. 
-        enum class nsspolVal {
+        enum class NsspolVal {
             low=0x00000000,     ///<NSS is active low.
             high=0x00000001,     ///<NSS is active high.
         };
-        namespace nsspolValC{
-            constexpr MPL::Value<nsspolVal,nsspolVal::low> low{};
-            constexpr MPL::Value<nsspolVal,nsspolVal::high> high{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,NsspolVal> nsspol{}; 
+        namespace NsspolValC{
+            constexpr Register::FieldValue<decltype(nsspol),NsspolVal::low> low{};
+            constexpr Register::FieldValue<decltype(nsspol),NsspolVal::high> high{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,nsspolVal> nsspol{}; 
         ///Data Direction Select. 
-        enum class ddirselVal {
+        enum class DdirselVal {
             msbFirst=0x00000000,     ///<Data will be shifted MSB first.
             lsbFirst=0x00000001,     ///<Data will be shifted LSB first.
         };
-        namespace ddirselValC{
-            constexpr MPL::Value<ddirselVal,ddirselVal::msbFirst> msbFirst{};
-            constexpr MPL::Value<ddirselVal,ddirselVal::lsbFirst> lsbFirst{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DdirselVal> ddirsel{}; 
+        namespace DdirselValC{
+            constexpr Register::FieldValue<decltype(ddirsel),DdirselVal::msbFirst> msbFirst{};
+            constexpr Register::FieldValue<decltype(ddirsel),DdirselVal::lsbFirst> lsbFirst{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,ddirselVal> ddirsel{}; 
         ///Slave Select Mode. 
-        enum class nssmdVal {
+        enum class NssmdVal {
             v3WireMasterSlave=0x00000000,     ///<3-wire Slave or 3-wire Master.
             v4WireSlave=0x00000001,     ///<4-wire slave (NSS input).  This setting can also be used for multi-master configurations.
             v4WireMasterNssLow=0x00000002,     ///<4-wire master with NSS low (NSS output).
             v4WireMasterNssHigh=0x00000003,     ///<4-wire master with NSS high (NSS output).
         };
-        namespace nssmdValC{
-            constexpr MPL::Value<nssmdVal,nssmdVal::v3WireMasterSlave> v3WireMasterSlave{};
-            constexpr MPL::Value<nssmdVal,nssmdVal::v4WireSlave> v4WireSlave{};
-            constexpr MPL::Value<nssmdVal,nssmdVal::v4WireMasterNssLow> v4WireMasterNssLow{};
-            constexpr MPL::Value<nssmdVal,nssmdVal::v4WireMasterNssHigh> v4WireMasterNssHigh{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,NssmdVal> nssmd{}; 
+        namespace NssmdValC{
+            constexpr Register::FieldValue<decltype(nssmd),NssmdVal::v3WireMasterSlave> v3WireMasterSlave{};
+            constexpr Register::FieldValue<decltype(nssmd),NssmdVal::v4WireSlave> v4WireSlave{};
+            constexpr Register::FieldValue<decltype(nssmd),NssmdVal::v4WireMasterNssLow> v4WireMasterNssLow{};
+            constexpr Register::FieldValue<decltype(nssmd),NssmdVal::v4WireMasterNssHigh> v4WireMasterNssHigh{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,nssmdVal> nssmd{}; 
         ///Receive FIFO Threshold. 
-        enum class rfthVal {
+        enum class RfthVal {
             one=0x00000000,     ///<A DMA / RFRQ request asserts when >= 1 FIFO slot is filled.
             two=0x00000001,     ///<A DMA / RFRQ request asserts when >= 2 FIFO slots are filled.
             four=0x00000002,     ///<A DMA / RFRQ request asserts when >= 4 FIFO slots are filled.
             full=0x00000003,     ///<A DMA / RFRQ request asserts when all FIFO slots are filled.
         };
-        namespace rfthValC{
-            constexpr MPL::Value<rfthVal,rfthVal::one> one{};
-            constexpr MPL::Value<rfthVal,rfthVal::two> two{};
-            constexpr MPL::Value<rfthVal,rfthVal::four> four{};
-            constexpr MPL::Value<rfthVal,rfthVal::full> full{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,RfthVal> rfth{}; 
+        namespace RfthValC{
+            constexpr Register::FieldValue<decltype(rfth),RfthVal::one> one{};
+            constexpr Register::FieldValue<decltype(rfth),RfthVal::two> two{};
+            constexpr Register::FieldValue<decltype(rfth),RfthVal::four> four{};
+            constexpr Register::FieldValue<decltype(rfth),RfthVal::full> full{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,rfthVal> rfth{}; 
         ///Transmit FIFO Threshold. 
-        enum class tfthVal {
+        enum class TfthVal {
             one=0x00000000,     ///<A DMA / TFRQ request asserts when >= 1 FIFO slot is empty.
             two=0x00000001,     ///<A DMA / TFRQ request asserts when >= 2 FIFO slots are empty.
             four=0x00000002,     ///<A DMA / TFRQ request asserts when >= 4 FIFO slots are empty.
             empty=0x00000003,     ///<A DMA / TFRQ request asserts when all FIFO slots are empty.
         };
-        namespace tfthValC{
-            constexpr MPL::Value<tfthVal,tfthVal::one> one{};
-            constexpr MPL::Value<tfthVal,tfthVal::two> two{};
-            constexpr MPL::Value<tfthVal,tfthVal::four> four{};
-            constexpr MPL::Value<tfthVal,tfthVal::empty> empty{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,TfthVal> tfth{}; 
+        namespace TfthValC{
+            constexpr Register::FieldValue<decltype(tfth),TfthVal::one> one{};
+            constexpr Register::FieldValue<decltype(tfth),TfthVal::two> two{};
+            constexpr Register::FieldValue<decltype(tfth),TfthVal::four> four{};
+            constexpr Register::FieldValue<decltype(tfth),TfthVal::empty> empty{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,tfthVal> tfth{}; 
         ///Data Size. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> dsize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> dsize{}; 
+        namespace DsizeValC{
+        }
         ///DMA Enable. 
-        enum class dmaenVal {
+        enum class DmaenVal {
             disabled=0x00000000,     ///<Disable DMA requests. 
             enabled=0x00000001,     ///<Enable DMA requests when the transmit buffer is empty or the receive buffer is full.
         };
-        namespace dmaenValC{
-            constexpr MPL::Value<dmaenVal,dmaenVal::disabled> disabled{};
-            constexpr MPL::Value<dmaenVal,dmaenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
+        namespace DmaenValC{
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,dmaenVal> dmaen{}; 
         ///Receive FIFO Flush. 
-        enum class rfifoflVal {
+        enum class RfifoflVal {
             set=0x00000001,     ///<Flush the receive FIFO.
         };
-        namespace rfifoflValC{
-            constexpr MPL::Value<rfifoflVal,rfifoflVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,RfifoflVal> rfifofl{}; 
+        namespace RfifoflValC{
+            constexpr Register::FieldValue<decltype(rfifofl),RfifoflVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,rfifoflVal> rfifofl{}; 
         ///Transmit FIFO Flush. 
-        enum class tfifoflVal {
+        enum class TfifoflVal {
             set=0x00000001,     ///<Flush the transmit FIFO.
         };
-        namespace tfifoflValC{
-            constexpr MPL::Value<tfifoflVal,tfifoflVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,TfifoflVal> tfifofl{}; 
+        namespace TfifoflValC{
+            constexpr Register::FieldValue<decltype(tfifofl),TfifoflVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,tfifoflVal> tfifofl{}; 
         ///Module Soft Reset. 
-        enum class resetVal {
+        enum class ResetVal {
             inactive=0x00000000,     ///<SPI module is not in soft reset.
             active=0x00000001,     ///<SPI module is in soft reset and some of the module bits cannot be accessed until this bit is cleared to 0 by hardware.
         };
-        namespace resetValC{
-            constexpr MPL::Value<resetVal,resetVal::inactive> inactive{};
-            constexpr MPL::Value<resetVal,resetVal::active> active{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,ResetVal> reset{}; 
+        namespace ResetValC{
+            constexpr Register::FieldValue<decltype(reset),ResetVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(reset),ResetVal::active> active{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,resetVal> reset{}; 
     }
     namespace Noneclkrate{    ///<Module Clock Rate Control
         using Addr = Register::Address<0x40004030,0xffff0000,0,unsigned>;
         ///Clock Divider. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
+        namespace ClkdivValC{
+        }
     }
     namespace Nonefstatus{    ///<FIFO Status
         using Addr = Register::Address<0x40004040,0xffff0000,0,unsigned>;
         ///Receive FIFO Read Pointer. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rfrptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> rfrptr{}; 
+        namespace RfrptrValC{
+        }
         ///Receive FIFO Write Pointer. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rfwptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rfwptr{}; 
+        namespace RfwptrValC{
+        }
         ///Transmit FIFO Read Pointer. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tfrptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tfrptr{}; 
+        namespace TfrptrValC{
+        }
         ///Transmit FIFO Write Pointer. 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> tfwptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> tfwptr{}; 
+        namespace TfwptrValC{
+        }
     }
 }

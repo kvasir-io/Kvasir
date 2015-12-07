@@ -5,50 +5,64 @@ namespace Kvasir {
     namespace RtcCr{    ///<Control Register
         using Addr = Register::Address<0x400e1460,0xfffcfcfc,0,unsigned>;
         ///Update Request Time Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> updtim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> updtim{}; 
+        namespace UpdtimValC{
+        }
         ///Update Request Calendar Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> updcal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> updcal{}; 
+        namespace UpdcalValC{
+        }
         ///Time Event Selection
-        enum class timevselVal {
+        enum class TimevselVal {
             minute=0x00000000,     ///<Minute change
             hour=0x00000001,     ///<Hour change
             midnight=0x00000002,     ///<Every day at midnight
             noon=0x00000003,     ///<Every day at noon
         };
-        namespace timevselValC{
-            constexpr MPL::Value<timevselVal,timevselVal::minute> minute{};
-            constexpr MPL::Value<timevselVal,timevselVal::hour> hour{};
-            constexpr MPL::Value<timevselVal,timevselVal::midnight> midnight{};
-            constexpr MPL::Value<timevselVal,timevselVal::noon> noon{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,TimevselVal> timevsel{}; 
+        namespace TimevselValC{
+            constexpr Register::FieldValue<decltype(timevsel),TimevselVal::minute> minute{};
+            constexpr Register::FieldValue<decltype(timevsel),TimevselVal::hour> hour{};
+            constexpr Register::FieldValue<decltype(timevsel),TimevselVal::midnight> midnight{};
+            constexpr Register::FieldValue<decltype(timevsel),TimevselVal::noon> noon{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,timevselVal> timevsel{}; 
         ///Calendar Event Selection
-        enum class calevselVal {
+        enum class CalevselVal {
             week=0x00000000,     ///<Week change (every Monday at time 00:00:00)
             month=0x00000001,     ///<Month change (every 01 of each month at time 00:00:00)
             year=0x00000002,     ///<Year change (every January 1 at time 00:00:00)
         };
-        namespace calevselValC{
-            constexpr MPL::Value<calevselVal,calevselVal::week> week{};
-            constexpr MPL::Value<calevselVal,calevselVal::month> month{};
-            constexpr MPL::Value<calevselVal,calevselVal::year> year{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,CalevselVal> calevsel{}; 
+        namespace CalevselValC{
+            constexpr Register::FieldValue<decltype(calevsel),CalevselVal::week> week{};
+            constexpr Register::FieldValue<decltype(calevsel),CalevselVal::month> month{};
+            constexpr Register::FieldValue<decltype(calevsel),CalevselVal::year> year{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,calevselVal> calevsel{}; 
     }
     namespace RtcMr{    ///<Mode Register
         using Addr = Register::Address<0x400e1464,0xc88800ec,0,unsigned>;
         ///12-/24-hour Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> hrmod{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> hrmod{}; 
+        namespace HrmodValC{
+        }
         ///PERSIAN Calendar
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> persian{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> persian{}; 
+        namespace PersianValC{
+        }
         ///NEGative PPM Correction
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> negppm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> negppm{}; 
+        namespace NegppmValC{
+        }
         ///Slow Clock Correction
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> correction{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> correction{}; 
+        namespace CorrectionValC{
+        }
         ///HIGH PPM Correction
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> highppm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> highppm{}; 
+        namespace HighppmValC{
+        }
         ///RTCOUT0 Output Source Selection
-        enum class out0Val {
+        enum class Out0Val {
             noWave=0x00000000,     ///<no waveform, stuck at '0'
             freq1hz=0x00000001,     ///<1 Hz square wave
             freq32hz=0x00000002,     ///<32 Hz square wave
@@ -58,19 +72,19 @@ namespace Kvasir {
             alarmFlag=0x00000006,     ///<output is a copy of the alarm flag
             progPulse=0x00000007,     ///<duty cycle programmable pulse
         };
-        namespace out0ValC{
-            constexpr MPL::Value<out0Val,out0Val::noWave> noWave{};
-            constexpr MPL::Value<out0Val,out0Val::freq1hz> freq1hz{};
-            constexpr MPL::Value<out0Val,out0Val::freq32hz> freq32hz{};
-            constexpr MPL::Value<out0Val,out0Val::freq64hz> freq64hz{};
-            constexpr MPL::Value<out0Val,out0Val::freq512hz> freq512hz{};
-            constexpr MPL::Value<out0Val,out0Val::alarmToggle> alarmToggle{};
-            constexpr MPL::Value<out0Val,out0Val::alarmFlag> alarmFlag{};
-            constexpr MPL::Value<out0Val,out0Val::progPulse> progPulse{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,Out0Val> out0{}; 
+        namespace Out0ValC{
+            constexpr Register::FieldValue<decltype(out0),Out0Val::noWave> noWave{};
+            constexpr Register::FieldValue<decltype(out0),Out0Val::freq1hz> freq1hz{};
+            constexpr Register::FieldValue<decltype(out0),Out0Val::freq32hz> freq32hz{};
+            constexpr Register::FieldValue<decltype(out0),Out0Val::freq64hz> freq64hz{};
+            constexpr Register::FieldValue<decltype(out0),Out0Val::freq512hz> freq512hz{};
+            constexpr Register::FieldValue<decltype(out0),Out0Val::alarmToggle> alarmToggle{};
+            constexpr Register::FieldValue<decltype(out0),Out0Val::alarmFlag> alarmFlag{};
+            constexpr Register::FieldValue<decltype(out0),Out0Val::progPulse> progPulse{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,out0Val> out0{}; 
         ///RTCOUT1 Output Source Selection
-        enum class out1Val {
+        enum class Out1Val {
             noWave=0x00000000,     ///<no waveform, stuck at '0'
             freq1hz=0x00000001,     ///<1 Hz square wave
             freq32hz=0x00000002,     ///<32 Hz square wave
@@ -80,19 +94,19 @@ namespace Kvasir {
             alarmFlag=0x00000006,     ///<output is a copy of the alarm flag
             progPulse=0x00000007,     ///<duty cycle programmable pulse
         };
-        namespace out1ValC{
-            constexpr MPL::Value<out1Val,out1Val::noWave> noWave{};
-            constexpr MPL::Value<out1Val,out1Val::freq1hz> freq1hz{};
-            constexpr MPL::Value<out1Val,out1Val::freq32hz> freq32hz{};
-            constexpr MPL::Value<out1Val,out1Val::freq64hz> freq64hz{};
-            constexpr MPL::Value<out1Val,out1Val::freq512hz> freq512hz{};
-            constexpr MPL::Value<out1Val,out1Val::alarmToggle> alarmToggle{};
-            constexpr MPL::Value<out1Val,out1Val::alarmFlag> alarmFlag{};
-            constexpr MPL::Value<out1Val,out1Val::progPulse> progPulse{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,Out1Val> out1{}; 
+        namespace Out1ValC{
+            constexpr Register::FieldValue<decltype(out1),Out1Val::noWave> noWave{};
+            constexpr Register::FieldValue<decltype(out1),Out1Val::freq1hz> freq1hz{};
+            constexpr Register::FieldValue<decltype(out1),Out1Val::freq32hz> freq32hz{};
+            constexpr Register::FieldValue<decltype(out1),Out1Val::freq64hz> freq64hz{};
+            constexpr Register::FieldValue<decltype(out1),Out1Val::freq512hz> freq512hz{};
+            constexpr Register::FieldValue<decltype(out1),Out1Val::alarmToggle> alarmToggle{};
+            constexpr Register::FieldValue<decltype(out1),Out1Val::alarmFlag> alarmFlag{};
+            constexpr Register::FieldValue<decltype(out1),Out1Val::progPulse> progPulse{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,out1Val> out1{}; 
         ///High Duration of the Output Pulse
-        enum class thighVal {
+        enum class ThighVal {
             h31ms=0x00000000,     ///<31.2 ms
             h16ms=0x00000001,     ///<15.6 ms
             h4ms=0x00000002,     ///<3.91 Lms
@@ -102,214 +116,308 @@ namespace Kvasir {
             h30us=0x00000006,     ///<30.5 us
             h15us=0x00000007,     ///<15.2 us
         };
-        namespace thighValC{
-            constexpr MPL::Value<thighVal,thighVal::h31ms> h31ms{};
-            constexpr MPL::Value<thighVal,thighVal::h16ms> h16ms{};
-            constexpr MPL::Value<thighVal,thighVal::h4ms> h4ms{};
-            constexpr MPL::Value<thighVal,thighVal::h976us> h976us{};
-            constexpr MPL::Value<thighVal,thighVal::h488us> h488us{};
-            constexpr MPL::Value<thighVal,thighVal::h122us> h122us{};
-            constexpr MPL::Value<thighVal,thighVal::h30us> h30us{};
-            constexpr MPL::Value<thighVal,thighVal::h15us> h15us{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,ThighVal> thigh{}; 
+        namespace ThighValC{
+            constexpr Register::FieldValue<decltype(thigh),ThighVal::h31ms> h31ms{};
+            constexpr Register::FieldValue<decltype(thigh),ThighVal::h16ms> h16ms{};
+            constexpr Register::FieldValue<decltype(thigh),ThighVal::h4ms> h4ms{};
+            constexpr Register::FieldValue<decltype(thigh),ThighVal::h976us> h976us{};
+            constexpr Register::FieldValue<decltype(thigh),ThighVal::h488us> h488us{};
+            constexpr Register::FieldValue<decltype(thigh),ThighVal::h122us> h122us{};
+            constexpr Register::FieldValue<decltype(thigh),ThighVal::h30us> h30us{};
+            constexpr Register::FieldValue<decltype(thigh),ThighVal::h15us> h15us{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,thighVal> thigh{}; 
         ///Period of the Output Pulse
-        enum class tperiodVal {
+        enum class TperiodVal {
             p1s=0x00000000,     ///<1 second
             p500ms=0x00000001,     ///<500 ms
             p250ms=0x00000002,     ///<250 ms
             p125ms=0x00000003,     ///<125 ms
         };
-        namespace tperiodValC{
-            constexpr MPL::Value<tperiodVal,tperiodVal::p1s> p1s{};
-            constexpr MPL::Value<tperiodVal,tperiodVal::p500ms> p500ms{};
-            constexpr MPL::Value<tperiodVal,tperiodVal::p250ms> p250ms{};
-            constexpr MPL::Value<tperiodVal,tperiodVal::p125ms> p125ms{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,TperiodVal> tperiod{}; 
+        namespace TperiodValC{
+            constexpr Register::FieldValue<decltype(tperiod),TperiodVal::p1s> p1s{};
+            constexpr Register::FieldValue<decltype(tperiod),TperiodVal::p500ms> p500ms{};
+            constexpr Register::FieldValue<decltype(tperiod),TperiodVal::p250ms> p250ms{};
+            constexpr Register::FieldValue<decltype(tperiod),TperiodVal::p125ms> p125ms{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,tperiodVal> tperiod{}; 
     }
     namespace RtcTimr{    ///<Time Register
         using Addr = Register::Address<0x400e1468,0xff808080,0,unsigned>;
         ///Current Second
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> sec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> sec{}; 
+        namespace SecValC{
+        }
         ///Current Minute
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> min{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> min{}; 
+        namespace MinValC{
+        }
         ///Current Hour
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> hour{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> hour{}; 
+        namespace HourValC{
+        }
         ///Ante Meridiem Post Meridiem Indicator
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ampm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ampm{}; 
+        namespace AmpmValC{
+        }
     }
     namespace RtcCalr{    ///<Calendar Register
         using Addr = Register::Address<0x400e146c,0xc0000080,0,unsigned>;
         ///Current Century
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> cent{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> cent{}; 
+        namespace CentValC{
+        }
         ///Current Year
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> year{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> year{}; 
+        namespace YearValC{
+        }
         ///Current Month
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> month{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> month{}; 
+        namespace MonthValC{
+        }
         ///Current Day in Current Week
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,unsigned> day{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,unsigned> day{}; 
+        namespace DayValC{
+        }
         ///Current Day in Current Month
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> date{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> date{}; 
+        namespace DateValC{
+        }
     }
     namespace RtcTimalr{    ///<Time Alarm Register
         using Addr = Register::Address<0x400e1470,0xff000000,0,unsigned>;
         ///Second Alarm
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> sec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> sec{}; 
+        namespace SecValC{
+        }
         ///Second Alarm Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> secen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> secen{}; 
+        namespace SecenValC{
+        }
         ///Minute Alarm
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> min{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> min{}; 
+        namespace MinValC{
+        }
         ///Minute Alarm Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> minen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> minen{}; 
+        namespace MinenValC{
+        }
         ///Hour Alarm
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> hour{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> hour{}; 
+        namespace HourValC{
+        }
         ///AM/PM Indicator
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ampm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> ampm{}; 
+        namespace AmpmValC{
+        }
         ///Hour Alarm Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> houren{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> houren{}; 
+        namespace HourenValC{
+        }
     }
     namespace RtcCalalr{    ///<Calendar Alarm Register
         using Addr = Register::Address<0x400e1474,0x4060ffff,0,unsigned>;
         ///Month Alarm
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> month{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> month{}; 
+        namespace MonthValC{
+        }
         ///Month Alarm Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> mthen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> mthen{}; 
+        namespace MthenValC{
+        }
         ///Date Alarm
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> date{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> date{}; 
+        namespace DateValC{
+        }
         ///Date Alarm Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dateen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dateen{}; 
+        namespace DateenValC{
+        }
     }
     namespace RtcSr{    ///<Status Register
         using Addr = Register::Address<0x400e1478,0xffffffc0,0,unsigned>;
         ///Acknowledge for Update
-        enum class ackupdVal {
+        enum class AckupdVal {
             freerun=0x00000000,     ///<Time and calendar registers cannot be updated.
             update=0x00000001,     ///<Time and calendar registers can be updated.
         };
-        namespace ackupdValC{
-            constexpr MPL::Value<ackupdVal,ackupdVal::freerun> freerun{};
-            constexpr MPL::Value<ackupdVal,ackupdVal::update> update{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,AckupdVal> ackupd{}; 
+        namespace AckupdValC{
+            constexpr Register::FieldValue<decltype(ackupd),AckupdVal::freerun> freerun{};
+            constexpr Register::FieldValue<decltype(ackupd),AckupdVal::update> update{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ackupdVal> ackupd{}; 
         ///Alarm Flag
-        enum class alarmVal {
+        enum class AlarmVal {
             noAlarmevent=0x00000000,     ///<No alarm matching condition occurred.
             alarmevent=0x00000001,     ///<An alarm matching condition has occurred.
         };
-        namespace alarmValC{
-            constexpr MPL::Value<alarmVal,alarmVal::noAlarmevent> noAlarmevent{};
-            constexpr MPL::Value<alarmVal,alarmVal::alarmevent> alarmevent{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,AlarmVal> alarm{}; 
+        namespace AlarmValC{
+            constexpr Register::FieldValue<decltype(alarm),AlarmVal::noAlarmevent> noAlarmevent{};
+            constexpr Register::FieldValue<decltype(alarm),AlarmVal::alarmevent> alarmevent{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,alarmVal> alarm{}; 
         ///Second Event
-        enum class secVal {
+        enum class SecVal {
             noSecevent=0x00000000,     ///<No second event has occurred since the last clear.
             secevent=0x00000001,     ///<At least one second event has occurred since the last clear.
         };
-        namespace secValC{
-            constexpr MPL::Value<secVal,secVal::noSecevent> noSecevent{};
-            constexpr MPL::Value<secVal,secVal::secevent> secevent{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SecVal> sec{}; 
+        namespace SecValC{
+            constexpr Register::FieldValue<decltype(sec),SecVal::noSecevent> noSecevent{};
+            constexpr Register::FieldValue<decltype(sec),SecVal::secevent> secevent{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,secVal> sec{}; 
         ///Time Event
-        enum class timevVal {
+        enum class TimevVal {
             noTimevent=0x00000000,     ///<No time event has occurred since the last clear.
             timevent=0x00000001,     ///<At least one time event has occurred since the last clear.
         };
-        namespace timevValC{
-            constexpr MPL::Value<timevVal,timevVal::noTimevent> noTimevent{};
-            constexpr MPL::Value<timevVal,timevVal::timevent> timevent{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TimevVal> timev{}; 
+        namespace TimevValC{
+            constexpr Register::FieldValue<decltype(timev),TimevVal::noTimevent> noTimevent{};
+            constexpr Register::FieldValue<decltype(timev),TimevVal::timevent> timevent{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,timevVal> timev{}; 
         ///Calendar Event
-        enum class calevVal {
+        enum class CalevVal {
             noCalevent=0x00000000,     ///<No calendar event has occurred since the last clear.
             calevent=0x00000001,     ///<At least one calendar event has occurred since the last clear.
         };
-        namespace calevValC{
-            constexpr MPL::Value<calevVal,calevVal::noCalevent> noCalevent{};
-            constexpr MPL::Value<calevVal,calevVal::calevent> calevent{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CalevVal> calev{}; 
+        namespace CalevValC{
+            constexpr Register::FieldValue<decltype(calev),CalevVal::noCalevent> noCalevent{};
+            constexpr Register::FieldValue<decltype(calev),CalevVal::calevent> calevent{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,calevVal> calev{}; 
         ///Time and/or Date Free Running Error
-        enum class tderrVal {
+        enum class TderrVal {
             correct=0x00000000,     ///<The internal free running counters are carrying valid values since the last read of RTC_SR.
             errTimedate=0x00000001,     ///<The internal free running counters have been corrupted (invalid date or time, non-BCD values) since the last read and/or they are still invalid.
         };
-        namespace tderrValC{
-            constexpr MPL::Value<tderrVal,tderrVal::correct> correct{};
-            constexpr MPL::Value<tderrVal,tderrVal::errTimedate> errTimedate{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TderrVal> tderr{}; 
+        namespace TderrValC{
+            constexpr Register::FieldValue<decltype(tderr),TderrVal::correct> correct{};
+            constexpr Register::FieldValue<decltype(tderr),TderrVal::errTimedate> errTimedate{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,tderrVal> tderr{}; 
     }
     namespace RtcSccr{    ///<Status Clear Command Register
         using Addr = Register::Address<0x400e147c,0xffffffc0,0,unsigned>;
         ///Acknowledge Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ackclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ackclr{}; 
+        namespace AckclrValC{
+        }
         ///Alarm Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> alrclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> alrclr{}; 
+        namespace AlrclrValC{
+        }
         ///Second Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> secclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> secclr{}; 
+        namespace SecclrValC{
+        }
         ///Time Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timclr{}; 
+        namespace TimclrValC{
+        }
         ///Calendar Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> calclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> calclr{}; 
+        namespace CalclrValC{
+        }
         ///Time and/or Date Free Running Error Clear
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tderrclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tderrclr{}; 
+        namespace TderrclrValC{
+        }
     }
     namespace RtcIer{    ///<Interrupt Enable Register
         using Addr = Register::Address<0x400e1480,0xffffffc0,0,unsigned>;
         ///Acknowledge Update Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> acken{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> acken{}; 
+        namespace AckenValC{
+        }
         ///Alarm Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> alren{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> alren{}; 
+        namespace AlrenValC{
+        }
         ///Second Event Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> secen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> secen{}; 
+        namespace SecenValC{
+        }
         ///Time Event Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timen{}; 
+        namespace TimenValC{
+        }
         ///Calendar Event Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> calen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> calen{}; 
+        namespace CalenValC{
+        }
         ///Time and/or Date Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tderren{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tderren{}; 
+        namespace TderrenValC{
+        }
     }
     namespace RtcIdr{    ///<Interrupt Disable Register
         using Addr = Register::Address<0x400e1484,0xffffffc0,0,unsigned>;
         ///Acknowledge Update Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ackdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ackdis{}; 
+        namespace AckdisValC{
+        }
         ///Alarm Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> alrdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> alrdis{}; 
+        namespace AlrdisValC{
+        }
         ///Second Event Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> secdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> secdis{}; 
+        namespace SecdisValC{
+        }
         ///Time Event Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> timdis{}; 
+        namespace TimdisValC{
+        }
         ///Calendar Event Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> caldis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> caldis{}; 
+        namespace CaldisValC{
+        }
         ///Time and/or Date Error Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tderrdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tderrdis{}; 
+        namespace TderrdisValC{
+        }
     }
     namespace RtcImr{    ///<Interrupt Mask Register
         using Addr = Register::Address<0x400e1488,0xffffffe0,0,unsigned>;
         ///Acknowledge Update Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ack{}; 
+        namespace AckValC{
+        }
         ///Alarm Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> alr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> alr{}; 
+        namespace AlrValC{
+        }
         ///Second Event Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sec{}; 
+        namespace SecValC{
+        }
         ///Time Event Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tim{}; 
+        namespace TimValC{
+        }
         ///Calendar Event Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cal{}; 
+        namespace CalValC{
+        }
     }
     namespace RtcVer{    ///<Valid Entry Register
         using Addr = Register::Address<0x400e148c,0xfffffff0,0,unsigned>;
         ///Non-valid Time
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nvtim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nvtim{}; 
+        namespace NvtimValC{
+        }
         ///Non-valid Calendar
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> nvcal{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> nvcal{}; 
+        namespace NvcalValC{
+        }
         ///Non-valid Time Alarm
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> nvtimalr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> nvtimalr{}; 
+        namespace NvtimalrValC{
+        }
         ///Non-valid Calendar Alarm
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> nvcalalr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> nvcalalr{}; 
+        namespace NvcalalrValC{
+        }
     }
 }

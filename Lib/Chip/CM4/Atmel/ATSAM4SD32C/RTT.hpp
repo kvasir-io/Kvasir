@@ -5,33 +5,53 @@ namespace Kvasir {
     namespace RttMr{    ///<Mode Register
         using Addr = Register::Address<0x400e1430,0xfee80000,0,unsigned>;
         ///Real-time Timer Prescaler Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rtpres{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rtpres{}; 
+        namespace RtpresValC{
+        }
         ///Alarm Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> almien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> almien{}; 
+        namespace AlmienValC{
+        }
         ///Real-time Timer Increment Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rttincien{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rttincien{}; 
+        namespace RttincienValC{
+        }
         ///Real-time Timer Restart
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rttrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rttrst{}; 
+        namespace RttrstValC{
+        }
         ///Real-time Timer Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rttdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rttdis{}; 
+        namespace RttdisValC{
+        }
         ///Real-Time Clock 1Hz Clock Selection
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> rtc1hz{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> rtc1hz{}; 
+        namespace Rtc1hzValC{
+        }
     }
     namespace RttAr{    ///<Alarm Register
         using Addr = Register::Address<0x400e1434,0x00000000,0,unsigned>;
         ///Alarm Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> almv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> almv{}; 
+        namespace AlmvValC{
+        }
     }
     namespace RttVr{    ///<Value Register
         using Addr = Register::Address<0x400e1438,0x00000000,0,unsigned>;
         ///Current Real-time Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crtv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crtv{}; 
+        namespace CrtvValC{
+        }
     }
     namespace RttSr{    ///<Status Register
         using Addr = Register::Address<0x400e143c,0xfffffffc,0,unsigned>;
         ///Real-time Alarm Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> alms{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> alms{}; 
+        namespace AlmsValC{
+        }
         ///Real-time Timer Increment
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rttinc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rttinc{}; 
+        namespace RttincValC{
+        }
     }
 }

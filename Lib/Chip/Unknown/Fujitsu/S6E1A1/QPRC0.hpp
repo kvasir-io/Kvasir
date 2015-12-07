@@ -17,71 +17,125 @@ namespace Kvasir {
     namespace Noneqcrh{    ///<High-Order Bytes of QPRC Control Register
         using Addr = Register::Address<0x40026019,0xffffff00,0,unsigned char>;
         ///Detection edge selection bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> cge{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> cge{}; 
+        namespace CgeValC{
+        }
         ///BIN detection edge selection bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> bes{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> bes{}; 
+        namespace BesValC{
+        }
         ///AIN detection edge selection bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> aes{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> aes{}; 
+        namespace AesValC{
+        }
         ///Position counter reset mask bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pcrm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pcrm{}; 
+        namespace PcrmValC{
+        }
     }
     namespace Noneqcrl{    ///<Low-Order Bytes of QPRC Control Register
         using Addr = Register::Address<0x40026018,0xffffff00,0,unsigned char>;
         ///Swap bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> swap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> swap{}; 
+        namespace SwapValC{
+        }
         ///Register function selection bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rsel{}; 
+        namespace RselValC{
+        }
         ///Count clear or gate selection bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cgsc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cgsc{}; 
+        namespace CgscValC{
+        }
         ///Position counter stop bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pstp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pstp{}; 
+        namespace PstpValC{
+        }
         ///Revolution counter mode bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> rcm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> rcm{}; 
+        namespace RcmValC{
+        }
         ///Position counter mode bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pcm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> pcm{}; 
+        namespace PcmValC{
+        }
     }
     namespace Noneqecr{    ///<QPRC Extension Control Register
         using Addr = Register::Address<0x4002601c,0xfffffff8,0,unsigned>;
         ///Outrange interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> orngie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> orngie{}; 
+        namespace OrngieValC{
+        }
         ///Outrange interrupt request flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> orngf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> orngf{}; 
+        namespace OrngfValC{
+        }
         ///Outrange mode selection bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> orngmd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> orngmd{}; 
+        namespace OrngmdValC{
+        }
     }
     namespace Noneqicrl{    ///<Low-Order Bytes of QPRC Interrupt Control Register
         using Addr = Register::Address<0x40026014,0xffffff00,0,unsigned char>;
         ///Zero index interrupt request flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ziif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ziif{}; 
+        namespace ZiifValC{
+        }
         ///Overflow interrupt request flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ofdf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ofdf{}; 
+        namespace OfdfValC{
+        }
         ///Underflow interrupt request flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ufdf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ufdf{}; 
+        namespace UfdfValC{
+        }
         ///Overflow@ underflow@ or zero index interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ouzie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ouzie{}; 
+        namespace OuzieValC{
+        }
         ///PC and RC match interrupt request flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> qprcmf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> qprcmf{}; 
+        namespace QprcmfValC{
+        }
         ///PC and RC match interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> qprcmie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> qprcmie{}; 
+        namespace QprcmieValC{
+        }
         ///PC match interrupt request flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> qpcmf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> qpcmf{}; 
+        namespace QpcmfValC{
+        }
         ///PC match interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> qpcmie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> qpcmie{}; 
+        namespace QpcmieValC{
+        }
     }
     namespace Noneqicrh{    ///<High-Order Bytes of QPRC Interrupt Control Register
         using Addr = Register::Address<0x40026015,0xffffffc0,0,unsigned char>;
         ///PC match and RC match interrupt request flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> qpcnrcmf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> qpcnrcmf{}; 
+        namespace QpcnrcmfValC{
+        }
         ///PC match and RC match interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> qpcnrcmie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> qpcnrcmie{}; 
+        namespace QpcnrcmieValC{
+        }
         ///Last position counter flow direction bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dirou{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dirou{}; 
+        namespace DirouValC{
+        }
         ///Last position counter direction bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dirpc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dirpc{}; 
+        namespace DirpcValC{
+        }
         ///Count inversion interrupt request flag bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cdcf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cdcf{}; 
+        namespace CdcfValC{
+        }
         ///Count inversion interrupt enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cdcie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cdcie{}; 
+        namespace CdcieValC{
+        }
     }
     namespace Noneqmpr{    ///<QPRC Maximum Position Register
         using Addr = Register::Address<0x40026010,0xffffffff,0,unsigned>;
@@ -89,8 +143,12 @@ namespace Kvasir {
     namespace Noneqprcrr{    ///<Quad Counter Position Rotation Count Register
         using Addr = Register::Address<0x4002603c,0x00000000,0,unsigned>;
         ///Quad counter rotation count display bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> qrcrr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> qrcrr{}; 
+        namespace QrcrrValC{
+        }
         ///Quad counter position count display bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> qpcrr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> qpcrr{}; 
+        namespace QpcrrValC{
+        }
     }
 }

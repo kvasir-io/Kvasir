@@ -5,47 +5,47 @@ namespace Kvasir {
     namespace IeventDrl{    ///<iEvent Data Register: Low
         using Addr = Register::Address<0x40019000,0x00000000,0,unsigned>;
         ///Event Inputs {A0}
-        enum class inA0Val {
+        enum class Ina0Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inA0ValC{
-            constexpr MPL::Value<inA0Val,inA0Val::v0> v0{};
-            constexpr MPL::Value<inA0Val,inA0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ina0Val> inA0{}; 
+        namespace Ina0ValC{
+            constexpr Register::FieldValue<decltype(inA0),Ina0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inA0),Ina0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,inA0Val> inA0{}; 
         ///Event Inputs {B0}
-        enum class inB0Val {
+        enum class Inb0Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inB0ValC{
-            constexpr MPL::Value<inB0Val,inB0Val::v0> v0{};
-            constexpr MPL::Value<inB0Val,inB0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Inb0Val> inB0{}; 
+        namespace Inb0ValC{
+            constexpr Register::FieldValue<decltype(inB0),Inb0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inB0),Inb0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,inB0Val> inB0{}; 
         ///Event Inputs {C0}
-        enum class inC0Val {
+        enum class Inc0Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inC0ValC{
-            constexpr MPL::Value<inC0Val,inC0Val::v0> v0{};
-            constexpr MPL::Value<inC0Val,inC0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Inc0Val> inC0{}; 
+        namespace Inc0ValC{
+            constexpr Register::FieldValue<decltype(inC0),Inc0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inC0),Inc0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,inC0Val> inC0{}; 
         ///Event Inputs {D0}
-        enum class inD0Val {
+        enum class Ind0Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inD0ValC{
-            constexpr MPL::Value<inD0Val,inD0Val::v0> v0{};
-            constexpr MPL::Value<inD0Val,inD0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ind0Val> inD0{}; 
+        namespace Ind0ValC{
+            constexpr Register::FieldValue<decltype(inD0),Ind0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inD0),Ind0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,inD0Val> inD0{}; 
         ///Output Finite State Machine 0
-        enum class outputFsm0Val {
+        enum class Outputfsm0Val {
             v000=0x00000000,     ///<The channel is disabled; FSM = idle.
             v001=0x00000001,     ///<The channel is enabled and waiting for the programmed event to occur; FSM = wfevt.
             v011=0x00000003,     ///<The programmed event has occurred and the channel is asserting its output; FSM = assert.
@@ -53,65 +53,65 @@ namespace Kvasir {
             v101=0x00000005,     ///<The channel is waiting for the selected input signals to be negated before rearming; FSM = wfclr.
             v111=0x00000007,     ///<The event output has been acknowledged; done signals are broadcast during 1-cycle state; FSM = done.
         };
-        namespace outputFsm0ValC{
-            constexpr MPL::Value<outputFsm0Val,outputFsm0Val::v000> v000{};
-            constexpr MPL::Value<outputFsm0Val,outputFsm0Val::v001> v001{};
-            constexpr MPL::Value<outputFsm0Val,outputFsm0Val::v011> v011{};
-            constexpr MPL::Value<outputFsm0Val,outputFsm0Val::v100> v100{};
-            constexpr MPL::Value<outputFsm0Val,outputFsm0Val::v101> v101{};
-            constexpr MPL::Value<outputFsm0Val,outputFsm0Val::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,Outputfsm0Val> outputFsm0{}; 
+        namespace Outputfsm0ValC{
+            constexpr Register::FieldValue<decltype(outputFsm0),Outputfsm0Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(outputFsm0),Outputfsm0Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(outputFsm0),Outputfsm0Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(outputFsm0),Outputfsm0Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(outputFsm0),Outputfsm0Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(outputFsm0),Outputfsm0Val::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,outputFsm0Val> outputFsm0{}; 
         ///Event Output 0
-        enum class evOut0Val {
+        enum class Evout0Val {
             v0=0x00000000,     ///<The event output is negated.
             v1=0x00000001,     ///<The event output is asserted.
         };
-        namespace evOut0ValC{
-            constexpr MPL::Value<evOut0Val,evOut0Val::v0> v0{};
-            constexpr MPL::Value<evOut0Val,evOut0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Evout0Val> evOut0{}; 
+        namespace Evout0ValC{
+            constexpr Register::FieldValue<decltype(evOut0),Evout0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(evOut0),Evout0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,evOut0Val> evOut0{}; 
         ///Event Inputs {A1}
-        enum class inA1Val {
+        enum class Ina1Val {
             v0=0x00000000,     ///<The state of the event input was negated.
         };
-        namespace inA1ValC{
-            constexpr MPL::Value<inA1Val,inA1Val::v0> v0{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ina1Val> inA1{}; 
+        namespace Ina1ValC{
+            constexpr Register::FieldValue<decltype(inA1),Ina1Val::v0> v0{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,inA1Val> inA1{}; 
         ///Event Inputs {B1}
-        enum class inB1Val {
+        enum class Inb1Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inB1ValC{
-            constexpr MPL::Value<inB1Val,inB1Val::v0> v0{};
-            constexpr MPL::Value<inB1Val,inB1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Inb1Val> inB1{}; 
+        namespace Inb1ValC{
+            constexpr Register::FieldValue<decltype(inB1),Inb1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inB1),Inb1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,inB1Val> inB1{}; 
         ///Event Inputs {C1}
-        enum class inC1Val {
+        enum class Inc1Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inC1ValC{
-            constexpr MPL::Value<inC1Val,inC1Val::v0> v0{};
-            constexpr MPL::Value<inC1Val,inC1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Inc1Val> inC1{}; 
+        namespace Inc1ValC{
+            constexpr Register::FieldValue<decltype(inC1),Inc1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inC1),Inc1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,inC1Val> inC1{}; 
         ///Event Inputs {D1}
-        enum class inD1Val {
+        enum class Ind1Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inD1ValC{
-            constexpr MPL::Value<inD1Val,inD1Val::v0> v0{};
-            constexpr MPL::Value<inD1Val,inD1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ind1Val> inD1{}; 
+        namespace Ind1ValC{
+            constexpr Register::FieldValue<decltype(inD1),Ind1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inD1),Ind1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,inD1Val> inD1{}; 
         ///Output Finite State Machine 1
-        enum class outputFsm1Val {
+        enum class Outputfsm1Val {
             v000=0x00000000,     ///<The channel is disabled; FSM = idle.
             v001=0x00000001,     ///<The channel is enabled and waiting for the programmed event to occur; FSM = wfevt.
             v011=0x00000003,     ///<The programmed event has occurred and the channel is asserting its output; FSM = assert.
@@ -119,67 +119,67 @@ namespace Kvasir {
             v101=0x00000005,     ///<The channel is waiting for the selected input signals to be negated before rearming; FSM = wfclr.
             v111=0x00000007,     ///<The event output has been acknowledged; done signals are broadcast during 1-cycle state; FSM = done.
         };
-        namespace outputFsm1ValC{
-            constexpr MPL::Value<outputFsm1Val,outputFsm1Val::v000> v000{};
-            constexpr MPL::Value<outputFsm1Val,outputFsm1Val::v001> v001{};
-            constexpr MPL::Value<outputFsm1Val,outputFsm1Val::v011> v011{};
-            constexpr MPL::Value<outputFsm1Val,outputFsm1Val::v100> v100{};
-            constexpr MPL::Value<outputFsm1Val,outputFsm1Val::v101> v101{};
-            constexpr MPL::Value<outputFsm1Val,outputFsm1Val::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,Outputfsm1Val> outputFsm1{}; 
+        namespace Outputfsm1ValC{
+            constexpr Register::FieldValue<decltype(outputFsm1),Outputfsm1Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(outputFsm1),Outputfsm1Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(outputFsm1),Outputfsm1Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(outputFsm1),Outputfsm1Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(outputFsm1),Outputfsm1Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(outputFsm1),Outputfsm1Val::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,outputFsm1Val> outputFsm1{}; 
         ///Event Output 1
-        enum class evOut1Val {
+        enum class Evout1Val {
             v0=0x00000000,     ///<The event output is negated.
             v1=0x00000001,     ///<The event output is asserted.
         };
-        namespace evOut1ValC{
-            constexpr MPL::Value<evOut1Val,evOut1Val::v0> v0{};
-            constexpr MPL::Value<evOut1Val,evOut1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Evout1Val> evOut1{}; 
+        namespace Evout1ValC{
+            constexpr Register::FieldValue<decltype(evOut1),Evout1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(evOut1),Evout1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,evOut1Val> evOut1{}; 
         ///Event Inputs {A2}
-        enum class inA2Val {
+        enum class Ina2Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inA2ValC{
-            constexpr MPL::Value<inA2Val,inA2Val::v0> v0{};
-            constexpr MPL::Value<inA2Val,inA2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Ina2Val> inA2{}; 
+        namespace Ina2ValC{
+            constexpr Register::FieldValue<decltype(inA2),Ina2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inA2),Ina2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,inA2Val> inA2{}; 
         ///Event Inputs {B2}
-        enum class inB2Val {
+        enum class Inb2Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inB2ValC{
-            constexpr MPL::Value<inB2Val,inB2Val::v0> v0{};
-            constexpr MPL::Value<inB2Val,inB2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Inb2Val> inB2{}; 
+        namespace Inb2ValC{
+            constexpr Register::FieldValue<decltype(inB2),Inb2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inB2),Inb2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,inB2Val> inB2{}; 
         ///Event Inputs {C2}
-        enum class inC2Val {
+        enum class Inc2Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inC2ValC{
-            constexpr MPL::Value<inC2Val,inC2Val::v0> v0{};
-            constexpr MPL::Value<inC2Val,inC2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Inc2Val> inC2{}; 
+        namespace Inc2ValC{
+            constexpr Register::FieldValue<decltype(inC2),Inc2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inC2),Inc2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,inC2Val> inC2{}; 
         ///Event Inputs {D2}
-        enum class inD2Val {
+        enum class Ind2Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inD2ValC{
-            constexpr MPL::Value<inD2Val,inD2Val::v0> v0{};
-            constexpr MPL::Value<inD2Val,inD2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Ind2Val> inD2{}; 
+        namespace Ind2ValC{
+            constexpr Register::FieldValue<decltype(inD2),Ind2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inD2),Ind2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,inD2Val> inD2{}; 
         ///Output Finite State Machine 2
-        enum class outputFsm2Val {
+        enum class Outputfsm2Val {
             v000=0x00000000,     ///<The channel is disabled; FSM = idle.
             v001=0x00000001,     ///<The channel is enabled and waiting for the programmed event to occur; FSM = wfevt.
             v011=0x00000003,     ///<The programmed event has occurred and the channel is asserting its output; FSM = assert.
@@ -187,67 +187,67 @@ namespace Kvasir {
             v101=0x00000005,     ///<The channel is waiting for the selected input signals to be negated before rearming; FSM = wfclr.
             v111=0x00000007,     ///<The event output has been acknowledged; done signals are broadcast during 1-cycle state; FSM = done.
         };
-        namespace outputFsm2ValC{
-            constexpr MPL::Value<outputFsm2Val,outputFsm2Val::v000> v000{};
-            constexpr MPL::Value<outputFsm2Val,outputFsm2Val::v001> v001{};
-            constexpr MPL::Value<outputFsm2Val,outputFsm2Val::v011> v011{};
-            constexpr MPL::Value<outputFsm2Val,outputFsm2Val::v100> v100{};
-            constexpr MPL::Value<outputFsm2Val,outputFsm2Val::v101> v101{};
-            constexpr MPL::Value<outputFsm2Val,outputFsm2Val::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,Outputfsm2Val> outputFsm2{}; 
+        namespace Outputfsm2ValC{
+            constexpr Register::FieldValue<decltype(outputFsm2),Outputfsm2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(outputFsm2),Outputfsm2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(outputFsm2),Outputfsm2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(outputFsm2),Outputfsm2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(outputFsm2),Outputfsm2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(outputFsm2),Outputfsm2Val::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,outputFsm2Val> outputFsm2{}; 
         ///Event Output 2
-        enum class evOut2Val {
+        enum class Evout2Val {
             v0=0x00000000,     ///<The event output is negated.
             v1=0x00000001,     ///<The event output is asserted.
         };
-        namespace evOut2ValC{
-            constexpr MPL::Value<evOut2Val,evOut2Val::v0> v0{};
-            constexpr MPL::Value<evOut2Val,evOut2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,Evout2Val> evOut2{}; 
+        namespace Evout2ValC{
+            constexpr Register::FieldValue<decltype(evOut2),Evout2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(evOut2),Evout2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,evOut2Val> evOut2{}; 
         ///Event Inputs {A3}
-        enum class inA3Val {
+        enum class Ina3Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inA3ValC{
-            constexpr MPL::Value<inA3Val,inA3Val::v0> v0{};
-            constexpr MPL::Value<inA3Val,inA3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Ina3Val> inA3{}; 
+        namespace Ina3ValC{
+            constexpr Register::FieldValue<decltype(inA3),Ina3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inA3),Ina3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,inA3Val> inA3{}; 
         ///Event Inputs {B3}
-        enum class inB3Val {
+        enum class Inb3Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inB3ValC{
-            constexpr MPL::Value<inB3Val,inB3Val::v0> v0{};
-            constexpr MPL::Value<inB3Val,inB3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Inb3Val> inB3{}; 
+        namespace Inb3ValC{
+            constexpr Register::FieldValue<decltype(inB3),Inb3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inB3),Inb3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,inB3Val> inB3{}; 
         ///Event Inputs {C3}
-        enum class inC3Val {
+        enum class Inc3Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inC3ValC{
-            constexpr MPL::Value<inC3Val,inC3Val::v0> v0{};
-            constexpr MPL::Value<inC3Val,inC3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Inc3Val> inC3{}; 
+        namespace Inc3ValC{
+            constexpr Register::FieldValue<decltype(inC3),Inc3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inC3),Inc3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,inC3Val> inC3{}; 
         ///Event Inputs {D3}
-        enum class inD3Val {
+        enum class Ind3Val {
             v0=0x00000000,     ///<The state of the event input was negated.
             v1=0x00000001,     ///<The state of the event input was asserted.
         };
-        namespace inD3ValC{
-            constexpr MPL::Value<inD3Val,inD3Val::v0> v0{};
-            constexpr MPL::Value<inD3Val,inD3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,Ind3Val> inD3{}; 
+        namespace Ind3ValC{
+            constexpr Register::FieldValue<decltype(inD3),Ind3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(inD3),Ind3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,inD3Val> inD3{}; 
         ///Output Finite State Machine 3
-        enum class outputFsm3Val {
+        enum class Outputfsm3Val {
             v000=0x00000000,     ///<The channel is disabled; FSM = idle.
             v001=0x00000001,     ///<The channel is enabled and waiting for the programmed event to occur; FSM = wfevt.
             v011=0x00000003,     ///<The programmed event has occurred and the channel is asserting its output; FSM = assert.
@@ -255,209 +255,209 @@ namespace Kvasir {
             v101=0x00000005,     ///<The channel is waiting for the selected input signals to be negated before rearming; FSM = wfclr.
             v111=0x00000007,     ///<The event output has been acknowledged; done signals are broadcast during 1-cycle state; FSM = done.
         };
-        namespace outputFsm3ValC{
-            constexpr MPL::Value<outputFsm3Val,outputFsm3Val::v000> v000{};
-            constexpr MPL::Value<outputFsm3Val,outputFsm3Val::v001> v001{};
-            constexpr MPL::Value<outputFsm3Val,outputFsm3Val::v011> v011{};
-            constexpr MPL::Value<outputFsm3Val,outputFsm3Val::v100> v100{};
-            constexpr MPL::Value<outputFsm3Val,outputFsm3Val::v101> v101{};
-            constexpr MPL::Value<outputFsm3Val,outputFsm3Val::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,Outputfsm3Val> outputFsm3{}; 
+        namespace Outputfsm3ValC{
+            constexpr Register::FieldValue<decltype(outputFsm3),Outputfsm3Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(outputFsm3),Outputfsm3Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(outputFsm3),Outputfsm3Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(outputFsm3),Outputfsm3Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(outputFsm3),Outputfsm3Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(outputFsm3),Outputfsm3Val::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,outputFsm3Val> outputFsm3{}; 
         ///Event Output 3
-        enum class evOut3Val {
+        enum class Evout3Val {
             v0=0x00000000,     ///<The event output is negated.
             v1=0x00000001,     ///<The event output is asserted.
         };
-        namespace evOut3ValC{
-            constexpr MPL::Value<evOut3Val,evOut3Val::v0> v0{};
-            constexpr MPL::Value<evOut3Val,evOut3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,Evout3Val> evOut3{}; 
+        namespace Evout3ValC{
+            constexpr Register::FieldValue<decltype(evOut3),Evout3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(evOut3),Evout3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,evOut3Val> evOut3{}; 
     }
     namespace IeventCrl{    ///<iEvent Control Register: Low
         using Addr = Register::Address<0x40019080,0x70707070,0,unsigned>;
         ///Output Channel Type 0
-        enum class type0Val {
+        enum class Type0Val {
             v00=0x00000000,     ///<The channel is disabled.
             v01=0x00000001,     ///<The channel is defined as a DMA request output.
             v10=0x00000002,     ///<The channel is defined as a hardware trigger output.
             v11=0x00000003,     ///<The channel is defined as an interrupt request output.
         };
-        namespace type0ValC{
-            constexpr MPL::Value<type0Val,type0Val::v00> v00{};
-            constexpr MPL::Value<type0Val,type0Val::v01> v01{};
-            constexpr MPL::Value<type0Val,type0Val::v10> v10{};
-            constexpr MPL::Value<type0Val,type0Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Type0Val> type0{}; 
+        namespace Type0ValC{
+            constexpr Register::FieldValue<decltype(type0),Type0Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(type0),Type0Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(type0),Type0Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(type0),Type0Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,type0Val> type0{}; 
         ///One-Shot Enable 0
-        enum class ose0Val {
+        enum class Ose0Val {
             v0=0x00000000,     ///<The channel event output is enabled to occur multiple times.
             v1=0x00000001,     ///<The channel event output is enabled to occur one time.
         };
-        namespace ose0ValC{
-            constexpr MPL::Value<ose0Val,ose0Val::v0> v0{};
-            constexpr MPL::Value<ose0Val,ose0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ose0Val> ose0{}; 
+        namespace Ose0ValC{
+            constexpr Register::FieldValue<decltype(ose0),Ose0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ose0),Ose0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ose0Val> ose0{}; 
         ///Disable Done Broadcast 0
-        enum class ddb0Val {
+        enum class Ddb0Val {
             v0=0x00000000,     ///<The event done indicators are broadcast to the appropriate selected event inputs.
             v1=0x00000001,     ///<The event done indicators are not broadcast to the appropriate selected event inputs.
         };
-        namespace ddb0ValC{
-            constexpr MPL::Value<ddb0Val,ddb0Val::v0> v0{};
-            constexpr MPL::Value<ddb0Val,ddb0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ddb0Val> ddb0{}; 
+        namespace Ddb0ValC{
+            constexpr Register::FieldValue<decltype(ddb0),Ddb0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ddb0),Ddb0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ddb0Val> ddb0{}; 
         ///Read-Only 0
-        enum class ro0Val {
+        enum class Ro0Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
             v1=0x00000001,     ///<The iEvent configuration registers for this channel can only be read.
         };
-        namespace ro0ValC{
-            constexpr MPL::Value<ro0Val,ro0Val::v0> v0{};
-            constexpr MPL::Value<ro0Val,ro0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ro0Val> ro0{}; 
+        namespace Ro0ValC{
+            constexpr Register::FieldValue<decltype(ro0),Ro0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro0),Ro0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ro0Val> ro0{}; 
         ///Output Channel Type 1
-        enum class type1Val {
+        enum class Type1Val {
             v00=0x00000000,     ///<The channel is disabled.
             v01=0x00000001,     ///<The channel is defined as a DMA request output.
             v10=0x00000002,     ///<The channel is defined as a hardware trigger output.
             v11=0x00000003,     ///<The channel is defined as an interrupt request output.
         };
-        namespace type1ValC{
-            constexpr MPL::Value<type1Val,type1Val::v00> v00{};
-            constexpr MPL::Value<type1Val,type1Val::v01> v01{};
-            constexpr MPL::Value<type1Val,type1Val::v10> v10{};
-            constexpr MPL::Value<type1Val,type1Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,Type1Val> type1{}; 
+        namespace Type1ValC{
+            constexpr Register::FieldValue<decltype(type1),Type1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(type1),Type1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(type1),Type1Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(type1),Type1Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,type1Val> type1{}; 
         ///One-Shot Enable 1
-        enum class ose1Val {
+        enum class Ose1Val {
             v0=0x00000000,     ///<The channel event output is enabled to occur multiple times.
             v1=0x00000001,     ///<The channel event output is enabled to occur one time.
         };
-        namespace ose1ValC{
-            constexpr MPL::Value<ose1Val,ose1Val::v0> v0{};
-            constexpr MPL::Value<ose1Val,ose1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ose1Val> ose1{}; 
+        namespace Ose1ValC{
+            constexpr Register::FieldValue<decltype(ose1),Ose1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ose1),Ose1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ose1Val> ose1{}; 
         ///Disable Done Broadcast 1
-        enum class ddb1Val {
+        enum class Ddb1Val {
             v0=0x00000000,     ///<The event done indicators are broadcast to the appropriate selected event inputs.
             v1=0x00000001,     ///<The event done indicators are not broadcast to the appropriate selected event inputs.
         };
-        namespace ddb1ValC{
-            constexpr MPL::Value<ddb1Val,ddb1Val::v0> v0{};
-            constexpr MPL::Value<ddb1Val,ddb1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ddb1Val> ddb1{}; 
+        namespace Ddb1ValC{
+            constexpr Register::FieldValue<decltype(ddb1),Ddb1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ddb1),Ddb1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,ddb1Val> ddb1{}; 
         ///Read-Only 1
-        enum class ro1Val {
+        enum class Ro1Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
             v1=0x00000001,     ///<The iEvent configuration registers for this channel can only be read.
         };
-        namespace ro1ValC{
-            constexpr MPL::Value<ro1Val,ro1Val::v0> v0{};
-            constexpr MPL::Value<ro1Val,ro1Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ro1Val> ro1{}; 
+        namespace Ro1ValC{
+            constexpr Register::FieldValue<decltype(ro1),Ro1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro1),Ro1Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ro1Val> ro1{}; 
         ///Output Channel Type 2
-        enum class type2Val {
+        enum class Type2Val {
             v00=0x00000000,     ///<The channel is disabled.
             v01=0x00000001,     ///<The channel is defined as a DMA request output.
             v10=0x00000002,     ///<The channel is defined as a hardware trigger output.
             v11=0x00000003,     ///<The channel is defined as an interrupt request output.
         };
-        namespace type2ValC{
-            constexpr MPL::Value<type2Val,type2Val::v00> v00{};
-            constexpr MPL::Value<type2Val,type2Val::v01> v01{};
-            constexpr MPL::Value<type2Val,type2Val::v10> v10{};
-            constexpr MPL::Value<type2Val,type2Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,Type2Val> type2{}; 
+        namespace Type2ValC{
+            constexpr Register::FieldValue<decltype(type2),Type2Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(type2),Type2Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(type2),Type2Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(type2),Type2Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,type2Val> type2{}; 
         ///One-Shot Enable 2
-        enum class ose2Val {
+        enum class Ose2Val {
             v0=0x00000000,     ///<The channel event output is enabled to occur multiple times.
             v1=0x00000001,     ///<The channel event output is enabled to occur one time.
         };
-        namespace ose2ValC{
-            constexpr MPL::Value<ose2Val,ose2Val::v0> v0{};
-            constexpr MPL::Value<ose2Val,ose2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Ose2Val> ose2{}; 
+        namespace Ose2ValC{
+            constexpr Register::FieldValue<decltype(ose2),Ose2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ose2),Ose2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,ose2Val> ose2{}; 
         ///Disable Done Broadcast 2
-        enum class ddb2Val {
+        enum class Ddb2Val {
             v0=0x00000000,     ///<The event done indicators are broadcast to the appropriate selected event inputs.
             v1=0x00000001,     ///<The event done indicators are not broadcast to the appropriate selected event inputs.
         };
-        namespace ddb2ValC{
-            constexpr MPL::Value<ddb2Val,ddb2Val::v0> v0{};
-            constexpr MPL::Value<ddb2Val,ddb2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Ddb2Val> ddb2{}; 
+        namespace Ddb2ValC{
+            constexpr Register::FieldValue<decltype(ddb2),Ddb2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ddb2),Ddb2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,ddb2Val> ddb2{}; 
         ///Read-Only 2
-        enum class ro2Val {
+        enum class Ro2Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
             v1=0x00000001,     ///<The iEvent configuration registers for this channel can only be read.
         };
-        namespace ro2ValC{
-            constexpr MPL::Value<ro2Val,ro2Val::v0> v0{};
-            constexpr MPL::Value<ro2Val,ro2Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,Ro2Val> ro2{}; 
+        namespace Ro2ValC{
+            constexpr Register::FieldValue<decltype(ro2),Ro2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro2),Ro2Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,ro2Val> ro2{}; 
         ///Output Channel Type 3
-        enum class type3Val {
+        enum class Type3Val {
             v00=0x00000000,     ///<The channel is disabled.
             v01=0x00000001,     ///<The channel is defined as a DMA request output.
             v10=0x00000002,     ///<The channel is defined as a hardware trigger output.
             v11=0x00000003,     ///<The channel is defined as an interrupt request output.
         };
-        namespace type3ValC{
-            constexpr MPL::Value<type3Val,type3Val::v00> v00{};
-            constexpr MPL::Value<type3Val,type3Val::v01> v01{};
-            constexpr MPL::Value<type3Val,type3Val::v10> v10{};
-            constexpr MPL::Value<type3Val,type3Val::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,Type3Val> type3{}; 
+        namespace Type3ValC{
+            constexpr Register::FieldValue<decltype(type3),Type3Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(type3),Type3Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(type3),Type3Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(type3),Type3Val::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,type3Val> type3{}; 
         ///One-Shot Enable 3
-        enum class ose3Val {
+        enum class Ose3Val {
             v0=0x00000000,     ///<The channel event output is enabled to occur multiple times.
             v1=0x00000001,     ///<The channel event output is enabled to occur one time.
         };
-        namespace ose3ValC{
-            constexpr MPL::Value<ose3Val,ose3Val::v0> v0{};
-            constexpr MPL::Value<ose3Val,ose3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Ose3Val> ose3{}; 
+        namespace Ose3ValC{
+            constexpr Register::FieldValue<decltype(ose3),Ose3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ose3),Ose3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ose3Val> ose3{}; 
         ///Disable Done Broadcast 3
-        enum class ddb3Val {
+        enum class Ddb3Val {
             v0=0x00000000,     ///<The event done indicators are broadcast to the appropriate selected event inputs.
             v1=0x00000001,     ///<The event done indicators are not broadcast to the appropriate selected event inputs.
         };
-        namespace ddb3ValC{
-            constexpr MPL::Value<ddb3Val,ddb3Val::v0> v0{};
-            constexpr MPL::Value<ddb3Val,ddb3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,Ddb3Val> ddb3{}; 
+        namespace Ddb3ValC{
+            constexpr Register::FieldValue<decltype(ddb3),Ddb3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ddb3),Ddb3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,ddb3Val> ddb3{}; 
         ///Read-Only 3
-        enum class ro3Val {
+        enum class Ro3Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
             v1=0x00000001,     ///<The iEvent configuration registers for this channel can only be read.
         };
-        namespace ro3ValC{
-            constexpr MPL::Value<ro3Val,ro3Val::v0> v0{};
-            constexpr MPL::Value<ro3Val,ro3Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,Ro3Val> ro3{}; 
+        namespace Ro3ValC{
+            constexpr Register::FieldValue<decltype(ro3),Ro3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro3),Ro3Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,ro3Val> ro3{}; 
     }
     namespace IeventImxcr0{    ///<iEvent Input Mux Configuration Register
         using Addr = Register::Address<0x40019100,0xf0f0f0f0,0,unsigned>;
         ///no description available
-        enum class dSelectVal {
+        enum class DselectVal {
             v0000=0x00000000,     ///<Select input[0] as D.
             v0001=0x00000001,     ///<Select input[1] as D.
             v0010=0x00000002,     ///<Select input[2] as D.
@@ -475,27 +475,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as D.
             v1111=0x0000000f,     ///<Select input[15] as D.
         };
-        namespace dSelectValC{
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0000> v0000{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0001> v0001{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0010> v0010{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0011> v0011{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0100> v0100{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0101> v0101{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0110> v0110{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0111> v0111{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1000> v1000{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1001> v1001{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1010> v1010{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1011> v1011{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1100> v1100{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1101> v1101{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1110> v1110{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DselectVal> dSelect{}; 
+        namespace DselectValC{
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,dSelectVal> dSelect{}; 
         ///no description available
-        enum class cSelectVal {
+        enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
             v0001=0x00000001,     ///<Select input[1] as C.
             v0010=0x00000002,     ///<Select input[2] as C.
@@ -513,27 +513,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as C.
             v1111=0x0000000f,     ///<Select input[15] as C.
         };
-        namespace cSelectValC{
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0000> v0000{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0001> v0001{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0010> v0010{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0011> v0011{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0100> v0100{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0101> v0101{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0110> v0110{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0111> v0111{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1000> v1000{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1001> v1001{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1010> v1010{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1011> v1011{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1100> v1100{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1101> v1101{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1110> v1110{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,CselectVal> cSelect{}; 
+        namespace CselectValC{
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,cSelectVal> cSelect{}; 
         ///no description available
-        enum class bSelectVal {
+        enum class BselectVal {
             v0000=0x00000000,     ///<Select input[0] as B.
             v0001=0x00000001,     ///<Select input[1] as B.
             v0010=0x00000002,     ///<Select input[2] as B.
@@ -551,27 +551,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as B.
             v1111=0x0000000f,     ///<Select input[15] as B.
         };
-        namespace bSelectValC{
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0000> v0000{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0001> v0001{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0010> v0010{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0011> v0011{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0100> v0100{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0101> v0101{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0110> v0110{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0111> v0111{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1000> v1000{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1001> v1001{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1010> v1010{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1011> v1011{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1100> v1100{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1101> v1101{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1110> v1110{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,BselectVal> bSelect{}; 
+        namespace BselectValC{
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,bSelectVal> bSelect{}; 
         ///no description available
-        enum class aSelectVal {
+        enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
             v0001=0x00000001,     ///<Select input[1] as A.
             v0010=0x00000002,     ///<Select input[2] as A.
@@ -589,30 +589,30 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as A.
             v1111=0x0000000f,     ///<Select input[15] as A.
         };
-        namespace aSelectValC{
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0000> v0000{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0001> v0001{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0010> v0010{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0011> v0011{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0100> v0100{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0101> v0101{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0110> v0110{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0111> v0111{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1000> v1000{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1001> v1001{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1010> v1010{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1011> v1011{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1100> v1100{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1101> v1101{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1110> v1110{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,AselectVal> aSelect{}; 
+        namespace AselectValC{
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,aSelectVal> aSelect{}; 
     }
     namespace IeventImxcr1{    ///<iEvent Input Mux Configuration Register
         using Addr = Register::Address<0x40019108,0xf0f0f0f0,0,unsigned>;
         ///no description available
-        enum class dSelectVal {
+        enum class DselectVal {
             v0000=0x00000000,     ///<Select input[0] as D.
             v0001=0x00000001,     ///<Select input[1] as D.
             v0010=0x00000002,     ///<Select input[2] as D.
@@ -630,27 +630,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as D.
             v1111=0x0000000f,     ///<Select input[15] as D.
         };
-        namespace dSelectValC{
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0000> v0000{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0001> v0001{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0010> v0010{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0011> v0011{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0100> v0100{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0101> v0101{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0110> v0110{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0111> v0111{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1000> v1000{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1001> v1001{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1010> v1010{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1011> v1011{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1100> v1100{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1101> v1101{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1110> v1110{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DselectVal> dSelect{}; 
+        namespace DselectValC{
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,dSelectVal> dSelect{}; 
         ///no description available
-        enum class cSelectVal {
+        enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
             v0001=0x00000001,     ///<Select input[1] as C.
             v0010=0x00000002,     ///<Select input[2] as C.
@@ -668,27 +668,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as C.
             v1111=0x0000000f,     ///<Select input[15] as C.
         };
-        namespace cSelectValC{
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0000> v0000{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0001> v0001{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0010> v0010{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0011> v0011{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0100> v0100{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0101> v0101{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0110> v0110{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0111> v0111{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1000> v1000{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1001> v1001{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1010> v1010{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1011> v1011{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1100> v1100{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1101> v1101{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1110> v1110{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,CselectVal> cSelect{}; 
+        namespace CselectValC{
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,cSelectVal> cSelect{}; 
         ///no description available
-        enum class bSelectVal {
+        enum class BselectVal {
             v0000=0x00000000,     ///<Select input[0] as B.
             v0001=0x00000001,     ///<Select input[1] as B.
             v0010=0x00000002,     ///<Select input[2] as B.
@@ -706,27 +706,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as B.
             v1111=0x0000000f,     ///<Select input[15] as B.
         };
-        namespace bSelectValC{
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0000> v0000{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0001> v0001{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0010> v0010{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0011> v0011{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0100> v0100{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0101> v0101{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0110> v0110{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0111> v0111{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1000> v1000{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1001> v1001{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1010> v1010{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1011> v1011{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1100> v1100{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1101> v1101{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1110> v1110{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,BselectVal> bSelect{}; 
+        namespace BselectValC{
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,bSelectVal> bSelect{}; 
         ///no description available
-        enum class aSelectVal {
+        enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
             v0001=0x00000001,     ///<Select input[1] as A.
             v0010=0x00000002,     ///<Select input[2] as A.
@@ -744,30 +744,30 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as A.
             v1111=0x0000000f,     ///<Select input[15] as A.
         };
-        namespace aSelectValC{
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0000> v0000{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0001> v0001{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0010> v0010{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0011> v0011{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0100> v0100{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0101> v0101{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0110> v0110{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0111> v0111{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1000> v1000{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1001> v1001{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1010> v1010{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1011> v1011{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1100> v1100{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1101> v1101{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1110> v1110{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,AselectVal> aSelect{}; 
+        namespace AselectValC{
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,aSelectVal> aSelect{}; 
     }
     namespace IeventImxcr2{    ///<iEvent Input Mux Configuration Register
         using Addr = Register::Address<0x40019110,0xf0f0f0f0,0,unsigned>;
         ///no description available
-        enum class dSelectVal {
+        enum class DselectVal {
             v0000=0x00000000,     ///<Select input[0] as D.
             v0001=0x00000001,     ///<Select input[1] as D.
             v0010=0x00000002,     ///<Select input[2] as D.
@@ -785,27 +785,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as D.
             v1111=0x0000000f,     ///<Select input[15] as D.
         };
-        namespace dSelectValC{
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0000> v0000{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0001> v0001{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0010> v0010{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0011> v0011{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0100> v0100{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0101> v0101{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0110> v0110{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0111> v0111{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1000> v1000{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1001> v1001{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1010> v1010{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1011> v1011{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1100> v1100{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1101> v1101{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1110> v1110{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DselectVal> dSelect{}; 
+        namespace DselectValC{
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,dSelectVal> dSelect{}; 
         ///no description available
-        enum class cSelectVal {
+        enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
             v0001=0x00000001,     ///<Select input[1] as C.
             v0010=0x00000002,     ///<Select input[2] as C.
@@ -823,27 +823,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as C.
             v1111=0x0000000f,     ///<Select input[15] as C.
         };
-        namespace cSelectValC{
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0000> v0000{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0001> v0001{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0010> v0010{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0011> v0011{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0100> v0100{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0101> v0101{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0110> v0110{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0111> v0111{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1000> v1000{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1001> v1001{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1010> v1010{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1011> v1011{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1100> v1100{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1101> v1101{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1110> v1110{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,CselectVal> cSelect{}; 
+        namespace CselectValC{
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,cSelectVal> cSelect{}; 
         ///no description available
-        enum class bSelectVal {
+        enum class BselectVal {
             v0000=0x00000000,     ///<Select input[0] as B.
             v0001=0x00000001,     ///<Select input[1] as B.
             v0010=0x00000002,     ///<Select input[2] as B.
@@ -861,27 +861,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as B.
             v1111=0x0000000f,     ///<Select input[15] as B.
         };
-        namespace bSelectValC{
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0000> v0000{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0001> v0001{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0010> v0010{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0011> v0011{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0100> v0100{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0101> v0101{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0110> v0110{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0111> v0111{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1000> v1000{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1001> v1001{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1010> v1010{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1011> v1011{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1100> v1100{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1101> v1101{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1110> v1110{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,BselectVal> bSelect{}; 
+        namespace BselectValC{
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,bSelectVal> bSelect{}; 
         ///no description available
-        enum class aSelectVal {
+        enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
             v0001=0x00000001,     ///<Select input[1] as A.
             v0010=0x00000002,     ///<Select input[2] as A.
@@ -899,30 +899,30 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as A.
             v1111=0x0000000f,     ///<Select input[15] as A.
         };
-        namespace aSelectValC{
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0000> v0000{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0001> v0001{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0010> v0010{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0011> v0011{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0100> v0100{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0101> v0101{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0110> v0110{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0111> v0111{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1000> v1000{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1001> v1001{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1010> v1010{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1011> v1011{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1100> v1100{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1101> v1101{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1110> v1110{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,AselectVal> aSelect{}; 
+        namespace AselectValC{
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,aSelectVal> aSelect{}; 
     }
     namespace IeventImxcr3{    ///<iEvent Input Mux Configuration Register
         using Addr = Register::Address<0x40019118,0xf0f0f0f0,0,unsigned>;
         ///no description available
-        enum class dSelectVal {
+        enum class DselectVal {
             v0000=0x00000000,     ///<Select input[0] as D.
             v0001=0x00000001,     ///<Select input[1] as D.
             v0010=0x00000002,     ///<Select input[2] as D.
@@ -940,27 +940,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as D.
             v1111=0x0000000f,     ///<Select input[15] as D.
         };
-        namespace dSelectValC{
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0000> v0000{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0001> v0001{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0010> v0010{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0011> v0011{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0100> v0100{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0101> v0101{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0110> v0110{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v0111> v0111{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1000> v1000{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1001> v1001{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1010> v1010{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1011> v1011{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1100> v1100{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1101> v1101{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1110> v1110{};
-            constexpr MPL::Value<dSelectVal,dSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DselectVal> dSelect{}; 
+        namespace DselectValC{
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(dSelect),DselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,dSelectVal> dSelect{}; 
         ///no description available
-        enum class cSelectVal {
+        enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
             v0001=0x00000001,     ///<Select input[1] as C.
             v0010=0x00000002,     ///<Select input[2] as C.
@@ -978,27 +978,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as C.
             v1111=0x0000000f,     ///<Select input[15] as C.
         };
-        namespace cSelectValC{
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0000> v0000{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0001> v0001{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0010> v0010{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0011> v0011{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0100> v0100{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0101> v0101{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0110> v0110{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v0111> v0111{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1000> v1000{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1001> v1001{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1010> v1010{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1011> v1011{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1100> v1100{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1101> v1101{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1110> v1110{};
-            constexpr MPL::Value<cSelectVal,cSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,CselectVal> cSelect{}; 
+        namespace CselectValC{
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(cSelect),CselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,cSelectVal> cSelect{}; 
         ///no description available
-        enum class bSelectVal {
+        enum class BselectVal {
             v0000=0x00000000,     ///<Select input[0] as B.
             v0001=0x00000001,     ///<Select input[1] as B.
             v0010=0x00000002,     ///<Select input[2] as B.
@@ -1016,27 +1016,27 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as B.
             v1111=0x0000000f,     ///<Select input[15] as B.
         };
-        namespace bSelectValC{
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0000> v0000{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0001> v0001{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0010> v0010{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0011> v0011{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0100> v0100{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0101> v0101{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0110> v0110{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v0111> v0111{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1000> v1000{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1001> v1001{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1010> v1010{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1011> v1011{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1100> v1100{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1101> v1101{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1110> v1110{};
-            constexpr MPL::Value<bSelectVal,bSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,BselectVal> bSelect{}; 
+        namespace BselectValC{
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(bSelect),BselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,bSelectVal> bSelect{}; 
         ///no description available
-        enum class aSelectVal {
+        enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
             v0001=0x00000001,     ///<Select input[1] as A.
             v0010=0x00000002,     ///<Select input[2] as A.
@@ -1054,932 +1054,932 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Select input[14] as A.
             v1111=0x0000000f,     ///<Select input[15] as A.
         };
-        namespace aSelectValC{
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0000> v0000{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0001> v0001{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0010> v0010{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0011> v0011{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0100> v0100{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0101> v0101{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0110> v0110{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v0111> v0111{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1000> v1000{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1001> v1001{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1010> v1010{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1011> v1011{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1100> v1100{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1101> v1101{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1110> v1110{};
-            constexpr MPL::Value<aSelectVal,aSelectVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,AselectVal> aSelect{}; 
+        namespace AselectValC{
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(aSelect),AselectVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,aSelectVal> aSelect{}; 
     }
     namespace IeventBfecr0{    ///<iEvent Boolean Function Eva1ation Configuration Register
         using Addr = Register::Address<0x40019104,0x00000000,0,unsigned>;
         ///Product Term 3, D input Configuration
-        enum class pt3DcVal {
+        enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt3DcValC{
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v00> v00{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v01> v01{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v10> v10{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Pt3dcVal> pt3Dc{}; 
+        namespace Pt3dcValC{
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,pt3DcVal> pt3Dc{}; 
         ///Product Term 3, C input Configuration
-        enum class pt3CcVal {
+        enum class Pt3ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt3CcValC{
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v00> v00{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v01> v01{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v10> v10{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Pt3ccVal> pt3Cc{}; 
+        namespace Pt3ccValC{
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,pt3CcVal> pt3Cc{}; 
         ///Product Term 3, B input Configuration
-        enum class pt3BcVal {
+        enum class Pt3bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt3BcValC{
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v00> v00{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v01> v01{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v10> v10{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Pt3bcVal> pt3Bc{}; 
+        namespace Pt3bcValC{
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,pt3BcVal> pt3Bc{}; 
         ///Product Term 3, A input Configuration
-        enum class pt3AcVal {
+        enum class Pt3acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt3AcValC{
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v00> v00{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v01> v01{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v10> v10{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Pt3acVal> pt3Ac{}; 
+        namespace Pt3acValC{
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,pt3AcVal> pt3Ac{}; 
         ///Product Term 2, D input Configuration
-        enum class pt2DcVal {
+        enum class Pt2dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt2DcValC{
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v00> v00{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v01> v01{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v10> v10{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,Pt2dcVal> pt2Dc{}; 
+        namespace Pt2dcValC{
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,pt2DcVal> pt2Dc{}; 
         ///Product Term 2, C input Configuration
-        enum class pt2CcVal {
+        enum class Pt2ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt2CcValC{
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v00> v00{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v01> v01{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v10> v10{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,Pt2ccVal> pt2Cc{}; 
+        namespace Pt2ccValC{
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,pt2CcVal> pt2Cc{}; 
         ///Product Term 2, B input Configuration
-        enum class pt2BcVal {
+        enum class Pt2bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt2BcValC{
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v00> v00{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v01> v01{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v10> v10{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,Pt2bcVal> pt2Bc{}; 
+        namespace Pt2bcValC{
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,pt2BcVal> pt2Bc{}; 
         ///Product Term 2, A input Configuration
-        enum class pt2AcVal {
+        enum class Pt2acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt2AcValC{
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v00> v00{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v01> v01{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v10> v10{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,Pt2acVal> pt2Ac{}; 
+        namespace Pt2acValC{
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,pt2AcVal> pt2Ac{}; 
         ///Product Term 1, D input Configuration
-        enum class pt1DcVal {
+        enum class Pt1dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt1DcValC{
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v00> v00{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v01> v01{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v10> v10{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,Pt1dcVal> pt1Dc{}; 
+        namespace Pt1dcValC{
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,pt1DcVal> pt1Dc{}; 
         ///Product Term 1, C input Configuration
-        enum class pt1CcVal {
+        enum class Pt1ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt1CcValC{
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v00> v00{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v01> v01{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v10> v10{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,Pt1ccVal> pt1Cc{}; 
+        namespace Pt1ccValC{
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,pt1CcVal> pt1Cc{}; 
         ///Product Term 1, B input Configuration
-        enum class pt1BcVal {
+        enum class Pt1bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt1BcValC{
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v00> v00{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v01> v01{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v10> v10{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,Pt1bcVal> pt1Bc{}; 
+        namespace Pt1bcValC{
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,pt1BcVal> pt1Bc{}; 
         ///Product Term 1, A input Configuration
-        enum class pt1AcVal {
+        enum class Pt1acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt1AcValC{
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v00> v00{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v01> v01{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v10> v10{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,Pt1acVal> pt1Ac{}; 
+        namespace Pt1acValC{
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,pt1AcVal> pt1Ac{}; 
         ///Product Term 0, D input Configuration
-        enum class pt0DcVal {
+        enum class Pt0dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt0DcValC{
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v00> v00{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v01> v01{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v10> v10{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,Pt0dcVal> pt0Dc{}; 
+        namespace Pt0dcValC{
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,pt0DcVal> pt0Dc{}; 
         ///Product Term 0, C input Configuration
-        enum class pt0CcVal {
+        enum class Pt0ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt0CcValC{
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v00> v00{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v01> v01{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v10> v10{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,Pt0ccVal> pt0Cc{}; 
+        namespace Pt0ccValC{
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,pt0CcVal> pt0Cc{}; 
         ///Product Term 0, B input Configuration
-        enum class pt0BcVal {
+        enum class Pt0bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt0BcValC{
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v00> v00{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v01> v01{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v10> v10{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,Pt0bcVal> pt0Bc{}; 
+        namespace Pt0bcValC{
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,pt0BcVal> pt0Bc{}; 
         ///Product Term 0, A input Configuration
-        enum class pt0AcVal {
+        enum class Pt0acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt0AcValC{
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v00> v00{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v01> v01{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v10> v10{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,Pt0acVal> pt0Ac{}; 
+        namespace Pt0acValC{
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,pt0AcVal> pt0Ac{}; 
     }
     namespace IeventBfecr1{    ///<iEvent Boolean Function Eva1ation Configuration Register
         using Addr = Register::Address<0x4001910c,0x00000000,0,unsigned>;
         ///Product Term 3, D input Configuration
-        enum class pt3DcVal {
+        enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt3DcValC{
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v00> v00{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v01> v01{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v10> v10{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Pt3dcVal> pt3Dc{}; 
+        namespace Pt3dcValC{
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,pt3DcVal> pt3Dc{}; 
         ///Product Term 3, C input Configuration
-        enum class pt3CcVal {
+        enum class Pt3ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt3CcValC{
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v00> v00{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v01> v01{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v10> v10{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Pt3ccVal> pt3Cc{}; 
+        namespace Pt3ccValC{
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,pt3CcVal> pt3Cc{}; 
         ///Product Term 3, B input Configuration
-        enum class pt3BcVal {
+        enum class Pt3bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt3BcValC{
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v00> v00{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v01> v01{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v10> v10{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Pt3bcVal> pt3Bc{}; 
+        namespace Pt3bcValC{
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,pt3BcVal> pt3Bc{}; 
         ///Product Term 3, A input Configuration
-        enum class pt3AcVal {
+        enum class Pt3acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt3AcValC{
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v00> v00{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v01> v01{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v10> v10{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Pt3acVal> pt3Ac{}; 
+        namespace Pt3acValC{
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,pt3AcVal> pt3Ac{}; 
         ///Product Term 2, D input Configuration
-        enum class pt2DcVal {
+        enum class Pt2dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt2DcValC{
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v00> v00{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v01> v01{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v10> v10{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,Pt2dcVal> pt2Dc{}; 
+        namespace Pt2dcValC{
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,pt2DcVal> pt2Dc{}; 
         ///Product Term 2, C input Configuration
-        enum class pt2CcVal {
+        enum class Pt2ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt2CcValC{
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v00> v00{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v01> v01{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v10> v10{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,Pt2ccVal> pt2Cc{}; 
+        namespace Pt2ccValC{
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,pt2CcVal> pt2Cc{}; 
         ///Product Term 2, B input Configuration
-        enum class pt2BcVal {
+        enum class Pt2bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt2BcValC{
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v00> v00{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v01> v01{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v10> v10{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,Pt2bcVal> pt2Bc{}; 
+        namespace Pt2bcValC{
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,pt2BcVal> pt2Bc{}; 
         ///Product Term 2, A input Configuration
-        enum class pt2AcVal {
+        enum class Pt2acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt2AcValC{
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v00> v00{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v01> v01{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v10> v10{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,Pt2acVal> pt2Ac{}; 
+        namespace Pt2acValC{
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,pt2AcVal> pt2Ac{}; 
         ///Product Term 1, D input Configuration
-        enum class pt1DcVal {
+        enum class Pt1dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt1DcValC{
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v00> v00{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v01> v01{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v10> v10{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,Pt1dcVal> pt1Dc{}; 
+        namespace Pt1dcValC{
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,pt1DcVal> pt1Dc{}; 
         ///Product Term 1, C input Configuration
-        enum class pt1CcVal {
+        enum class Pt1ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt1CcValC{
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v00> v00{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v01> v01{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v10> v10{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,Pt1ccVal> pt1Cc{}; 
+        namespace Pt1ccValC{
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,pt1CcVal> pt1Cc{}; 
         ///Product Term 1, B input Configuration
-        enum class pt1BcVal {
+        enum class Pt1bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt1BcValC{
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v00> v00{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v01> v01{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v10> v10{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,Pt1bcVal> pt1Bc{}; 
+        namespace Pt1bcValC{
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,pt1BcVal> pt1Bc{}; 
         ///Product Term 1, A input Configuration
-        enum class pt1AcVal {
+        enum class Pt1acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt1AcValC{
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v00> v00{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v01> v01{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v10> v10{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,Pt1acVal> pt1Ac{}; 
+        namespace Pt1acValC{
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,pt1AcVal> pt1Ac{}; 
         ///Product Term 0, D input Configuration
-        enum class pt0DcVal {
+        enum class Pt0dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt0DcValC{
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v00> v00{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v01> v01{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v10> v10{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,Pt0dcVal> pt0Dc{}; 
+        namespace Pt0dcValC{
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,pt0DcVal> pt0Dc{}; 
         ///Product Term 0, C input Configuration
-        enum class pt0CcVal {
+        enum class Pt0ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt0CcValC{
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v00> v00{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v01> v01{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v10> v10{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,Pt0ccVal> pt0Cc{}; 
+        namespace Pt0ccValC{
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,pt0CcVal> pt0Cc{}; 
         ///Product Term 0, B input Configuration
-        enum class pt0BcVal {
+        enum class Pt0bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt0BcValC{
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v00> v00{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v01> v01{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v10> v10{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,Pt0bcVal> pt0Bc{}; 
+        namespace Pt0bcValC{
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,pt0BcVal> pt0Bc{}; 
         ///Product Term 0, A input Configuration
-        enum class pt0AcVal {
+        enum class Pt0acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt0AcValC{
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v00> v00{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v01> v01{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v10> v10{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,Pt0acVal> pt0Ac{}; 
+        namespace Pt0acValC{
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,pt0AcVal> pt0Ac{}; 
     }
     namespace IeventBfecr2{    ///<iEvent Boolean Function Eva1ation Configuration Register
         using Addr = Register::Address<0x40019114,0x00000000,0,unsigned>;
         ///Product Term 3, D input Configuration
-        enum class pt3DcVal {
+        enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt3DcValC{
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v00> v00{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v01> v01{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v10> v10{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Pt3dcVal> pt3Dc{}; 
+        namespace Pt3dcValC{
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,pt3DcVal> pt3Dc{}; 
         ///Product Term 3, C input Configuration
-        enum class pt3CcVal {
+        enum class Pt3ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt3CcValC{
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v00> v00{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v01> v01{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v10> v10{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Pt3ccVal> pt3Cc{}; 
+        namespace Pt3ccValC{
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,pt3CcVal> pt3Cc{}; 
         ///Product Term 3, B input Configuration
-        enum class pt3BcVal {
+        enum class Pt3bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt3BcValC{
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v00> v00{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v01> v01{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v10> v10{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Pt3bcVal> pt3Bc{}; 
+        namespace Pt3bcValC{
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,pt3BcVal> pt3Bc{}; 
         ///Product Term 3, A input Configuration
-        enum class pt3AcVal {
+        enum class Pt3acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt3AcValC{
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v00> v00{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v01> v01{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v10> v10{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Pt3acVal> pt3Ac{}; 
+        namespace Pt3acValC{
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,pt3AcVal> pt3Ac{}; 
         ///Product Term 2, D input Configuration
-        enum class pt2DcVal {
+        enum class Pt2dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt2DcValC{
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v00> v00{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v01> v01{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v10> v10{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,Pt2dcVal> pt2Dc{}; 
+        namespace Pt2dcValC{
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,pt2DcVal> pt2Dc{}; 
         ///Product Term 2, C input Configuration
-        enum class pt2CcVal {
+        enum class Pt2ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt2CcValC{
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v00> v00{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v01> v01{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v10> v10{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,Pt2ccVal> pt2Cc{}; 
+        namespace Pt2ccValC{
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,pt2CcVal> pt2Cc{}; 
         ///Product Term 2, B input Configuration
-        enum class pt2BcVal {
+        enum class Pt2bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt2BcValC{
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v00> v00{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v01> v01{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v10> v10{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,Pt2bcVal> pt2Bc{}; 
+        namespace Pt2bcValC{
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,pt2BcVal> pt2Bc{}; 
         ///Product Term 2, A input Configuration
-        enum class pt2AcVal {
+        enum class Pt2acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt2AcValC{
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v00> v00{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v01> v01{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v10> v10{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,Pt2acVal> pt2Ac{}; 
+        namespace Pt2acValC{
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,pt2AcVal> pt2Ac{}; 
         ///Product Term 1, D input Configuration
-        enum class pt1DcVal {
+        enum class Pt1dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt1DcValC{
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v00> v00{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v01> v01{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v10> v10{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,Pt1dcVal> pt1Dc{}; 
+        namespace Pt1dcValC{
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,pt1DcVal> pt1Dc{}; 
         ///Product Term 1, C input Configuration
-        enum class pt1CcVal {
+        enum class Pt1ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt1CcValC{
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v00> v00{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v01> v01{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v10> v10{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,Pt1ccVal> pt1Cc{}; 
+        namespace Pt1ccValC{
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,pt1CcVal> pt1Cc{}; 
         ///Product Term 1, B input Configuration
-        enum class pt1BcVal {
+        enum class Pt1bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt1BcValC{
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v00> v00{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v01> v01{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v10> v10{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,Pt1bcVal> pt1Bc{}; 
+        namespace Pt1bcValC{
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,pt1BcVal> pt1Bc{}; 
         ///Product Term 1, A input Configuration
-        enum class pt1AcVal {
+        enum class Pt1acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt1AcValC{
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v00> v00{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v01> v01{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v10> v10{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,Pt1acVal> pt1Ac{}; 
+        namespace Pt1acValC{
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,pt1AcVal> pt1Ac{}; 
         ///Product Term 0, D input Configuration
-        enum class pt0DcVal {
+        enum class Pt0dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt0DcValC{
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v00> v00{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v01> v01{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v10> v10{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,Pt0dcVal> pt0Dc{}; 
+        namespace Pt0dcValC{
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,pt0DcVal> pt0Dc{}; 
         ///Product Term 0, C input Configuration
-        enum class pt0CcVal {
+        enum class Pt0ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt0CcValC{
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v00> v00{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v01> v01{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v10> v10{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,Pt0ccVal> pt0Cc{}; 
+        namespace Pt0ccValC{
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,pt0CcVal> pt0Cc{}; 
         ///Product Term 0, B input Configuration
-        enum class pt0BcVal {
+        enum class Pt0bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt0BcValC{
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v00> v00{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v01> v01{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v10> v10{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,Pt0bcVal> pt0Bc{}; 
+        namespace Pt0bcValC{
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,pt0BcVal> pt0Bc{}; 
         ///Product Term 0, A input Configuration
-        enum class pt0AcVal {
+        enum class Pt0acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt0AcValC{
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v00> v00{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v01> v01{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v10> v10{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,Pt0acVal> pt0Ac{}; 
+        namespace Pt0acValC{
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,pt0AcVal> pt0Ac{}; 
     }
     namespace IeventBfecr3{    ///<iEvent Boolean Function Eva1ation Configuration Register
         using Addr = Register::Address<0x4001911c,0x00000000,0,unsigned>;
         ///Product Term 3, D input Configuration
-        enum class pt3DcVal {
+        enum class Pt3dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt3DcValC{
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v00> v00{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v01> v01{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v10> v10{};
-            constexpr MPL::Value<pt3DcVal,pt3DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Pt3dcVal> pt3Dc{}; 
+        namespace Pt3dcValC{
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Dc),Pt3dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,pt3DcVal> pt3Dc{}; 
         ///Product Term 3, C input Configuration
-        enum class pt3CcVal {
+        enum class Pt3ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt3CcValC{
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v00> v00{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v01> v01{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v10> v10{};
-            constexpr MPL::Value<pt3CcVal,pt3CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Pt3ccVal> pt3Cc{}; 
+        namespace Pt3ccValC{
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Cc),Pt3ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,pt3CcVal> pt3Cc{}; 
         ///Product Term 3, B input Configuration
-        enum class pt3BcVal {
+        enum class Pt3bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt3BcValC{
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v00> v00{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v01> v01{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v10> v10{};
-            constexpr MPL::Value<pt3BcVal,pt3BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Pt3bcVal> pt3Bc{}; 
+        namespace Pt3bcValC{
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Bc),Pt3bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,pt3BcVal> pt3Bc{}; 
         ///Product Term 3, A input Configuration
-        enum class pt3AcVal {
+        enum class Pt3acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt3AcValC{
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v00> v00{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v01> v01{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v10> v10{};
-            constexpr MPL::Value<pt3AcVal,pt3AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Pt3acVal> pt3Ac{}; 
+        namespace Pt3acValC{
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt3Ac),Pt3acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,pt3AcVal> pt3Ac{}; 
         ///Product Term 2, D input Configuration
-        enum class pt2DcVal {
+        enum class Pt2dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt2DcValC{
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v00> v00{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v01> v01{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v10> v10{};
-            constexpr MPL::Value<pt2DcVal,pt2DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,Pt2dcVal> pt2Dc{}; 
+        namespace Pt2dcValC{
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Dc),Pt2dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,pt2DcVal> pt2Dc{}; 
         ///Product Term 2, C input Configuration
-        enum class pt2CcVal {
+        enum class Pt2ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt2CcValC{
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v00> v00{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v01> v01{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v10> v10{};
-            constexpr MPL::Value<pt2CcVal,pt2CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,Pt2ccVal> pt2Cc{}; 
+        namespace Pt2ccValC{
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Cc),Pt2ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,pt2CcVal> pt2Cc{}; 
         ///Product Term 2, B input Configuration
-        enum class pt2BcVal {
+        enum class Pt2bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt2BcValC{
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v00> v00{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v01> v01{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v10> v10{};
-            constexpr MPL::Value<pt2BcVal,pt2BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,Pt2bcVal> pt2Bc{}; 
+        namespace Pt2bcValC{
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Bc),Pt2bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,pt2BcVal> pt2Bc{}; 
         ///Product Term 2, A input Configuration
-        enum class pt2AcVal {
+        enum class Pt2acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt2AcValC{
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v00> v00{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v01> v01{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v10> v10{};
-            constexpr MPL::Value<pt2AcVal,pt2AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,Pt2acVal> pt2Ac{}; 
+        namespace Pt2acValC{
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt2Ac),Pt2acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,pt2AcVal> pt2Ac{}; 
         ///Product Term 1, D input Configuration
-        enum class pt1DcVal {
+        enum class Pt1dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt1DcValC{
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v00> v00{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v01> v01{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v10> v10{};
-            constexpr MPL::Value<pt1DcVal,pt1DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,Pt1dcVal> pt1Dc{}; 
+        namespace Pt1dcValC{
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Dc),Pt1dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,pt1DcVal> pt1Dc{}; 
         ///Product Term 1, C input Configuration
-        enum class pt1CcVal {
+        enum class Pt1ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt1CcValC{
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v00> v00{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v01> v01{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v10> v10{};
-            constexpr MPL::Value<pt1CcVal,pt1CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,Pt1ccVal> pt1Cc{}; 
+        namespace Pt1ccValC{
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Cc),Pt1ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,pt1CcVal> pt1Cc{}; 
         ///Product Term 1, B input Configuration
-        enum class pt1BcVal {
+        enum class Pt1bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt1BcValC{
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v00> v00{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v01> v01{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v10> v10{};
-            constexpr MPL::Value<pt1BcVal,pt1BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,Pt1bcVal> pt1Bc{}; 
+        namespace Pt1bcValC{
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Bc),Pt1bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,pt1BcVal> pt1Bc{}; 
         ///Product Term 1, A input Configuration
-        enum class pt1AcVal {
+        enum class Pt1acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt1AcValC{
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v00> v00{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v01> v01{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v10> v10{};
-            constexpr MPL::Value<pt1AcVal,pt1AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,Pt1acVal> pt1Ac{}; 
+        namespace Pt1acValC{
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt1Ac),Pt1acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,pt1AcVal> pt1Ac{}; 
         ///Product Term 0, D input Configuration
-        enum class pt0DcVal {
+        enum class Pt0dcVal {
             v00=0x00000000,     ///<Force the D input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the D input in this product term.
             v10=0x00000002,     ///<Complement the D input in this product term.
             v11=0x00000003,     ///<Force the D input in this product term to a logical one.
         };
-        namespace pt0DcValC{
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v00> v00{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v01> v01{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v10> v10{};
-            constexpr MPL::Value<pt0DcVal,pt0DcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,Pt0dcVal> pt0Dc{}; 
+        namespace Pt0dcValC{
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Dc),Pt0dcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,pt0DcVal> pt0Dc{}; 
         ///Product Term 0, C input Configuration
-        enum class pt0CcVal {
+        enum class Pt0ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the C input in this product term.
             v10=0x00000002,     ///<Complement the C input in this product term.
             v11=0x00000003,     ///<Force the C input in this product term to a logical one.
         };
-        namespace pt0CcValC{
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v00> v00{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v01> v01{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v10> v10{};
-            constexpr MPL::Value<pt0CcVal,pt0CcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,Pt0ccVal> pt0Cc{}; 
+        namespace Pt0ccValC{
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Cc),Pt0ccVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,pt0CcVal> pt0Cc{}; 
         ///Product Term 0, B input Configuration
-        enum class pt0BcVal {
+        enum class Pt0bcVal {
             v00=0x00000000,     ///<Force the B input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the B input in this product term.
             v10=0x00000002,     ///<Complement the B input in this product term.
             v11=0x00000003,     ///<Force the B input in this product term to a logical one.
         };
-        namespace pt0BcValC{
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v00> v00{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v01> v01{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v10> v10{};
-            constexpr MPL::Value<pt0BcVal,pt0BcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,Pt0bcVal> pt0Bc{}; 
+        namespace Pt0bcValC{
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Bc),Pt0bcVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,pt0BcVal> pt0Bc{}; 
         ///Product Term 0, A input Configuration
-        enum class pt0AcVal {
+        enum class Pt0acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
             v01=0x00000001,     ///<Pass the A input in this product term.
             v10=0x00000002,     ///<Complement the A input in this product term.
             v11=0x00000003,     ///<Force the A input in this product term to a logical one.
         };
-        namespace pt0AcValC{
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v00> v00{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v01> v01{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v10> v10{};
-            constexpr MPL::Value<pt0AcVal,pt0AcVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,Pt0acVal> pt0Ac{}; 
+        namespace Pt0acValC{
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pt0Ac),Pt0acVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,pt0AcVal> pt0Ac{}; 
     }
 }

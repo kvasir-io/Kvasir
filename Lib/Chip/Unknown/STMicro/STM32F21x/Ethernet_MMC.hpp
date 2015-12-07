@@ -5,111 +5,159 @@ namespace Kvasir {
     namespace Nonemmccr{    ///<Ethernet MMC control register
         using Addr = Register::Address<0x40028100,0xffffffc0,0,unsigned>;
         ///Counter reset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cr{}; 
+        namespace CrValC{
+        }
         ///Counter stop rollover
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> csr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> csr{}; 
+        namespace CsrValC{
+        }
         ///Reset on read
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ror{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ror{}; 
+        namespace RorValC{
+        }
         ///MMC counter freeze
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mcf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mcf{}; 
+        namespace McfValC{
+        }
         ///MMC counter preset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mcp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mcp{}; 
+        namespace McpValC{
+        }
         ///MMC counter Full-Half
               preset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mcfhp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mcfhp{}; 
+        namespace McfhpValC{
+        }
     }
     namespace Nonemmcrir{    ///<Ethernet MMC receive interrupt
           register
         using Addr = Register::Address<0x40028104,0xfffdff9f,0,unsigned>;
         ///Received frames CRC error
               status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rfces{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rfces{}; 
+        namespace RfcesValC{
+        }
         ///Received frames alignment error
               status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rfaes{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rfaes{}; 
+        namespace RfaesValC{
+        }
         ///Received Good Unicast Frames
               Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rgufs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rgufs{}; 
+        namespace RgufsValC{
+        }
     }
     namespace Nonemmctir{    ///<Ethernet MMC transmit interrupt
           register
         using Addr = Register::Address<0x40028108,0xffdf3fff,0,unsigned>;
         ///Transmitted good frames single collision
               status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> tgfscs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> tgfscs{}; 
+        namespace TgfscsValC{
+        }
         ///Transmitted good frames more single
               collision status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tgfmscs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tgfmscs{}; 
+        namespace TgfmscsValC{
+        }
         ///Transmitted good frames
               status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> tgfs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> tgfs{}; 
+        namespace TgfsValC{
+        }
     }
     namespace Nonemmcrimr{    ///<Ethernet MMC receive interrupt mask
           register
         using Addr = Register::Address<0x4002810c,0xfffdff9f,0,unsigned>;
         ///Received frame CRC error
               mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rfcem{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rfcem{}; 
+        namespace RfcemValC{
+        }
         ///Received frames alignment error
               mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rfaem{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rfaem{}; 
+        namespace RfaemValC{
+        }
         ///Received good unicast frames
               mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rgufm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rgufm{}; 
+        namespace RgufmValC{
+        }
     }
     namespace Nonemmctimr{    ///<Ethernet MMC transmit interrupt mask
           register
         using Addr = Register::Address<0x40028110,0xffdf3fff,0,unsigned>;
         ///Transmitted good frames single collision
               mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> tgfscm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> tgfscm{}; 
+        namespace TgfscmValC{
+        }
         ///Transmitted good frames more single
               collision mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tgfmscm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> tgfmscm{}; 
+        namespace TgfmscmValC{
+        }
         ///Transmitted good frames
               mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> tgfm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> tgfm{}; 
+        namespace TgfmValC{
+        }
     }
     namespace Nonemmctgfsccr{    ///<Ethernet MMC transmitted good frames after a
           single collision counter
         using Addr = Register::Address<0x4002814c,0x00000000,0,unsigned>;
         ///Transmitted good frames single collision
               counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfscc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfscc{}; 
+        namespace TgfsccValC{
+        }
     }
     namespace Nonemmctgfmsccr{    ///<Ethernet MMC transmitted good frames after
           more than a single collision
         using Addr = Register::Address<0x40028150,0x00000000,0,unsigned>;
         ///Transmitted good frames more single
               collision counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfmscc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfmscc{}; 
+        namespace TgfmsccValC{
+        }
     }
     namespace Nonemmctgfcr{    ///<Ethernet MMC transmitted good frames counter
           register
         using Addr = Register::Address<0x40028168,0x00000000,0,unsigned>;
         ///Transmitted good frames
               counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tgfc{}; 
+        namespace TgfcValC{
+        }
     }
     namespace Nonemmcrfcecr{    ///<Ethernet MMC received frames with CRC error
           counter register
         using Addr = Register::Address<0x40028194,0x00000000,0,unsigned>;
         ///Received frames CRC error
               counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rfcfc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rfcfc{}; 
+        namespace RfcfcValC{
+        }
     }
     namespace Nonemmcrfaecr{    ///<Ethernet MMC received frames with alignment
           error counter register
         using Addr = Register::Address<0x40028198,0x00000000,0,unsigned>;
         ///Received frames alignment error
               counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rfaec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rfaec{}; 
+        namespace RfaecValC{
+        }
     }
     namespace Nonemmcrgufcr{    ///<MMC received good unicast frames counter
           register
         using Addr = Register::Address<0x400281c4,0x00000000,0,unsigned>;
         ///Received good unicast frames
               counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rgufc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rgufc{}; 
+        namespace RgufcValC{
+        }
     }
 }

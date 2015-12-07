@@ -5,12 +5,14 @@ namespace Kvasir {
     namespace NvmctrlAddr{    ///<Address
         using Addr = Register::Address<0x4100401c,0xffc00000,0,unsigned>;
         ///NVM Address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        namespace AddrValC{
+        }
     }
     namespace NvmctrlCtrla{    ///<Control A
         using Addr = Register::Address<0x41004000,0xffff0080,0,unsigned>;
         ///Command
-        enum class cmdVal {
+        enum class CmdVal {
             er=0x00000002,     ///<Erase Row - Erases the row addressed by the ADDR register.
             wp=0x00000004,     ///<Write Page - Writes the contents of the page buffer to the page addressed by the ADDR register.
             ear=0x00000005,     ///<Erase Auxiliary Row - Erases the auxiliary row addressed by the ADDR register. This command can be given only when the security bit is not set and only to the user configuration row.
@@ -25,90 +27,114 @@ namespace Kvasir {
             ssb=0x00000045,     ///<Set Security Bit - Sets the security bit by writing 0x00 to the first byte in the lockbit row.
             invall=0x00000046,     ///<Invalidates all cache lines.
         };
-        namespace cmdValC{
-            constexpr MPL::Value<cmdVal,cmdVal::er> er{};
-            constexpr MPL::Value<cmdVal,cmdVal::wp> wp{};
-            constexpr MPL::Value<cmdVal,cmdVal::ear> ear{};
-            constexpr MPL::Value<cmdVal,cmdVal::wap> wap{};
-            constexpr MPL::Value<cmdVal,cmdVal::sf> sf{};
-            constexpr MPL::Value<cmdVal,cmdVal::wl> wl{};
-            constexpr MPL::Value<cmdVal,cmdVal::lr> lr{};
-            constexpr MPL::Value<cmdVal,cmdVal::ur> ur{};
-            constexpr MPL::Value<cmdVal,cmdVal::sprm> sprm{};
-            constexpr MPL::Value<cmdVal,cmdVal::cprm> cprm{};
-            constexpr MPL::Value<cmdVal,cmdVal::pbc> pbc{};
-            constexpr MPL::Value<cmdVal,cmdVal::ssb> ssb{};
-            constexpr MPL::Value<cmdVal,cmdVal::invall> invall{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,CmdVal> cmd{}; 
+        namespace CmdValC{
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::er> er{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::wp> wp{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::ear> ear{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::wap> wap{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::sf> sf{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::wl> wl{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::lr> lr{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::ur> ur{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::sprm> sprm{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::cprm> cprm{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::pbc> pbc{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::ssb> ssb{};
+            constexpr Register::FieldValue<decltype(cmd),CmdVal::invall> invall{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,cmdVal> cmd{}; 
         ///Command Execution
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cmdex{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cmdex{}; 
+        namespace CmdexValC{
+        }
     }
     namespace NvmctrlCtrlb{    ///<Control B
         using Addr = Register::Address<0x41004004,0xfff8fc61,0,unsigned>;
         ///NVM Read Wait States
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,1),Register::ReadWriteAccess,unsigned> rws{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,1),Register::ReadWriteAccess,unsigned> rws{}; 
+        namespace RwsValC{
+        }
         ///Manual Write
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> manw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> manw{}; 
+        namespace ManwValC{
+        }
         ///Power Reduction Mode during Sleep
-        enum class sleepprmVal {
+        enum class SleepprmVal {
             wakeonaccess=0x00000000,     ///<NVM block enters low-power mode when entering sleep.NVM block exits low-power mode upon first access.
             wakeupinstant=0x00000001,     ///<NVM block enters low-power mode when entering sleep.NVM block exits low-power mode when exiting sleep.
             disabled=0x00000003,     ///<Auto power reduction disabled.
         };
-        namespace sleepprmValC{
-            constexpr MPL::Value<sleepprmVal,sleepprmVal::wakeonaccess> wakeonaccess{};
-            constexpr MPL::Value<sleepprmVal,sleepprmVal::wakeupinstant> wakeupinstant{};
-            constexpr MPL::Value<sleepprmVal,sleepprmVal::disabled> disabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,SleepprmVal> sleepprm{}; 
+        namespace SleepprmValC{
+            constexpr Register::FieldValue<decltype(sleepprm),SleepprmVal::wakeonaccess> wakeonaccess{};
+            constexpr Register::FieldValue<decltype(sleepprm),SleepprmVal::wakeupinstant> wakeupinstant{};
+            constexpr Register::FieldValue<decltype(sleepprm),SleepprmVal::disabled> disabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,sleepprmVal> sleepprm{}; 
         ///NVMCTRL Read Mode
-        enum class readmodeVal {
+        enum class ReadmodeVal {
             noMissPenalty=0x00000000,     ///<The NVM Controller (cache system) does not insert wait states on a cache miss. Gives the best system performance.
             lowPower=0x00000001,     ///<Reduces power consumption of the cache system, but inserts a wait state each time there is a cache miss. This mode may not be relevant if CPU performance is required, as the application will be stalled and may lead to increase run time.
             deterministic=0x00000002,     ///<The cache system ensures that a cache hit or miss takes the same amount of time, determined by the number of programmed flash wait states. This mode can be used for real-time applications that require deterministic execution timings.
         };
-        namespace readmodeValC{
-            constexpr MPL::Value<readmodeVal,readmodeVal::noMissPenalty> noMissPenalty{};
-            constexpr MPL::Value<readmodeVal,readmodeVal::lowPower> lowPower{};
-            constexpr MPL::Value<readmodeVal,readmodeVal::deterministic> deterministic{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,ReadmodeVal> readmode{}; 
+        namespace ReadmodeValC{
+            constexpr Register::FieldValue<decltype(readmode),ReadmodeVal::noMissPenalty> noMissPenalty{};
+            constexpr Register::FieldValue<decltype(readmode),ReadmodeVal::lowPower> lowPower{};
+            constexpr Register::FieldValue<decltype(readmode),ReadmodeVal::deterministic> deterministic{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,readmodeVal> readmode{}; 
         ///Cache Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> cachedis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> cachedis{}; 
+        namespace CachedisValC{
+        }
     }
     namespace NvmctrlIntenclr{    ///<Interrupt Enable Clear
         using Addr = Register::Address<0x4100400c,0xfffffffc,0,unsigned char>;
         ///NVM Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ready{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ready{}; 
+        namespace ReadyValC{
+        }
         ///Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> error{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> error{}; 
+        namespace ErrorValC{
+        }
     }
     namespace NvmctrlIntenset{    ///<Interrupt Enable Set
         using Addr = Register::Address<0x41004010,0xfffffffc,0,unsigned char>;
         ///NVM Ready Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ready{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ready{}; 
+        namespace ReadyValC{
+        }
         ///Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> error{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> error{}; 
+        namespace ErrorValC{
+        }
     }
     namespace NvmctrlIntflag{    ///<Interrupt Flag Status and Clear
         using Addr = Register::Address<0x41004014,0xfffffffc,0,unsigned char>;
         ///NVM Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ready{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ready{}; 
+        namespace ReadyValC{
+        }
         ///Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> error{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> error{}; 
+        namespace ErrorValC{
+        }
     }
     namespace NvmctrlLock{    ///<Lock Section
         using Addr = Register::Address<0x41004020,0xffff0000,0,unsigned>;
         ///Region Lock Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lock{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lock{}; 
+        namespace LockValC{
+        }
     }
     namespace NvmctrlParam{    ///<NVM Parameter
         using Addr = Register::Address<0x41004008,0xfff80000,0,unsigned>;
         ///NVM Pages
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> nvmp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> nvmp{}; 
+        namespace NvmpValC{
+        }
         ///Page Size
-        enum class pszVal {
+        enum class PszVal {
             v8=0x00000000,     ///<8 bytes
             v16=0x00000001,     ///<16 bytes
             v32=0x00000002,     ///<32 bytes
@@ -118,31 +144,43 @@ namespace Kvasir {
             v512=0x00000006,     ///<512 bytes
             v1024=0x00000007,     ///<1024 bytes
         };
-        namespace pszValC{
-            constexpr MPL::Value<pszVal,pszVal::v8> v8{};
-            constexpr MPL::Value<pszVal,pszVal::v16> v16{};
-            constexpr MPL::Value<pszVal,pszVal::v32> v32{};
-            constexpr MPL::Value<pszVal,pszVal::v64> v64{};
-            constexpr MPL::Value<pszVal,pszVal::v128> v128{};
-            constexpr MPL::Value<pszVal,pszVal::v256> v256{};
-            constexpr MPL::Value<pszVal,pszVal::v512> v512{};
-            constexpr MPL::Value<pszVal,pszVal::v1024> v1024{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,PszVal> psz{}; 
+        namespace PszValC{
+            constexpr Register::FieldValue<decltype(psz),PszVal::v8> v8{};
+            constexpr Register::FieldValue<decltype(psz),PszVal::v16> v16{};
+            constexpr Register::FieldValue<decltype(psz),PszVal::v32> v32{};
+            constexpr Register::FieldValue<decltype(psz),PszVal::v64> v64{};
+            constexpr Register::FieldValue<decltype(psz),PszVal::v128> v128{};
+            constexpr Register::FieldValue<decltype(psz),PszVal::v256> v256{};
+            constexpr Register::FieldValue<decltype(psz),PszVal::v512> v512{};
+            constexpr Register::FieldValue<decltype(psz),PszVal::v1024> v1024{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,pszVal> psz{}; 
     }
     namespace NvmctrlStatus{    ///<Status
         using Addr = Register::Address<0x41004018,0xfffffee0,0,unsigned>;
         ///Power Reduction Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> prm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> prm{}; 
+        namespace PrmValC{
+        }
         ///NVM Page Buffer Active Loading
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> load{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> load{}; 
+        namespace LoadValC{
+        }
         ///Programming Error Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> proge{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> proge{}; 
+        namespace ProgeValC{
+        }
         ///Lock Error Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> locke{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> locke{}; 
+        namespace LockeValC{
+        }
         ///NVM Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nvme{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nvme{}; 
+        namespace NvmeValC{
+        }
         ///Security Bit Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sb{}; 
+        namespace SbValC{
+        }
     }
 }

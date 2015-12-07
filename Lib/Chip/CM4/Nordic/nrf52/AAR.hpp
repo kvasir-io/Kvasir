@@ -20,117 +20,127 @@ namespace Kvasir {
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4000f304,0xfffffff8,0,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
-            constexpr MPL::Value<endVal,endVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,endVal> end{}; 
         ///Write '1' to Enable interrupt on EVENTS_RESOLVED event
-        enum class resolvedVal {
+        enum class ResolvedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace resolvedValC{
-            constexpr MPL::Value<resolvedVal,resolvedVal::disabled> disabled{};
-            constexpr MPL::Value<resolvedVal,resolvedVal::enabled> enabled{};
-            constexpr MPL::Value<resolvedVal,resolvedVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ResolvedVal> resolved{}; 
+        namespace ResolvedValC{
+            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,resolvedVal> resolved{}; 
         ///Write '1' to Enable interrupt on EVENTS_NOTRESOLVED event
-        enum class notresolvedVal {
+        enum class NotresolvedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace notresolvedValC{
-            constexpr MPL::Value<notresolvedVal,notresolvedVal::disabled> disabled{};
-            constexpr MPL::Value<notresolvedVal,notresolvedVal::enabled> enabled{};
-            constexpr MPL::Value<notresolvedVal,notresolvedVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NotresolvedVal> notresolved{}; 
+        namespace NotresolvedValC{
+            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,notresolvedVal> notresolved{}; 
     }
     namespace Noneintenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4000f308,0xfffffff8,0,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
-            constexpr MPL::Value<endVal,endVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,endVal> end{}; 
         ///Write '1' to Clear interrupt on EVENTS_RESOLVED event
-        enum class resolvedVal {
+        enum class ResolvedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace resolvedValC{
-            constexpr MPL::Value<resolvedVal,resolvedVal::disabled> disabled{};
-            constexpr MPL::Value<resolvedVal,resolvedVal::enabled> enabled{};
-            constexpr MPL::Value<resolvedVal,resolvedVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ResolvedVal> resolved{}; 
+        namespace ResolvedValC{
+            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,resolvedVal> resolved{}; 
         ///Write '1' to Clear interrupt on EVENTS_NOTRESOLVED event
-        enum class notresolvedVal {
+        enum class NotresolvedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace notresolvedValC{
-            constexpr MPL::Value<notresolvedVal,notresolvedVal::disabled> disabled{};
-            constexpr MPL::Value<notresolvedVal,notresolvedVal::enabled> enabled{};
-            constexpr MPL::Value<notresolvedVal,notresolvedVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NotresolvedVal> notresolved{}; 
+        namespace NotresolvedValC{
+            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,notresolvedVal> notresolved{}; 
     }
     namespace Nonestatus{    ///<Resolution status
         using Addr = Register::Address<0x4000f400,0xfffffff0,0,unsigned>;
         ///The IRK that was used last time an address was resolved
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> status{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> status{}; 
+        namespace StatusValC{
+        }
     }
     namespace Noneenable{    ///<Enable AAR
         using Addr = Register::Address<0x4000f500,0xfffffffc,0,unsigned>;
         ///Enable or disable AAR
-        enum class enableVal {
+        enum class EnableVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000003,     ///<Enable
         };
-        namespace enableValC{
-            constexpr MPL::Value<enableVal,enableVal::disabled> disabled{};
-            constexpr MPL::Value<enableVal,enableVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,EnableVal> enable{}; 
+        namespace EnableValC{
+            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,enableVal> enable{}; 
     }
     namespace Nonenirk{    ///<Number of IRKs
         using Addr = Register::Address<0x4000f504,0xffffffe0,0,unsigned>;
         ///Number of Identity root keys available in the IRK data structure
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> nirk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> nirk{}; 
+        namespace NirkValC{
+        }
     }
     namespace Noneirkptr{    ///<Pointer to IRK data structure
         using Addr = Register::Address<0x4000f508,0x00000000,0,unsigned>;
         ///Pointer to the IRK data structure
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> irkptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> irkptr{}; 
+        namespace IrkptrValC{
+        }
     }
     namespace Noneaddrptr{    ///<Pointer to the resolvable address
         using Addr = Register::Address<0x4000f510,0x00000000,0,unsigned>;
         ///Pointer to the resolvable address (6-bytes)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addrptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addrptr{}; 
+        namespace AddrptrValC{
+        }
     }
     namespace Nonescratchptr{    ///<Pointer to data area used for temporary storage
         using Addr = Register::Address<0x4000f514,0x00000000,0,unsigned>;
         ///Pointer to a "scratch" data area used for temporary storage during resolution.A space of minimum 3 bytes must be reserved.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> scratchptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> scratchptr{}; 
+        namespace ScratchptrValC{
+        }
     }
 }

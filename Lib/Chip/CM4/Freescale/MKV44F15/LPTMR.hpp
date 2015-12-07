@@ -5,108 +5,108 @@ namespace Kvasir {
     namespace LptmrCsr{    ///<Low Power Timer Control Status Register
         using Addr = Register::Address<0x40040000,0xffffff00,0,unsigned>;
         ///Timer Enable
-        enum class tenVal {
+        enum class TenVal {
             v0=0x00000000,     ///<LPTMR is disabled and internal logic is reset.
             v1=0x00000001,     ///<LPTMR is enabled.
         };
-        namespace tenValC{
-            constexpr MPL::Value<tenVal,tenVal::v0> v0{};
-            constexpr MPL::Value<tenVal,tenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
+        namespace TenValC{
+            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tenVal> ten{}; 
         ///Timer Mode Select
-        enum class tmsVal {
+        enum class TmsVal {
             v0=0x00000000,     ///<Time Counter mode.
             v1=0x00000001,     ///<Pulse Counter mode.
         };
-        namespace tmsValC{
-            constexpr MPL::Value<tmsVal,tmsVal::v0> v0{};
-            constexpr MPL::Value<tmsVal,tmsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TmsVal> tms{}; 
+        namespace TmsValC{
+            constexpr Register::FieldValue<decltype(tms),TmsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tms),TmsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,tmsVal> tms{}; 
         ///Timer Free-Running Counter
-        enum class tfcVal {
+        enum class TfcVal {
             v0=0x00000000,     ///<CNR is reset whenever TCF is set.
             v1=0x00000001,     ///<CNR is reset on overflow.
         };
-        namespace tfcValC{
-            constexpr MPL::Value<tfcVal,tfcVal::v0> v0{};
-            constexpr MPL::Value<tfcVal,tfcVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TfcVal> tfc{}; 
+        namespace TfcValC{
+            constexpr Register::FieldValue<decltype(tfc),TfcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tfc),TfcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,tfcVal> tfc{}; 
         ///Timer Pin Polarity
-        enum class tppVal {
+        enum class TppVal {
             v0=0x00000000,     ///<Pulse Counter input source is active-high, and the CNR will increment on the rising-edge.
             v1=0x00000001,     ///<Pulse Counter input source is active-low, and the CNR will increment on the falling-edge.
         };
-        namespace tppValC{
-            constexpr MPL::Value<tppVal,tppVal::v0> v0{};
-            constexpr MPL::Value<tppVal,tppVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TppVal> tpp{}; 
+        namespace TppValC{
+            constexpr Register::FieldValue<decltype(tpp),TppVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tpp),TppVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,tppVal> tpp{}; 
         ///Timer Pin Select
-        enum class tpsVal {
+        enum class TpsVal {
             v00=0x00000000,     ///<Pulse counter input 0 is selected.
             v01=0x00000001,     ///<Pulse counter input 1 is selected.
             v10=0x00000002,     ///<Pulse counter input 2 is selected.
             v11=0x00000003,     ///<Pulse counter input 3 is selected.
         };
-        namespace tpsValC{
-            constexpr MPL::Value<tpsVal,tpsVal::v00> v00{};
-            constexpr MPL::Value<tpsVal,tpsVal::v01> v01{};
-            constexpr MPL::Value<tpsVal,tpsVal::v10> v10{};
-            constexpr MPL::Value<tpsVal,tpsVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,TpsVal> tps{}; 
+        namespace TpsValC{
+            constexpr Register::FieldValue<decltype(tps),TpsVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(tps),TpsVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(tps),TpsVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(tps),TpsVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,tpsVal> tps{}; 
         ///Timer Interrupt Enable
-        enum class tieVal {
+        enum class TieVal {
             v0=0x00000000,     ///<Timer interrupt disabled.
             v1=0x00000001,     ///<Timer interrupt enabled.
         };
-        namespace tieValC{
-            constexpr MPL::Value<tieVal,tieVal::v0> v0{};
-            constexpr MPL::Value<tieVal,tieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TieVal> tie{}; 
+        namespace TieValC{
+            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,tieVal> tie{}; 
         ///Timer Compare Flag
-        enum class tcfVal {
+        enum class TcfVal {
             v0=0x00000000,     ///<The value of CNR is not equal to CMR and increments.
             v1=0x00000001,     ///<The value of CNR is equal to CMR and increments.
         };
-        namespace tcfValC{
-            constexpr MPL::Value<tcfVal,tcfVal::v0> v0{};
-            constexpr MPL::Value<tcfVal,tcfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TcfVal> tcf{}; 
+        namespace TcfValC{
+            constexpr Register::FieldValue<decltype(tcf),TcfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tcf),TcfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,tcfVal> tcf{}; 
     }
     namespace LptmrPsr{    ///<Low Power Timer Prescale Register
         using Addr = Register::Address<0x40040004,0xffffff80,0,unsigned>;
         ///Prescaler Clock Select
-        enum class pcsVal {
+        enum class PcsVal {
             v00=0x00000000,     ///<Prescaler/glitch filter clock 0 selected.
             v01=0x00000001,     ///<Prescaler/glitch filter clock 1 selected.
             v10=0x00000002,     ///<Prescaler/glitch filter clock 2 selected.
             v11=0x00000003,     ///<Prescaler/glitch filter clock 3 selected.
         };
-        namespace pcsValC{
-            constexpr MPL::Value<pcsVal,pcsVal::v00> v00{};
-            constexpr MPL::Value<pcsVal,pcsVal::v01> v01{};
-            constexpr MPL::Value<pcsVal,pcsVal::v10> v10{};
-            constexpr MPL::Value<pcsVal,pcsVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,PcsVal> pcs{}; 
+        namespace PcsValC{
+            constexpr Register::FieldValue<decltype(pcs),PcsVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pcs),PcsVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pcs),PcsVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pcs),PcsVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,pcsVal> pcs{}; 
         ///Prescaler Bypass
-        enum class pbypVal {
+        enum class PbypVal {
             v0=0x00000000,     ///<Prescaler/glitch filter is enabled.
             v1=0x00000001,     ///<Prescaler/glitch filter is bypassed.
         };
-        namespace pbypValC{
-            constexpr MPL::Value<pbypVal,pbypVal::v0> v0{};
-            constexpr MPL::Value<pbypVal,pbypVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,PbypVal> pbyp{}; 
+        namespace PbypValC{
+            constexpr Register::FieldValue<decltype(pbyp),PbypVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pbyp),PbypVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,pbypVal> pbyp{}; 
         ///Prescale Value
-        enum class prescaleVal {
+        enum class PrescaleVal {
             v0000=0x00000000,     ///<Prescaler divides the prescaler clock by 2; glitch filter does not support this configuration.
             v0001=0x00000001,     ///<Prescaler divides the prescaler clock by 4; glitch filter recognizes change on input pin after 2 rising clock edges.
             v0010=0x00000002,     ///<Prescaler divides the prescaler clock by 8; glitch filter recognizes change on input pin after 4 rising clock edges.
@@ -124,34 +124,38 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Prescaler divides the prescaler clock by 32,768; glitch filter recognizes change on input pin after 16,384 rising clock edges.
             v1111=0x0000000f,     ///<Prescaler divides the prescaler clock by 65,536; glitch filter recognizes change on input pin after 32,768 rising clock edges.
         };
-        namespace prescaleValC{
-            constexpr MPL::Value<prescaleVal,prescaleVal::v0000> v0000{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v0001> v0001{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v0010> v0010{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v0011> v0011{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v0100> v0100{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v0101> v0101{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v0110> v0110{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v0111> v0111{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v1000> v1000{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v1001> v1001{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v1010> v1010{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v1011> v1011{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v1100> v1100{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v1101> v1101{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v1110> v1110{};
-            constexpr MPL::Value<prescaleVal,prescaleVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,3),Register::ReadWriteAccess,PrescaleVal> prescale{}; 
+        namespace PrescaleValC{
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(prescale),PrescaleVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,3),Register::ReadWriteAccess,prescaleVal> prescale{}; 
     }
     namespace LptmrCmr{    ///<Low Power Timer Compare Register
         using Addr = Register::Address<0x40040008,0xffff0000,0,unsigned>;
         ///Compare Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> compare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> compare{}; 
+        namespace CompareValC{
+        }
     }
     namespace LptmrCnr{    ///<Low Power Timer Counter Register
         using Addr = Register::Address<0x4004000c,0xffff0000,0,unsigned>;
         ///Counter Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> counter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> counter{}; 
+        namespace CounterValC{
+        }
     }
 }

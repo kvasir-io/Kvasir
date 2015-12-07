@@ -11,9 +11,13 @@ namespace Kvasir {
     namespace NonewdgCtl{    ///<Hardware Watchdog Timer Control Register
         using Addr = Register::Address<0x40011008,0xfffffffc,0,unsigned>;
         ///Hardware watchdog reset enable bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> resen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> resen{}; 
+        namespace ResenValC{
+        }
         ///Hardware watchdog interrupt and counter enable bit 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inten{}; 
+        namespace IntenValC{
+        }
     }
     namespace NonewdgIcl{    ///<Hardware Watchdog Timer Clear Register
         using Addr = Register::Address<0x4001100c,0xffffffff,0,unsigned char>;
@@ -21,7 +25,9 @@ namespace Kvasir {
     namespace NonewdgRis{    ///<Hardware Watchdog Timer Interrupt Status Register
         using Addr = Register::Address<0x40011010,0xfffffffe,0,unsigned>;
         ///Hardware watchdog interrupt status bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ris{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ris{}; 
+        namespace RisValC{
+        }
     }
     namespace NonewdgLck{    ///<Hardware Watchdog Timer Lock Register
         using Addr = Register::Address<0x40011c00,0xffffffff,0,unsigned>;

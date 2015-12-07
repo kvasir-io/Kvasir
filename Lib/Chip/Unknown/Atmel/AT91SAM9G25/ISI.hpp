@@ -5,302 +5,516 @@ namespace Kvasir {
     namespace IsiCfg1{    ///<ISI Configuration 1 Register
         using Addr = Register::Address<0xf8048000,0x00008023,0,unsigned>;
         ///Horizontal Synchronization Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hsyncPol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> hsyncPol{}; 
+        namespace HsyncpolValC{
+        }
         ///Vertical Synchronization Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vsyncPol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> vsyncPol{}; 
+        namespace VsyncpolValC{
+        }
         ///Pixel Clock Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pixclkPol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pixclkPol{}; 
+        namespace PixclkpolValC{
+        }
         ///Embedded Synchronization
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> embSync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> embSync{}; 
+        namespace EmbsyncValC{
+        }
         ///Embedded Synchronization Correction
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> crcSync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> crcSync{}; 
+        namespace CrcsyncValC{
+        }
         ///Frame Rate [0..7]
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> frate{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> frate{}; 
+        namespace FrateValC{
+        }
         ///Disable Codec Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> discr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> discr{}; 
+        namespace DiscrValC{
+        }
         ///Full Mode is Allowed
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> full{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> full{}; 
+        namespace FullValC{
+        }
         ///Threshold Mask
-        enum class thmaskVal {
+        enum class ThmaskVal {
             beats4=0x00000000,     ///<Only 4 beats AHB burst allowed
             beats8=0x00000001,     ///<Only 4 and 8 beats AHB burst allowed
             beats16=0x00000002,     ///<4, 8 and 16 beats AHB burst allowed
         };
-        namespace thmaskValC{
-            constexpr MPL::Value<thmaskVal,thmaskVal::beats4> beats4{};
-            constexpr MPL::Value<thmaskVal,thmaskVal::beats8> beats8{};
-            constexpr MPL::Value<thmaskVal,thmaskVal::beats16> beats16{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,13),Register::ReadWriteAccess,ThmaskVal> thmask{}; 
+        namespace ThmaskValC{
+            constexpr Register::FieldValue<decltype(thmask),ThmaskVal::beats4> beats4{};
+            constexpr Register::FieldValue<decltype(thmask),ThmaskVal::beats8> beats8{};
+            constexpr Register::FieldValue<decltype(thmask),ThmaskVal::beats16> beats16{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,13),Register::ReadWriteAccess,thmaskVal> thmask{}; 
         ///Start of Line Delay
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sld{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sld{}; 
+        namespace SldValC{
+        }
         ///Start of Frame Delay
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> sfd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> sfd{}; 
+        namespace SfdValC{
+        }
     }
     namespace IsiCfg2{    ///<ISI Configuration 2 Register
         using Addr = Register::Address<0xf8048004,0x08000000,0,unsigned>;
         ///Vertical Size of the Image Sensor [0..2047]:
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> imVsize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> imVsize{}; 
+        namespace ImvsizeValC{
+        }
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> gsMode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> gsMode{}; 
+        namespace GsmodeValC{
+        }
         ///RGB Input Mode:
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rgbMode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rgbMode{}; 
+        namespace RgbmodeValC{
+        }
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> grayscale{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> grayscale{}; 
+        namespace GrayscaleValC{
+        }
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rgbSwap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rgbSwap{}; 
+        namespace RgbswapValC{
+        }
         ///Color Space for the Image Data
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> colSpace{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> colSpace{}; 
+        namespace ColspaceValC{
+        }
         ///Horizontal Size of the Image Sensor [0..2047]
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> imHsize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> imHsize{}; 
+        namespace ImhsizeValC{
+        }
         ///Defines the YCC Image Data
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> yccSwap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> yccSwap{}; 
+        namespace YccswapValC{
+        }
         ///Defines RGB Pattern when RGB_MODE is set to 1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> rgbCfg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> rgbCfg{}; 
+        namespace RgbcfgValC{
+        }
     }
     namespace IsiPsize{    ///<ISI Preview Size Register
         using Addr = Register::Address<0xf8048008,0xfc00fc00,0,unsigned>;
         ///Vertical Size for the Preview Path
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> prevVsize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> prevVsize{}; 
+        namespace PrevvsizeValC{
+        }
         ///Horizontal Size for the Preview Path
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> prevHsize{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> prevHsize{}; 
+        namespace PrevhsizeValC{
+        }
     }
     namespace IsiPdecf{    ///<ISI Preview Decimation Factor Register
         using Addr = Register::Address<0xf804800c,0xffffff00,0,unsigned>;
         ///Decimation Factor
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> decFactor{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> decFactor{}; 
+        namespace DecfactorValC{
+        }
     }
     namespace IsiY2rSet0{    ///<ISI CSC YCrCb To RGB Set 0 Register
         using Addr = Register::Address<0xf8048010,0x00000000,0,unsigned>;
         ///Color Space Conversion Matrix Coefficient C0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> c0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> c0{}; 
+        namespace C0ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> c1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> c1{}; 
+        namespace C1ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C2
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> c2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> c2{}; 
+        namespace C2ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C3
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> c3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> c3{}; 
+        namespace C3ValC{
+        }
     }
     namespace IsiY2rSet1{    ///<ISI CSC YCrCb To RGB Set 1 Register
         using Addr = Register::Address<0xf8048014,0xffff8e00,0,unsigned>;
         ///Color Space Conversion Matrix Coefficient C4
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> c4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> c4{}; 
+        namespace C4ValC{
+        }
         ///Color Space Conversion Luminance Default Offset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> yoff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> yoff{}; 
+        namespace YoffValC{
+        }
         ///Color Space Conversion Red Chrominance Default Offset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> croff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> croff{}; 
+        namespace CroffValC{
+        }
         ///Color Space Conversion Blue Chrominance Default Offset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> cboff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> cboff{}; 
+        namespace CboffValC{
+        }
     }
     namespace IsiR2ySet0{    ///<ISI CSC RGB To YCrCb Set 0 Register
         using Addr = Register::Address<0xf8048018,0xfe808080,0,unsigned>;
         ///Color Space Conversion Matrix Coefficient C0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> c0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> c0{}; 
+        namespace C0ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> c1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> c1{}; 
+        namespace C1ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C2
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> c2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> c2{}; 
+        namespace C2ValC{
+        }
         ///Color Space Conversion Red Component Offset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> roff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> roff{}; 
+        namespace RoffValC{
+        }
     }
     namespace IsiR2ySet1{    ///<ISI CSC RGB To YCrCb Set 1 Register
         using Addr = Register::Address<0xf804801c,0xfe808080,0,unsigned>;
         ///Color Space Conversion Matrix Coefficient C3
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> c3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> c3{}; 
+        namespace C3ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C4
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> c4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> c4{}; 
+        namespace C4ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C5
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> c5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> c5{}; 
+        namespace C5ValC{
+        }
         ///Color Space Conversion Green Component Offset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> goff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> goff{}; 
+        namespace GoffValC{
+        }
     }
     namespace IsiR2ySet2{    ///<ISI CSC RGB To YCrCb Set 2 Register
         using Addr = Register::Address<0xf8048020,0xfe808080,0,unsigned>;
         ///Color Space Conversion Matrix Coefficient C6
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> c6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> c6{}; 
+        namespace C6ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C7
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> c7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> c7{}; 
+        namespace C7ValC{
+        }
         ///Color Space Conversion Matrix Coefficient C8
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> c8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> c8{}; 
+        namespace C8ValC{
+        }
         ///Color Space Conversion Blue Component Offset
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> boff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> boff{}; 
+        namespace BoffValC{
+        }
     }
     namespace IsiCr{    ///<ISI Control Register
         using Addr = Register::Address<0xf8048024,0xfffffef8,0,unsigned>;
         ///ISI Module Enable Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> isiEn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> isiEn{}; 
+        namespace IsienValC{
+        }
         ///ISI Module Disable Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> isiDis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> isiDis{}; 
+        namespace IsidisValC{
+        }
         ///ISI Software Reset Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> isiSrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> isiSrst{}; 
+        namespace IsisrstValC{
+        }
         ///ISI Codec Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> isiCdc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> isiCdc{}; 
+        namespace IsicdcValC{
+        }
     }
     namespace IsiSr{    ///<ISI Status Register
         using Addr = Register::Address<0xf8048028,0xf0f4faf8,0,unsigned>;
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> enable{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> enable{}; 
+        namespace EnableValC{
+        }
         ///Module Disable Request has Terminated
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disDone{}; 
+        namespace DisdoneValC{
+        }
         ///Module Software Reset Request has Terminated
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srst{}; 
+        namespace SrstValC{
+        }
         ///Pending Codec Request (this bit is a status bit)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cdcPnd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cdcPnd{}; 
+        namespace CdcpndValC{
+        }
         ///Vertical Synchronization
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> vsync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> vsync{}; 
+        namespace VsyncValC{
+        }
         ///Preview DMA Transfer has Terminated.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pxfrDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pxfrDone{}; 
+        namespace PxfrdoneValC{
+        }
         ///Codec DMA Transfer has Terminated.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cxfrDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cxfrDone{}; 
+        namespace CxfrdoneValC{
+        }
         ///Synchronization in Progress (this is a status bit)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> sip{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> sip{}; 
+        namespace SipValC{
+        }
         ///Preview Datapath Overflow
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pOvr{}; 
+        namespace PovrValC{
+        }
         ///Codec Datapath Overflow
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cOvr{}; 
+        namespace CovrValC{
+        }
         ///CRC Synchronization Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> crcErr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> crcErr{}; 
+        namespace CrcerrValC{
+        }
         ///Frame Rate Overrun
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> frOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> frOvr{}; 
+        namespace FrovrValC{
+        }
     }
     namespace IsiIer{    ///<ISI Interrupt Enable Register
         using Addr = Register::Address<0xf804802c,0xf0fcfbf9,0,unsigned>;
         ///Disable Done Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disDone{}; 
+        namespace DisdoneValC{
+        }
         ///Software Reset Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srst{}; 
+        namespace SrstValC{
+        }
         ///Vertical Synchronization Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> vsync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> vsync{}; 
+        namespace VsyncValC{
+        }
         ///Preview DMA Transfer Done Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pxfrDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pxfrDone{}; 
+        namespace PxfrdoneValC{
+        }
         ///Codec DMA Transfer Done Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cxfrDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cxfrDone{}; 
+        namespace CxfrdoneValC{
+        }
         ///Preview Datapath Overflow Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pOvr{}; 
+        namespace PovrValC{
+        }
         ///Codec Datapath Overflow Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cOvr{}; 
+        namespace CovrValC{
+        }
         ///Embedded Synchronization CRC Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> crcErr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> crcErr{}; 
+        namespace CrcerrValC{
+        }
         ///Frame Rate Overflow Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> frOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> frOvr{}; 
+        namespace FrovrValC{
+        }
     }
     namespace IsiIdr{    ///<ISI Interrupt Disable Register
         using Addr = Register::Address<0xf8048030,0xf0fcfbf9,0,unsigned>;
         ///Disable Done Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disDone{}; 
+        namespace DisdoneValC{
+        }
         ///Software Reset Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srst{}; 
+        namespace SrstValC{
+        }
         ///Vertical Synchronization Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> vsync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> vsync{}; 
+        namespace VsyncValC{
+        }
         ///Preview DMA Transfer Done Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pxfrDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pxfrDone{}; 
+        namespace PxfrdoneValC{
+        }
         ///Codec DMA Transfer Done Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cxfrDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cxfrDone{}; 
+        namespace CxfrdoneValC{
+        }
         ///Preview Datapath Overflow Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pOvr{}; 
+        namespace PovrValC{
+        }
         ///Codec Datapath Overflow Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cOvr{}; 
+        namespace CovrValC{
+        }
         ///Embedded Synchronization CRC Error Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> crcErr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> crcErr{}; 
+        namespace CrcerrValC{
+        }
         ///Frame Rate Overflow Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> frOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> frOvr{}; 
+        namespace FrovrValC{
+        }
     }
     namespace IsiImr{    ///<ISI Interrupt Mask Register
         using Addr = Register::Address<0xf8048034,0xf0fcfbf9,0,unsigned>;
         ///Module Disable Operation Completed
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> disDone{}; 
+        namespace DisdoneValC{
+        }
         ///Software Reset Completed
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> srst{}; 
+        namespace SrstValC{
+        }
         ///Vertical Synchronization
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> vsync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> vsync{}; 
+        namespace VsyncValC{
+        }
         ///Preview DMA Transfer Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pxfrDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pxfrDone{}; 
+        namespace PxfrdoneValC{
+        }
         ///Codec DMA Transfer Interrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cxfrDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> cxfrDone{}; 
+        namespace CxfrdoneValC{
+        }
         ///FIFO Preview Overflow
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pOvr{}; 
+        namespace PovrValC{
+        }
         ///FIFO Codec Overflow
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> cOvr{}; 
+        namespace CovrValC{
+        }
         ///CRC Synchronization Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> crcErr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> crcErr{}; 
+        namespace CrcerrValC{
+        }
         ///Frame Rate Overrun
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> frOvr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> frOvr{}; 
+        namespace FrovrValC{
+        }
     }
     namespace IsiDmaCher{    ///<DMA Channel Enable Register
         using Addr = Register::Address<0xf8048038,0xfffffffc,0,unsigned>;
         ///Preview Channel Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pChEn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pChEn{}; 
+        namespace PchenValC{
+        }
         ///Codec Channel Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cChEn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cChEn{}; 
+        namespace CchenValC{
+        }
     }
     namespace IsiDmaChdr{    ///<DMA Channel Disable Register
         using Addr = Register::Address<0xf804803c,0xfffffffc,0,unsigned>;
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pChDis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pChDis{}; 
+        namespace PchdisValC{
+        }
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cChDis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cChDis{}; 
+        namespace CchdisValC{
+        }
     }
     namespace IsiDmaChsr{    ///<DMA Channel Status Register
         using Addr = Register::Address<0xf8048040,0xfffffffc,0,unsigned>;
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pChS{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pChS{}; 
+        namespace PchsValC{
+        }
         ///None
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cChS{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cChS{}; 
+        namespace CchsValC{
+        }
     }
     namespace IsiDmaPAddr{    ///<DMA Preview Base Address Register
         using Addr = Register::Address<0xf8048044,0x00000003,0,unsigned>;
         ///Preview Image Base Address. (This address is word aligned.)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> pAddr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> pAddr{}; 
+        namespace PaddrValC{
+        }
     }
     namespace IsiDmaPCtrl{    ///<DMA Preview Control Register
         using Addr = Register::Address<0xf8048048,0xfffffff0,0,unsigned>;
         ///Descriptor Fetch Control Field
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pFetch{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pFetch{}; 
+        namespace PfetchValC{
+        }
         ///Descriptor Writeback Control Field
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pWb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pWb{}; 
+        namespace PwbValC{
+        }
         ///Transfer Done Flag Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pIen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pIen{}; 
+        namespace PienValC{
+        }
         ///(This field is only updated in the memory.)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pDone{}; 
+        namespace PdoneValC{
+        }
     }
     namespace IsiDmaPDscr{    ///<DMA Preview Descriptor Address Register
         using Addr = Register::Address<0xf804804c,0x00000003,0,unsigned>;
         ///Preview Descriptor Base Address (This address is word aligned.)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> pDscr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> pDscr{}; 
+        namespace PdscrValC{
+        }
     }
     namespace IsiDmaCAddr{    ///<DMA Codec Base Address Register
         using Addr = Register::Address<0xf8048050,0x00000003,0,unsigned>;
         ///Codec Image Base Address (This address is word aligned.)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> cAddr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> cAddr{}; 
+        namespace CaddrValC{
+        }
     }
     namespace IsiDmaCCtrl{    ///<DMA Codec Control Register
         using Addr = Register::Address<0xf8048054,0xfffffff0,0,unsigned>;
         ///Descriptor Fetch Control Field
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cFetch{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cFetch{}; 
+        namespace CfetchValC{
+        }
         ///Descriptor Writeback Control Field
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cWb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cWb{}; 
+        namespace CwbValC{
+        }
         ///Transfer Done flag control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cIen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cIen{}; 
+        namespace CienValC{
+        }
         ///(This field is only updated in the memory.)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cDone{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cDone{}; 
+        namespace CdoneValC{
+        }
     }
     namespace IsiDmaCDscr{    ///<DMA Codec Descriptor Address Register
         using Addr = Register::Address<0xf8048058,0x00000003,0,unsigned>;
         ///Codec Descriptor Base Address (This address is word aligned.)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> cDscr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> cDscr{}; 
+        namespace CdscrValC{
+        }
     }
     namespace IsiWpcr{    ///<Write Protection Control Register
         using Addr = Register::Address<0xf80480e4,0x000000fe,0,unsigned>;
         ///Write Protection Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpEn{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpEn{}; 
+        namespace WpenValC{
+        }
         ///Write Protection KEY Password
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpKey{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpKey{}; 
+        namespace WpkeyValC{
+        }
     }
     namespace IsiWpsr{    ///<Write Protection Status Register
         using Addr = Register::Address<0xf80480e8,0xff0000f0,0,unsigned>;
         ///Write Protection Violation Status
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wpVs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wpVs{}; 
+        namespace WpvsValC{
+        }
         ///Write Protection Violation Source
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpVsrc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpVsrc{}; 
+        namespace WpvsrcValC{
+        }
     }
 }

@@ -22,6 +22,7 @@
 #include "Types.hpp"
 #include "Utility.hpp"
 #include "Exec.hpp"
+#include "Common/Tags.hpp"
 
 
 namespace Kvasir {
@@ -47,10 +48,10 @@ namespace Kvasir {
 				using Type = IndexedAction<TAction,ReadMask,TInputs...>;
 				template<int I>
 				unsigned operator()(const unsigned (&arg)[I]){
-					return RegisterExec<TAction>{}(orAllOf(TInputs{}(arg)...)) & ReadMask;
+					return ExecuteSeam<TAction, ::Kvasir::Tag::User>{}(orAllOf(TInputs{}(arg)...)) & ReadMask;
 				}
 				unsigned operator()(){
-					return RegisterExec<TAction>{}(0) & ReadMask;
+					return ExecuteSeam<TAction, ::Kvasir::Tag::User>{}(0) & ReadMask;
 				}
 			};
 
@@ -79,12 +80,12 @@ namespace Kvasir {
 				typename... TInputs1, typename... TInputs2,
 				typename... Ts, typename... Us> //next input and last merged are mergable
 			struct MergeRegisterActions<
-					List<IndexedAction<Action<BitLocation<TAddress,Mask1,TAccess1,TFieldType1>,TActionTemplate<Value1>>, ReadMask1, TInputs1...>, Ts...>,
-					List<IndexedAction<Action<BitLocation<TAddress,Mask2,TAccess2,TFieldType2>,TActionTemplate<Value2>>, ReadMask2, TInputs2...>, Us...>
+					List<IndexedAction<Action<FieldLocation<TAddress,Mask1,TAccess1,TFieldType1>,TActionTemplate<Value1>>, ReadMask1, TInputs1...>, Ts...>,
+					List<IndexedAction<Action<FieldLocation<TAddress,Mask2,TAccess2,TFieldType2>,TActionTemplate<Value2>>, ReadMask2, TInputs2...>, Us...>
 				> :	MergeRegisterActions<
 					List<Ts...>,
 					List<IndexedAction<Action<
-						BitLocation<
+						FieldLocation<
 							TAddress,
 							(Mask1 | Mask2), 						//merge
 							TAccess1>,							//dont care, plausibility check has already been done
@@ -136,14 +137,14 @@ namespace Kvasir {
 			struct MakeIndexedAction;
 			//in default case there is no actual expected input
 			template<typename TAddress, unsigned Mask, typename TAccess, typename TR, typename TAction, int Index>
-			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,TAction>,Int<Index>>
-				:	IndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,TAction>,MakeReadMask<Mask,TAction>::value>{};
+			struct MakeIndexedAction<Action<FieldLocation<TAddress,Mask,TAccess,TR>,TAction>,Int<Index>>
+				:	IndexedAction<Action<FieldLocation<TAddress,Mask,TAccess,TR>,TAction>,MakeReadMask<Mask,TAction>::value>{};
 
 			//special case where there actually is expected input
 			template<typename TAddress, unsigned Mask, typename TAccess, typename TR, int Index>
-			struct MakeIndexedAction<Action<BitLocation<TAddress,Mask,TAccess,TR>,WriteAction>,Int<Index>>
+			struct MakeIndexedAction<Action<FieldLocation<TAddress,Mask,TAccess,TR>,WriteAction>,Int<Index>>
 				:	IndexedAction<
-					Action<BitLocation<TAddress,Mask,TAccess,TR>,WriteAction>,
+					Action<FieldLocation<TAddress,Mask,TAccess,TR>,WriteAction>,
 					MakeReadMask<Mask,WriteAction>::value,
 					IndexedInput<Index,Mask>>{};
 
@@ -164,13 +165,13 @@ namespace Kvasir {
 				template<typename T>
 				struct Apply : MPL::FalseType {};
 				template<typename TAddress, unsigned Mask, typename TAccess, typename TFieldType, typename Cmd>
-				struct Apply<Action<BitLocation<TAddress,Mask,TAccess,TFieldType>,Cmd>>
+				struct Apply<Action<FieldLocation<TAddress,Mask,TAccess,TFieldType>,Cmd>>
 					: MPL::Value<bool,(I==GetAddress<TAddress>::value)>{};
 			};
 
 			//takes an args list or tree, flattens it and removes all actions which are not reads
 			template<typename... TArgList>
-				using GetReadsT = TransformT<RemoveT<MPL::FlattenT<MPL::List<TArgList...>>, Template<IsNotReadPred>>, Template<GetBitLocation>>;
+				using GetReadsT = TransformT<RemoveT<MPL::FlattenT<MPL::List<TArgList...>>, Template<IsNotReadPred>>, Template<GetFieldLocation>>;
 
 			template<typename T>
 			struct GetReadMask : Int<0>{};
@@ -178,7 +179,7 @@ namespace Kvasir {
 			template<typename T>
 			struct GetAddresses;
 			template<typename TAddresses, typename TLocations>
-			struct GetAddresses<ValueObject<TAddresses,TLocations>> : TAddresses{};
+			struct GetAddresses<FieldTuple<TAddresses,TLocations>> : TAddresses{};
 
 
 			template<typename T, typename = decltype(T::value_)>
@@ -192,7 +193,7 @@ namespace Kvasir {
 			template<typename TActionList, typename TRetType>
 			struct Apply;
 			template<typename... TActions, typename... TRetAddresses, typename TRetLocations>
-			struct Apply<List<TActions...>,ValueObject<List<TRetAddresses...>,TRetLocations>>{
+			struct Apply<List<TActions...>,FieldTuple<List<TRetAddresses...>,TRetLocations>>{
 				template<typename T>
 				struct ReturnFilter;
 				template<int... Is>
@@ -208,10 +209,10 @@ namespace Kvasir {
 					struct Apply : Bool<(GetAddress<AtT<List<TActions...>,Index>>::value != T::value)>{};
 				};
 				template<int I>
-				ValueObject<List<TRetAddresses...>,TRetLocations> operator()(const unsigned(&args)[I]){
+				FieldTuple<List<TRetAddresses...>,TRetLocations> operator()(const unsigned(&args)[I]){
 					using namespace MPL;
 					const unsigned returns[]{TActions{}(args)...};
-					return ValueObject<List<TRetAddresses...>,TRetLocations>{
+					return FieldTuple<List<TRetAddresses...>,TRetLocations>{
 							ReturnFilter<
 								RemoveT<BuildIndicesT<sizeof...(TActions)>,Template<IndexNotAddressPred<TRetAddresses>::template Apply>>
 							>{}(returns)...
@@ -240,7 +241,7 @@ namespace Kvasir {
 			};
 
 			template<typename... Ts>
-			using GetReturnTypeT = ValueObject<
+			using GetReturnTypeT = FieldTuple<
 					UniqueT<SortT<TransformT<
 						GetReadsT<Ts...>,
 						Template<GetAddress>
@@ -258,7 +259,7 @@ namespace Kvasir {
 
 		}
 
-		//if apply contains reads return a ValueObject
+		//if apply contains reads return a FieldTuple
 		template<typename...Args>
 			inline MPL::DisableIfT<(MPL::SizeT<Detail::GetReadsT<Args...>>::value == 0),
 			Detail::GetReturnTypeT<Args...>>

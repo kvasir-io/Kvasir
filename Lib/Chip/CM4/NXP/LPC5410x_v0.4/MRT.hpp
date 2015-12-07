@@ -12,11 +12,13 @@ namespace Kvasir {
 								writing a zero to this bit field does the following: If LOAD = 1,
 								the timer stops immediately. If LOAD = 0, the timer stops at the end
 								of the time interval.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ivalue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ivalue{}; 
+        namespace IvalueValC{
+        }
         ///Determines how the timer interval value IVALUE -1 is loaded
 								into the TIMERn register. This bit is write-only. Reading this bit
 								always returns 0.
-        enum class loadVal {
+        enum class LoadVal {
             noForceLoad=0x00000000,     ///<No force load. The load from the INTVALn register
 										to the TIMERn register is processed at the end of the time
 										interval if the repeat mode is selected.
@@ -24,11 +26,11 @@ namespace Kvasir {
 										immediately loaded into the TIMERn register while TIMERn is
 										running.
         };
-        namespace loadValC{
-            constexpr MPL::Value<loadVal,loadVal::noForceLoad> noForceLoad{};
-            constexpr MPL::Value<loadVal,loadVal::forceLoad> forceLoad{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,LoadVal> load{}; 
+        namespace LoadValC{
+            constexpr Register::FieldValue<decltype(load),LoadVal::noForceLoad> noForceLoad{};
+            constexpr Register::FieldValue<decltype(load),LoadVal::forceLoad> forceLoad{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,loadVal> load{}; 
     }
     namespace Noneintval1{    ///<MRTn Time interval value register. This value is loaded into the
 						TIMER0 register.
@@ -40,11 +42,13 @@ namespace Kvasir {
 								writing a zero to this bit field does the following: If LOAD = 1,
 								the timer stops immediately. If LOAD = 0, the timer stops at the end
 								of the time interval.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ivalue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ivalue{}; 
+        namespace IvalueValC{
+        }
         ///Determines how the timer interval value IVALUE -1 is loaded
 								into the TIMERn register. This bit is write-only. Reading this bit
 								always returns 0.
-        enum class loadVal {
+        enum class LoadVal {
             noForceLoad=0x00000000,     ///<No force load. The load from the INTVALn register
 										to the TIMERn register is processed at the end of the time
 										interval if the repeat mode is selected.
@@ -52,11 +56,11 @@ namespace Kvasir {
 										immediately loaded into the TIMERn register while TIMERn is
 										running.
         };
-        namespace loadValC{
-            constexpr MPL::Value<loadVal,loadVal::noForceLoad> noForceLoad{};
-            constexpr MPL::Value<loadVal,loadVal::forceLoad> forceLoad{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,LoadVal> load{}; 
+        namespace LoadValC{
+            constexpr Register::FieldValue<decltype(load),LoadVal::noForceLoad> noForceLoad{};
+            constexpr Register::FieldValue<decltype(load),LoadVal::forceLoad> forceLoad{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,loadVal> load{}; 
     }
     namespace Noneintval2{    ///<MRTn Time interval value register. This value is loaded into the
 						TIMER0 register.
@@ -68,11 +72,13 @@ namespace Kvasir {
 								writing a zero to this bit field does the following: If LOAD = 1,
 								the timer stops immediately. If LOAD = 0, the timer stops at the end
 								of the time interval.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ivalue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ivalue{}; 
+        namespace IvalueValC{
+        }
         ///Determines how the timer interval value IVALUE -1 is loaded
 								into the TIMERn register. This bit is write-only. Reading this bit
 								always returns 0.
-        enum class loadVal {
+        enum class LoadVal {
             noForceLoad=0x00000000,     ///<No force load. The load from the INTVALn register
 										to the TIMERn register is processed at the end of the time
 										interval if the repeat mode is selected.
@@ -80,11 +86,11 @@ namespace Kvasir {
 										immediately loaded into the TIMERn register while TIMERn is
 										running.
         };
-        namespace loadValC{
-            constexpr MPL::Value<loadVal,loadVal::noForceLoad> noForceLoad{};
-            constexpr MPL::Value<loadVal,loadVal::forceLoad> forceLoad{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,LoadVal> load{}; 
+        namespace LoadValC{
+            constexpr Register::FieldValue<decltype(load),LoadVal::noForceLoad> noForceLoad{};
+            constexpr Register::FieldValue<decltype(load),LoadVal::forceLoad> forceLoad{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,loadVal> load{}; 
     }
     namespace Noneintval3{    ///<MRTn Time interval value register. This value is loaded into the
 						TIMER0 register.
@@ -96,11 +102,13 @@ namespace Kvasir {
 								writing a zero to this bit field does the following: If LOAD = 1,
 								the timer stops immediately. If LOAD = 0, the timer stops at the end
 								of the time interval.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ivalue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> ivalue{}; 
+        namespace IvalueValC{
+        }
         ///Determines how the timer interval value IVALUE -1 is loaded
 								into the TIMERn register. This bit is write-only. Reading this bit
 								always returns 0.
-        enum class loadVal {
+        enum class LoadVal {
             noForceLoad=0x00000000,     ///<No force load. The load from the INTVALn register
 										to the TIMERn register is processed at the end of the time
 										interval if the repeat mode is selected.
@@ -108,11 +116,11 @@ namespace Kvasir {
 										immediately loaded into the TIMERn register while TIMERn is
 										running.
         };
-        namespace loadValC{
-            constexpr MPL::Value<loadVal,loadVal::noForceLoad> noForceLoad{};
-            constexpr MPL::Value<loadVal,loadVal::forceLoad> forceLoad{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,LoadVal> load{}; 
+        namespace LoadValC{
+            constexpr Register::FieldValue<decltype(load),LoadVal::noForceLoad> noForceLoad{};
+            constexpr Register::FieldValue<decltype(load),LoadVal::forceLoad> forceLoad{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,loadVal> load{}; 
     }
     namespace Nonetimer0{    ///<MRTn Timer register. This register reads the value of the
 						down-counter.
@@ -124,7 +132,9 @@ namespace Kvasir {
 								the idle state. INTVALn register is updated with LOAD = 1. When the
 								timer is in idle state, reading this bit fields returns -1 (0x00FF
 								FFFF).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> value{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> value{}; 
+        namespace ValueValC{
+        }
     }
     namespace Nonetimer1{    ///<MRTn Timer register. This register reads the value of the
 						down-counter.
@@ -136,7 +146,9 @@ namespace Kvasir {
 								the idle state. INTVALn register is updated with LOAD = 1. When the
 								timer is in idle state, reading this bit fields returns -1 (0x00FF
 								FFFF).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> value{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> value{}; 
+        namespace ValueValC{
+        }
     }
     namespace Nonetimer2{    ///<MRTn Timer register. This register reads the value of the
 						down-counter.
@@ -148,7 +160,9 @@ namespace Kvasir {
 								the idle state. INTVALn register is updated with LOAD = 1. When the
 								timer is in idle state, reading this bit fields returns -1 (0x00FF
 								FFFF).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> value{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> value{}; 
+        namespace ValueValC{
+        }
     }
     namespace Nonetimer3{    ///<MRTn Timer register. This register reads the value of the
 						down-counter.
@@ -160,124 +174,118 @@ namespace Kvasir {
 								the idle state. INTVALn register is updated with LOAD = 1. When the
 								timer is in idle state, reading this bit fields returns -1 (0x00FF
 								FFFF).
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> value{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> value{}; 
+        namespace ValueValC{
+        }
     }
     namespace Nonectrl0{    ///<MRTn Control register. This register controls the MRTn
 						modes.
         using Addr = Register::Address<0x40074008,0xfffffff8,0,unsigned>;
         ///Enable the TIMERn interrupt.
-        enum class intenVal {
+        enum class IntenVal {
             disabled=0x00000000,     ///<TIMERn interrupt is disabled.
             enabled=0x00000001,     ///<TIMERn interrupt is enabled.
         };
-        namespace intenValC{
-            constexpr MPL::Value<intenVal,intenVal::disabled> disabled{};
-            constexpr MPL::Value<intenVal,intenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntenVal> inten{}; 
+        namespace IntenValC{
+            constexpr Register::FieldValue<decltype(inten),IntenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(inten),IntenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,intenVal> inten{}; 
         ///Selects timer mode.
-        enum class modeVal {
+        enum class ModeVal {
             repeatInterruptMod=0x00000000,     ///<Repeat interrupt mode.
             oneShotInterruptM=0x00000001,     ///<One-shot interrupt mode.
             oneShotStallMode=0x00000002,     ///<One-shot stall mode.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::repeatInterruptMod> repeatInterruptMod{};
-            constexpr MPL::Value<modeVal,modeVal::oneShotInterruptM> oneShotInterruptM{};
-            constexpr MPL::Value<modeVal,modeVal::oneShotStallMode> oneShotStallMode{};
-            constexpr MPL::Value<modeVal,modeVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::repeatInterruptMod> repeatInterruptMod{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::oneShotInterruptM> oneShotInterruptM{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::oneShotStallMode> oneShotStallMode{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,modeVal> mode{}; 
     }
     namespace Nonectrl1{    ///<MRTn Control register. This register controls the MRTn
 						modes.
         using Addr = Register::Address<0x40074018,0xfffffff8,0,unsigned>;
         ///Enable the TIMERn interrupt.
-        enum class intenVal {
+        enum class IntenVal {
             disabled=0x00000000,     ///<TIMERn interrupt is disabled.
             enabled=0x00000001,     ///<TIMERn interrupt is enabled.
         };
-        namespace intenValC{
-            constexpr MPL::Value<intenVal,intenVal::disabled> disabled{};
-            constexpr MPL::Value<intenVal,intenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntenVal> inten{}; 
+        namespace IntenValC{
+            constexpr Register::FieldValue<decltype(inten),IntenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(inten),IntenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,intenVal> inten{}; 
         ///Selects timer mode.
-        enum class modeVal {
+        enum class ModeVal {
             repeatInterruptMod=0x00000000,     ///<Repeat interrupt mode.
             oneShotInterruptM=0x00000001,     ///<One-shot interrupt mode.
             oneShotStallMode=0x00000002,     ///<One-shot stall mode.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::repeatInterruptMod> repeatInterruptMod{};
-            constexpr MPL::Value<modeVal,modeVal::oneShotInterruptM> oneShotInterruptM{};
-            constexpr MPL::Value<modeVal,modeVal::oneShotStallMode> oneShotStallMode{};
-            constexpr MPL::Value<modeVal,modeVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::repeatInterruptMod> repeatInterruptMod{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::oneShotInterruptM> oneShotInterruptM{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::oneShotStallMode> oneShotStallMode{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,modeVal> mode{}; 
     }
     namespace Nonectrl2{    ///<MRTn Control register. This register controls the MRTn
 						modes.
         using Addr = Register::Address<0x40074028,0xfffffff8,0,unsigned>;
         ///Enable the TIMERn interrupt.
-        enum class intenVal {
+        enum class IntenVal {
             disabled=0x00000000,     ///<TIMERn interrupt is disabled.
             enabled=0x00000001,     ///<TIMERn interrupt is enabled.
         };
-        namespace intenValC{
-            constexpr MPL::Value<intenVal,intenVal::disabled> disabled{};
-            constexpr MPL::Value<intenVal,intenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntenVal> inten{}; 
+        namespace IntenValC{
+            constexpr Register::FieldValue<decltype(inten),IntenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(inten),IntenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,intenVal> inten{}; 
         ///Selects timer mode.
-        enum class modeVal {
+        enum class ModeVal {
             repeatInterruptMod=0x00000000,     ///<Repeat interrupt mode.
             oneShotInterruptM=0x00000001,     ///<One-shot interrupt mode.
             oneShotStallMode=0x00000002,     ///<One-shot stall mode.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::repeatInterruptMod> repeatInterruptMod{};
-            constexpr MPL::Value<modeVal,modeVal::oneShotInterruptM> oneShotInterruptM{};
-            constexpr MPL::Value<modeVal,modeVal::oneShotStallMode> oneShotStallMode{};
-            constexpr MPL::Value<modeVal,modeVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::repeatInterruptMod> repeatInterruptMod{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::oneShotInterruptM> oneShotInterruptM{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::oneShotStallMode> oneShotStallMode{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,modeVal> mode{}; 
     }
     namespace Nonectrl3{    ///<MRTn Control register. This register controls the MRTn
 						modes.
         using Addr = Register::Address<0x40074038,0xfffffff8,0,unsigned>;
         ///Enable the TIMERn interrupt.
-        enum class intenVal {
+        enum class IntenVal {
             disabled=0x00000000,     ///<TIMERn interrupt is disabled.
             enabled=0x00000001,     ///<TIMERn interrupt is enabled.
         };
-        namespace intenValC{
-            constexpr MPL::Value<intenVal,intenVal::disabled> disabled{};
-            constexpr MPL::Value<intenVal,intenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntenVal> inten{}; 
+        namespace IntenValC{
+            constexpr Register::FieldValue<decltype(inten),IntenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(inten),IntenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,intenVal> inten{}; 
         ///Selects timer mode.
-        enum class modeVal {
+        enum class ModeVal {
             repeatInterruptMod=0x00000000,     ///<Repeat interrupt mode.
             oneShotInterruptM=0x00000001,     ///<One-shot interrupt mode.
             oneShotStallMode=0x00000002,     ///<One-shot stall mode.
-            reserved=0x00000003,     ///<Reserved.
         };
-        namespace modeValC{
-            constexpr MPL::Value<modeVal,modeVal::repeatInterruptMod> repeatInterruptMod{};
-            constexpr MPL::Value<modeVal,modeVal::oneShotInterruptM> oneShotInterruptM{};
-            constexpr MPL::Value<modeVal,modeVal::oneShotStallMode> oneShotStallMode{};
-            constexpr MPL::Value<modeVal,modeVal::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,ModeVal> mode{}; 
+        namespace ModeValC{
+            constexpr Register::FieldValue<decltype(mode),ModeVal::repeatInterruptMod> repeatInterruptMod{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::oneShotInterruptM> oneShotInterruptM{};
+            constexpr Register::FieldValue<decltype(mode),ModeVal::oneShotStallMode> oneShotStallMode{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,modeVal> mode{}; 
     }
     namespace Nonestat0{    ///<MRTn Status register.
         using Addr = Register::Address<0x4007400c,0xfffffff8,0,unsigned>;
         ///Monitors the interrupt flag.
-        enum class intflagVal {
+        enum class IntflagVal {
             noPendingInterrupt=0x00000000,     ///<No pending interrupt. Writing a zero is equivalent
 										to no operation.
             pendingInterrupt=0x00000001,     ///<Pending interrupt. The interrupt is pending because
@@ -287,39 +295,39 @@ namespace Kvasir {
 										Writing a 1 to this bit clears the interrupt
 										request.
         };
-        namespace intflagValC{
-            constexpr MPL::Value<intflagVal,intflagVal::noPendingInterrupt> noPendingInterrupt{};
-            constexpr MPL::Value<intflagVal,intflagVal::pendingInterrupt> pendingInterrupt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntflagVal> intflag{}; 
+        namespace IntflagValC{
+            constexpr Register::FieldValue<decltype(intflag),IntflagVal::noPendingInterrupt> noPendingInterrupt{};
+            constexpr Register::FieldValue<decltype(intflag),IntflagVal::pendingInterrupt> pendingInterrupt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,intflagVal> intflag{}; 
         ///Indicates the state of TIMERn. This bit is
 								read-only.
-        enum class runVal {
+        enum class RunVal {
             idleState=0x00000000,     ///<Idle state. TIMERn is stopped.
             running=0x00000001,     ///<Running. TIMERn is running.
         };
-        namespace runValC{
-            constexpr MPL::Value<runVal,runVal::idleState> idleState{};
-            constexpr MPL::Value<runVal,runVal::running> running{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RunVal> run{}; 
+        namespace RunValC{
+            constexpr Register::FieldValue<decltype(run),RunVal::idleState> idleState{};
+            constexpr Register::FieldValue<decltype(run),RunVal::running> running{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,runVal> run{}; 
         ///Channel In Use flag. Operating details depend on the
 								MULTITASK bit in the MODCFG register, and affects the use of
 								IDLE_CH. 
-        enum class inuseVal {
+        enum class InuseVal {
             no=0x00000000,     ///<This channel is not in use.
             yes=0x00000001,     ///<This channel is in use.
         };
-        namespace inuseValC{
-            constexpr MPL::Value<inuseVal,inuseVal::no> no{};
-            constexpr MPL::Value<inuseVal,inuseVal::yes> yes{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,InuseVal> inuse{}; 
+        namespace InuseValC{
+            constexpr Register::FieldValue<decltype(inuse),InuseVal::no> no{};
+            constexpr Register::FieldValue<decltype(inuse),InuseVal::yes> yes{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,inuseVal> inuse{}; 
     }
     namespace Nonestat1{    ///<MRTn Status register.
         using Addr = Register::Address<0x4007401c,0xfffffff8,0,unsigned>;
         ///Monitors the interrupt flag.
-        enum class intflagVal {
+        enum class IntflagVal {
             noPendingInterrupt=0x00000000,     ///<No pending interrupt. Writing a zero is equivalent
 										to no operation.
             pendingInterrupt=0x00000001,     ///<Pending interrupt. The interrupt is pending because
@@ -329,39 +337,39 @@ namespace Kvasir {
 										Writing a 1 to this bit clears the interrupt
 										request.
         };
-        namespace intflagValC{
-            constexpr MPL::Value<intflagVal,intflagVal::noPendingInterrupt> noPendingInterrupt{};
-            constexpr MPL::Value<intflagVal,intflagVal::pendingInterrupt> pendingInterrupt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntflagVal> intflag{}; 
+        namespace IntflagValC{
+            constexpr Register::FieldValue<decltype(intflag),IntflagVal::noPendingInterrupt> noPendingInterrupt{};
+            constexpr Register::FieldValue<decltype(intflag),IntflagVal::pendingInterrupt> pendingInterrupt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,intflagVal> intflag{}; 
         ///Indicates the state of TIMERn. This bit is
 								read-only.
-        enum class runVal {
+        enum class RunVal {
             idleState=0x00000000,     ///<Idle state. TIMERn is stopped.
             running=0x00000001,     ///<Running. TIMERn is running.
         };
-        namespace runValC{
-            constexpr MPL::Value<runVal,runVal::idleState> idleState{};
-            constexpr MPL::Value<runVal,runVal::running> running{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RunVal> run{}; 
+        namespace RunValC{
+            constexpr Register::FieldValue<decltype(run),RunVal::idleState> idleState{};
+            constexpr Register::FieldValue<decltype(run),RunVal::running> running{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,runVal> run{}; 
         ///Channel In Use flag. Operating details depend on the
 								MULTITASK bit in the MODCFG register, and affects the use of
 								IDLE_CH. 
-        enum class inuseVal {
+        enum class InuseVal {
             no=0x00000000,     ///<This channel is not in use.
             yes=0x00000001,     ///<This channel is in use.
         };
-        namespace inuseValC{
-            constexpr MPL::Value<inuseVal,inuseVal::no> no{};
-            constexpr MPL::Value<inuseVal,inuseVal::yes> yes{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,InuseVal> inuse{}; 
+        namespace InuseValC{
+            constexpr Register::FieldValue<decltype(inuse),InuseVal::no> no{};
+            constexpr Register::FieldValue<decltype(inuse),InuseVal::yes> yes{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,inuseVal> inuse{}; 
     }
     namespace Nonestat2{    ///<MRTn Status register.
         using Addr = Register::Address<0x4007402c,0xfffffff8,0,unsigned>;
         ///Monitors the interrupt flag.
-        enum class intflagVal {
+        enum class IntflagVal {
             noPendingInterrupt=0x00000000,     ///<No pending interrupt. Writing a zero is equivalent
 										to no operation.
             pendingInterrupt=0x00000001,     ///<Pending interrupt. The interrupt is pending because
@@ -371,39 +379,39 @@ namespace Kvasir {
 										Writing a 1 to this bit clears the interrupt
 										request.
         };
-        namespace intflagValC{
-            constexpr MPL::Value<intflagVal,intflagVal::noPendingInterrupt> noPendingInterrupt{};
-            constexpr MPL::Value<intflagVal,intflagVal::pendingInterrupt> pendingInterrupt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntflagVal> intflag{}; 
+        namespace IntflagValC{
+            constexpr Register::FieldValue<decltype(intflag),IntflagVal::noPendingInterrupt> noPendingInterrupt{};
+            constexpr Register::FieldValue<decltype(intflag),IntflagVal::pendingInterrupt> pendingInterrupt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,intflagVal> intflag{}; 
         ///Indicates the state of TIMERn. This bit is
 								read-only.
-        enum class runVal {
+        enum class RunVal {
             idleState=0x00000000,     ///<Idle state. TIMERn is stopped.
             running=0x00000001,     ///<Running. TIMERn is running.
         };
-        namespace runValC{
-            constexpr MPL::Value<runVal,runVal::idleState> idleState{};
-            constexpr MPL::Value<runVal,runVal::running> running{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RunVal> run{}; 
+        namespace RunValC{
+            constexpr Register::FieldValue<decltype(run),RunVal::idleState> idleState{};
+            constexpr Register::FieldValue<decltype(run),RunVal::running> running{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,runVal> run{}; 
         ///Channel In Use flag. Operating details depend on the
 								MULTITASK bit in the MODCFG register, and affects the use of
 								IDLE_CH. 
-        enum class inuseVal {
+        enum class InuseVal {
             no=0x00000000,     ///<This channel is not in use.
             yes=0x00000001,     ///<This channel is in use.
         };
-        namespace inuseValC{
-            constexpr MPL::Value<inuseVal,inuseVal::no> no{};
-            constexpr MPL::Value<inuseVal,inuseVal::yes> yes{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,InuseVal> inuse{}; 
+        namespace InuseValC{
+            constexpr Register::FieldValue<decltype(inuse),InuseVal::no> no{};
+            constexpr Register::FieldValue<decltype(inuse),InuseVal::yes> yes{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,inuseVal> inuse{}; 
     }
     namespace Nonestat3{    ///<MRTn Status register.
         using Addr = Register::Address<0x4007403c,0xfffffff8,0,unsigned>;
         ///Monitors the interrupt flag.
-        enum class intflagVal {
+        enum class IntflagVal {
             noPendingInterrupt=0x00000000,     ///<No pending interrupt. Writing a zero is equivalent
 										to no operation.
             pendingInterrupt=0x00000001,     ///<Pending interrupt. The interrupt is pending because
@@ -413,34 +421,34 @@ namespace Kvasir {
 										Writing a 1 to this bit clears the interrupt
 										request.
         };
-        namespace intflagValC{
-            constexpr MPL::Value<intflagVal,intflagVal::noPendingInterrupt> noPendingInterrupt{};
-            constexpr MPL::Value<intflagVal,intflagVal::pendingInterrupt> pendingInterrupt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntflagVal> intflag{}; 
+        namespace IntflagValC{
+            constexpr Register::FieldValue<decltype(intflag),IntflagVal::noPendingInterrupt> noPendingInterrupt{};
+            constexpr Register::FieldValue<decltype(intflag),IntflagVal::pendingInterrupt> pendingInterrupt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,intflagVal> intflag{}; 
         ///Indicates the state of TIMERn. This bit is
 								read-only.
-        enum class runVal {
+        enum class RunVal {
             idleState=0x00000000,     ///<Idle state. TIMERn is stopped.
             running=0x00000001,     ///<Running. TIMERn is running.
         };
-        namespace runValC{
-            constexpr MPL::Value<runVal,runVal::idleState> idleState{};
-            constexpr MPL::Value<runVal,runVal::running> running{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RunVal> run{}; 
+        namespace RunValC{
+            constexpr Register::FieldValue<decltype(run),RunVal::idleState> idleState{};
+            constexpr Register::FieldValue<decltype(run),RunVal::running> running{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,runVal> run{}; 
         ///Channel In Use flag. Operating details depend on the
 								MULTITASK bit in the MODCFG register, and affects the use of
 								IDLE_CH. 
-        enum class inuseVal {
+        enum class InuseVal {
             no=0x00000000,     ///<This channel is not in use.
             yes=0x00000001,     ///<This channel is in use.
         };
-        namespace inuseValC{
-            constexpr MPL::Value<inuseVal,inuseVal::no> no{};
-            constexpr MPL::Value<inuseVal,inuseVal::yes> yes{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,InuseVal> inuse{}; 
+        namespace InuseValC{
+            constexpr Register::FieldValue<decltype(inuse),InuseVal::no> no{};
+            constexpr Register::FieldValue<decltype(inuse),InuseVal::yes> yes{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,inuseVal> inuse{}; 
     }
     namespace Nonemodcfg{    ///<Module Configuration register. This register provides information
 						about this particular MRT instance, and allows choosing an overall mode for
@@ -448,23 +456,27 @@ namespace Kvasir {
         using Addr = Register::Address<0x400740f0,0x7ffffe00,0,unsigned>;
         ///Identifies the number of channels in this
 								MRT.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> noc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> noc{}; 
+        namespace NocValC{
+        }
         ///Identifies the number of timer bits in this
 								MRT.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,4),Register::ReadWriteAccess,unsigned> nob{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,4),Register::ReadWriteAccess,unsigned> nob{}; 
+        namespace NobValC{
+        }
         ///Selects the operating mode for the INUSE flags and the
 								IDLE_CH register. See Idle channel register (IDLE_CH) for
 								details.
-        enum class multitaskVal {
+        enum class MultitaskVal {
             hardwareStatusMode=0x00000000,     ///<Hardware status mode. In this mode, the INUSE(n)
 										flags for all channels are reset.
             multiTaskMode=0x00000001,     ///<Multi-task mode.
         };
-        namespace multitaskValC{
-            constexpr MPL::Value<multitaskVal,multitaskVal::hardwareStatusMode> hardwareStatusMode{};
-            constexpr MPL::Value<multitaskVal,multitaskVal::multiTaskMode> multiTaskMode{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,MultitaskVal> multitask{}; 
+        namespace MultitaskValC{
+            constexpr Register::FieldValue<decltype(multitask),MultitaskVal::hardwareStatusMode> hardwareStatusMode{};
+            constexpr Register::FieldValue<decltype(multitask),MultitaskVal::multiTaskMode> multiTaskMode{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,multitaskVal> multitask{}; 
     }
     namespace NoneidleCh{    ///<Idle channel register. This register returns the number of the
 						first idle channel.
@@ -474,12 +486,14 @@ namespace Kvasir {
 								used as an offset from the MRT base address in order to access the
 								registers for the allocated channel. If all timer channels are
 								running, CHAN = 0xF. See text above for more details.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> chan{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> chan{}; 
+        namespace ChanValC{
+        }
     }
     namespace NoneirqFlag{    ///<Global interrupt flag register
         using Addr = Register::Address<0x400740f8,0xfffffff0,0,unsigned>;
         ///Monitors the interrupt flag of TIMER0.
-        enum class gflag0Val {
+        enum class Gflag0Val {
             noPendingInterrupt=0x00000000,     ///<No pending interrupt. Writing a zero is equivalent
 										to no operation.
             pendingInterrupt=0x00000001,     ///<Pending interrupt. The interrupt is pending because
@@ -489,19 +503,25 @@ namespace Kvasir {
 										raised. Writing a 1 to this bit clears the interrupt
 										request.
         };
-        namespace gflag0ValC{
-            constexpr MPL::Value<gflag0Val,gflag0Val::noPendingInterrupt> noPendingInterrupt{};
-            constexpr MPL::Value<gflag0Val,gflag0Val::pendingInterrupt> pendingInterrupt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Gflag0Val> gflag0{}; 
+        namespace Gflag0ValC{
+            constexpr Register::FieldValue<decltype(gflag0),Gflag0Val::noPendingInterrupt> noPendingInterrupt{};
+            constexpr Register::FieldValue<decltype(gflag0),Gflag0Val::pendingInterrupt> pendingInterrupt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,gflag0Val> gflag0{}; 
         ///Monitors the interrupt flag of TIMER1. See description of
 								channel 0.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> gflag1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> gflag1{}; 
+        namespace Gflag1ValC{
+        }
         ///Monitors the interrupt flag of TIMER2. See description of
 								channel 0.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> gflag2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> gflag2{}; 
+        namespace Gflag2ValC{
+        }
         ///Monitors the interrupt flag of TIMER3. See description of
 								channel 0.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> gflag3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> gflag3{}; 
+        namespace Gflag3ValC{
+        }
     }
 }

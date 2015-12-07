@@ -5,19 +5,33 @@ namespace Kvasir {
     namespace Nonemode0{    ///<Mode Register 0
         using Addr = Register::Address<0x4003f000,0xffffff00,0,unsigned>;
         ///select to which idle cycle the write data output is extended
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> shrtdout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> shrtdout{}; 
+        namespace ShrtdoutValC{
+        }
         ///control the external RDY function
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rdy{}; 
+        namespace RdyValC{
+        }
         ///NOR Flash memory page access mode 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> page{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> page{}; 
+        namespace PageValC{
+        }
         ///NAND Flash memory mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nand{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> nand{}; 
+        namespace NandValC{
+        }
         ///disable the write enable signal (MWEX) operation
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> weoff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> weoff{}; 
+        namespace WeoffValC{
+        }
         ///Read Byte Mask ON
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rbmon{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rbmon{}; 
+        namespace RbmonValC{
+        }
         ///specify Data Width 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wdth{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> wdth{}; 
+        namespace WdthValC{
+        }
     }
     namespace Nonemode1{    ///<Mode Register 1
         using Addr = Register::Address<0x4003f004,0xffffffff,0,unsigned>;
@@ -34,21 +48,37 @@ namespace Kvasir {
     namespace Nonetim0{    ///<Timing Register 0
         using Addr = Register::Address<0x4003f020,0x00000000,0,unsigned>;
         ///Write Idle Cycle 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> widlc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> widlc{}; 
+        namespace WidlcValC{
+        }
         ///Write Enable Cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> wwec{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> wwec{}; 
+        namespace WwecValC{
+        }
         ///Write Address Setup cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> wadc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> wadc{}; 
+        namespace WadcValC{
+        }
         ///Write Access Cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> wacc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> wacc{}; 
+        namespace WaccValC{
+        }
         ///Read Idle Cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> ridlc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> ridlc{}; 
+        namespace RidlcValC{
+        }
         ///First Read Address Cycle 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> fradc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> fradc{}; 
+        namespace FradcValC{
+        }
         ///Read Address Setup cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> radc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> radc{}; 
+        namespace RadcValC{
+        }
         ///Read Access Cycle
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> racc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> racc{}; 
+        namespace RaccValC{
+        }
     }
     namespace Nonetim1{    ///<Timing Register 1
         using Addr = Register::Address<0x4003f024,0xffffffff,0,unsigned>;
@@ -65,36 +95,56 @@ namespace Kvasir {
     namespace Nonearea0{    ///<Area Register 0
         using Addr = Register::Address<0x4003f040,0xff80ff00,0,unsigned>;
         ///address mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        namespace MaskValC{
+        }
         ///Address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        namespace AddrValC{
+        }
     }
     namespace Nonearea1{    ///<Area Register 1
         using Addr = Register::Address<0x4003f044,0xff80ff00,0,unsigned>;
         ///address mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        namespace MaskValC{
+        }
         ///Address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        namespace AddrValC{
+        }
     }
     namespace Nonearea2{    ///<Area Register 2
         using Addr = Register::Address<0x4003f048,0xff80ff00,0,unsigned>;
         ///address mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        namespace MaskValC{
+        }
         ///Address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        namespace AddrValC{
+        }
     }
     namespace Nonearea3{    ///<Area Register 3
         using Addr = Register::Address<0x4003f04c,0xff80ff00,0,unsigned>;
         ///address mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        namespace MaskValC{
+        }
         ///Address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        namespace AddrValC{
+        }
     }
     namespace Nonearea7{    ///<Area Register 7
         using Addr = Register::Address<0x4003f05c,0xff80ff00,0,unsigned>;
         ///address mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> mask{}; 
+        namespace MaskValC{
+        }
         ///Address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> addr{}; 
+        namespace AddrValC{
+        }
     }
 }

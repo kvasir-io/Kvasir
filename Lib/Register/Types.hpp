@@ -94,13 +94,14 @@ namespace Register{
 	using RSetToClearAccess = Access<true,true,false,false,true>;
 
 	template<typename TAddress, unsigned Mask, typename Access = ReadWriteAccess, typename TFieldType = unsigned>
-	struct BitLocation{
-		using Type = BitLocation<TAddress, Mask, Access, TFieldType>;
+	struct FieldLocation{
+		using Type = FieldLocation<TAddress, Mask, Access, TFieldType>;
+		using DataType = TFieldType;
 	};
 
 	template<typename T, typename U>
-	struct BitLocationPair{
-		using Type = BitLocationPair<T,U>;
+	struct FieldLocationPair{
+		using Type = FieldLocationPair<T,U>;
 	};
 
 	namespace Detail{
@@ -109,11 +110,19 @@ namespace Register{
 			return (in & 0x01)?pos:positionOfFirstSetBit(in >> 1, pos + 1);
 		}
 	}
+	
+	template<typename TFieldLocation, typename TFieldLocation::DataType Value>
+	struct FieldValue{
+		using Type = FieldValue<TFieldLocation, Value>;
+		operator typename TFieldLocation::DataType() const {
+			return Value;
+		}
+	};
 
-	template<typename TAddresses, typename TBitLocation>
-	struct ValueObject;		//see below for implementation in specialization
+	template<typename TAddresses, typename TFieldLocation>
+	struct FieldTuple;		//see below for implementation in specialization
 	template<unsigned... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
-	struct ValueObject<MPL::List<MPL::Unsigned<Is>...>,MPL::List<BitLocation<TAs,Masks,TAccesss,TRs>...>>{
+	struct FieldTuple<MPL::List<MPL::Unsigned<Is>...>,MPL::List<FieldLocation<TAs,Masks,TAccesss,TRs>...>>{
 		const unsigned value_[sizeof...(Is)];
 		template<int Index>
 		MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
@@ -125,39 +134,44 @@ namespace Register{
 			unsigned r = (value_[ValueIndex::value] & Mask::value) >> Detail::positionOfFirstSetBit(Mask::value);
 			return ResultType(r);
 		}
-		using Type = ValueObject<MPL::List<MPL::Unsigned<Is>...>,MPL::List<Action<BitLocation<TAs,Masks,TAccesss,TRs>,ReadAction>...>>;
+		using Type = FieldTuple<MPL::List<MPL::Unsigned<Is>...>,MPL::List<Action<FieldLocation<TAs,Masks,TAccesss,TRs>,ReadAction>...>>;
 	};
 	template<unsigned I, typename TA, unsigned Mask, typename TAccess, typename TR>
-	struct ValueObject<MPL::List<MPL::Unsigned<I>>,MPL::List<BitLocation<TA, Mask, TAccess, TR>>>{
+	struct FieldTuple<MPL::List<MPL::Unsigned<I>>,MPL::List<FieldLocation<TA, Mask, TAccess, TR>>>{
 		const unsigned value_;
 		operator TR(){
 			using namespace MPL;
 			using ResultType = TR;
 			return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
 		};
-		using Type = ValueObject<MPL::List<MPL::Unsigned<I>>,MPL::List<Action<BitLocation<TA, Mask, TAccess, TR>,ReadAction>>>;
+		using Type = FieldTuple<MPL::List<MPL::Unsigned<I>>,MPL::List<Action<FieldLocation<TA, Mask, TAccess, TR>,ReadAction>>>;
 	};
 	template<>
-	struct ValueObject<MPL::List<>,MPL::List<>>{
-		using Type = ValueObject<MPL::List<>,MPL::List<>>;
+	struct FieldTuple<MPL::List<>,MPL::List<>>{
+		using Type = FieldTuple<MPL::List<>,MPL::List<>>;
 	};
 
-	template<int I, typename TValueObject>
-	auto get(TValueObject o)->decltype(o.template get<I>()) {
+	template<int I, typename TFieldTuple>
+	auto get(TFieldTuple o)->decltype(o.template get<I>()) {
 		return o.template get<I>();
 	}
 	namespace Detail{
-		template<typename Object, typename TBitLocation>
-		struct GetBitLocationIndex;
-		template<typename TA, typename TLocations, typename TBitLocation>
-		struct GetBitLocationIndex<ValueObject<TA, TLocations>, TBitLocation> : MPL::Find<TLocations, TBitLocation> {};
+		template<typename Object, typename TFieldLocation>
+		struct GetFieldLocationIndex;
+		template<typename TA, typename TLocations, typename TFieldLocation>
+		struct GetFieldLocationIndex<FieldTuple<TA, TLocations>, TFieldLocation> : MPL::Find<TLocations, TFieldLocation> {};
 		
-		template<typename Object, typename TBitLocation>
-		using GetBitLocationIndexT = typename GetBitLocationIndex<Object, TBitLocation>::Type;
+		template<typename Object, typename TFieldLocation>
+		using GetFieldLocationIndexT = typename GetFieldLocationIndex<Object, TFieldLocation>::Type;
 	}
-	template<typename T, typename TValueObject>
-	auto get(T, TValueObject o)->decltype(o.template get<Detail::GetBitLocationIndex<TValueObject,T>::value>()) {
-		return o.template get<Detail::GetBitLocationIndex<TValueObject, T>::value>();
+	template<typename T, typename TFieldTuple>
+	auto get(T, TFieldTuple o)->decltype(o.template get<Detail::GetFieldLocationIndex<TFieldTuple,T>::value>()) {
+		return o.template get<Detail::GetFieldLocationIndex<TFieldTuple, T>::value>();
+	}
+
+	template<typename TFieldTuple, typename TLocation, typename TLocation::DataType Value>
+	bool operator==(const TFieldTuple& f, const FieldValue<TLocation, Value>) {
+		return get(TLocation{},f) == Value;
 	}
 }
 }

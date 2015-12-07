@@ -5,22 +5,34 @@ namespace Kvasir {
     namespace Nonemo1{    ///<Dual Unit Mode Trigger Controller  START Register 1
         using Addr = Register::Address<0x40052000,0xffffff7f,0,unsigned>;
         ///SWATRG
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> swatrg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> swatrg{}; 
+        namespace SwatrgValC{
+        }
     }
     namespace Nonemo2{    ///<Dual Unit Mode Trigger Controller  START Register 2
         using Addr = Register::Address<0x40052004,0xffffff60,0,unsigned>;
         ///TRGAEN
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trgaen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> trgaen{}; 
+        namespace TrgaenValC{
+        }
         ///TRGASEL
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trgasel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trgasel{}; 
+        namespace TrgaselValC{
+        }
         ///TRGASTA
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> trgasta{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> trgasta{}; 
+        namespace TrgastaValC{
+        }
         ///ADILV
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> adilv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> adilv{}; 
+        namespace AdilvValC{
+        }
     }
     namespace Nonemo3{    ///<Dual Unit Mode Trigger Controller  START Register 3
         using Addr = Register::Address<0x40052008,0xffffff00,0,unsigned>;
         ///CORCNT
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> corcnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> corcnt{}; 
+        namespace CorcntValC{
+        }
     }
 }

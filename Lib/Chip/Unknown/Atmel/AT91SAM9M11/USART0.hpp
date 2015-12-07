@@ -5,63 +5,113 @@ namespace Kvasir {
     namespace Usart0Cr{    ///<Control Register
         using Addr = Register::Address<0xfff8c000,0xfff30003,0,unsigned>;
         ///Reset Receiver
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rstrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rstrx{}; 
+        namespace RstrxValC{
+        }
         ///Reset Transmitter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsttx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsttx{}; 
+        namespace RsttxValC{
+        }
         ///Receiver Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxen{}; 
+        namespace RxenValC{
+        }
         ///Receiver Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdis{}; 
+        namespace RxdisValC{
+        }
         ///Transmitter Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txen{}; 
+        namespace TxenValC{
+        }
         ///Transmitter Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdis{}; 
+        namespace TxdisValC{
+        }
         ///Reset Status Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rststa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rststa{}; 
+        namespace RststaValC{
+        }
         ///Start Break
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> sttbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> sttbrk{}; 
+        namespace SttbrkValC{
+        }
         ///Stop Break
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> stpbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> stpbrk{}; 
+        namespace StpbrkValC{
+        }
         ///Start Time-out
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> sttto{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> sttto{}; 
+        namespace StttoValC{
+        }
         ///Send Address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> senda{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> senda{}; 
+        namespace SendaValC{
+        }
         ///Reset Iterations
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rstit{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rstit{}; 
+        namespace RstitValC{
+        }
         ///Reset Non Acknowledge
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rstnack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rstnack{}; 
+        namespace RstnackValC{
+        }
         ///Rearm Time-out
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> retto{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> retto{}; 
+        namespace RettoValC{
+        }
         ///Request to Send Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rtsen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rtsen{}; 
+        namespace RtsenValC{
+        }
         ///Request to Send Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rtsdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rtsdis{}; 
+        namespace RtsdisValC{
+        }
     }
     namespace Usart0CrSpiMode{    ///<Control Register
         using Addr = Register::Address<0xfff8c000,0xfff3fe03,0,unsigned>;
         ///Reset Receiver
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rstrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rstrx{}; 
+        namespace RstrxValC{
+        }
         ///Reset Transmitter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsttx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsttx{}; 
+        namespace RsttxValC{
+        }
         ///Receiver Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxen{}; 
+        namespace RxenValC{
+        }
         ///Receiver Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdis{}; 
+        namespace RxdisValC{
+        }
         ///Transmitter Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txen{}; 
+        namespace TxenValC{
+        }
         ///Transmitter Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdis{}; 
+        namespace TxdisValC{
+        }
         ///Reset Status Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rststa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rststa{}; 
+        namespace RststaValC{
+        }
         ///Force SPI Chip Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> fcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> fcs{}; 
+        namespace FcsValC{
+        }
         ///Release SPI Chip Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rcs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rcs{}; 
+        namespace RcsValC{
+        }
     }
     namespace Usart0Mr{    ///<Mode Register
         using Addr = Register::Address<0xfff8c004,0x08800000,0,unsigned>;
         ///USART Mode of Operation
-        enum class usartModeVal {
+        enum class UsartmodeVal {
             normal=0x00000000,     ///<Normal mode
             rs485=0x00000001,     ///<RS485
             hwHandshaking=0x00000002,     ///<Hardware Handshaking
@@ -71,47 +121,49 @@ namespace Kvasir {
             spiMaster=0x0000000e,     ///<SPI Master
             spiSlave=0x0000000f,     ///<SPI Slave
         };
-        namespace usartModeValC{
-            constexpr MPL::Value<usartModeVal,usartModeVal::normal> normal{};
-            constexpr MPL::Value<usartModeVal,usartModeVal::rs485> rs485{};
-            constexpr MPL::Value<usartModeVal,usartModeVal::hwHandshaking> hwHandshaking{};
-            constexpr MPL::Value<usartModeVal,usartModeVal::is07816T0> is07816T0{};
-            constexpr MPL::Value<usartModeVal,usartModeVal::is07816T1> is07816T1{};
-            constexpr MPL::Value<usartModeVal,usartModeVal::irda> irda{};
-            constexpr MPL::Value<usartModeVal,usartModeVal::spiMaster> spiMaster{};
-            constexpr MPL::Value<usartModeVal,usartModeVal::spiSlave> spiSlave{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,UsartmodeVal> usartMode{}; 
+        namespace UsartmodeValC{
+            constexpr Register::FieldValue<decltype(usartMode),UsartmodeVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(usartMode),UsartmodeVal::rs485> rs485{};
+            constexpr Register::FieldValue<decltype(usartMode),UsartmodeVal::hwHandshaking> hwHandshaking{};
+            constexpr Register::FieldValue<decltype(usartMode),UsartmodeVal::is07816T0> is07816T0{};
+            constexpr Register::FieldValue<decltype(usartMode),UsartmodeVal::is07816T1> is07816T1{};
+            constexpr Register::FieldValue<decltype(usartMode),UsartmodeVal::irda> irda{};
+            constexpr Register::FieldValue<decltype(usartMode),UsartmodeVal::spiMaster> spiMaster{};
+            constexpr Register::FieldValue<decltype(usartMode),UsartmodeVal::spiSlave> spiSlave{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,usartModeVal> usartMode{}; 
         ///Clock Selection
-        enum class usclksVal {
+        enum class UsclksVal {
             mck=0x00000000,     ///<Master Clock MCK is selected
             div=0x00000001,     ///<Internal Clock Divided MCK/DIV (DIV=8) is selected
             sck=0x00000003,     ///<Serial Clock SLK is selected
         };
-        namespace usclksValC{
-            constexpr MPL::Value<usclksVal,usclksVal::mck> mck{};
-            constexpr MPL::Value<usclksVal,usclksVal::div> div{};
-            constexpr MPL::Value<usclksVal,usclksVal::sck> sck{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,UsclksVal> usclks{}; 
+        namespace UsclksValC{
+            constexpr Register::FieldValue<decltype(usclks),UsclksVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(usclks),UsclksVal::div> div{};
+            constexpr Register::FieldValue<decltype(usclks),UsclksVal::sck> sck{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,usclksVal> usclks{}; 
         ///Character Length.
-        enum class chrlVal {
+        enum class ChrlVal {
             v5Bit=0x00000000,     ///<Character length is 5 bits
             v6Bit=0x00000001,     ///<Character length is 6 bits
             v7Bit=0x00000002,     ///<Character length is 7 bits
             v8Bit=0x00000003,     ///<Character length is 8 bits
         };
-        namespace chrlValC{
-            constexpr MPL::Value<chrlVal,chrlVal::v5Bit> v5Bit{};
-            constexpr MPL::Value<chrlVal,chrlVal::v6Bit> v6Bit{};
-            constexpr MPL::Value<chrlVal,chrlVal::v7Bit> v7Bit{};
-            constexpr MPL::Value<chrlVal,chrlVal::v8Bit> v8Bit{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,ChrlVal> chrl{}; 
+        namespace ChrlValC{
+            constexpr Register::FieldValue<decltype(chrl),ChrlVal::v5Bit> v5Bit{};
+            constexpr Register::FieldValue<decltype(chrl),ChrlVal::v6Bit> v6Bit{};
+            constexpr Register::FieldValue<decltype(chrl),ChrlVal::v7Bit> v7Bit{};
+            constexpr Register::FieldValue<decltype(chrl),ChrlVal::v8Bit> v8Bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,chrlVal> chrl{}; 
         ///Synchronous Mode Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sync{}; 
+        namespace SyncValC{
+        }
         ///Parity Type
-        enum class parVal {
+        enum class ParVal {
             even=0x00000000,     ///<Even parity
             odd=0x00000001,     ///<Odd parity
             space=0x00000002,     ///<Parity forced to 0 (Space)
@@ -119,436 +171,700 @@ namespace Kvasir {
             no=0x00000004,     ///<No parity
             multidrop=0x00000006,     ///<Multidrop mode
         };
-        namespace parValC{
-            constexpr MPL::Value<parVal,parVal::even> even{};
-            constexpr MPL::Value<parVal,parVal::odd> odd{};
-            constexpr MPL::Value<parVal,parVal::space> space{};
-            constexpr MPL::Value<parVal,parVal::mark> mark{};
-            constexpr MPL::Value<parVal,parVal::no> no{};
-            constexpr MPL::Value<parVal,parVal::multidrop> multidrop{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,ParVal> par{}; 
+        namespace ParValC{
+            constexpr Register::FieldValue<decltype(par),ParVal::even> even{};
+            constexpr Register::FieldValue<decltype(par),ParVal::odd> odd{};
+            constexpr Register::FieldValue<decltype(par),ParVal::space> space{};
+            constexpr Register::FieldValue<decltype(par),ParVal::mark> mark{};
+            constexpr Register::FieldValue<decltype(par),ParVal::no> no{};
+            constexpr Register::FieldValue<decltype(par),ParVal::multidrop> multidrop{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,parVal> par{}; 
         ///Number of Stop Bits
-        enum class nbstopVal {
+        enum class NbstopVal {
             v1Bit=0x00000000,     ///<1 stop bit
             v15Bit=0x00000001,     ///<1.5 stop bit (SYNC = 0) or reserved (SYNC = 1)
             v2Bit=0x00000002,     ///<2 stop bits
         };
-        namespace nbstopValC{
-            constexpr MPL::Value<nbstopVal,nbstopVal::v1Bit> v1Bit{};
-            constexpr MPL::Value<nbstopVal,nbstopVal::v15Bit> v15Bit{};
-            constexpr MPL::Value<nbstopVal,nbstopVal::v2Bit> v2Bit{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,NbstopVal> nbstop{}; 
+        namespace NbstopValC{
+            constexpr Register::FieldValue<decltype(nbstop),NbstopVal::v1Bit> v1Bit{};
+            constexpr Register::FieldValue<decltype(nbstop),NbstopVal::v15Bit> v15Bit{};
+            constexpr Register::FieldValue<decltype(nbstop),NbstopVal::v2Bit> v2Bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,nbstopVal> nbstop{}; 
         ///Channel Mode
-        enum class chmodeVal {
+        enum class ChmodeVal {
             normal=0x00000000,     ///<Normal Mode
             automatic=0x00000001,     ///<Automatic Echo. Receiver input is connected to the TXD pin.
             localLoopback=0x00000002,     ///<Local Loopback. Transmitter output is connected to the Receiver Input.
             remoteLoopback=0x00000003,     ///<Remote Loopback. RXD pin is internally connected to the TXD pin.
         };
-        namespace chmodeValC{
-            constexpr MPL::Value<chmodeVal,chmodeVal::normal> normal{};
-            constexpr MPL::Value<chmodeVal,chmodeVal::automatic> automatic{};
-            constexpr MPL::Value<chmodeVal,chmodeVal::localLoopback> localLoopback{};
-            constexpr MPL::Value<chmodeVal,chmodeVal::remoteLoopback> remoteLoopback{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,ChmodeVal> chmode{}; 
+        namespace ChmodeValC{
+            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::automatic> automatic{};
+            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::localLoopback> localLoopback{};
+            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::remoteLoopback> remoteLoopback{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,chmodeVal> chmode{}; 
         ///Bit Order
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> msbf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> msbf{}; 
+        namespace MsbfValC{
+        }
         ///9-bit Character Length
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> mode9{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> mode9{}; 
+        namespace Mode9ValC{
+        }
         ///Clock Output Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> clko{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> clko{}; 
+        namespace ClkoValC{
+        }
         ///Oversampling Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> over{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> over{}; 
+        namespace OverValC{
+        }
         ///Inhibit Non Acknowledge
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> inack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> inack{}; 
+        namespace InackValC{
+        }
         ///Disable Successive NACK
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dsnack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dsnack{}; 
+        namespace DsnackValC{
+        }
         ///Variable Synchronization of Command/Data Sync Start Frame Delimiter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> varSync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> varSync{}; 
+        namespace VarsyncValC{
+        }
         ///Maximum Number of Automatic Iteration
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> maxIteration{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> maxIteration{}; 
+        namespace MaxiterationValC{
+        }
         ///Infrared Receive Line Filter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> filter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> filter{}; 
+        namespace FilterValC{
+        }
         ///Manchester Encoder/Decoder Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> man{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> man{}; 
+        namespace ManValC{
+        }
         ///Manchester Synchronization Mode
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> modsync{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> modsync{}; 
+        namespace ModsyncValC{
+        }
         ///Start Frame Delimiter Selector
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> onebit{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> onebit{}; 
+        namespace OnebitValC{
+        }
     }
     namespace Usart0MrSpiMode{    ///<Mode Register
         using Addr = Register::Address<0xfff8c004,0xffeefe00,0,unsigned>;
         ///USART Mode of Operation
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> usartMode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> usartMode{}; 
+        namespace UsartmodeValC{
+        }
         ///Clock Selection
-        enum class usclksVal {
+        enum class UsclksVal {
             mck=0x00000000,     ///<Master Clock MCK is selected
             div=0x00000001,     ///<Internal Clock Divided MCK/DIV (DIV=8) is selected
             sck=0x00000003,     ///<Serial Clock SLK is selected
         };
-        namespace usclksValC{
-            constexpr MPL::Value<usclksVal,usclksVal::mck> mck{};
-            constexpr MPL::Value<usclksVal,usclksVal::div> div{};
-            constexpr MPL::Value<usclksVal,usclksVal::sck> sck{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,UsclksVal> usclks{}; 
+        namespace UsclksValC{
+            constexpr Register::FieldValue<decltype(usclks),UsclksVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(usclks),UsclksVal::div> div{};
+            constexpr Register::FieldValue<decltype(usclks),UsclksVal::sck> sck{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,usclksVal> usclks{}; 
         ///Character Length.
-        enum class chrlVal {
+        enum class ChrlVal {
             v8Bit=0x00000003,     ///<Character length is 8 bits
         };
-        namespace chrlValC{
-            constexpr MPL::Value<chrlVal,chrlVal::v8Bit> v8Bit{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,ChrlVal> chrl{}; 
+        namespace ChrlValC{
+            constexpr Register::FieldValue<decltype(chrl),ChrlVal::v8Bit> v8Bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,chrlVal> chrl{}; 
         ///SPI Clock Phase
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cpha{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cpha{}; 
+        namespace CphaValC{
+        }
         ///SPI Clock Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> cpol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> cpol{}; 
+        namespace CpolValC{
+        }
         ///Wait Read Data Before Transfer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> wrdbt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> wrdbt{}; 
+        namespace WrdbtValC{
+        }
     }
     namespace Usart0Ier{    ///<Interrupt Enable Register
         using Addr = Register::Address<0xfff8c008,0xfef7c000,0,unsigned>;
         ///RXRDY Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///TXRDY Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Receiver Break Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        namespace RxbrkValC{
+        }
         ///End of Receive Transfer Interrupt Enable (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
+        namespace EndrxValC{
+        }
         ///End of Transmit Interrupt Enable (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
+        namespace EndtxValC{
+        }
         ///Overrun Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Framing Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        namespace FrameValC{
+        }
         ///Parity Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        namespace PareValC{
+        }
         ///Time-out Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timeout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timeout{}; 
+        namespace TimeoutValC{
+        }
         ///TXEMPTY Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///Max number of Repetitions Reached Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iter{}; 
+        namespace IterValC{
+        }
         ///Buffer Empty Interrupt Enable (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        namespace TxbufeValC{
+        }
         ///Buffer Full Interrupt Enable (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        namespace RxbuffValC{
+        }
         ///Non AcknowledgeInterrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> nack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> nack{}; 
+        namespace NackValC{
+        }
         ///Clear to Send Input Change Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ctsic{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ctsic{}; 
+        namespace CtsicValC{
+        }
         ///Manchester Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> mane{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> mane{}; 
+        namespace ManeValC{
+        }
     }
     namespace Usart0IerSpiMode{    ///<Interrupt Enable Register
         using Addr = Register::Address<0xfff8c008,0xfffff9dc,0,unsigned>;
         ///RXRDY Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///TXRDY Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Overrun Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///TXEMPTY Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///SPI Underrun Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> unre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> unre{}; 
+        namespace UnreValC{
+        }
     }
     namespace Usart0Idr{    ///<Interrupt Disable Register
         using Addr = Register::Address<0xfff8c00c,0xfef7c000,0,unsigned>;
         ///RXRDY Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///TXRDY Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Receiver Break Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        namespace RxbrkValC{
+        }
         ///End of Receive Transfer Interrupt Disable (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
+        namespace EndrxValC{
+        }
         ///End of Transmit Interrupt Disable (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
+        namespace EndtxValC{
+        }
         ///Overrun Error Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Framing Error Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        namespace FrameValC{
+        }
         ///Parity Error Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        namespace PareValC{
+        }
         ///Time-out Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timeout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timeout{}; 
+        namespace TimeoutValC{
+        }
         ///TXEMPTY Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///Max Number of Repetitions Reached Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iter{}; 
+        namespace IterValC{
+        }
         ///Buffer Empty Interrupt Disable (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        namespace TxbufeValC{
+        }
         ///Buffer Full Interrupt Disable (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        namespace RxbuffValC{
+        }
         ///Non AcknowledgeInterrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> nack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> nack{}; 
+        namespace NackValC{
+        }
         ///Clear to Send Input Change Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ctsic{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ctsic{}; 
+        namespace CtsicValC{
+        }
         ///Manchester Error Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> mane{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> mane{}; 
+        namespace ManeValC{
+        }
     }
     namespace Usart0IdrSpiMode{    ///<Interrupt Disable Register
         using Addr = Register::Address<0xfff8c00c,0xfffff9dc,0,unsigned>;
         ///RXRDY Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///TXRDY Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Overrun Error Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///TXEMPTY Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///SPI Underrun Error Interrupt Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> unre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> unre{}; 
+        namespace UnreValC{
+        }
     }
     namespace Usart0Imr{    ///<Interrupt Mask Register
         using Addr = Register::Address<0xfff8c010,0xfef7c000,0,unsigned>;
         ///RXRDY Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///TXRDY Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Receiver Break Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        namespace RxbrkValC{
+        }
         ///End of Receive Transfer Interrupt Mask (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
+        namespace EndrxValC{
+        }
         ///End of Transmit Interrupt Mask (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
+        namespace EndtxValC{
+        }
         ///Overrun Error Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Framing Error Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        namespace FrameValC{
+        }
         ///Parity Error Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        namespace PareValC{
+        }
         ///Time-out Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timeout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timeout{}; 
+        namespace TimeoutValC{
+        }
         ///TXEMPTY Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///Max Number of Repetitions Reached Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iter{}; 
+        namespace IterValC{
+        }
         ///Buffer Empty Interrupt Mask (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        namespace TxbufeValC{
+        }
         ///Buffer Full Interrupt Mask (available in all USART modes of operation)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        namespace RxbuffValC{
+        }
         ///Non AcknowledgeInterrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> nack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> nack{}; 
+        namespace NackValC{
+        }
         ///Clear to Send Input Change Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ctsic{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ctsic{}; 
+        namespace CtsicValC{
+        }
         ///Manchester Error Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> mane{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> mane{}; 
+        namespace ManeValC{
+        }
     }
     namespace Usart0ImrSpiMode{    ///<Interrupt Mask Register
         using Addr = Register::Address<0xfff8c010,0xfffff9dc,0,unsigned>;
         ///RXRDY Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///TXRDY Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Overrun Error Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///TXEMPTY Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///SPI Underrun Error Interrupt Mask
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> unre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> unre{}; 
+        namespace UnreValC{
+        }
     }
     namespace Usart0Csr{    ///<Channel Status Register
         using Addr = Register::Address<0xfff8c014,0xfe77c000,0,unsigned>;
         ///Receiver Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///Transmitter Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Break Received/End of Break
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxbrk{}; 
+        namespace RxbrkValC{
+        }
         ///End of Receiver Transfer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
+        namespace EndrxValC{
+        }
         ///End of Transmitter Transfer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
+        namespace EndtxValC{
+        }
         ///Overrun Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Framing Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
+        namespace FrameValC{
+        }
         ///Parity Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
+        namespace PareValC{
+        }
         ///Receiver Time-out
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timeout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> timeout{}; 
+        namespace TimeoutValC{
+        }
         ///Transmitter Empty
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///MaxNumber of Repetitions Reached
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> iter{}; 
+        namespace IterValC{
+        }
         ///Transmission Buffer Empty
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        namespace TxbufeValC{
+        }
         ///Reception Buffer Full
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
+        namespace RxbuffValC{
+        }
         ///Non AcknowledgeInterrupt
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> nack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> nack{}; 
+        namespace NackValC{
+        }
         ///Clear to Send Input Change Flag
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ctsic{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> ctsic{}; 
+        namespace CtsicValC{
+        }
         ///Image of CTS Input
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> cts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> cts{}; 
+        namespace CtsValC{
+        }
         ///Manchester Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> manerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> manerr{}; 
+        namespace ManerrValC{
+        }
     }
     namespace Usart0CsrSpiMode{    ///<Channel Status Register
         using Addr = Register::Address<0xfff8c014,0xfffff9dc,0,unsigned>;
         ///Receiver Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
+        namespace RxrdyValC{
+        }
         ///Transmitter Ready
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        namespace TxrdyValC{
+        }
         ///Overrun Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
+        namespace OvreValC{
+        }
         ///Transmitter Empty
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
+        namespace TxemptyValC{
+        }
         ///Underrun Error
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> unre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> unre{}; 
+        namespace UnreValC{
+        }
     }
     namespace Usart0Rhr{    ///<Receiver Holding Register
         using Addr = Register::Address<0xfff8c018,0xffff7e00,0,unsigned>;
         ///Received Character
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rxchr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> rxchr{}; 
+        namespace RxchrValC{
+        }
         ///Received Sync
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxsynh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rxsynh{}; 
+        namespace RxsynhValC{
+        }
     }
     namespace Usart0Thr{    ///<Transmitter Holding Register
         using Addr = Register::Address<0xfff8c01c,0xffff7e00,0,unsigned>;
         ///Character to be Transmitted
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> txchr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> txchr{}; 
+        namespace TxchrValC{
+        }
         ///Sync Field to be Transmitted
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> txsynh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> txsynh{}; 
+        namespace TxsynhValC{
+        }
     }
     namespace Usart0Brgr{    ///<Baud Rate Generator Register
         using Addr = Register::Address<0xfff8c020,0xfff80000,0,unsigned>;
         ///Clock Divider
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cd{}; 
+        namespace CdValC{
+        }
         ///Fractional Part
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> fp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> fp{}; 
+        namespace FpValC{
+        }
     }
     namespace Usart0Rtor{    ///<Receiver Time-out Register
         using Addr = Register::Address<0xfff8c024,0xffff0000,0,unsigned>;
         ///Time-out Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> to{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> to{}; 
+        namespace ToValC{
+        }
     }
     namespace Usart0Ttgr{    ///<Transmitter Timeguard Register
         using Addr = Register::Address<0xfff8c028,0xffffff00,0,unsigned>;
         ///Timeguard Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tg{}; 
+        namespace TgValC{
+        }
     }
     namespace Usart0Fidi{    ///<FI DI Ratio Register
         using Addr = Register::Address<0xfff8c040,0xfffff800,0,unsigned>;
         ///FI Over DI Ratio Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> fiDiRatio{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> fiDiRatio{}; 
+        namespace FidiratioValC{
+        }
     }
     namespace Usart0Ner{    ///<Number of Errors Register
         using Addr = Register::Address<0xfff8c044,0xffffff00,0,unsigned>;
         ///Number of Errors
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> nbErrors{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> nbErrors{}; 
+        namespace NberrorsValC{
+        }
     }
     namespace Usart0If{    ///<IrDA Filter Register
         using Addr = Register::Address<0xfff8c04c,0xffffff00,0,unsigned>;
         ///IrDA Filter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> irdaFilter{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> irdaFilter{}; 
+        namespace IrdafilterValC{
+        }
     }
     namespace Usart0Man{    ///<Manchester Encoder Decoder Register
         using Addr = Register::Address<0xfff8c050,0x8cf0ecf0,0,unsigned>;
         ///Transmitter Preamble Length
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> txPl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> txPl{}; 
+        namespace TxplValC{
+        }
         ///Transmitter Preamble Pattern
-        enum class txPpVal {
+        enum class TxppVal {
             allOne=0x00000000,     ///<The preamble is composed of '1's
             allZero=0x00000001,     ///<The preamble is composed of '0's
             zeroOne=0x00000002,     ///<The preamble is composed of '01's
             oneZero=0x00000003,     ///<The preamble is composed of '10's
         };
-        namespace txPpValC{
-            constexpr MPL::Value<txPpVal,txPpVal::allOne> allOne{};
-            constexpr MPL::Value<txPpVal,txPpVal::allZero> allZero{};
-            constexpr MPL::Value<txPpVal,txPpVal::zeroOne> zeroOne{};
-            constexpr MPL::Value<txPpVal,txPpVal::oneZero> oneZero{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,TxppVal> txPp{}; 
+        namespace TxppValC{
+            constexpr Register::FieldValue<decltype(txPp),TxppVal::allOne> allOne{};
+            constexpr Register::FieldValue<decltype(txPp),TxppVal::allZero> allZero{};
+            constexpr Register::FieldValue<decltype(txPp),TxppVal::zeroOne> zeroOne{};
+            constexpr Register::FieldValue<decltype(txPp),TxppVal::oneZero> oneZero{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,txPpVal> txPp{}; 
         ///Transmitter Manchester Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txMpol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txMpol{}; 
+        namespace TxmpolValC{
+        }
         ///Receiver Preamble Length
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> rxPl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> rxPl{}; 
+        namespace RxplValC{
+        }
         ///Receiver Preamble Pattern detected
-        enum class rxPpVal {
+        enum class RxppVal {
             allOne=0x00000000,     ///<The preamble is composed of '1's
             allZero=0x00000001,     ///<The preamble is composed of '0's
             zeroOne=0x00000002,     ///<The preamble is composed of '01's
             oneZero=0x00000003,     ///<The preamble is composed of '10's
         };
-        namespace rxPpValC{
-            constexpr MPL::Value<rxPpVal,rxPpVal::allOne> allOne{};
-            constexpr MPL::Value<rxPpVal,rxPpVal::allZero> allZero{};
-            constexpr MPL::Value<rxPpVal,rxPpVal::zeroOne> zeroOne{};
-            constexpr MPL::Value<rxPpVal,rxPpVal::oneZero> oneZero{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,RxppVal> rxPp{}; 
+        namespace RxppValC{
+            constexpr Register::FieldValue<decltype(rxPp),RxppVal::allOne> allOne{};
+            constexpr Register::FieldValue<decltype(rxPp),RxppVal::allZero> allZero{};
+            constexpr Register::FieldValue<decltype(rxPp),RxppVal::zeroOne> zeroOne{};
+            constexpr Register::FieldValue<decltype(rxPp),RxppVal::oneZero> oneZero{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,rxPpVal> rxPp{}; 
         ///Receiver Manchester Polarity
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> rxMpol{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> rxMpol{}; 
+        namespace RxmpolValC{
+        }
         ///Must Be Set to 1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> one{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> one{}; 
+        namespace OneValC{
+        }
         ///Drift Compensation
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> drift{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> drift{}; 
+        namespace DriftValC{
+        }
     }
     namespace Usart0Rpr{    ///<Receive Pointer Register
         using Addr = Register::Address<0xfff8c100,0x00000000,0,unsigned>;
         ///Receive Pointer Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxptr{}; 
+        namespace RxptrValC{
+        }
     }
     namespace Usart0Rcr{    ///<Receive Counter Register
         using Addr = Register::Address<0xfff8c104,0xffff0000,0,unsigned>;
         ///Receive Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxctr{}; 
+        namespace RxctrValC{
+        }
     }
     namespace Usart0Tpr{    ///<Transmit Pointer Register
         using Addr = Register::Address<0xfff8c108,0x00000000,0,unsigned>;
         ///Transmit Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txptr{}; 
+        namespace TxptrValC{
+        }
     }
     namespace Usart0Tcr{    ///<Transmit Counter Register
         using Addr = Register::Address<0xfff8c10c,0xffff0000,0,unsigned>;
         ///Transmit Counter Register
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txctr{}; 
+        namespace TxctrValC{
+        }
     }
     namespace Usart0Rnpr{    ///<Receive Next Pointer Register
         using Addr = Register::Address<0xfff8c110,0x00000000,0,unsigned>;
         ///Receive Next Pointer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxnptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxnptr{}; 
+        namespace RxnptrValC{
+        }
     }
     namespace Usart0Rncr{    ///<Receive Next Counter Register
         using Addr = Register::Address<0xfff8c114,0xffff0000,0,unsigned>;
         ///Receive Next Counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxnctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxnctr{}; 
+        namespace RxnctrValC{
+        }
     }
     namespace Usart0Tnpr{    ///<Transmit Next Pointer Register
         using Addr = Register::Address<0xfff8c118,0x00000000,0,unsigned>;
         ///Transmit Next Pointer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txnptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txnptr{}; 
+        namespace TxnptrValC{
+        }
     }
     namespace Usart0Tncr{    ///<Transmit Next Counter Register
         using Addr = Register::Address<0xfff8c11c,0xffff0000,0,unsigned>;
         ///Transmit Counter Next
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txnctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txnctr{}; 
+        namespace TxnctrValC{
+        }
     }
     namespace Usart0Ptcr{    ///<Transfer Control Register
         using Addr = Register::Address<0xfff8c120,0xfffffcfc,0,unsigned>;
         ///Receiver Transfer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        namespace RxtenValC{
+        }
         ///Receiver Transfer Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
+        namespace RxtdisValC{
+        }
         ///Transmitter Transfer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        namespace TxtenValC{
+        }
         ///Transmitter Transfer Disable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
+        namespace TxtdisValC{
+        }
     }
     namespace Usart0Ptsr{    ///<Transfer Status Register
         using Addr = Register::Address<0xfff8c124,0xfffffefe,0,unsigned>;
         ///Receiver Transfer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        namespace RxtenValC{
+        }
         ///Transmitter Transfer Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        namespace TxtenValC{
+        }
     }
 }

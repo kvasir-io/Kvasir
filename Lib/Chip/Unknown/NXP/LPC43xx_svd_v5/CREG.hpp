@@ -5,475 +5,443 @@ namespace Kvasir {
     namespace Nonecreg0{    ///<Chip configuration register 32 kHz oscillator output and BOD control register.
         using Addr = Register::Address<0x40043004,0xfffc3010,0,unsigned>;
         ///Enable 1 kHz output.
-        enum class en1khzVal {
+        enum class En1khzVal {
             v1KhzOutputDisable=0x00000000,     ///<1 kHz output disabled.
             v1KhzOutputEnabled=0x00000001,     ///<1 kHz output enabled.
         };
-        namespace en1khzValC{
-            constexpr MPL::Value<en1khzVal,en1khzVal::v1KhzOutputDisable> v1KhzOutputDisable{};
-            constexpr MPL::Value<en1khzVal,en1khzVal::v1KhzOutputEnabled> v1KhzOutputEnabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,En1khzVal> en1khz{}; 
+        namespace En1khzValC{
+            constexpr Register::FieldValue<decltype(en1khz),En1khzVal::v1KhzOutputDisable> v1KhzOutputDisable{};
+            constexpr Register::FieldValue<decltype(en1khz),En1khzVal::v1KhzOutputEnabled> v1KhzOutputEnabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,en1khzVal> en1khz{}; 
         ///Enable 32 kHz output
-        enum class en32khzVal {
+        enum class En32khzVal {
             v32KhzOutputDisabl=0x00000000,     ///<32 kHz output disabled.
             v32KhzOutputEnable=0x00000001,     ///<32 kHz output enabled.
         };
-        namespace en32khzValC{
-            constexpr MPL::Value<en32khzVal,en32khzVal::v32KhzOutputDisabl> v32KhzOutputDisabl{};
-            constexpr MPL::Value<en32khzVal,en32khzVal::v32KhzOutputEnable> v32KhzOutputEnable{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,En32khzVal> en32khz{}; 
+        namespace En32khzValC{
+            constexpr Register::FieldValue<decltype(en32khz),En32khzVal::v32KhzOutputDisabl> v32KhzOutputDisabl{};
+            constexpr Register::FieldValue<decltype(en32khz),En32khzVal::v32KhzOutputEnable> v32KhzOutputEnable{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,en32khzVal> en32khz{}; 
         ///32 kHz oscillator reset
-        enum class reset32khzVal {
+        enum class Reset32khzVal {
             tbd=0x00000000,     ///<tbd
             tbd=0x00000001,     ///<tbd
         };
-        namespace reset32khzValC{
-            constexpr MPL::Value<reset32khzVal,reset32khzVal::tbd> tbd{};
-            constexpr MPL::Value<reset32khzVal,reset32khzVal::tbd> tbd{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Reset32khzVal> reset32khz{}; 
+        namespace Reset32khzValC{
+            constexpr Register::FieldValue<decltype(reset32khz),Reset32khzVal::tbd> tbd{};
+            constexpr Register::FieldValue<decltype(reset32khz),Reset32khzVal::tbd> tbd{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,reset32khzVal> reset32khz{}; 
         ///32 kHz power control.
         enum class 32khzpdVal {
             v32KhzOscillatorPo=0x00000000,     ///<32 kHz oscillator powered.
             v32KhzOscillatorPo=0x00000001,     ///<32 kHz oscillator powered-down.
         };
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,32khzpdVal> 32khzpd{}; 
         namespace 32khzpdValC{
-            constexpr MPL::Value<32khzpdVal,32khzpdVal::v32KhzOscillatorPo> v32KhzOscillatorPo{};
-            constexpr MPL::Value<32khzpdVal,32khzpdVal::v32KhzOscillatorPo> v32KhzOscillatorPo{};
+            constexpr Register::FieldValue<decltype(32khzpd),32khzpdVal::v32KhzOscillatorPo> v32KhzOscillatorPo{};
+            constexpr Register::FieldValue<decltype(32khzpd),32khzpdVal::v32KhzOscillatorPo> v32KhzOscillatorPo{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,32khzpdVal> 32khzpd{}; 
         ///USB0 PHY power control.
-        enum class usb0phyVal {
+        enum class Usb0phyVal {
             enableUsb0PhyPowe=0x00000000,     ///<Enable USB0 PHY power.
             disableUsb0PhyPh=0x00000001,     ///<Disable USB0 PHY. PHY powered down.
         };
-        namespace usb0phyValC{
-            constexpr MPL::Value<usb0phyVal,usb0phyVal::enableUsb0PhyPowe> enableUsb0PhyPowe{};
-            constexpr MPL::Value<usb0phyVal,usb0phyVal::disableUsb0PhyPh> disableUsb0PhyPh{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Usb0phyVal> usb0phy{}; 
+        namespace Usb0phyValC{
+            constexpr Register::FieldValue<decltype(usb0phy),Usb0phyVal::enableUsb0PhyPowe> enableUsb0PhyPowe{};
+            constexpr Register::FieldValue<decltype(usb0phy),Usb0phyVal::disableUsb0PhyPh> disableUsb0PhyPh{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,usb0phyVal> usb0phy{}; 
         ///RTC_ALARM pin output control
-        enum class alarmctrlVal {
+        enum class AlarmctrlVal {
             rtcAlarm=0x00000000,     ///<RTC alarm.
             eventRouterEvent=0x00000001,     ///<Event router event.
-            reserved=0x00000002,     ///<Reserved.
             inactive=0x00000003,     ///<Inactive.
         };
-        namespace alarmctrlValC{
-            constexpr MPL::Value<alarmctrlVal,alarmctrlVal::rtcAlarm> rtcAlarm{};
-            constexpr MPL::Value<alarmctrlVal,alarmctrlVal::eventRouterEvent> eventRouterEvent{};
-            constexpr MPL::Value<alarmctrlVal,alarmctrlVal::reserved> reserved{};
-            constexpr MPL::Value<alarmctrlVal,alarmctrlVal::inactive> inactive{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,AlarmctrlVal> alarmctrl{}; 
+        namespace AlarmctrlValC{
+            constexpr Register::FieldValue<decltype(alarmctrl),AlarmctrlVal::rtcAlarm> rtcAlarm{};
+            constexpr Register::FieldValue<decltype(alarmctrl),AlarmctrlVal::eventRouterEvent> eventRouterEvent{};
+            constexpr Register::FieldValue<decltype(alarmctrl),AlarmctrlVal::inactive> inactive{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,alarmctrlVal> alarmctrl{}; 
         ///BOD trip level to generate an interrupt.
-        enum class bodlvl1Val {
+        enum class Bodlvl1Val {
             v275V=0x00000000,     ///<2.75 V
             v285V=0x00000001,     ///<2.85 V
             v295V=0x00000002,     ///<2.95 V
             v305V=0x00000003,     ///<3.05 V
         };
-        namespace bodlvl1ValC{
-            constexpr MPL::Value<bodlvl1Val,bodlvl1Val::v275V> v275V{};
-            constexpr MPL::Value<bodlvl1Val,bodlvl1Val::v285V> v285V{};
-            constexpr MPL::Value<bodlvl1Val,bodlvl1Val::v295V> v295V{};
-            constexpr MPL::Value<bodlvl1Val,bodlvl1Val::v305V> v305V{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,Bodlvl1Val> bodlvl1{}; 
+        namespace Bodlvl1ValC{
+            constexpr Register::FieldValue<decltype(bodlvl1),Bodlvl1Val::v275V> v275V{};
+            constexpr Register::FieldValue<decltype(bodlvl1),Bodlvl1Val::v285V> v285V{};
+            constexpr Register::FieldValue<decltype(bodlvl1),Bodlvl1Val::v295V> v295V{};
+            constexpr Register::FieldValue<decltype(bodlvl1),Bodlvl1Val::v305V> v305V{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,bodlvl1Val> bodlvl1{}; 
         ///BOD trip level to generate a reset.
-        enum class bodlvl2Val {
+        enum class Bodlvl2Val {
             v170V=0x00000000,     ///<1.70 V
             v180V=0x00000001,     ///<1.80 V
             v190V=0x00000002,     ///<1.90 V
             v200V=0x00000003,     ///<2.00 V
         };
-        namespace bodlvl2ValC{
-            constexpr MPL::Value<bodlvl2Val,bodlvl2Val::v170V> v170V{};
-            constexpr MPL::Value<bodlvl2Val,bodlvl2Val::v180V> v180V{};
-            constexpr MPL::Value<bodlvl2Val,bodlvl2Val::v190V> v190V{};
-            constexpr MPL::Value<bodlvl2Val,bodlvl2Val::v200V> v200V{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,Bodlvl2Val> bodlvl2{}; 
+        namespace Bodlvl2ValC{
+            constexpr Register::FieldValue<decltype(bodlvl2),Bodlvl2Val::v170V> v170V{};
+            constexpr Register::FieldValue<decltype(bodlvl2),Bodlvl2Val::v180V> v180V{};
+            constexpr Register::FieldValue<decltype(bodlvl2),Bodlvl2Val::v190V> v190V{};
+            constexpr Register::FieldValue<decltype(bodlvl2),Bodlvl2Val::v200V> v200V{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,bodlvl2Val> bodlvl2{}; 
         ///WAKEUP0 pin input/output control
-        enum class wakeup0ctrlVal {
+        enum class Wakeup0ctrlVal {
             inputToEventRoute=0x00000000,     ///<Input to event router.
             eventRouterEventO=0x00000001,     ///<Event router event output.
-            reserved=0x00000002,     ///<Reserved.
             inputToEventRoute=0x00000003,     ///<Input to event router.
         };
-        namespace wakeup0ctrlValC{
-            constexpr MPL::Value<wakeup0ctrlVal,wakeup0ctrlVal::inputToEventRoute> inputToEventRoute{};
-            constexpr MPL::Value<wakeup0ctrlVal,wakeup0ctrlVal::eventRouterEventO> eventRouterEventO{};
-            constexpr MPL::Value<wakeup0ctrlVal,wakeup0ctrlVal::reserved> reserved{};
-            constexpr MPL::Value<wakeup0ctrlVal,wakeup0ctrlVal::inputToEventRoute> inputToEventRoute{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,Wakeup0ctrlVal> wakeup0ctrl{}; 
+        namespace Wakeup0ctrlValC{
+            constexpr Register::FieldValue<decltype(wakeup0ctrl),Wakeup0ctrlVal::inputToEventRoute> inputToEventRoute{};
+            constexpr Register::FieldValue<decltype(wakeup0ctrl),Wakeup0ctrlVal::eventRouterEventO> eventRouterEventO{};
+            constexpr Register::FieldValue<decltype(wakeup0ctrl),Wakeup0ctrlVal::inputToEventRoute> inputToEventRoute{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,wakeup0ctrlVal> wakeup0ctrl{}; 
         ///WAKEUP1 pin input/output control
-        enum class wakeup1ctrlVal {
+        enum class Wakeup1ctrlVal {
             inputToEventRoute=0x00000000,     ///<Input to event router.
             eventRouterEventO=0x00000001,     ///<Event router event output.
-            reserved=0x00000002,     ///<Reserved
             inputToEventRoute=0x00000003,     ///<Input to event router.
         };
-        namespace wakeup1ctrlValC{
-            constexpr MPL::Value<wakeup1ctrlVal,wakeup1ctrlVal::inputToEventRoute> inputToEventRoute{};
-            constexpr MPL::Value<wakeup1ctrlVal,wakeup1ctrlVal::eventRouterEventO> eventRouterEventO{};
-            constexpr MPL::Value<wakeup1ctrlVal,wakeup1ctrlVal::reserved> reserved{};
-            constexpr MPL::Value<wakeup1ctrlVal,wakeup1ctrlVal::inputToEventRoute> inputToEventRoute{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,Wakeup1ctrlVal> wakeup1ctrl{}; 
+        namespace Wakeup1ctrlValC{
+            constexpr Register::FieldValue<decltype(wakeup1ctrl),Wakeup1ctrlVal::inputToEventRoute> inputToEventRoute{};
+            constexpr Register::FieldValue<decltype(wakeup1ctrl),Wakeup1ctrlVal::eventRouterEventO> eventRouterEventO{};
+            constexpr Register::FieldValue<decltype(wakeup1ctrl),Wakeup1ctrlVal::inputToEventRoute> inputToEventRoute{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,wakeup1ctrlVal> wakeup1ctrl{}; 
     }
     namespace Nonem4memmap{    ///<ARM Cortex-M4 memory mapping
         using Addr = Register::Address<0x40043100,0x00000fff,0,unsigned>;
         ///Shadow address when accessing memory at address 0x0000 0000
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> m4map{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> m4map{}; 
+        namespace M4mapValC{
+        }
     }
     namespace Nonecreg5{    ///<Chip configuration register 5. Controls JTAG access.
         using Addr = Register::Address<0x40043118,0xffffffbf,0,unsigned>;
         ///tbd
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> m4tapsel{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> m4tapsel{}; 
+        namespace M4tapselValC{
+        }
     }
     namespace Nonedmamux{    ///<DMA muxing control
         using Addr = Register::Address<0x4004311c,0x00000000,0,unsigned>;
         ///Select DMA to peripheral connection for DMA peripheral 0.
-        enum class dmamuxch0Val {
+        enum class Dmamuxch0Val {
             spifi=0x00000000,     ///<SPIFI
             sctMatch2=0x00000001,     ///<SCT match 2
-            reserved=0x00000002,     ///<Reserved
             t3Match1=0x00000003,     ///<T3 match 1
         };
-        namespace dmamuxch0ValC{
-            constexpr MPL::Value<dmamuxch0Val,dmamuxch0Val::spifi> spifi{};
-            constexpr MPL::Value<dmamuxch0Val,dmamuxch0Val::sctMatch2> sctMatch2{};
-            constexpr MPL::Value<dmamuxch0Val,dmamuxch0Val::reserved> reserved{};
-            constexpr MPL::Value<dmamuxch0Val,dmamuxch0Val::t3Match1> t3Match1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Dmamuxch0Val> dmamuxch0{}; 
+        namespace Dmamuxch0ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch0),Dmamuxch0Val::spifi> spifi{};
+            constexpr Register::FieldValue<decltype(dmamuxch0),Dmamuxch0Val::sctMatch2> sctMatch2{};
+            constexpr Register::FieldValue<decltype(dmamuxch0),Dmamuxch0Val::t3Match1> t3Match1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,dmamuxch0Val> dmamuxch0{}; 
         ///Select DMA to peripheral connection for DMA peripheral 1
-        enum class dmamuxch1Val {
+        enum class Dmamuxch1Val {
             timer0Match0=0x00000000,     ///<Timer 0 match 0
             usart0Transmit=0x00000001,     ///<USART0 transmit
-            reserved=0x00000002,     ///<Reserved
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch1ValC{
-            constexpr MPL::Value<dmamuxch1Val,dmamuxch1Val::timer0Match0> timer0Match0{};
-            constexpr MPL::Value<dmamuxch1Val,dmamuxch1Val::usart0Transmit> usart0Transmit{};
-            constexpr MPL::Value<dmamuxch1Val,dmamuxch1Val::reserved> reserved{};
-            constexpr MPL::Value<dmamuxch1Val,dmamuxch1Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Dmamuxch1Val> dmamuxch1{}; 
+        namespace Dmamuxch1ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch1),Dmamuxch1Val::timer0Match0> timer0Match0{};
+            constexpr Register::FieldValue<decltype(dmamuxch1),Dmamuxch1Val::usart0Transmit> usart0Transmit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,dmamuxch1Val> dmamuxch1{}; 
         ///Select DMA to peripheral connection for DMA peripheral 2.
-        enum class dmamuxch2Val {
+        enum class Dmamuxch2Val {
             timer0Match1=0x00000000,     ///<Timer 0 match 1
             usart0Receive=0x00000001,     ///<USART0 receive
-            reserved=0x00000002,     ///<Reserved
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch2ValC{
-            constexpr MPL::Value<dmamuxch2Val,dmamuxch2Val::timer0Match1> timer0Match1{};
-            constexpr MPL::Value<dmamuxch2Val,dmamuxch2Val::usart0Receive> usart0Receive{};
-            constexpr MPL::Value<dmamuxch2Val,dmamuxch2Val::reserved> reserved{};
-            constexpr MPL::Value<dmamuxch2Val,dmamuxch2Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Dmamuxch2Val> dmamuxch2{}; 
+        namespace Dmamuxch2ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch2),Dmamuxch2Val::timer0Match1> timer0Match1{};
+            constexpr Register::FieldValue<decltype(dmamuxch2),Dmamuxch2Val::usart0Receive> usart0Receive{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,dmamuxch2Val> dmamuxch2{}; 
         ///Select DMA to peripheral connection for DMA peripheral 3.
-        enum class dmamuxch3Val {
+        enum class Dmamuxch3Val {
             timer1Match0=0x00000000,     ///<Timer 1 match 0
             uart1Transmit=0x00000001,     ///<UART1 transmit
             i2s1Channel0=0x00000002,     ///<I2S1 channel 0
             ssp1Transmit=0x00000003,     ///<SSP1 transmit
         };
-        namespace dmamuxch3ValC{
-            constexpr MPL::Value<dmamuxch3Val,dmamuxch3Val::timer1Match0> timer1Match0{};
-            constexpr MPL::Value<dmamuxch3Val,dmamuxch3Val::uart1Transmit> uart1Transmit{};
-            constexpr MPL::Value<dmamuxch3Val,dmamuxch3Val::i2s1Channel0> i2s1Channel0{};
-            constexpr MPL::Value<dmamuxch3Val,dmamuxch3Val::ssp1Transmit> ssp1Transmit{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Dmamuxch3Val> dmamuxch3{}; 
+        namespace Dmamuxch3ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch3),Dmamuxch3Val::timer1Match0> timer1Match0{};
+            constexpr Register::FieldValue<decltype(dmamuxch3),Dmamuxch3Val::uart1Transmit> uart1Transmit{};
+            constexpr Register::FieldValue<decltype(dmamuxch3),Dmamuxch3Val::i2s1Channel0> i2s1Channel0{};
+            constexpr Register::FieldValue<decltype(dmamuxch3),Dmamuxch3Val::ssp1Transmit> ssp1Transmit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,dmamuxch3Val> dmamuxch3{}; 
         ///Select DMA to peripheral connection for DMA peripheral 4.
-        enum class dmamuxch4Val {
+        enum class Dmamuxch4Val {
             timer1Match1=0x00000000,     ///<Timer 1 match 1
             uart1Receive=0x00000001,     ///<UART1 receive
             i2s1Channel1=0x00000002,     ///<I2S1 channel 1
             ssp1Receive=0x00000003,     ///<SSP1 receive
         };
-        namespace dmamuxch4ValC{
-            constexpr MPL::Value<dmamuxch4Val,dmamuxch4Val::timer1Match1> timer1Match1{};
-            constexpr MPL::Value<dmamuxch4Val,dmamuxch4Val::uart1Receive> uart1Receive{};
-            constexpr MPL::Value<dmamuxch4Val,dmamuxch4Val::i2s1Channel1> i2s1Channel1{};
-            constexpr MPL::Value<dmamuxch4Val,dmamuxch4Val::ssp1Receive> ssp1Receive{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,Dmamuxch4Val> dmamuxch4{}; 
+        namespace Dmamuxch4ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch4),Dmamuxch4Val::timer1Match1> timer1Match1{};
+            constexpr Register::FieldValue<decltype(dmamuxch4),Dmamuxch4Val::uart1Receive> uart1Receive{};
+            constexpr Register::FieldValue<decltype(dmamuxch4),Dmamuxch4Val::i2s1Channel1> i2s1Channel1{};
+            constexpr Register::FieldValue<decltype(dmamuxch4),Dmamuxch4Val::ssp1Receive> ssp1Receive{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,dmamuxch4Val> dmamuxch4{}; 
         ///Select DMA to peripheral connection for DMA peripheral 5.
-        enum class dmamuxch5Val {
+        enum class Dmamuxch5Val {
             timer2Match0=0x00000000,     ///<Timer 2 match 0
             usart2Transmit=0x00000001,     ///<USART2 transmit
             ssp1Transmit=0x00000002,     ///<SSP1 transmit
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch5ValC{
-            constexpr MPL::Value<dmamuxch5Val,dmamuxch5Val::timer2Match0> timer2Match0{};
-            constexpr MPL::Value<dmamuxch5Val,dmamuxch5Val::usart2Transmit> usart2Transmit{};
-            constexpr MPL::Value<dmamuxch5Val,dmamuxch5Val::ssp1Transmit> ssp1Transmit{};
-            constexpr MPL::Value<dmamuxch5Val,dmamuxch5Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,Dmamuxch5Val> dmamuxch5{}; 
+        namespace Dmamuxch5ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch5),Dmamuxch5Val::timer2Match0> timer2Match0{};
+            constexpr Register::FieldValue<decltype(dmamuxch5),Dmamuxch5Val::usart2Transmit> usart2Transmit{};
+            constexpr Register::FieldValue<decltype(dmamuxch5),Dmamuxch5Val::ssp1Transmit> ssp1Transmit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,dmamuxch5Val> dmamuxch5{}; 
         ///Selects DMA to peripheral connection for DMA peripheral 6.
-        enum class dmamuxch6Val {
+        enum class Dmamuxch6Val {
             timer2Match1=0x00000000,     ///<Timer 2 match 1
             usart2Receive=0x00000001,     ///<USART2 receive
             ssp1Receive=0x00000002,     ///<SSP1 receive
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch6ValC{
-            constexpr MPL::Value<dmamuxch6Val,dmamuxch6Val::timer2Match1> timer2Match1{};
-            constexpr MPL::Value<dmamuxch6Val,dmamuxch6Val::usart2Receive> usart2Receive{};
-            constexpr MPL::Value<dmamuxch6Val,dmamuxch6Val::ssp1Receive> ssp1Receive{};
-            constexpr MPL::Value<dmamuxch6Val,dmamuxch6Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,Dmamuxch6Val> dmamuxch6{}; 
+        namespace Dmamuxch6ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch6),Dmamuxch6Val::timer2Match1> timer2Match1{};
+            constexpr Register::FieldValue<decltype(dmamuxch6),Dmamuxch6Val::usart2Receive> usart2Receive{};
+            constexpr Register::FieldValue<decltype(dmamuxch6),Dmamuxch6Val::ssp1Receive> ssp1Receive{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,dmamuxch6Val> dmamuxch6{}; 
         ///Selects DMA to peripheral connection for DMA peripheral 7.
-        enum class dmamuxch7Val {
+        enum class Dmamuxch7Val {
             timer3MatchL0=0x00000000,     ///<Timer 3 match l 0
             usart3Transmit=0x00000001,     ///<USART3 transmit
             sctMatchOutput0=0x00000002,     ///<SCT match output 0
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch7ValC{
-            constexpr MPL::Value<dmamuxch7Val,dmamuxch7Val::timer3MatchL0> timer3MatchL0{};
-            constexpr MPL::Value<dmamuxch7Val,dmamuxch7Val::usart3Transmit> usart3Transmit{};
-            constexpr MPL::Value<dmamuxch7Val,dmamuxch7Val::sctMatchOutput0> sctMatchOutput0{};
-            constexpr MPL::Value<dmamuxch7Val,dmamuxch7Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,Dmamuxch7Val> dmamuxch7{}; 
+        namespace Dmamuxch7ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch7),Dmamuxch7Val::timer3MatchL0> timer3MatchL0{};
+            constexpr Register::FieldValue<decltype(dmamuxch7),Dmamuxch7Val::usart3Transmit> usart3Transmit{};
+            constexpr Register::FieldValue<decltype(dmamuxch7),Dmamuxch7Val::sctMatchOutput0> sctMatchOutput0{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,dmamuxch7Val> dmamuxch7{}; 
         ///Select DMA to peripheral connection for DMA peripheral 8.
-        enum class dmamuxch8Val {
+        enum class Dmamuxch8Val {
             timer3Match1=0x00000000,     ///<Timer 3 match 1
             usart3Receive=0x00000001,     ///<USART3 receive
             sctMatchOutput1=0x00000002,     ///<SCT match output 1
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch8ValC{
-            constexpr MPL::Value<dmamuxch8Val,dmamuxch8Val::timer3Match1> timer3Match1{};
-            constexpr MPL::Value<dmamuxch8Val,dmamuxch8Val::usart3Receive> usart3Receive{};
-            constexpr MPL::Value<dmamuxch8Val,dmamuxch8Val::sctMatchOutput1> sctMatchOutput1{};
-            constexpr MPL::Value<dmamuxch8Val,dmamuxch8Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,Dmamuxch8Val> dmamuxch8{}; 
+        namespace Dmamuxch8ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch8),Dmamuxch8Val::timer3Match1> timer3Match1{};
+            constexpr Register::FieldValue<decltype(dmamuxch8),Dmamuxch8Val::usart3Receive> usart3Receive{};
+            constexpr Register::FieldValue<decltype(dmamuxch8),Dmamuxch8Val::sctMatchOutput1> sctMatchOutput1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,dmamuxch8Val> dmamuxch8{}; 
         ///Select DMA to peripheral connection for DMA peripheral 9.
-        enum class dmamuxch9Val {
+        enum class Dmamuxch9Val {
             ssp0Receive=0x00000000,     ///<SSP0 receive
             i2s0Channel0=0x00000001,     ///<I2S0 channel 0
             sctMatchOutput1=0x00000002,     ///<SCT match output 1
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch9ValC{
-            constexpr MPL::Value<dmamuxch9Val,dmamuxch9Val::ssp0Receive> ssp0Receive{};
-            constexpr MPL::Value<dmamuxch9Val,dmamuxch9Val::i2s0Channel0> i2s0Channel0{};
-            constexpr MPL::Value<dmamuxch9Val,dmamuxch9Val::sctMatchOutput1> sctMatchOutput1{};
-            constexpr MPL::Value<dmamuxch9Val,dmamuxch9Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,Dmamuxch9Val> dmamuxch9{}; 
+        namespace Dmamuxch9ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch9),Dmamuxch9Val::ssp0Receive> ssp0Receive{};
+            constexpr Register::FieldValue<decltype(dmamuxch9),Dmamuxch9Val::i2s0Channel0> i2s0Channel0{};
+            constexpr Register::FieldValue<decltype(dmamuxch9),Dmamuxch9Val::sctMatchOutput1> sctMatchOutput1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,dmamuxch9Val> dmamuxch9{}; 
         ///Select DMA to peripheral connection for DMA peripheral 10.
-        enum class dmamuxch10Val {
+        enum class Dmamuxch10Val {
             ssp0Transmit=0x00000000,     ///<SSP0 transmit
             i2s0Channel1=0x00000001,     ///<I2S0 channel 1
             sctMatchOutput0=0x00000002,     ///<SCT match output 0
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch10ValC{
-            constexpr MPL::Value<dmamuxch10Val,dmamuxch10Val::ssp0Transmit> ssp0Transmit{};
-            constexpr MPL::Value<dmamuxch10Val,dmamuxch10Val::i2s0Channel1> i2s0Channel1{};
-            constexpr MPL::Value<dmamuxch10Val,dmamuxch10Val::sctMatchOutput0> sctMatchOutput0{};
-            constexpr MPL::Value<dmamuxch10Val,dmamuxch10Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,Dmamuxch10Val> dmamuxch10{}; 
+        namespace Dmamuxch10ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch10),Dmamuxch10Val::ssp0Transmit> ssp0Transmit{};
+            constexpr Register::FieldValue<decltype(dmamuxch10),Dmamuxch10Val::i2s0Channel1> i2s0Channel1{};
+            constexpr Register::FieldValue<decltype(dmamuxch10),Dmamuxch10Val::sctMatchOutput0> sctMatchOutput0{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,dmamuxch10Val> dmamuxch10{}; 
         ///Selects DMA to peripheral connection for DMA peripheral 11.
-        enum class dmamuxch11Val {
+        enum class Dmamuxch11Val {
             ssp1Receive=0x00000000,     ///<SSP1 receive
-            reserved=0x00000001,     ///<Reserved
             usart0Transmit=0x00000002,     ///<USART0 transmit
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch11ValC{
-            constexpr MPL::Value<dmamuxch11Val,dmamuxch11Val::ssp1Receive> ssp1Receive{};
-            constexpr MPL::Value<dmamuxch11Val,dmamuxch11Val::reserved> reserved{};
-            constexpr MPL::Value<dmamuxch11Val,dmamuxch11Val::usart0Transmit> usart0Transmit{};
-            constexpr MPL::Value<dmamuxch11Val,dmamuxch11Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,Dmamuxch11Val> dmamuxch11{}; 
+        namespace Dmamuxch11ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch11),Dmamuxch11Val::ssp1Receive> ssp1Receive{};
+            constexpr Register::FieldValue<decltype(dmamuxch11),Dmamuxch11Val::usart0Transmit> usart0Transmit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,dmamuxch11Val> dmamuxch11{}; 
         ///Select DMA to peripheral connection for DMA peripheral 12.
-        enum class dmamuxch12Val {
+        enum class Dmamuxch12Val {
             ssp1Transmit=0x00000000,     ///<SSP1 transmit
-            reserved=0x00000001,     ///<Reserved
             usart0Receive=0x00000002,     ///<USART0 receive
-            reserved=0x00000003,     ///<Reserved
         };
-        namespace dmamuxch12ValC{
-            constexpr MPL::Value<dmamuxch12Val,dmamuxch12Val::ssp1Transmit> ssp1Transmit{};
-            constexpr MPL::Value<dmamuxch12Val,dmamuxch12Val::reserved> reserved{};
-            constexpr MPL::Value<dmamuxch12Val,dmamuxch12Val::usart0Receive> usart0Receive{};
-            constexpr MPL::Value<dmamuxch12Val,dmamuxch12Val::reserved> reserved{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,Dmamuxch12Val> dmamuxch12{}; 
+        namespace Dmamuxch12ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch12),Dmamuxch12Val::ssp1Transmit> ssp1Transmit{};
+            constexpr Register::FieldValue<decltype(dmamuxch12),Dmamuxch12Val::usart0Receive> usart0Receive{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,dmamuxch12Val> dmamuxch12{}; 
         ///Select DMA to peripheral connection for DMA peripheral 13.
-        enum class dmamuxch13Val {
+        enum class Dmamuxch13Val {
             adc0=0x00000000,     ///<ADC0
-            reserved=0x00000001,     ///<Reserved
             ssp1Receive=0x00000002,     ///<SSP1 receive
             usart3Receive=0x00000003,     ///<USART3 receive
         };
-        namespace dmamuxch13ValC{
-            constexpr MPL::Value<dmamuxch13Val,dmamuxch13Val::adc0> adc0{};
-            constexpr MPL::Value<dmamuxch13Val,dmamuxch13Val::reserved> reserved{};
-            constexpr MPL::Value<dmamuxch13Val,dmamuxch13Val::ssp1Receive> ssp1Receive{};
-            constexpr MPL::Value<dmamuxch13Val,dmamuxch13Val::usart3Receive> usart3Receive{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,Dmamuxch13Val> dmamuxch13{}; 
+        namespace Dmamuxch13ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch13),Dmamuxch13Val::adc0> adc0{};
+            constexpr Register::FieldValue<decltype(dmamuxch13),Dmamuxch13Val::ssp1Receive> ssp1Receive{};
+            constexpr Register::FieldValue<decltype(dmamuxch13),Dmamuxch13Val::usart3Receive> usart3Receive{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,dmamuxch13Val> dmamuxch13{}; 
         ///Select DMA to peripheral connection for DMA peripheral 14.
-        enum class dmamuxch14Val {
+        enum class Dmamuxch14Val {
             adc1=0x00000000,     ///<ADC1
-            reserved=0x00000001,     ///<Reserved
             ssp1Transmit=0x00000002,     ///<SSP1 transmit
             usart3Transmit=0x00000003,     ///<USART3 transmit
         };
-        namespace dmamuxch14ValC{
-            constexpr MPL::Value<dmamuxch14Val,dmamuxch14Val::adc1> adc1{};
-            constexpr MPL::Value<dmamuxch14Val,dmamuxch14Val::reserved> reserved{};
-            constexpr MPL::Value<dmamuxch14Val,dmamuxch14Val::ssp1Transmit> ssp1Transmit{};
-            constexpr MPL::Value<dmamuxch14Val,dmamuxch14Val::usart3Transmit> usart3Transmit{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,Dmamuxch14Val> dmamuxch14{}; 
+        namespace Dmamuxch14ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch14),Dmamuxch14Val::adc1> adc1{};
+            constexpr Register::FieldValue<decltype(dmamuxch14),Dmamuxch14Val::ssp1Transmit> ssp1Transmit{};
+            constexpr Register::FieldValue<decltype(dmamuxch14),Dmamuxch14Val::usart3Transmit> usart3Transmit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,dmamuxch14Val> dmamuxch14{}; 
         ///Select DMA to peripheral connection for DMA peripheral 15.
-        enum class dmamuxch15Val {
+        enum class Dmamuxch15Val {
             dac=0x00000000,     ///<DAC
             sctMatchOutput3=0x00000001,     ///<SCT match output 3
-            reserved=0x00000002,     ///<Reserved
             timer3Match0=0x00000003,     ///<Timer 3 match 0
         };
-        namespace dmamuxch15ValC{
-            constexpr MPL::Value<dmamuxch15Val,dmamuxch15Val::dac> dac{};
-            constexpr MPL::Value<dmamuxch15Val,dmamuxch15Val::sctMatchOutput3> sctMatchOutput3{};
-            constexpr MPL::Value<dmamuxch15Val,dmamuxch15Val::reserved> reserved{};
-            constexpr MPL::Value<dmamuxch15Val,dmamuxch15Val::timer3Match0> timer3Match0{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,Dmamuxch15Val> dmamuxch15{}; 
+        namespace Dmamuxch15ValC{
+            constexpr Register::FieldValue<decltype(dmamuxch15),Dmamuxch15Val::dac> dac{};
+            constexpr Register::FieldValue<decltype(dmamuxch15),Dmamuxch15Val::sctMatchOutput3> sctMatchOutput3{};
+            constexpr Register::FieldValue<decltype(dmamuxch15),Dmamuxch15Val::timer3Match0> timer3Match0{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,dmamuxch15Val> dmamuxch15{}; 
     }
     namespace Noneetbcfg{    ///<ETB RAM configuration
         using Addr = Register::Address<0x40043128,0xfffffffe,0,unsigned>;
         ///Select SRAM interface
-        enum class etbVal {
+        enum class EtbVal {
             etbAccessesSramAt=0x00000000,     ///<ETB accesses SRAM at address 0x2000 C000.
             ahbAccessesSramAt=0x00000001,     ///<AHB accesses SRAM at address 0x2000 C000.
         };
-        namespace etbValC{
-            constexpr MPL::Value<etbVal,etbVal::etbAccessesSramAt> etbAccessesSramAt{};
-            constexpr MPL::Value<etbVal,etbVal::ahbAccessesSramAt> ahbAccessesSramAt{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EtbVal> etb{}; 
+        namespace EtbValC{
+            constexpr Register::FieldValue<decltype(etb),EtbVal::etbAccessesSramAt> etbAccessesSramAt{};
+            constexpr Register::FieldValue<decltype(etb),EtbVal::ahbAccessesSramAt> ahbAccessesSramAt{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,etbVal> etb{}; 
     }
     namespace Nonecreg6{    ///<Chip configuration register 6.
         using Addr = Register::Address<0x4004312c,0xfffe0fe8,0,unsigned>;
         ///Selects the Ethernet mode. Reset the ethernet after changing the PHY interface. All other settings are reserved.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ethmode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ethmode{}; 
+        namespace EthmodeValC{
+        }
         ///Selects the functionality of the SCT outputs.
-        enum class timctrlVal {
+        enum class TimctrlVal {
             combineSctTmatch=0x00000000,     ///<Combine SCT and timer match outputs. SCT outputs are ORed with timer outputs.
             sctOnly=0x00000001,     ///<SCT outputs only. SCT outputs are used without timer match outputs.
         };
-        namespace timctrlValC{
-            constexpr MPL::Value<timctrlVal,timctrlVal::combineSctTmatch> combineSctTmatch{};
-            constexpr MPL::Value<timctrlVal,timctrlVal::sctOnly> sctOnly{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TimctrlVal> timctrl{}; 
+        namespace TimctrlValC{
+            constexpr Register::FieldValue<decltype(timctrl),TimctrlVal::combineSctTmatch> combineSctTmatch{};
+            constexpr Register::FieldValue<decltype(timctrl),TimctrlVal::sctOnly> sctOnly{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,timctrlVal> timctrl{}; 
         ///I2S0_TX_SCK input select
-        enum class i2s0TxSckInSelVal {
+        enum class I2s0txsckinselVal {
             i2SClockSelected=0x00000000,     ///<I2 S clock selected as defined by the I2S transmit mode register Table 832.
             audioPllForI2sTr=0x00000001,     ///<Audio PLL for I2S transmit clock MCLK input and MCLK output. The I2S must be configured in slave mode.
         };
-        namespace i2s0TxSckInSelValC{
-            constexpr MPL::Value<i2s0TxSckInSelVal,i2s0TxSckInSelVal::i2SClockSelected> i2SClockSelected{};
-            constexpr MPL::Value<i2s0TxSckInSelVal,i2s0TxSckInSelVal::audioPllForI2sTr> audioPllForI2sTr{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,I2s0txsckinselVal> i2s0TxSckInSel{}; 
+        namespace I2s0txsckinselValC{
+            constexpr Register::FieldValue<decltype(i2s0TxSckInSel),I2s0txsckinselVal::i2SClockSelected> i2SClockSelected{};
+            constexpr Register::FieldValue<decltype(i2s0TxSckInSel),I2s0txsckinselVal::audioPllForI2sTr> audioPllForI2sTr{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,i2s0TxSckInSelVal> i2s0TxSckInSel{}; 
         ///I2S0_RX_SCK input select
-        enum class i2s0RxSckInSelVal {
+        enum class I2s0rxsckinselVal {
             i2SClockSelected=0x00000000,     ///<I2 S clock selected as defined by the I2S receive mode register Table 833.
             audioPllForI2sRe=0x00000001,     ///<Audio PLL for I2S receive clock MCLK input and MCLK output. The I2S must be configured in slave mode.
         };
-        namespace i2s0RxSckInSelValC{
-            constexpr MPL::Value<i2s0RxSckInSelVal,i2s0RxSckInSelVal::i2SClockSelected> i2SClockSelected{};
-            constexpr MPL::Value<i2s0RxSckInSelVal,i2s0RxSckInSelVal::audioPllForI2sRe> audioPllForI2sRe{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,I2s0rxsckinselVal> i2s0RxSckInSel{}; 
+        namespace I2s0rxsckinselValC{
+            constexpr Register::FieldValue<decltype(i2s0RxSckInSel),I2s0rxsckinselVal::i2SClockSelected> i2SClockSelected{};
+            constexpr Register::FieldValue<decltype(i2s0RxSckInSel),I2s0rxsckinselVal::audioPllForI2sRe> audioPllForI2sRe{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,i2s0RxSckInSelVal> i2s0RxSckInSel{}; 
         ///I2S1_TX_SCK input select
-        enum class i2s1TxSckInSelVal {
+        enum class I2s1txsckinselVal {
             i2SClockSelected=0x00000000,     ///<I2 S clock selected as defined by the I2S transmit mode register Table 832.
             audioPllForI2sTr=0x00000001,     ///<Audio PLL for I2S transmit clock MCLK input and MCLK output. The I2S must be configured in slave mode.
         };
-        namespace i2s1TxSckInSelValC{
-            constexpr MPL::Value<i2s1TxSckInSelVal,i2s1TxSckInSelVal::i2SClockSelected> i2SClockSelected{};
-            constexpr MPL::Value<i2s1TxSckInSelVal,i2s1TxSckInSelVal::audioPllForI2sTr> audioPllForI2sTr{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,I2s1txsckinselVal> i2s1TxSckInSel{}; 
+        namespace I2s1txsckinselValC{
+            constexpr Register::FieldValue<decltype(i2s1TxSckInSel),I2s1txsckinselVal::i2SClockSelected> i2SClockSelected{};
+            constexpr Register::FieldValue<decltype(i2s1TxSckInSel),I2s1txsckinselVal::audioPllForI2sTr> audioPllForI2sTr{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,i2s1TxSckInSelVal> i2s1TxSckInSel{}; 
         ///I2S1_RX_SCK input select
-        enum class i2s1RxSckInSelVal {
+        enum class I2s1rxsckinselVal {
             i2SClockSelected=0x00000000,     ///<I2 S clock selected as defined by the I2S receive mode register Table 833.
             audioPllForI2sRe=0x00000001,     ///<Audio PLL for I2S receive clock MCLK input and MCLK output. The I2S must be configured in slave mode.
         };
-        namespace i2s1RxSckInSelValC{
-            constexpr MPL::Value<i2s1RxSckInSelVal,i2s1RxSckInSelVal::i2SClockSelected> i2SClockSelected{};
-            constexpr MPL::Value<i2s1RxSckInSelVal,i2s1RxSckInSelVal::audioPllForI2sRe> audioPllForI2sRe{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,I2s1rxsckinselVal> i2s1RxSckInSel{}; 
+        namespace I2s1rxsckinselValC{
+            constexpr Register::FieldValue<decltype(i2s1RxSckInSel),I2s1rxsckinselVal::i2SClockSelected> i2SClockSelected{};
+            constexpr Register::FieldValue<decltype(i2s1RxSckInSel),I2s1rxsckinselVal::audioPllForI2sRe> audioPllForI2sRe{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,i2s1RxSckInSelVal> i2s1RxSckInSel{}; 
         ///EMC_CLK divided clock select (see Section 22.1).
-        enum class emcClkSelVal {
+        enum class EmcclkselVal {
             emcClkDivNotDivi=0x00000000,     ///<EMC_CLK_DIV not divided.
             emcClkDivDivided=0x00000001,     ///<EMC_CLK_DIV divided by 2.
         };
-        namespace emcClkSelValC{
-            constexpr MPL::Value<emcClkSelVal,emcClkSelVal::emcClkDivNotDivi> emcClkDivNotDivi{};
-            constexpr MPL::Value<emcClkSelVal,emcClkSelVal::emcClkDivDivided> emcClkDivDivided{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,EmcclkselVal> emcClkSel{}; 
+        namespace EmcclkselValC{
+            constexpr Register::FieldValue<decltype(emcClkSel),EmcclkselVal::emcClkDivNotDivi> emcClkDivNotDivi{};
+            constexpr Register::FieldValue<decltype(emcClkSel),EmcclkselVal::emcClkDivDivided> emcClkDivDivided{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,emcClkSelVal> emcClkSel{}; 
     }
     namespace Nonem4txevent{    ///<Cortex-M4 TXEV event clear
         using Addr = Register::Address<0x40043130,0xfffffffe,0,unsigned>;
         ///Cortex-M4 TXEV event.
-        enum class txevclrVal {
+        enum class TxevclrVal {
             na=0x00000001,     ///<Do nothing
             clearTxevEvent=0x00000000,     ///<Clear TXEV event .
         };
-        namespace txevclrValC{
-            constexpr MPL::Value<txevclrVal,txevclrVal::na> na{};
-            constexpr MPL::Value<txevclrVal,txevclrVal::clearTxevEvent> clearTxevEvent{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TxevclrVal> txevclr{}; 
+        namespace TxevclrValC{
+            constexpr Register::FieldValue<decltype(txevclr),TxevclrVal::na> na{};
+            constexpr Register::FieldValue<decltype(txevclr),TxevclrVal::clearTxevEvent> clearTxevEvent{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,txevclrVal> txevclr{}; 
     }
     namespace Nonechipid{    ///<Part ID
         using Addr = Register::Address<0x40043200,0x00000000,0,unsigned>;
         ///TBD
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> id{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> id{}; 
+        namespace IdValC{
+        }
     }
     namespace Nonem0txevent{    ///<Cortex-M0 TXEV event clear
         using Addr = Register::Address<0x40043400,0xfffffffe,0,unsigned>;
         ///Cortex-M0 TXEV event.
-        enum class txevclrVal {
+        enum class TxevclrVal {
             na=0x00000001,     ///<do nothing
             clearTxevEvent=0x00000000,     ///<Clear TXEV event .
         };
-        namespace txevclrValC{
-            constexpr MPL::Value<txevclrVal,txevclrVal::na> na{};
-            constexpr MPL::Value<txevclrVal,txevclrVal::clearTxevEvent> clearTxevEvent{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TxevclrVal> txevclr{}; 
+        namespace TxevclrValC{
+            constexpr Register::FieldValue<decltype(txevclr),TxevclrVal::na> na{};
+            constexpr Register::FieldValue<decltype(txevclr),TxevclrVal::clearTxevEvent> clearTxevEvent{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,txevclrVal> txevclr{}; 
     }
     namespace Nonem0appmemmap{    ///<ARM Cortex-M0 memory mapping
         using Addr = Register::Address<0x40043404,0x00000fff,0,unsigned>;
         ///Shadow address when accessing memory at address 0x0000 0000
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> m0appmap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> m0appmap{}; 
+        namespace M0appmapValC{
+        }
     }
 }

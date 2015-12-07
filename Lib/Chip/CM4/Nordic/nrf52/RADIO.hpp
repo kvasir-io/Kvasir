@@ -65,398 +65,408 @@ namespace Kvasir {
     namespace Noneshorts{    ///<Shortcut register
         using Addr = Register::Address<0x40001200,0xfffffe80,0,unsigned>;
         ///Shortcut between EVENTS_READY event and TASKS_START task
-        enum class readyStartVal {
+        enum class ReadystartVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace readyStartValC{
-            constexpr MPL::Value<readyStartVal,readyStartVal::disabled> disabled{};
-            constexpr MPL::Value<readyStartVal,readyStartVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ReadystartVal> readyStart{}; 
+        namespace ReadystartValC{
+            constexpr Register::FieldValue<decltype(readyStart),ReadystartVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(readyStart),ReadystartVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,readyStartVal> readyStart{}; 
         ///Shortcut between EVENTS_END event and TASKS_DISABLE task
-        enum class endDisableVal {
+        enum class EnddisableVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace endDisableValC{
-            constexpr MPL::Value<endDisableVal,endDisableVal::disabled> disabled{};
-            constexpr MPL::Value<endDisableVal,endDisableVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EnddisableVal> endDisable{}; 
+        namespace EnddisableValC{
+            constexpr Register::FieldValue<decltype(endDisable),EnddisableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endDisable),EnddisableVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,endDisableVal> endDisable{}; 
         ///Shortcut between EVENTS_DISABLED event and TASKS_TXEN task
-        enum class disabledTxenVal {
+        enum class DisabledtxenVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace disabledTxenValC{
-            constexpr MPL::Value<disabledTxenVal,disabledTxenVal::disabled> disabled{};
-            constexpr MPL::Value<disabledTxenVal,disabledTxenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DisabledtxenVal> disabledTxen{}; 
+        namespace DisabledtxenValC{
+            constexpr Register::FieldValue<decltype(disabledTxen),DisabledtxenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(disabledTxen),DisabledtxenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,disabledTxenVal> disabledTxen{}; 
         ///Shortcut between EVENTS_DISABLED event and TASKS_RXEN task
-        enum class disabledRxenVal {
+        enum class DisabledrxenVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace disabledRxenValC{
-            constexpr MPL::Value<disabledRxenVal,disabledRxenVal::disabled> disabled{};
-            constexpr MPL::Value<disabledRxenVal,disabledRxenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DisabledrxenVal> disabledRxen{}; 
+        namespace DisabledrxenValC{
+            constexpr Register::FieldValue<decltype(disabledRxen),DisabledrxenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(disabledRxen),DisabledrxenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,disabledRxenVal> disabledRxen{}; 
         ///Shortcut between EVENTS_ADDRESS event and TASKS_RSSISTART task
-        enum class addressRssistartVal {
+        enum class AddressrssistartVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace addressRssistartValC{
-            constexpr MPL::Value<addressRssistartVal,addressRssistartVal::disabled> disabled{};
-            constexpr MPL::Value<addressRssistartVal,addressRssistartVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AddressrssistartVal> addressRssistart{}; 
+        namespace AddressrssistartValC{
+            constexpr Register::FieldValue<decltype(addressRssistart),AddressrssistartVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addressRssistart),AddressrssistartVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,addressRssistartVal> addressRssistart{}; 
         ///Shortcut between EVENTS_END event and TASKS_START task
-        enum class endStartVal {
+        enum class EndstartVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace endStartValC{
-            constexpr MPL::Value<endStartVal,endStartVal::disabled> disabled{};
-            constexpr MPL::Value<endStartVal,endStartVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,EndstartVal> endStart{}; 
+        namespace EndstartValC{
+            constexpr Register::FieldValue<decltype(endStart),EndstartVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endStart),EndstartVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,endStartVal> endStart{}; 
         ///Shortcut between EVENTS_ADDRESS event and TASKS_BCSTART task
-        enum class addressBcstartVal {
+        enum class AddressbcstartVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace addressBcstartValC{
-            constexpr MPL::Value<addressBcstartVal,addressBcstartVal::disabled> disabled{};
-            constexpr MPL::Value<addressBcstartVal,addressBcstartVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AddressbcstartVal> addressBcstart{}; 
+        namespace AddressbcstartValC{
+            constexpr Register::FieldValue<decltype(addressBcstart),AddressbcstartVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addressBcstart),AddressbcstartVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,addressBcstartVal> addressBcstart{}; 
         ///Shortcut between EVENTS_DISABLED event and TASKS_RSSISTOP task
-        enum class disabledRssistopVal {
+        enum class DisabledrssistopVal {
             disabled=0x00000000,     ///<Disable shortcut
             enabled=0x00000001,     ///<Enable shortcut
         };
-        namespace disabledRssistopValC{
-            constexpr MPL::Value<disabledRssistopVal,disabledRssistopVal::disabled> disabled{};
-            constexpr MPL::Value<disabledRssistopVal,disabledRssistopVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,DisabledrssistopVal> disabledRssistop{}; 
+        namespace DisabledrssistopValC{
+            constexpr Register::FieldValue<decltype(disabledRssistop),DisabledrssistopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(disabledRssistop),DisabledrssistopVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,disabledRssistopVal> disabledRssistop{}; 
     }
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40001304,0xffffcb00,0,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_READY event
-        enum class readyVal {
+        enum class ReadyVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace readyValC{
-            constexpr MPL::Value<readyVal,readyVal::disabled> disabled{};
-            constexpr MPL::Value<readyVal,readyVal::enabled> enabled{};
-            constexpr MPL::Value<readyVal,readyVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ReadyVal> ready{}; 
+        namespace ReadyValC{
+            constexpr Register::FieldValue<decltype(ready),ReadyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ready),ReadyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ready),ReadyVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,readyVal> ready{}; 
         ///Write '1' to Enable interrupt on EVENTS_ADDRESS event
-        enum class addressVal {
+        enum class AddressVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace addressValC{
-            constexpr MPL::Value<addressVal,addressVal::disabled> disabled{};
-            constexpr MPL::Value<addressVal,addressVal::enabled> enabled{};
-            constexpr MPL::Value<addressVal,addressVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,AddressVal> address{}; 
+        namespace AddressValC{
+            constexpr Register::FieldValue<decltype(address),AddressVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(address),AddressVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(address),AddressVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,addressVal> address{}; 
         ///Write '1' to Enable interrupt on EVENTS_PAYLOAD event
-        enum class payloadVal {
+        enum class PayloadVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace payloadValC{
-            constexpr MPL::Value<payloadVal,payloadVal::disabled> disabled{};
-            constexpr MPL::Value<payloadVal,payloadVal::enabled> enabled{};
-            constexpr MPL::Value<payloadVal,payloadVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,PayloadVal> payload{}; 
+        namespace PayloadValC{
+            constexpr Register::FieldValue<decltype(payload),PayloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(payload),PayloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(payload),PayloadVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,payloadVal> payload{}; 
         ///Write '1' to Enable interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
-            constexpr MPL::Value<endVal,endVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,endVal> end{}; 
         ///Write '1' to Enable interrupt on EVENTS_DISABLED event
-        enum class disabledVal {
+        enum class DisabledVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace disabledValC{
-            constexpr MPL::Value<disabledVal,disabledVal::disabled> disabled{};
-            constexpr MPL::Value<disabledVal,disabledVal::enabled> enabled{};
-            constexpr MPL::Value<disabledVal,disabledVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DisabledVal> disabled{}; 
+        namespace DisabledValC{
+            constexpr Register::FieldValue<decltype(disabled),DisabledVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(disabled),DisabledVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(disabled),DisabledVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,disabledVal> disabled{}; 
         ///Write '1' to Enable interrupt on EVENTS_DEVMATCH event
-        enum class devmatchVal {
+        enum class DevmatchVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace devmatchValC{
-            constexpr MPL::Value<devmatchVal,devmatchVal::disabled> disabled{};
-            constexpr MPL::Value<devmatchVal,devmatchVal::enabled> enabled{};
-            constexpr MPL::Value<devmatchVal,devmatchVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DevmatchVal> devmatch{}; 
+        namespace DevmatchValC{
+            constexpr Register::FieldValue<decltype(devmatch),DevmatchVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(devmatch),DevmatchVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(devmatch),DevmatchVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,devmatchVal> devmatch{}; 
         ///Write '1' to Enable interrupt on EVENTS_DEVMISS event
-        enum class devmissVal {
+        enum class DevmissVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace devmissValC{
-            constexpr MPL::Value<devmissVal,devmissVal::disabled> disabled{};
-            constexpr MPL::Value<devmissVal,devmissVal::enabled> enabled{};
-            constexpr MPL::Value<devmissVal,devmissVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DevmissVal> devmiss{}; 
+        namespace DevmissValC{
+            constexpr Register::FieldValue<decltype(devmiss),DevmissVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(devmiss),DevmissVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(devmiss),DevmissVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,devmissVal> devmiss{}; 
         ///Write '1' to Enable interrupt on EVENTS_RSSIEND event
-        enum class rssiendVal {
+        enum class RssiendVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace rssiendValC{
-            constexpr MPL::Value<rssiendVal,rssiendVal::disabled> disabled{};
-            constexpr MPL::Value<rssiendVal,rssiendVal::enabled> enabled{};
-            constexpr MPL::Value<rssiendVal,rssiendVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RssiendVal> rssiend{}; 
+        namespace RssiendValC{
+            constexpr Register::FieldValue<decltype(rssiend),RssiendVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rssiend),RssiendVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rssiend),RssiendVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,rssiendVal> rssiend{}; 
         ///Write '1' to Enable interrupt on EVENTS_BCMATCH event
-        enum class bcmatchVal {
+        enum class BcmatchVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace bcmatchValC{
-            constexpr MPL::Value<bcmatchVal,bcmatchVal::disabled> disabled{};
-            constexpr MPL::Value<bcmatchVal,bcmatchVal::enabled> enabled{};
-            constexpr MPL::Value<bcmatchVal,bcmatchVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,BcmatchVal> bcmatch{}; 
+        namespace BcmatchValC{
+            constexpr Register::FieldValue<decltype(bcmatch),BcmatchVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(bcmatch),BcmatchVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(bcmatch),BcmatchVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,bcmatchVal> bcmatch{}; 
         ///Write '1' to Enable interrupt on EVENTS_CRCOK event
-        enum class crcokVal {
+        enum class CrcokVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace crcokValC{
-            constexpr MPL::Value<crcokVal,crcokVal::disabled> disabled{};
-            constexpr MPL::Value<crcokVal,crcokVal::enabled> enabled{};
-            constexpr MPL::Value<crcokVal,crcokVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,CrcokVal> crcok{}; 
+        namespace CrcokValC{
+            constexpr Register::FieldValue<decltype(crcok),CrcokVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(crcok),CrcokVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(crcok),CrcokVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,crcokVal> crcok{}; 
         ///Write '1' to Enable interrupt on EVENTS_CRCERROR event
-        enum class crcerrorVal {
+        enum class CrcerrorVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace crcerrorValC{
-            constexpr MPL::Value<crcerrorVal,crcerrorVal::disabled> disabled{};
-            constexpr MPL::Value<crcerrorVal,crcerrorVal::enabled> enabled{};
-            constexpr MPL::Value<crcerrorVal,crcerrorVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,CrcerrorVal> crcerror{}; 
+        namespace CrcerrorValC{
+            constexpr Register::FieldValue<decltype(crcerror),CrcerrorVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(crcerror),CrcerrorVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(crcerror),CrcerrorVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,crcerrorVal> crcerror{}; 
     }
     namespace Noneintenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x40001308,0xffffcb00,0,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_READY event
-        enum class readyVal {
+        enum class ReadyVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace readyValC{
-            constexpr MPL::Value<readyVal,readyVal::disabled> disabled{};
-            constexpr MPL::Value<readyVal,readyVal::enabled> enabled{};
-            constexpr MPL::Value<readyVal,readyVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ReadyVal> ready{}; 
+        namespace ReadyValC{
+            constexpr Register::FieldValue<decltype(ready),ReadyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ready),ReadyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ready),ReadyVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,readyVal> ready{}; 
         ///Write '1' to Clear interrupt on EVENTS_ADDRESS event
-        enum class addressVal {
+        enum class AddressVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace addressValC{
-            constexpr MPL::Value<addressVal,addressVal::disabled> disabled{};
-            constexpr MPL::Value<addressVal,addressVal::enabled> enabled{};
-            constexpr MPL::Value<addressVal,addressVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,AddressVal> address{}; 
+        namespace AddressValC{
+            constexpr Register::FieldValue<decltype(address),AddressVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(address),AddressVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(address),AddressVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,addressVal> address{}; 
         ///Write '1' to Clear interrupt on EVENTS_PAYLOAD event
-        enum class payloadVal {
+        enum class PayloadVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace payloadValC{
-            constexpr MPL::Value<payloadVal,payloadVal::disabled> disabled{};
-            constexpr MPL::Value<payloadVal,payloadVal::enabled> enabled{};
-            constexpr MPL::Value<payloadVal,payloadVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,PayloadVal> payload{}; 
+        namespace PayloadValC{
+            constexpr Register::FieldValue<decltype(payload),PayloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(payload),PayloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(payload),PayloadVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,payloadVal> payload{}; 
         ///Write '1' to Clear interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
-            constexpr MPL::Value<endVal,endVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,endVal> end{}; 
         ///Write '1' to Clear interrupt on EVENTS_DISABLED event
-        enum class disabledVal {
+        enum class DisabledVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace disabledValC{
-            constexpr MPL::Value<disabledVal,disabledVal::disabled> disabled{};
-            constexpr MPL::Value<disabledVal,disabledVal::enabled> enabled{};
-            constexpr MPL::Value<disabledVal,disabledVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DisabledVal> disabled{}; 
+        namespace DisabledValC{
+            constexpr Register::FieldValue<decltype(disabled),DisabledVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(disabled),DisabledVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(disabled),DisabledVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,disabledVal> disabled{}; 
         ///Write '1' to Clear interrupt on EVENTS_DEVMATCH event
-        enum class devmatchVal {
+        enum class DevmatchVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace devmatchValC{
-            constexpr MPL::Value<devmatchVal,devmatchVal::disabled> disabled{};
-            constexpr MPL::Value<devmatchVal,devmatchVal::enabled> enabled{};
-            constexpr MPL::Value<devmatchVal,devmatchVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DevmatchVal> devmatch{}; 
+        namespace DevmatchValC{
+            constexpr Register::FieldValue<decltype(devmatch),DevmatchVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(devmatch),DevmatchVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(devmatch),DevmatchVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,devmatchVal> devmatch{}; 
         ///Write '1' to Clear interrupt on EVENTS_DEVMISS event
-        enum class devmissVal {
+        enum class DevmissVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace devmissValC{
-            constexpr MPL::Value<devmissVal,devmissVal::disabled> disabled{};
-            constexpr MPL::Value<devmissVal,devmissVal::enabled> enabled{};
-            constexpr MPL::Value<devmissVal,devmissVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DevmissVal> devmiss{}; 
+        namespace DevmissValC{
+            constexpr Register::FieldValue<decltype(devmiss),DevmissVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(devmiss),DevmissVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(devmiss),DevmissVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,devmissVal> devmiss{}; 
         ///Write '1' to Clear interrupt on EVENTS_RSSIEND event
-        enum class rssiendVal {
+        enum class RssiendVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace rssiendValC{
-            constexpr MPL::Value<rssiendVal,rssiendVal::disabled> disabled{};
-            constexpr MPL::Value<rssiendVal,rssiendVal::enabled> enabled{};
-            constexpr MPL::Value<rssiendVal,rssiendVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RssiendVal> rssiend{}; 
+        namespace RssiendValC{
+            constexpr Register::FieldValue<decltype(rssiend),RssiendVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rssiend),RssiendVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rssiend),RssiendVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,rssiendVal> rssiend{}; 
         ///Write '1' to Clear interrupt on EVENTS_BCMATCH event
-        enum class bcmatchVal {
+        enum class BcmatchVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace bcmatchValC{
-            constexpr MPL::Value<bcmatchVal,bcmatchVal::disabled> disabled{};
-            constexpr MPL::Value<bcmatchVal,bcmatchVal::enabled> enabled{};
-            constexpr MPL::Value<bcmatchVal,bcmatchVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,BcmatchVal> bcmatch{}; 
+        namespace BcmatchValC{
+            constexpr Register::FieldValue<decltype(bcmatch),BcmatchVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(bcmatch),BcmatchVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(bcmatch),BcmatchVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,bcmatchVal> bcmatch{}; 
         ///Write '1' to Clear interrupt on EVENTS_CRCOK event
-        enum class crcokVal {
+        enum class CrcokVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace crcokValC{
-            constexpr MPL::Value<crcokVal,crcokVal::disabled> disabled{};
-            constexpr MPL::Value<crcokVal,crcokVal::enabled> enabled{};
-            constexpr MPL::Value<crcokVal,crcokVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,CrcokVal> crcok{}; 
+        namespace CrcokValC{
+            constexpr Register::FieldValue<decltype(crcok),CrcokVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(crcok),CrcokVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(crcok),CrcokVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,crcokVal> crcok{}; 
         ///Write '1' to Clear interrupt on EVENTS_CRCERROR event
-        enum class crcerrorVal {
+        enum class CrcerrorVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace crcerrorValC{
-            constexpr MPL::Value<crcerrorVal,crcerrorVal::disabled> disabled{};
-            constexpr MPL::Value<crcerrorVal,crcerrorVal::enabled> enabled{};
-            constexpr MPL::Value<crcerrorVal,crcerrorVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,CrcerrorVal> crcerror{}; 
+        namespace CrcerrorValC{
+            constexpr Register::FieldValue<decltype(crcerror),CrcerrorVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(crcerror),CrcerrorVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(crcerror),CrcerrorVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,crcerrorVal> crcerror{}; 
     }
     namespace Nonecrcstatus{    ///<CRC status
         using Addr = Register::Address<0x40001400,0xfffffffe,0,unsigned>;
         ///CRC status of packet received
-        enum class crcstatusVal {
+        enum class CrcstatusVal {
             crcerror=0x00000000,     ///<Packet received with CRC error
             crcok=0x00000001,     ///<Packet received with CRC ok
         };
-        namespace crcstatusValC{
-            constexpr MPL::Value<crcstatusVal,crcstatusVal::crcerror> crcerror{};
-            constexpr MPL::Value<crcstatusVal,crcstatusVal::crcok> crcok{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CrcstatusVal> crcstatus{}; 
+        namespace CrcstatusValC{
+            constexpr Register::FieldValue<decltype(crcstatus),CrcstatusVal::crcerror> crcerror{};
+            constexpr Register::FieldValue<decltype(crcstatus),CrcstatusVal::crcok> crcok{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,crcstatusVal> crcstatus{}; 
     }
     namespace Nonerxmatch{    ///<Received address
         using Addr = Register::Address<0x40001408,0xfffffff8,0,unsigned>;
         ///Received address
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> rxmatch{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> rxmatch{}; 
+        namespace RxmatchValC{
+        }
     }
     namespace Nonerxcrc{    ///<CRC field of previously received packet
         using Addr = Register::Address<0x4000140c,0xff000000,0,unsigned>;
         ///CRC field of previously received packet
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> rxcrc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> rxcrc{}; 
+        namespace RxcrcValC{
+        }
     }
     namespace Nonedai{    ///<Device address match index
         using Addr = Register::Address<0x40001410,0xfffffff8,0,unsigned>;
         ///Device address match index
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dai{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dai{}; 
+        namespace DaiValC{
+        }
     }
     namespace Nonepacketptr{    ///<Packet pointer
         using Addr = Register::Address<0x40001504,0x00000000,0,unsigned>;
         ///Packet pointer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> packetptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> packetptr{}; 
+        namespace PacketptrValC{
+        }
     }
     namespace Nonefrequency{    ///<Frequency
         using Addr = Register::Address<0x40001508,0xffffff80,0,unsigned>;
         ///Radio channel frequency
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> frequency{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> frequency{}; 
+        namespace FrequencyValC{
+        }
     }
     namespace Nonetxpower{    ///<Output power
         using Addr = Register::Address<0x4000150c,0xffffff00,0,unsigned>;
         ///RADIO output power.
-        enum class txpowerVal {
+        enum class TxpowerVal {
             pos4dbm=0x00000004,     ///<+4 dBm
             pos3dbm=0x00000003,     ///<+3 dBm
             v0dbm=0x00000000,     ///<0 dBm
@@ -468,239 +478,279 @@ namespace Kvasir {
             neg30dbm=0x000000d8,     ///<Deprecated enumerator -  -40 dBm
             neg40dbm=0x000000d8,     ///<-40 dBm
         };
-        namespace txpowerValC{
-            constexpr MPL::Value<txpowerVal,txpowerVal::pos4dbm> pos4dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::pos3dbm> pos3dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::v0dbm> v0dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::neg4dbm> neg4dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::neg8dbm> neg8dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::neg12dbm> neg12dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::neg16dbm> neg16dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::neg20dbm> neg20dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::neg30dbm> neg30dbm{};
-            constexpr MPL::Value<txpowerVal,txpowerVal::neg40dbm> neg40dbm{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,TxpowerVal> txpower{}; 
+        namespace TxpowerValC{
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::pos4dbm> pos4dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::pos3dbm> pos3dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::v0dbm> v0dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::neg4dbm> neg4dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::neg8dbm> neg8dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::neg12dbm> neg12dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::neg16dbm> neg16dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::neg20dbm> neg20dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::neg30dbm> neg30dbm{};
+            constexpr Register::FieldValue<decltype(txpower),TxpowerVal::neg40dbm> neg40dbm{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,txpowerVal> txpower{}; 
     }
     namespace Nonemode{    ///<Data rate and modulation
         using Addr = Register::Address<0x40001510,0xfffffff0,0,unsigned>;
         ///Radio data rate and modulation setting. The radio supports Frequency-shift Keying (FSK) modulation.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> mode{}; 
+        namespace ModeValC{
+        }
     }
     namespace Nonepcnf0{    ///<Packet configuration register 0
         using Addr = Register::Address<0x40001514,0xfee0fef0,0,unsigned>;
         ///Length on air of LENGTH field in number of bits.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> lflen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> lflen{}; 
+        namespace LflenValC{
+        }
         ///Length on air of S0 field in number of bytes.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> s0len{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> s0len{}; 
+        namespace S0lenValC{
+        }
         ///Length on air of S1 field in number of bits.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> s1len{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> s1len{}; 
+        namespace S1lenValC{
+        }
         ///Include or exclude S1 field in RAM
-        enum class s1inclVal {
+        enum class S1inclVal {
             automatic=0x00000000,     ///<Include S1 field in RAM only if S1LEN > 0
             include=0x00000001,     ///<Always include S1 field in RAM independent of S1LEN
         };
-        namespace s1inclValC{
-            constexpr MPL::Value<s1inclVal,s1inclVal::automatic> automatic{};
-            constexpr MPL::Value<s1inclVal,s1inclVal::include> include{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,S1inclVal> s1incl{}; 
+        namespace S1inclValC{
+            constexpr Register::FieldValue<decltype(s1incl),S1inclVal::automatic> automatic{};
+            constexpr Register::FieldValue<decltype(s1incl),S1inclVal::include> include{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,s1inclVal> s1incl{}; 
         ///Length of preamble on air. Decision point: "RADIO.TASKS_START"  task
-        enum class plenVal {
+        enum class PlenVal {
             v8bit=0x00000000,     ///<8-bit preamble
             v16bit=0x00000001,     ///<16-bit preamble
         };
-        namespace plenValC{
-            constexpr MPL::Value<plenVal,plenVal::v8bit> v8bit{};
-            constexpr MPL::Value<plenVal,plenVal::v16bit> v16bit{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,PlenVal> plen{}; 
+        namespace PlenValC{
+            constexpr Register::FieldValue<decltype(plen),PlenVal::v8bit> v8bit{};
+            constexpr Register::FieldValue<decltype(plen),PlenVal::v16bit> v16bit{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,plenVal> plen{}; 
     }
     namespace Nonepcnf1{    ///<Packet configuration register 1
         using Addr = Register::Address<0x40001518,0xfcf80000,0,unsigned>;
         ///Maximum length of packet payload. If the packet payload is larger than MAXLEN, the radio will truncate the payload to MAXLEN.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> maxlen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> maxlen{}; 
+        namespace MaxlenValC{
+        }
         ///Static length in number of bytes
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> statlen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> statlen{}; 
+        namespace StatlenValC{
+        }
         ///Base address length in number of bytes
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> balen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> balen{}; 
+        namespace BalenValC{
+        }
         ///On air endianness of packet, this applies to the S0, LENGTH, S1 and the PAYLOAD fields.
-        enum class endianVal {
+        enum class EndianVal {
             little=0x00000000,     ///<Least Significant bit on air first
             big=0x00000001,     ///<Most significant bit on air first
         };
-        namespace endianValC{
-            constexpr MPL::Value<endianVal,endianVal::little> little{};
-            constexpr MPL::Value<endianVal,endianVal::big> big{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,EndianVal> endian{}; 
+        namespace EndianValC{
+            constexpr Register::FieldValue<decltype(endian),EndianVal::little> little{};
+            constexpr Register::FieldValue<decltype(endian),EndianVal::big> big{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,endianVal> endian{}; 
         ///Enable or disable packet whitening
-        enum class whiteenVal {
+        enum class WhiteenVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace whiteenValC{
-            constexpr MPL::Value<whiteenVal,whiteenVal::disabled> disabled{};
-            constexpr MPL::Value<whiteenVal,whiteenVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,WhiteenVal> whiteen{}; 
+        namespace WhiteenValC{
+            constexpr Register::FieldValue<decltype(whiteen),WhiteenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(whiteen),WhiteenVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,whiteenVal> whiteen{}; 
     }
     namespace Nonebase0{    ///<Base address 0
         using Addr = Register::Address<0x4000151c,0x00000000,0,unsigned>;
         ///Base address 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> base0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> base0{}; 
+        namespace Base0ValC{
+        }
     }
     namespace Nonebase1{    ///<Base address 1
         using Addr = Register::Address<0x40001520,0x00000000,0,unsigned>;
         ///Base address 1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> base1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> base1{}; 
+        namespace Base1ValC{
+        }
     }
     namespace Noneprefix0{    ///<Prefixes bytes for logical addresses 0-3
         using Addr = Register::Address<0x40001524,0x00000000,0,unsigned>;
         ///Address prefix 0.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ap0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ap0{}; 
+        namespace Ap0ValC{
+        }
         ///Address prefix 1.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> ap1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> ap1{}; 
+        namespace Ap1ValC{
+        }
         ///Address prefix 2.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> ap2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> ap2{}; 
+        namespace Ap2ValC{
+        }
         ///Address prefix 3.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ap3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ap3{}; 
+        namespace Ap3ValC{
+        }
     }
     namespace Noneprefix1{    ///<Prefixes bytes for logical addresses 4-7
         using Addr = Register::Address<0x40001528,0x00000000,0,unsigned>;
         ///Address prefix 4.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ap4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ap4{}; 
+        namespace Ap4ValC{
+        }
         ///Address prefix 5.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> ap5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> ap5{}; 
+        namespace Ap5ValC{
+        }
         ///Address prefix 6.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> ap6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> ap6{}; 
+        namespace Ap6ValC{
+        }
         ///Address prefix 7.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ap7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> ap7{}; 
+        namespace Ap7ValC{
+        }
     }
     namespace Nonetxaddress{    ///<Transmit address select
         using Addr = Register::Address<0x4000152c,0xfffffff8,0,unsigned>;
         ///Transmit address select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> txaddress{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> txaddress{}; 
+        namespace TxaddressValC{
+        }
     }
     namespace Nonerxaddresses{    ///<Receive address select
         using Addr = Register::Address<0x40001530,0xffffff00,0,unsigned>;
         ///Enable or disable reception on logical address 0.
-        enum class addr0Val {
+        enum class Addr0Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace addr0ValC{
-            constexpr MPL::Value<addr0Val,addr0Val::disabled> disabled{};
-            constexpr MPL::Value<addr0Val,addr0Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Addr0Val> addr0{}; 
+        namespace Addr0ValC{
+            constexpr Register::FieldValue<decltype(addr0),Addr0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addr0),Addr0Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,addr0Val> addr0{}; 
         ///Enable or disable reception on logical address 1.
-        enum class addr1Val {
+        enum class Addr1Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace addr1ValC{
-            constexpr MPL::Value<addr1Val,addr1Val::disabled> disabled{};
-            constexpr MPL::Value<addr1Val,addr1Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Addr1Val> addr1{}; 
+        namespace Addr1ValC{
+            constexpr Register::FieldValue<decltype(addr1),Addr1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addr1),Addr1Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,addr1Val> addr1{}; 
         ///Enable or disable reception on logical address 2.
-        enum class addr2Val {
+        enum class Addr2Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace addr2ValC{
-            constexpr MPL::Value<addr2Val,addr2Val::disabled> disabled{};
-            constexpr MPL::Value<addr2Val,addr2Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Addr2Val> addr2{}; 
+        namespace Addr2ValC{
+            constexpr Register::FieldValue<decltype(addr2),Addr2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addr2),Addr2Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,addr2Val> addr2{}; 
         ///Enable or disable reception on logical address 3.
-        enum class addr3Val {
+        enum class Addr3Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace addr3ValC{
-            constexpr MPL::Value<addr3Val,addr3Val::disabled> disabled{};
-            constexpr MPL::Value<addr3Val,addr3Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Addr3Val> addr3{}; 
+        namespace Addr3ValC{
+            constexpr Register::FieldValue<decltype(addr3),Addr3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addr3),Addr3Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,addr3Val> addr3{}; 
         ///Enable or disable reception on logical address 4.
-        enum class addr4Val {
+        enum class Addr4Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace addr4ValC{
-            constexpr MPL::Value<addr4Val,addr4Val::disabled> disabled{};
-            constexpr MPL::Value<addr4Val,addr4Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Addr4Val> addr4{}; 
+        namespace Addr4ValC{
+            constexpr Register::FieldValue<decltype(addr4),Addr4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addr4),Addr4Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,addr4Val> addr4{}; 
         ///Enable or disable reception on logical address 5.
-        enum class addr5Val {
+        enum class Addr5Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace addr5ValC{
-            constexpr MPL::Value<addr5Val,addr5Val::disabled> disabled{};
-            constexpr MPL::Value<addr5Val,addr5Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Addr5Val> addr5{}; 
+        namespace Addr5ValC{
+            constexpr Register::FieldValue<decltype(addr5),Addr5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addr5),Addr5Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,addr5Val> addr5{}; 
         ///Enable or disable reception on logical address 6.
-        enum class addr6Val {
+        enum class Addr6Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace addr6ValC{
-            constexpr MPL::Value<addr6Val,addr6Val::disabled> disabled{};
-            constexpr MPL::Value<addr6Val,addr6Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Addr6Val> addr6{}; 
+        namespace Addr6ValC{
+            constexpr Register::FieldValue<decltype(addr6),Addr6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addr6),Addr6Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,addr6Val> addr6{}; 
         ///Enable or disable reception on logical address 7.
-        enum class addr7Val {
+        enum class Addr7Val {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace addr7ValC{
-            constexpr MPL::Value<addr7Val,addr7Val::disabled> disabled{};
-            constexpr MPL::Value<addr7Val,addr7Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Addr7Val> addr7{}; 
+        namespace Addr7ValC{
+            constexpr Register::FieldValue<decltype(addr7),Addr7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(addr7),Addr7Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,addr7Val> addr7{}; 
     }
     namespace Nonecrccnf{    ///<CRC configuration
         using Addr = Register::Address<0x40001534,0xfffffefc,0,unsigned>;
         ///CRC length in number of bytes.
-        enum class lenVal {
+        enum class LenVal {
             disabled=0x00000000,     ///<CRC length is zero and CRC calculation is disabled
             one=0x00000001,     ///<CRC length is one byte and CRC calculation is enabled
             two=0x00000002,     ///<CRC length is two bytes and CRC calculation is enabled
             three=0x00000003,     ///<CRC length is three bytes and CRC calculation is enabled
         };
-        namespace lenValC{
-            constexpr MPL::Value<lenVal,lenVal::disabled> disabled{};
-            constexpr MPL::Value<lenVal,lenVal::one> one{};
-            constexpr MPL::Value<lenVal,lenVal::two> two{};
-            constexpr MPL::Value<lenVal,lenVal::three> three{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,LenVal> len{}; 
+        namespace LenValC{
+            constexpr Register::FieldValue<decltype(len),LenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(len),LenVal::one> one{};
+            constexpr Register::FieldValue<decltype(len),LenVal::two> two{};
+            constexpr Register::FieldValue<decltype(len),LenVal::three> three{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,lenVal> len{}; 
         ///Include or exclude packet address field out of CRC calculation.
-        enum class skipaddrVal {
+        enum class SkipaddrVal {
             include=0x00000000,     ///<CRC calculation includes address field
             skip=0x00000001,     ///<CRC calculation does not include address field. The CRC calculation will start at the first byte after the address.
         };
-        namespace skipaddrValC{
-            constexpr MPL::Value<skipaddrVal,skipaddrVal::include> include{};
-            constexpr MPL::Value<skipaddrVal,skipaddrVal::skip> skip{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,SkipaddrVal> skipaddr{}; 
+        namespace SkipaddrValC{
+            constexpr Register::FieldValue<decltype(skipaddr),SkipaddrVal::include> include{};
+            constexpr Register::FieldValue<decltype(skipaddr),SkipaddrVal::skip> skip{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,skipaddrVal> skipaddr{}; 
     }
     namespace Nonecrcpoly{    ///<CRC polynomial
         using Addr = Register::Address<0x40001538,0xff000000,0,unsigned>;
         ///CRC polynomial
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> crcpoly{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> crcpoly{}; 
+        namespace CrcpolyValC{
+        }
     }
     namespace Nonecrcinit{    ///<CRC initial value
         using Addr = Register::Address<0x4000153c,0xff000000,0,unsigned>;
         ///CRC initial value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> crcinit{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> crcinit{}; 
+        namespace CrcinitValC{
+        }
     }
     namespace Noneunused0{    ///<Unspecified
         using Addr = Register::Address<0x40001540,0xffffffff,0,unsigned>;
@@ -708,17 +758,21 @@ namespace Kvasir {
     namespace Nonetifs{    ///<Inter Frame Spacing in us
         using Addr = Register::Address<0x40001544,0xffffff00,0,unsigned>;
         ///Inter Frame Spacing in us
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tifs{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tifs{}; 
+        namespace TifsValC{
+        }
     }
     namespace Nonerssisample{    ///<RSSI sample
         using Addr = Register::Address<0x40001548,0xffffff80,0,unsigned>;
         ///RSSI sample
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rssisample{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> rssisample{}; 
+        namespace RssisampleValC{
+        }
     }
     namespace Nonestate{    ///<Current radio state
         using Addr = Register::Address<0x40001550,0xfffffff0,0,unsigned>;
         ///Current radio state
-        enum class stateVal {
+        enum class StateVal {
             disabled=0x00000000,     ///<RADIO is in the Disabled state
             rxru=0x00000001,     ///<RADIO is in the RXRU state
             rxidle=0x00000002,     ///<RADIO is in the RXIDLE state
@@ -729,244 +783,296 @@ namespace Kvasir {
             tx=0x0000000b,     ///<RADIO is in the TX state
             txdisable=0x0000000c,     ///<RADIO is in the TXDISABLED state
         };
-        namespace stateValC{
-            constexpr MPL::Value<stateVal,stateVal::disabled> disabled{};
-            constexpr MPL::Value<stateVal,stateVal::rxru> rxru{};
-            constexpr MPL::Value<stateVal,stateVal::rxidle> rxidle{};
-            constexpr MPL::Value<stateVal,stateVal::rx> rx{};
-            constexpr MPL::Value<stateVal,stateVal::rxdisable> rxdisable{};
-            constexpr MPL::Value<stateVal,stateVal::txru> txru{};
-            constexpr MPL::Value<stateVal,stateVal::txidle> txidle{};
-            constexpr MPL::Value<stateVal,stateVal::tx> tx{};
-            constexpr MPL::Value<stateVal,stateVal::txdisable> txdisable{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,StateVal> state{}; 
+        namespace StateValC{
+            constexpr Register::FieldValue<decltype(state),StateVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(state),StateVal::rxru> rxru{};
+            constexpr Register::FieldValue<decltype(state),StateVal::rxidle> rxidle{};
+            constexpr Register::FieldValue<decltype(state),StateVal::rx> rx{};
+            constexpr Register::FieldValue<decltype(state),StateVal::rxdisable> rxdisable{};
+            constexpr Register::FieldValue<decltype(state),StateVal::txru> txru{};
+            constexpr Register::FieldValue<decltype(state),StateVal::txidle> txidle{};
+            constexpr Register::FieldValue<decltype(state),StateVal::tx> tx{};
+            constexpr Register::FieldValue<decltype(state),StateVal::txdisable> txdisable{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,stateVal> state{}; 
     }
     namespace Nonedatawhiteiv{    ///<Data whitening initial value
         using Addr = Register::Address<0x40001554,0xffffff80,0,unsigned>;
         ///Data whitening initial value. Bit 6 is hard-wired to '1', writing '0' to it has no effect, and it will always be read back and used by the device as '1'.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> datawhiteiv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> datawhiteiv{}; 
+        namespace DatawhiteivValC{
+        }
     }
     namespace Nonebcc{    ///<Bit counter compare
         using Addr = Register::Address<0x40001560,0x00000000,0,unsigned>;
         ///Bit counter compare
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bcc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> bcc{}; 
+        namespace BccValC{
+        }
     }
     namespace Nonedab0{    ///<Description collection[0]:  Device address base segment 0
         using Addr = Register::Address<0x40001600,0x00000000,0,unsigned>;
         ///Device address base segment 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        namespace DabValC{
+        }
     }
     namespace Nonedab1{    ///<Description collection[0]:  Device address base segment 0
         using Addr = Register::Address<0x40001604,0x00000000,0,unsigned>;
         ///Device address base segment 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        namespace DabValC{
+        }
     }
     namespace Nonedab2{    ///<Description collection[0]:  Device address base segment 0
         using Addr = Register::Address<0x40001608,0x00000000,0,unsigned>;
         ///Device address base segment 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        namespace DabValC{
+        }
     }
     namespace Nonedab3{    ///<Description collection[0]:  Device address base segment 0
         using Addr = Register::Address<0x4000160c,0x00000000,0,unsigned>;
         ///Device address base segment 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        namespace DabValC{
+        }
     }
     namespace Nonedab4{    ///<Description collection[0]:  Device address base segment 0
         using Addr = Register::Address<0x40001610,0x00000000,0,unsigned>;
         ///Device address base segment 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        namespace DabValC{
+        }
     }
     namespace Nonedab5{    ///<Description collection[0]:  Device address base segment 0
         using Addr = Register::Address<0x40001614,0x00000000,0,unsigned>;
         ///Device address base segment 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        namespace DabValC{
+        }
     }
     namespace Nonedab6{    ///<Description collection[0]:  Device address base segment 0
         using Addr = Register::Address<0x40001618,0x00000000,0,unsigned>;
         ///Device address base segment 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        namespace DabValC{
+        }
     }
     namespace Nonedab7{    ///<Description collection[0]:  Device address base segment 0
         using Addr = Register::Address<0x4000161c,0x00000000,0,unsigned>;
         ///Device address base segment 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dab{}; 
+        namespace DabValC{
+        }
     }
     namespace Nonedap0{    ///<Description collection[0]:  Device address prefix 0
         using Addr = Register::Address<0x40001620,0xffff0000,0,unsigned>;
         ///Device address prefix 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        namespace DapValC{
+        }
     }
     namespace Nonedap1{    ///<Description collection[0]:  Device address prefix 0
         using Addr = Register::Address<0x40001624,0xffff0000,0,unsigned>;
         ///Device address prefix 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        namespace DapValC{
+        }
     }
     namespace Nonedap2{    ///<Description collection[0]:  Device address prefix 0
         using Addr = Register::Address<0x40001628,0xffff0000,0,unsigned>;
         ///Device address prefix 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        namespace DapValC{
+        }
     }
     namespace Nonedap3{    ///<Description collection[0]:  Device address prefix 0
         using Addr = Register::Address<0x4000162c,0xffff0000,0,unsigned>;
         ///Device address prefix 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        namespace DapValC{
+        }
     }
     namespace Nonedap4{    ///<Description collection[0]:  Device address prefix 0
         using Addr = Register::Address<0x40001630,0xffff0000,0,unsigned>;
         ///Device address prefix 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        namespace DapValC{
+        }
     }
     namespace Nonedap5{    ///<Description collection[0]:  Device address prefix 0
         using Addr = Register::Address<0x40001634,0xffff0000,0,unsigned>;
         ///Device address prefix 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        namespace DapValC{
+        }
     }
     namespace Nonedap6{    ///<Description collection[0]:  Device address prefix 0
         using Addr = Register::Address<0x40001638,0xffff0000,0,unsigned>;
         ///Device address prefix 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        namespace DapValC{
+        }
     }
     namespace Nonedap7{    ///<Description collection[0]:  Device address prefix 0
         using Addr = Register::Address<0x4000163c,0xffff0000,0,unsigned>;
         ///Device address prefix 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dap{}; 
+        namespace DapValC{
+        }
     }
     namespace Nonedacnf{    ///<Device address match configuration
         using Addr = Register::Address<0x40001640,0xffff0000,0,unsigned>;
         ///Enable or disable device address matching using device address 0
-        enum class ena0Val {
+        enum class Ena0Val {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
-        namespace ena0ValC{
-            constexpr MPL::Value<ena0Val,ena0Val::disabled> disabled{};
-            constexpr MPL::Value<ena0Val,ena0Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ena0Val> ena0{}; 
+        namespace Ena0ValC{
+            constexpr Register::FieldValue<decltype(ena0),Ena0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ena0),Ena0Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ena0Val> ena0{}; 
         ///Enable or disable device address matching using device address 1
-        enum class ena1Val {
+        enum class Ena1Val {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
-        namespace ena1ValC{
-            constexpr MPL::Value<ena1Val,ena1Val::disabled> disabled{};
-            constexpr MPL::Value<ena1Val,ena1Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ena1Val> ena1{}; 
+        namespace Ena1ValC{
+            constexpr Register::FieldValue<decltype(ena1),Ena1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ena1),Ena1Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ena1Val> ena1{}; 
         ///Enable or disable device address matching using device address 2
-        enum class ena2Val {
+        enum class Ena2Val {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
-        namespace ena2ValC{
-            constexpr MPL::Value<ena2Val,ena2Val::disabled> disabled{};
-            constexpr MPL::Value<ena2Val,ena2Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ena2Val> ena2{}; 
+        namespace Ena2ValC{
+            constexpr Register::FieldValue<decltype(ena2),Ena2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ena2),Ena2Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ena2Val> ena2{}; 
         ///Enable or disable device address matching using device address 3
-        enum class ena3Val {
+        enum class Ena3Val {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
-        namespace ena3ValC{
-            constexpr MPL::Value<ena3Val,ena3Val::disabled> disabled{};
-            constexpr MPL::Value<ena3Val,ena3Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ena3Val> ena3{}; 
+        namespace Ena3ValC{
+            constexpr Register::FieldValue<decltype(ena3),Ena3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ena3),Ena3Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ena3Val> ena3{}; 
         ///Enable or disable device address matching using device address 4
-        enum class ena4Val {
+        enum class Ena4Val {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
-        namespace ena4ValC{
-            constexpr MPL::Value<ena4Val,ena4Val::disabled> disabled{};
-            constexpr MPL::Value<ena4Val,ena4Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ena4Val> ena4{}; 
+        namespace Ena4ValC{
+            constexpr Register::FieldValue<decltype(ena4),Ena4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ena4),Ena4Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ena4Val> ena4{}; 
         ///Enable or disable device address matching using device address 5
-        enum class ena5Val {
+        enum class Ena5Val {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
-        namespace ena5ValC{
-            constexpr MPL::Value<ena5Val,ena5Val::disabled> disabled{};
-            constexpr MPL::Value<ena5Val,ena5Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ena5Val> ena5{}; 
+        namespace Ena5ValC{
+            constexpr Register::FieldValue<decltype(ena5),Ena5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ena5),Ena5Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ena5Val> ena5{}; 
         ///Enable or disable device address matching using device address 6
-        enum class ena6Val {
+        enum class Ena6Val {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
-        namespace ena6ValC{
-            constexpr MPL::Value<ena6Val,ena6Val::disabled> disabled{};
-            constexpr MPL::Value<ena6Val,ena6Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ena6Val> ena6{}; 
+        namespace Ena6ValC{
+            constexpr Register::FieldValue<decltype(ena6),Ena6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ena6),Ena6Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ena6Val> ena6{}; 
         ///Enable or disable device address matching using device address 7
-        enum class ena7Val {
+        enum class Ena7Val {
             disabled=0x00000000,     ///<Disabled
             enabled=0x00000001,     ///<Enabled
         };
-        namespace ena7ValC{
-            constexpr MPL::Value<ena7Val,ena7Val::disabled> disabled{};
-            constexpr MPL::Value<ena7Val,ena7Val::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ena7Val> ena7{}; 
+        namespace Ena7ValC{
+            constexpr Register::FieldValue<decltype(ena7),Ena7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ena7),Ena7Val::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ena7Val> ena7{}; 
         ///TxAdd for device address 0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txadd0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txadd0{}; 
+        namespace Txadd0ValC{
+        }
         ///TxAdd for device address 1
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txadd1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txadd1{}; 
+        namespace Txadd1ValC{
+        }
         ///TxAdd for device address 2
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txadd2{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txadd2{}; 
+        namespace Txadd2ValC{
+        }
         ///TxAdd for device address 3
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txadd3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txadd3{}; 
+        namespace Txadd3ValC{
+        }
         ///TxAdd for device address 4
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txadd4{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txadd4{}; 
+        namespace Txadd4ValC{
+        }
         ///TxAdd for device address 5
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txadd5{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> txadd5{}; 
+        namespace Txadd5ValC{
+        }
         ///TxAdd for device address 6
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> txadd6{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> txadd6{}; 
+        namespace Txadd6ValC{
+        }
         ///TxAdd for device address 7
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> txadd7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> txadd7{}; 
+        namespace Txadd7ValC{
+        }
     }
     namespace Nonemodecnf0{    ///<Radio mode configuration register 0
         using Addr = Register::Address<0x40001650,0xfffffcfe,0,unsigned>;
         ///Radio ramp-up time
-        enum class ruVal {
+        enum class RuVal {
             default_=0x00000000,     ///<Default ramp-up time, compatible with nRF51
             fast=0x00000001,     ///<Fast ramp-up, see product specification for more information
         };
-        namespace ruValC{
-            constexpr MPL::Value<ruVal,ruVal::default_> default_{};
-            constexpr MPL::Value<ruVal,ruVal::fast> fast{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RuVal> ru{}; 
+        namespace RuValC{
+            constexpr Register::FieldValue<decltype(ru),RuVal::default_> default_{};
+            constexpr Register::FieldValue<decltype(ru),RuVal::fast> fast{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ruVal> ru{}; 
         ///Default TX value
-        enum class dtxVal {
+        enum class DtxVal {
             b1=0x00000000,     ///<Transmit '1'
             b0=0x00000001,     ///<Transmit '0'
             center=0x00000002,     ///<Transmit center frequency
         };
-        namespace dtxValC{
-            constexpr MPL::Value<dtxVal,dtxVal::b1> b1{};
-            constexpr MPL::Value<dtxVal,dtxVal::b0> b0{};
-            constexpr MPL::Value<dtxVal,dtxVal::center> center{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,DtxVal> dtx{}; 
+        namespace DtxValC{
+            constexpr Register::FieldValue<decltype(dtx),DtxVal::b1> b1{};
+            constexpr Register::FieldValue<decltype(dtx),DtxVal::b0> b0{};
+            constexpr Register::FieldValue<decltype(dtx),DtxVal::center> center{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,dtxVal> dtx{}; 
     }
     namespace Nonepower{    ///<Peripheral power control
         using Addr = Register::Address<0x40001ffc,0xfffffffe,0,unsigned>;
         ///Peripheral power control. The peripheral and its registers will be reset to its initial state by switching the peripheral off and then back on again.
-        enum class powerVal {
+        enum class PowerVal {
             disabled=0x00000000,     ///<Peripheral is powered off
             enabled=0x00000001,     ///<Peripheral is powered on
         };
-        namespace powerValC{
-            constexpr MPL::Value<powerVal,powerVal::disabled> disabled{};
-            constexpr MPL::Value<powerVal,powerVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
+        namespace PowerValC{
+            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,powerVal> power{}; 
     }
 }

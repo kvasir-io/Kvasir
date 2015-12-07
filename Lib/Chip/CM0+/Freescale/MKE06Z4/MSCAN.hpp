@@ -5,173 +5,173 @@ namespace Kvasir {
     namespace MscanCanctl0{    ///<MSCAN Control Register 0
         using Addr = Register::Address<0x40024000,0xffffff00,0,unsigned char>;
         ///Initialization Mode Request
-        enum class initrqVal {
+        enum class InitrqVal {
             v0=0x00000000,     ///<Normal operation.
             v1=0x00000001,     ///<MSCAN in initialization mode.
         };
-        namespace initrqValC{
-            constexpr MPL::Value<initrqVal,initrqVal::v0> v0{};
-            constexpr MPL::Value<initrqVal,initrqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,InitrqVal> initrq{}; 
+        namespace InitrqValC{
+            constexpr Register::FieldValue<decltype(initrq),InitrqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(initrq),InitrqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,initrqVal> initrq{}; 
         ///Sleep Mode Request
-        enum class slprqVal {
+        enum class SlprqVal {
             v0=0x00000000,     ///<Running - The MSCAN functions normally.
             v1=0x00000001,     ///<Sleep mode request - The MSCAN enters sleep mode when CAN bus idle.
         };
-        namespace slprqValC{
-            constexpr MPL::Value<slprqVal,slprqVal::v0> v0{};
-            constexpr MPL::Value<slprqVal,slprqVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SlprqVal> slprq{}; 
+        namespace SlprqValC{
+            constexpr Register::FieldValue<decltype(slprq),SlprqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(slprq),SlprqVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,slprqVal> slprq{}; 
         ///WakeUp Enable
-        enum class wupeVal {
+        enum class WupeVal {
             v0=0x00000000,     ///<Wakeup disabled - The MSCAN ignores traffic on CAN.
             v1=0x00000001,     ///<Wakeup enabled - The MSCAN is able to restart.
         };
-        namespace wupeValC{
-            constexpr MPL::Value<wupeVal,wupeVal::v0> v0{};
-            constexpr MPL::Value<wupeVal,wupeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WupeVal> wupe{}; 
+        namespace WupeValC{
+            constexpr Register::FieldValue<decltype(wupe),WupeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wupe),WupeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,wupeVal> wupe{}; 
         ///Timer Enable
-        enum class timeVal {
+        enum class TimeVal {
             v0=0x00000000,     ///<Disable internal MSCAN timer.
             v1=0x00000001,     ///<Enable internal MSCAN timer.
         };
-        namespace timeValC{
-            constexpr MPL::Value<timeVal,timeVal::v0> v0{};
-            constexpr MPL::Value<timeVal,timeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TimeVal> time{}; 
+        namespace TimeValC{
+            constexpr Register::FieldValue<decltype(time),TimeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(time),TimeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,timeVal> time{}; 
         ///Synchronized Status
-        enum class synchVal {
+        enum class SynchVal {
             v0=0x00000000,     ///<MSCAN is not synchronized to the CAN bus.
             v1=0x00000001,     ///<MSCAN is synchronized to the CAN bus.
         };
-        namespace synchValC{
-            constexpr MPL::Value<synchVal,synchVal::v0> v0{};
-            constexpr MPL::Value<synchVal,synchVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SynchVal> synch{}; 
+        namespace SynchValC{
+            constexpr Register::FieldValue<decltype(synch),SynchVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(synch),SynchVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,synchVal> synch{}; 
         ///CAN Stops in Wait Mode
-        enum class cswaiVal {
+        enum class CswaiVal {
             v0=0x00000000,     ///<The module is not affected during wait mode.
             v1=0x00000001,     ///<The module ceases to be clocked during wait mode.
         };
-        namespace cswaiValC{
-            constexpr MPL::Value<cswaiVal,cswaiVal::v0> v0{};
-            constexpr MPL::Value<cswaiVal,cswaiVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,CswaiVal> cswai{}; 
+        namespace CswaiValC{
+            constexpr Register::FieldValue<decltype(cswai),CswaiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cswai),CswaiVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,cswaiVal> cswai{}; 
         ///Receiver Active Status
-        enum class rxactVal {
+        enum class RxactVal {
             v0=0x00000000,     ///<MSCAN is transmitting or idle.
             v1=0x00000001,     ///<MSCAN is receiving a message, including when arbitration is lost.
         };
-        namespace rxactValC{
-            constexpr MPL::Value<rxactVal,rxactVal::v0> v0{};
-            constexpr MPL::Value<rxactVal,rxactVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,RxactVal> rxact{}; 
+        namespace RxactValC{
+            constexpr Register::FieldValue<decltype(rxact),RxactVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxact),RxactVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,rxactVal> rxact{}; 
         ///Received Frame Flag
-        enum class rxfrmVal {
+        enum class RxfrmVal {
             v0=0x00000000,     ///<No valid message was received since last clearing this flag.
             v1=0x00000001,     ///<A valid message was received since last clearing of this flag.
         };
-        namespace rxfrmValC{
-            constexpr MPL::Value<rxfrmVal,rxfrmVal::v0> v0{};
-            constexpr MPL::Value<rxfrmVal,rxfrmVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxfrmVal> rxfrm{}; 
+        namespace RxfrmValC{
+            constexpr Register::FieldValue<decltype(rxfrm),RxfrmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxfrm),RxfrmVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,rxfrmVal> rxfrm{}; 
     }
     namespace MscanCanctl1{    ///<MSCAN Control Register 1
         using Addr = Register::Address<0x40024001,0xffffff00,0,unsigned char>;
         ///Initialization Mode Acknowledge
-        enum class initakVal {
+        enum class InitakVal {
             v0=0x00000000,     ///<Running - The MSCAN operates normally.
             v1=0x00000001,     ///<Initialization mode active - The MSCAN has entered initialization mode.
         };
-        namespace initakValC{
-            constexpr MPL::Value<initakVal,initakVal::v0> v0{};
-            constexpr MPL::Value<initakVal,initakVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,InitakVal> initak{}; 
+        namespace InitakValC{
+            constexpr Register::FieldValue<decltype(initak),InitakVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(initak),InitakVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,initakVal> initak{}; 
         ///Sleep Mode Acknowledge
-        enum class slpakVal {
+        enum class SlpakVal {
             v0=0x00000000,     ///<Running - The MSCAN operates normally.
             v1=0x00000001,     ///<Sleep mode active - The MSCAN has entered sleep mode.
         };
-        namespace slpakValC{
-            constexpr MPL::Value<slpakVal,slpakVal::v0> v0{};
-            constexpr MPL::Value<slpakVal,slpakVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SlpakVal> slpak{}; 
+        namespace SlpakValC{
+            constexpr Register::FieldValue<decltype(slpak),SlpakVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(slpak),SlpakVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,slpakVal> slpak{}; 
         ///WakeUp Mode
-        enum class wupmVal {
+        enum class WupmVal {
             v0=0x00000000,     ///<MSCAN wakes on any dominant level on the CAN bus.
             v1=0x00000001,     ///<MSCAN wakes only in case of a dominant pulse on the CAN bus that has a length of Twup.
         };
-        namespace wupmValC{
-            constexpr MPL::Value<wupmVal,wupmVal::v0> v0{};
-            constexpr MPL::Value<wupmVal,wupmVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WupmVal> wupm{}; 
+        namespace WupmValC{
+            constexpr Register::FieldValue<decltype(wupm),WupmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wupm),WupmVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,wupmVal> wupm{}; 
         ///Bus-Off Recovery Mode
-        enum class bormVal {
+        enum class BormVal {
             v0=0x00000000,     ///<Automatic bus-off recovery (see Bosch CAN 2.0A/B protocol specification).
             v1=0x00000001,     ///<Bus-off recovery upon user request.
         };
-        namespace bormValC{
-            constexpr MPL::Value<bormVal,bormVal::v0> v0{};
-            constexpr MPL::Value<bormVal,bormVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BormVal> borm{}; 
+        namespace BormValC{
+            constexpr Register::FieldValue<decltype(borm),BormVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(borm),BormVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bormVal> borm{}; 
         ///Listen Only Mode
-        enum class listenVal {
+        enum class ListenVal {
             v0=0x00000000,     ///<Normal operation.
             v1=0x00000001,     ///<Listen only mode activated.
         };
-        namespace listenValC{
-            constexpr MPL::Value<listenVal,listenVal::v0> v0{};
-            constexpr MPL::Value<listenVal,listenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ListenVal> listen{}; 
+        namespace ListenValC{
+            constexpr Register::FieldValue<decltype(listen),ListenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(listen),ListenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,listenVal> listen{}; 
         ///Loopback Self Test Mode
-        enum class loopbVal {
+        enum class LoopbVal {
             v0=0x00000000,     ///<Loopback self test disabled.
             v1=0x00000001,     ///<Loopback self test enabled.
         };
-        namespace loopbValC{
-            constexpr MPL::Value<loopbVal,loopbVal::v0> v0{};
-            constexpr MPL::Value<loopbVal,loopbVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,LoopbVal> loopb{}; 
+        namespace LoopbValC{
+            constexpr Register::FieldValue<decltype(loopb),LoopbVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(loopb),LoopbVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,loopbVal> loopb{}; 
         ///MSCAN Clock Source
-        enum class clksrcVal {
+        enum class ClksrcVal {
             v0=0x00000000,     ///<MSCAN clock source is the oscillator clock.
             v1=0x00000001,     ///<MSCAN clock source is the bus clock.
         };
-        namespace clksrcValC{
-            constexpr MPL::Value<clksrcVal,clksrcVal::v0> v0{};
-            constexpr MPL::Value<clksrcVal,clksrcVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ClksrcVal> clksrc{}; 
+        namespace ClksrcValC{
+            constexpr Register::FieldValue<decltype(clksrc),ClksrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(clksrc),ClksrcVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,clksrcVal> clksrc{}; 
         ///MSCAN Enable
-        enum class caneVal {
+        enum class CaneVal {
             v0=0x00000000,     ///<MSCAN module is disabled.
             v1=0x00000001,     ///<MSCAN module is enabled.
         };
-        namespace caneValC{
-            constexpr MPL::Value<caneVal,caneVal::v0> v0{};
-            constexpr MPL::Value<caneVal,caneVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CaneVal> cane{}; 
+        namespace CaneValC{
+            constexpr Register::FieldValue<decltype(cane),CaneVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cane),CaneVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,caneVal> cane{}; 
     }
     namespace MscanCanbtr0{    ///<MSCAN Bus Timing Register 0
         using Addr = Register::Address<0x40024002,0xffffff00,0,unsigned char>;
         ///Baud Rate Prescaler
-        enum class brpVal {
+        enum class BrpVal {
             v000000=0x00000000,     ///<1
             v000001=0x00000001,     ///<2
             v000010=0x00000002,     ///<......
@@ -179,34 +179,34 @@ namespace Kvasir {
             v111110=0x0000003e,     ///<63
             v111111=0x0000003f,     ///<64
         };
-        namespace brpValC{
-            constexpr MPL::Value<brpVal,brpVal::v000000> v000000{};
-            constexpr MPL::Value<brpVal,brpVal::v000001> v000001{};
-            constexpr MPL::Value<brpVal,brpVal::v000010> v000010{};
-            constexpr MPL::Value<brpVal,brpVal::v000011> v000011{};
-            constexpr MPL::Value<brpVal,brpVal::v111110> v111110{};
-            constexpr MPL::Value<brpVal,brpVal::v111111> v111111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,BrpVal> brp{}; 
+        namespace BrpValC{
+            constexpr Register::FieldValue<decltype(brp),BrpVal::v000000> v000000{};
+            constexpr Register::FieldValue<decltype(brp),BrpVal::v000001> v000001{};
+            constexpr Register::FieldValue<decltype(brp),BrpVal::v000010> v000010{};
+            constexpr Register::FieldValue<decltype(brp),BrpVal::v000011> v000011{};
+            constexpr Register::FieldValue<decltype(brp),BrpVal::v111110> v111110{};
+            constexpr Register::FieldValue<decltype(brp),BrpVal::v111111> v111111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,brpVal> brp{}; 
         ///Synchronization Jump Width
-        enum class sjwVal {
+        enum class SjwVal {
             v00=0x00000000,     ///<1 Tq clock cycle.
             v01=0x00000001,     ///<2 Tq clock cycles.
             v10=0x00000002,     ///<3 Tq clock cycle.
             v11=0x00000003,     ///<4 Tq clock cycles.
         };
-        namespace sjwValC{
-            constexpr MPL::Value<sjwVal,sjwVal::v00> v00{};
-            constexpr MPL::Value<sjwVal,sjwVal::v01> v01{};
-            constexpr MPL::Value<sjwVal,sjwVal::v10> v10{};
-            constexpr MPL::Value<sjwVal,sjwVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,SjwVal> sjw{}; 
+        namespace SjwValC{
+            constexpr Register::FieldValue<decltype(sjw),SjwVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sjw),SjwVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sjw),SjwVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sjw),SjwVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,sjwVal> sjw{}; 
     }
     namespace MscanCanbtr1{    ///<MSCAN Bus Timing Register 1
         using Addr = Register::Address<0x40024003,0xffffff00,0,unsigned char>;
         ///Time Segment 1
-        enum class tseg1Val {
+        enum class Tseg1Val {
             v0000=0x00000000,     ///<1 Tq clock cycle (not valid)
             v0001=0x00000001,     ///<2 Tq clock cycles (not valid)
             v0010=0x00000002,     ///<3 Tq clock cycles (not valid)
@@ -214,17 +214,17 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<15 Tq clock cycles
             v1111=0x0000000f,     ///<16 Tq clock cycles
         };
-        namespace tseg1ValC{
-            constexpr MPL::Value<tseg1Val,tseg1Val::v0000> v0000{};
-            constexpr MPL::Value<tseg1Val,tseg1Val::v0001> v0001{};
-            constexpr MPL::Value<tseg1Val,tseg1Val::v0010> v0010{};
-            constexpr MPL::Value<tseg1Val,tseg1Val::v0011> v0011{};
-            constexpr MPL::Value<tseg1Val,tseg1Val::v1110> v1110{};
-            constexpr MPL::Value<tseg1Val,tseg1Val::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,Tseg1Val> tseg1{}; 
+        namespace Tseg1ValC{
+            constexpr Register::FieldValue<decltype(tseg1),Tseg1Val::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(tseg1),Tseg1Val::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(tseg1),Tseg1Val::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(tseg1),Tseg1Val::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(tseg1),Tseg1Val::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(tseg1),Tseg1Val::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,tseg1Val> tseg1{}; 
         ///Time Segment 2
-        enum class tseg2Val {
+        enum class Tseg2Val {
             v000=0x00000000,     ///<1 Tq clock cycle (not valid)
             v001=0x00000001,     ///<2 Tq clock cycles
             v010=0x00000002,     ///<3 Tq clock cycles
@@ -234,199 +234,209 @@ namespace Kvasir {
             v110=0x00000006,     ///<7 Tq clock cycles
             v111=0x00000007,     ///<8 Tq clock cycles
         };
-        namespace tseg2ValC{
-            constexpr MPL::Value<tseg2Val,tseg2Val::v000> v000{};
-            constexpr MPL::Value<tseg2Val,tseg2Val::v001> v001{};
-            constexpr MPL::Value<tseg2Val,tseg2Val::v010> v010{};
-            constexpr MPL::Value<tseg2Val,tseg2Val::v011> v011{};
-            constexpr MPL::Value<tseg2Val,tseg2Val::v100> v100{};
-            constexpr MPL::Value<tseg2Val,tseg2Val::v101> v101{};
-            constexpr MPL::Value<tseg2Val,tseg2Val::v110> v110{};
-            constexpr MPL::Value<tseg2Val,tseg2Val::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,Tseg2Val> tseg2{}; 
+        namespace Tseg2ValC{
+            constexpr Register::FieldValue<decltype(tseg2),Tseg2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(tseg2),Tseg2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(tseg2),Tseg2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(tseg2),Tseg2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(tseg2),Tseg2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(tseg2),Tseg2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(tseg2),Tseg2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(tseg2),Tseg2Val::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,tseg2Val> tseg2{}; 
         ///Sampling
-        enum class sampVal {
+        enum class SampVal {
             v0=0x00000000,     ///<One sample per bit.
             v1=0x00000001,     ///<Three samples per bit. In this case, PHASE_SEG1 must be at least 2 time quanta (Tq).
         };
-        namespace sampValC{
-            constexpr MPL::Value<sampVal,sampVal::v0> v0{};
-            constexpr MPL::Value<sampVal,sampVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SampVal> samp{}; 
+        namespace SampValC{
+            constexpr Register::FieldValue<decltype(samp),SampVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(samp),SampVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,sampVal> samp{}; 
     }
     namespace MscanCanrflg{    ///<MSCAN Receiver Flag Register
         using Addr = Register::Address<0x40024004,0xffffff00,0,unsigned char>;
         ///Receive Buffer Full Flag
-        enum class rxfVal {
+        enum class RxfVal {
             v0=0x00000000,     ///<No new message available within the RxFG.
             v1=0x00000001,     ///<The receiver FIFO is not empty. A new message is available in the RxFG.
         };
-        namespace rxfValC{
-            constexpr MPL::Value<rxfVal,rxfVal::v0> v0{};
-            constexpr MPL::Value<rxfVal,rxfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxfVal> rxf{}; 
+        namespace RxfValC{
+            constexpr Register::FieldValue<decltype(rxf),RxfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxf),RxfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,rxfVal> rxf{}; 
         ///Overrun Interrupt Flag
-        enum class ovrifVal {
+        enum class OvrifVal {
             v0=0x00000000,     ///<No data overrun condition.
             v1=0x00000001,     ///<A data overrun detected.
         };
-        namespace ovrifValC{
-            constexpr MPL::Value<ovrifVal,ovrifVal::v0> v0{};
-            constexpr MPL::Value<ovrifVal,ovrifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OvrifVal> ovrif{}; 
+        namespace OvrifValC{
+            constexpr Register::FieldValue<decltype(ovrif),OvrifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ovrif),OvrifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ovrifVal> ovrif{}; 
         ///Transmitter Status
-        enum class tstatVal {
+        enum class TstatVal {
             v00=0x00000000,     ///<TxOK: 0<=transmit error counter<96
             v01=0x00000001,     ///<TxWRN: 96<=transmit error counter<128
             v10=0x00000002,     ///<TxERR: 128<=transmit error counter<256
             v11=0x00000003,     ///<Bus-off: 256<=transmit error counter
         };
-        namespace tstatValC{
-            constexpr MPL::Value<tstatVal,tstatVal::v00> v00{};
-            constexpr MPL::Value<tstatVal,tstatVal::v01> v01{};
-            constexpr MPL::Value<tstatVal,tstatVal::v10> v10{};
-            constexpr MPL::Value<tstatVal,tstatVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,TstatVal> tstat{}; 
+        namespace TstatValC{
+            constexpr Register::FieldValue<decltype(tstat),TstatVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(tstat),TstatVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(tstat),TstatVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(tstat),TstatVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,tstatVal> tstat{}; 
         ///Receiver Status
-        enum class rstatVal {
+        enum class RstatVal {
             v00=0x00000000,     ///<RxOK: 0<=receive error counter<96
             v01=0x00000001,     ///<RxWRN: 96<=receive error counter<128
             v10=0x00000002,     ///<RxERR: 128<=receive error counter
             v11=0x00000003,     ///<Bus-off: 256<=transmit error counter (Redundant Information for the most critical CAN bus status which is "bus-off". This only occurs if the Tx error counter exceeds a number of 255 errors. Bus-off affects the receiver state. As soon as the transmitter leaves its bus-off state the receiver state skips to RxOK too. Refer also to TSTAT[1:0] coding in this register. )
         };
-        namespace rstatValC{
-            constexpr MPL::Value<rstatVal,rstatVal::v00> v00{};
-            constexpr MPL::Value<rstatVal,rstatVal::v01> v01{};
-            constexpr MPL::Value<rstatVal,rstatVal::v10> v10{};
-            constexpr MPL::Value<rstatVal,rstatVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,RstatVal> rstat{}; 
+        namespace RstatValC{
+            constexpr Register::FieldValue<decltype(rstat),RstatVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rstat),RstatVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rstat),RstatVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(rstat),RstatVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,rstatVal> rstat{}; 
         ///CAN Status Change Interrupt Flag
-        enum class cscifVal {
+        enum class CscifVal {
             v0=0x00000000,     ///<No change in CAN bus status occurred since last interrupt.
             v1=0x00000001,     ///<MSCAN changed current CAN bus status.
         };
-        namespace cscifValC{
-            constexpr MPL::Value<cscifVal,cscifVal::v0> v0{};
-            constexpr MPL::Value<cscifVal,cscifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CscifVal> cscif{}; 
+        namespace CscifValC{
+            constexpr Register::FieldValue<decltype(cscif),CscifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cscif),CscifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,cscifVal> cscif{}; 
         ///Wake-Up Interrupt Flag
-        enum class wupifVal {
+        enum class WupifVal {
             v0=0x00000000,     ///<No wakeup activity observed while in sleep mode.
             v1=0x00000001,     ///<MSCAN detected activity on the CAN bus and requested wakeup.
         };
-        namespace wupifValC{
-            constexpr MPL::Value<wupifVal,wupifVal::v0> v0{};
-            constexpr MPL::Value<wupifVal,wupifVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,WupifVal> wupif{}; 
+        namespace WupifValC{
+            constexpr Register::FieldValue<decltype(wupif),WupifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wupif),WupifVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,wupifVal> wupif{}; 
     }
     namespace MscanCanrier{    ///<MSCAN Receiver Interrupt Enable Register
         using Addr = Register::Address<0x40024005,0xffffff00,0,unsigned char>;
         ///Receiver Full Interrupt Enable
-        enum class rxfieVal {
+        enum class RxfieVal {
             v0=0x00000000,     ///<No interrupt request is generated from this event.
             v1=0x00000001,     ///<A receive buffer full (successful message reception) event causes a receiver interrupt request.
         };
-        namespace rxfieValC{
-            constexpr MPL::Value<rxfieVal,rxfieVal::v0> v0{};
-            constexpr MPL::Value<rxfieVal,rxfieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxfieVal> rxfie{}; 
+        namespace RxfieValC{
+            constexpr Register::FieldValue<decltype(rxfie),RxfieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxfie),RxfieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,rxfieVal> rxfie{}; 
         ///Overrun Interrupt Enable
-        enum class ovrieVal {
+        enum class OvrieVal {
             v0=0x00000000,     ///<No interrupt request is generated from this event.
             v1=0x00000001,     ///<An overrun event causes an error interrupt request.
         };
-        namespace ovrieValC{
-            constexpr MPL::Value<ovrieVal,ovrieVal::v0> v0{};
-            constexpr MPL::Value<ovrieVal,ovrieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OvrieVal> ovrie{}; 
+        namespace OvrieValC{
+            constexpr Register::FieldValue<decltype(ovrie),OvrieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ovrie),OvrieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ovrieVal> ovrie{}; 
         ///Transmitter Status Change Enable
-        enum class tstateVal {
+        enum class TstateVal {
             v00=0x00000000,     ///<Do not generate any CSCIF interrupt caused by transmitter state changes.
             v01=0x00000001,     ///<Generate CSCIF interrupt only if the transmitter enters or leaves "bus-off" state. Discard other transmitter state changes for generating CSCIF interrupt.
             v10=0x00000002,     ///<Generate CSCIF interrupt only if the transmitter enters or leaves "TxErr" or "bus-off" state. Discard other transmitter state changes for generating CSCIF interrupt.
             v11=0x00000003,     ///<Generate CSCIF interrupt on all state changes.
         };
-        namespace tstateValC{
-            constexpr MPL::Value<tstateVal,tstateVal::v00> v00{};
-            constexpr MPL::Value<tstateVal,tstateVal::v01> v01{};
-            constexpr MPL::Value<tstateVal,tstateVal::v10> v10{};
-            constexpr MPL::Value<tstateVal,tstateVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,TstateVal> tstate{}; 
+        namespace TstateValC{
+            constexpr Register::FieldValue<decltype(tstate),TstateVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(tstate),TstateVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(tstate),TstateVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(tstate),TstateVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,tstateVal> tstate{}; 
         ///Receiver Status Change Enable
-        enum class rstateVal {
+        enum class RstateVal {
             v00=0x00000000,     ///<Do not generate any CSCIF interrupt caused by receiver state changes.
             v01=0x00000001,     ///<Generate CSCIF interrupt only if the receiver enters or leaves "bus-off" state. Discard other receiver state changes for generating CSCIF interrupt.
             v10=0x00000002,     ///<Generate CSCIF interrupt only if the receiver enters or leaves "RxErr" or "bus-off"Bus-off state is only defined for transmitters by the CAN standard (see Bosch CAN 2.0A/B protocol specification). Because the only possible state change for the transmitter from bus-off to TxOK also forces the receiver to skip its current state to RxOK, the coding of the RXSTAT[1:0] flags define an additional bus-off state for the receiver state. Discard other receiver state changes for generating CSCIF interrupt.
             v11=0x00000003,     ///<Generate CSCIF interrupt on all state changes.
         };
-        namespace rstateValC{
-            constexpr MPL::Value<rstateVal,rstateVal::v00> v00{};
-            constexpr MPL::Value<rstateVal,rstateVal::v01> v01{};
-            constexpr MPL::Value<rstateVal,rstateVal::v10> v10{};
-            constexpr MPL::Value<rstateVal,rstateVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,RstateVal> rstate{}; 
+        namespace RstateValC{
+            constexpr Register::FieldValue<decltype(rstate),RstateVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rstate),RstateVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rstate),RstateVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(rstate),RstateVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,rstateVal> rstate{}; 
         ///CAN Status Change Interrupt Enable
-        enum class cscieVal {
+        enum class CscieVal {
             v0=0x00000000,     ///<No interrupt request is generated from this event.
             v1=0x00000001,     ///<A CAN Status Change event causes an error interrupt request.
         };
-        namespace cscieValC{
-            constexpr MPL::Value<cscieVal,cscieVal::v0> v0{};
-            constexpr MPL::Value<cscieVal,cscieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CscieVal> cscie{}; 
+        namespace CscieValC{
+            constexpr Register::FieldValue<decltype(cscie),CscieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cscie),CscieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,cscieVal> cscie{}; 
         ///WakeUp Interrupt Enable
-        enum class wupieVal {
+        enum class WupieVal {
             v0=0x00000000,     ///<No interrupt request is generated from this event.
             v1=0x00000001,     ///<A wake-up event causes a Wake-Up interrupt request.
         };
-        namespace wupieValC{
-            constexpr MPL::Value<wupieVal,wupieVal::v0> v0{};
-            constexpr MPL::Value<wupieVal,wupieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,WupieVal> wupie{}; 
+        namespace WupieValC{
+            constexpr Register::FieldValue<decltype(wupie),WupieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wupie),WupieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,wupieVal> wupie{}; 
     }
     namespace MscanCantflg{    ///<MSCAN Transmitter Flag Register
         using Addr = Register::Address<0x40024006,0xfffffff8,0,unsigned char>;
         ///Transmitter Buffer Empty
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> txe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> txe{}; 
+        namespace TxeValC{
+        }
     }
     namespace MscanCantier{    ///<MSCAN Transmitter Interrupt Enable Register
         using Addr = Register::Address<0x40024007,0xfffffff8,0,unsigned char>;
         ///Transmitter Empty Interrupt Enable
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> txeie{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> txeie{}; 
+        namespace TxeieValC{
+        }
     }
     namespace MscanCantarq{    ///<MSCAN Transmitter Message Abort Request Register
         using Addr = Register::Address<0x40024008,0xfffffff8,0,unsigned char>;
         ///Abort Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> abtrq{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> abtrq{}; 
+        namespace AbtrqValC{
+        }
     }
     namespace MscanCantaak{    ///<MSCAN Transmitter Message Abort Acknowledge Register
         using Addr = Register::Address<0x40024009,0xfffffff8,0,unsigned char>;
         ///Abort Acknowledge
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> abtak{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> abtak{}; 
+        namespace AbtakValC{
+        }
     }
     namespace MscanCantbsel{    ///<MSCAN Transmit Buffer Selection Register
         using Addr = Register::Address<0x4002400a,0xfffffff8,0,unsigned char>;
         ///Transmit Buffer Select
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> tx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> tx{}; 
+        namespace TxValC{
+        }
     }
     namespace MscanCanidac{    ///<MSCAN Identifier Acceptance Control Register
         using Addr = Register::Address<0x4002400b,0xffffffc8,0,unsigned char>;
         ///Identifier Acceptance Hit Indicator
-        enum class idhitVal {
+        enum class IdhitVal {
             v000=0x00000000,     ///<Filter 0 hit.
             v001=0x00000001,     ///<Filter 1 hit.
             v010=0x00000002,     ///<Filter 2 hit.
@@ -436,253 +446,321 @@ namespace Kvasir {
             v110=0x00000006,     ///<Filter 6 hit.
             v111=0x00000007,     ///<Filter 7 hit.
         };
-        namespace idhitValC{
-            constexpr MPL::Value<idhitVal,idhitVal::v000> v000{};
-            constexpr MPL::Value<idhitVal,idhitVal::v001> v001{};
-            constexpr MPL::Value<idhitVal,idhitVal::v010> v010{};
-            constexpr MPL::Value<idhitVal,idhitVal::v011> v011{};
-            constexpr MPL::Value<idhitVal,idhitVal::v100> v100{};
-            constexpr MPL::Value<idhitVal,idhitVal::v101> v101{};
-            constexpr MPL::Value<idhitVal,idhitVal::v110> v110{};
-            constexpr MPL::Value<idhitVal,idhitVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,IdhitVal> idhit{}; 
+        namespace IdhitValC{
+            constexpr Register::FieldValue<decltype(idhit),IdhitVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(idhit),IdhitVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(idhit),IdhitVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(idhit),IdhitVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(idhit),IdhitVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(idhit),IdhitVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(idhit),IdhitVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(idhit),IdhitVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,idhitVal> idhit{}; 
         ///Identifier Acceptance Mode
-        enum class idamVal {
+        enum class IdamVal {
             v00=0x00000000,     ///<Two 32-bit acceptance filters.
             v01=0x00000001,     ///<Four 16-bit acceptance filters.
             v10=0x00000002,     ///<Eight 8-bit acceptance filters.
             v11=0x00000003,     ///<Filter closed.
         };
-        namespace idamValC{
-            constexpr MPL::Value<idamVal,idamVal::v00> v00{};
-            constexpr MPL::Value<idamVal,idamVal::v01> v01{};
-            constexpr MPL::Value<idamVal,idamVal::v10> v10{};
-            constexpr MPL::Value<idamVal,idamVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,IdamVal> idam{}; 
+        namespace IdamValC{
+            constexpr Register::FieldValue<decltype(idam),IdamVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(idam),IdamVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(idam),IdamVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(idam),IdamVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,idamVal> idam{}; 
     }
     namespace MscanCanmisc{    ///<MSCAN Miscellaneous Register
         using Addr = Register::Address<0x4002400d,0xfffffffe,0,unsigned char>;
         ///Bus-off State Hold Until User Request
-        enum class boholdVal {
+        enum class BoholdVal {
             v0=0x00000000,     ///<Module is not bus-off or recovery has been requested by user in bus-off state.
             v1=0x00000001,     ///<Module is bus-off and holds this state until user request.
         };
-        namespace boholdValC{
-            constexpr MPL::Value<boholdVal,boholdVal::v0> v0{};
-            constexpr MPL::Value<boholdVal,boholdVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BoholdVal> bohold{}; 
+        namespace BoholdValC{
+            constexpr Register::FieldValue<decltype(bohold),BoholdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bohold),BoholdVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,boholdVal> bohold{}; 
     }
     namespace MscanCanrxerr{    ///<MSCAN Receive Error Counter
         using Addr = Register::Address<0x4002400e,0xffffff00,0,unsigned char>;
         ///Receive Error Counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxerr{}; 
+        namespace RxerrValC{
+        }
     }
     namespace MscanCantxerr{    ///<MSCAN Transmit Error Counter
         using Addr = Register::Address<0x4002400f,0xffffff00,0,unsigned char>;
         ///Transmit Error Counter
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txerr{}; 
+        namespace TxerrValC{
+        }
     }
     namespace MscanCanidar0{    ///<MSCAN Identifier Acceptance Register n of First Bank
         using Addr = Register::Address<0x40024010,0xffffff00,0,unsigned char>;
         ///Acceptance Code Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        namespace AcValC{
+        }
     }
     namespace MscanCanidar1{    ///<MSCAN Identifier Acceptance Register n of First Bank
         using Addr = Register::Address<0x40024011,0xffffff00,0,unsigned char>;
         ///Acceptance Code Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        namespace AcValC{
+        }
     }
     namespace MscanCanidar2{    ///<MSCAN Identifier Acceptance Register n of First Bank
         using Addr = Register::Address<0x40024012,0xffffff00,0,unsigned char>;
         ///Acceptance Code Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        namespace AcValC{
+        }
     }
     namespace MscanCanidar3{    ///<MSCAN Identifier Acceptance Register n of First Bank
         using Addr = Register::Address<0x40024013,0xffffff00,0,unsigned char>;
         ///Acceptance Code Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        namespace AcValC{
+        }
     }
     namespace MscanCanidmr0{    ///<MSCAN Identifier Mask Register n of First Bank
         using Addr = Register::Address<0x40024014,0xffffff00,0,unsigned char>;
         ///Acceptance Mask Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        namespace AmValC{
+        }
     }
     namespace MscanCanidmr1{    ///<MSCAN Identifier Mask Register n of First Bank
         using Addr = Register::Address<0x40024015,0xffffff00,0,unsigned char>;
         ///Acceptance Mask Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        namespace AmValC{
+        }
     }
     namespace MscanCanidmr2{    ///<MSCAN Identifier Mask Register n of First Bank
         using Addr = Register::Address<0x40024016,0xffffff00,0,unsigned char>;
         ///Acceptance Mask Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        namespace AmValC{
+        }
     }
     namespace MscanCanidmr3{    ///<MSCAN Identifier Mask Register n of First Bank
         using Addr = Register::Address<0x40024017,0xffffff00,0,unsigned char>;
         ///Acceptance Mask Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        namespace AmValC{
+        }
     }
     namespace MscanCanidar4{    ///<MSCAN Identifier Acceptance Register n of Second Bank
         using Addr = Register::Address<0x40024018,0xffffff00,0,unsigned char>;
         ///Acceptance Code Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        namespace AcValC{
+        }
     }
     namespace MscanCanidar5{    ///<MSCAN Identifier Acceptance Register n of Second Bank
         using Addr = Register::Address<0x40024019,0xffffff00,0,unsigned char>;
         ///Acceptance Code Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        namespace AcValC{
+        }
     }
     namespace MscanCanidar6{    ///<MSCAN Identifier Acceptance Register n of Second Bank
         using Addr = Register::Address<0x4002401a,0xffffff00,0,unsigned char>;
         ///Acceptance Code Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        namespace AcValC{
+        }
     }
     namespace MscanCanidar7{    ///<MSCAN Identifier Acceptance Register n of Second Bank
         using Addr = Register::Address<0x4002401b,0xffffff00,0,unsigned char>;
         ///Acceptance Code Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ac{}; 
+        namespace AcValC{
+        }
     }
     namespace MscanCanidmr4{    ///<MSCAN Identifier Mask Register n of Second Bank
         using Addr = Register::Address<0x4002401c,0xffffff00,0,unsigned char>;
         ///Acceptance Mask Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        namespace AmValC{
+        }
     }
     namespace MscanCanidmr5{    ///<MSCAN Identifier Mask Register n of Second Bank
         using Addr = Register::Address<0x4002401d,0xffffff00,0,unsigned char>;
         ///Acceptance Mask Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        namespace AmValC{
+        }
     }
     namespace MscanCanidmr6{    ///<MSCAN Identifier Mask Register n of Second Bank
         using Addr = Register::Address<0x4002401e,0xffffff00,0,unsigned char>;
         ///Acceptance Mask Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        namespace AmValC{
+        }
     }
     namespace MscanCanidmr7{    ///<MSCAN Identifier Mask Register n of Second Bank
         using Addr = Register::Address<0x4002401f,0xffffff00,0,unsigned char>;
         ///Acceptance Mask Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> am{}; 
+        namespace AmValC{
+        }
     }
     namespace MscanReidr0{    ///<Receive Extended Identifier Register 0
         using Addr = Register::Address<0x40024020,0xffffff00,0,unsigned char>;
         ///Extended Format Identifier
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> reid28Reid21{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> reid28Reid21{}; 
+        namespace Reid28reid21ValC{
+        }
     }
     namespace MscanRsidr0{    ///<Receive Standard Identifier Register 0
         using Addr = Register::Address<0x40024020,0xffffff00,0,unsigned char>;
         ///Standard Format Identifier
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rsid10Rsid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rsid10Rsid3{}; 
+        namespace Rsid10rsid3ValC{
+        }
     }
     namespace MscanReidr1{    ///<Receive Extended Identifier Register 1
         using Addr = Register::Address<0x40024021,0xffffff00,0,unsigned char>;
         ///Extended Format Identifier 17-15
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reid17Reid15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> reid17Reid15{}; 
+        namespace Reid17reid15ValC{
+        }
         ///ID Extended
-        enum class reideVal {
+        enum class ReideVal {
             v0=0x00000000,     ///<Standard format (11 bit).
             v1=0x00000001,     ///<Extended format (29 bit).
         };
-        namespace reideValC{
-            constexpr MPL::Value<reideVal,reideVal::v0> v0{};
-            constexpr MPL::Value<reideVal,reideVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ReideVal> reide{}; 
+        namespace ReideValC{
+            constexpr Register::FieldValue<decltype(reide),ReideVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(reide),ReideVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,reideVal> reide{}; 
         ///Substitute Remote Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rsrr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rsrr{}; 
+        namespace RsrrValC{
+        }
         ///Extended Format Identifier 20-18
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> reid20Reid18{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> reid20Reid18{}; 
+        namespace Reid20reid18ValC{
+        }
     }
     namespace MscanRsidr1{    ///<Standard Identifier Register 1
         using Addr = Register::Address<0x40024021,0xffffff07,0,unsigned char>;
         ///ID Extended
-        enum class rsideVal {
+        enum class RsideVal {
             v0=0x00000000,     ///<Standard format (11 bit).
             v1=0x00000001,     ///<Extended format (29 bit).
         };
-        namespace rsideValC{
-            constexpr MPL::Value<rsideVal,rsideVal::v0> v0{};
-            constexpr MPL::Value<rsideVal,rsideVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RsideVal> rside{}; 
+        namespace RsideValC{
+            constexpr Register::FieldValue<decltype(rside),RsideVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rside),RsideVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,rsideVal> rside{}; 
         ///Remote Transmission Request
-        enum class rsrtrVal {
+        enum class RsrtrVal {
             v0=0x00000000,     ///<Data frame.
             v1=0x00000001,     ///<Remote frame.
         };
-        namespace rsrtrValC{
-            constexpr MPL::Value<rsrtrVal,rsrtrVal::v0> v0{};
-            constexpr MPL::Value<rsrtrVal,rsrtrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RsrtrVal> rsrtr{}; 
+        namespace RsrtrValC{
+            constexpr Register::FieldValue<decltype(rsrtr),RsrtrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rsrtr),RsrtrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,rsrtrVal> rsrtr{}; 
         ///Standard Format Identifier 2-0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> rsid2Rsid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> rsid2Rsid0{}; 
+        namespace Rsid2rsid0ValC{
+        }
     }
     namespace MscanReidr2{    ///<Receive Extended Identifier Register 2
         using Addr = Register::Address<0x40024022,0xffffff00,0,unsigned char>;
         ///Extended Format Identifier 14-7
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> reid14Reid7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> reid14Reid7{}; 
+        namespace Reid14reid7ValC{
+        }
     }
     namespace MscanReidr3{    ///<Receive Extended Identifier Register 3
         using Addr = Register::Address<0x40024023,0xffffff00,0,unsigned char>;
         ///Remote Transmission Request
-        enum class rertrVal {
+        enum class RertrVal {
             v0=0x00000000,     ///<Data frame.
             v1=0x00000001,     ///<Remote frame.
         };
-        namespace rertrValC{
-            constexpr MPL::Value<rertrVal,rertrVal::v0> v0{};
-            constexpr MPL::Value<rertrVal,rertrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RertrVal> rertr{}; 
+        namespace RertrValC{
+            constexpr Register::FieldValue<decltype(rertr),RertrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rertr),RertrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,rertrVal> rertr{}; 
         ///Extended Format Identifier 6-0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> reid6Reid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> reid6Reid0{}; 
+        namespace Reid6reid0ValC{
+        }
     }
     namespace MscanRedsr0{    ///<Receive Extended Data Segment Register N
         using Addr = Register::Address<0x40024024,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        namespace RdbValC{
+        }
     }
     namespace MscanRedsr1{    ///<Receive Extended Data Segment Register N
         using Addr = Register::Address<0x40024025,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        namespace RdbValC{
+        }
     }
     namespace MscanRedsr2{    ///<Receive Extended Data Segment Register N
         using Addr = Register::Address<0x40024026,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        namespace RdbValC{
+        }
     }
     namespace MscanRedsr3{    ///<Receive Extended Data Segment Register N
         using Addr = Register::Address<0x40024027,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        namespace RdbValC{
+        }
     }
     namespace MscanRedsr4{    ///<Receive Extended Data Segment Register N
         using Addr = Register::Address<0x40024028,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        namespace RdbValC{
+        }
     }
     namespace MscanRedsr5{    ///<Receive Extended Data Segment Register N
         using Addr = Register::Address<0x40024029,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        namespace RdbValC{
+        }
     }
     namespace MscanRedsr6{    ///<Receive Extended Data Segment Register N
         using Addr = Register::Address<0x4002402a,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        namespace RdbValC{
+        }
     }
     namespace MscanRedsr7{    ///<Receive Extended Data Segment Register N
         using Addr = Register::Address<0x4002402b,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdb{}; 
+        namespace RdbValC{
+        }
     }
     namespace MscanRdlr{    ///<Receive Data Length Register
         using Addr = Register::Address<0x4002402c,0xfffffff0,0,unsigned char>;
         ///Data Length Code Bits
-        enum class rdlcVal {
+        enum class RdlcVal {
             v0000=0x00000000,     ///<0
             v0001=0x00000001,     ///<1
             v0010=0x00000002,     ///<2
@@ -693,147 +771,183 @@ namespace Kvasir {
             v0111=0x00000007,     ///<7
             v1000=0x00000008,     ///<8
         };
-        namespace rdlcValC{
-            constexpr MPL::Value<rdlcVal,rdlcVal::v0000> v0000{};
-            constexpr MPL::Value<rdlcVal,rdlcVal::v0001> v0001{};
-            constexpr MPL::Value<rdlcVal,rdlcVal::v0010> v0010{};
-            constexpr MPL::Value<rdlcVal,rdlcVal::v0011> v0011{};
-            constexpr MPL::Value<rdlcVal,rdlcVal::v0100> v0100{};
-            constexpr MPL::Value<rdlcVal,rdlcVal::v0101> v0101{};
-            constexpr MPL::Value<rdlcVal,rdlcVal::v0110> v0110{};
-            constexpr MPL::Value<rdlcVal,rdlcVal::v0111> v0111{};
-            constexpr MPL::Value<rdlcVal,rdlcVal::v1000> v1000{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,RdlcVal> rdlc{}; 
+        namespace RdlcValC{
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(rdlc),RdlcVal::v1000> v1000{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,rdlcVal> rdlc{}; 
     }
     namespace MscanRtsrh{    ///<Receive Time Stamp Register High
         using Addr = Register::Address<0x4002402e,0xffffff00,0,unsigned char>;
         ///Time Stamp
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rts{}; 
+        namespace RtsValC{
+        }
     }
     namespace MscanRtsrl{    ///<Receive Time Stamp Register Low
         using Addr = Register::Address<0x4002402f,0xffffff00,0,unsigned char>;
         ///Time Stamp
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rts{}; 
+        namespace RtsValC{
+        }
     }
     namespace MscanTeidr0{    ///<Transmit Extended Identifier Register 0
         using Addr = Register::Address<0x40024030,0xffffff00,0,unsigned char>;
         ///Extended Format Identifier
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> teid28Teid21{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> teid28Teid21{}; 
+        namespace Teid28teid21ValC{
+        }
     }
     namespace MscanTsidr0{    ///<Transmit Standard Identifier Register 0
         using Addr = Register::Address<0x40024030,0xffffff00,0,unsigned char>;
         ///Standard Format Identifier
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tsid10Tsid3{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tsid10Tsid3{}; 
+        namespace Tsid10tsid3ValC{
+        }
     }
     namespace MscanTeidr1{    ///<Transmit Extended Identifier Register 1
         using Addr = Register::Address<0x40024031,0xffffff00,0,unsigned char>;
         ///Extended Format Identifier 17-15
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> teid17Teid15{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> teid17Teid15{}; 
+        namespace Teid17teid15ValC{
+        }
         ///ID Extended
-        enum class teideVal {
+        enum class TeideVal {
             v0=0x00000000,     ///<Standard format (11 bit).
             v1=0x00000001,     ///<Extended format (29 bit).
         };
-        namespace teideValC{
-            constexpr MPL::Value<teideVal,teideVal::v0> v0{};
-            constexpr MPL::Value<teideVal,teideVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TeideVal> teide{}; 
+        namespace TeideValC{
+            constexpr Register::FieldValue<decltype(teide),TeideVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(teide),TeideVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,teideVal> teide{}; 
         ///Substitute Remote Request
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tsrr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tsrr{}; 
+        namespace TsrrValC{
+        }
         ///Extended Format Identifier 20-18
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> teid20Teid18{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> teid20Teid18{}; 
+        namespace Teid20teid18ValC{
+        }
     }
     namespace MscanTsidr1{    ///<Transmit Standard Identifier Register 1
         using Addr = Register::Address<0x40024031,0xffffff07,0,unsigned char>;
         ///ID Extended
-        enum class tsideVal {
+        enum class TsideVal {
             v0=0x00000000,     ///<Standard format (11 bit).
             v1=0x00000001,     ///<Extended format (29 bit).
         };
-        namespace tsideValC{
-            constexpr MPL::Value<tsideVal,tsideVal::v0> v0{};
-            constexpr MPL::Value<tsideVal,tsideVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TsideVal> tside{}; 
+        namespace TsideValC{
+            constexpr Register::FieldValue<decltype(tside),TsideVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tside),TsideVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,tsideVal> tside{}; 
         ///Remote Transmission Request
-        enum class tsrtrVal {
+        enum class TsrtrVal {
             v0=0x00000000,     ///<Data frame.
             v1=0x00000001,     ///<Remote frame.
         };
-        namespace tsrtrValC{
-            constexpr MPL::Value<tsrtrVal,tsrtrVal::v0> v0{};
-            constexpr MPL::Value<tsrtrVal,tsrtrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TsrtrVal> tsrtr{}; 
+        namespace TsrtrValC{
+            constexpr Register::FieldValue<decltype(tsrtr),TsrtrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tsrtr),TsrtrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,tsrtrVal> tsrtr{}; 
         ///Standard Format Identifier 2-0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> tsid2Tsid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> tsid2Tsid0{}; 
+        namespace Tsid2tsid0ValC{
+        }
     }
     namespace MscanTeidr2{    ///<Transmit Extended Identifier Register 2
         using Addr = Register::Address<0x40024032,0xffffff00,0,unsigned char>;
         ///Extended Format Identifier 14-7
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> teid14Teid7{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> teid14Teid7{}; 
+        namespace Teid14teid7ValC{
+        }
     }
     namespace MscanTeidr3{    ///<Transmit Extended Identifier Register 3
         using Addr = Register::Address<0x40024033,0xffffff00,0,unsigned char>;
         ///Remote Transmission Request
-        enum class tertrVal {
+        enum class TertrVal {
             v0=0x00000000,     ///<Data frame.
             v1=0x00000001,     ///<Remote frame.
         };
-        namespace tertrValC{
-            constexpr MPL::Value<tertrVal,tertrVal::v0> v0{};
-            constexpr MPL::Value<tertrVal,tertrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TertrVal> tertr{}; 
+        namespace TertrValC{
+            constexpr Register::FieldValue<decltype(tertr),TertrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tertr),TertrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,tertrVal> tertr{}; 
         ///Extended Format Identifier 6-0
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> teid6Teid0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> teid6Teid0{}; 
+        namespace Teid6teid0ValC{
+        }
     }
     namespace MscanTedsr0{    ///<Transmit Extended Data Segment Register N
         using Addr = Register::Address<0x40024034,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        namespace TdbValC{
+        }
     }
     namespace MscanTedsr1{    ///<Transmit Extended Data Segment Register N
         using Addr = Register::Address<0x40024035,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        namespace TdbValC{
+        }
     }
     namespace MscanTedsr2{    ///<Transmit Extended Data Segment Register N
         using Addr = Register::Address<0x40024036,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        namespace TdbValC{
+        }
     }
     namespace MscanTedsr3{    ///<Transmit Extended Data Segment Register N
         using Addr = Register::Address<0x40024037,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        namespace TdbValC{
+        }
     }
     namespace MscanTedsr4{    ///<Transmit Extended Data Segment Register N
         using Addr = Register::Address<0x40024038,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        namespace TdbValC{
+        }
     }
     namespace MscanTedsr5{    ///<Transmit Extended Data Segment Register N
         using Addr = Register::Address<0x40024039,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        namespace TdbValC{
+        }
     }
     namespace MscanTedsr6{    ///<Transmit Extended Data Segment Register N
         using Addr = Register::Address<0x4002403a,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        namespace TdbValC{
+        }
     }
     namespace MscanTedsr7{    ///<Transmit Extended Data Segment Register N
         using Addr = Register::Address<0x4002403b,0xffffff00,0,unsigned char>;
         ///Data Bits
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tdb{}; 
+        namespace TdbValC{
+        }
     }
     namespace MscanTdlr{    ///<This register keeps the data length field of the CAN frame.
         using Addr = Register::Address<0x4002403c,0xfffffff0,0,unsigned char>;
         ///Data Length Code Bits
-        enum class tdlcVal {
+        enum class TdlcVal {
             v0000=0x00000000,     ///<0
             v0001=0x00000001,     ///<1
             v0010=0x00000002,     ///<2
@@ -844,32 +958,38 @@ namespace Kvasir {
             v0111=0x00000007,     ///<7
             v1000=0x00000008,     ///<8
         };
-        namespace tdlcValC{
-            constexpr MPL::Value<tdlcVal,tdlcVal::v0000> v0000{};
-            constexpr MPL::Value<tdlcVal,tdlcVal::v0001> v0001{};
-            constexpr MPL::Value<tdlcVal,tdlcVal::v0010> v0010{};
-            constexpr MPL::Value<tdlcVal,tdlcVal::v0011> v0011{};
-            constexpr MPL::Value<tdlcVal,tdlcVal::v0100> v0100{};
-            constexpr MPL::Value<tdlcVal,tdlcVal::v0101> v0101{};
-            constexpr MPL::Value<tdlcVal,tdlcVal::v0110> v0110{};
-            constexpr MPL::Value<tdlcVal,tdlcVal::v0111> v0111{};
-            constexpr MPL::Value<tdlcVal,tdlcVal::v1000> v1000{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,TdlcVal> tdlc{}; 
+        namespace TdlcValC{
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(tdlc),TdlcVal::v1000> v1000{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,tdlcVal> tdlc{}; 
     }
     namespace MscanTbpr{    ///<Transmit Buffer Priority Register
         using Addr = Register::Address<0x4002403d,0xffffff00,0,unsigned char>;
         ///Priority
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prio{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prio{}; 
+        namespace PrioValC{
+        }
     }
     namespace MscanTtsrh{    ///<Transmit Time Stamp Register High
         using Addr = Register::Address<0x4002403e,0xffffff00,0,unsigned char>;
         ///Time Stamp
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tts{}; 
+        namespace TtsValC{
+        }
     }
     namespace MscanTtsrl{    ///<Transmit Time Stamp Register Low
         using Addr = Register::Address<0x4002403f,0xffffff00,0,unsigned char>;
         ///Time Stamp
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tts{}; 
+        namespace TtsValC{
+        }
     }
 }

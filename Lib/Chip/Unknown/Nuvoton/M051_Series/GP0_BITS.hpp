@@ -8,7 +8,9 @@ namespace Kvasir {
 Set this bit can control one GPIO pin output value
 1 = Set corresponding GPIO bit to high
 0 = Set corresponding GPIO bit to low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        namespace DoutValC{
+        }
     }
     namespace Nonepx1Dout{    ///<Px.1 Data Output Value
         using Addr = Register::Address<0x50004404,0xfffffffe,0,unsigned>;
@@ -16,7 +18,9 @@ Set this bit can control one GPIO pin output value
 Set this bit can control one GPIO pin output value
 1 = Set corresponding GPIO bit to high
 0 = Set corresponding GPIO bit to low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        namespace DoutValC{
+        }
     }
     namespace Nonepx2Dout{    ///<Px.2 Data Output Value
         using Addr = Register::Address<0x50004408,0xfffffffe,0,unsigned>;
@@ -24,7 +28,9 @@ Set this bit can control one GPIO pin output value
 Set this bit can control one GPIO pin output value
 1 = Set corresponding GPIO bit to high
 0 = Set corresponding GPIO bit to low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        namespace DoutValC{
+        }
     }
     namespace Nonepx3Dout{    ///<Px.3 Data Output Value
         using Addr = Register::Address<0x5000440c,0xfffffffe,0,unsigned>;
@@ -32,7 +38,9 @@ Set this bit can control one GPIO pin output value
 Set this bit can control one GPIO pin output value
 1 = Set corresponding GPIO bit to high
 0 = Set corresponding GPIO bit to low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        namespace DoutValC{
+        }
     }
     namespace Nonepx4Dout{    ///<Px.4 Data Output Value
         using Addr = Register::Address<0x50004410,0xfffffffe,0,unsigned>;
@@ -40,7 +48,9 @@ Set this bit can control one GPIO pin output value
 Set this bit can control one GPIO pin output value
 1 = Set corresponding GPIO bit to high
 0 = Set corresponding GPIO bit to low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        namespace DoutValC{
+        }
     }
     namespace Nonepx5Dout{    ///<Px.5 Data Output Value
         using Addr = Register::Address<0x50004414,0xfffffffe,0,unsigned>;
@@ -48,7 +58,9 @@ Set this bit can control one GPIO pin output value
 Set this bit can control one GPIO pin output value
 1 = Set corresponding GPIO bit to high
 0 = Set corresponding GPIO bit to low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        namespace DoutValC{
+        }
     }
     namespace Nonepx6Dout{    ///<Px.6 Data Output Value
         using Addr = Register::Address<0x50004418,0xfffffffe,0,unsigned>;
@@ -56,7 +68,9 @@ Set this bit can control one GPIO pin output value
 Set this bit can control one GPIO pin output value
 1 = Set corresponding GPIO bit to high
 0 = Set corresponding GPIO bit to low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        namespace DoutValC{
+        }
     }
     namespace Nonepx7Dout{    ///<Px.7 Data Output Value
         using Addr = Register::Address<0x5000441c,0xfffffffe,0,unsigned>;
@@ -64,6 +78,8 @@ Set this bit can control one GPIO pin output value
 Set this bit can control one GPIO pin output value
 1 = Set corresponding GPIO bit to high
 0 = Set corresponding GPIO bit to low
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dout{}; 
+        namespace DoutValC{
+        }
     }
 }

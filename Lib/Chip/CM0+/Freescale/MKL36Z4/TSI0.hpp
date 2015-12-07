@@ -5,77 +5,77 @@ namespace Kvasir {
     namespace Tsi0Gencs{    ///<TSI General Control and Status Register
         using Addr = Register::Address<0x40045000,0x60000001,0,unsigned>;
         ///CURSW
-        enum class curswVal {
+        enum class CurswVal {
             v0=0x00000000,     ///<The current source pair are not swapped.
             v1=0x00000001,     ///<The current source pair are swapped.
         };
-        namespace curswValC{
-            constexpr MPL::Value<curswVal,curswVal::v0> v0{};
-            constexpr MPL::Value<curswVal,curswVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CurswVal> cursw{}; 
+        namespace CurswValC{
+            constexpr Register::FieldValue<decltype(cursw),CurswVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cursw),CurswVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,curswVal> cursw{}; 
         ///End of Scan Flag
-        enum class eosfVal {
+        enum class EosfVal {
             v0=0x00000000,     ///<Scan not complete.
             v1=0x00000001,     ///<Scan complete.
         };
-        namespace eosfValC{
-            constexpr MPL::Value<eosfVal,eosfVal::v0> v0{};
-            constexpr MPL::Value<eosfVal,eosfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EosfVal> eosf{}; 
+        namespace EosfValC{
+            constexpr Register::FieldValue<decltype(eosf),EosfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eosf),EosfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,eosfVal> eosf{}; 
         ///Scan In Progress Status
-        enum class scnipVal {
+        enum class ScnipVal {
             v0=0x00000000,     ///<No scan in progress.
             v1=0x00000001,     ///<Scan in progress.
         };
-        namespace scnipValC{
-            constexpr MPL::Value<scnipVal,scnipVal::v0> v0{};
-            constexpr MPL::Value<scnipVal,scnipVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ScnipVal> scnip{}; 
+        namespace ScnipValC{
+            constexpr Register::FieldValue<decltype(scnip),ScnipVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(scnip),ScnipVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,scnipVal> scnip{}; 
         ///Scan Trigger Mode
-        enum class stmVal {
+        enum class StmVal {
             v0=0x00000000,     ///<Software trigger scan.
             v1=0x00000001,     ///<Hardware trigger scan.
         };
-        namespace stmValC{
-            constexpr MPL::Value<stmVal,stmVal::v0> v0{};
-            constexpr MPL::Value<stmVal,stmVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,StmVal> stm{}; 
+        namespace StmValC{
+            constexpr Register::FieldValue<decltype(stm),StmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stm),StmVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,stmVal> stm{}; 
         ///TSI STOP Enable
-        enum class stpeVal {
+        enum class StpeVal {
             v0=0x00000000,     ///<TSI is disabled when MCU goes into low power mode.
             v1=0x00000001,     ///<Allows TSI to continue running in all low power modes.
         };
-        namespace stpeValC{
-            constexpr MPL::Value<stpeVal,stpeVal::v0> v0{};
-            constexpr MPL::Value<stpeVal,stpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,StpeVal> stpe{}; 
+        namespace StpeValC{
+            constexpr Register::FieldValue<decltype(stpe),StpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stpe),StpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,stpeVal> stpe{}; 
         ///Touch Sensing Input Interrupt Enable
-        enum class tsiienVal {
+        enum class TsiienVal {
             v0=0x00000000,     ///<TSI interrupt is disabled.
             v1=0x00000001,     ///<TSI interrupt is enabled.
         };
-        namespace tsiienValC{
-            constexpr MPL::Value<tsiienVal,tsiienVal::v0> v0{};
-            constexpr MPL::Value<tsiienVal,tsiienVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TsiienVal> tsiien{}; 
+        namespace TsiienValC{
+            constexpr Register::FieldValue<decltype(tsiien),TsiienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tsiien),TsiienVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,tsiienVal> tsiien{}; 
         ///Touch Sensing Input Module Enable
-        enum class tsienVal {
+        enum class TsienVal {
             v0=0x00000000,     ///<TSI module disabled.
             v1=0x00000001,     ///<TSI module enabled.
         };
-        namespace tsienValC{
-            constexpr MPL::Value<tsienVal,tsienVal::v0> v0{};
-            constexpr MPL::Value<tsienVal,tsienVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TsienVal> tsien{}; 
+        namespace TsienValC{
+            constexpr Register::FieldValue<decltype(tsien),TsienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tsien),TsienVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,tsienVal> tsien{}; 
         ///NSCN
-        enum class nscnVal {
+        enum class NscnVal {
             v00000=0x00000000,     ///<Once per electrode
             v00001=0x00000001,     ///<Twice per electrode
             v00010=0x00000002,     ///<3 times per electrode
@@ -109,43 +109,43 @@ namespace Kvasir {
             v11110=0x0000001e,     ///<31 times per electrode
             v11111=0x0000001f,     ///<32 times per electrode
         };
-        namespace nscnValC{
-            constexpr MPL::Value<nscnVal,nscnVal::v00000> v00000{};
-            constexpr MPL::Value<nscnVal,nscnVal::v00001> v00001{};
-            constexpr MPL::Value<nscnVal,nscnVal::v00010> v00010{};
-            constexpr MPL::Value<nscnVal,nscnVal::v00011> v00011{};
-            constexpr MPL::Value<nscnVal,nscnVal::v00100> v00100{};
-            constexpr MPL::Value<nscnVal,nscnVal::v00101> v00101{};
-            constexpr MPL::Value<nscnVal,nscnVal::v00110> v00110{};
-            constexpr MPL::Value<nscnVal,nscnVal::v00111> v00111{};
-            constexpr MPL::Value<nscnVal,nscnVal::v01000> v01000{};
-            constexpr MPL::Value<nscnVal,nscnVal::v01001> v01001{};
-            constexpr MPL::Value<nscnVal,nscnVal::v01010> v01010{};
-            constexpr MPL::Value<nscnVal,nscnVal::v01011> v01011{};
-            constexpr MPL::Value<nscnVal,nscnVal::v01100> v01100{};
-            constexpr MPL::Value<nscnVal,nscnVal::v01101> v01101{};
-            constexpr MPL::Value<nscnVal,nscnVal::v01110> v01110{};
-            constexpr MPL::Value<nscnVal,nscnVal::v01111> v01111{};
-            constexpr MPL::Value<nscnVal,nscnVal::v10000> v10000{};
-            constexpr MPL::Value<nscnVal,nscnVal::v10001> v10001{};
-            constexpr MPL::Value<nscnVal,nscnVal::v10010> v10010{};
-            constexpr MPL::Value<nscnVal,nscnVal::v10011> v10011{};
-            constexpr MPL::Value<nscnVal,nscnVal::v10100> v10100{};
-            constexpr MPL::Value<nscnVal,nscnVal::v10101> v10101{};
-            constexpr MPL::Value<nscnVal,nscnVal::v10110> v10110{};
-            constexpr MPL::Value<nscnVal,nscnVal::v10111> v10111{};
-            constexpr MPL::Value<nscnVal,nscnVal::v11000> v11000{};
-            constexpr MPL::Value<nscnVal,nscnVal::v11001> v11001{};
-            constexpr MPL::Value<nscnVal,nscnVal::v11010> v11010{};
-            constexpr MPL::Value<nscnVal,nscnVal::v11011> v11011{};
-            constexpr MPL::Value<nscnVal,nscnVal::v11100> v11100{};
-            constexpr MPL::Value<nscnVal,nscnVal::v11101> v11101{};
-            constexpr MPL::Value<nscnVal,nscnVal::v11110> v11110{};
-            constexpr MPL::Value<nscnVal,nscnVal::v11111> v11111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,NscnVal> nscn{}; 
+        namespace NscnValC{
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v11000> v11000{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v11001> v11001{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v11100> v11100{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(nscn),NscnVal::v11111> v11111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,nscnVal> nscn{}; 
         ///PS
-        enum class psVal {
+        enum class PsVal {
             v000=0x00000000,     ///<Electrode Oscillator Frequency divided by 1
             v001=0x00000001,     ///<Electrode Oscillator Frequency divided by 2
             v010=0x00000002,     ///<Electrode Oscillator Frequency divided by 4
@@ -155,19 +155,19 @@ namespace Kvasir {
             v110=0x00000006,     ///<Electrode Oscillator Frequency divided by 64
             v111=0x00000007,     ///<Electrode Oscillator Frequency divided by 128
         };
-        namespace psValC{
-            constexpr MPL::Value<psVal,psVal::v000> v000{};
-            constexpr MPL::Value<psVal,psVal::v001> v001{};
-            constexpr MPL::Value<psVal,psVal::v010> v010{};
-            constexpr MPL::Value<psVal,psVal::v011> v011{};
-            constexpr MPL::Value<psVal,psVal::v100> v100{};
-            constexpr MPL::Value<psVal,psVal::v101> v101{};
-            constexpr MPL::Value<psVal,psVal::v110> v110{};
-            constexpr MPL::Value<psVal,psVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,PsVal> ps{}; 
+        namespace PsValC{
+            constexpr Register::FieldValue<decltype(ps),PsVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(ps),PsVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,psVal> ps{}; 
         ///EXTCHRG
-        enum class extchrgVal {
+        enum class ExtchrgVal {
             v000=0x00000000,     ///<500 nA.
             v001=0x00000001,     ///<1 uA.
             v010=0x00000002,     ///<2 uA.
@@ -177,33 +177,33 @@ namespace Kvasir {
             v110=0x00000006,     ///<32 uA.
             v111=0x00000007,     ///<64 uA.
         };
-        namespace extchrgValC{
-            constexpr MPL::Value<extchrgVal,extchrgVal::v000> v000{};
-            constexpr MPL::Value<extchrgVal,extchrgVal::v001> v001{};
-            constexpr MPL::Value<extchrgVal,extchrgVal::v010> v010{};
-            constexpr MPL::Value<extchrgVal,extchrgVal::v011> v011{};
-            constexpr MPL::Value<extchrgVal,extchrgVal::v100> v100{};
-            constexpr MPL::Value<extchrgVal,extchrgVal::v101> v101{};
-            constexpr MPL::Value<extchrgVal,extchrgVal::v110> v110{};
-            constexpr MPL::Value<extchrgVal,extchrgVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,ExtchrgVal> extchrg{}; 
+        namespace ExtchrgValC{
+            constexpr Register::FieldValue<decltype(extchrg),ExtchrgVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(extchrg),ExtchrgVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(extchrg),ExtchrgVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(extchrg),ExtchrgVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(extchrg),ExtchrgVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(extchrg),ExtchrgVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(extchrg),ExtchrgVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(extchrg),ExtchrgVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,extchrgVal> extchrg{}; 
         ///DVOLT
-        enum class dvoltVal {
+        enum class DvoltVal {
             v00=0x00000000,     ///<DV = 1.03 V; VP = 1.33 V; Vm = 0.30 V.
             v01=0x00000001,     ///<DV = 0.73 V; VP = 1.18 V; Vm = 0.45 V.
             v10=0x00000002,     ///<DV = 0.43 V; VP = 1.03 V; Vm = 0.60 V.
             v11=0x00000003,     ///<DV = 0.29 V; VP = 0.95 V; Vm = 0.67 V.
         };
-        namespace dvoltValC{
-            constexpr MPL::Value<dvoltVal,dvoltVal::v00> v00{};
-            constexpr MPL::Value<dvoltVal,dvoltVal::v01> v01{};
-            constexpr MPL::Value<dvoltVal,dvoltVal::v10> v10{};
-            constexpr MPL::Value<dvoltVal,dvoltVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,19),Register::ReadWriteAccess,DvoltVal> dvolt{}; 
+        namespace DvoltValC{
+            constexpr Register::FieldValue<decltype(dvolt),DvoltVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(dvolt),DvoltVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(dvolt),DvoltVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(dvolt),DvoltVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(20,19),Register::ReadWriteAccess,dvoltVal> dvolt{}; 
         ///REFCHRG
-        enum class refchrgVal {
+        enum class RefchrgVal {
             v000=0x00000000,     ///<500 nA.
             v001=0x00000001,     ///<1 uA.
             v010=0x00000002,     ///<2 uA.
@@ -213,58 +213,64 @@ namespace Kvasir {
             v110=0x00000006,     ///<32 uA.
             v111=0x00000007,     ///<64 uA.
         };
-        namespace refchrgValC{
-            constexpr MPL::Value<refchrgVal,refchrgVal::v000> v000{};
-            constexpr MPL::Value<refchrgVal,refchrgVal::v001> v001{};
-            constexpr MPL::Value<refchrgVal,refchrgVal::v010> v010{};
-            constexpr MPL::Value<refchrgVal,refchrgVal::v011> v011{};
-            constexpr MPL::Value<refchrgVal,refchrgVal::v100> v100{};
-            constexpr MPL::Value<refchrgVal,refchrgVal::v101> v101{};
-            constexpr MPL::Value<refchrgVal,refchrgVal::v110> v110{};
-            constexpr MPL::Value<refchrgVal,refchrgVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,RefchrgVal> refchrg{}; 
+        namespace RefchrgValC{
+            constexpr Register::FieldValue<decltype(refchrg),RefchrgVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(refchrg),RefchrgVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(refchrg),RefchrgVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(refchrg),RefchrgVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(refchrg),RefchrgVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(refchrg),RefchrgVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(refchrg),RefchrgVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(refchrg),RefchrgVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,refchrgVal> refchrg{}; 
         ///TSI analog modes setup and status bits.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> mode{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> mode{}; 
+        namespace ModeValC{
+        }
         ///End-of-scan or Out-of-Range Interrupt Selection
-        enum class esorVal {
+        enum class EsorVal {
             v0=0x00000000,     ///<Out-of-range interrupt is allowed.
             v1=0x00000001,     ///<End-of-scan interrupt is allowed.
         };
-        namespace esorValC{
-            constexpr MPL::Value<esorVal,esorVal::v0> v0{};
-            constexpr MPL::Value<esorVal,esorVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,EsorVal> esor{}; 
+        namespace EsorValC{
+            constexpr Register::FieldValue<decltype(esor),EsorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(esor),EsorVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,esorVal> esor{}; 
         ///Out of Range Flag.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> outrgf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> outrgf{}; 
+        namespace OutrgfValC{
+        }
     }
     namespace Tsi0Data{    ///<TSI DATA Register
         using Addr = Register::Address<0x40045004,0x0f3f0000,0,unsigned>;
         ///TSI Conversion Counter Value
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tsicnt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tsicnt{}; 
+        namespace TsicntValC{
+        }
         ///Software Trigger Start
-        enum class swtsVal {
+        enum class SwtsVal {
             v0=0x00000000,     ///<No effect.
             v1=0x00000001,     ///<Start a scan to determine which channel is specified by TSI_DATA[TSICH].
         };
-        namespace swtsValC{
-            constexpr MPL::Value<swtsVal,swtsVal::v0> v0{};
-            constexpr MPL::Value<swtsVal,swtsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,SwtsVal> swts{}; 
+        namespace SwtsValC{
+            constexpr Register::FieldValue<decltype(swts),SwtsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(swts),SwtsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,swtsVal> swts{}; 
         ///DMA Transfer Enabled
-        enum class dmaenVal {
+        enum class DmaenVal {
             v0=0x00000000,     ///<Interrupt is selected when the interrupt enable bit is set and the corresponding TSI events assert.
             v1=0x00000001,     ///<DMA transfer request is selected when the interrupt enable bit is set and the corresponding TSI events assert.
         };
-        namespace dmaenValC{
-            constexpr MPL::Value<dmaenVal,dmaenVal::v0> v0{};
-            constexpr MPL::Value<dmaenVal,dmaenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
+        namespace DmaenValC{
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,dmaenVal> dmaen{}; 
         ///TSICH
-        enum class tsichVal {
+        enum class TsichVal {
             v0000=0x00000000,     ///<Channel 0.
             v0001=0x00000001,     ///<Channel 1.
             v0010=0x00000002,     ///<Channel 2.
@@ -282,31 +288,35 @@ namespace Kvasir {
             v1110=0x0000000e,     ///<Channel 14.
             v1111=0x0000000f,     ///<Channel 15.
         };
-        namespace tsichValC{
-            constexpr MPL::Value<tsichVal,tsichVal::v0000> v0000{};
-            constexpr MPL::Value<tsichVal,tsichVal::v0001> v0001{};
-            constexpr MPL::Value<tsichVal,tsichVal::v0010> v0010{};
-            constexpr MPL::Value<tsichVal,tsichVal::v0011> v0011{};
-            constexpr MPL::Value<tsichVal,tsichVal::v0100> v0100{};
-            constexpr MPL::Value<tsichVal,tsichVal::v0101> v0101{};
-            constexpr MPL::Value<tsichVal,tsichVal::v0110> v0110{};
-            constexpr MPL::Value<tsichVal,tsichVal::v0111> v0111{};
-            constexpr MPL::Value<tsichVal,tsichVal::v1000> v1000{};
-            constexpr MPL::Value<tsichVal,tsichVal::v1001> v1001{};
-            constexpr MPL::Value<tsichVal,tsichVal::v1010> v1010{};
-            constexpr MPL::Value<tsichVal,tsichVal::v1011> v1011{};
-            constexpr MPL::Value<tsichVal,tsichVal::v1100> v1100{};
-            constexpr MPL::Value<tsichVal,tsichVal::v1101> v1101{};
-            constexpr MPL::Value<tsichVal,tsichVal::v1110> v1110{};
-            constexpr MPL::Value<tsichVal,tsichVal::v1111> v1111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,TsichVal> tsich{}; 
+        namespace TsichValC{
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v1001> v1001{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v1010> v1010{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v1011> v1011{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v1100> v1100{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v1101> v1101{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v1110> v1110{};
+            constexpr Register::FieldValue<decltype(tsich),TsichVal::v1111> v1111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,tsichVal> tsich{}; 
     }
     namespace Tsi0Tshd{    ///<TSI Threshold Register
         using Addr = Register::Address<0x40045008,0x00000000,0,unsigned>;
         ///TSI Wakeup Channel Low-threshold
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> thresl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> thresl{}; 
+        namespace ThreslValC{
+        }
         ///TSI Wakeup Channel High-threshold
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> thresh{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> thresh{}; 
+        namespace ThreshValC{
+        }
     }
 }

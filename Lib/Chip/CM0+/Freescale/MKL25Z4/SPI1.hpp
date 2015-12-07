@@ -5,163 +5,163 @@ namespace Kvasir {
     namespace Spi1C1{    ///<SPI control register 1
         using Addr = Register::Address<0x40077000,0xffffff00,0,unsigned char>;
         ///LSB first (shifter direction)
-        enum class lsbfeVal {
+        enum class LsbfeVal {
             v0=0x00000000,     ///<SPI serial data transfers start with most significant bit
             v1=0x00000001,     ///<SPI serial data transfers start with least significant bit
         };
-        namespace lsbfeValC{
-            constexpr MPL::Value<lsbfeVal,lsbfeVal::v0> v0{};
-            constexpr MPL::Value<lsbfeVal,lsbfeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LsbfeVal> lsbfe{}; 
+        namespace LsbfeValC{
+            constexpr Register::FieldValue<decltype(lsbfe),LsbfeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lsbfe),LsbfeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,lsbfeVal> lsbfe{}; 
         ///Slave select output enable
-        enum class ssoeVal {
+        enum class SsoeVal {
             v0=0x00000000,     ///<When MODFEN is 0: In master mode, SS pin function is general-purpose I/O (not SPI). In slave mode, SS pin function is slave select input. When MODFEN is 1: In master mode, SS pin function is SS input for mode fault. In slave mode, SS pin function is slave select input.
             v1=0x00000001,     ///<When MODFEN is 0: In master mode, SS pin function is general-purpose I/O (not SPI). In slave mode, SS pin function is slave select input. When MODFEN is 1: In master mode, SS pin function is automatic SS output. In slave mode: SS pin function is slave select input.
         };
-        namespace ssoeValC{
-            constexpr MPL::Value<ssoeVal,ssoeVal::v0> v0{};
-            constexpr MPL::Value<ssoeVal,ssoeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SsoeVal> ssoe{}; 
+        namespace SsoeValC{
+            constexpr Register::FieldValue<decltype(ssoe),SsoeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ssoe),SsoeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ssoeVal> ssoe{}; 
         ///Clock phase
-        enum class cphaVal {
+        enum class CphaVal {
             v0=0x00000000,     ///<First edge on SPSCK occurs at the middle of the first cycle of a data transfer
             v1=0x00000001,     ///<First edge on SPSCK occurs at the start of the first cycle of a data transfer
         };
-        namespace cphaValC{
-            constexpr MPL::Value<cphaVal,cphaVal::v0> v0{};
-            constexpr MPL::Value<cphaVal,cphaVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CphaVal> cpha{}; 
+        namespace CphaValC{
+            constexpr Register::FieldValue<decltype(cpha),CphaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpha),CphaVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,cphaVal> cpha{}; 
         ///Clock polarity
-        enum class cpolVal {
+        enum class CpolVal {
             v0=0x00000000,     ///<Active-high SPI clock (idles low)
             v1=0x00000001,     ///<Active-low SPI clock (idles high)
         };
-        namespace cpolValC{
-            constexpr MPL::Value<cpolVal,cpolVal::v0> v0{};
-            constexpr MPL::Value<cpolVal,cpolVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CpolVal> cpol{}; 
+        namespace CpolValC{
+            constexpr Register::FieldValue<decltype(cpol),CpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpol),CpolVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,cpolVal> cpol{}; 
         ///Master/slave mode select
-        enum class mstrVal {
+        enum class MstrVal {
             v0=0x00000000,     ///<SPI module configured as a slave SPI device
             v1=0x00000001,     ///<SPI module configured as a master SPI device
         };
-        namespace mstrValC{
-            constexpr MPL::Value<mstrVal,mstrVal::v0> v0{};
-            constexpr MPL::Value<mstrVal,mstrVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MstrVal> mstr{}; 
+        namespace MstrValC{
+            constexpr Register::FieldValue<decltype(mstr),MstrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mstr),MstrVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,mstrVal> mstr{}; 
         ///SPI transmit interrupt enable
-        enum class sptieVal {
+        enum class SptieVal {
             v0=0x00000000,     ///<Interrupts from SPTEF inhibited (use polling)
             v1=0x00000001,     ///<When SPTEF is 1, hardware interrupt requested
         };
-        namespace sptieValC{
-            constexpr MPL::Value<sptieVal,sptieVal::v0> v0{};
-            constexpr MPL::Value<sptieVal,sptieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SptieVal> sptie{}; 
+        namespace SptieValC{
+            constexpr Register::FieldValue<decltype(sptie),SptieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sptie),SptieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,sptieVal> sptie{}; 
         ///SPI system enable
-        enum class speVal {
+        enum class SpeVal {
             v0=0x00000000,     ///<SPI system inactive
             v1=0x00000001,     ///<SPI system enabled
         };
-        namespace speValC{
-            constexpr MPL::Value<speVal,speVal::v0> v0{};
-            constexpr MPL::Value<speVal,speVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SpeVal> spe{}; 
+        namespace SpeValC{
+            constexpr Register::FieldValue<decltype(spe),SpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spe),SpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,speVal> spe{}; 
         ///SPI interrupt enable: for SPRF and MODF
-        enum class spieVal {
+        enum class SpieVal {
             v0=0x00000000,     ///<Interrupts from SPRF and MODF are inhibited-use polling
             v1=0x00000001,     ///<Request a hardware interrupt when SPRF or MODF is 1
         };
-        namespace spieValC{
-            constexpr MPL::Value<spieVal,spieVal::v0> v0{};
-            constexpr MPL::Value<spieVal,spieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SpieVal> spie{}; 
+        namespace SpieValC{
+            constexpr Register::FieldValue<decltype(spie),SpieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spie),SpieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,spieVal> spie{}; 
     }
     namespace Spi1C2{    ///<SPI control register 2
         using Addr = Register::Address<0x40077001,0xffffff40,0,unsigned char>;
         ///SPI pin control 0
-        enum class spc0Val {
+        enum class Spc0Val {
             v0=0x00000000,     ///<SPI uses separate pins for data input and data output (pin mode is normal). In master mode of operation: MISO is master in and MOSI is master out. In slave mode of operation: MISO is slave out and MOSI is slave in.
             v1=0x00000001,     ///<SPI configured for single-wire bidirectional operation (pin mode is bidirectional). In master mode of operation: MISO is not used by SPI; MOSI is master in when BIDIROE is 0 or master I/O when BIDIROE is 1. In slave mode of operation: MISO is slave in when BIDIROE is 0 or slave I/O when BIDIROE is 1; MOSI is not used by SPI.
         };
-        namespace spc0ValC{
-            constexpr MPL::Value<spc0Val,spc0Val::v0> v0{};
-            constexpr MPL::Value<spc0Val,spc0Val::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Spc0Val> spc0{}; 
+        namespace Spc0ValC{
+            constexpr Register::FieldValue<decltype(spc0),Spc0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(spc0),Spc0Val::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,spc0Val> spc0{}; 
         ///SPI stop in wait mode
-        enum class spiswaiVal {
+        enum class SpiswaiVal {
             v0=0x00000000,     ///<SPI clocks continue to operate in wait mode
             v1=0x00000001,     ///<SPI clocks stop when the MCU enters wait mode
         };
-        namespace spiswaiValC{
-            constexpr MPL::Value<spiswaiVal,spiswaiVal::v0> v0{};
-            constexpr MPL::Value<spiswaiVal,spiswaiVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SpiswaiVal> spiswai{}; 
+        namespace SpiswaiValC{
+            constexpr Register::FieldValue<decltype(spiswai),SpiswaiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spiswai),SpiswaiVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,spiswaiVal> spiswai{}; 
         ///Receive DMA enable
-        enum class rxdmaeVal {
+        enum class RxdmaeVal {
             v0=0x00000000,     ///<DMA request for receive is disabled and interrupt from SPRF is allowed
             v1=0x00000001,     ///<DMA request for receive is enabled and interrupt from SPRF is disabled
         };
-        namespace rxdmaeValC{
-            constexpr MPL::Value<rxdmaeVal,rxdmaeVal::v0> v0{};
-            constexpr MPL::Value<rxdmaeVal,rxdmaeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RxdmaeVal> rxdmae{}; 
+        namespace RxdmaeValC{
+            constexpr Register::FieldValue<decltype(rxdmae),RxdmaeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxdmae),RxdmaeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,rxdmaeVal> rxdmae{}; 
         ///Bidirectional mode output enable
-        enum class bidiroeVal {
+        enum class BidiroeVal {
             v0=0x00000000,     ///<Output driver disabled so SPI data I/O pin acts as an input
             v1=0x00000001,     ///<SPI I/O pin enabled as an output
         };
-        namespace bidiroeValC{
-            constexpr MPL::Value<bidiroeVal,bidiroeVal::v0> v0{};
-            constexpr MPL::Value<bidiroeVal,bidiroeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BidiroeVal> bidiroe{}; 
+        namespace BidiroeValC{
+            constexpr Register::FieldValue<decltype(bidiroe),BidiroeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bidiroe),BidiroeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,bidiroeVal> bidiroe{}; 
         ///Master mode-fault function enable
-        enum class modfenVal {
+        enum class ModfenVal {
             v0=0x00000000,     ///<Mode fault function disabled, master SS pin reverts to general-purpose I/O not controlled by SPI
             v1=0x00000001,     ///<Mode fault function enabled, master SS pin acts as the mode fault input or the slave select output
         };
-        namespace modfenValC{
-            constexpr MPL::Value<modfenVal,modfenVal::v0> v0{};
-            constexpr MPL::Value<modfenVal,modfenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ModfenVal> modfen{}; 
+        namespace ModfenValC{
+            constexpr Register::FieldValue<decltype(modfen),ModfenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(modfen),ModfenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,modfenVal> modfen{}; 
         ///Transmit DMA enable
-        enum class txdmaeVal {
+        enum class TxdmaeVal {
             v0=0x00000000,     ///<DMA request for transmit is disabled and interrupt from SPTEF is allowed
             v1=0x00000001,     ///<DMA request for transmit is enabled and interrupt from SPTEF is disabled
         };
-        namespace txdmaeValC{
-            constexpr MPL::Value<txdmaeVal,txdmaeVal::v0> v0{};
-            constexpr MPL::Value<txdmaeVal,txdmaeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TxdmaeVal> txdmae{}; 
+        namespace TxdmaeValC{
+            constexpr Register::FieldValue<decltype(txdmae),TxdmaeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txdmae),TxdmaeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,txdmaeVal> txdmae{}; 
         ///SPI match interrupt enable
-        enum class spmieVal {
+        enum class SpmieVal {
             v0=0x00000000,     ///<Interrupts from SPMF inhibited (use polling)
             v1=0x00000001,     ///<When SPMF is 1, requests a hardware interrupt
         };
-        namespace spmieValC{
-            constexpr MPL::Value<spmieVal,spmieVal::v0> v0{};
-            constexpr MPL::Value<spmieVal,spmieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SpmieVal> spmie{}; 
+        namespace SpmieValC{
+            constexpr Register::FieldValue<decltype(spmie),SpmieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spmie),SpmieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,spmieVal> spmie{}; 
     }
     namespace Spi1Br{    ///<SPI baud rate register
         using Addr = Register::Address<0x40077002,0xffffff80,0,unsigned char>;
         ///SPI baud rate divisor
-        enum class sprVal {
+        enum class SprVal {
             v0000=0x00000000,     ///<Baud rate divisor is 2
             v0001=0x00000001,     ///<Baud rate divisor is 4
             v0010=0x00000002,     ///<Baud rate divisor is 8
@@ -172,20 +172,20 @@ namespace Kvasir {
             v0111=0x00000007,     ///<Baud rate divisor is 256
             v1000=0x00000008,     ///<Baud rate divisor is 512
         };
-        namespace sprValC{
-            constexpr MPL::Value<sprVal,sprVal::v0000> v0000{};
-            constexpr MPL::Value<sprVal,sprVal::v0001> v0001{};
-            constexpr MPL::Value<sprVal,sprVal::v0010> v0010{};
-            constexpr MPL::Value<sprVal,sprVal::v0011> v0011{};
-            constexpr MPL::Value<sprVal,sprVal::v0100> v0100{};
-            constexpr MPL::Value<sprVal,sprVal::v0101> v0101{};
-            constexpr MPL::Value<sprVal,sprVal::v0110> v0110{};
-            constexpr MPL::Value<sprVal,sprVal::v0111> v0111{};
-            constexpr MPL::Value<sprVal,sprVal::v1000> v1000{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,SprVal> spr{}; 
+        namespace SprValC{
+            constexpr Register::FieldValue<decltype(spr),SprVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(spr),SprVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(spr),SprVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(spr),SprVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(spr),SprVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(spr),SprVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(spr),SprVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(spr),SprVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(spr),SprVal::v1000> v1000{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,sprVal> spr{}; 
         ///SPI baud rate prescale divisor
-        enum class spprVal {
+        enum class SpprVal {
             v000=0x00000000,     ///<Baud rate prescaler divisor is 1
             v001=0x00000001,     ///<Baud rate prescaler divisor is 2
             v010=0x00000002,     ///<Baud rate prescaler divisor is 3
@@ -195,69 +195,73 @@ namespace Kvasir {
             v110=0x00000006,     ///<Baud rate prescaler divisor is 7
             v111=0x00000007,     ///<Baud rate prescaler divisor is 8
         };
-        namespace spprValC{
-            constexpr MPL::Value<spprVal,spprVal::v000> v000{};
-            constexpr MPL::Value<spprVal,spprVal::v001> v001{};
-            constexpr MPL::Value<spprVal,spprVal::v010> v010{};
-            constexpr MPL::Value<spprVal,spprVal::v011> v011{};
-            constexpr MPL::Value<spprVal,spprVal::v100> v100{};
-            constexpr MPL::Value<spprVal,spprVal::v101> v101{};
-            constexpr MPL::Value<spprVal,spprVal::v110> v110{};
-            constexpr MPL::Value<spprVal,spprVal::v111> v111{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,SpprVal> sppr{}; 
+        namespace SpprValC{
+            constexpr Register::FieldValue<decltype(sppr),SpprVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(sppr),SpprVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(sppr),SpprVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(sppr),SpprVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(sppr),SpprVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(sppr),SpprVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(sppr),SpprVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(sppr),SpprVal::v111> v111{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,spprVal> sppr{}; 
     }
     namespace Spi1S{    ///<SPI status register
         using Addr = Register::Address<0x40077003,0xffffff0f,0,unsigned char>;
         ///Master mode fault flag
-        enum class modfVal {
+        enum class ModfVal {
             v0=0x00000000,     ///<No mode fault error
             v1=0x00000001,     ///<Mode fault error detected
         };
-        namespace modfValC{
-            constexpr MPL::Value<modfVal,modfVal::v0> v0{};
-            constexpr MPL::Value<modfVal,modfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ModfVal> modf{}; 
+        namespace ModfValC{
+            constexpr Register::FieldValue<decltype(modf),ModfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(modf),ModfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,modfVal> modf{}; 
         ///SPI transmit buffer empty flag
-        enum class sptefVal {
+        enum class SptefVal {
             v0=0x00000000,     ///<SPI transmit buffer not empty
             v1=0x00000001,     ///<SPI transmit buffer empty
         };
-        namespace sptefValC{
-            constexpr MPL::Value<sptefVal,sptefVal::v0> v0{};
-            constexpr MPL::Value<sptefVal,sptefVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SptefVal> sptef{}; 
+        namespace SptefValC{
+            constexpr Register::FieldValue<decltype(sptef),SptefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sptef),SptefVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,sptefVal> sptef{}; 
         ///SPI match flag
-        enum class spmfVal {
+        enum class SpmfVal {
             v0=0x00000000,     ///<Value in the receive data buffer does not match the value in the M register
             v1=0x00000001,     ///<Value in the receive data buffer matches the value in the M register
         };
-        namespace spmfValC{
-            constexpr MPL::Value<spmfVal,spmfVal::v0> v0{};
-            constexpr MPL::Value<spmfVal,spmfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SpmfVal> spmf{}; 
+        namespace SpmfValC{
+            constexpr Register::FieldValue<decltype(spmf),SpmfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spmf),SpmfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,spmfVal> spmf{}; 
         ///SPI read buffer full flag
-        enum class sprfVal {
+        enum class SprfVal {
             v0=0x00000000,     ///<No data available in the receive data buffer
             v1=0x00000001,     ///<Data available in the receive data buffer
         };
-        namespace sprfValC{
-            constexpr MPL::Value<sprfVal,sprfVal::v0> v0{};
-            constexpr MPL::Value<sprfVal,sprfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SprfVal> sprf{}; 
+        namespace SprfValC{
+            constexpr Register::FieldValue<decltype(sprf),SprfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sprf),SprfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,sprfVal> sprf{}; 
     }
     namespace Spi1D{    ///<SPI data register
         using Addr = Register::Address<0x40077005,0xffffff00,0,unsigned char>;
         ///Data (low byte)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
+        namespace BitsValC{
+        }
     }
     namespace Spi1M{    ///<SPI match register
         using Addr = Register::Address<0x40077007,0xffffff00,0,unsigned char>;
         ///Hardware compare value (low byte)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
+        namespace BitsValC{
+        }
     }
 }

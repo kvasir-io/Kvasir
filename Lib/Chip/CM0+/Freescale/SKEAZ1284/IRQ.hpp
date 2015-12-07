@@ -5,66 +5,68 @@ namespace Kvasir {
     namespace IrqSc{    ///<Interrupt Pin Request Status and Control Register
         using Addr = Register::Address<0x40031000,0xffffff80,0,unsigned char>;
         ///IRQ Detection Mode
-        enum class irqmodVal {
+        enum class IrqmodVal {
             v0=0x00000000,     ///<IRQ event is detected only on falling/rising edges.
             v1=0x00000001,     ///<IRQ event is detected on falling/rising edges and low/high levels.
         };
-        namespace irqmodValC{
-            constexpr MPL::Value<irqmodVal,irqmodVal::v0> v0{};
-            constexpr MPL::Value<irqmodVal,irqmodVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrqmodVal> irqmod{}; 
+        namespace IrqmodValC{
+            constexpr Register::FieldValue<decltype(irqmod),IrqmodVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqmod),IrqmodVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,irqmodVal> irqmod{}; 
         ///IRQ Interrupt Enable
-        enum class irqieVal {
+        enum class IrqieVal {
             v0=0x00000000,     ///<Interrupt request when IRQF set is disabled (use polling).
             v1=0x00000001,     ///<Interrupt requested whenever IRQF = 1.
         };
-        namespace irqieValC{
-            constexpr MPL::Value<irqieVal,irqieVal::v0> v0{};
-            constexpr MPL::Value<irqieVal,irqieVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrqieVal> irqie{}; 
+        namespace IrqieValC{
+            constexpr Register::FieldValue<decltype(irqie),IrqieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqie),IrqieVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,irqieVal> irqie{}; 
         ///IRQ Acknowledge
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> irqack{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> irqack{}; 
+        namespace IrqackValC{
+        }
         ///IRQ Flag
-        enum class irqfVal {
+        enum class IrqfVal {
             v0=0x00000000,     ///<No IRQ request
             v1=0x00000001,     ///<IRQ event is detected.
         };
-        namespace irqfValC{
-            constexpr MPL::Value<irqfVal,irqfVal::v0> v0{};
-            constexpr MPL::Value<irqfVal,irqfVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IrqfVal> irqf{}; 
+        namespace IrqfValC{
+            constexpr Register::FieldValue<decltype(irqf),IrqfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqf),IrqfVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,irqfVal> irqf{}; 
         ///IRQ Pin Enable
-        enum class irqpeVal {
+        enum class IrqpeVal {
             v0=0x00000000,     ///<IRQ pin function is disabled.
             v1=0x00000001,     ///<IRQ pin function is enabled.
         };
-        namespace irqpeValC{
-            constexpr MPL::Value<irqpeVal,irqpeVal::v0> v0{};
-            constexpr MPL::Value<irqpeVal,irqpeVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IrqpeVal> irqpe{}; 
+        namespace IrqpeValC{
+            constexpr Register::FieldValue<decltype(irqpe),IrqpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqpe),IrqpeVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,irqpeVal> irqpe{}; 
         ///Interrupt Request (IRQ) Edge Select
-        enum class irqedgVal {
+        enum class IrqedgVal {
             v0=0x00000000,     ///<IRQ is falling-edge or falling-edge/low-level sensitive.
             v1=0x00000001,     ///<IRQ is rising-edge or rising-edge/high-level sensitive.
         };
-        namespace irqedgValC{
-            constexpr MPL::Value<irqedgVal,irqedgVal::v0> v0{};
-            constexpr MPL::Value<irqedgVal,irqedgVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,IrqedgVal> irqedg{}; 
+        namespace IrqedgValC{
+            constexpr Register::FieldValue<decltype(irqedg),IrqedgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqedg),IrqedgVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,irqedgVal> irqedg{}; 
         ///Interrupt Request (IRQ) Pull Device Disable
-        enum class irqpddVal {
+        enum class IrqpddVal {
             v0=0x00000000,     ///<IRQ pull device enabled if IRQPE = 1.
             v1=0x00000001,     ///<IRQ pull device disabled if IRQPE = 1.
         };
-        namespace irqpddValC{
-            constexpr MPL::Value<irqpddVal,irqpddVal::v0> v0{};
-            constexpr MPL::Value<irqpddVal,irqpddVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,IrqpddVal> irqpdd{}; 
+        namespace IrqpddValC{
+            constexpr Register::FieldValue<decltype(irqpdd),IrqpddVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqpdd),IrqpddVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,irqpddVal> irqpdd{}; 
     }
 }

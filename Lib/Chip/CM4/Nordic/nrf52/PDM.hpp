@@ -20,163 +20,169 @@ namespace Kvasir {
     namespace Noneinten{    ///<Enable or disable interrupt
         using Addr = Register::Address<0x4001d300,0xfffffff8,0,unsigned>;
         ///Enable or disable interrupt on EVENTS_STARTED event
-        enum class startedVal {
+        enum class StartedVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace startedValC{
-            constexpr MPL::Value<startedVal,startedVal::disabled> disabled{};
-            constexpr MPL::Value<startedVal,startedVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
+        namespace StartedValC{
+            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,startedVal> started{}; 
         ///Enable or disable interrupt on EVENTS_STOPPED event
-        enum class stoppedVal {
+        enum class StoppedVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace stoppedValC{
-            constexpr MPL::Value<stoppedVal,stoppedVal::disabled> disabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,StoppedVal> stopped{}; 
+        namespace StoppedValC{
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,stoppedVal> stopped{}; 
         ///Enable or disable interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,endVal> end{}; 
     }
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4001d304,0xfffffff8,0,unsigned>;
         ///Write '1' to Enable interrupt on EVENTS_STARTED event
-        enum class startedVal {
+        enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace startedValC{
-            constexpr MPL::Value<startedVal,startedVal::disabled> disabled{};
-            constexpr MPL::Value<startedVal,startedVal::enabled> enabled{};
-            constexpr MPL::Value<startedVal,startedVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
+        namespace StartedValC{
+            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,startedVal> started{}; 
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
-        enum class stoppedVal {
+        enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace stoppedValC{
-            constexpr MPL::Value<stoppedVal,stoppedVal::disabled> disabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::enabled> enabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,StoppedVal> stopped{}; 
+        namespace StoppedValC{
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,stoppedVal> stopped{}; 
         ///Write '1' to Enable interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             set=0x00000001,     ///<Enable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
-            constexpr MPL::Value<endVal,endVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,endVal> end{}; 
     }
     namespace Noneintenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4001d308,0xfffffff8,0,unsigned>;
         ///Write '1' to Clear interrupt on EVENTS_STARTED event
-        enum class startedVal {
+        enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace startedValC{
-            constexpr MPL::Value<startedVal,startedVal::disabled> disabled{};
-            constexpr MPL::Value<startedVal,startedVal::enabled> enabled{};
-            constexpr MPL::Value<startedVal,startedVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
+        namespace StartedValC{
+            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(started),StartedVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,startedVal> started{}; 
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
-        enum class stoppedVal {
+        enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace stoppedValC{
-            constexpr MPL::Value<stoppedVal,stoppedVal::disabled> disabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::enabled> enabled{};
-            constexpr MPL::Value<stoppedVal,stoppedVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,StoppedVal> stopped{}; 
+        namespace StoppedValC{
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped),StoppedVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,stoppedVal> stopped{}; 
         ///Write '1' to Clear interrupt on EVENTS_END event
-        enum class endVal {
+        enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
             enabled=0x00000001,     ///<Read: Enabled
             clear=0x00000001,     ///<Disable
         };
-        namespace endValC{
-            constexpr MPL::Value<endVal,endVal::disabled> disabled{};
-            constexpr MPL::Value<endVal,endVal::enabled> enabled{};
-            constexpr MPL::Value<endVal,endVal::clear> clear{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EndVal> end{}; 
+        namespace EndValC{
+            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end),EndVal::clear> clear{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,endVal> end{}; 
     }
     namespace Noneenable{    ///<PDM module enable register
         using Addr = Register::Address<0x4001d500,0xfffffffe,0,unsigned>;
         ///Enable or disable PDM reception
-        enum class enableVal {
+        enum class EnableVal {
             disabled=0x00000000,     ///<Disable
             enabled=0x00000001,     ///<Enable
         };
-        namespace enableValC{
-            constexpr MPL::Value<enableVal,enableVal::disabled> disabled{};
-            constexpr MPL::Value<enableVal,enableVal::enabled> enabled{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnableVal> enable{}; 
+        namespace EnableValC{
+            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,enableVal> enable{}; 
     }
     namespace Nonepdmclkctrl{    ///<PDM clock generator control
         using Addr = Register::Address<0x4001d504,0x00000000,0,unsigned>;
         ///PDM_CLK frequency
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> freq{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> freq{}; 
+        namespace FreqValC{
+        }
     }
     namespace Nonemode{    ///<Defines the routing of the connected PDM microphones' signals
         using Addr = Register::Address<0x4001d508,0xfffffffc,0,unsigned>;
         ///Mono or stereo operation
-        enum class monoVal {
+        enum class MonoVal {
             stereo=0x00000000,     ///<Sample and store one pair (Left + Right) of 16bit samples per RAM word R=[31:16]; L=[15:0]
             mono=0x00000001,     ///<Sample and store two successive Left samples (16 bit each) per RAM word L1=[31:16]; L0=[15:0]
         };
-        namespace monoValC{
-            constexpr MPL::Value<monoVal,monoVal::stereo> stereo{};
-            constexpr MPL::Value<monoVal,monoVal::mono> mono{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,MonoVal> mono{}; 
+        namespace MonoValC{
+            constexpr Register::FieldValue<decltype(mono),MonoVal::stereo> stereo{};
+            constexpr Register::FieldValue<decltype(mono),MonoVal::mono> mono{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,monoVal> mono{}; 
         ///Defines on which PDM_CLK edge Left (or mono) is sampled
-        enum class edgeVal {
+        enum class EdgeVal {
             leftfalling=0x00000000,     ///<Left (or mono) is sampled on falling edge of PDM_CLK
             leftrising=0x00000001,     ///<Left (or mono) is sampled on rising edge of PDM_CLK
         };
-        namespace edgeValC{
-            constexpr MPL::Value<edgeVal,edgeVal::leftfalling> leftfalling{};
-            constexpr MPL::Value<edgeVal,edgeVal::leftrising> leftrising{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EdgeVal> edge{}; 
+        namespace EdgeValC{
+            constexpr Register::FieldValue<decltype(edge),EdgeVal::leftfalling> leftfalling{};
+            constexpr Register::FieldValue<decltype(edge),EdgeVal::leftrising> leftrising{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,edgeVal> edge{}; 
     }
     namespace Nonegainl{    ///<Left output gain adjustment
         using Addr = Register::Address<0x4001d518,0xffffff80,0,unsigned>;
         ///Left output gain adjustment, in 0.5 dB steps, around the requirement that 0dB gain adjustment corresponds to 2500 RMS output samples (16-bit) with 1 kHz 90dBA signal into a -26dBFS sensitivity PDM microphone. 0x00    -20 dB gain 0x01  -19.5 dB gain (...) 0x27   -0.5 dB gain 0x28      0 dB gain 0x29   +0.5 dB gain (...) 0x4F  +19.5 dB gain 0x50    +20 dB gain
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> gainl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> gainl{}; 
+        namespace GainlValC{
+        }
     }
     namespace Nonegainr{    ///<Right output gain adjustment
         using Addr = Register::Address<0x4001d51c,0xffffff00,0,unsigned>;
         ///Right output gain adjustment, in 0.5 dB steps, around the requirement that 0dB gain adjustment corresponds to 2500 RMS output samples (16-bit) with 1 kHz 90dBA signal into a -26dBFS sensitivity PDM microphone. (same encoding as GAINL)
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gainr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gainr{}; 
+        namespace GainrValC{
+        }
     }
 }

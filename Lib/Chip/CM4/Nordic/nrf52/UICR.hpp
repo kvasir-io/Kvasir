@@ -17,344 +17,468 @@ namespace Kvasir {
     namespace Nonenrffw0{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001014,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw1{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001018,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw2{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x1000101c,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw3{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001020,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw4{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001024,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw5{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001028,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw6{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x1000102c,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw7{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001030,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw8{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001034,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw9{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001038,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw10{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x1000103c,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw11{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001040,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw12{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001044,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw13{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x10001048,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrffw14{    ///<Description collection[0]:  Reserved for Nordic firmware design
         using Addr = Register::Address<0x1000104c,0x00000000,0,unsigned>;
         ///Reserved for Nordic firmware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrffw{}; 
+        namespace NrffwValC{
+        }
     }
     namespace Nonenrfhw0{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001050,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw1{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001054,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw2{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001058,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw3{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x1000105c,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw4{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001060,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw5{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001064,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw6{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001068,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw7{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x1000106c,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw8{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001070,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw9{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001074,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw10{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x10001078,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonenrfhw11{    ///<Description collection[0]:  Reserved for Nordic hardware design
         using Addr = Register::Address<0x1000107c,0x00000000,0,unsigned>;
         ///Reserved for Nordic hardware design
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nrfhw{}; 
+        namespace NrfhwValC{
+        }
     }
     namespace Nonecustomer0{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x10001080,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer1{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x10001084,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer2{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x10001088,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer3{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x1000108c,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer4{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x10001090,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer5{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x10001094,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer6{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x10001098,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer7{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x1000109c,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer8{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010a0,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer9{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010a4,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer10{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010a8,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer11{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010ac,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer12{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010b0,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer13{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010b4,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer14{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010b8,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer15{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010bc,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer16{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010c0,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer17{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010c4,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer18{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010c8,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer19{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010cc,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer20{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010d0,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer21{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010d4,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer22{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010d8,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer23{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010dc,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer24{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010e0,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer25{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010e4,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer26{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010e8,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer27{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010ec,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer28{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010f0,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer29{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010f4,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer30{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010f8,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonecustomer31{    ///<Description collection[0]:  Reserved for customer
         using Addr = Register::Address<0x100010fc,0x00000000,0,unsigned>;
         ///Reserved for customer
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> customer{}; 
+        namespace CustomerValC{
+        }
     }
     namespace Nonepselreset0{    ///<Description collection[0]:  Mapping of the nRESET function (see POWER chapter for details)
         using Addr = Register::Address<0x10001200,0x7fffffe0,0,unsigned>;
         ///GPIO number P0.n onto which Reset is exposed
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pin{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pin{}; 
+        namespace PinValC{
+        }
         ///Connection
-        enum class connectVal {
+        enum class ConnectVal {
             disconnected=0x00000001,     ///<Disconnect
             connected=0x00000000,     ///<Connect
         };
-        namespace connectValC{
-            constexpr MPL::Value<connectVal,connectVal::disconnected> disconnected{};
-            constexpr MPL::Value<connectVal,connectVal::connected> connected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,ConnectVal> connect{}; 
+        namespace ConnectValC{
+            constexpr Register::FieldValue<decltype(connect),ConnectVal::disconnected> disconnected{};
+            constexpr Register::FieldValue<decltype(connect),ConnectVal::connected> connected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,connectVal> connect{}; 
     }
     namespace Nonepselreset1{    ///<Description collection[0]:  Mapping of the nRESET function (see POWER chapter for details)
         using Addr = Register::Address<0x10001204,0x7fffffe0,0,unsigned>;
         ///GPIO number P0.n onto which Reset is exposed
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pin{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pin{}; 
+        namespace PinValC{
+        }
         ///Connection
-        enum class connectVal {
+        enum class ConnectVal {
             disconnected=0x00000001,     ///<Disconnect
             connected=0x00000000,     ///<Connect
         };
-        namespace connectValC{
-            constexpr MPL::Value<connectVal,connectVal::disconnected> disconnected{};
-            constexpr MPL::Value<connectVal,connectVal::connected> connected{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,ConnectVal> connect{}; 
+        namespace ConnectValC{
+            constexpr Register::FieldValue<decltype(connect),ConnectVal::disconnected> disconnected{};
+            constexpr Register::FieldValue<decltype(connect),ConnectVal::connected> connected{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,connectVal> connect{}; 
     }
     namespace Noneapprotect{    ///<Access port protection
         using Addr = Register::Address<0x10001208,0xffffff00,0,unsigned>;
         ///Blocks debugger read/write access to all CPU registers and memory mapped addresses except for the Control Access Port registers.
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pall{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pall{}; 
+        namespace PallValC{
+        }
     }
     namespace Nonenfcpins{    ///<Setting of pins dedicated to NFC functionality: NFC antenna or GPIO
         using Addr = Register::Address<0x1000120c,0xfffffffe,0,unsigned>;
         ///Setting of pins dedicated to NFC functionality
-        enum class protectVal {
+        enum class ProtectVal {
             disabled=0x00000000,     ///<Operation as GPIO pins. Same protection as normal GPIO pins
             nfc=0x00000001,     ///<Operation as NFC antenna pins. Configures the protection for NFC operation
         };
-        namespace protectValC{
-            constexpr MPL::Value<protectVal,protectVal::disabled> disabled{};
-            constexpr MPL::Value<protectVal,protectVal::nfc> nfc{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ProtectVal> protect{}; 
+        namespace ProtectValC{
+            constexpr Register::FieldValue<decltype(protect),ProtectVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(protect),ProtectVal::nfc> nfc{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,protectVal> protect{}; 
     }
 }

@@ -5,81 +5,81 @@ namespace Kvasir {
     namespace OscCr{    ///<OSC Control Register
         using Addr = Register::Address<0x40065000,0xffffff50,0,unsigned char>;
         ///Oscillator 16 pF Capacitor Load Configure
-        enum class sc16pVal {
+        enum class Sc16pVal {
             v0=0x00000000,     ///<Disable the selection.
             v1=0x00000001,     ///<Add 16 pF capacitor to the oscillator load.
         };
-        namespace sc16pValC{
-            constexpr MPL::Value<sc16pVal,sc16pVal::v0> v0{};
-            constexpr MPL::Value<sc16pVal,sc16pVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Sc16pVal> sc16p{}; 
+        namespace Sc16pValC{
+            constexpr Register::FieldValue<decltype(sc16p),Sc16pVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sc16p),Sc16pVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,sc16pVal> sc16p{}; 
         ///Oscillator 8 pF Capacitor Load Configure
-        enum class sc8pVal {
+        enum class Sc8pVal {
             v0=0x00000000,     ///<Disable the selection.
             v1=0x00000001,     ///<Add 8 pF capacitor to the oscillator load.
         };
-        namespace sc8pValC{
-            constexpr MPL::Value<sc8pVal,sc8pVal::v0> v0{};
-            constexpr MPL::Value<sc8pVal,sc8pVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Sc8pVal> sc8p{}; 
+        namespace Sc8pValC{
+            constexpr Register::FieldValue<decltype(sc8p),Sc8pVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sc8p),Sc8pVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,sc8pVal> sc8p{}; 
         ///Oscillator 4 pF Capacitor Load Configure
-        enum class sc4pVal {
+        enum class Sc4pVal {
             v0=0x00000000,     ///<Disable the selection.
             v1=0x00000001,     ///<Add 4 pF capacitor to the oscillator load.
         };
-        namespace sc4pValC{
-            constexpr MPL::Value<sc4pVal,sc4pVal::v0> v0{};
-            constexpr MPL::Value<sc4pVal,sc4pVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Sc4pVal> sc4p{}; 
+        namespace Sc4pValC{
+            constexpr Register::FieldValue<decltype(sc4p),Sc4pVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sc4p),Sc4pVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,sc4pVal> sc4p{}; 
         ///Oscillator 2 pF Capacitor Load Configure
-        enum class sc2pVal {
+        enum class Sc2pVal {
             v0=0x00000000,     ///<Disable the selection.
             v1=0x00000001,     ///<Add 2 pF capacitor to the oscillator load.
         };
-        namespace sc2pValC{
-            constexpr MPL::Value<sc2pVal,sc2pVal::v0> v0{};
-            constexpr MPL::Value<sc2pVal,sc2pVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Sc2pVal> sc2p{}; 
+        namespace Sc2pValC{
+            constexpr Register::FieldValue<decltype(sc2p),Sc2pVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sc2p),Sc2pVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,sc2pVal> sc2p{}; 
         ///External Reference Stop Enable
-        enum class erefstenVal {
+        enum class ErefstenVal {
             v0=0x00000000,     ///<External reference clock is disabled in Stop mode.
             v1=0x00000001,     ///<External reference clock stays enabled in Stop mode if ERCLKEN is set before entering Stop mode.
         };
-        namespace erefstenValC{
-            constexpr MPL::Value<erefstenVal,erefstenVal::v0> v0{};
-            constexpr MPL::Value<erefstenVal,erefstenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ErefstenVal> erefsten{}; 
+        namespace ErefstenValC{
+            constexpr Register::FieldValue<decltype(erefsten),ErefstenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(erefsten),ErefstenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,erefstenVal> erefsten{}; 
         ///External Reference Enable
-        enum class erclkenVal {
+        enum class ErclkenVal {
             v0=0x00000000,     ///<External reference clock is inactive.
             v1=0x00000001,     ///<External reference clock is enabled.
         };
-        namespace erclkenValC{
-            constexpr MPL::Value<erclkenVal,erclkenVal::v0> v0{};
-            constexpr MPL::Value<erclkenVal,erclkenVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ErclkenVal> erclken{}; 
+        namespace ErclkenValC{
+            constexpr Register::FieldValue<decltype(erclken),ErclkenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(erclken),ErclkenVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,erclkenVal> erclken{}; 
     }
     namespace OscDiv{    ///<OSC_DIV
         using Addr = Register::Address<0x40065002,0xffffff3f,0,unsigned char>;
         ///no description available
-        enum class erpsVal {
+        enum class ErpsVal {
             v00=0x00000000,     ///<The divisor ratio is 1.
             v01=0x00000001,     ///<The divisor ratio is 2.
             v10=0x00000002,     ///<The divisor ratio is 4.
             v11=0x00000003,     ///<The divisor ratio is 8.
         };
-        namespace erpsValC{
-            constexpr MPL::Value<erpsVal,erpsVal::v00> v00{};
-            constexpr MPL::Value<erpsVal,erpsVal::v01> v01{};
-            constexpr MPL::Value<erpsVal,erpsVal::v10> v10{};
-            constexpr MPL::Value<erpsVal,erpsVal::v11> v11{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,ErpsVal> erps{}; 
+        namespace ErpsValC{
+            constexpr Register::FieldValue<decltype(erps),ErpsVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(erps),ErpsVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(erps),ErpsVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(erps),ErpsVal::v11> v11{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,erpsVal> erps{}; 
     }
 }

@@ -11,9 +11,13 @@ namespace Kvasir {
     namespace Nonewdogcontrol{    ///<Software Watchdog Timer Control Register
         using Addr = Register::Address<0x40012008,0xfffffffc,0,unsigned char>;
         ///Reset enable bit of the software watchdog
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> resen{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> resen{}; 
+        namespace ResenValC{
+        }
         ///Interrupt and counter enable bit of the software watchdog 
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> inten{}; 
+        namespace IntenValC{
+        }
     }
     namespace Nonewdogintclr{    ///<Software Watchdog Timer Clear Register
         using Addr = Register::Address<0x4001200c,0xffffffff,0,unsigned>;
@@ -21,7 +25,9 @@ namespace Kvasir {
     namespace Nonewdogris{    ///<Software Watchdog Timer Interrupt Status Register
         using Addr = Register::Address<0x40012010,0xfffffffe,0,unsigned char>;
         ///Software watchdog interrupt status bit
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ris{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ris{}; 
+        namespace RisValC{
+        }
     }
     namespace Nonewdoglock{    ///<Software Watchdog Timer Lock Register
         using Addr = Register::Address<0x40012c00,0xffffffff,0,unsigned>;

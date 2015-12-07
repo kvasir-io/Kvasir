@@ -5,7 +5,7 @@ namespace Kvasir {
     namespace Nonecontrol{    ///<Oscillator Control
         using Addr = Register::Address<0x4003c000,0xffffff80,0,unsigned>;
         ///Frequency Control. 
-        enum class freqcnVal {
+        enum class FreqcnVal {
             range0=0x00000000,     ///<Set the external oscillator to range 0.
             range1=0x00000001,     ///<Set the external oscillator to range 1.
             range2=0x00000002,     ///<Set the external oscillator to range 2.
@@ -15,29 +15,29 @@ namespace Kvasir {
             range6=0x00000006,     ///<Set the external oscillator to range 6.
             range7=0x00000007,     ///<Set the external oscillator to range 7.
         };
-        namespace freqcnValC{
-            constexpr MPL::Value<freqcnVal,freqcnVal::range0> range0{};
-            constexpr MPL::Value<freqcnVal,freqcnVal::range1> range1{};
-            constexpr MPL::Value<freqcnVal,freqcnVal::range2> range2{};
-            constexpr MPL::Value<freqcnVal,freqcnVal::range3> range3{};
-            constexpr MPL::Value<freqcnVal,freqcnVal::range4> range4{};
-            constexpr MPL::Value<freqcnVal,freqcnVal::range5> range5{};
-            constexpr MPL::Value<freqcnVal,freqcnVal::range6> range6{};
-            constexpr MPL::Value<freqcnVal,freqcnVal::range7> range7{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FreqcnVal> freqcn{}; 
+        namespace FreqcnValC{
+            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range0> range0{};
+            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range1> range1{};
+            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range2> range2{};
+            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range3> range3{};
+            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range4> range4{};
+            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range5> range5{};
+            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range6> range6{};
+            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range7> range7{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,freqcnVal> freqcn{}; 
         ///Oscillator Valid Flag. 
-        enum class oscvldfVal {
+        enum class OscvldfVal {
             notSet=0x00000000,     ///<The external oscillator is unused or not yet stable.
             set=0x00000001,     ///<The external oscillator is running and stable.
         };
-        namespace oscvldfValC{
-            constexpr MPL::Value<oscvldfVal,oscvldfVal::notSet> notSet{};
-            constexpr MPL::Value<oscvldfVal,oscvldfVal::set> set{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,OscvldfVal> oscvldf{}; 
+        namespace OscvldfValC{
+            constexpr Register::FieldValue<decltype(oscvldf),OscvldfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(oscvldf),OscvldfVal::set> set{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,oscvldfVal> oscvldf{}; 
         ///Oscillator Mode. 
-        enum class oscmdVal {
+        enum class OscmdVal {
             off=0x00000000,     ///<External oscillator off.
             cmos=0x00000002,     ///<External CMOS clock mode.
             cmosdiv2=0x00000003,     ///<External CMOS with divide by 2 stage.
@@ -46,15 +46,15 @@ namespace Kvasir {
             xtal=0x00000006,     ///<Crystal oscillator mode.
             xtaldiv2=0x00000007,     ///<Crystal oscillator mode with divide by 2 stage.
         };
-        namespace oscmdValC{
-            constexpr MPL::Value<oscmdVal,oscmdVal::off> off{};
-            constexpr MPL::Value<oscmdVal,oscmdVal::cmos> cmos{};
-            constexpr MPL::Value<oscmdVal,oscmdVal::cmosdiv2> cmosdiv2{};
-            constexpr MPL::Value<oscmdVal,oscmdVal::rc> rc{};
-            constexpr MPL::Value<oscmdVal,oscmdVal::c> c{};
-            constexpr MPL::Value<oscmdVal,oscmdVal::xtal> xtal{};
-            constexpr MPL::Value<oscmdVal,oscmdVal::xtaldiv2> xtaldiv2{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,OscmdVal> oscmd{}; 
+        namespace OscmdValC{
+            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::off> off{};
+            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::cmos> cmos{};
+            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::cmosdiv2> cmosdiv2{};
+            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::rc> rc{};
+            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::c> c{};
+            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::xtal> xtal{};
+            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::xtaldiv2> xtaldiv2{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,oscmdVal> oscmd{}; 
     }
 }

@@ -5,113 +5,117 @@ namespace Kvasir {
     namespace SmcPmprot{    ///<Power Mode Protection register
         using Addr = Register::Address<0x4007e000,0xffffffd5,0,unsigned char>;
         ///Allow Very-Low-Leakage Stop Mode
-        enum class avllsVal {
+        enum class AvllsVal {
             v0=0x00000000,     ///<Any VLLSx mode is not allowed
             v1=0x00000001,     ///<Any VLLSx mode is allowed
         };
-        namespace avllsValC{
-            constexpr MPL::Value<avllsVal,avllsVal::v0> v0{};
-            constexpr MPL::Value<avllsVal,avllsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,AvllsVal> avlls{}; 
+        namespace AvllsValC{
+            constexpr Register::FieldValue<decltype(avlls),AvllsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(avlls),AvllsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,avllsVal> avlls{}; 
         ///Allow Low-Leakage Stop Mode
-        enum class allsVal {
+        enum class AllsVal {
             v0=0x00000000,     ///<Any LLSx mode is not allowed
             v1=0x00000001,     ///<Any LLSx mode is allowed
         };
-        namespace allsValC{
-            constexpr MPL::Value<allsVal,allsVal::v0> v0{};
-            constexpr MPL::Value<allsVal,allsVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,AllsVal> alls{}; 
+        namespace AllsValC{
+            constexpr Register::FieldValue<decltype(alls),AllsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(alls),AllsVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,allsVal> alls{}; 
         ///Allow Very-Low-Power Modes
-        enum class avlpVal {
+        enum class AvlpVal {
             v0=0x00000000,     ///<VLPR, VLPW and VLPS are not allowed
             v1=0x00000001,     ///<VLPR, VLPW and VLPS are allowed
         };
-        namespace avlpValC{
-            constexpr MPL::Value<avlpVal,avlpVal::v0> v0{};
-            constexpr MPL::Value<avlpVal,avlpVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,AvlpVal> avlp{}; 
+        namespace AvlpValC{
+            constexpr Register::FieldValue<decltype(avlp),AvlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(avlp),AvlpVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,avlpVal> avlp{}; 
     }
     namespace SmcPmctrl{    ///<Power Mode Control register
         using Addr = Register::Address<0x4007e001,0xffffff10,0,unsigned char>;
         ///Stop Mode Control
-        enum class stopmVal {
+        enum class StopmVal {
             v000=0x00000000,     ///<Normal Stop (STOP)
             v010=0x00000002,     ///<Very-Low-Power Stop (VLPS)
             v011=0x00000003,     ///<Low-Leakage Stop (LLSx)
             v100=0x00000004,     ///<Very-Low-Leakage Stop (VLLSx)
             v110=0x00000006,     ///<Reseved
         };
-        namespace stopmValC{
-            constexpr MPL::Value<stopmVal,stopmVal::v000> v000{};
-            constexpr MPL::Value<stopmVal,stopmVal::v010> v010{};
-            constexpr MPL::Value<stopmVal,stopmVal::v011> v011{};
-            constexpr MPL::Value<stopmVal,stopmVal::v100> v100{};
-            constexpr MPL::Value<stopmVal,stopmVal::v110> v110{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,StopmVal> stopm{}; 
+        namespace StopmValC{
+            constexpr Register::FieldValue<decltype(stopm),StopmVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(stopm),StopmVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(stopm),StopmVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(stopm),StopmVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(stopm),StopmVal::v110> v110{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,stopmVal> stopm{}; 
         ///Stop Aborted
-        enum class stopaVal {
+        enum class StopaVal {
             v0=0x00000000,     ///<The previous stop mode entry was successsful.
             v1=0x00000001,     ///<The previous stop mode entry was aborted.
         };
-        namespace stopaValC{
-            constexpr MPL::Value<stopaVal,stopaVal::v0> v0{};
-            constexpr MPL::Value<stopaVal,stopaVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,StopaVal> stopa{}; 
+        namespace StopaValC{
+            constexpr Register::FieldValue<decltype(stopa),StopaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stopa),StopaVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,stopaVal> stopa{}; 
         ///Run Mode Control
-        enum class runmVal {
+        enum class RunmVal {
             v00=0x00000000,     ///<Normal Run mode (RUN)
             v10=0x00000002,     ///<Very-Low-Power Run mode (VLPR)
         };
-        namespace runmValC{
-            constexpr MPL::Value<runmVal,runmVal::v00> v00{};
-            constexpr MPL::Value<runmVal,runmVal::v10> v10{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,RunmVal> runm{}; 
+        namespace RunmValC{
+            constexpr Register::FieldValue<decltype(runm),RunmVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(runm),RunmVal::v10> v10{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,runmVal> runm{}; 
         ///Low-Power Wake Up On Interrupt
-        enum class lpwuiVal {
+        enum class LpwuiVal {
             v0=0x00000000,     ///<The system remains in a VLP mode on an interrupt
             v1=0x00000001,     ///<The system exits to Normal RUN mode on an interrupt
         };
-        namespace lpwuiValC{
-            constexpr MPL::Value<lpwuiVal,lpwuiVal::v0> v0{};
-            constexpr MPL::Value<lpwuiVal,lpwuiVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LpwuiVal> lpwui{}; 
+        namespace LpwuiValC{
+            constexpr Register::FieldValue<decltype(lpwui),LpwuiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lpwui),LpwuiVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,lpwuiVal> lpwui{}; 
     }
     namespace SmcVllsctrl{    ///<VLLS Control register
         using Addr = Register::Address<0x4007e002,0xffffffc8,0,unsigned char>;
         ///VLLS Mode Control
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> vllsm{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> vllsm{}; 
+        namespace VllsmValC{
+        }
         ///RAM2 Power Option
-        enum class ram2poVal {
+        enum class Ram2poVal {
             v0=0x00000000,     ///<RAM2 not powered in VLLS2
             v1=0x00000001,     ///<RAM2 powered in VLLS2
         };
-        namespace ram2poValC{
-            constexpr MPL::Value<ram2poVal,ram2poVal::v0> v0{};
-            constexpr MPL::Value<ram2poVal,ram2poVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ram2poVal> ram2po{}; 
+        namespace Ram2poValC{
+            constexpr Register::FieldValue<decltype(ram2po),Ram2poVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ram2po),Ram2poVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ram2poVal> ram2po{}; 
         ///POR Power Option
-        enum class porpoVal {
+        enum class PorpoVal {
             v0=0x00000000,     ///<POR detect circuit is enabled in VLLS0
             v1=0x00000001,     ///<POR detect circuit is disabled in VLLS0
         };
-        namespace porpoValC{
-            constexpr MPL::Value<porpoVal,porpoVal::v0> v0{};
-            constexpr MPL::Value<porpoVal,porpoVal::v1> v1{};
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,PorpoVal> porpo{}; 
+        namespace PorpoValC{
+            constexpr Register::FieldValue<decltype(porpo),PorpoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(porpo),PorpoVal::v1> v1{};
         }
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,porpoVal> porpo{}; 
     }
     namespace SmcPmstat{    ///<Power Mode Status register
         using Addr = Register::Address<0x4007e003,0xffffff80,0,unsigned char>;
         ///no description available
-        constexpr Register::BitLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> pmstat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> pmstat{}; 
+        namespace PmstatValC{
+        }
     }
 }
