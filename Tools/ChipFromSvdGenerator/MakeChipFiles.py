@@ -72,7 +72,6 @@ def parseRegister(register, baseAddress, prefix, ext):
                         cValuesOut+="            constexpr Register::FieldValue<decltype(%s)::Type,%sVal::%s> %s{};\n" % (fieldName,fieldName.capitalize(),valName,valName)
             fieldOut += "        };\n"
             cValuesOut += "        }\n"
-            cValuesOut += "        }\n"
         fieldOut += "        constexpr Register::FieldLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n%s" % (msb,lsb,Ft.getAccess(register,field),fieldType,fieldName,cValuesOut)
         reservedBits = Ft.clearBitsFromRange(msb,lsb,reservedBits)
             
