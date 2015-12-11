@@ -18,7 +18,6 @@ limitations under the License.
 
 namespace Kvasir {
 namespace Io{
-
 	constexpr HwPort< 0> 	port0{};
 	constexpr HwPort< 1> 	port1{};
 	constexpr HwPort< 2> 	port2{};

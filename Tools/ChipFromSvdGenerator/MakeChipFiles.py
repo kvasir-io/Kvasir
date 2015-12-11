@@ -45,7 +45,7 @@ def parseIo(extention,device,path):
                     else:
                         action = "WriteLiteralAction<(%s<<Pin)>" % Ft.getKey(io,[key,'value'])
                     outFile.write("        template<int Pin>\n")
-                    outFile.write("        struct MakeAction<Action::%s,PinLocation<%d,Pin>> :\n" % (key.capitalize(),portNumber))
+                    outFile.write("        struct MakeAction<Action::%s,Register::PinLocation<%d,Pin>> :\n" % (key.capitalize(),portNumber))
                     outFile.write("            Register::Action<Register::FieldLocation<Register::Address<0x%08x,0x%08x>,(1<<Pin)>,Register::%s>{};\n\n"\
                         % (address,reserved,action))
     outFile.write("    }\n}\n")

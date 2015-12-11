@@ -21,14 +21,14 @@ namespace Io{
 		template<typename T>
 		struct IsPinLoaction : FalseType {};
 		template<int Port, int Pin>
-		struct IsPinLoaction<PinLocation<Port,Pin>> : TrueType{};
+		struct IsPinLoaction<Register::PinLocation<Port,Pin>> : TrueType{};
 
 		template<typename T, typename U>
 		struct PinLocationLess;
 		template<int PortL, int PinL, int PortR, int PinR>
 		struct PinLocationLess<
-			PinLocation<PortL,PinL>,
-			PinLocation<PortR,PinR>>
+			Register::PinLocation<PortL,PinL>,
+			Register::PinLocation<PortR,PinR>>
 			: Bool<(PortL==PortR?PinL<PinR:PortL<PortR)>{};
 		using PinLocationLessP = Template<PinLocationLess>;
 
@@ -40,13 +40,13 @@ namespace Io{
 		template<typename T>
 		struct GetHwPort;
 		template<int Port, int Pin>
-		struct GetHwPort<PinLocation<Port,Pin>> : Int<Port>{};
+		struct GetHwPort<Register::PinLocation<Port,Pin>> : Int<Port>{};
 		using GetHwPortP = Template<GetHwPort>;
 
 		template<typename T, typename U>
 		struct OnSamePort : FalseType {};
 		template<int Port, int PinL, int PinR>
-		struct OnSamePort<PinLocation<Port,PinL>,PinLocation<Port,PinR>> : TrueType {};
+		struct OnSamePort<Register::PinLocation<Port,PinL>, Register::PinLocation<Port,PinR>> : TrueType {};
 		using PortEqualP = Template<OnSamePort>;
 
 		template<typename TList>
